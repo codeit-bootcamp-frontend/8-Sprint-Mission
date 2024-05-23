@@ -31,15 +31,23 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 1920px;
+  align-items: center;
+  min-width: 1920px;
   width: 100%;
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 1920px;
+  width: 100%;
   height: 610px;
 }
 
 .header>.nav {
+  max-width: 1920px;
+  width: 100vw;
   height: 70px;
   display: flex;
   justify-content: space-between;
@@ -51,6 +59,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   height: 540px;
   background-color: var(--bg-color-banner);
 }
