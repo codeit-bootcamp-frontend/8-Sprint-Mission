@@ -1,10 +1,27 @@
+:root {
+    --gray900: #111827;
+    --gray800: #1F2937;
+    --gray700: #374151;
+    --gray600: #4B5563;
+    --gray500: #6B7280;
+    --gray400: #9CA3AF;
+    --gray200: #E5E7EB;
+    --gray100: #F3F4F6;
+    --gray50: #F9FAFB;
+
+    --blue: #3692FF;
+    --blue2: #1967D6;
+    --blue3: #1251AA;
+    --red: #F74747;
+}
+
 body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: "pretendard", sans-serif;
-    color: #374151;
+    color: var(--gray700);
     margin: 0;
 }
 
@@ -13,6 +30,7 @@ h1 {
     font-weight: 700;
     line-height: 56px;
     margin: 0;
+    width: 300px;
 }
 
 a {
@@ -51,7 +69,7 @@ section {
     margin-right: 200px;
     width: 128px;
     height: 48px;
-    background-color: #3692FF;
+    background-color: var(--blue);
     text-decoration: none;
     color: #ffffff;
     border-radius: 8px;
@@ -59,28 +77,37 @@ section {
     font-weight: 600;
 }
 
+.loginBtn:hover {
+    background-color: var(--blue2);
+}
+.loginBtn:active {
+    background-color: var(--blue3);
+}
+
 .header2Background {
     background-color: #CFE5FF;
     width: 100vw;
     height: 540px;
     min-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .headerbox {
-    width: 100vw;
+    width: 1200px;
     height: 540px;
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
 .header2Main {
 display: flex;
 flex-direction: column;
-top: 170px;
-left: 360px;
 gap: 32px;
+z-index: 1;
 }
 
 .lookBtn {
@@ -89,7 +116,7 @@ gap: 32px;
     align-items: center;
     width: 357px;
     height: 56px;
-    background-color: #3692FF;
+    background-color: var(--blue);
     text-decoration: none;
     color: #ffffff;
     border-radius: 40px;
@@ -97,6 +124,12 @@ gap: 32px;
     font-weight: 600;
     gap: 10px;
     line-height: 24px;
+}
+.lookBtn:hover {
+    background-color: var(--blue2);
+}
+.lookBtn:active {
+    background-color: var(--blue3);
 }
 
 .homeTopImg {
@@ -127,21 +160,21 @@ gap: 32px;
     font-size: 18px;
     font-weight: 700;
     line-height: 25.2px;
-    color: #3692FF;
+    color: var(--blue);
 }
 
 .content2 {
     font-size: 40px;
     font-weight: 700;
     line-height: 56px;
-    color: #374151;
+    color: var(--gray700);
 }
 
 .content3 {
     font-size: 24px;
     font-weight: 500;
     line-height: 28.8px;
-    color: #374151;
+    color: var(--gray700);
 }
 
 .reverse {
@@ -165,14 +198,24 @@ gap: 32px;
     position: relative;
 }
 
+.footerMainBox {
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.footerMain {
+    position: relative;
+}
 .homeBottomImg {
+    position: relative;
     width: 996px;
     height: 540px;
-    left: 701px;
+    left: 60;
 }
 
 .lastFooter {
-    background-color: #111827;
+    background-color: var(--gray900);
     width: 100vw;
     height: 160px;
     display: flex;
@@ -193,7 +236,7 @@ gap: 32px;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.09px;
-    color: #9ca3af;
+    color: var(--gray400);
 }
 
 .footerLinkBox {
@@ -203,7 +246,7 @@ gap: 32px;
 }
 
 .footerLinkBox a {
-    color: #E5E7EB;
+    color: var(--gray200);
     font-size: 16px;
     font-weight: 400;
 }
