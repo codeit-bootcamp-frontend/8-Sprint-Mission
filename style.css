@@ -28,6 +28,7 @@ body {
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 header .nav {
@@ -172,6 +173,7 @@ footer .bottom-info{
 
 .bottom-nav a {
     color: var(--font-footer);
+    cursor: pointer;
 }
 
 .bottom-content .sns {
