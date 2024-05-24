@@ -167,3 +167,25 @@ main{
     opacity: 0px;
     
 }
+
+footer {
+    position: relative;
+    width: 1920px;
+    height:160px;
+    padding: 32px 200px 32px 200px;
+    gap: 10px;
+    opacity: 0px;
+    background-color: #111827;
+}
+.footer-container{
+    width: 1520px;
+    gap: 0px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0px;
+}
+
+.icon-20x20{
+    width: 20px;
+    height: 20px;
+}
