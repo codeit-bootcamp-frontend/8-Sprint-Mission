@@ -54,6 +54,7 @@ header {
   background-color: var(--brand-blue);
   color: #ffffff;
   width: 128px;
+  word-break: keep-all;
 }
 .banner {
   display: flex;
@@ -68,7 +69,8 @@ header {
 }
 .wrap {
   margin: 0 auto;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
 }
 .banner-title {
   font-size: 40px;
@@ -102,7 +104,8 @@ header {
   background-image: url(image/banner-img2.png);
 }
 .contents {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 130px;
 }
@@ -112,9 +115,7 @@ header {
   align-items: center;
   gap: 64px;
 }
-.content-textImg {
-  flex: 1;
-}
+
 .content-textBox {
   flex: 1;
 }
