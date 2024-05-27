@@ -245,6 +245,8 @@ footer {
     height: 20ps;
 }
 
+/* 밑으로는 login.html과 signup.html의 css 부분*/
+
 .center-logo > img {
     width: 396px;
 }
@@ -255,7 +257,7 @@ footer {
     justify-content: center;
 }
 .form-section {
-    width: 640px;
+    max-width: 640px;
     margin: 0 auto;
 }
 .form-section > form {
@@ -297,7 +299,7 @@ footer {
     padding: 16px 124px;
     margin-bottom: 24px;
     font-size: 20px;
-    font-weight: 600px;
+    font-weight: 600;
     color: var(--white);
     background-color: var(--gray400);
     border: none;
