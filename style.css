@@ -38,6 +38,10 @@ body {
 .top {
     max-width: 1920px;
     margin: 0 auto;
+    position: sticky; 
+    top: 0;
+    z-index: 2;
+    background-color: var(--white);
 }
 
 .background {
