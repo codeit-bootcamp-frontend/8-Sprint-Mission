@@ -15,17 +15,23 @@
         <div class="form-section">
             <form action="">
                 <label for="user-email">이메일</label>
-                <input type="email" name="user-email" id="user-email">
+                <input type="email" name="user-email" id="user-email" placeholder="이메일을 입력해주세요">
                 <label for="user-password">비밀번호</label>
-                <input type="password" name="user-password" id="user-password">
-                <img src="visible_off.png"/>
+                <input  class="test" type="password" name="user-password" id="user-password" placeholder="비밀번호를 입력해주세요">
+                <div class="toggle-eye">
+                    <img src="visible_off.png"/>
+                </div>
                 <button>로그인</button>
             </form>
-            <div>
+            <div class="other-login-section">
                 <p>간편 로그인하기</p>
                 <div>
-                    <img src="ic_google.png"/>
-                    <img src="ic_kakao.png"/>
+                    <a href="https://www.google.com/">
+                        <img src="ic_google.png"/>
+                    </a>
+                    <a href="https://www.kakaocorp.com/page/">
+                        <img src="ic_kakao.png"/>
+                    </a>
                 </div>   
             </div>
             <p>판다마켓이 처음이신가요? <a href="/signup.html">회원가입</a></p>   

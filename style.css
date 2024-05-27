@@ -263,15 +263,79 @@ footer {
     flex-direction: column;
 
 }
-.form-section > form > img {
-    width: 24px;
-    height: 24px;
+.form-section > form  > img {
+   
+    z-index: 3;
+    position: absolute;
+    right: 0;
 }
 .form-section > form > label {
     font-size: 18px;
     font-weight: 700;
     color: var(--gray800);
+    margin-bottom: 16px;
 }
 .form-section > form > input  {
     border: none ;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gray400);
+    background-color: var(--gray100);
+    border-radius: 12px;
+    margin-bottom: 24px; 
+}
+
+.form-section > form > input:focus  {
+    outline: 2px solid var(--btn-color);
+}
+.form-section > form > div >input {
+    border: none ;
+}
+.form-section > form > button {
+    border-radius: 40px;
+    padding: 16px 124px;
+    margin-bottom: 24px;
+    font-size: 20px;
+    font-weight: 600px;
+    color: var(--white);
+    background-color: var(--gray400);
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-eye {
+    position: relative;
+}
+.toggle-eye > img {
+    position: absolute;
+    right: 16px;
+    bottom: 36px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.other-login-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 23px;
+    background-color: #e6f2ff;
+    border-radius: 8px;
+}
+.other-login-section > p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--gray800);
+}
+.other-login-section > div > a > img {
+    width: 42px;
+    height: 42px;
+    margin-left: 16px;
+}
+.form-section > p {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--gray800);
+    text-align: center;
 }
