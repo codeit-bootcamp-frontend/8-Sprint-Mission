@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+/*  default */
+
+:root {
+  --color-gray900: #111827;
+  --color-gray800: #1f2937;
+  --color-gray700: #374151;
+  --color-gray600: #4b5563;
+  --color-gray500: #6b7280;
+  --color-gray400: #9ca3af;
+  --color-gray200: #e5e7eb;
+  --color-gray100: #f3f4f6;
+  --color-gray50: #f9fafb;
+
+  --color-blue: #3692ff;
+  --color-red: #f74747;
+}
+/* color */
+
+header {
+  padding: 0 12.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.btn-login {
+  border-radius: 8px;
+  background-color: var(--color-blue);
+}
+
+.btn-login > a {
+  display: inline-block;
+  width: 42px;
+  padding: 14.5px 43px;
+  font-weight: 600;
+  box-sizing: content-box;
+  color: #ffffff;
+}
+
+.mobile-logo {
+  display: none;
+}
+/* header */
+#banner {
+  overflow: hidden;
+  background: #cfe5ff;
+}
+.banner {
+  position: relative;
+  background: #cfe5ff;
+  height: 540px;
+}
+.panda-img {
+  position: absolute;
+  right: -135px;
+  bottom: 0;
+  font-size: 0;
+  z-index: 1;
+}
+.banner-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+}
+.banner-title > h1 {
+  padding-bottom: 32px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: var(--color-gray700);
+}
+.banner-title > a {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 16px 124px;
+  border-radius: 40px;
+  background-color: var(--color-blue);
+  color: #ffffff;
+}
+
+/* banenr */
+#contents {
+  margin: 138px 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  padding-bottom: 138px;
+}
+
+.wrapper.bottom {
+  padding: 0;
+}
+
+.item-list {
+  display: flex;
+  align-items: center;
+  gap: 0 64px;
+}
+
+.item-list.reverse {
+  flex-direction: row-reverse;
+}
+
+.item-list.reverse.align-right > .info {
+  text-align: right;
+}
+
+.info > h2 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: var(--color-gray700);
+}
+
+.top-line {
+  display: inline-block;
+  padding-bottom: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.2px;
+  color: var(--color-blue);
+}
+
+.bottom-line {
+  display: inline-block;
+  padding-top: 24px;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1.28px;
+  line-height: 28.8px;
+  color: var(--color-gray700);
+}
+
+/*  */
+
+#comment {
+  overflow: hidden;
+  background: #cfe5ff;
+}
+.comment {
+  position: relative;
+  height: 540px;
+  background: #cfe5ff;
+}
+.comment-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+}
+.comment-title > h2 {
+  padding-bottom: 32px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: var(--color-gray700);
+}
+
+/* bottom */
+
+.footer {
+  padding: 32px 0 109px 0;
+  background-color: var(--color-gray900);
+}
+
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.policy-list {
+  display: flex;
+  gap: 30px;
+}
+
+.policy-list > li > a {
+  color: #e5e7eb;
+}
+
+.sns {
+  display: flex;
+  gap: 12px;
+}
+
+.facebook-icon,
+.twitter-icon,
+.youtube-icon,
+.instagram-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.facebook-icon {
+  background: url(./images/ic_facebook.png) no-repeat;
+}
+.twitter-icon {
+  background: url(./images/ic_twitter.png) no-repeat;
+}
+.youtube-icon {
+  background: url(./images/ic_youtube.png) no-repeat;
+}
+.instagram-icon {
+  background: url(./images/ic_instagram.png) no-repeat;
+}
