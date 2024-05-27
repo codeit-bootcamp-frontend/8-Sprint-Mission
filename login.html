@@ -7,17 +7,19 @@
  </head>
  <body>
     <div>
-        <div class="top-logo">
-            <img src="logo.png"/>
-        </div>
-        <div>
+        <a href="/">
+            <div class="center-logo">
+                <img src="logo.png"/>
+            </div>
+        </a>
+        <div class="form-section">
             <form action="">
-                <p>이메일</p>
-                <input type="text" name="" id="">
-                <p>비밀번호</p>
-                <input type="password">
+                <label for="user-email">이메일</label>
+                <input type="email" name="user-email" id="user-email">
+                <label for="user-password">비밀번호</label>
+                <input type="password" name="user-password" id="user-password">
                 <img src="visible_off.png"/>
-                <input type="button" name="로그인">
+                <button>로그인</button>
             </form>
             <div>
                 <p>간편 로그인하기</p>
@@ -26,7 +28,7 @@
                     <img src="ic_kakao.png"/>
                 </div>   
             </div>
-            <p>판다마켓이 처음이신가요? <a href="/signup">회원가입</a></p>   
+            <p>판다마켓이 처음이신가요? <a href="/signup.html">회원가입</a></p>   
 
         </div>
     </div>

@@ -244,3 +244,34 @@ footer {
     width: 20px;
     height: 20ps;
 }
+
+.center-logo > img {
+    width: 396px;
+}
+
+.center-logo {
+    margin: 60px auto 40px auto;
+    display: flex;
+    justify-content: center;
+}
+.form-section {
+    width: 640px;
+    margin: 0 auto;
+}
+.form-section > form {
+    display: flex;
+    flex-direction: column;
+
+}
+.form-section > form > img {
+    width: 24px;
+    height: 24px;
+}
+.form-section > form > label {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray800);
+}
+.form-section > form > input  {
+    border: none ;
+}
