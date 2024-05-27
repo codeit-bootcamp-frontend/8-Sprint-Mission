@@ -11,19 +11,25 @@
     />
     <link rel="stylesheet" href="index.css" />
     <title>판다마켓</title>
+    <script type="text/javascript" src="javascript/index.js"></script>
   </head>
   <body>
     <header>
       <a href="/">
         <img src="image/logo.png" alt="판다마켓 로고" width="153"
       /></a>
-      <a href="login.html" class="login-btn">로그인</a>
+      <!-- <a href="login.html" class="login-btn">로그인</a> -->
+      <button class="login-btn" onclick="navigateTo('login.html')">
+        로그인
+      </button>
     </header>
     <main>
       <div class="banner">
         <div class="wrap">
           <p class="banner-title">일상의 모든 물건은<br />거래해 보세요</p>
-          <a href="item.html" class="banner-btn">구경하러 가기</a>
+          <button class="banner-btn" onclick="navigateTo('item.html')">
+            구경하러 가기
+          </button>
         </div>
       </div>
       <div class="contents">
