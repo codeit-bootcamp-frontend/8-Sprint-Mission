@@ -102,7 +102,7 @@ button {
 .login-btn:disabled {
   background-color: var(--gray-400);
 }
-#bottom-banner {
+.bottom-banner {
   background-image: url(image/banner-img2.png);
 }
 .contents {
