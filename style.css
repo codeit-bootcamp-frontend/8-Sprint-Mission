@@ -32,6 +32,7 @@
 body {
   margin: 0;
 }
+
 .btn:hover {
   background-color: var(--btn-hover);
 }
@@ -41,7 +42,7 @@ body {
 .btn:disabled {
   background-color: var(--gray400);
   cursor: default;
-}
+} /* 버튼 상태에 따른 색상 변화 */
 
 .top {
   max-width: 1920px;
@@ -295,7 +296,8 @@ footer {
   width: 24px;
   height: 24px;
   cursor: pointer;
-}
+} /*눈 아이콘을 absolute로 위치를 맞춰 줌*/
+
 .other-login-section {
   display: flex;
   justify-content: space-between;
