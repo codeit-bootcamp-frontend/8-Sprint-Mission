@@ -6,6 +6,16 @@ body {
   font-family: pretendard;
 }
 
+:root {
+  --color-blue: rgba(54, 146, 255, 1);
+  --color-coolgray: rgba(55, 65, 81, 1);
+  --color-white: rgba(255, 255, 255, 1);
+  --color-banner: rgba(207, 229, 255, 1);
+  --color-footer: rgba(17, 24, 39, 1);
+  --color-footer_content: rgba(156, 163, 175, 1);
+  --color-privacy: rgba(229, 231, 235, 1);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -16,13 +26,13 @@ body {
 }
 
 .login {
-  background-color: rgba(54, 146, 255, 1);
+  background-color: var(--color-blue);
   border-radius: 8px;
   padding: 14.5px 43px;
   width: 128px;
   height: 48px;
 
-  color: rgba(255, 255, 255, 1);
+  color: var(--color-white);
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
@@ -30,7 +40,7 @@ body {
 }
 
 .banner {
-  background-color: rgba(207, 229, 255, 1);
+  background-color: var(--color-banner);
   height: 540px;
   width: 100%;
 }
@@ -46,7 +56,7 @@ body {
   font-weight: 700;
   line-height: 56px;
   text-align: left;
-  color: rgba(55, 65, 81, 1);
+  color: var(--color-coolgray);
   margin-top: 0;
   margin-bottom: 32px;
 }
@@ -63,10 +73,10 @@ body {
 }
 
 .introduce-link {
-  background-color: rgba(54, 146, 255, 1);
+  background-color: var(--color-blue);
   border-radius: 40px;
   padding: 16px 124px;
-  color: rgba(255, 255, 255, 1);
+  color: var(--color-white);
   text-decoration: none;
   font-size: 20px;
   font-weight: 600;
@@ -137,7 +147,7 @@ body {
   font-weight: 700;
   line-height: 25.2px;
   text-align: left;
-  color: rgba(54, 146, 255, 1);
+  color: var(--color-blue);
   margin-bottom: 0;
 }
 
@@ -151,7 +161,7 @@ body {
   line-height: 56px;
   letter-spacing: 0.02em;
   text-align: left;
-  color: rgba(55, 65, 81, 1);
+  color: var(--color-coolgray);
   margin: 12px 0 24px;
 }
 
@@ -165,7 +175,7 @@ body {
   line-height: 28.8px;
   letter-spacing: 0.08em;
   text-align: left;
-  color: rgba(55, 65, 81, 1);
+  color: var(--color-coolgray);
   margin: 0;
 }
 
@@ -178,13 +188,13 @@ body {
   font-weight: 700;
   line-height: 56px;
   text-align: left;
-  color: rgba(55, 65, 81, 1);
+  color: var(--color-coolgray);
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .bottom {
-  background-color: rgba(207, 229, 255, 1);
+  background-color: var(--color-banner);
   width: 100%;
   position: absolute;
   top: 2298px;
@@ -203,7 +213,7 @@ body {
 }
 
 .footer {
-  background-color: rgba(17, 24, 39, 1);
+  background-color: var(--color-footer);
   height: 160px;
   width: 1920px;
   margin: 0 auto;
@@ -220,7 +230,7 @@ body {
   font-weight: 400;
   line-height: 19.09px;
   text-align: center;
-  color: rgba(156, 163, 175, 1);
+  color: var(--color-footer_content);
 }
 
 .footer-faq {
@@ -231,7 +241,7 @@ body {
 .privacy,
 .faq {
   text-decoration: none;
-  color: rgba(229, 231, 235, 1);
+  color: var(--color-privacy);
 }
 
 .footer-sns {
