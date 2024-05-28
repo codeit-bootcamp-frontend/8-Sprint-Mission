@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -30,10 +32,14 @@ body {
 }
 
 header {
+  background-color: var(--gray-00);
   display: flex;
   padding: 0 200px;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .main-logo {
@@ -139,7 +145,7 @@ p {
 }
 
 .item-button {
-  border-radius: 40px;
+  border-radius: 999px;
   font-size: 20px;
   width: 357px;
   height: 56px;
