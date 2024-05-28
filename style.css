@@ -33,13 +33,13 @@ body {
   margin: 0;
 }
 
-.btn:hover {
+.btn-status:hover {
   background-color: var(--btn-hover);
 }
-.btn:active {
+.btn-status:active {
   background-color: var(--btn-click);
 }
-.btn:disabled {
+.btn-status:disabled {
   background-color: var(--gray400);
   cursor: default;
 } /* 버튼 상태에 따른 색상 변화 */
@@ -280,7 +280,8 @@ footer {
 .form-section > form > div > input {
   border: none;
 }
-.form-section > form > button {
+
+.login-page-btn {
   border-radius: 40px;
   padding: 16px 124px;
   margin-bottom: 24px;
@@ -292,17 +293,21 @@ footer {
   cursor: pointer;
 }
 
-.toggle-eye {
+.toggle-eye-container {
   position: relative;
 }
-.toggle-eye > img {
+.toggle-eye {
   position: absolute;
   right: 16px;
-  bottom: 36px;
+  bottom: 32px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.toggle-eye > img {
   width: 24px;
   height: 24px;
-  cursor: pointer;
-} /*눈 아이콘을 absolute로 위치를 맞춰 줌*/
+}
 
 .other-login-section {
   display: flex;
