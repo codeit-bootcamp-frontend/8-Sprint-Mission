@@ -268,10 +268,13 @@ footer {
   padding: 16px 24px;
   font-size: 16px;
   font-weight: 400;
-  color: var(--gray400);
+  color: var(--gray800);
   background-color: var(--gray100);
   border-radius: 12px;
   margin-bottom: 24px;
+}
+.form-section > form > input::placeholder {
+  color: var(--gray400);
 }
 
 .form-section > form > input:focus {
