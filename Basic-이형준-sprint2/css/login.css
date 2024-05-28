@@ -39,6 +39,18 @@ input:focus {
   outline: 2px solid var(--brand-blue);
 }
 
+.password-input {
+  position: relative;
+}
+
+.visibility-button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+}
+
 button {
   width: 640px;
   height: 56px;

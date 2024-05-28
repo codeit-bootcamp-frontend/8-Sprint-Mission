@@ -31,13 +31,22 @@
            onblur="this.placeholder='이메일을 입력해주세요'"
           />
         </div>
-        <div class="paswsword-input">
+        <div>
           <h3>비밀번호</h3>
-          <input type="password"
-           placeholder="비밀번호를 입력해주세요"
-           onfocus="this.placeholder=''"
-           onblur="this.placeholder='비밀번호를 입력해주세요'"
-          />
+          <div class="password-input">
+            <input type="password"
+             placeholder="비밀번호를 입력해주세요"
+             onfocus="this.placeholder=''"
+             onblur="this.placeholder='비밀번호를 입력해주세요'"
+            />
+            <a>
+              <img
+                  class="visibility-button"
+                  src="/images/btn_visibility_off.png"
+                  alt="비밀번호 표시 옵션"
+              />
+            </a>
+          </div>
         </div>
         <button>로그인</button>
         <div class="simple-login">
