@@ -17,9 +17,21 @@ body{
   font-family: 'Pretendard', sans-serif;
 }
 
+.wrap{
+  margin-top: 70px;
+}
+
 .container{
   width: 1200px;
   margin: 0 auto;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
 }
 
 nav{
@@ -177,3 +189,130 @@ footer .sns ul li{
 
 }
 
+
+/* 로그인, 회원가입 */
+#log-wrap{
+  width: 640px;
+  margin: 60px auto 0;
+}
+
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.login-logo{
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.login-logo a{
+  display: block;
+  text-align: center;
+  height: 132px;
+}
+
+label{
+  color: #1F2937;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 16px;
+}
+
+input{
+  width: 640px;
+  background: #F3F4F6;
+  border-radius: 12px;
+  padding: 16px 0 16px 12px;
+  border: none;
+  outline: none;
+}
+
+input:focus{
+  outline: 1px solid #3692FF;
+}
+
+.pw-box{
+  position: relative;
+}
+
+.pw-box img{
+  position: absolute;
+  right: 20px;
+  top: 
+  12px;
+  cursor: pointer;
+}
+
+button{
+  width: 100%;
+  padding: 16px 0;
+  border: none;
+  border-radius: 40px;
+  background: #9CA3AF;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+button:hover{
+  background: #3692FF;
+}
+
+.log-information{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 23px;
+  background: #E6F2FF;
+}
+
+.messenger{
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1F2937;
+  border-radius: 8px;
+  gap: 16px;
+}
+
+.messenger .log-kakao{
+  background: #F5E14B;
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.messenger .log-google{
+  background: #fff;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #F9FAFB;
+  border-radius: 9999px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.first{
+  font-size: 15px;
+  font-weight: 500;
+  color: #1F2937;
+}
+
+.first a{
+  font-size: 15px;
+  font-weight: 500;
+  color: #3182F6;
+  text-decoration:underline
+}
