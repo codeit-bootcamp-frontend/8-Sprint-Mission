@@ -1,0 +1,102 @@
+@font-face {
+	font-family: 'Pretendard Variable';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+	src: url('./src/PretendardVariable.woff2') format('woff2-variations');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Pretendard Variable';
+  flex-shrink: 0;
+  font-size: 1em;
+}
+
+body {
+  background: #FCFCFC;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* header */
+header {
+  display: flex;
+  align-items: center;
+  height: 234px;
+}
+
+
+header > div {
+  display: flex;
+  align-items: center;
+}
+
+
+/* main */
+main {
+  width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.input_password,
+.input_id {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input_container label {
+  font-weight: bold;
+}
+
+.input_container input {
+  background: #F3F4F6;
+  border: none;
+  border-radius: 8px;
+  height: 56px;
+}
+
+.login_messenger {
+  display: flex;
+  justify-content: space-between;
+  background: #E6F2FF;
+  height: 74px;
+}
+
+.signup {
+  display: flex;
+  justify-content: center;
+}
+
+/* button controler */
+.button {
+  display: inline-block;
+  background: #3692FF;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+}
