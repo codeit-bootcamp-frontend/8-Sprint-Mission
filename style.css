@@ -32,6 +32,16 @@
 body {
   margin: 0;
 }
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+.btn:active {
+  background-color: var(--btn-click);
+}
+.btn:disabled {
+  background-color: var(--gray400);
+  cursor: default;
+}
 
 .top {
   max-width: 1920px;
@@ -74,15 +84,6 @@ body {
   align-items: center;
   min-width: 128px;
   text-decoration: none;
-}
-.login-btn:hover {
-  background-color: var(--btn-hover);
-}
-.login-btn:active {
-  background-color: var(--btn-click);
-}
-.login-btn:disabled {
-  background-color: var(--gray400);
 }
 
 .title-container {
@@ -129,15 +130,7 @@ body {
   cursor: pointer;
   text-decoration: none;
 }
-.title-btn:hover {
-  background-color: var(--btn-hover);
-}
-.title-btn:active {
-  background-color: var(--btn-click);
-}
-.title-btn:disabled {
-  background-color: var(--gray400);
-}
+
 main {
   max-width: 1920px;
   margin: 0 auto;
@@ -287,7 +280,7 @@ footer {
   font-size: 20px;
   font-weight: 600;
   color: var(--white);
-  background-color: var(--gray400);
+  background-color: var(--btn-color);
   border: none;
   cursor: pointer;
 }
