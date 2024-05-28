@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Pretendard-Regular', Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    padding: 10px 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goto-root {
+    width: 153px;
+    height: 51px;
+}
+
+.button-login {
+    display: inline-block;
+    width: 128px;
+    height: 48px;
+    padding: 0 20px;
+    line-height: 48px;
+    background-color: #3692FF;
+    border-radius: 8px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.banner-top,
+.banner-bottom {
+    width: 100%;
+    background-color: #CFE5FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 540px;
+}
+
+.banner-top-container,
+.banner-bottom-container{
+    max-width: 1920px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+.banner-top-image{
+    position: relative;
+    bottom: -46.5px;
+}
+
+.goto-items {
+    display: inline-block;
+    white-space: nowrap;
+    margin-top: 32px;
+    padding: 16px 124px;
+    text-align: center;
+    background-color: #3692FF;
+    border-radius: 40px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    width: 1200px;
+    height: 720px;
+    display: flex;
+    align-items: center;
+    gap: 0px 64px;
+}
+
+.section-image {
+    width: 588px;
+}
+
+main section .text {
+    margin: 12px 0 24px ;
+}
+
+section .text-info {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.8px;
+    color: #374151;
+}
+
+section .tag {
+    color:#3692FF;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25.2px;
+}
+
+.section2{
+    display: flex;
+    justify-content: flex-end;
+}
+.section3{
+    margin-bottom: 138px;
+}
+.section2-component,
+.section2 .text,
+.section2 .text-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+footer {
+    width: 100%;
+    height: 160px;
+    padding: 32px 200px 0px;
+    background-color: #111827;
+    display: flex;
+    justify-content: space-between;
+}
+#privacy {
+    margin-right: 30px;
+}
+
+.footer-left {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    text-align: center;
+    color: #9CA3AF;
+}
+.link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    text-decoration: none;
+    color: #E5E7EB;
+}
+.sns-icon {
+    display: inline-block;
+    width: 20px;
+}
+.sns-link:not(:last-child) {
+    margin-right: 12px;
+}
