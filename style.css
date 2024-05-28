@@ -235,7 +235,7 @@ footer {
 
 /* 밑으로는 login.html과 signup.html의 css 부분*/
 
-.center-logo > img {
+.center-logo > a > img {
   width: 396px;
 }
 
@@ -297,9 +297,12 @@ footer {
   position: relative;
 }
 .toggle-eye {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   right: 16px;
-  bottom: 32px;
+  bottom: 36px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -317,15 +320,23 @@ footer {
   background-color: #e6f2ff;
   border-radius: 8px;
 }
+.icon-login {
+  display: flex;
+  align-items: center;
+}
 .other-login-section > p {
   font-size: 16px;
   font-weight: 500;
   color: var(--gray800);
 }
-.other-login-section > div > a > img {
+.icon-login > a {
+  display: flex;
+  flex-direction: row;
+  margin-left: 16px;
+}
+.icon-login > a > img {
   width: 42px;
   height: 42px;
-  margin-left: 16px;
 }
 .form-section > p {
   font-size: 15px;
