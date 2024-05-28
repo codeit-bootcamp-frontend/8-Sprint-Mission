@@ -112,9 +112,8 @@ section{
 .bottom-text{
   font-size: 40px;
   font-weight: 700;
-  position: relative;
-  left: 20%;
   line-height: 60px;
+  margin-left: 15%;
 }
 
 .section-title {
