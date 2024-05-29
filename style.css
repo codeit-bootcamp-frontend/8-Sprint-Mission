@@ -48,6 +48,10 @@ section {
 }
 
 .header-logo-login {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    background-color: #ffffff;
     width: 100vw;
     height: 70px;
     border-bottom:solid #DFDFDF;
@@ -92,6 +96,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 70px;
 }
 
 .header-content {
@@ -107,7 +112,6 @@ section {
 display: flex;
 flex-direction: column;
 gap: 32px;
-z-index: 1;
 }
 
 .look-around-link {
