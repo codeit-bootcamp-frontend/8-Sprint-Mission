@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="../source/icons/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../source/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../source/icons/favicon/favicon-16x16.png">
+    <title>로그인</title>
+    <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="../source/images/logo/logo@3x.png" alt="판다마켓 로고" />
+            </a>
+        </div>
+    </header>
+    <main>
+        <article>
+            <form action="/">
+                <div class="email">
+                    <label for="email">이메일</label>
+                    <input type="email" name="email" placeholder="이메일을 입력해주세요">
+                </div>
+                <div class="password">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+                    <div class="hide-icon">
+                        <div id="hidden"></div>
+                    </div>
+                </div>
+                <button class="login-btn">로그인</button>
+            </form>
+            <div class="oauth-login">
+                <p>간편 로그인하기</p>
+                <div class="oauth-icons">
+                    <a href="https://www.google.com/"><img src="../source/icons/google/google.png" alt="구글 아이콘"></a>
+                    <a href="https://www.kakaocorp.com/page/"><img src="../source/icons/kakao/kakao.png" alt="카카오 아이콘"></a>
+                </div>
+            </div>
+            <div class="signin">
+                <p class="signin-content">판다마켓이 처음이신가요? <a href="../signup/signup.html">회원가입</a></p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
