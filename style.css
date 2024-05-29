@@ -47,9 +47,9 @@ section {
     align-items: center;
 }
 
-.header-logo-login {
+.header-nav {
     position: fixed;
-    z-index: 1;
+    z-index: 1px;
     inset: 0;
     background-color: #ffffff;
     width: 100vw;
@@ -112,6 +112,7 @@ section {
 display: flex;
 flex-direction: column;
 gap: 32px;
+z-index: 1;
 }
 
 .look-around-link {
