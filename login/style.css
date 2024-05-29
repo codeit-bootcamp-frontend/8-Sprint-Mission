@@ -40,6 +40,7 @@ header {
 .form-content {
   width: 100%;
   margin-bottom: 24px;
+  position: relative;
 }
 
 label {
@@ -65,17 +66,25 @@ input::placeholder {
   color: var(--gray400);
 }
 
+.password-show {
+  /* display: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0; */
+  cursor: pointer;
+}
+
 .form-login-btn {
-  display: block;
   width: 100%;
+  border: 0;
   border-radius: 40px;
   background-color: var(--gray400);
   padding: 16px 294px;
-  font-size: 20;
+
+  font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   color: #ffffff;
-  text-decoration: none;
 }
 
 .login-easy {
@@ -86,6 +95,7 @@ input::placeholder {
   margin: 24px 0;
   border-radius: 8px;
   background-color: #e6f2ff;
+
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -94,4 +104,17 @@ input::placeholder {
 
 .login-easy-sns a:first-child {
   margin-right: 16px;
+}
+
+.signup {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gray800);
+}
+
+.signup-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: #3182f6;
 }

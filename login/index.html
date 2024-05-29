@@ -11,6 +11,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
   </head>
+
   <body>
     <main>
       <header>
@@ -40,8 +41,15 @@
               name="password"
               placeholder="비밀번호를 입력해주세요"
             />
+            <img
+              class="password-show"
+              src="/icon/ic_password_disable.png"
+              alt="비밀번호를 보여주는 눈 모양 아이콘"
+            />
           </div>
-          <a class="form-login-btn" href="">로그인</a>
+          <button class="form-login-btn" type="button" disabled value="로그인">
+            로그인
+          </button>
         </form>
 
         <div class="login-easy">
@@ -66,7 +74,8 @@
       </div>
 
       <div class="signup">
-        판다마켓이 처음이신가요? <a href="/signup/">회원가입</a>
+        판다마켓이 처음이신가요?
+        <a class="signup-link" href="/signup/">회원가입</a>
       </div>
     </main>
   </body>
