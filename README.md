@@ -37,7 +37,7 @@
 
 
 ## 사이트 주소
-- 
+- https://storepanda.netlify.app
 
 ## 멘토에게
 - 
