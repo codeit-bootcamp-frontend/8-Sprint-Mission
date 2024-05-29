@@ -153,18 +153,21 @@ main {
 }
 
 
-.banner_home-top_container {
+/* .banner_home-top_container {
     width: 996px;
     height: 447px;
     top: 93px;
     left: 701px;
     padding: 30px;
-}
+} */
 
 #home-top {
-    width: 998px;
-    height: 611px;
-    top: 30px;
+    width: 996px;
+    height: 447px;
+    top: 93px;
+    left: 701px;
+    padding: 30px;
+    margin-top: 93px;
 }
 
 .section {
