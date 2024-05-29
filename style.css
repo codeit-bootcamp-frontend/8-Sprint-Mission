@@ -1,15 +1,57 @@
 /* header */
-.gnb {
+header{
+    width: 1920px;
+    height: 70px;
+    padding: 10px 200px 9px 200px;
+    border: 0px 0px 1px 0px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #DFDFDF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    
+}
+
+#logo {
+    width: 153px;
+    height: 51px;
+    padding: 5.02px 0px 5.85px 0px;
+}
+
+/* TODO: 버튼 다시하기 html 수정 */
+.btn_small{
+    width: 128px;
+    height: 48px;
+    padding: 12px 20px 12px 20px;
+    gap: 10px;
+    border-radius: 8px;
+    background: #3692FF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 버튼폰트 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.09px;
+    text-align: cneter;
+    color: #FFFFFF;
+}
+
+/* .gnb {
     width: 1920px;
     height: 70px;
     padding: 10px 200px 9px 200px;
     border: 0px 0px 1px 0px;
     background: #FFFFFF;
     border-bottom: 1px solid #DFDFDF
-    /* margin: 0px auto;
+    
+    margin: 0px auto;
     height: 70px;
     padding-top: 10px;
-    border-bottom: 1px solid #DFDFDF; */
+    border-bottom: 1px solid #DFDFDF;
 }
 
 .gnb_container {
@@ -17,16 +59,21 @@
     height: 51px;
     top: 10px;
     left: 200px;
-    justify-content: space-between;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    /* width: 1520px;
+
+    justify-content: space-between; 
+
+    width: 1520px;
     margin: 0px auto;
     display: flex;
-    justify-content: space-between; */
+    justify-content: space-between;
 }
 
 .btn_small {
-    /* TODO: border 색상 없애기 */
+
 
     width: 128px;
     height: 48px;
@@ -34,7 +81,7 @@
     border-radius: 8px;
     background: #3692FF;
     
-    /* 버튼 텍스트 */
+    /* 버튼 텍스트 
     font-family: Pretendard;
     font-size: 16px;
     font-weight: 600;
@@ -42,7 +89,7 @@
     text-align: center;
     color: #FFFFFF;
 
-}
+} */
 
 /* banner */
 .banner {
@@ -246,7 +293,7 @@ main {
     position: relative;
     justify-content: center;
     /* flex-wrap: wrap; */
-    white-space:nowrap
+    white-space:nowrap;
     width: 286px;
     height: 112px;
     top: 214px;
