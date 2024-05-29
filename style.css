@@ -91,42 +91,17 @@ header{
 
 main {
     position: relative;
-    gap: 0px;
-    opacity: 0px;
     background-color: #FFFFFF;
 }
 
 /* banner */
 .banner {
-    /* width: 1920px;
-    height: 540px;
-    top: 70px;
-    gap: 0px;
-    opacity: 0px; */
     width: 1920px;
     height: 540px;
-    gap: 0px;
-    opacity: 0px;
     background: #CFE5FF;
-    /* display: inline-block; */
-
 }
 
 .banner-container {
-    /* width: 1200px; */
-    /* margin: 0px auto; */
-
-    /* width: 1920px;
-    height: 540px;
-    top: 70px;
-    gap: 0px;
-    opacity: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;    
-    align-content: center;
- */
     width: 1920px;
     height: 540px;
     background: #CFE5FF;
@@ -134,19 +109,9 @@ main {
     justify-content: center;
     align-items: center;
     align-content: center;
-
-
+    
 }
 
-/* .banner_image_container{
-    width: 996px;
-    height: 447px;
-    top: 93px;
-    left: 701px;
-    padding: 30px;
-    gap: 0px;
-    opacity: 0px;
-} */
 
 .banner_text_container {
     width: 357px;
@@ -154,20 +119,22 @@ main {
     top: 170px;
     left: 360px;
     gap: 32px;
+    display:flex;
+    flex-direction: column;
+    
 }
 
-.banner_text{
-    width: 295px;
-    height: 112px;
+#banner_text{
     font-family: Pretendard;
     font-size: 40px;
     font-weight: 700;
     line-height: 56px;
     text-align: left;
     color: #374151;
+    white-space:nowrap;
     }
 
-    /* TODO: 글자 버튼 간격 수정필요 */
+    /* TODO: 버튼 보더컬러 없애기 수정필요 */
 .btn_large {
     width: 357px;
     height: 56px;
@@ -182,19 +149,9 @@ main {
     text-align: center;
     color: #FFFFFF;
     font-family: Pretendard;
-    white-space:nowrap
+    white-space:nowrap;
 }
 
-/* .btn_large_text {
-    width: 109px;
-    height: 24px;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 24px;
-    text-align: center;
-    color: #FFFFFF;
-    font-family: Pretendard;
-} */
 
 .banner_home-top_container {
     width: 996px;
