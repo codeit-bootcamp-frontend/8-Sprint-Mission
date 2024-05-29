@@ -1,40 +1,7 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --brand-blue: #3692ff;
-  --cool-gray-900: #111827;
-  --cool-gray-800: #1f2937;
-  --cool-gray-700: #374151;
-  --cool-gray-600: #4B5563;
-  --cool-gray-500: #6B7280;
-  --cool-gray-400: #9ca3af;
-  --cool-gray-300: #d1d5db;
-  --cool-gray-200: #e5e7eb;
-  --cool-gray-100: #f3f4f6;
-  --cool-gray-50: #f9fafb;
-
-  /* arbitrarily named color value */
-  --gray-00: #ffffff;
-  --main-background-color: #cfe5ff;
-}
-
-html {
-  font-size: 32px;
-  font-family: Pretendard, sans-serif;
-}
-
-body {
-  margin: 0;
-}
-
 header {
   background-color: var(--gray-00);
   display: flex;
-  padding: 0 200px;
+  padding: 10px 200px;
   justify-content: space-between;
   align-items: center;
   position: sticky;
@@ -42,18 +9,20 @@ header {
   z-index: 1;
 }
 
+.main-logo-block {
+  display: flex;
+  justify-content: center;
+}
+
 .main-logo {
   display: inline-block;
   width: 153px;
   height: 51px;
   cursor: pointer;
-
-  margin-top: 5px;
-  margin-bottom: -5px;
 }
 
 .main-top > div,
-.mainpage,
+.main-page,
 .main-bottom > div {
   width: 1200px;
   margin: 0 auto;
@@ -65,7 +34,7 @@ header {
   height: 720px;
 }
 
-.mainpage {
+.main-page {
   display: flex;
   gap: 64px;
   margin-top: 138;
@@ -83,12 +52,12 @@ p, h3 {
   justify-content: center;
 }
 
-.rightmain .content-block h3,
-.rightmain .content-block p {
+.right-main .content-block h3,
+.right-main .content-block p {
   text-align: right;
 }
 
-.mainpage.rightmain {
+.main-page.right-main {
   justify-content: end;
   flex-flow: row-reverse;
 }
@@ -103,7 +72,7 @@ p.main-content {
 p.sub-content {
   font-size: 24px;
   font-weight: 500;
-  line-height: 28.8px;
+  line-height: 29px;
 }
 
 p {
@@ -198,7 +167,8 @@ footer {
 }
 
 .privacy-faq-link {
-  margin-top: -10px;
+  display: flex;
+  justify-content: center;
  }
 
 .external-link {
@@ -206,8 +176,8 @@ footer {
   text-decoration: none;
 }
 
-.toppage,
-.bottompage {
+.top-page,
+.bottom-page {
   position: relative;
   height: 540px;
   display: flex;
