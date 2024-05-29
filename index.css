@@ -145,13 +145,13 @@ div.banner-bottom>p {
   color: var(--brand);
 }
 
-.explane1 {
+.explane {
   font-size: 3em;
   line-height: 56px;
   font-weight: 700;
 }
 
-.explane2 {
+.explane-sub {
   font-size: 1.5em;
   line-height: 28.8px;
 }
