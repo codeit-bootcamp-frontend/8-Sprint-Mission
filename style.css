@@ -1,12 +1,18 @@
 /* header */
 .gnb {
-    margin: 0px auto;
+    width: 1920px;
+    height: 70px;
+    padding: 10px 200px 9px 200px;
+    border: 0px 0px 1px 0px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #DFDFDF
+    /* margin: 0px auto;
     height: 70px;
     padding-top: 10px;
-    border-bottom: 1px solid #DFDFDF;
+    border-bottom: 1px solid #DFDFDF; */
 }
 
-.gnb .container {
+.gnb_container {
     width: 1520px;
     margin: 0px auto;
     display: flex;
