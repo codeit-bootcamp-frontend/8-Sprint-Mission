@@ -15,13 +15,15 @@
     --font-footer: #9ca3af;
 }
 
+html {
+    font-size: 24px;
+}
 
 body {
     max-width: 1920px;
     width: 100%;
     color: var(--font);
     font-family: "Pretendard-Regular", 'Noto Sans';
-    font-size: 24px;
     font-weight: 500;
     margin: 0;
 }
@@ -48,7 +50,7 @@ header .nav {
 }
 
 main section {
-    width: 1200px;
+    max-width: 1200px;
     height: 720px;
     margin: 0 auto;
     display: flex;
@@ -67,8 +69,7 @@ main section {
 }
 
 header .login {
-    width: 128px;
-    height: 48px;
+    padding: 11.5px 23px;
     border-radius: 8px;
     padding: 12px 20px;
 }
@@ -83,8 +84,9 @@ header .login {
     max-width: 1920px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .headline .headline-title,
@@ -96,8 +98,6 @@ header .login {
     line-height: 56px;
     gap: 32px;
 }
-
-
 
 .headline{
     padding-top: 100px;
@@ -111,6 +111,7 @@ header .login {
 .container {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 64px;
 }
 
@@ -118,11 +119,6 @@ header .login {
     font-size: 18px;
     color: var(--main-color);
     font-weight: 700;
-}
-
-.container > img {
-    width: 588px;
-    height: 444px;
 }
 
 .container .content {
@@ -150,7 +146,6 @@ header .login {
 
 .search .container {
     flex-direction: row-reverse;
-    
 }
 
 .search .container .content {
@@ -162,7 +157,7 @@ footer .bottom-info{
     background-color: var(--footer-color);
     max-width: 1920px;
     height: 160px;
-    padding: 32px 200px;
+    padding: 1.5rem 10vw;
 }
 
 .bottom-info .bottom-content {
