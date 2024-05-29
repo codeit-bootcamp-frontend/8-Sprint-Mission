@@ -3,39 +3,44 @@
 	font-weight: 45 920;
 	font-style: normal;
 	font-display: swap;
-	src: url('./aseet/font/PretendardVariable.woff2') format('woff2-variations');
+	src: url('./asset/font/PretendardVariable.woff2') format('woff2-variations');
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
-  flex-shrink: 0;
   font-size: 1em;
 }
 
 body {
   background: #FCFCFC;
-  font-family: 'Pretendard Variable';
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
 }
 
-.wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+:root {
+  --f : #fff;
+  --0 : #000;
+  --click: #1251AA;
+  --blue: #3182F6;
+  --brand: #3692FF;
+  --banner: #CFE5FF;
+  --coolgray-50: #F9FAFB;
+  --coolgray-100: #F3F4F6;
+  --coolgray-200: #E5E7EB;
+  --coolgray-400: #9CA3AF;
+  --coolgray-700: #374151;
+  --coolgray-800: #1F2937;
+  --coolgray-900: #111827;
+  --error: #F74747;
 }
+
 
 /* header */
 header {
   display: flex;
+  justify-content: center;
   align-items: center;
-  height: 234px;
-}
-
-
-header > div {
-  display: flex;
-  align-items: center;
+  margin: 60px auto;
 }
 
 
@@ -52,51 +57,87 @@ main {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  font-size: 18px;
 }
 
-.input_container {
+.login-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.input_password,
-.input_id {
+.input-pw,
+.input-id {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 16px;
 }
 
-.input_container label {
+.login label {
   font-weight: bold;
 }
 
-.input_container input {
+.login input {
   background: #F3F4F6;
   border: none;
   border-radius: 8px;
   height: 56px;
 }
 
-.login_messenger {
+.login-messenger {
+  background-color: #E6F2FF;
+  color: var(--coolgray-800);
   display: flex;
+  border-radius: 8px;
   justify-content: space-between;
-  background: #E6F2FF;
+  align-items: center;
+  font-size: 16px;
+  padding: 16px;
   height: 74px;
 }
 
+.messengers {
+  display: flex;
+  gap: 16px;
+}
+
+.messengers img {
+  width: 42px;
+  height: 42px;
+}
+
 .signup {
+  color: var(--coolgray-800);
   display: flex;
   justify-content: center;
+  font-size: 15px;
+}
+
+.signup>a {
+  color: var(--click);
 }
 
 /* button controler */
 .button {
-  display: inline-block;
-  background: #3692FF;
-  border-radius: 8px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  background: var(--blue);
+  color: var(--f);
+  border-radius: 40px;
   border: none;
+  padding: 16px 124px;
+  font-size: 20px;
 }
 
-button {
+.button:visited {
+  background-color: var(--coolgray-400);
 }
+
+.button:active {
+  background: var(--click);
+}
+
+/* input controler */
+/* focus in일 때 테두리 색  #3692FF */

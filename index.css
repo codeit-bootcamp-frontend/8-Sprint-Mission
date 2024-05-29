@@ -133,7 +133,7 @@ div.banner-bottom>p {
   gap: 12px;
 }
 
-.content-wrap {
+.text-wrap {
   display: flex;
   flex-direction: column;
   gap: 24px;

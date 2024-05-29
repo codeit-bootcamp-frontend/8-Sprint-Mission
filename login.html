@@ -7,42 +7,35 @@
   <title>판다마켓</title>
 </head>
 <body>
-  <div class="wrap">
   <header>
-    <div>
-      <a href="/"><img src="./aseet/img/logo_pandamarket.png"></a>
-    </div>
+    <a href="/"><img src="asset\img\logo_pandamarket.png"></a>
   </header>
-  <main> 
-    <div class="login">
-      <form class="loginform">
-        <div class="input_container">
-          <div class="input_id">
-            <label for="id">이메일</label>
-            <input id="id">
-          </div>
-          <div class="input_password">
-          <label for="password">비밀번호</label>
-          <input id="password">
-          </div>
-            <div class="button_container">
-              <button type="submit">로그인</button>
-            </div>
-        </div>
-      </form>
-      <div calss="login_messenger">
-        <span>간편 로그인 하기</span>
-        <div class="messengers">
-          <a href="#"><img src="./aseet/icon/ic_google"></a>
-          <a href="#"><img src="./aseet/icon/ic_kakaotalk"></a>
-        </div>
+  <main class="login"> 
+    <form class="login-form">
+      <div class="input-id">
+        <label for="id" type="email">이메일</label>
+        <input id="id">
       </div>
-      <div class="signup">
-        판다마켓이 처음이신가요?
-        <a href="/signup">회원가입</a>
+      <div class="input-pw">
+        <label for="pw">비밀번호</label>
+        <input id="pw" type="password">
+      </div>
+      <button class=button type="submit">로그인</button>
+    </form>
+
+    <div class="login-messenger">
+      <p>간편 로그인 하기</p>
+      <div class="messengers">
+        <a href="#"><img src="asset\icon\ic_google.png"></a>
+        <a href="#"><img src="asset/icon/ic_kakaotalk.png"></a>
       </div>
     </div>
+
+    <div class="signup">
+      판다마켓이 처음이신가요?
+      <a href="/signup">회원가입</a>
+    </div>
+      
   </main>
-  </div>
 </body>
 </html>
