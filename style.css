@@ -29,7 +29,6 @@ header{
     align-items: center;
     justify-content: center;
 
-    /* 버튼폰트 */
     font-family: Pretendard;
     font-size: 16px;
     font-weight: 600;
@@ -242,14 +241,9 @@ main {
     display: flex;
 }
 
-/* .bottom-banner-container{
-    width: 1200px;
-    margin: 0px auto;
-} */
 .bottom-banner-text {
     position: relative;
     justify-content: center;
-    /* flex-wrap: wrap; */
     white-space:nowrap;
     width: 286px;
     height: 112px;
@@ -262,26 +256,11 @@ main {
     color: #374151;
 }
 
-.bottom_banner_img_container {
-    /* position: absolute;
-    display: flex;
-    width: 996px;
-    height: 540px;
-    left: 701px;
-    padding: 68px; */
-}
-
 #bottom-banner-img {
-    /* 바텀 배너 이미지 컨테이너 */
     position: absolute;
-    display: flex;
     width: 996px;
     height: 540px;
     left: 701px;
-    padding: 68px;
-    /* width: 998px;
-    height: 611px;
-    top: 30px; */
 }
 
 
