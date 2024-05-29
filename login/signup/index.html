@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>판다마켓 로그인</title>
-    <link rel="stylesheet" href="login.css" />
+    <title>판다마켓 회원가입</title>
+    <link rel="stylesheet" href="sign-up.css" />
   </head>
   <body>
     <header class="header-container">
@@ -13,32 +13,57 @@
         <img src="/images/logo-txt.png" />
       </a>
     </header>
-    <main class="login-container">
-      <form class="login-form">
-        <div class="login-input">
+    <main class="signup-container">
+      <form class="signup-form">
+        <div class="signup-input">
           <label for="useremail">이메일</label>
           <div class="input-container">
             <input
               type="text"
               id="useremail"
-              name="useremail"
+              name="signup-email"
               placeholder="이메일을 입력해주세요"
             />
           </div>
         </div>
-        <div class="login-input">
+
+        <div class="signup-input">
+          <label for="nickname">닉네임</label>
+          <div class="input-container">
+            <input
+              type="text"
+              id="useremail"
+              name="signup-nickname"
+              placeholder="닉네임을 입력해주세요"
+            />
+          </div>
+        </div>
+
+        <div class="signup-input">
           <label for="password">비밀번호</label>
           <div class="input-container">
             <input
               type="password"
               id="password"
-              name="password"
+              name="signup-password"
               placeholder="비밀번호를 입력해주세요"
             />
             <button type="button" class="visible-btn"></button>
           </div>
         </div>
-        <button class="login-btn">로그인</button>
+        <div class="signup-input">
+          <label for="repeat-password">비밀번호 확인</label>
+          <div class="input-container">
+            <input
+              type="password"
+              id="repeat-password"
+              name="repeat-signup-password"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+            />
+            <button type="button" class="visible-btn"></button>
+          </div>
+        </div>
+        <button class="signup-btn">회원가입</button>
       </form>
 
       <div class="easy-login">
@@ -52,10 +77,10 @@
           /></a>
         </div>
       </div>
-      <div class="sign-up">
+      <div class="login">
         <p>
-          판다마켓이 처음이신가요?
-          <a href="./signup/">회원가입</a>
+          이미 회원이신가요?
+          <a href="/login/">로그인</a>
         </p>
       </div>
     </main>
