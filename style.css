@@ -9,8 +9,6 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    
 }
 
 #logo {
@@ -90,6 +88,13 @@ header{
     color: #FFFFFF;
 
 } */
+
+main {
+    position: relative;
+    gap: 0px;
+    opacity: 0px;
+    background-color: #FFFFFF;
+}
 
 /* banner */
 .banner {
@@ -203,14 +208,6 @@ header{
     width: 998px;
     height: 611px;
     top: 30px;
-}
-
-
-main {
-    position: relative;
-    gap: 0px;
-    opacity: 0px;
-    background-color: #FFFFFF;
 }
 
 .section {
