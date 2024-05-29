@@ -12,12 +12,13 @@
   text-align: center;
   color: var(--cool-gray-200);
 
-  & .home-footer-buttons,
+  & .home-footer-anchors,
   .home-footer-sns {
     display: flex;
+    height: fit-content;
   }
 
-  & .home-footer-buttons {
+  & .home-footer-anchors {
     gap: 3rem;
   }
 
