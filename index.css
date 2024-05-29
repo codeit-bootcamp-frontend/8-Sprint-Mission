@@ -26,12 +26,21 @@ body {
     margin: 0;
 }
 
+h3 {
+    text-decoration: none;
+}
+
 a {
     text-decoration: none;
     cursor: pointer;
 }
 
 header .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -88,8 +97,10 @@ header .login {
     gap: 32px;
 }
 
-.headline .headline-content img {
-    margin: 100px 0 0;
+
+
+.headline{
+    padding-top: 100px;
 }
 
 .headline .headline-btn {
