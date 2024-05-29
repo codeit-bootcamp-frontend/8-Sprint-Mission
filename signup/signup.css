@@ -96,23 +96,27 @@ form input:focus {
     background-image: url(../source/icons/password/btn_visibility_on_24px.svg);
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 #hidden:active {
     background-image: url(../source/icons/password/btn_visibility_on_24pxshow.svg);
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 #confirm-hidden {
     background-image: url(../source/icons/password/btn_visibility_on_24px.svg);
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 #confirm-hidden:active {
     background-image: url(../source/icons/password/btn_visibility_on_24pxshow.svg);
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 form div {
@@ -131,6 +135,7 @@ form div {
     font-size: 1.25rem;
     line-height: 1.5rem;
     text-align: center;
+    cursor: pointer;
 }
 
 .oauth-login {
@@ -148,6 +153,7 @@ form div {
 }
 
 .oauth-icons img {
+    cursor: pointer;
     width: 44px;
     height: 44px;
 }
