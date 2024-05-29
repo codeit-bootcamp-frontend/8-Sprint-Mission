@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>판다마켓</title>
-  <link rel="stylesheet" href="reset.css">
+  <!-- <link rel="stylesheet" href="reset.css"> -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header class="gnb">
-    <div class="container">
-      <img id="logo" src="img/Group 19.png">
-      <button class="btn_small">
+
+  <header>
+    <img id="logo" src="img/Group 19.png" alt="판다마켓">
+
+    <button class="btn_small" type="button" onclick="location.href='/login'">
+      로그인
+    </button>
+  </header>
+  <!-- <header class="gnb">
+
+    <div class="gnb_container">
+      <img id="logo" src="img/Group 19.png" alt="판다마켓">
+      <button class="btn_small" type="button" onclick="location.href='/login'">
         로그인
       </button>
     </div>
-  </header>
-  <div class="banner">
-    <div class="banner-container">
-      <div class="banner_text_container">
-        <div class="banner_text">일상의 모든 물건을 거래해 보세요</div>
-        <button class="btn_large">
-          구경하러 가기
-        </button>
-      </div>
-      <div class="banner_image_container">
-        <img id="home-top" src="img/img_home_top.png" alt="">
+  </header> -->
+  <main>
+    <div class="banner">
+      <div class="banner-container">
+        <div class="banner_text_container">
+          <span class="banner_text">
+            일상의 모든 물건을<br> 거래해 보세요 </span>  
+          <button class="btn_large" >
+            구경하러 가기
+            <!-- <span class="btn_large_text">구경하러 가기</span> -->
+          </button>
+        </div>
+        <div class="banner_home-top_container">
+          <img id="home-top" src="img/img_home_top.png" alt="">
+        </div>
       </div>
     </div>
-  </div>
-  <main>
+
     <section class="section">
       <div class="section-container">
-        <img class="section-img" src="/img/Img_home_01.png" alt="">
+        <img class="section-img" src="img/Img_home_01.png" alt="">
         <div class="section-text">
           <div class="section-header">
             Hot item
@@ -48,6 +60,7 @@
         </div>
       </div>
     </section>
+
     <section class="section right">
       <div class="section-container">
         <div class="section-text">
@@ -63,12 +76,13 @@
             쉽게 찾아보세요
           </div>
         </div>
-        <img class="section-img" src="/img/Img_home_02.png" alt="">
+        <img class="section-img" src="img/Img_home_02.png" alt="">
       </div>
     </section>
+
     <section class="section">
       <div class="section-container">
-        <img class="section-img" src="/img/Img_home_03.png" alt="">
+        <img class="section-img" src="img/Img_home_03.png" alt="">
         <div class="section-text">
           <div class="section-header">
             Register
@@ -82,13 +96,17 @@
         </div>
       </div>
     </section>
-  </main>
-  <div class="bottom-banner">
-    <div class="bottom-banner-text">
-      믿을 수 있는<br>판다마켓 중고거래
+    <div class="bottom-banner">
+      <div class="bottom-banner-text">믿을 수 있는 <br>판다마켓 중고거래
+      </div>
+      <div class="bottom_banner_img_container">
+        <img id="bottom-banner-img" src="img/Img_home_bottom.png" >
+      </div>
     </div>
-    <img id="bottom-banner-img" src="/img/Img_home_bottom.png" alt="">
-  </div>
+  </main>
+
+  
+
   <footer>
     <div class="footer-container">
       <span style="color: #9CA3AF">
@@ -104,20 +122,19 @@
       </span>
       <span style="display: grid; grid-template-columns: repeat(4,1fr); gap: 30px;">
         <a href="https://www.facebook.com" target="_blank">
-          <img class="icon-20x20" src="/img/fb.png" alt="" srcset="">
+          <img class="icon-20x20" src="img/fb.png" alt="" srcset="">
         </a>
         <a href="https://www.twitter.com" target="_blank">
-          <img class="icon-20x20" src="/img/tw.png" alt="" srcset="">
+          <img class="icon-20x20" src="img/tw.png" alt="" srcset="">
         </a>
         <a href="https://www.youtube.com" target="_blank">
-          <img class="icon-20x20" src="/img/youtube.png" alt="" srcset="">
+          <img class="icon-20x20" src="img/youtube.png" alt="" srcset="">
         </a>
         <a href="https://www.instagram.com" target="_blank">
-          <img class="icon-20x20" src="/img/insta.png" alt="" srcset="">
+          <img class="icon-20x20" src="img/insta.png" alt="" srcset="">
         </a>
       </span>
     </div>
   </footer>
 </body>
-
 </html>
