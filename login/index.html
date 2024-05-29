@@ -36,18 +36,22 @@
           </div>
           <div class="form-content">
             <label for="password">비밀번호</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="비밀번호를 입력해주세요"
-            />
-            <img
-              class="password-show"
-              src="/icon/ic_password_disable.png"
-              alt="비밀번호를 보여주는 눈 모양 아이콘"
-            />
+            <div class="password">
+              <input
+                type="password"
+                name="password"
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <img
+                class="password-show-icon"
+                src="/icon/ic_password_disable.png"
+                alt="비밀번호를 보여주는 눈 모양 아이콘"
+                width="24px"
+                height="24px"
+              />
+            </div>
           </div>
-          <button class="form-login-btn" type="button" disabled value="로그인">
+          <button class="form-login-btn" type="button" value="로그인">
             로그인
           </button>
         </form>

@@ -40,7 +40,6 @@ header {
 .form-content {
   width: 100%;
   margin-bottom: 24px;
-  position: relative;
 }
 
 label {
@@ -48,6 +47,10 @@ label {
   margin-bottom: 16px;
   font-size: 18px;
   font-weight: bold;
+}
+
+.password {
+  position: relative;
 }
 
 input {
@@ -66,11 +69,11 @@ input::placeholder {
   color: var(--gray400);
 }
 
-.password-show {
-  /* display: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0; */
+.password-show-icon {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  bottom: 16px;
   cursor: pointer;
 }
 
@@ -79,12 +82,18 @@ input::placeholder {
   border: 0;
   border-radius: 40px;
   background-color: var(--gray400);
-  padding: 16px 294px;
+  padding: 16px;
+  cursor: pointer;
 
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   color: #ffffff;
+  text-align: center;
+}
+
+.form-login-btn:focus {
+  background-color: var(--blue);
 }
 
 .login-easy {
