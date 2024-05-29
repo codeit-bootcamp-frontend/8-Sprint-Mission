@@ -13,10 +13,16 @@
 }
 
 .gnb_container {
-    width: 1520px;
+    width: 1,520px;
+    height: 51px;
+    top: 10px;
+    left: 200px;
+    justify-content: space-between;
+
+    /* width: 1520px;
     margin: 0px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
 .btn_small {
