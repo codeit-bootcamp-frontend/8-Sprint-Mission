@@ -100,16 +100,19 @@ a {
   color: var(--gray-400);
 }
 
-.visible-btn {
+.invisible-btn {
   width: 24px;
   height: 24px;
   border: none;
   cursor: pointer;
   float: right;
   display: inline-block;
-  background-image: url(/images/visible-btn.png);
+  background-image: url(/images/invisible-btn.svg);
 }
 
+.visible-btn {
+  background-image: url(/images/visible-btn.svg);
+}
 .signup-btn {
   width: 100%;
   height: 56px;
