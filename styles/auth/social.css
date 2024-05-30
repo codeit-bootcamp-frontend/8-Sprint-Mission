@@ -1,0 +1,27 @@
+.social-auth {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 7.4rem;
+  width: 100%;
+  border-radius: 0.8rem;
+  background-color: var(--cool-blue);
+
+  padding: 0 2.3rem;
+  margin-bottom: 2.4rem;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+
+  & .social-auth-buttons {
+    display: flex;
+    gap: 1.6rem;
+    height: 4.2rem;
+
+    & .social-auth-button img {
+      height: 100%;
+    }
+  }
+}

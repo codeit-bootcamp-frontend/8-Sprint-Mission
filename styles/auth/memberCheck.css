@@ -1,0 +1,11 @@
+.member-check {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.79rem;
+  text-align: center;
+
+  & a {
+    color: var(--hyper-blue);
+    text-decoration: underline;
+  }
+}

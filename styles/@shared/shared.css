@@ -22,9 +22,16 @@ body {
     margin: 0;
   }
 
+  & input {
+    outline: none;
+    border: none;
+  }
+
   & button {
     border: none;
     cursor: pointer;
+    background-color: transparent;
+    padding: 0;
   }
 
   & a {

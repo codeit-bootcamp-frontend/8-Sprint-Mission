@@ -42,6 +42,8 @@
         <input type="email" name="email" placeholder="이메일을 입력해주세요" />
 
         <!-- 비밀번호는 자동완성되지 않도록 autocomplete off -->
+        <div class="auth-label">닉네임</div>
+        <input name="nickname" placeholder="닉네임을 입력해주세요" />
         <div class="auth-label">비밀번호</div>
         <input
           type="password"
@@ -49,7 +51,14 @@
           autocomplete="off"
           placeholder="비밀번호를 입력해주세요"
         />
-        <button class="auth-submit-button">로그인</button>
+        <div class="auth-label">비밀번호</div>
+        <input
+          type="password"
+          name="password"
+          autocomplete="off"
+          placeholder="비밀번호를 다시 한 번 입력해주세요"
+        />
+        <button class="auth-submit-button">회원가입</button>
       </form>
 
       <section class="social-auth">
@@ -71,8 +80,8 @@
       </section>
 
       <section class="member-check">
-        <span>판다마켓이 처음이신가요?</span>
-        <a href="../signup">회원가입</a>
+        <span>이미 회원이신가요?</span>
+        <a href="../login">로그인</a>
       </section>
     </main>
   </body>
