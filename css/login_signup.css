@@ -67,15 +67,17 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 16px;
+  right: 24px;
   bottom: 36px;
   border: none;
   background-color: transparent;
-  cursor: pointer;
-}
-.toggle-eye > img {
   width: 24px;
   height: 24px;
+  cursor: pointer;
+  background-image: url(../icon/visible_off.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 24px 24px;
 }
 
 .other-login-section {
