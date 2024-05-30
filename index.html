@@ -23,15 +23,17 @@
           이유는 a 태그의 경우 기본적으로 display: inline 속성이기 때문에 css를 입히기 번거로우며,
           해당 기능이 단순 페이지 이동이 아닌, 데이터 불러오기나 사용자 정보 확인과 같은 기능이 덧붙여질 가능성이 높기 때문에
           onClick 함수의 사용이 더 적합하다고 생각하였습니다. -->
-      <a href="/">
-        <img
-          src="./assets/images/home/logoAndTypo.png"
-          alt="앱 로고와 이름 이미지"
-        />
-      </a>
-      <button class="header-login" onclick="moveLocation('./pages/login')">
-        로그인
-      </button>
+      <div class="home-header-wrapper">
+        <a href="/">
+          <img
+            src="./assets/images/home/logoAndTypo.png"
+            alt="앱 로고와 이름 이미지"
+          />
+        </a>
+        <button class="header-login" onclick="moveLocation('./pages/login')">
+          로그인
+        </button>
+      </div>
     </header>
 
     <article class="home-brand">

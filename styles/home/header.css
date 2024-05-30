@@ -1,11 +1,27 @@
+body {
+  /* header가 position: fixed가 됨으로써 가려지는 컨텐츠를 방지하기 위함  */
+  padding-top: 7rem;
+}
+
 /* 홈 페이지 헤더 */
 .home-header {
-  /* 화면이 작아질 때도  */
-  box-sizing: content-box;
-  max-width: 152rem;
+  position: fixed;
+  top: 0;
+  /* 다른 요소에 의해 가려지지 않도록 z-index 부여 */
+  z-index: 9999;
+
+  width: 100%;
   height: 7rem;
+  background-color: var(--white);
+
   margin: 0 auto;
-  padding: 0 20rem;
+  /* 피그마 요구사항: 좌우 패딩값은 200px로 유지 */
+  padding: 0 200px;
+}
+
+.home-header-wrapper {
+  width: 100%;
+  height: 100%;
 
   display: flex;
   justify-content: space-between;
@@ -15,16 +31,16 @@
     width: 15.3rem;
     height: 5.1rem;
   }
-}
 
-.header-login {
-  width: 12.8rem;
-  height: 4.8rem;
-  border-radius: 0.8rem;
-  color: var(--white);
-  background-color: var(--brand-blue);
+  & .header-login {
+    width: 12.8rem;
+    height: 4.8rem;
+    border-radius: 0.8rem;
+    color: var(--white);
+    background-color: var(--brand-blue);
 
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1.909rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.909rem;
+  }
 }
