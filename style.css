@@ -5,6 +5,15 @@
 }
 
 /* 헤더 부분입니다. */
+.header {
+  width: 100%;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
 .header-wrap {
   display: flex;
   justify-content: space-between;
