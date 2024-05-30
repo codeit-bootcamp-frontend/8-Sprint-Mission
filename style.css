@@ -33,7 +33,7 @@
   font-size: 26px;
   font-weight: 700;
   line-height: 35px;
-  color: #3692FF;
+  color: #3692ff;
 }
 
 a.login-button {
@@ -41,7 +41,7 @@ a.login-button {
   justify-content: center;
   align-items: center;
   flex-basis: 128px;
-  background-color: #3692FF;
+  background-color: #3692ff;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
@@ -53,7 +53,7 @@ a.login-button {
 
 /* 홈 위쪽 부분 입니다. */
 .home-top {
-  background-color: #CFE5FF;
+  background-color: #cfe5ff;
   height: 540px;
   position: relative;
 }
@@ -112,7 +112,7 @@ img.home-top-img {
 }
 
 h3.section-title {
-  color: #3692FF;
+  color: #3692ff;
   font-weight: 700;
   font-size: 18px;
   line-height: 25px;
@@ -157,7 +157,7 @@ span.right {
 
 /* 홈 아래쪽 부분입니다. */
 .home-bottom {
-  background-color: #CFE5FF;
+  background-color: #cfe5ff;
   height: 540px;
   position: relative;
 }
@@ -215,7 +215,7 @@ a.utility {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #E5E7EB;
+  color: #e5e7eb;
 }
 
 .social-box {
