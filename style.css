@@ -7,7 +7,9 @@
 
 :root {
   --blue: #3692ff;
+  --light-blue: #cfe5ff;
   --red: #f74747;
+  --black: #000;
   --gray900: #111827;
   --gray800: #1f2937;
   --gray700: #374151;
@@ -17,7 +19,7 @@
   --gray200: #e5e7eb;
   --gray100: #f3f4f6;
   --gray50: #f9fafb;
-  --sub-color: #cfe5ff;
+  --white: #fff;
 }
 
 nav {
@@ -42,13 +44,18 @@ nav {
   flex-grow: 0;
 }
 
+.logo-img {
+  width: 153px;
+  height: 51px;
+}
+
 .login-btn {
   width: 128px;
   height: 48px;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-  color: var(--sub-color);
+  color: var(--light-blue);
   text-decoration: none;
 
   background-color: var(--blue);
@@ -62,7 +69,7 @@ nav {
 header {
   height: 540px;
   margin-top: 70px;
-  background-color: var(--sub-color);
+  background-color: var(--light-blue);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -104,6 +111,7 @@ header {
   position: absolute;
   right: 223px;
   bottom: 0;
+
   width: 52%;
   height: auto;
 }
@@ -166,7 +174,7 @@ main section:nth-child(even) {
 
 .banner {
   height: 540px;
-  background-color: var(--sub-color);
+  background-color: var(--light-blue);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -182,6 +190,7 @@ main section:nth-child(even) {
   position: absolute;
   right: 223px;
   bottom: 0;
+
   max-width: 52%;
   height: auto;
 }
