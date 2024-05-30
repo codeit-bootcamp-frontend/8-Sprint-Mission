@@ -43,6 +43,8 @@ header {
   padding: 0 12.5rem;
   background-color: #ffffff;
   border-bottom: 1px solid #dfdfdf;
+  position: sticky;
+  top: 0;
 }
 .logo {
   width: 9.5rem;
