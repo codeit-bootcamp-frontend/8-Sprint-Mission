@@ -57,11 +57,10 @@ label {
 
 input {
   width: 100%;
+  padding: 16px 24px;
   border: 0;
   border-radius: 12px;
   background-color: var(--gray100);
-  padding: 16px 24px;
-
   font-size: 16px;
   font-weight: normal;
   line-height: 24px;
@@ -81,17 +80,16 @@ input::placeholder {
 
 .form-login-btn {
   width: 100%;
+  padding: 16px;
   border: 0;
   border-radius: 40px;
   background-color: var(--gray400);
-  padding: 16px;
-  cursor: pointer;
-
   font-size: 20px;
   font-weight: 600;
+  text-align: center;
   line-height: 24px;
   color: #ffffff;
-  text-align: center;
+  cursor: pointer;
 }
 
 .form-login-btn:focus {
@@ -106,7 +104,6 @@ input::placeholder {
   margin: 24px 0;
   border-radius: 8px;
   background-color: #e6f2ff;
-
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -118,9 +115,9 @@ input::placeholder {
 }
 
 .signup {
-  text-align: center;
   font-size: 15px;
   font-weight: 500;
+  text-align: center;
   color: var(--gray800);
 }
 
