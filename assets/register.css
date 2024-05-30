@@ -20,7 +20,8 @@
 }
 
 #container {
-  max-width: 704px;
+  max-width: 44rem;
+  min-height: calc(67.5rem - 14.75rem);
   padding: 0 2rem;
   margin: 0 auto;
 }
@@ -39,11 +40,11 @@
   background-color: var(--color-gray100);
 }
 .input-box input.error {
-  border: 2px solid var(--color-red);
+  outline: 1px solid var(--color-red);
   background-color: #ffb8c4;
 }
 .input-box input:focus {
-  outline-color: #3692ff;
+  outline: 1px solid #3692ff;
 }
 
 .input-box label {
@@ -71,13 +72,14 @@
 .hide-btn.show {
   background: url(../assets/images/show_icon.png) no-repeat;
 }
+
 .error-msg {
   display: none;
   padding-top: 0.625rem;
   padding-left: 0.5rem;
   color: var(--color-red);
-  font-size: 0.75rem;
-  font-weight: 400;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .error-msg.show-msg {
