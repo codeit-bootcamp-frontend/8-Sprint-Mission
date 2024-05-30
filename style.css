@@ -1,0 +1,136 @@
+* {
+box-sizing: border-box;    
+}
+
+.logo-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.top-section {
+  background-color: #CFE5FF;
+  background-image: url(Img_home_top.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-position-x: 70%;
+  height: 540px;
+  display: flex;
+  align-items: center;
+}
+
+.top-section > .container {
+  width: 1200px;
+  margin: auto;
+  font-family: Pretendard;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.main-section {
+  margin: 70px auto;
+  width: 1200px;
+  display: grid;
+  grid-template-columns: "1fr 1fr";
+  grid-template-areas: 
+  "img1 text1"
+  "text2 img2"
+  "img3 text3";
+  gap: 50px;
+}
+
+.hot-item > .img {
+  grid-area: "img1";
+}
+
+.hot-item > .text {
+  grid-area: "text1";
+}
+
+.search > .img {
+  grid-area: "img2";
+}
+
+.search > .text {
+  grid-area: "text2";
+}
+
+.resister > .img {
+  grid-area: "img3";
+}
+
+.resister > .text {
+  grid-area: "text3";
+}
+
+
+.main-section > .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.search.text {
+  text-align: right;
+}
+
+#hot-item-img,
+#search-img,
+#resister-img {
+  display: block;
+  width: 588px;
+  height: 444px;
+}
+
+section.bottom-section {
+  background-color: #CFE5FF;
+  background-image: url(Img_home_bottom.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-position-x: 70%;
+  height: 540px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-section > .container {
+  width: 1200px;
+  margin: auto;
+  font-family: Pretendard;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+
+footer {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.help {
+  text-decoration: none;
+  color:aliceblue;
+}
+
+/* text decoration */
+
+.title {
+  color: #3692FF;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.2px;
+}
+
+.main-section .ment-doit {
+  color: #000000;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+}
