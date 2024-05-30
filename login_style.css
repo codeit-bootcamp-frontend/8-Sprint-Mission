@@ -45,6 +45,7 @@
     background-color: #F3F4F6;
     border-width: 0;
     margin-top: 16px;
+
 }
 
 .pw-container{
@@ -73,6 +74,7 @@
     background-color: #F3F4F6;
     border-width: 0;
     margin-top: 16px;
+    
 }
 
 
@@ -83,7 +85,7 @@ input::placeholder {
     line-height: 24px;
     text-align: left;
     color: #9CA3AF;
-    margin: 16px 24px 16px 24px;
+    padding: 16px 24px 16px 24px;
 }
 
 .login-button-basic{
