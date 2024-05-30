@@ -1,0 +1,93 @@
+#login_logo{
+    width: 396px;
+    height: 132px;
+    top: 60px;
+    left: 762px;
+    position: absolute;
+}
+
+.login-form{
+    width: 640px;
+    height: 430px;
+    top: 232px;
+    left: 640px;
+    gap: 24px;
+    position: absolute;
+
+    /* flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+
+}
+
+.email-container{
+    width: 640px;
+    height: 93px;
+    gap: 16px;
+}
+
+#email-text{
+    width: 47px;
+    height: 21px;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.48px;
+    text-align: left;
+    color: #1F2937;
+}
+
+.email-input{
+    width: 640px;
+    height: 56px;
+    gap: 10px;
+    border-radius: 12px;
+    background-color: #F3F4F6;
+    border-width: 0;
+    margin-top: 16px;
+}
+
+.pw-container{
+    width: 640px;
+    height: 93px;
+    gap: 16px;
+    margin-top:24px;
+}
+
+#pw-text{
+    width: 63px;
+    height: 21px;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.48px;
+    text-align: left;
+    color: #1F2937;
+}
+
+.pw-input{
+    width: 640px;
+    height: 56px;
+    /* padding: 16px 24px 16px 24px; */
+    gap: 10px;
+    border-radius: 12px;
+    background-color: #F3F4F6;
+    border-width: 0;
+    margin-top: 16px;
+}
+
+
+input::placeholder {
+    /* width: 143px;
+    height: 24px; */
+
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #9CA3AF;
+    margin: 16px 24px 16px 24px;
+
+    
+}
