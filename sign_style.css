@@ -1,0 +1,187 @@
+:root{
+    --gray900: #111827;
+    --gray800: #1F2937;
+    --gray700: #374151;
+    --gray600: #4B5563;
+    --gray500: #6B7280;
+    --gray400: #9CA3AF;
+    --gray200: #E5E7EB;
+    --gray100: #F3F4F6;
+    --gray50: #F9FAFB;
+    --blue: #3692FF;
+
+}
+
+body{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo_block{
+    margin-top: 60px;
+    display:flex;
+    height: 132px;
+    width: 396px;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.text_logo_bt{
+    width: 266px;
+    height: 90px;
+    border:none;
+    background-image: url("text_logo_big.png");
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.login_block{
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 430px;
+    justify-content: space-around;
+    gap: 24px;
+}
+
+.email_input_block{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pw_input_block{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login_bt{
+    border: none;
+}
+
+.easy_login_block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E6F2FF;
+    height: 74px;
+    padding: 0 23px;
+    border-radius: 8px;
+}
+
+.buttons{
+    display: flex;
+    gap: 16px;
+}
+
+.new_visitor_chk{
+    text-align: center;
+}
+
+.email_txt{
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.48px;
+    text-align: left;
+}
+
+.pw_txt{
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.48px;
+    text-align: left;
+}
+
+.email_input{
+    border: none;
+    background-color: var(--gray100);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.pw_input{
+    width: 592px;
+    border: none; 
+    background-color:var(--gray100);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.pw_eye{
+    position: absolute;
+    right: 24px;
+    top: 12px;
+}
+
+.pw_input_box{
+    position:relative;
+}
+
+.login_bt{
+    font-family: Pretendard;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    padding:16px;
+    background-color: var(--gray400);
+    border-radius: 40px;
+}
+
+.easy_login_txt{
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+}
+
+.google_bt{
+    background-image: url("ic_google.png");
+    height: 42px;
+    width: 42px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 90px;
+    border: 1px var(--gray50) solid;
+}
+
+.kakao_bt{
+    background-image: url("ic_kakao.png");
+    height: 42px;
+    width: 42px;
+    background-position: center;
+    background-size: cover;
+    border: none;
+}
+
+.new_visitor_chk{
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 17.9px;
+    text-align: center;
+}

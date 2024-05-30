@@ -3,11 +3,15 @@
 }
 
 header{
+    position: sticky;
+    top: 0px;
+    height: 70px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1920px;
-    margin: 10px auto;
+    padding: 10px 0;
+    background-color: #FFFFFF;
 }
 
 
@@ -32,7 +36,7 @@ button{
     font-weight: 600;
     line-height: 19.09px;
     margin-right: 200px;
-    padding: 12px 20px;
+    padding: 10px 20px;
     text-align: center;
     color: #FFFFFF;
     background-color: #3692FF;
@@ -53,6 +57,7 @@ button{
 
 .header_spacer{
     flex-grow: 1;
+    max-width: 1241px;
 }
 
 .top_banner{
@@ -360,10 +365,10 @@ a{
 
 @media screen and (max-width: 1920px) {
     header {
+        height: 3.3vw;
         padding-left: 200px;
         padding-right: 200px;
         max-width: none;
-        margin: 0.48vw auto;
     }
     
     .image_logo{
