@@ -32,11 +32,16 @@ body {
 
   /* header */
 header {
+  position: fixed;
+  background-color: var(--f);
   height: 70px;
+  width: 100%;
   padding: 0 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  top: 0;
+  z-index: 2;
 }
 
 .logo {
@@ -47,6 +52,7 @@ header {
   /* banner */
 .banner-background {
   background-color: var(--banner);
+  margin-top: 70px;
   height: 540px;
 }
 

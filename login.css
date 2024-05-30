@@ -63,9 +63,7 @@ main {
   gap: 24px;
 }
 
-.input-pw,
-.input-email,
-.input-name {
+.input-container {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -76,20 +74,29 @@ input:focus {
   outline: 1px solid var(--brand);
 }
 
-input {
-  padding: 15px;
-  font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-}
-
 .login label {
   font-weight: bold;
 }
 
 .login input {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
   background: #F3F4F6;
   border: none;
   border-radius: 12px;
   height: 56px;
+  padding: 15px;
+}
+
+.pw-container {
+  position: relative;
+}
+
+.btn-off {
+  position: absolute;
+  right: 20px;
+  top: 52px;
+  width: 24px;
+  height: 24px;
 }
 
 .login-messenger {
