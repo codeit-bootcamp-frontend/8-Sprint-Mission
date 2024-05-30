@@ -68,7 +68,6 @@
 .pw-input{
     width: 640px;
     height: 56px;
-    /* padding: 16px 24px 16px 24px; */
     gap: 10px;
     border-radius: 12px;
     background-color: #F3F4F6;
@@ -78,9 +77,6 @@
 
 
 input::placeholder {
-    /* width: 143px;
-    height: 24px; */
-
     font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
@@ -88,8 +84,6 @@ input::placeholder {
     text-align: left;
     color: #9CA3AF;
     margin: 16px 24px 16px 24px;
-
-    
 }
 
 .login-button-basic{
@@ -108,7 +102,54 @@ input::placeholder {
     line-height: 24px;
     text-align: center;
     color: #FFFFFF;
+}
+
+.simple-login{
+    width: 640px;
+    height: 74px;
+    border-radius: 8px;
+    background: #E6F2FF;
+    margin: 24px 0 24px 0;
+    
+    position: relative;
+}
+
+#simple-login-text{
+    width: 101px;
+    height: 24px;
+    top: 25px;
+    left: 23px;
+
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    color: #1F2937;
+
+    position: absolute;
+    align-content: center;
+    white-space: nowrap;
+
+}
+
+.simple-login-icon-container{
+    width: 100px;
+    height: 42px;
+    top: 16px;
+    left: 517px;
+    gap: 16px;
+
+    display: flex;
+    position: absolute;
 
 
+}
+#google-icon{
+    width: 42px;
+    height: 42px;
+}
 
+#kakao-icon{
+    width: 42px;
+    height: 42px;
 }
