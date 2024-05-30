@@ -21,9 +21,15 @@
   justify-content: space-between;
   margin: 0 200px;
   align-items: center;
-  padding: 17px 0;
+  padding: 10px 0 9px;
 }
-.top-nav > a > img {
+
+.nav-logo {
+  background-image: url(../img/logo.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 153px;
   height: 51px;
   cursor: pointer;
 }
