@@ -1,0 +1,44 @@
+/* ==== footer ==== */
+
+footer {
+  background: var(--gray900);
+  color: #fff;
+  height: 160px;
+
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1520px;
+  padding: 30px 0;
+  margin: 0 auto;
+}
+
+.copyright {
+  color: var(--gray400);
+  font-weight: 400;
+}
+
+.sitemap {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-grow: 1;
+  font-weight: 400;
+}
+
+.sns ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.sns ul li a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

@@ -1,17 +1,149 @@
-/* variables */
+@charset "UTF-8";
+/* ==== fonts ==== */
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  src: url("./fonts/Pretendard-Bold.woff2") format("woff2"), url("./fonts/Pretendard-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  src: url("./fonts/Pretendard-SemiBold.woff2") format("woff2"), url("./fonts/Pretendard-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  src: url("./fonts/Pretendard-Medium.woff2") format("woff2"), url("./fonts/Pretendard-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 300;
+  src: url("./fonts/Pretendard-Regular.woff2") format("woff2"), url("./fonts/Pretendard-Regular.woff") format("woff");
+}
+/* ==== reset ==== */
+/* border-box 초기화 */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* 공백 초기화 */
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+li,
+ol,
+p,
+select,
+table,
+td,
+textarea,
+th,
+ul,
+figure,
+figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+/* 폰트 초기화 */
+body,
+button,
+input,
+select,
+table,
+textarea {
+  font-family: var(--main-font), sans-serif;
+}
+
+button {
+  width: 100%;
+  cursor: pointer;
+  border: 0;
+}
+
+fieldset {
+  border: 0;
+}
+
+input {
+  border: 0;
+  outline: 0;
+}
+
+/* 링크 초기화 */
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 스타일 초기화 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+em,
+address {
+  font-style: normal;
+}
+
+strong {
+  font-weight: normal;
+}
+
+img {
+  vertical-align: top;
+  width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+/* ==== variables ==== */
 :root {
   --main-font: "Pretendard";
-
   --banner-bg: #CFE5FF;
-
   --primary: #3692FF;
   --primary-hover: #1967D6;
   --primary-visited: #1251AA;
-
   --error: #F74747;
   --white: #fff;
   --black: #000;
-
   --gray900: #111827;
   --gray800: #1F2937;
   --gray700: #374151;
@@ -21,18 +153,16 @@
   --gray200: #E5E7EB;
   --gray100: #F3F4F6;
   --gray50: #F9FAFB;
-
   /* 폰트를 부드럽게 렌더링하기 위한 속성  */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   /* 아이폰 가로 모드에서 글씨 확대 금지 */
   -webkit-text-size-adjust: 100%;
 }
 
-/* header */
+/* ==== header ==== */
 header {
   display: flex;
   width: 100%;
@@ -46,7 +176,7 @@ header {
 
 .logo {
   display: block;
-  background: url('../img/logo.svg') no-repeat;
+  background: url("../img/logo.svg") no-repeat;
   width: 200px;
   height: 48px;
   background-size: contain;
@@ -54,58 +184,14 @@ header {
 
 .logo-center {
   display: block;
-  background: url('../img/logo.svg') no-repeat;
+  background: url("../img/logo.svg") no-repeat;
   width: 396px;
   height: 132px;
   background-size: contain;
   margin: 60px auto 40px;
 }
 
-.btn-primary {
-  background: var(--primary);
-  color: var(--white);
-}
-
-.btn-primary:hover {
-  background: var(--primary-hover);
-  color: var(--white);
-}
-
-.btn-primary:visited {
-  background: var(--primary-visited);
-  color: var(--white);
-}
-
-.btn-primary:disabled {
-  background: var(--gray400);
-  color: var(--white);
-}
-
-.btn-sm {
-  display: flex;
-  width: 128px;
-  height: 48px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  justify-content: center;
-  align-items: center;
-  transition: .2s ease;
-}
-
-.btn-lg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 600;
-  height: 48px;
-  border-radius: 40px;
-  transition: .2s ease;
-}
-
-/* main */
-
+/* ==== main ==== */
 .main-banner {
   height: 540px;
   display: flex;
@@ -117,7 +203,7 @@ header {
   width: 1520px;
   height: 540px;
   margin: 0 auto;
-  background-image: url('../img/Img_home_top.png');
+  background-image: url("../img/Img_home_top.png");
   background-repeat: no-repeat;
   background-position: bottom right 15%;
   background-size: 55%;
@@ -203,14 +289,13 @@ header {
   display: flex;
   align-items: center;
   background-color: var(--banner-bg);
-
 }
 
 .sub-banner .banner-background {
   width: 1520px;
   height: 540px;
   margin: 0 auto;
-  background-image: url('../img/Img_home_bottom.png');
+  background-image: url("../img/Img_home_bottom.png");
   background-repeat: no-repeat;
   background-position: bottom right 15%;
 }
@@ -221,12 +306,11 @@ header {
   margin: 0 auto;
 }
 
-/* footer */
+/* ==== footer ==== */
 footer {
   background: var(--gray900);
   color: #fff;
   height: 160px;
-
 }
 
 .footer-wrap {
@@ -265,32 +349,7 @@ footer {
   background-repeat: no-repeat;
 }
 
-.ic_instagram {
-  background-image: url('../img/ic_instagram.svg');
-}
-
-.ic_twitter {
-  background-image: url('../img/ic_twitter.svg');
-}
-
-.ic_facebook {
-  background-image: url('../img/ic_facebook.svg');
-}
-
-.ic_youtube {
-  background-image: url('../img/ic_youtube.svg');
-}
-
-.ic_google {
-  background-image: url('../img/ic_google.svg');
-}
-
-.ic_kakao {
-  background-image: url('../img/ic_kakao.svg');
-}
-
-/* 로그인/회원가입 */
-
+/* ==== form ==== */
 .login-wrap,
 .signup-wrap {
   display: flex;
@@ -332,7 +391,6 @@ footer {
   top: 16px;
   background-color: transparent;
 }
-
 
 .input-group input:focus {
   outline: 2px solid var(--primary);
@@ -385,3 +443,69 @@ footer {
   color: var(--primary);
   text-decoration: underline;
 }
+
+/* ==== button ==== */
+.btn-sm {
+  display: flex;
+  width: 128px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.btn-lg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  border-radius: 40px;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  color: var(--white);
+}
+
+.btn-primary:disabled {
+  background: var(--gray400);
+  color: var(--white);
+}
+
+/* ==== icon ==== */
+.ic_instagram {
+  background-image: url("../img/ic_instagram.svg");
+}
+
+.ic_twitter {
+  background-image: url("../img/ic_twitter.svg");
+}
+
+.ic_facebook {
+  background-image: url("../img/ic_facebook.svg");
+}
+
+.ic_youtube {
+  background-image: url("../img/ic_youtube.svg");
+}
+
+.ic_google {
+  background-image: url("../img/ic_google.svg");
+}
+
+.ic_kakao {
+  background-image: url("../img/ic_kakao.svg");
+}
+
+/*# sourceMappingURL=style.css.map */
