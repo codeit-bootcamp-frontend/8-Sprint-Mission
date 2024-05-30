@@ -18,7 +18,7 @@
     <header class="header">
       <div class="logo">
         <a href="/" class="btn-home">
-          <img src="../assets/images/register_logo.png"/>
+          <img src="../assets/images/register_logo.png" alt="logo"/>
         </a>
       </div>
     </header>
@@ -27,16 +27,18 @@
         <div class="input-box">
           <label htmlFor="email">이메일</label>
           <input name="email" id="email" type="email" autofocus placeholder="이메일을 입력해주세요"/>
+          <p class="error-msg hide-msg">잘못된 이메일입니다.</p>
         </div>
         <div class="input-box">
           <label htmlFor="password">비밀번호</label>
-          <p class="input-password">
+          <div class="input-password">
             <input name="password" id="password" type="password" placeholder="비밀번호를 입력해주세요"/>
-            <button class="hide"></button>
-          </p>
+            <p class="error-msg hide-msg">8자 이상 입력해 주세요.</p>
+            <span class="hide-btn" disabled></span>
+          </div>
         </div>
         <div class="login-btn">
-          <button disabled>로그인</button>
+          <button type="submit" disabled>로그인</button>
         </div>
       </form>
       <div class="login-menu">
@@ -58,5 +60,6 @@
         <span>판다마켓이 처음이신가요? <a href="./signup.html">회원가입</a></span>
       </div>
     </div>
+    <script type="module" src="../assets/JS/loginValidation.js"></script>
 </body>
 </html>
