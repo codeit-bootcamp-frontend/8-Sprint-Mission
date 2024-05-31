@@ -47,7 +47,7 @@
 }
 
 .feature-tag {
-  color: #3692ff;
+  color: var(--blue);
   font-size: 18px;
   line-height: 25px;
   font-weight: 700;
