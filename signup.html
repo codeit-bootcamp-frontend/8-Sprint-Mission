@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signup.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img class="logo" src="/image/logo.png" alt="판다마켓 로고" />
+      </a>
+    </header>
+    <main>
+      <div class="signup">
+        <form>
+          <div class="signup-input-box">
+            <label for="signup-email">이메일</label>
+            <input
+              id="signup-email"
+              type="email"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+          <div class="signup-input-box">
+            <label for="signup-name">닉네임</label>
+            <input
+              id="signup-name"
+              type="text"
+              placeholder="닉네임을 입력해주세요"
+            />
+          </div>
+          <div class="signup-input-box">
+            <label for="signup-password">비밀번호</label>
+            <div class="signup-password-box">
+              <input
+                id="signup-password"
+                type="password"
+                autocomplete="on"
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <button type="button" class="password-visible-btn">
+                <img
+                  src="image/btn_visibility_on.png"
+                  alt="btn_visibility_on"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="signup-input-box">
+            <label for="signup-password-confirm">비밀번호</label>
+            <div class="signup-password-box">
+              <input
+                id="signup-password-confirm"
+                type="password"
+                autocomplete="on"
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
+              />
+              <button type="button" class="password-visible-btn">
+                <img
+                  src="image/btn_visibility_on.png"
+                  alt="btn_visibility_on"
+                />
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="signup-btn">회원가입</button>
+        </form>
+        <div class="oauth-login">
+          <span>간편 로그인하기</span>
+          <div class="oauth-login-icons">
+            <a href="https://www.google.co.kr/">
+              <img
+                class="oauth-login-icon"
+                src="/image/google.png"
+                alt="google"
+              />
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img
+                class="oauth-login-icon"
+                src="/image/kakao.png"
+                alt="kakao"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="login">
+          <span>이미 회원이신가요?</span>
+          <a href="login.html">로그인</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
