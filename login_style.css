@@ -1,3 +1,5 @@
+
+
 #login_logo{
     width: 396px;
     height: 132px;
@@ -13,11 +15,7 @@
     left: 640px;
     gap: 24px;
     position: absolute;
-
-    /* flex-direction: row;
-    justify-content: center;
-    align-items: center; */
-
+    
 }
 
 .email-container{
@@ -154,4 +152,41 @@ input::placeholder {
 #kakao-icon{
     width: 42px;
     height: 42px;
+}
+
+.login-signup-container{
+    width: 210px;
+    height: 18px;
+    gap: 4px;
+
+    margin-left: 241px;
+    margin-right: 241px;
+    
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+
+        
+}
+
+.login-signup{
+    width: 154px;
+    height: 18px;
+
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 17.9px;
+    text-align: left;
+    color: #1F2937;
+    white-space: nowrap;
+
+}
+
+#signup-link{
+    width: 52px;
+    height: 18px;
+
+    color: #3182F6;
 }
