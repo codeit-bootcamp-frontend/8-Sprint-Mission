@@ -22,46 +22,73 @@
     ></script>
   </head>
   <body>
-    <!-- 로그인 화면 컨텐츠 전체를 담을 main -->
     <!-- 로그인 화면과 회원가입 화면에서 동일한 스타일이 적용되기 때문에
-      불필요한 코드 중복을 막기 위해 클래스 네임을 auth로 정하고 로그인 & 회원가입 화면에 공통적인 스타일로 적용시킬 예정 -->
+      불필요한 코드 중복을 막기 위해 클래스 네임을 auth로 정하고
+      로그인 & 회원가입 화면에 공통적인 스타일로 적용시킬 예정 -->
+
+    <!-- 메인 페이지로 이동하는 기능을 가진 로고 -->
+    <article class="auth-logo" onclick="moveLocation('/')">
+      <img
+        src="../../assets/images/auth/auth-logo.png"
+        alt="판다마켓 로고와 타이포"
+      />
+    </article>
+
     <main class="auth-container">
-      <!-- 메인 페이지로 이동하는 기능을 가진 로고 -->
-      <button onclick="moveLocation('/')">
-        <img
-          class="auth-logo"
-          src="../../assets/images/auth/auth-logo.png"
-          alt="판다마켓 로고와 타이포"
-        />
-      </button>
-
       <!-- 로그인 정보를 서버로 보낼 form, 비밀번호가 url에 표시되지 않도록 하기위해 post 액션으로 전송 -->
-      <!-- 사용자 편의를 위해  autocomplete 속성 on-->
+      <!-- 사용자 편의를 위해  autocomplete 속성 on, required 속성 추가-->
       <form class="auth-form" autocomplete="on" action="post">
-        <div class="auth-label">이메일</div>
-        <input type="email" name="email" placeholder="이메일을 입력해주세요" />
+        <!-- auth-form 걸려있는 gap의 영향을 받지 않고 auth-label과 input 사이의 간격을 조정하기 위한 div -->
+        <div>
+          <div class="auth-label">이메일</div>
+          <input
+            type="email"
+            name="email"
+            placeholder="이메일을 입력해주세요"
+            required
+          />
+        </div>
 
-        <!-- 비밀번호는 자동완성되지 않도록 autocomplete off -->
-        <div class="auth-label">비밀번호</div>
-        <input
-          type="password"
-          name="password"
-          autocomplete="off"
-          placeholder="비밀번호를 입력해주세요"
-        />
+        <div>
+          <div class="auth-label">비밀번호</div>
+          <!-- visibility-icon을 absolute 속성을 주기 위해
+            password-wrapper는 relative로 감싸주어
+            input 영역 내에서 아이콘 위치를 조정할 수 있도록 하기 위함 -->
+          <div class="password-wrapper">
+            <!-- 비밀번호는 자동완성되지 않도록 autocomplete off -->
+            <input
+              type="password"
+              name="password"
+              autocomplete="off"
+              placeholder="비밀번호를 입력해주세요"
+              required
+            />
+            <!-- 향후 sprint에서 visibility-on or off 기능 추가 예정이라 함 -->
+            <i class="password-visibility-icon"
+              ><img src="../../assets/images/auth/visibility-off.png"
+            /></i>
+          </div>
+        </div>
+
         <button class="auth-submit-button">로그인</button>
       </form>
 
       <section class="social-auth">
         <div class="social-auth-label">간편 로그인하기</div>
         <div class="social-auth-buttons">
-          <button class="social-auth-button">
+          <button
+            class="social-auth-button"
+            onclick="moveLocation('https\:\/\/www.google.com/')"
+          >
             <img
               src="../../assets/images/auth/social-login-google.png"
               alt="구글 소셜 로그인 이미지"
             />
           </button>
-          <button class="social-auth-button">
+          <button
+            class="social-auth-button"
+            onclick="moveLocation('https\:\/\/www.kakaocorp.com\/page\/')"
+          >
             <img
               src="../../assets/images/auth/social-login-kakao.png"
               alt="카카오 소셜 로그인 이미지"
