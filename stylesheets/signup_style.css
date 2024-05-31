@@ -52,7 +52,7 @@ main .container {
     padding: 40px 0;
 }
 
-.textInput {
+.text-input {
     width: 100%;
     height: 56px;
     border-radius: 12px;
@@ -65,21 +65,21 @@ main .container {
     color: var(--gray800);
 }
 
-.textInput:focus {
+.text-input:focus {
     outline: solid var(--blue);
 }
 
-.textInput::placeholder {
+.text-input::placeholder {
     color: var(--gray400);
     font-size: 16px;
     font-weight: 400;
 }
 
-.textInput[type="password"] {
+.text-input[type="password"] {
     color: var(--gray800);
 }
 
-.passwordField {
+.password-field {
     position: relative;
 }
 
@@ -105,7 +105,7 @@ main .container {
     margin: 10px 0;
 }
 
-.easyLogin {
+.easy-login {
     width: 100%;
     height: 74px;
     background-color: #e6f2ff;
@@ -120,13 +120,13 @@ main .container {
     margin: 20px 0;
 }
 
-.mediaIcons {
+.media-icons {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-.signupLink {
+.signup-link {
     display: inline-block;
     width: 100%;
     text-align: center;
@@ -135,6 +135,6 @@ main .container {
     font-weight: 500;
 }
 
-.signupLink a {
+.signup-link a {
     color: #3182f6
 }
