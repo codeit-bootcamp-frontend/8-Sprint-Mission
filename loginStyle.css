@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard', sans-serif;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  width: 640px;
+}
+
+.login-form input {
+  width: 100%;
+  border-radius: 12px;
+  padding: 20px 18px;
+  border: none;
+  background-color: #f3f4f6;
+}
+
+.login-form input:focus {
+  border: #3692ff 1px solid;
+}
+
+.login-form input::placeholder {
+  color: #9ca3af;
+}
+
+.login-form button {
+  width: 100%;
+  border-radius: 9999px;
+  border: none;
+  background-color: #9ca3af;
+  color: #ffffff;
+  padding: 16px 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.sign-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sign-up a {
+  color: #3182f6;
+}
+
+.easy-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  padding: 20px 30px;
+}
+
+.easy-login h2 {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.social-login {
+  display: flex;
+  gap: 20px;
+}
+
+.password-input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-input img {
+  position: absolute;
+  right: 15px;
+}
