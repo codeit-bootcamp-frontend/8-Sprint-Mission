@@ -41,17 +41,19 @@ form.wrap {
   flex-direction: column;
   margin-top: 40px;
   width: 640px;
-  height: 430px;
   gap: 24px;
 }
 
-.login-wrap {
+.login-wrap, .signup-wrap {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.email, .password {
+.email,
+.nickname,
+.password,
+.confirm-password {
   font-size: 18px;
   line-height: 21.48px;
   font-weight: 700;
@@ -114,8 +116,10 @@ ul.icon-wrap {
   justify-content: center;
   align-items: center;
   font-size: 15px;
+  margin-bottom: 60px;
 }
 
 a.signup {
   color: #3182f6;
 }
+
