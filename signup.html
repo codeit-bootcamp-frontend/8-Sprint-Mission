@@ -10,7 +10,7 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
     />
-    <link rel="stylesheet" href="login_style.css" />
+    <link rel="stylesheet" href="signup_style.css" />
   </head>
   <body>
     <header>
@@ -18,14 +18,20 @@
     </header>
     <main>
       <form>
-        <div class="eamil">
-          <label for="signup-email">이메일</label>
-          <input
-            id="signup-email"
-            name="email"
-            placeholder="이메일을 입력해주세요"
-          />
-        </div>
+        <label for="signup-email">이메일</label>
+        <input
+          id="signup-email"
+          name="email"
+          placeholder="이메일을 입력해주세요"
+        />
+      </form>
+      <form>
+        <label for="signup-name">닉네임</label>
+        <input
+          id="signup-name"
+          name="name"
+          placeholder="닉네임을 입력해주세요"
+        />
       </form>
       <form>
         <div class="password">
@@ -35,6 +41,18 @@
             name="password"
             type="password"
             placeholder="비밀번호를 입력해주세요"
+          />
+          <button class="password-incon"></button>
+        </div>
+      </form>
+      <form>
+        <div class="password">
+          <label for="signup-password-reconfirmation">비밀번호 확인</label>
+          <input
+            id="signup-password-reconfirmation"
+            name="password-reconfirmation"
+            type="password"
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
           />
           <button class="password-incon"></button>
         </div>
@@ -52,7 +70,7 @@
         </div>
       </div>
       <div class="footer">
-        판다마켓이 처음이신가요? <a href="/signup.html">회원가입</a>
+        이미 회원이신가요? <a href="/login.html">로그인</a>
       </div>
     </main>
   </body>
