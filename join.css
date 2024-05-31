@@ -74,10 +74,10 @@ input {
     border: none;
     height: 56px;
     margin-top: 5px;
+    box-sizing: border-box;
 }
 .input:focus {
-    border: 2px solid var(--blue);
-    outline: none;
+    outline: 2px solid var(--blue);
 }
 
 .visibilty {
