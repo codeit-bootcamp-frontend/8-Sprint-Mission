@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 8px;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__logo {
+  width: 396px;
+  height: 132px;
+  margin-top: 60px;
+}
+
+.form__ul {
+  display: grid;
+  grid-template-columns: 640px;
+  grid-template-rows: 93px 93px 56px 74px 18px;
+  row-gap: 24px;
+  list-style-type: none;
+}
+
+.form__li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.form__li:last-of-type {
+  justify-self: center;
+}
+
+.form__label {
+  display: block;
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.form__input {
+  width: 100%;
+  height: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--gray-scale-100);
+}
+
+.form__input__wrap {
+  position: relative;
+}
+
+.form__input::placeholder {
+  text-align: left;
+}
+
+.form__input:focus {
+  border: 1px solid var(--default-primary);
+}
+
+.password__logo {
+  background-image: url("../assets/icon_visibility_off.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 24px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.form__submit {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 5rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--gray-scale-400);
+  cursor: pointer;
+}
+
+.form__social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--banner-bg);
+  height: 100%;
+  padding: 2.9rem;
+  font-size: 16px;
+  font-weight: 500;
+
+  span:nth-of-type(2) {
+    display: flex;
+    column-gap: 2rem;
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../component.css" />
+    <link rel="stylesheet" href="Login.css" />
+    <title>판다 마켓 - 로그인 페이지</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <a href="/">
+        <img class="form__logo" src="../assets/logo_with_txt.svg" />
+      </a>
+      <ul class="form__ul">
+        <li class="form__li">
+          <label class="form__label">이메일</label>
+          <input
+            class="form__input"
+            type="'email"
+            placeholder="이메일을 입력해주세요"
+          />
+        </li>
+        <li class="form__li">
+          <label class="form__label">비밀번호</label>
+          <div class="form__input__wrap">
+            <input
+              class="form__input"
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <div class="password__logo"></div>
+          </div>
+        </li>
+        <li class="form__li">
+          <button class="form__submit" type="submit">로그인</button>
+        </li>
+        <li class="form__li">
+          <p class="form__social">
+            <span>간편 로그인하기</span>
+            <span>
+              <a href="https://www.google.com"
+                ><img src="../assets/login_google_logo.svg"
+              /></a>
+              <a href="https://www.kakaocorp.com/page/"
+                ><img src="../assets/login_kakaotalk_logo.svg"
+              /></a>
+            </span>
+          </p>
+        </li>
+        <li class="form__li">
+          <span>판다마켓이 처음이신가요? <a href="/signup">회원가입</a></span>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
