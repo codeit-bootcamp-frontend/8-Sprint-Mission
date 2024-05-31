@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8">
+    <title>판다마켓_로그인</title>
+    <link rel="stylesheet" as="style" crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="sign.css">
+  </head>
+
+  <body>
+    <div class="logoSection">
+      <div class="topBigLogo">
+        <a href="/"><img class="topBigLogoImg" src="img/top_big_logo.png" alt="판다마켓"></a>
+      </div>
+      <form method="post">
+        <div class="inputSection">
+          <label for="email">이메일</label>
+          <input id="email" name="email" type="email" placeholder="이메일을 입력해 주세요">
+        </div>
+        <div class="inputSection">
+          <label for="password">비밀번호</label>
+          <div class="inputPassword">
+            <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요">
+            <img class="visibilityIcon" src="img/ic_password_visibility.png" alt="비밀번호 온오프">
+          </div>
+        </div>
+        <button type="submit" class="button inside widthFull">로그인</button>
+      </form>
+      <div class="simpleLogin">
+        <h3>간편 로그인하기</h3>
+        <div class="simpLoginWays">
+          <a href="https://www.google.com/" target="_blank"
+            ><img class="simpLoginWay" src="img/google_logo.png" alt="구글 로그인"></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank"
+            ><img class="simpLoginWay" src="img/cacao_logo.png" alt="카톡 로그인"></a>
+        </div>
+      </div>
+      <div class="signupLink">
+        판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
+      </div>
+    </div>
+  </body>
+</html>

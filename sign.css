@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+:root {
+  --btn-hover: #1967d6;
+  --btn-focus: #1251aa;
+  --btn-disabled: #9ca3af;
+
+  --input-bg-color: #f3f4f6;
+  --placehd-txt-color: #9ca3af;
+  --input-fc-outline-color: #3692ff;
+  --btn-bg-color: #3692ff;
+  --btn-txt-color: #ffffff;
+  --s-login-bg-color: #e6f2ff;
+  --signup-link-color: #3182f6;
+}
+
+.button:hover {
+  background-color: var(--btn-hover);
+}
+
+.button:focus {
+  background-color: var(--btn-focus);
+}
+
+.button:disabled {
+  background-color: var(--btn-disabled);
+  cursor: default;
+  pointer-events: none;
+}
+.logoSection {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.topBigLogo {
+  display: block;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.topBigLogoImg {
+  width: 396px;
+}
+
+.inputSection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+input {
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+  background-color: var(--input-bg-color);
+}
+
+input::placeholder {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--placehd-txt-color);
+}
+
+.inputPassword {
+  position: relative;
+}
+
+.visibilityIcon {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  cursor: pointer;
+}
+
+input:focus {
+  outline-color: var(--input-fc-outline-color);
+}
+
+.button {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-txt-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.inside {
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 16px 126px;
+}
+
+.widthFull {
+  width: 100%;
+}
+
+.simpleLogin {
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 23px;
+  margin: 24px 0;
+  background-color: var(--s-login-bg-color);
+}
+
+.simpleLogin h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.simpLoginWays {
+  display: flex;
+  gap: 16px;
+}
+
+.simpLoginWay {
+  width: 42px;
+}
+
+.signupLink {
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.signupLink a {
+  color: var(--signup-link-color);
+}
+
+.signupBottom {
+  margin-bottom: 232px;
+}
