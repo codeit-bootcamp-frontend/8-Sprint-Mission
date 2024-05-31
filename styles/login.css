@@ -34,6 +34,16 @@
     outline-color : var(--blue);
 }
 
+.input-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.password-toggle-btn{
+    position: absolute;
+    right: 24px;
+}
+
 .pill-button{
     width: 100%;
 }
