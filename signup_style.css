@@ -48,6 +48,7 @@
     width: 640px;
     height: 93px;
     gap: 16px;
+    margin-top:24px;
 }
 
 #signup-nickname-text{
@@ -60,6 +61,17 @@
     line-height: 21.48px;
     text-align: left;
     color: #1F2937;
+}
+
+.signup-nickname-input{
+    width: 640px;
+    height: 56px;
+    gap: 10px;
+    border-radius: 12px;
+    background-color: #F3F4F6;
+    border-width: 0;
+    margin-top: 16px;
+
 }
 
 .signup-pw-container{
@@ -95,6 +107,7 @@
     width: 640px;
     height: 93px;
     gap: 16px;
+    margin-top:24px;
 }
 
 #signup-pw2-text{
@@ -115,12 +128,12 @@
     border-radius: 12px;
     background-color: #F3F4F6;
     border-width: 0;
-    margin-top: 16px;
-    
+    margin-top: 16px; 
 }
 
-
-
+input:focus {
+    outline: #3692FF;
+}
 
 input::placeholder {
     font-family: Pretendard;
@@ -205,10 +218,13 @@ input::placeholder {
     height: 18px;
     gap: 4px;
 
-    display: flex;
+    margin-left: 241px;
+    margin-right: 241px;
+
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 
         
 }
