@@ -18,13 +18,14 @@
     
 }
 
-.email-container{
+.login-container{
     width: 640px;
     height: 93px;
     gap: 16px;
+    margin-bottom:24px;
 }
 
-#email-text{
+#login-text{
     width: 47px;
     height: 21px;
     font-family: Pretendard;
@@ -35,7 +36,7 @@
     color: #1F2937;
 }
 
-.email-input{
+.login-input{
     width: 640px;
     height: 56px;
     gap: 10px;
@@ -46,25 +47,7 @@
 
 }
 
-.pw-container{
-    width: 640px;
-    height: 93px;
-    gap: 16px;
-    margin-top:24px;
-}
-
-#pw-text{
-    width: 63px;
-    height: 21px;
-    font-family: Pretendard;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 21.48px;
-    text-align: left;
-    color: #1F2937;
-}
-
-.pw-input{
+/* .pw-input{
     width: 640px;
     height: 56px;
     gap: 10px;
@@ -74,7 +57,11 @@
     margin-top: 16px;
     
 }
+ */
 
+/* input:focus {
+    outline: #3692FF;
+} */
 
 input::placeholder {
     font-family: Pretendard;
@@ -94,7 +81,7 @@ input::placeholder {
     border-radius: 40px;
     background: #9CA3AF;
     border-width: 0;
-    margin-top: 24px;
+    /* margin-top: 24px; */
 
     font-family: Pretendard;
     font-size: 20px;
@@ -144,12 +131,7 @@ input::placeholder {
 
 
 }
-#google-icon{
-    width: 42px;
-    height: 42px;
-}
-
-#kakao-icon{
+#icon{
     width: 42px;
     height: 42px;
 }
@@ -161,7 +143,7 @@ input::placeholder {
 
     margin-left: 241px;
     margin-right: 241px;
-    
+
     /* display: flex;
     flex-direction: column;
     align-items: center;
