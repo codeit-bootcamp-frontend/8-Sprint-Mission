@@ -16,7 +16,6 @@ a{
   padding: 0;
   list-style: none;
   text-decoration: none;
-  
 }
 
 body{
@@ -251,8 +250,7 @@ input:focus{
 .pw-box img{
   position: absolute;
   right: 20px;
-  top: 
-  12px;
+  top: 12px;
   cursor: pointer;
 }
 
