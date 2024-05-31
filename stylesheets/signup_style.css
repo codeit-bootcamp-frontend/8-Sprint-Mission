@@ -46,8 +46,9 @@ form label{
     display: inline-block;
 }
 
-.container {
-    width: 640px;
+main .container {
+    width: 90%;
+    max-width: 640px;
     padding: 40px 0;
 }
 
@@ -82,13 +83,13 @@ form label{
     position: relative;
 }
 
-#eyeIcon {
+.eye-icon {
     position: absolute;
     top: 17px;
     right: 22px;
 }
 
-#eyeIcon:hover {
+.eye-icon:hover {
     cursor: pointer;
 }
 
