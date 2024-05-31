@@ -67,6 +67,14 @@ input:focus {
     outline-color: var(--blue);
 }
 
+/* 비밀번호 input 요소 오른쪽에 눈모양 아이콘을 추가합니다. */
+.toggle-password {
+    position: absolute;
+    right: 24px;
+    bottom: 12px;
+    cursor: pointer;
+}
+
 .button {
     background-color: var(--blue);
     color: #ffffff;
@@ -80,7 +88,7 @@ input:focus {
     font-size: 20px;
     font-weight: 600;
     border-radius: 999px;
-    padding: 16px 290px;
+    padding: 16px 280px;
 }
 
 .easy-login {

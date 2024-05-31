@@ -38,10 +38,27 @@
         <div class="input-wrap">
           <label for="password">비밀번호</label>
           <input id="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+          <!-- Sprint Mission 2 심화 요구사항:
+          비밀번호 input 요소 오른쪽에 눈모양 아이콘을 추가합니다.
+          (추후 클릭으로 비밀번호를 보거나 가릴 수 있도록 기능을 만들어 갈 예정입니다.) -->
+          <span class="toggle-password">
+            <img 
+                src="images/btn_visibility_on.png"
+                alt="비밀번호 표시 버튼"
+                width="24" height="24"
+            />
+          </span>
         </div>
         <div class="input-wrap">
           <label for="password-check">비밀번호 확인</label>
           <input id="password-check" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
+          <span class="toggle-password">
+            <img 
+                src="images/btn_visibility_on.png"
+                alt="비밀번호 표시 버튼"
+                width="24" height="24"
+            />
+          </span>
         </div>
         <button class="button pill-button-2">회원가입</button>  
       </form>
