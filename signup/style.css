@@ -13,8 +13,6 @@ body {
 }
 
 
-
-
 .logo img {
     width: 396px;
     height: 132px;
@@ -37,20 +35,9 @@ input {
     font-weight: 400;
     line-height: 24px;
     padding: 0 15px;
-    outline: none;
-    /* 기본 outline 제거 */
 }
 
-input:focus {
-    border: 2px solid #3692FF;
-
-}
-
-input:focus-out {
-    border: none;
-}
-
-.login {
+.signup {
     width: 100%;
     position: relative;
 
@@ -61,13 +48,13 @@ input:focus-out {
     gap: 24px;
 }
 
-.login-input {
+.signup-input {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.login-button {
+.signup-button {
     width: 640px;
     height: 56px;
     border-radius: 40px;
@@ -79,7 +66,7 @@ input:focus-out {
     border: none;
 }
 
-.login-button:hover {
+.signup-button:hover {
     background-color: #3692FF;
 }
 
@@ -99,7 +86,7 @@ input:focus-out {
     gap: 20px;
 }
 
-.login-input svg {
+.signup-input svg {
     position: absolute;
     left: 94%;
     transform: translateY(350%);
