@@ -16,13 +16,14 @@
     
 }
 
-.signup-email-container{
+.signup-container{
     width: 640px;
     height: 93px;
     gap: 16px;
+    margin-bottom:24px;
 }
 
-#signup-email-text{
+#signup-text{
     width: 47px;
     height: 21px;
     font-family: Pretendard;
@@ -44,24 +45,6 @@
 
 }
 
-.signup-nickname-container{
-    width: 640px;
-    height: 93px;
-    gap: 16px;
-    margin-top:24px;
-}
-
-#signup-nickname-text{
-    width: 47px;
-    height: 21px;
-
-    font-family: Pretendard;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 21.48px;
-    text-align: left;
-    color: #1F2937;
-}
 
 .signup-nickname-input{
     width: 640px;
@@ -74,23 +57,6 @@
 
 }
 
-.signup-pw-container{
-    width: 640px;
-    height: 93px;
-    gap: 16px;
-    margin-top:24px;
-}
-
-#signup-pw-text{
-    width: 63px;
-    height: 21px;
-    font-family: Pretendard;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 21.48px;
-    text-align: left;
-    color: #1F2937;
-}
 
 .signup-pw-input{
     width: 640px;
@@ -103,23 +69,6 @@
     
 }
 
-.signup-pw2-container{
-    width: 640px;
-    height: 93px;
-    gap: 16px;
-    margin-top:24px;
-}
-
-#signup-pw2-text{
-    width: 63px;
-    height: 21px;
-    font-family: Pretendard;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 21.48px;
-    text-align: left;
-    color: #1F2937;
-}
 
 .signup-pw2-input{
     width: 640px;
@@ -203,12 +152,7 @@ input::placeholder {
 
 
 }
-#google-icon{
-    width: 42px;
-    height: 42px;
-}
-
-#kakao-icon{
+#icon{
     width: 42px;
     height: 42px;
 }
@@ -220,13 +164,6 @@ input::placeholder {
 
     margin-left: 241px;
     margin-right: 241px;
-
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-
-        
 }
 
 .signup-login{
