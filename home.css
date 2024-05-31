@@ -17,6 +17,10 @@ header {
     padding: 0 200px;
     background-color: #ffffff;
     border-bottom: 1px solid #dfdfdf;
+    /* Sprint Mission 2 기본 요구사항:
+    아래로 스크롤 해도 상단 네비게이션 바(Global Navigation Bar)가 최상단에 고정됩니다. */
+    position: fixed;
+    top: 0;
 }
 
 a {
