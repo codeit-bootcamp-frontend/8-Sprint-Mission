@@ -37,7 +37,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 73px 0 55.14px;
+  margin-top: 73px;
   gap: 0 22.24px;
 }
 .logo img:first-child {
@@ -52,7 +52,7 @@ a {
   flex-direction: column;
   align-items: center;
   width: 640px;
-  margin: 0 auto;
+  margin: 55.14px auto 0;
   gap: 24px 0;
 }
 
@@ -64,7 +64,7 @@ a {
 
 .login-input {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .login-input label {
@@ -72,46 +72,44 @@ a {
   color: var(--gray-800);
 }
 
-.input-container {
-  width: 100%;
-  margin-bottom: 24px;
-  height: 56px;
-  padding: 16px 24px;
-  border-radius: 12px;
-  background: var(--gray-100);
-  border: 1px solid #fff;
-}
-.input-container input {
+.login-input input {
   border: none;
   background: var(--gray-100);
+  border-radius: 12px;
+  padding: 16px 24px;
   font-size: 16px;
+  margin-bottom: 24px;
+  height: 56px;
+  width: 100%;
   font-weight: 400;
   color: var(--gray-800);
-  width: 80%;
 }
 
-.input-container:focus-within {
-  border: 1px solid var(--blue);
+.login-input input:focus {
+  outline: 1px solid var(--blue);
 }
-.input-container input:focus {
-  outline: none;
-}
-.input-container input::placeholder {
+.login-input input::placeholder {
   color: var(--gray-400);
 }
 
+.pw-container {
+  position: relative;
+}
+
 .invisible-btn {
+  position: absolute;
+  top: 15px;
+  right: 24px;
   width: 24px;
   height: 24px;
   border: none;
   cursor: pointer;
   float: right;
-  display: inline-block;
   background-image: url(/images/invisible-btn.svg);
 }
-.visible-btn {
+/* .visible-btn {
   background-image: url(/images/visible-btn.svg);
-}
+} */
 
 .login-btn {
   width: 100%;
@@ -152,7 +150,6 @@ a {
   font-weight: 500;
   line-height: 17.9px;
   color: var(--gray-800);
-  margin-bottom: 100px;
 }
 
 .sign-up a {
