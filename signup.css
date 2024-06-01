@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 .logo {
     width: 640px;
     margin: 60px auto;
@@ -24,13 +23,17 @@ form {
 }
   
 label {
-    color: #2c2c2c;
+    color: #1F2937;
     display: block;
     margin: 16px 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.48px;
+    text-align: left;
 }
 
 input {
-    border: 1px solid #d1d1d1;
+    border: none;
     color: #ababab;
     display: block;
     font-size: 16px;
@@ -38,8 +41,27 @@ input {
     margin: 8px 0;
     padding: 16px 24px;
     width: 100%;
+    background-color: #F3F4F6;
+    width: 640px;
+    height: 56px;
+    border-radius: 12px;
   }
 
+input:focus {
+    border: 2px solid #3692FF;
+}
+
+button:focus {
+    background-color: #3692FF;
+}
+
+#signup-pw,
+#signup-pwcheck {
+    background: url('non_visibility.png') no-repeat 5px center;
+    background-position : 97%;
+    background-size: 27px;
+    background-color: #F3F4F6;
+}
 
 
 button {
@@ -51,18 +73,35 @@ button {
     border: none;
     margin: 20px auto;
     background-color: #9CA3AF;
-    ;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
 
 }
 
 .easy-login {
-    padding: 10px 20px;
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     background-color: #E6F2FF;
     align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #1F2937;
+
 }
 
 .already-user {
     text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 17.9px;
+}
+
+.already-user a {
+    color: #3182F6;
 }
