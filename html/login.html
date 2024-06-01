@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 로그인</title>
+    <link rel="icon" href="..\assets\common\판다 얼굴.png" type="image/png" />
+    <link rel="stylesheet" href="..\css\common.css" />
+    <link rel="stylesheet" href="..\css\login.css" />
+  </head>
+  <body>
+    <header>
+      <a href="..\html\index.html">
+        <img class="logo" src="..\assets\common\logo.svg" />
+      </a>
+    </header>
+
+    <main>
+      <form>
+        <div class="form-group">
+          <label for="email"> 이메일 </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="이메일을 입력해주세요"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password"> 비밀번호 </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-input"
+            placeholder="비밀번호를 입력해주세요"
+            required
+          />
+          <a class="password-inv" href="#"></a>
+        </div>
+        <div class="form-group">
+          <button class="button btn-large login-button" type="submit">
+            로그인
+          </button>
+        </div>
+      </form>
+
+      <div class="social-login-div">
+        <span>간편 로그인하기</span>
+        <div>
+          <a
+            class="google-social-login circular-button"
+            href="https://www.google.com/"
+          ></a>
+          <a
+            class="kakao-social-login circular-button"
+            href="https://www.kakaocorp.com/page/"
+          ></a>
+        </div>
+      </div>
+
+      <div>
+        판다마켓이 처음이신가요?
+        <a class="bottom-link" href="..\html\signup.html">회원가입</a>
+      </div>
+    </main>
+  </body>
+</html>
