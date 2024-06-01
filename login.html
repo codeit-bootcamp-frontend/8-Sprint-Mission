@@ -15,16 +15,16 @@
         <div class="login_block">
             <div class="email_input_block">
                 <span class="email_txt">이메일</span>
-                <input type="email" placeholder="이메일을 입력해주세요" class="email_input">
+                <input type="email" id="email" placeholder="이메일을 입력해주세요" class="email_input" required>
             </div>
             <div class="pw_input_block">
                 <span class="pw_txt">비밀번호</span>
-                <div class="pw_input_box">                
-                    <input type="password" placeholder="비밀번호를 입력해주세요" class="pw_input">
+                <div class="pw_input_box">
+                    <input type="password" placeholder="비밀번호를 입력해주세요" class="pw_input" required>
                     <img class="pw_eye" src="ic_eye.png">
                 </div>
             </div>
-            <button class="login_bt">로그인</button>
+            <button type="sutbmit" class="login_bt" disabled>로그인</button>
             <div class="easy_login_block">
                 <span class="easy_login_txt">간편 로그인하기</span>
                 <div class="buttons">
@@ -36,5 +36,6 @@
                 판다마켓이 처음이신가요?<a href="singup.html">회원가입</a>
             </div>
         </div>
+         <script src="script.js"></script>
     </body>
 </html>

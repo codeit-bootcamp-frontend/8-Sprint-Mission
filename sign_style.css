@@ -29,6 +29,11 @@ body{
     justify-content: center;
 }
 
+input:focus{
+    border: 1px var(--blue) solid;
+    outline: none;
+}
+
 .text_logo_bt{
     width: 266px;
     height: 90px;
@@ -184,4 +189,9 @@ button:hover{
     font-weight: 500;
     line-height: 17.9px;
     text-align: center;
+}
+
+button.enabled {
+    background-color: var(--blue);
+    cursor: pointer;
 }
