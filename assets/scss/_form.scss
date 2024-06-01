@@ -1,0 +1,96 @@
+/* ==== form ==== */
+
+.login-wrap,
+.signup-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 640px;
+  margin: 0 auto;
+}
+
+.input-group label {
+  display: block;
+  font-size: 18px;
+  color: var(--gray800);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.input-group input {
+  width: 100%;
+  font-size: 16px;
+  background: var(--gray100);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  padding: 1em 1.5em;
+  height: 56px;
+}
+
+.input-group .password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle-button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 24px;
+  top: 16px;
+  background-color: transparent;
+}
+
+
+.input-group input:focus {
+  outline: 2px solid var(--primary);
+}
+
+.input-group input::placeholder {
+  color: var(--gray400);
+  font-weight: 500;
+}
+
+.login-box .btn-lg,
+.signup-box .btn-lg {
+  font-size: 20px;
+  height: 56px;
+}
+
+.sns-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #E6F2FF;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+}
+
+.sns-box h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sns-wrap {
+  display: flex;
+  gap: 16px;
+}
+
+.sns-wrap .icon {
+  display: block;
+  width: 42px;
+  height: 42px;
+  background-size: contain;
+}
+
+.auth-switch {
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+}
+
+.underline {
+  color: var(--primary);
+  text-decoration: underline;
+}

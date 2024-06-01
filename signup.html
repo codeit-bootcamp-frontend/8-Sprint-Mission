@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="icon" href="./favicon.ico">
+  <link href="./assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <a href="/" class="logo-center">
+    <h1 class="sr-only">판다마켓</h1>
+  </a>
+  <div class="signup-wrap">
+    <form action="" method="get" class="signup-box">
+      <fieldset>
+        <legend class="sr-only">판다마켓 로그인</legend>
+        <div class="input-group">
+          <label for="email">이메일</label>
+          <input type="email" id="email" placeholder="이메일을 입력해 주세요" autofocus>
+        </div>
+        <div class="input-group">
+          <label for="nickname">닉네임</label>
+          <input type="text" id="nickname" placeholder="닉네임을 입력해 주세요" autofocus>
+        </div>
+        <div class="input-group">
+          <label for="password">비밀번호</label>
+          <div class="password">
+            <input type="password" id="password" placeholder="비밀번호를 입력해 주세요">
+            <button class="password-toggle-button" aria-label="비밀번호 보기">
+              <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
+            </button>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="passwordConfirmation">비밀번호 확인</label>
+          <div class="password">
+            <input type="password" id="passwordConfirmation" placeholder="비밀번호를 다시 한 번 입력해주세요">
+            <button class="password-toggle-button" aria-label="비밀번호 보기">
+              <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
+            </button>
+          </div>
+        </div>
+        <button class="btn-lg btn-primary">회원가입</button>
+
+      </fieldset>
+    </form>
+
+    <div class="sns-box">
+      <h3>간편 로그인하기</h3>
+      <div class="sns-wrap">
+        <a class="icon ic_google" href="https://www.google.com" title="구글 로그인"></a>
+        <a class="icon ic_kakao" href="https://www.kakaocorp.com/page/" title="카카오톡 로그인"></a>
+      </div>
+
+    </div>
+    <div class="auth-switch">이미 회원이신가요? <a class="underline" href="/login">로그인</a></div>
+  </div>
+</body>
+
+</html>

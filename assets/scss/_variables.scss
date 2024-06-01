@@ -1,0 +1,35 @@
+/* ==== variables ==== */
+
+
+:root {
+  --main-font: "Pretendard";
+
+  --banner-bg: #CFE5FF;
+
+  --primary: #3692FF;
+  --primary-hover: #1967D6;
+  --primary-visited: #1251AA;
+
+  --error: #F74747;
+  --white: #fff;
+  --black: #000;
+
+  --gray900: #111827;
+  --gray800: #1F2937;
+  --gray700: #374151;
+  --gray600: #4B5563;
+  --gray500: #6B7280;
+  --gray400: #9CA3AF;
+  --gray200: #E5E7EB;
+  --gray100: #F3F4F6;
+  --gray50: #F9FAFB;
+
+  /* 폰트를 부드럽게 렌더링하기 위한 속성  */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 아이폰 가로 모드에서 글씨 확대 금지 */
+  -webkit-text-size-adjust: 100%;
+}
