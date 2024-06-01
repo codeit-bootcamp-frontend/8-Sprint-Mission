@@ -19,6 +19,7 @@ body{
     padding: 0;
     display: block;
     justify-content: center;
+    font-family: 'Pretendard', sans-serif;
 }
 
 header{
@@ -82,7 +83,7 @@ header{
 /*header-header-bg*/
 .header-bg{
     padding: 0 75px;
-    background-image: url(img/bg_top.png);
+    background-image: url(../img/randing/bg_top.png);
     background-color: var(--background-color);
     background-repeat: no-repeat;
     background-position: 80% bottom;
@@ -156,7 +157,7 @@ section{
 .footer-bg{
     padding: 0 75px;
     background-color: var(--background-color);
-    background-image: url(img/bg_bottom.png);
+    background-image: url(../img/randing/bg_bottom.png);
     background-repeat: no-repeat;
     background-position: 80% bottom;
     background-size: 55%;
