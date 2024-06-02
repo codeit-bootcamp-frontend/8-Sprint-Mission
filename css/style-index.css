@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Pretendard, sans-serif;
+  word-break: keep-all;
+}
+
+body {
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  background-color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+header {
+  min-width: 1920px;
+  width: 100%;
+  height: 540px;
+  background-color: #CFE5FF;
+}
+
+.header {
+  width: 1920px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-left: 360px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #374151;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #374151;
+}
+
+.img-home-top {
+  position: absolute;
+  top: 93px;
+  left: 701px;
+}
+
+section {
+  width: 1920px;
+  height: 720px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+}
+
+.main {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.main-badge {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.2px;
+  color: #3692FF;
+}
+
+.main-title p {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.8px;
+  color: #374151;
+}
+
+.main-right {
+  flex-direction: row-reverse;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.end {
+  min-width: 1920px;
+  width: 100%;
+  height: 540px;
+  margin: 180px auto 0;
+  background-color: #CFE5FF;
+  position: relative;
+}
+
+.end-title {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.end-title h1 {
+  min-width: 340px;
+}
+
+footer {
+  min-width: 1920px;
+  width: 100%;
+  height: 160px;
+  margin: 0 auto;
+  padding: 32px 200px;
+  background-color: #111827;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer {
+  width: 760px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-font {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9CA3AF;
+  text-align: center;
+  line-height: 19.09px;
+}
