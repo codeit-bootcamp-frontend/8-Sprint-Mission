@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --brand-blue: #3692ff;
+  --cool-gray-900: #111827;
+  --cool-gray-800: #1f2937;
+  --cool-gray-700: #374151;
+  --cool-gray-600: #4B5563;
+  --cool-gray-500: #6B7280;
+  --cool-gray-400: #9ca3af;
+  --cool-gray-300: #d1d5db;
+  --cool-gray-200: #e5e7eb;
+  --cool-gray-100: #f3f4f6;
+  --cool-gray-50: #f9fafb;
+  --error-red: #f74747; 
+
+  /* arbitrarily named color value */
+  --gray-00: #ffffff;
+  --main-background-color: #cfe5ff;
+}
+
+html {
+  font-family: Pretendard, sans-serif;
+}
+
+button, input {
+  border: none;
+}
+
+button, a {
+  cursor: pointer;
+}
