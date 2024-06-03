@@ -1,12 +1,33 @@
 /* ==== form ==== */
+.logo-center {
+  display: block;
+  background: url('../img/logo.svg') no-repeat;
+  width: 396px;
+  height: 132px;
+  background-size: contain;
+  margin: 0 auto 20px;
+
+  @media (max-width:767px) {
+    width: 198px;
+    height: 66px;
+  }
+}
 
 .login-wrap,
 .signup-wrap {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 640px;
-  margin: 0 auto;
+  width: calc(100% - 102px);
+  max-width: 640px;
+  margin: 60px auto;
+
+  @media (max-width:767px) {
+    width: calc(100% - 32px);
+    max-width: 400px;
+    margin: 24px auto;
+
+  }
 }
 
 .input-group label {
@@ -15,6 +36,11 @@
   color: var(--gray800);
   margin-bottom: 16px;
   font-weight: 700;
+
+  @media (max-width:767px) {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
 }
 
 .input-group input {
@@ -25,6 +51,10 @@
   margin-bottom: 24px;
   padding: 1em 1.5em;
   height: 56px;
+
+  @media (max-width:767px) {
+    margin-bottom: 16px;
+  }
 }
 
 .input-group .password {

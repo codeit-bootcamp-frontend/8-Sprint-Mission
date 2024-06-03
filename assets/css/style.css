@@ -3,22 +3,22 @@
 @font-face {
   font-family: "Pretendard";
   font-weight: 700;
-  src: url("./fonts/Pretendard-Bold.woff2") format("woff2"), url("./fonts/Pretendard-Bold.woff") format("woff");
+  src: url("../fonts/Pretendard-Bold.woff2") format("woff2"), url("../fonts/Pretendard-Bold.woff") format("woff");
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 500;
-  src: url("./fonts/Pretendard-SemiBold.woff2") format("woff2"), url("./fonts/Pretendard-SemiBold.woff") format("woff");
+  src: url("../fonts/Pretendard-SemiBold.woff2") format("woff2"), url("../fonts/Pretendard-SemiBold.woff") format("woff");
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 400;
-  src: url("./fonts/Pretendard-Medium.woff2") format("woff2"), url("./fonts/Pretendard-Medium.woff") format("woff");
+  src: url("../fonts/Pretendard-Medium.woff2") format("woff2"), url("../fonts/Pretendard-Medium.woff") format("woff");
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 300;
-  src: url("./fonts/Pretendard-Regular.woff2") format("woff2"), url("./fonts/Pretendard-Regular.woff") format("woff");
+  src: url("../fonts/Pretendard-Regular.woff2") format("woff2"), url("../fonts/Pretendard-Regular.woff") format("woff");
 }
 /* ==== reset ==== */
 /* border-box 초기화 */
@@ -171,7 +171,7 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding: 0 0;
+  padding: 0 24px;
 }
 
 .logo {
@@ -180,15 +180,6 @@ header {
   width: 200px;
   height: 48px;
   background-size: contain;
-}
-
-.logo-center {
-  display: block;
-  background: url("../img/logo.svg") no-repeat;
-  width: 396px;
-  height: 132px;
-  background-size: contain;
-  margin: 60px auto 40px;
 }
 
 /* ==== main ==== */
@@ -200,8 +191,9 @@ header {
 }
 
 .main-banner .banner-background {
-  width: 1520px;
-  height: 540px;
+  max-width: 1520px;
+  width: 100%;
+  height: inherit;
   margin: 0 auto;
   background-image: url("../img/Img_home_top.png");
   background-repeat: no-repeat;
@@ -210,17 +202,19 @@ header {
 }
 
 .main-banner .banner-wrap {
-  width: 1200px;
-  height: 540px;
+  max-width: 1200px;
+  height: inherit;
   margin: 0 auto;
+  padding: 0 26px;
 }
 
 .banner-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 540px;
+  height: inherit;
   width: 357px;
+  color: var(--gray700);
   padding: 0;
 }
 
@@ -292,17 +286,20 @@ header {
 }
 
 .sub-banner .banner-background {
-  width: 1520px;
-  height: 540px;
+  max-width: 1520px;
+  width: 100%;
+  height: inherit;
   margin: 0 auto;
   background-image: url("../img/Img_home_bottom.png");
   background-repeat: no-repeat;
   background-position: bottom right 15%;
+  background-size: 55%;
 }
 
 .sub-banner .banner-wrap {
-  width: 1200px;
-  height: 540px;
+  max-width: 1200px;
+  width: 100%;
+  height: inherit;
   margin: 0 auto;
 }
 
@@ -318,12 +315,12 @@ footer {
   justify-content: space-between;
   width: 100%;
   max-width: 1520px;
-  padding: 30px 0;
+  padding: 30px 26px;
   margin: 0 auto;
 }
 
 .copyright {
-  color: var(--gray400);
+  color: #676767;
   font-weight: 400;
 }
 
@@ -333,6 +330,7 @@ footer {
   justify-content: center;
   flex-grow: 1;
   font-weight: 400;
+  color: #cfcfcf;
 }
 
 .sns ul {
@@ -350,13 +348,37 @@ footer {
 }
 
 /* ==== form ==== */
+.logo-center {
+  display: block;
+  background: url("../img/logo.svg") no-repeat;
+  width: 396px;
+  height: 132px;
+  background-size: contain;
+  margin: 0 auto 20px;
+}
+@media (max-width: 767px) {
+  .logo-center {
+    width: 198px;
+    height: 66px;
+  }
+}
+
 .login-wrap,
 .signup-wrap {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 640px;
-  margin: 0 auto;
+  width: calc(100% - 102px);
+  max-width: 640px;
+  margin: 60px auto;
+}
+@media (max-width: 767px) {
+  .login-wrap,
+  .signup-wrap {
+    width: calc(100% - 32px);
+    max-width: 400px;
+    margin: 24px auto;
+  }
 }
 
 .input-group label {
@@ -365,6 +387,12 @@ footer {
   color: var(--gray800);
   margin-bottom: 16px;
   font-weight: 700;
+}
+@media (max-width: 767px) {
+  .input-group label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
 }
 
 .input-group input {
@@ -375,6 +403,11 @@ footer {
   margin-bottom: 24px;
   padding: 1em 1.5em;
   height: 56px;
+}
+@media (max-width: 767px) {
+  .input-group input {
+    margin-bottom: 16px;
+  }
 }
 
 .input-group .password {
@@ -454,18 +487,18 @@ footer {
   border-radius: 8px;
   justify-content: center;
   align-items: center;
-  transition: 0.2s ease;
+  transition: backgroud 0.2s ease;
 }
 
 .btn-lg {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
-  height: 48px;
+  height: 56px;
   border-radius: 40px;
-  transition: 0.2s ease;
+  transition: backgroud 0.2s ease;
 }
 
 .btn-primary {
@@ -506,6 +539,158 @@ footer {
 
 .ic_kakao {
   background-image: url("../img/ic_kakao.svg");
+}
+
+/* ==== responsive ==== */
+@media (max-width: 1199px) {
+  header {
+    padding: 0 24px;
+  }
+  .main-banner {
+    height: 771px;
+    align-items: unset;
+  }
+  .main-banner .banner-background {
+    background-position: bottom center;
+    background-size: 105%;
+  }
+  .main-banner .banner-text {
+    width: 100%;
+    text-align: center;
+    padding-top: 84px;
+    justify-content: start;
+  }
+  .main-banner .banner-text .title br {
+    display: none;
+  }
+  .main-banner .banner-text a {
+    min-width: 355px;
+    height: 60px;
+    margin: 25px auto;
+  }
+  .section-list {
+    padding: 24px 0;
+  }
+  .section-list .section {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 24px 16px;
+    margin-bottom: 64px;
+  }
+  .section-list .section .section-text .title {
+    font-size: 32px;
+  }
+  .section-list .section .section-text .title br {
+    display: none;
+  }
+  .section-list .section .section-text .description {
+    font-size: 18px;
+  }
+  .section-list .section .section-img {
+    width: 100%;
+    height: auto;
+  }
+  .sub-banner {
+    height: 927px;
+  }
+  .sub-banner .banner-background {
+    background-position: bottom center;
+    background-size: 105%;
+  }
+  .sub-banner .banner-text {
+    width: 100%;
+    text-align: center;
+    justify-content: start;
+  }
+  .sub-banner .banner-text .title {
+    padding-top: 202px;
+  }
+  .footer-wrap {
+    padding: 30px 0;
+    max-width: 536px;
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  header {
+    padding: 0 16px;
+  }
+  .main-banner {
+    height: 540px;
+    align-items: unset;
+  }
+  .main-banner .banner-background {
+    background-position: bottom center;
+    background-size: 105%;
+  }
+  .main-banner .banner-text {
+    width: 100%;
+    text-align: center;
+    padding-top: 48px;
+    justify-content: start;
+  }
+  .main-banner .banner-text .title {
+    font-size: 32px;
+    text-align: center;
+  }
+  .main-banner .banner-text .title br {
+    display: block;
+  }
+  .main-banner .banner-text a {
+    font-size: 16px;
+    height: 48px;
+    min-width: 154px;
+    margin: 18px auto;
+  }
+  .section-list {
+    padding: 51px 0 0;
+  }
+  .section-list .section {
+    padding: 0 16px;
+  }
+  .section-list .section .section-text .label {
+    font-size: 16px;
+  }
+  .section-list .section .section-text .title {
+    font-size: 24px;
+  }
+  .section-list .section .section-text .description {
+    font-size: 16px;
+  }
+  .sub-banner {
+    height: 540px;
+  }
+  .sub-banner .banner-background {
+    background-position: bottom center;
+    background-size: 105%;
+  }
+  .sub-banner .banner-text {
+    width: 100%;
+    text-align: center;
+    justify-content: start;
+  }
+  .sub-banner .banner-text .title {
+    font-size: 32px;
+    padding-top: 121px;
+  }
+  .footer-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 32px;
+    grid-template-areas: "sitemap sns" "copyright copyright";
+    height: inherit;
+  }
+  .footer-wrap .copyright {
+    grid-area: copyright;
+    align-content: end;
+  }
+  .footer-wrap .sitemap {
+    justify-self: start;
+    grid-area: sitemap;
+  }
+  .footer-wrap .sns {
+    grid-area: sns;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
