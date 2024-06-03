@@ -10,10 +10,10 @@
 </head>
 
 <body>
-  <a href="/" class="logo-center">
-    <h1 class="sr-only">판다마켓</h1>
-  </a>
   <div class="signup-wrap">
+    <a href="/" class="logo-center">
+      <h1 class="sr-only">판다마켓</h1>
+    </a>
     <form action="" method="get" class="signup-box">
       <fieldset>
         <legend class="sr-only">판다마켓 로그인</legend>
@@ -29,7 +29,7 @@
           <label for="password">비밀번호</label>
           <div class="password">
             <input type="password" id="password" placeholder="비밀번호를 입력해 주세요">
-            <button class="password-toggle-button" aria-label="비밀번호 보기">
+            <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
               <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
             </button>
           </div>
@@ -38,12 +38,12 @@
           <label for="passwordConfirmation">비밀번호 확인</label>
           <div class="password">
             <input type="password" id="passwordConfirmation" placeholder="비밀번호를 다시 한 번 입력해주세요">
-            <button class="password-toggle-button" aria-label="비밀번호 보기">
+            <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
               <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
             </button>
           </div>
         </div>
-        <button class="btn-lg btn-primary">회원가입</button>
+        <button type="submit" class="btn-lg btn-primary">회원가입</button>
 
       </fieldset>
     </form>
@@ -56,7 +56,7 @@
       </div>
 
     </div>
-    <div class="auth-switch">이미 회원이신가요? <a class="underline" href="/login">로그인</a></div>
+    <div class="auth-switch">이미 회원이신가요? <a class="underline" href="/login.html">로그인</a></div>
   </div>
 </body>
 
