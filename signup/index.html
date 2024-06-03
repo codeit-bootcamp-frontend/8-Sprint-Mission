@@ -11,40 +11,101 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
   </head>
+
   <body>
-    <a class="logo" href="/"
-      ><img
-        src="/image/Img_logo.png"
-        alt="판다마켓 로고 이미지"
-        width="396px"
-        height="132px"
-    /></a>
-    <div>
-      <form action="">
-        <div>
-          <label for="">이메일</label>
-          <input type="email" />
-          이메일을 입력해주세요
+    <main>
+      <header>
+        <a class="logo" href="/"
+          ><img
+            src="/image/Img_logo.png"
+            alt="판다마켓 로고 이미지"
+            width="396px"
+            height="132px"
+        /></a>
+      </header>
+
+      <div class="signup-container">
+        <form action="">
+          <div class="form-content">
+            <label for="email">이메일</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+          <div class="form-content">
+            <label for="nickname">닉네임</label>
+            <input
+              type="text"
+              name="nickname"
+              placeholder="닉네임을 입력해주세요"
+            />
+          </div>
+          <div class="form-content">
+            <label for="password">비밀번호</label>
+            <div class="password">
+              <input
+                type="password"
+                name="password"
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <img
+                class="password-show-icon"
+                src="/icon/ic_password_disable.png"
+                alt="비밀번호를 보여주는 눈 모양 아이콘"
+                width="24px"
+                height="24px"
+              />
+            </div>
+          </div>
+          <div class="form-content">
+            <label for="password-check">비밀번호 확인</label>
+            <div class="password">
+              <input
+                type="password"
+                name="password-check"
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
+              />
+              <img
+                class="password-show-icon"
+                src="/icon/ic_password_disable.png"
+                alt="비밀번호를 보여주는 눈 모양 아이콘"
+                width="24px"
+                height="24px"
+              />
+            </div>
+          </div>
+          <button class="form-signup-btn" type="button" value="회원가입">
+            회원가입
+          </button>
+        </form>
+
+        <div class="login-easy">
+          간편 로그인하기
+          <div class="login-easy-sns">
+            <a href="https://www.google.com/"
+              ><img
+                src="/icon/ic_google.png"
+                alt="구글 아이콘"
+                width="42px"
+                height="42px"
+            /></a>
+            <a href="https://www.kakaocorp.com/page/"
+              ><img
+                src="/icon/ic_kakao.png"
+                alt="카카오톡 아이콘"
+                width="42px"
+                height="42px"
+            /></a>
+          </div>
         </div>
-        <div>
-          <label for="">닉네임</label>
-          <input type="email" />
-          닉네임을 입력해주세요
-        </div>
-        <div>
-          <label for="">비밀번호</label>
-          <input type="password" />
-          비밀번호를 입력해주세요
-        </div>
-        <div>
-          <label for="">비밀번호 확인</label>
-          <input type="password" />
-          비밀번호를 다시 한 번 입력해주세요
-        </div>
-        <a href="">회원가입</a>
-      </form>
-      <div>간편 로그인하기</div>
-      <div>이미 회원이신가요? 로그인</div>
-    </div>
+      </div>
+
+      <div class="login">
+        이미 회원이신가요?
+        <a class="login-link" href="/login/">로그인</a>
+      </div>
+    </main>
   </body>
 </html>
