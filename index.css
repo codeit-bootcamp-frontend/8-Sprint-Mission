@@ -1,22 +1,5 @@
-:root {
-  /* brand color */
-  --brand-blue: #3692ff;
-  --brand-hover-blue: #1967d6;
-  --brand-active-blue: #1251aa;
-
-  /* error */
-  --error-red: #f74747;
-  /* Cool Gray */
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
-}
+@import "/mediaQuery.css";
+@import "/variable.css";
 
 * {
   box-sizing: border-box;
@@ -37,10 +20,15 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 70px;
-  padding: 0 200px;
+  height: 4.5rem;
+  padding: 0 12.5rem;
   background-color: #ffffff;
   border-bottom: 1px solid #dfdfdf;
+  position: sticky;
+  top: 0;
+}
+.logo {
+  width: 9.5rem;
 }
 button {
   border: none;
@@ -50,19 +38,19 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
-  border-radius: 8px;
-  padding: 12px 20px;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.3rem;
   background-color: var(--brand-blue);
   color: #ffffff;
-  width: 128px;
+  width: 8rem;
 }
 .banner {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 540px;
+  height: 33.7rem;
   background-color: #cfe5ff;
   background-image: url(image/banner-img.png);
   background-position: 70% bottom;
@@ -72,22 +60,22 @@ button {
 .wrap {
   margin: 0 auto;
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
 }
 .banner-title {
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 3.5rem;
   color: var(--gray-700);
 }
 .banner-btn {
   background-color: var(--brand-blue);
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 1.5rem;
   text-align: center;
-  border-radius: 40px;
-  padding: 16px 124px;
+  border-radius: 2.5rem;
+  padding: 1rem 7.7rem;
   color: #ffffff;
 }
 .banner-btn:hover,
@@ -107,36 +95,36 @@ button {
 }
 .contents {
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
-  padding-bottom: 130px;
+  padding-bottom: 8rem;
 }
 .content {
   display: flex;
-  padding: 130px 0;
+  padding: 8rem 0;
   align-items: center;
-  gap: 64px;
+  gap: 4rem;
 }
 
 .content-textBox {
   flex: 1;
 }
 .content-keyword {
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: 700;
-  line-height: 25.2px;
+  line-height: 1.5rem;
   color: var(--brand-blue);
 }
 .content-title {
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 3.5rem;
   letter-spacing: 2%;
 }
 .content-description {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
-  line-height: 28.8px;
+  line-height: 1.8rem;
   letter-spacing: 8%;
 }
 .content:nth-child(2) {
@@ -149,18 +137,18 @@ footer {
   align-items: center;
   background-color: var(--gray-900);
   width: 100%;
-  padding: 32px 200px 100px 200px;
-  font-size: 16px;
+  padding: 2rem 12.5rem 6.2rem 12.5rem;
+  font-size: 1rem;
 }
 .footer-company {
   color: var(--gray-400);
 }
 .footer-links {
   display: flex;
-  gap: 30px;
+  gap: 1.8rem;
   color: var(--gray-200);
 }
 .footer-social-links {
   display: flex;
-  gap: 12px;
+  gap: 0.7rem;
 }
