@@ -83,13 +83,13 @@ main .container {
     position: relative;
 }
 
-.eye-icon {
+.password-visibility-icon {
     position: absolute;
     top: 17px;
     right: 22px;
 }
 
-.eye-icon:hover {
+.password-visibility-icon:hover {
     cursor: pointer;
 }
 

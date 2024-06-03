@@ -1,15 +1,40 @@
-const eyes = document.querySelectorAll('.eye-icon');
+const passwordVisibilityIcons = document.querySelectorAll('.password-visibility-icon');
 
-for (let eye of eyes) {
-    eye.onclick = function() {
-        eye.classList.toggle('on');
-        if (eye.classList.length === 2) {
-            eye.setAttribute('src', '../imgs/EyeIcon.png');
-            eye.previousElementSibling.setAttribute('type', 'text');
-        }
-        else {
-            eye.setAttribute('src', '../imgs/EyeIconSlashed.png');
-            eye.previousElementSibling.setAttribute('type', 'password');
-        }
+function toggleVisibility (e) {
+    e.target.classList.toggle('visible');
+    
+    const isVisible = e.target.classList.contains('visible');
+    const inputField = e.target.previousElementSibling;
+    
+    if (isVisible) {
+        e.target.setAttribute('src', '../imgs/EyeIcon.png');
+        inputField.setAttribute('type', 'text');
+        return;
     }
+
+    e.target.setAttribute('src', '../imgs/EyeIconSlashed.png');
+    inputField.setAttribute('type', 'password');
 }
+
+for (let each of passwordVisibilityIcons) {
+    each.addEventListener('click', toggleVisibility);
+}
+
+// ------------------------------------------------
+
+const inputs = document.querySelectorAll('input');
+const btn = document.querySelector('.doit');
+const form = document.querySelector('form');
+
+function filledInputCheck() {
+    const hiddenPlaceholders = document.querySelectorAll('input:not(:placeholder-shown)');
+    
+    if (hiddenPlaceholders.length == inputs.length) {
+        btn.style.backgroundColor = '#3692ff';
+        return;
+    }
+
+    btn.style.backgroundColor = '#9ca3af';
+}
+
+form.addEventListener('keyup', filledInputCheck);

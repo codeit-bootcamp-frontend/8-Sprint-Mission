@@ -153,20 +153,20 @@ section.items-promotion {
     background-image: url('../imgs/Img_home_03.png');
 }
 
-.content-line1 {
+.content-title {
     font-size: 1.125rem;
     font-weight: 700;
     color: #3692ff;
 }
 
-.content-line2 {
+.content-large {
     font-size: 2.5rem;
     font-weight: 700;
     color: #374151;
     line-height: 56px;
 }
 
-.content-line3 {
+.content-small {
     font-size: 1.5rem;
     font-weight: 500;
     color: #374151;
@@ -199,14 +199,14 @@ footer {
     justify-content: space-between;
 }
 
-.footer-content1 {
+.footer-brand {
     font-size: 1rem;
     font-weight: 400;
     color: #9ca3af;
     width: 120px;
 }
 
-.footer-content2 {
+.footer-policy {
     font-size: 1rem;
     font-weight: 400;
     color: #e5e7eb;
@@ -214,7 +214,7 @@ footer {
     gap: 30px;
 }
 
-.footer-content3 {
+.footer-media {
     display: flex;
     justify-content: flex-end;
     gap: 12px;
