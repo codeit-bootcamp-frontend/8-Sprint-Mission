@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="판다마켓 회원가입" />
+    <title>판다마켓 회원가입</title>
+    <link rel="stylesheet" href="../assets/register.css" />
+    <link rel="stylesheet" href="../assets/reset.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="/" class="btn-home">
+          <img src="../assets/images/register_logo.png" alt="logo" />
+        </a>
+      </div>
+    </header>
+    <div id="container">
+      <form class="form">
+        <div class="input-box">
+          <label for="email">이메일</label>
+          <input
+            name="email"
+            id="email"
+            type="email"
+            autofocus
+            placeholder="이메일을 입력해주세요"
+          />
+          <span class="error-msg">잘못된 이메일입니다.</span>
+        </div>
+        <div class="input-box">
+          <label for="nickname">닉네임</label>
+          <input
+            name="nickname"
+            id="nickname"
+            type="text"
+            placeholder="닉네임을 입력해주세요"
+          />
+          <span class="error-msg">닉네임을 입력해 주세요.</span>
+        </div>
+        <div class="input-box">
+          <label for="password">비밀번호</label>
+          <div class="input-password">
+            <input
+              name="password"
+              id="password"
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <p class="error-msg">8장 이상 입력해 주세요.</p>
+            <span class="hide-btn"></span>
+          </div>
+        </div>
+        <div class="input-box">
+          <label for="passwordCheck">비밀번호 확인</label>
+          <div class="input-password">
+            <input
+              name="passwordCheck"
+              id="passwordCheck"
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+            />
+            <p class="error-msg">비밀번호가 일치하지 않습니다.</p>
+            <span class="hide-btn"></span>
+          </div>
+        </div>
+        <div class="login-btn">
+          <button type="submit" disabled>회원가입</button>
+        </div>
+      </form>
+      <div class="login-menu">
+        <span class="login-simple">간편 로그인하기</span>
+        <ul class="login-list">
+          <li>
+            <a href="https://www.google.com/">
+              <img src="../assets/images/google.png" alt="googleLogin" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="../assets/images/kakao.png" alt="kakaoLogin" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="register-box">
+        <span>이미 회원이신가요? <a href="./login.html">로그인</a></span>
+      </div>
+    </div>
+    <script type="module" src="../assets/JS/signupValidation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+@charset "uft-8";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+/*  default */
+
+:root {
+  --color-gray900: #111827;
+  --color-gray800: #1f2937;
+  --color-gray700: #374151;
+  --color-gray600: #4b5563;
+  --color-gray500: #6b7280;
+  --color-gray400: #9ca3af;
+  --color-gray200: #e5e7eb;
+  --color-gray100: #f3f4f6;
+  --color-gray50: #f9fafb;
+
+  --color-blue: #3692ff;
+  --color-red: #f74747;
+}
+/* color */
