@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body {
+.loginPage {
     width: 100vw;
     height: 100vh;
     display: flex;

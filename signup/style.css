@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body {
+.signupPage {
     width: 100vw;
     height: 100vh;
     display: flex;
