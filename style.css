@@ -1,0 +1,262 @@
+:root {
+    --gray900: #111827;
+    --gray800: #1F2937;
+    --gray700: #374151;
+    --gray600: #4B5563;
+    --gray500: #6B7280;
+    --gray400: #9CA3AF;
+    --gray200: #E5E7EB;
+    --gray100: #F3F4F6;
+    --gray50: #F9FAFB;
+
+    --blue: #3692FF;
+    --blue2: #1967D6;
+    --blue3: #1251AA;
+    --red: #F74747;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "pretendard", sans-serif;
+    color: var(--gray700);
+    margin: 0;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    margin: 0;
+    width: 300px;
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    width: 1200px;
+}
+
+section {
+    height: 720px;
+    display: flex;
+    align-items: center;
+}
+
+.header-nav {
+    position: fixed;
+    z-index: 1px;
+    inset: 0;
+    background-color: #ffffff;
+    width: 100vw;
+    height: 70px;
+    border-bottom:solid #DFDFDF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+.logo {
+    margin-left: 200px;
+}
+
+.login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 200px;
+    width: 128px;
+    height: 48px;
+    background-color: var(--blue);
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.login-btn:hover {
+    background-color: var(--blue2);
+}
+.login-btn:active {
+    background-color: var(--blue3);
+}
+
+.header-contents-background {
+    background-color: #CFE5FF;
+    width: 100vw;
+    height: 540px;
+    min-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.header-content {
+    width: 1200px;
+    height: 540px;
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.header-text-image {
+display: flex;
+flex-direction: column;
+gap: 32px;
+z-index: 1;
+}
+
+.look-around-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 357px;
+    height: 56px;
+    background-color: var(--blue);
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 10px;
+    line-height: 24px;
+}
+.look-around-link:hover {
+    background-color: var(--blue2);
+}
+.look-around-link:active {
+    background-color: var(--blue3);
+}
+
+.header-image {
+    width: 996px;
+    height: 447px;
+    position: relative;
+    top: 46px;
+}
+
+.section-image {
+    width: 588px;
+    height: 444px;
+}
+
+.section-box {
+    gap: 64px;
+    display: flex;
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+}
+
+.content-category {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25.2px;
+    color: var(--blue);
+}
+
+.content-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    color: var(--gray700);
+}
+
+.content-text {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.8px;
+    color: var(--gray700);
+}
+
+.reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.footer-contents {
+    margin-top: 200px;
+    width: 100vw;
+    height: 540px;
+    background-color: #CFE5FF;
+}
+.footer-contents-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 540px;
+    position: relative;
+}
+
+.footer-text-image {
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.footer-text {
+    position: relative;
+}
+.footer-image {
+    position: relative;
+    width: 996px;
+    height: 540px;
+    left: 60;
+}
+
+.footer-link-bar-background {
+    background-color: var(--gray900);
+    width: 100vw;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.footer-link-bar {
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: -30px;
+    
+}
+.codeit {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    color: var(--gray400);
+}
+
+.privacy-faq-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.privacy-faq-box a {
+    color: var(--gray200);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sns-link-mini {
+    width: 20px;
+    height: 20px;
+}
