@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- link -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+
+    <title>판다마켓 | Signup</title>
+
+    <!-- script -->
+    <script
+      type="text/javascript"
+      src="../../javascript/util/location.js"
+    ></script>
+  </head>
+  <body>
+    <!-- 로그인 화면과 회원가입 화면에서 동일한 스타일이 적용되기 때문에
+      불필요한 코드 중복을 막기 위해 클래스 네임을 auth로 정하고
+      로그인 & 회원가입 화면에 공통적인 스타일로 적용시킬 예정 -->
+
+    <!-- 메인 페이지로 이동하는 기능을 가진 로고 -->
+    <article class="auth-logo" onclick="moveLocation('/')">
+      <img
+        src="../../assets/images/auth/auth-logo.png"
+        alt="판다마켓 로고와 타이포"
+      />
+    </article>
+
+    <main class="auth-container">
+      <!-- 로그인 정보를 서버로 보낼 form, 비밀번호가 url에 표시되지 않도록 하기위해 method post로 전송 -->
+      <!-- 사용자 편의를 위해  autocomplete 속성 on-->
+      <form class="auth-form" autocomplete="on" method="post">
+        <!-- auth-form 걸려있는 gap의 영향을 받지 않고 auth-label과 input 사이의 간격을 조정하기 위한 div -->
+        <div>
+          <div class="auth-label">이메일</div>
+          <input
+            type="email"
+            name="email"
+            placeholder="이메일을 입력해주세요"
+            required
+          />
+        </div>
+
+        <div>
+          <div class="auth-label">닉네임</div>
+          <input name="nickname" placeholder="닉네임을 입력해주세요" required />
+        </div>
+
+        <div>
+          <div class="auth-label">비밀번호</div>
+          <!-- visibility-icon을 absolute 속성을 주기 위해
+            password-wrapper는 relative로 감싸주어
+            input 영역 내에서 아이콘 위치를 조정할 수 있도록 하기 위함 -->
+          <div class="password-wrapper">
+            <!-- 비밀번호는 자동완성되지 않도록 autocomplete off -->
+            <input
+              type="password"
+              name="password"
+              autocomplete="off"
+              placeholder="비밀번호를 입력해주세요"
+              required
+            />
+            <!-- 향후 sprint에서 visibility-on or off 기능 추가 예정이라 함 -->
+            <i class="password-visibility-icon"
+              ><img src="../../assets/images/auth/visibility-off.png"
+            /></i>
+          </div>
+        </div>
+
+        <div>
+          <div class="auth-label">비밀번호 확인</div>
+          <!-- visibility-icon을 absolute 속성을 주기 위해
+            password-wrapper는 relative로 감싸주어
+            input 영역 내에서 아이콘 위치를 조정할 수 있도록 하기 위함 -->
+          <div class="password-wrapper">
+            <!-- 비밀번호는 자동완성되지 않도록 autocomplete off -->
+            <input
+              type="password"
+              name="password-confirm"
+              autocomplete="off"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              required
+            />
+            <!-- 향후 sprint에서 visibility-on or off 기능 추가 예정이라 함 -->
+            <i class="password-visibility-icon"
+              ><img src="../../assets/images/auth/visibility-off.png"
+            /></i>
+          </div>
+        </div>
+
+        <button class="auth-submit-button">회원가입</button>
+      </form>
+
+      <section class="social-auth">
+        <div class="social-auth-label">간편 로그인하기</div>
+        <div class="social-auth-buttons">
+          <button
+            class="social-auth-button"
+            onclick="moveLocation('https\:\/\/www.google.com/')"
+          >
+            <img
+              src="../../assets/images/auth/social-login-google.png"
+              alt="구글 소셜 로그인 이미지"
+            />
+          </button>
+          <button
+            class="social-auth-button"
+            onclick="moveLocation('https\:\/\/www.kakaocorp.com\/page\/')"
+          >
+            <img
+              src="../../assets/images/auth/social-login-kakao.png"
+              alt="카카오 소셜 로그인 이미지"
+            />
+          </button>
+        </div>
+      </section>
+
+      <section class="member-check">
+        <span>이미 회원이신가요?</span>
+        <a href="../login">로그인</a>
+      </section>
+    </main>
+  </body>
+</html>

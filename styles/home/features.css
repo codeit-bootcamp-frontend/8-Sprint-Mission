@@ -1,0 +1,49 @@
+/* 홈페이지 앱 메인 기능 소개 */
+.home-feat-items {
+  width: 120rem;
+  margin: 0 auto;
+}
+
+.feat-item {
+  height: 72rem;
+  display: flex;
+  align-items: center;
+  gap: 6.4rem;
+
+  & img {
+    width: 58.8rem;
+    height: 44.4rem;
+    border-radius: 1.2rem;
+  }
+
+  & .feat-item-text-box {
+    & h6 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 2.52rem;
+      color: var(--brand-blue);
+      margin-bottom: 1.2rem;
+    }
+    & h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 5.6rem;
+      letter-spacing: 0.02rem;
+      color: var(--cool-gray);
+      margin-bottom: 2.4rem;
+    }
+    & h2 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      line-height: 2.88rem;
+      letter-spacing: 0.08rem;
+      color: var(--cool-gray);
+    }
+  }
+}
+
+.feat-item.align-right {
+  /* 두번째 기능은 우측 정렬이어야 함 */
+  justify-content: flex-end;
+  text-align: right;
+}

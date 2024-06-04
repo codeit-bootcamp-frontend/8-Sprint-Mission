@@ -1,0 +1,48 @@
+html {
+  /* 웹 접근성을 고려, 브라우저의 기본 폰트 사이즈에 맞춰 폰트 배율이 반영되도록 설정 */
+  /* 브라우저의 기본 폰트사이즈는 16px, 10px로 만들어 직관적인 rem 사용을 위해 이를 62.5%만큼 축소 */
+  /* 10px = 1.0rem */
+  font-size: 62.5%;
+  /* 사용자 경험에서 너무 급변하게 화면이 변경되면 거부감이 들 수 있을 것 같아, transition을 추가함 */
+  transition: font-size 0.5s ease-in-out;
+}
+
+/* 데스크탑 모니터 & 페이지 레이아웃에서 이미지가 가려지기 시작하는 해상도 1280px-1600px */
+@media all and (min-width: 1280px) and (max-width: 1600px) {
+  html {
+    /* 8px = 1.0rem */
+    font-size: 50%;
+  }
+}
+
+/*노트북 & 태블릿 가로 : 1024px-1279px*/
+@media all and (min-width: 1024px) and (max-width: 1279px) {
+  html {
+    /* 6px = 1.0rem */
+    font-size: 37.5%;
+  }
+}
+
+/*태블릿 가로 : 769px-1023px*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  html {
+    /* 5px = 1.0rem */
+    font-size: 31.25%;
+  }
+}
+
+/*모바일 가로 & 태블릿 세로 : 480px-767px*/
+@media all and (min-width: 480px) and (max-width: 767px) {
+  html {
+    /* 4px = 1.0rem */
+    font-size: 25%;
+  }
+}
+
+/*모바일 : -479px*/
+@media all and (max-width: 479px) {
+  html {
+    /* 2px = 1.0rem */
+    font-size: 12.5%;
+  }
+}

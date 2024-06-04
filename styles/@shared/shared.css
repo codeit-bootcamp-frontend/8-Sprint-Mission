@@ -1,0 +1,41 @@
+@import 'init.css';
+@import 'mediaQuery.css';
+
+* {
+  font-family: 'Pretendard Variable', Pretendard, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  /* 기본 브라우저 스타일 reset */
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+
+  & p,
+  & figure,
+  & h1,
+  & h2,
+  & h6 {
+    margin: 0;
+  }
+
+  & input {
+    outline: none;
+    border: none;
+  }
+
+  & button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

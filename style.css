@@ -1,0 +1,5 @@
+@import './styles/@shared/shared.css';
+@import './styles/home/header.css';
+@import './styles/home/brand.css';
+@import './styles/home/features.css';
+@import './styles/home/footer.css';

@@ -1,0 +1,62 @@
+/* 홈 페이지 상 하단 브랜드 소개 공동 스타일*/
+.home-brand {
+  height: 54rem;
+  width: 100%;
+  background-color: var(--pale-blue);
+
+  & .container {
+    height: 100%;
+    width: 120rem;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    & h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 5.6rem;
+      text-align: left;
+      color: var(--cool-gray);
+    }
+  }
+}
+
+/* 홈 페이지 상단 브랜드 소개 */
+.container.home-brand-top {
+  & button {
+    width: 35.7rem;
+    height: 5.6rem;
+    margin-top: 3.2rem;
+    border-radius: 4rem;
+    background-color: var(--brand-blue);
+    color: var(--white);
+
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+    text-align: center;
+  }
+
+  & img.brand-image {
+    width: 99.6rem;
+    height: 44.7rem;
+  }
+}
+
+/* 홈 페이지 하단 브랜드 소개 */
+.container.home-brand-bottom {
+  margin-top: 13.8rem;
+
+  & img.brand-image {
+    width: 99.6rem;
+    height: 54rem;
+  }
+}
+
+/* 브랜드 대표 이미지 공통 위치 조정 */
+.brand-image {
+  position: absolute;
+  left: 34.1rem; /* 뷰포트 너비에 구애 받지 않아야 하므로 .container를 기준으로 피그마를 참고해 다시 계산한 값 */
+  bottom: 0;
+}

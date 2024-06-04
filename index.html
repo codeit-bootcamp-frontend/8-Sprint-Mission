@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- link -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+
+    <!-- script -->
+    <script type="text/javascript" src="./javascript/util/location.js"></script>
+
+    <title>판다마켓</title>
+  </head>
+  <body>
+    <header class="home-header">
+      <!-- 단순 이미지나 텍스트에 페이지 이동 기능이 필요한 경우에는 a 태그를,
+          버튼처럼 디자인이 필요한 경우에는 button 태그를 활용하여 onClick 함수를 구현하였습니다.
+          이유는 a 태그의 경우 기본적으로 display: inline 속성이기 때문에 css를 입히기 번거로우며,
+          해당 기능이 단순 페이지 이동이 아닌, 데이터 불러오기나 사용자 정보 확인과 같은 기능이 덧붙여질 가능성이 높기 때문에
+          onClick 함수의 사용이 더 적합하다고 생각하였습니다. -->
+      <div class="home-header-wrapper">
+        <a href="/">
+          <img
+            src="./assets/images/home/logoAndTypo.png"
+            alt="앱 로고와 이름 이미지"
+          />
+        </a>
+        <button class="header-login" onclick="moveLocation('./pages/login')">
+          로그인
+        </button>
+      </div>
+    </header>
+
+    <article class="home-brand">
+      <div class="container home-brand-top">
+        <div>
+          <h1>
+            일상의 모든 물건을<br />
+            거래해 보세요
+          </h1>
+          <button onclick="moveLocation('/items')">구경하러 가기</button>
+        </div>
+        <img
+          class="brand-image"
+          src="./assets/images/home/home_top.png"
+          alt="인사하는 판다 이미지"
+        />
+      </div>
+    </article>
+
+    <main class="home-feat-items">
+      <figure class="feat-item">
+        <img
+          src="./assets/images/home/home_feat1.png"
+          alt="인기 상품을 바라보는 두 팬더의 머리가 보이는 사진"
+        />
+        <div class="feat-item-text-box">
+          <h6>Hot item</h6>
+          <h1>
+            인기 상품을<br />
+            확인해 보세요
+          </h1>
+          <h2>
+            가장 HOT한 중고거래 물품을<br />
+            판다 마켓에서 확인해보세요
+          </h2>
+        </div>
+      </figure>
+
+      <figure class="feat-item align-right">
+        <div class="feat-item-text-box">
+          <h6>Search</h6>
+          <h1>
+            구매을 원하는<br />
+            상품을 검색하세요
+          </h1>
+          <h2>
+            구매하고 싶은 물품은 검색해서<br />
+            쉽게 찾아보세요
+          </h2>
+        </div>
+        <img
+          src="./assets/images/home/home_feat2.png"
+          alt="돋보기로 물음표가 그려진 박스를 보고 있는 사진"
+        />
+      </figure>
+
+      <figure class="feat-item">
+        <img
+          src="./assets/images/home/home_feat3.png"
+          alt="폴더 위에 3개의 상품이 나열되어 있는 사진"
+        />
+        <div class="feat-item-text-box">
+          <h6>Register</h6>
+          <h1>
+            판매를 원하는<br />
+            상품을 등록하세요
+          </h1>
+          <h2>
+            어떤 물건이든 판매하고 싶은 상품을<br />
+            쉽게 등록하세요
+          </h2>
+        </div>
+      </figure>
+    </main>
+
+    <article class="home-brand">
+      <div class="container home-brand-bottom">
+        <h1>
+          일상의 모든 물건을<br />
+          거래해 보세요
+        </h1>
+        <img
+          class="brand-image"
+          src="./assets/images/home/home_bottom.png"
+          alt="인사하는 판다 이미지"
+        />
+      </div>
+    </article>
+
+    <footer class="home_footer">
+      <div class="home-footer-company">©codeit - 2024</div>
+      <div class="home-footer-anchors">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/faq">FAQ</a>
+      </div>
+      <div class="home-footer-sns">
+        <a href="https://www.facebook.com" target="_blank">
+          <img src="./assets/images/home/ic_facebook.png" alt="페이스북 로고" />
+        </a>
+        <a href="https://x.com/?lang=ko" target="_blank">
+          <img src="./assets/images/home/ic_twitter.png" alt="트위터 로고" />
+        </a>
+        <a href="https://www.youtube.com" target="_blank">
+          <img src="./assets/images/home/ic_youtube.png" alt="유튜브 로고" />
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <img
+            src="./assets/images/home/ic_instagram.png"
+            alt="인스타그램 로고"
+          />
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
