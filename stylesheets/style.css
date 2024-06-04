@@ -1,9 +1,20 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* 헤더 부분입니다. */
-.header-frame {
+.header {
+  width: 100%;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.header-wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,7 +22,7 @@ body {
   margin: 0 200px;
 }
 
-.title-box {
+.logo-wrap {
   display: flex;
   height: 51px;
   align-items: center;
@@ -27,11 +38,11 @@ body {
   flex: 1 1 40px;
 }
 
-.title {
+.name {
   font-size: 26px;
   font-weight: 700;
   line-height: 35px;
-  color: #3692FF;
+  color: #3692ff;
 }
 
 a.login-button {
@@ -39,7 +50,7 @@ a.login-button {
   justify-content: center;
   align-items: center;
   flex-basis: 128px;
-  background-color: #3692FF;
+  background-color: #3692ff;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
@@ -51,9 +62,10 @@ a.login-button {
 
 /* 홈 위쪽 부분 입니다. */
 .home-top {
-  background-color: #CFE5FF;
+  background-color: #cfe5ff;
   height: 540px;
   position: relative;
+  margin-top: 71px;
 }
 
 .home-top.container {
@@ -62,7 +74,7 @@ a.login-button {
   margin: 0 auto;
 }
 
-.home-top-detail {
+.home-top-info {
   position: relative;
   top: 150px;
   z-index: 1;
@@ -73,6 +85,7 @@ h1 {
   font-weight: 700;
   line-height: 56px;
   color: #374151;
+  margin-bottom: 20px;
 }
 
 a.items-button {
@@ -95,67 +108,83 @@ img.home-top-img {
   width: 800px;
 }
 
-/* 섹션 1 부분입니다. */
+/* 홈 중간 부분입니다. */
 .container {
   display: flex;
-  width: 1200px;
-  margin: 200px auto;
-  gap: 60px;
+  flex-direction: column;
 }
 
-.section1-detail {
+.container .section {
+  display: flex;
+  justify-content: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.hot-item-wrap {
+  display: flex;
+  gap: 64px;
+  width: 1200px;
+}
+
+.info {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-h3.section-title {
-  color: #3692FF;
-  font-weight: 700;
+.info .title {
   font-size: 18px;
-  line-height: 25px;
-  margin: 0;
+  line-height: 25.2px;
+  margin-bottom: 20px;
 }
 
-p.section-description {
-  color: #374151;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 28px;
-}
-
-/* 섹션 2 부분입니다. */
-.section2.container {
+.text-wrap {
   display: flex;
+  flex-direction: column;
+}
+
+.text-wrap .text {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  margin-bottom: 20px;
+}
+
+.text-wrap .subtext {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.8px;
+}
+
+.search-wrap {
+  display: flex;
+  gap: 64px;
   width: 1200px;
-  margin: 200px auto;
-  gap: 60px;
   flex-direction: row-reverse;
 }
 
-.section2-detail {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  position: relative;
+.search-wrap .title {
+  text-align: end;
 }
 
-span.right {
-  position: absolute;
-  right: 0;
+.search-wrap .text {
+  text-align: end;
 }
 
-/* 섹션 3 부분입니다. */
-.section3-detail {
+.search-wrap .subtext {
+  text-align: end;
+}
+
+.register-wrap {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: 64px;
+  width: 1200px;
 }
 
 /* 홈 아래쪽 부분입니다. */
 .home-bottom {
-  background-color: #CFE5FF;
+  background-color: #cfe5ff;
   height: 540px;
   position: relative;
 }
@@ -164,9 +193,10 @@ span.right {
   display: flex;
   width: 1200px;
   margin: 0 auto;
+  justify-content: center;
 }
 
-.home-bottom-detail {
+.home-bottom-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -181,26 +211,25 @@ img.home-bottom-img {
   right: 0;
 }
 
-
 /* 푸터 부분입니다. */
 .footer {
   background-color: #111827;
   height: 160px;
+  padding: 32px 200px;
 }
 
-.footer-frame {
+.footer-wrap {
   display: flex;
-  margin: 0 200px;
 }
 
-p.info {
+.footer .info {
   color: #9ca3af;
   font-size: 16px;
   font-weight: 400;
   flex-basis: 120px;
 }
 
-.utility-box {
+.utility-wrap {
   display: flex;
   flex-grow: 1;
   justify-content: center;
@@ -213,10 +242,10 @@ a.utility {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #E5E7EB;
+  color: #e5e7eb;
 }
 
-.social-box {
+.social-wrap {
   flex-basis: 120px;
   display: flex;
   align-items: center;
