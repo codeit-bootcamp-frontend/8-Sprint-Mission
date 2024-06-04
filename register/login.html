@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="판다마켓 로그인" />
-  <title>판다마켓 로그인</title>
-  <link rel="stylesheet" href="../assets/register.css">
-  <link rel="stylesheet" href="../assets/reset.css">
-  <link
-  rel="stylesheet"
-  as="style"
-  crossorigin
-  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
-/>
-</head>
-<body>
-    <header class="header">
-      <div class="logo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="판다마켓 로그인" />
+    <title>판다마켓 로그인</title>
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/register.css" />
+    <link rel="stylesheet" href="../assets/css/response.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+  </head>
+  <body>
+    <header id="register-header">
+      <div class="register-logo">
         <a href="/" class="btn-home">
-          <img src="../assets/images/register_logo.png" alt="logo"/>
+          <img src="../assets/images/register_logo.png" alt="판다마켓 로고" />
         </a>
       </div>
     </header>
-    <div id="container">
+    <div id="register-container">
       <form class="form">
         <div class="input-box">
           <label for="email">이메일</label>
-          <input name="email" id="email" type="email" autofocus placeholder="이메일을 입력해주세요"/>
-          <p class="error-msg hide-msg">잘못된 이메일입니다.</p>
+          <input
+            name="email"
+            id="email"
+            type="email"
+            autofocus
+            placeholder="이메일을 입력해주세요"
+          />
+          <p class="error-msg">잘못된 이메일입니다.</p>
         </div>
         <div class="input-box">
           <label for="password">비밀번호</label>
           <div class="input-password">
-            <input name="password" id="password" type="password" placeholder="비밀번호를 입력해주세요"/>
-            <p class="error-msg hide-msg">8자 이상 입력해 주세요.</p>
+            <input
+              name="password"
+              id="password"
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <p class="error-msg">8자 이상 입력해 주세요.</p>
             <span class="hide-btn" disabled></span>
           </div>
         </div>
@@ -45,21 +57,24 @@
         <span class="login-simple">간편 로그인하기</span>
         <ul class="login-list">
           <li>
-            <a href="https://www.google.com/">
-              <img src="../assets/images/google.png" alt="googleLogin">
+            <a href="https://www.google.com/" class="google-login">
+              <span class="ir_pm">구글 로그인</span>
             </a>
           </li>
           <li>
-            <a href="https://www.kakaocorp.com/page/">
-              <img src="../assets/images/kakao.png" alt="kakaoLogin">
+            <a href="https://www.kakaocorp.com/page/" class="kakao-login">
+              <span class="ir_pm">카카오 로그인</span>
             </a>
           </li>
         </ul>
       </div>
       <div class="register-box">
-        <span>판다마켓이 처음이신가요? <a href="./signup.html">회원가입</a></span>
+        <span>
+          판다마켓이 처음이신가요?
+          <a href="./signup.html">회원가입</a>
+        </span>
       </div>
     </div>
     <script type="module" src="../assets/JS/loginValidation.js"></script>
-</body>
+  </body>
 </html>
