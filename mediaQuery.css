@@ -1,16 +1,25 @@
-@media screen and (max-width: 480px) {
+/* Mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
   html {
-    font-size: 30%;
+    font-size: 40%;
+  }
+  header {
+    padding: 0 16px;
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
   html {
     font-size: 70%;
   }
+  header {
+    padding: 0 24px;
+  }
 }
 
-@media screen and (min-width: 1025px) {
+/* PC */
+@media screen and (min-width: 1200px) {
   html {
     font-size: 100%;
   }
