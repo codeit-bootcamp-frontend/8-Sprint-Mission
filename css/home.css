@@ -10,12 +10,6 @@
   margin: 0 auto;
 }
 
-.background {
-  width: 100%;
-  height: 540px;
-  background-color: var(--main-bg-color);
-  position: relative;
-}
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -53,20 +47,20 @@
 .title-container {
   max-width: 1920px;
   height: 540px;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  background-image: url(../img/img_home_top.png);
+  background-position: bottom right 240px;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }
-
-.background-img {
-  width: 52%;
-  position: absolute;
-  bottom: 0;
-  right: 223px;
-  z-index: 0;
-} /*배경 이미지를 position: absolute로 고정 시키고 텍스트를 가리지 않게 z-index를 0으로 줌 */
+.background {
+  width: 100%;
+  height: 540px;
+  background-color: var(--main-bg-color);
+}
 
 .title {
   width: 1200px;
@@ -86,7 +80,7 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
-  padding: 16px 124px;
+  padding: 16px 125px;
   background-color: var(--btn-color);
   border-radius: 40px;
   display: inline-block;
@@ -143,7 +137,10 @@ main {
   max-width: 1920px;
   margin: 0 auto;
   height: 540px;
-  position: relative;
+  background-image: url(../img/img_home_bottom.png);
+  background-position: bottom right 240px;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }
 .end-card {
   margin: 0 auto;
@@ -158,7 +155,6 @@ main {
   font-weight: 700;
   line-height: 56px;
   color: var(--gray700);
-  z-index: 2;
 }
 
 footer {
@@ -176,11 +172,15 @@ footer {
   display: inline-block;
   font-size: 16px;
   font-weight: 400;
-  color: var(--gray400);
+  color: #cfcfcf;
   text-decoration: none;
+  font-family: Arial;
 }
-.footer-text:nth-child(2) .faq {
+.footer-text:nth-child(2).faq {
   margin-left: 30px;
+}
+.codeit {
+  color: #676767;
 }
 .social-logo {
   display: flex;
@@ -190,5 +190,233 @@ footer {
 }
 .social-logo > a > img {
   width: 20px;
-  height: 20ps;
+  height: 20px;
+}
+
+/*768px 이상 1200px 미만 tablet*/
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .top {
+    max-width: none;
+    width: 100%;
+  }
+
+  .top-nav {
+    margin: 0 24px;
+  }
+
+  .title-container {
+    max-width: none;
+    height: 771px;
+    justify-content: flex-start;
+    background-position: bottom;
+    background-size: 110%;
+  }
+  .background.bg-top {
+    height: 771px;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .title-slogan {
+    margin-top: 84px;
+    margin-bottom: 24px;
+  }
+  .title-slogan > br {
+    display: none;
+  }
+
+  main {
+    max-width: none;
+  }
+  .section-container {
+    width: 100%;
+    padding: 24px 24px;
+  }
+  .feature-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .section {
+    flex-direction: column;
+    padding: 0px 0;
+    align-items: flex-start;
+  }
+  .feature-text {
+    padding: 0 0px;
+  }
+
+  .section:nth-child(2) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .key-word {
+    margin-bottom: 12px;
+  }
+
+  .feature-text > h1 {
+    font-size: 32px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .feature-text > h1 > br {
+    display: none;
+  }
+  .feature-text > p {
+    font-size: 18px;
+    margin-bottom: 64px;
+    line-height: 22px;
+  }
+  .background.bg-bottom {
+    height: 927px;
+  }
+  .end-title {
+    max-width: none;
+    height: 927px;
+    background-position: bottom;
+    background-size: 130%;
+  }
+  .end-card {
+    width: auto;
+    height: 927px;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 200px;
+  }
+
+  .end-comment {
+    text-align: center;
+  }
+
+  .footer-container {
+    padding: 32px 104px 108px;
+    max-width: none;
+  }
+}
+
+/*375px 이상 768px 미만 mobile*/
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .top {
+    max-width: none;
+    width: 100%;
+  }
+
+  .top-nav {
+    margin: 0 16px;
+  }
+  .nav-logo {
+    background-image: url(../img/logo_no_icon.png);
+    width: 103px;
+  }
+
+  .title-container {
+    max-width: none;
+    justify-content: flex-start;
+    background-position: bottom;
+    background-size: 125%;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .title-slogan {
+    font-size: 32px;
+    margin-top: 48px;
+    margin-bottom: 24px;
+    text-align: center;
+    line-height: 45px;
+  }
+  .title-btn {
+    font-size: 16px;
+    padding: 15px 34px;
+  }
+
+  main {
+    max-width: none;
+    margin-top: 51px;
+  }
+  .section-container {
+    width: 100%;
+    padding: 16px 16px;
+  }
+  .feature-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .section {
+    flex-direction: column;
+    padding: 0px 0;
+    align-items: flex-start;
+  }
+  .feature-text {
+    padding: 0 0px;
+  }
+
+  .section:nth-child(2) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .key-word {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .feature-text > h1 {
+    font-size: 24px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .feature-text > h1 > br {
+    display: none;
+  }
+  .feature-text > p {
+    font-size: 16px;
+    margin-bottom: 64px;
+    line-height: 19px;
+  }
+
+  .end-title {
+    max-width: none;
+    background-position: bottom;
+    background-size: 120%;
+  }
+  .end-card {
+    width: 100%;
+    height: 540px;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 121px;
+  }
+
+  .end-comment {
+    text-align: center;
+    line-height: 45px;
+  }
+
+  .footer-container {
+    padding: 32px 32px 92px 32px;
+    max-width: none;
+    position: relative;
+  }
+  .codeit {
+    position: absolute;
+    bottom: 30px;
+    color: #676767;
+  }
 }
