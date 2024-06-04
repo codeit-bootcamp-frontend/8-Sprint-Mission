@@ -40,7 +40,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 128px;
   text-decoration: none;
 }
 
@@ -56,6 +55,7 @@
   background-size: 50%;
   background-repeat: no-repeat;
 }
+
 .background {
   width: 100%;
   height: 540px;
@@ -285,7 +285,7 @@ footer {
     background-size: 130%;
   }
   .end-card {
-    width: auto;
+    width: 100%;
     height: 927px;
     justify-content: center;
     align-items: flex-start;
@@ -410,7 +410,7 @@ footer {
   }
 
   .footer-container {
-    padding: 32px 32px 92px 32px;
+    padding: 32px 32px 92px;
     max-width: none;
     position: relative;
   }

@@ -13,56 +13,58 @@
         <img src="img/logo.png" />
       </a>
     </div>
-    <div class="form-section">
-      <form action="">
-        <label for="user-email">이메일</label>
-        <input
-          type="email"
-          name="user-email"
-          id="user-email"
-          placeholder="이메일을 입력해주세요"
-        />
-        <label for="nickname">닉네임</label>
-        <input
-          type="text"
-          name="nickname"
-          id="nickname"
-          placeholder="닉네임을 입력해주세요"
-        />
-        <label for="user-password">비밀번호</label>
-        <input
-          type="password"
-          name="user-password"
-          id="user-password"
-          placeholder="비밀번호를 입력해주세요"
-        />
-        <div class="toggle-eye-container">
-          <button class="toggle-eye" type="button"></button>
+    <div class="form-container">
+      <div class="form-section">
+        <form action="">
+          <label for="user-email">이메일</label>
+          <input
+            type="email"
+            name="user-email"
+            id="user-email"
+            placeholder="이메일을 입력해주세요"
+          />
+          <label for="nickname">닉네임</label>
+          <input
+            type="text"
+            name="nickname"
+            id="nickname"
+            placeholder="닉네임을 입력해주세요"
+          />
+          <label for="user-password">비밀번호</label>
+          <input
+            type="password"
+            name="user-password"
+            id="user-password"
+            placeholder="비밀번호를 입력해주세요"
+          />
+          <div class="toggle-eye-container no-toggle-eye">
+            <button class="toggle-eye" type="button"></button>
+          </div>
+          <label for="confirm-user-password">비밀번호 확인</label>
+          <input
+            type="password"
+            name="confirm-user-password"
+            id="confirm-user-password"
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
+          />
+          <div class="toggle-eye-container">
+            <button class="toggle-eye" type="button"></button>
+          </div>
+          <button class="btn-status login-page-btn" disabled>회원가입</button>
+        </form>
+        <div class="other-login-section">
+          <p>간편 로그인하기</p>
+          <div class="icon-login">
+            <a href="https://www.google.com/">
+              <img src="icon/ic_google.png" />
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="icon/ic_kakao.png" />
+            </a>
+          </div>
         </div>
-        <label for="confirm-user-password">비밀번호 확인</label>
-        <input
-          type="password"
-          name="confirm-user-password"
-          id="confirm-user-password"
-          placeholder="비밀번호를 다시 한 번 입력해주세요"
-        />
-        <div class="toggle-eye-container">
-          <button class="toggle-eye" type="button"></button>
-        </div>
-        <button class="btn-status login-page-btn" disabled>회원가입</button>
-      </form>
-      <div class="other-login-section">
-        <p>간편 로그인하기</p>
-        <div class="icon-login">
-          <a href="https://www.google.com/">
-            <img src="icon/ic_google.png" />
-          </a>
-          <a href="https://www.kakaocorp.com/page/">
-            <img src="icon/ic_kakao.png" />
-          </a>
-        </div>
+        <p>이미 회원이신가요? <a href="login.html">로그인</a></p>
       </div>
-      <p>이미 회원이신가요? <a href="login.html">로그인</a></p>
     </div>
   </body>
 </html>
