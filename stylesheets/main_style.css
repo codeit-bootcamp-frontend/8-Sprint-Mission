@@ -221,9 +221,48 @@ footer {
     width: 120px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
     header {
-        padding: 0 1rem;
+        padding: 0 24px;
+    }
+
+    .blue-background {
+        background-size: clamp( 600px, 80%, 700px );
+        padding: 80px 0;
+    }
+
+    main .blue-background .container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+    }
+
+    footer {
+        padding: 24px;
+    }
+
+    .content-large {
+        font-size: 1.5rem;
+        line-height: 2.2rem;
+    }
+
+    .content-small {
+        font-size: 1.125rem;
+    }
+
+    .blue-background .content-large {
+        width: 110%;
+    }
+
+    .items-promotion-content {
+        align-items: center;
+    }
+}
+
+@media (375px <= width <= 767px) {
+    header {
+        padding: 0 16px;
     }
 
     .login-button {
@@ -276,12 +315,8 @@ footer {
         padding: 80px 0;
     }
 
-    .blue-background .container {
-        justify-content: flex-start;
-    }
-
     footer {
-        padding: 1rem;
+        padding: 16px;
     }
 
     .footer-container {

@@ -14,6 +14,7 @@
     --gray50: #f9fafb;
 
     --blue: #3692ff;
+    --red: #f74747;
 }
 
 body {
@@ -36,6 +37,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 16px;
 }
 
 form label{
@@ -47,7 +49,7 @@ form label{
 }
 
 main .container {
-    width: 90%;
+    width: 100%;
     max-width: 640px;
     padding: 40px 0;
 }
@@ -67,6 +69,27 @@ main .container {
 
 .text-input:focus {
     outline: solid var(--blue);
+}
+
+.text-input.mismatching:focus {
+    outline: solid var(--red);
+}
+
+.verify-password-label {
+    position: relative;
+    width: 100%;
+}
+
+.password-mismatching-msg {
+    position: absolute;
+    right: 10px;
+    bottom: -10px;
+    font-size: 0.8rem;
+    color: var(--red);
+}
+
+.hidden {
+    display: none;
 }
 
 .text-input::placeholder {
@@ -105,6 +128,10 @@ main .container {
     margin: 10px 0;
 }
 
+.doit.valid {
+    background-color: var(--blue);
+}
+
 .easy-login {
     width: 100%;
     height: 74px;
@@ -137,4 +164,14 @@ main .container {
 
 .signup-link a {
     color: #3182f6
+}
+
+@media (max-width: 767px) {
+    .header-img {
+        height: 100px;
+    }
+
+    main .container {
+        max-width: 400px;
+    }
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <a class="home-logo" href="/"><img src=../imgs/signup_logo.png></a>
+        <a class="home-logo" href="/"><img class="header-img" src=../imgs/signup_logo.png></a>
     </header>
     <main>
         <div class="container">
@@ -22,7 +22,7 @@
                     <input id="password" name="password" class="text-input" type="password" placeholder="비밀번호를 입력해주세요">
                     <img src="../imgs/EyeIconSlashed.png" class="password-visibility-icon">
                 </div>
-                <label for="verify-password">비밀번호 확인</label>
+                <label for="verify-password" class="verify-password-label">비밀번호 확인<span class="password-mismatching-msg hidden">비밀번호가 일치하지 않습니다.</span></label>
                 <div class="password-field">
                     <input id="verify-password" name="verify-password" class="text-input" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
                     <img src="../imgs/EyeIconSlashed.png" class="password-visibility-icon">
@@ -39,5 +39,5 @@
             <span class=signup-link>이미 회원이신가요? <a href="/login">로그인</a></span>
         </div>
     </main>
-    <script src="../scripts/signup.js"></script>
+    <script type="module" src="../scripts/signupIndex.js"></script>
 </body>
