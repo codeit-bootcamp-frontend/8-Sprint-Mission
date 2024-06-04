@@ -18,18 +18,18 @@
 
 
     <main>
-        <div class="signup">
+        <form class="signup">
             <div class="signup-input">
-                <label>이메일</label>
-                <input name="email" type="email" placeholder="이메일을 입력해주세요" />
+                <label for="email">이메일</label>
+                <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" />
             </div>
             <div class="signup-input">
-                <label>닉네임</label>
-                <input name="nickname" type="nickname" placeholder="닉네임을 입력해주세요" />
+                <label for="nickname">닉네임</label>
+                <input id="nickname" name="nickname" type="text" placeholder="닉네임을 입력해주세요" />
             </div>
             <div class="signup-input">
-                <label>비밀번호</label>
-                <input name="password" type="password" placeholder="비밀번호를 입력해주세요" />
+                <label for="password">비밀번호</label>
+                <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-eye-slash" viewBox="0 0 16 16">
                     <path
@@ -42,8 +42,9 @@
             </div>
 
             <div class="signup-input">
-                <label>비밀번호 확인</label>
-                <input name="password-check" type="password-check" placeholder="비밀번호를 다시 한 번 입력해주세요" />
+                <label for="password-check">비밀번호 확인</label>
+                <input id="password-check" name="password-check" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" />
+
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-eye-slash" viewBox="0 0 16 16">
                     <path
@@ -54,9 +55,10 @@
                         d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
                 </svg>
 
+
             </div>
 
-            <button class="signup-button">회원가입</button>
+            <button type="submit" class="signup-button">회원가입</button>
 
             <div class="easy-login">
                 <div> 간편로그인하기</div>
@@ -74,7 +76,7 @@
                 이미 회원이신가요?
                 <a href="/login/">로그인</a>
             </div>
-        </div>
+        </form>
     </main>
 
 </body>
