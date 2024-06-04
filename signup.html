@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 - 로그인</title>
+    <link rel="icon" href="images/logo/favicon.ico" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+
+  <body>
+    <!-- Sprint Mission 2 기본 요구사항 (로그인, 회원가입 페이지 공통):
+    “판다마켓" 클릭 시 루트 페이지(“/”)로 이동합니다. -->
+    <figure>
+      <a href="/"
+        ><img
+          src="images/logo/panda-market-logo.png"
+          alt="판다마켓 홈"
+          width="396"
+      /></a>
+    </figure>
+    <main>
+      <form>
+        <div class="input-wrap">
+          <label for="email">이메일</label>
+          <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" required>
+        </div>
+        <div class="input-wrap">
+          <label for="nickname">닉네임</label>
+          <input id="nickname" name="nickname" placeholder="닉네임을 입력해주세요" required>
+        </div>
+        <div class="input-wrap">
+          <label for="password">비밀번호</label>
+          <input id="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+          <!-- Sprint Mission 2 심화 요구사항:
+          비밀번호 input 요소 오른쪽에 눈모양 아이콘을 추가합니다.
+          (추후 클릭으로 비밀번호를 보거나 가릴 수 있도록 기능을 만들어 갈 예정입니다.) -->
+          <span class="toggle-password">
+            <img 
+                src="images/btn_visibility_on.png"
+                alt="비밀번호 표시 버튼"
+                width="24" height="24"
+            />
+          </span>
+        </div>
+        <div class="input-wrap">
+          <label for="password-check">비밀번호 확인</label>
+          <input id="password-check" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
+          <span class="toggle-password">
+            <img 
+                src="images/btn_visibility_on.png"
+                alt="비밀번호 표시 버튼"
+                width="24" height="24"
+            />
+          </span>
+        </div>
+        <button class="button pill-button-2">회원가입</button>  
+      </form>
+      <section class="easy-login">
+        <div>간편 로그인하기</div>
+        <!-- SNS 아이콘들은 클릭시 각각 아래 페이지로 이동합니다.
+          - “https://www.google.com/”,
+          - “https://www.kakaocorp.com/page/” -->
+        <div id="SNS">
+          <a
+          href="https://www.google.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img src="images/SNS-icon/google.png" alt="구글" width="42"
+        /></a>
+          <a
+          href="https://www.kakaocorp.com/page/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img src="images/SNS-icon/kakao.png" alt="카카오" width="42"
+        /></a>
+        </div>
+      </section>
+      <section class="signup">
+        <p>이미 회원이신가요?</p><a href="login.html">로그인</a>
+      </section>
+    </main>
+  </body>
+</html>
