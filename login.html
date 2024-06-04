@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="login_style.css">
+</head>
+
+<body>
+    <form>
+        <img id="login_logo" src="img/login_logo.png" onclick="location.href='./index.html'">
+
+        <div class="login-form">
+            <div class="login-container">
+                <label id="login-text">이메일</label>
+
+                <input class="login-input" type="text" placeholder="이메일을 입력해주세요">
+            </div>
+    
+            <div class="login-container">
+                <label id="login-text">비밀번호</label>
+
+                <input class="login-input" type="text" placeholder="비밀번호를 입력해주세요">
+            </div>
+
+            <!-- 클릭 추가 -->
+            <button class="login-button-basic" type="button">로그인</button>
+
+            <div class="simple-login">
+                <span id="simple-login-text">간편 로그인하기</span>
+
+                <div class="simple-login-icon-container">
+                    <a href="https://www.google.com">
+                        <img id="icon" src="img/google_icon.png" alt="구글">
+                    </a>
+
+                    <a href="https://www.kakaocorp.com/page">
+                        <img id="icon" src="img/kakao_icon.png" alt="카카오톡">
+                    </a>
+                </div>
+            </div>
+
+            <div class="login-signup-container">
+                <div class="login-signup">판다마켓이 처음이신가요?
+                <a id="signup-link" href="./signup.html">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

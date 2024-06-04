@@ -1,0 +1,323 @@
+/* header */
+header{
+    width: 100%;
+    height: 70px;
+    padding: 0 200px;
+    background: #FFFFFF;
+    position: relative;
+
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_container{
+    width: 1,520px;
+    height: 51px;
+    top: 10px;
+    left: 200px;
+    display: flex;
+    /* position: absolute; */
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 100px;
+
+}
+
+#logo {
+    width: 153px;
+    height: 51px;
+    padding: 5.02px 0px 5.85px 0px;
+}
+
+/* TODO: 버튼 다시하기 html 수정 */
+.btn_small{
+    width: 128px;
+    height: 48px;
+    padding: 12px 20px 12px 20px;
+    gap: 10px;
+    border-radius: 8px;
+    background: #3692FF;
+    border-width: 0;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.09px;
+    text-align: cneter;
+    color: #FFFFFF;
+}
+
+
+
+/* banner */
+.banner {
+    width: 1920px;
+    height: 540px;
+    background: #CFE5FF;
+}
+
+.banner-container {
+    width: 1920px;
+    height: 540px;
+    background: #CFE5FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+}
+
+
+.banner_text_container {
+    width: 357px;
+    height: 200px;
+    top: 170px;
+    left: 360px;
+    gap: 32px;
+    display:flex;
+    flex-direction: column;
+    
+}
+
+#banner_text{
+    font-family: Pretendard;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    text-align: left;
+    color: #374151;
+    white-space:nowrap;
+    }
+
+    /* TODO: 버튼 보더컬러 없애기 수정필요 */
+.btn_large {
+    width: 357px;
+    height: 56px;
+    padding: 16px 124px 16px 124px;
+    gap: 10px;
+    border-radius: 40px;
+    background: #3692FF;
+    border-width: 0;
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: Pretendard;
+    white-space:nowrap;
+}
+
+
+#home-top {
+    width: 996px;
+    height: 447px;
+    top: 93px;
+    left: 701px;
+    padding: 30px;
+    margin-top: 93px;
+}
+
+.section {
+    width: 1200px;
+    height: 720px;
+    margin: 0px auto 0px auto;
+}
+
+.section.right {
+    display: flex;
+    justify-content: right;
+}
+
+.section-container {
+    position: absolute;
+    width: 955px;
+    height: 444px;
+    margin-top: 137.5px;
+    gap: 64px;
+    opacity: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.section-img {
+    width: 588px;
+    height: 444px;
+}
+
+.section-text {
+    margin: auto 0px auto 0px;
+    width: 303px;
+    height: 231px;
+    opacity: 0px;
+    display: grid;
+    gap: 12px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.section-header {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25.2px;
+    color: #3692FF;
+}
+
+.section-body {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 0.02em;
+}
+
+.section-footer {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.8px;
+    letter-spacing: 0.08em;
+    color: #374151;
+}
+
+
+/* bottom banner */
+.bottom-banner {
+    width: 100%;
+    height: 540px;
+    top: 2908px;
+    background-color: #CFE5FF;
+    display: flex;
+    
+}
+
+.bottom-banner-text {
+    position: relative;
+    justify-content: center;
+    white-space:nowrap;
+    width: 286px;
+    height: 112px;
+    top: 214px;
+    left: 360px;
+    font-family: Pretendard;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #374151;
+}
+
+#bottom-banner-img {
+    position: absolute;
+    width: 996px;
+    height: 540px;
+    left: 701px;
+}
+
+
+footer {
+    width: 100%;
+    height: 160px;
+    padding: 32px 200px 32px 200px;
+    gap: 10px;
+    background-color: #111827;
+
+}
+
+.footer-container {
+    width: 1,520px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.codeit-2024{
+    width: 112px;
+    height: 19px;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    text-align: center;
+    color: #9CA3AF;
+}
+
+.footer-middle-container{
+    width: 159px;
+    height: 19px;
+    gap: 30px;
+}
+
+.Privacy_Policy{
+    width: 100px;
+    height: 19px;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    text-align: center;
+    color: #E5E7EB;
+}
+
+.FAQ{
+    width: 29px;
+    height: 19px;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    text-align: center;
+    color: #E5E7EB;
+}
+
+.icon_container{
+    width: 116px;
+    height: 20px;
+    gap: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#facebook{
+    width: 18px;
+    height: 18px;
+    top: 0.85px;
+    left: 1px;
+    color: #FFFFFF;
+
+}
+#twitter{
+    width: 18.92px;
+    height: 15.38px;
+    top: 2.29px;
+    left: 0.78px;
+    color: #FFFFFF;
+
+}
+
+#youtube{
+    width: 20px;
+    height: 13.34px;
+    top: 3.33px;
+    left: -0px;
+    color: #FFFFFF;
+
+}
+
+#instagram{
+    width: 17px;
+    height: 17px;
+    top: 1.85px;
+    left: 1px;    
+    color: #FFFFFF;
+
+}
