@@ -1,62 +1,80 @@
 <!DOCTYPE html>
-<html lang="kor">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓 로그인</title>
-    <link rel="stylesheet" href="join.css">
+    <link rel="stylesheet" href="join.css" />
     <script>
-        (function(d) {
-          var config = {
+      (function (d) {
+        var config = {
             kitId: 'sjs5cbs',
             scriptTimeout: 3000,
-            async: true
+            async: true,
           },
-          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-        })(document);
-      </script>
-</head>
-<body>
-<header>
-    <div class="logo">
-    <a href="/" class="logo">
-        <img src="/image/logo.png" alt="판다마켓 로고" width="396"height="132">
-    </a>
-    </div>
-</header>
-<main>
-    <form>
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className = h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive';
+          }, config.scriptTimeout),
+          tk = d.createElement('script'),
+          f = false,
+          s = d.getElementsByTagName('script')[0],
+          a;
+        h.className += ' wf-loading';
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != 'complete' && a != 'loaded')) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="/" class="logo">
+          <img src="/image/logo.png" alt="판다마켓 로고" width="396" height="132" />
+        </a>
+      </div>
+    </header>
+    <main>
+      <form>
         <div class="input-container">
-            <div class="input-box">
-                <label>이메일</label>
-                <input type="email" placeholder="이메일을 입력해주세요" class="input">
-            </div>
-            <div class="input-box">
-                <label>비밀번호</label>
-                <input type="password" placeholder="비밀번호를 입력해주세요" class="input">
-                <img src="image/icon/btn_icon/visibilty_off.png" width="24px" height="24px" class="visibilty">
-            </div>
+          <div class="input-box">
+            <label>이메일</label>
+            <input type="email" placeholder="이메일을 입력해주세요" class="input" />
+          </div>
+          <div class="input-box">
+            <label>비밀번호</label>
+            <input type="password" placeholder="비밀번호를 입력해주세요" class="input" />
+            <img src="image/icon/btn_icon/visibilty_off.png" width="24px" height="24px" class="visibilty" />
+          </div>
         </div>
         <button class="login-btn">로그인</button>
         <div class="easy-login-background">
-            <div class="easy-login-container">
-                <span class="easy-login-text">간편 로그인하기</span>
-                <div class="easy-login-link-box">
-                <a href="https://www.google.com/" class="image-link">
-                    <img src="image/icon/ic_google.png" alt="google-icon" class="mini-image">
-                </a>
-                <a href="https://www.kakaocorp.com/page" class="image-link">
-                    <img src="image/icon/ic_kakao.png" alt="kakao-icon" class="mini-image">
-                </a>
-                </div>
+          <div class="easy-login-container">
+            <span class="easy-login-text">간편 로그인하기</span>
+            <div class="easy-login-link-box">
+              <a href="https://www.google.com/" class="image-link">
+                <img src="image/icon/ic_google.png" alt="google-icon" class="mini-image" />
+              </a>
+              <a href="https://www.kakaocorp.com/page" class="image-link">
+                <img src="image/icon/ic_kakao.png" alt="kakao-icon" class="mini-image" />
+              </a>
             </div>
+          </div>
         </div>
-    </form>
-</main>
-<footer>
-    <div class="sign-up-text">
-        <span>판다마켓이 처음이신가요?</span> <a href="./signup.html">회원가입</a>
-    </div>
-</footer>
-</body>
+      </form>
+    </main>
+    <footer>
+      <div class="sign-up-text"><span>판다마켓이 처음이신가요?</span> <a href="./signup.html">회원가입</a></div>
+    </footer>
+  </body>
 </html>

@@ -1,128 +1,155 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="판다마켓" />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta property="og:image" content="image/Img_for_meta_tag.png" />
+    <meta property="og:url" content="https://www.codeit.kr" />
     <title>판다마켓</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script>
-        (function(d) {
-          var config = {
+      (function (d) {
+        var config = {
             kitId: 'sjs5cbs',
             scriptTimeout: 3000,
-            async: true
+            async: true,
           },
-          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-        })(document);
-      </script>
-</head>
-<body>
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className = h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive';
+          }, config.scriptTimeout),
+          tk = d.createElement('script'),
+          f = false,
+          s = d.getElementsByTagName('script')[0],
+          a;
+        h.className += ' wf-loading';
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != 'complete' && a != 'loaded')) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
+  </head>
+  <body>
     <header class="header-nav">
-        <a href="/" class="logo">
-            <img src="/image/logo.png" alt="판다마켓 로고" width="153"height="51">
-        </a>
-        <a href="/login.html" class="login-btn">로그인</a>
+      <a href="/" class="logo">
+        <img src="/image/logo.png" alt="판다마켓 로고" width="153" height="51" />
+      </a>
+      <a href="/login.html" class="login-btn">로그인</a>
     </header>
     <header class="header-contents">
-        <div class="header-contents-background">
-            <div class="header-content">
-                <div class="header-text-image">
-                <h1>일상의 모든 물건을<br>
-                거래해 보세요</h1>
-                <a href="/items" class="look-around-link">구경하러 가기</a>
-                </div>
-                <img src="image/main/Img_home_top.png" alt="home_top_img" class="header-image">
+      <div class="header-contents-background">
+        <div class="header-content">
+          <div class="header-text-image">
+            <div class="slogan">
+              일상의 모든 물건을<br />
+              거래해 보세요
             </div>
-    </div>
+            <a href="/items" class="look-around-link">구경하러 가기</a>
+          </div>
+          <img src="image/main/Img_home_top.png" alt="홈페이지 상단 이미지" class="header-image" />
+        </div>
+      </div>
     </header>
     <main>
-    <section>
+      <section>
         <div class="section-box">
-            <img src="image/main/Img_home_01.png" alt="home_01" class="section-image">
-            <div class="contents">
-                <div class="content-category">
-                Hot item
-                </div>
-                <div class="content-title">
-                인기 상품을<br>
-                확인해 보세요
-                </div>
-                <div class="content-text">
-                가장 HOT한 중고거래 물품을<br>
-                판다 마켓에서 확인해 보세요
-                </div>
+          <img src="image/main/Img_home_hot_item.png" alt="인기 상품 기능 소개 이미지" class="section-image" />
+          <div class="contents">
+            <div class="content-category">Hot item</div>
+            <div class="content-title">
+              인기 상품을<br />
+              확인해 보세요
             </div>
-        </div>    
-    </section>
-    <section class="reverse">
+            <div class="content-text">
+              가장 HOT한 중고거래 물품을<br />
+              판다 마켓에서 확인해 보세요
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="reverse">
         <div class="section-box">
-            <div class="contents">
-                <div class="content-category">
-                Search
-                </div>
-                <div class="content-title">
-                구매를 원하는<br>
-                상품을 검색하세요
-                </div>
-                <div class="content-text">
-                구매하고 싶은 물품은 검색해서<br>
-                쉽게 찾아보세요
-                </div>
+          <div class="contents">
+            <div class="content-category">Search</div>
+            <div class="content-title">
+              구매를 원하는<br />
+              상품을 검색하세요
             </div>
-            <img src="image/main/Img_home_02.png" alt="home_02" class="section-image">
-        </div>    
-    </section>
-    <section>
+            <div class="content-text">
+              구매하고 싶은 물품은 검색해서<br />
+              쉽게 찾아보세요
+            </div>
+          </div>
+          <img src="image/main/Img_home_item_search.png" alt="검색 기능 소개 이미지" class="section-image" />
+        </div>
+      </section>
+      <section>
         <div class="section-box">
-            <img src="image/main/Img_home_03.png" alt="home_03" class="section-image">
-            <div class="contents">
-                <div class="content-category">
-                Register
-                </div>
-                <div class="content-title">
-                판매를 원하는<br>
-                상품을 등록하세요
-                </div>
-                <div class="content-text">
-                어떤 물건이든 판매하고 싶은 상품을<br>
-                쉽게 등록하세요
-                </div>
+          <img src="image/main/Img_home_for_sale_item.png" alt="상품 등록 기능 소개 이미지" class="section-image" />
+          <div class="contents">
+            <div class="content-category">Register</div>
+            <div class="content-title">
+              판매를 원하는<br />
+              상품을 등록하세요
             </div>
-        </div>    
-    </section>
-</main>
-<footer class="footer-contents">
-    <div class="footer-contents-background">
+            <div class="content-text">
+              어떤 물건이든 판매하고 싶은 상품을<br />
+              쉽게 등록하세요
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer-contents">
+      <div class="footer-contents-background">
         <div class="footer-text-image">
-            <div class="footer-text">
-        <h1>믿을 수 있는<br>
-        판다마켓 중고거래</h1>
+          <div class="footer-text">
+            <div class="slogan">
+              믿을 수 있는<br />
+              판다마켓 중고거래
             </div>
-    <img src="image/main/Img_home_bottom.png" alt="home_top_img" class="footer-image">
+          </div>
+          <img src="image/main/Img_home_bottom.png" alt="홈페이지 하단 이미지" class="footer-image" />
         </div>
-    </div>
-</footer>
-<footer class="footer-link-bar-background">
-    <div class="footer-link-bar">
-        <div class="codeit">
-        @codeit - 2024
-        </div>
+      </div>
+    </footer>
+    <footer class="footer-link-bar-background">
+      <div class="footer-link-bar">
+        <div class="codeit">@codeit - 2024</div>
         <div class="privacy-faq-box">
-            <div>
+          <div>
             <a href="privacy" class="privacy">Privacy Policy</a>
-            </div>
-            <div>
+          </div>
+          <div>
             <a href="faq" class="faq">FAQ</a>
-            </div>
+          </div>
         </div>
         <div>
-        <a href="/facebook" target="_blank"><img class="sns-link-mini" src="/image//icon/ic_facebook.png"></a>
-        <a href="/twitter" target="_blank"><img class="sns-link-mini" src="/image//icon/ic_twitter.png"></a>
-        <a href="/youtube" target="_blank"><img class="sns-link-mini" src="/image//icon/ic_youtube.png"></a>
-        <a href="/instagram" target="_blank"><img class="sns-link-mini" src="/image//icon/ic_instagram.png"></a>
+          <a href="/facebook" target="_blank">
+            <img class="sns-link-mini" src="/image//icon/ic_facebook.png" />
+          </a>
+          <a href="/twitter" target="_blank">
+            <img class="sns-link-mini" src="/image//icon/ic_twitter.png" />
+          </a>
+          <a href="/youtube" target="_blank">
+            <img class="sns-link-mini" src="/image//icon/ic_youtube.png" />
+          </a>
+          <a href="/instagram" target="_blank">
+            <img class="sns-link-mini" src="/image//icon/ic_instagram.png" />
+          </a>
         </div>
-    </div>
-</footer>
-
-</body>
+      </div>
+    </footer>
+  </body>
 </html>
