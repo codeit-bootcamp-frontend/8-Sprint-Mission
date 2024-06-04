@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="auth.css" />
     <link
       rel="stylesheet"
       as="style"
@@ -14,32 +15,32 @@
     <title>로그인</title>
   </head>
   <body>
-    <header>
+    <div class="auth-header">
       <a href="/">
         <img class="logo" src="/image/logo.png" alt="판다마켓 로고" />
       </a>
-    </header>
-    <main>
-      <div class="login">
+    </div>
+    <div class="auth-main">
+      <div class="auth-form-container">
         <form>
-          <div class="login-input-box">
-            <label for="login-email">이메일</label>
+          <div class="auth-input-box">
+            <label for="auth-email">이메일</label>
             <input
-              id="login-email"
+              id="auth-email"
               type="email"
               placeholder="이메일을 입력해주세요"
             />
           </div>
-          <div class="login-input-box">
-            <label for="login-password">비밀번호</label>
-            <div class="login-password-box">
+          <div class="auth-input-box">
+            <label for="auth-password">비밀번호</label>
+            <div class="auth-password-box">
               <input
-                id="login-password"
+                id="auth-password"
                 type="password"
                 autocomplete="on"
                 placeholder="비밀번호를 입력해주세요"
               />
-              <button type="button" class="password-visible-toggle">
+              <button type="button" class="password-visible-toggle-btn">
                 <img
                   src="image/btn_visibility_off.png"
                   alt="btn_visibility_on"
@@ -48,33 +49,29 @@
             </div>
           </div>
 
-          <button type="submit" class="login-btn">로그인</button>
+          <button type="submit" class="auth-submit-btn">로그인</button>
         </form>
-        <div class="oauth-login">
+        <div class="easy-login">
           <span>간편 로그인하기</span>
-          <div class="oauth-login-icons">
+          <div class="easy-login-icons">
             <a href="https://www.google.co.kr/">
               <img
-                class="oauth-login-icon"
+                class="easy-login-icon"
                 src="/image/google.png"
                 alt="google"
               />
             </a>
             <a href="https://www.kakaocorp.com/page/">
-              <img
-                class="oauth-login-icon"
-                src="/image/kakao.png"
-                alt="kakao"
-              />
+              <img class="easy-login-icon" src="/image/kakao.png" alt="kakao" />
             </a>
           </div>
         </div>
-        <div class="signup">
+        <div class="auth-confirm">
           <span>판다마켓이 처음이신가요?</span>
           <a href="signup.html">회원가입</a>
         </div>
       </div>
-    </main>
-    <script src="javascript/login.js"></script>
+    </div>
+    <script src="javascript/auth.js"></script>
   </body>
 </html>
