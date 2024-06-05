@@ -26,7 +26,7 @@ main {
   margin: 0 auto;
 }
 
-input, button {
+input, .login {
   width : 640px;
   height: 56px;
   border: none;
@@ -72,7 +72,7 @@ input {
   background-color: #f3f4f6;
 }
 
-button {
+.login {
   background: #9CA3AF;
   padding: 16px 124px 16px 124px;
   border-radius: 40px;
@@ -125,6 +125,6 @@ font-weight: 400;
   font-weight: 500;
 }
 
-main > button:hover {
+.login:hover{
   background-color: #3692ff;
 }

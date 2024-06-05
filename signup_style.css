@@ -88,13 +88,17 @@
     border-radius: 8px;
   }
   
-
-  
   form ::placeholder {
   padding : 16px 24px;
   font-family: "Pretendard";
   font-size: 16px;
   font-weight: 400;
+  }
+
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
   
   .easy-login {
@@ -120,6 +124,6 @@
     font-weight: 500;
   }
   
-  main > button:hover {
+  .login:hover {
     background-color: #3692ff;
   }
