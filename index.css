@@ -25,6 +25,7 @@
   background-position: 70% bottom;
   background-size: 50%;
   background-repeat: no-repeat;
+  padding: 0 3rem;
 }
 
 .wrap {
@@ -79,7 +80,7 @@
 
 .content {
   display: flex;
-  padding: 8rem 0;
+  padding: 8rem 3rem;
   align-items: center;
   gap: 4rem;
 }
@@ -120,7 +121,9 @@ footer {
   width: 100%;
   padding: 2rem 12.5rem 6.2rem 12.5rem;
   font-size: 1rem;
+  gap: 3.75rem;
 }
+
 .footer-company {
   color: var(--gray-400);
 }
@@ -134,4 +137,18 @@ footer {
 .footer-social-links {
   display: flex;
   gap: 0.7rem;
+}
+
+/* Mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .banner {
+    background-size: 70%;
+    background-position: 50% bottom;
+    text-align: center;
+    align-items: flex-start;
+  }
+
+  .content {
+    flex-direction: column;
+  }
 }
