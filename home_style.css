@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    font-family: Pretendard;
 }
 
 header{
@@ -26,15 +27,28 @@ button{
     cursor: pointer;
 }
 
-.logo_button:hover{
-    cursor: pointer;
+.logo_button{
+    border: none;
+    background-color: #FFFFFF;
+}
+
+.login_link{
+    position: absolute;
+    display: block;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 3em;
+    color: inherit;
+    text-decoration: none;
+    z-index: 1;
 }
 
 .login_bt{
-    font-family: pretendard;
+    position: relative;
     font-size: 16px;
     font-weight: 600;
-    line-height: 19.09px;
+    line-height: 25px;
     margin-right: 200px;
     padding: 10px 20px;
     text-align: center;
@@ -69,7 +83,6 @@ button{
 }
 
 .banner_bt{
-    font-family: pretendard;
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
@@ -124,7 +137,6 @@ button{
 
 .banner_text{
     font: #374151;
-    font-family: pretendard;
     font-weight: 700;
     font-size: 40px;
     line-height: 56px;
@@ -167,7 +179,6 @@ button{
 }
 
 .sec_txt_tag{
-    font-family: Pretendard;
     font-size: 18px;
     font-weight: 700;
     line-height: 25.2px;
@@ -178,7 +189,6 @@ button{
 .sec_txt_title{
     width: 343px;
     height: 112px;
-    font-family: Pretendard;
     font-size: 40px;
     font-weight: 700;
     line-height: 56px;
@@ -188,7 +198,6 @@ button{
 }
 
 .sec_txt_content{
-    font-family: Pretendard;
     font-size: 24px;
     font-weight: 500;
     line-height: 28.8px;
@@ -270,7 +279,6 @@ button{
 .bottom_banner_txt{
     width: 296px;
     height: 112px;
-    font-family: Pretendard;
     font-size: 40px;
     font-weight: 700;
     line-height: 56px;
@@ -299,7 +307,6 @@ footer{
 }
 
 .codeit-2024{
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.09px;
@@ -307,14 +314,13 @@ footer{
     color: #9CA3AF;
 }
 
-a{
+.privacy_policy_and_faq > a{
     color: inherit;
     text-decoration: none;
     margin: 0 15px;
 }
 
 .privacy_policy_and_faq{
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.09px;
@@ -495,7 +501,6 @@ a{
     .bottom_banner_txt{
         height: 5.6vw;
         width: 14.8vw;
-        font-family: Pretendard;
         font-size: 2vw;
         font-weight: 700;
         line-height: 2.8vw;
