@@ -1,5 +1,5 @@
-const passwordInput = document.querySelector(".login-password");
-const passwordToggle = document.querySelector(".password-visible-toggle");
+const passwordInput = document.querySelector("#auth-password");
+const passwordToggle = document.querySelector(".password-visible-toggle-btn");
 let toggleImg = passwordToggle.firstElementChild;
 const handlePasswordToggle = () => {
   if (toggleImg.src.endsWith("off.png")) {
