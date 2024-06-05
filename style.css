@@ -57,8 +57,9 @@ search 부분 텍스트 오른쪽 정렬  */
     font-weight: 500;
 }
 
-
-header {
+/* 
+맨 윗줄 판다마켓 로그인  */
+.topBar {
     position: fixed;
     top: 0;
     left: 0;
@@ -66,16 +67,12 @@ header {
     height: 70px;
     background-color: #ffffff;
     z-index: 1;
-}
-
-/* 
-맨 윗줄 판다마켓 로그인  */
-.header-wrap {
     display: flex;
     justify-content: space-between;
     padding: 10px 200px;
     align-items: center;
 }
+
 
 
 .category {
@@ -166,20 +163,19 @@ header {
 
 
 
-footer {
+.bottomBar {
     background-color: #111827;
     width: 100%;
     height: 160px;
-}
-
-
-.footer-wrap {
     display: flex;
     justify-content: space-between;
     padding: 10px 200px;
     align-items: center;
     padding: 32px 200px;
 }
+
+
+.footer-wrap {}
 
 .footer-text-1 {
     color: #9CA3AF;

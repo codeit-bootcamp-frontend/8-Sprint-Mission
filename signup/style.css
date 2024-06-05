@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
+.signupPage {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+
+.logo {
+    margin-top: 10px;
+}
+
+.logo img {
+    width: 396px;
+    height: 132px;
+    object-fit: contain;
+}
+
+label {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+input {
+    width: 640px;
+    height: 56px;
+    border-radius: 12px;
+    background-color: #F3F4F6;
+    border: none;
+    color: #9CA3AF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 0 15px;
+    outline: none;
+    /* 기본 outline 제거 */
+}
+
+input:focus {
+    border: 2px solid #3692FF;
+
+}
+
+input:focus-out {
+    border: none;
+}
+
+
+.signup {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.signup-input {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.signup-button {
+    width: 640px;
+    height: 56px;
+    border-radius: 40px;
+    background-color: #9CA3AF;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #FFFFFF;
+    border: none;
+}
+
+.signup-button:hover {
+    background-color: #3692FF;
+}
+
+.easy-login {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
+    width: 640px;
+    height: 74px;
+    border-radius: 8px;
+    background-color: #E6F2FF;
+}
+
+.platform {
+    display: flex;
+    gap: 20px;
+}
+
+.signup-input svg {
+    position: absolute;
+    left: 94%;
+    transform: translateY(350%);
+    pointer-events: none;
+    /* 눈 모양 아이콘 */
+}
