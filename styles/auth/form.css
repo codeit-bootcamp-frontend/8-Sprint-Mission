@@ -4,6 +4,7 @@
   gap: 2.4rem;
 
   & .auth-label {
+    display: inline-block;
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 2.148rem;

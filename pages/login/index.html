@@ -40,8 +40,9 @@
       <form class="auth-form" autocomplete="on" action="post">
         <!-- auth-form 걸려있는 gap의 영향을 받지 않고 auth-label과 input 사이의 간격을 조정하기 위한 div -->
         <div>
-          <div class="auth-label">이메일</div>
+          <label for="login-email" class="auth-label">이메일</label>
           <input
+            id="login-email"
             type="email"
             name="email"
             placeholder="이메일을 입력해주세요"
@@ -50,13 +51,14 @@
         </div>
 
         <div>
-          <div class="auth-label">비밀번호</div>
+          <label for="login-password" class="auth-label">비밀번호</label>
           <!-- visibility-icon을 absolute 속성을 주기 위해
             password-wrapper는 relative로 감싸주어
             input 영역 내에서 아이콘 위치를 조정할 수 있도록 하기 위함 -->
           <div class="password-wrapper">
             <!-- 비밀번호는 자동완성되지 않도록 autocomplete off -->
             <input
+              id="login-password"
               type="password"
               name="password"
               autocomplete="off"
