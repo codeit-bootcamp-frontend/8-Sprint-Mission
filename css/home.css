@@ -51,8 +51,8 @@
   justify-content: center;
   margin: 0 auto;
   background-image: url(../img/img_home_top.png);
-  background-position: bottom right 240px;
-  background-size: 50%;
+  background-position: bottom right 12%;
+  background-size: 996px 447px;
   background-repeat: no-repeat;
 }
 
@@ -138,8 +138,8 @@ main {
   margin: 0 auto;
   height: 540px;
   background-image: url(../img/img_home_bottom.png);
-  background-position: bottom right 240px;
-  background-size: 50%;
+  background-position: bottom right 12%;
+  background-size: 996px 540px;
   background-repeat: no-repeat;
 }
 .end-card {
@@ -210,7 +210,7 @@ footer {
     height: 771px;
     justify-content: flex-start;
     background-position: bottom;
-    background-size: 110%;
+    background-size: 996px 447px;
   }
   .background.bg-top {
     height: 771px;
@@ -282,7 +282,7 @@ footer {
     max-width: none;
     height: 927px;
     background-position: bottom;
-    background-size: 130%;
+    background-size: 996px 540px;
   }
   .end-card {
     width: 100%;
@@ -322,7 +322,7 @@ footer {
     max-width: none;
     justify-content: flex-start;
     background-position: bottom;
-    background-size: 125%;
+    background-size: 626px 281px;
   }
 
   .title {
@@ -394,7 +394,7 @@ footer {
   .end-title {
     max-width: none;
     background-position: bottom;
-    background-size: 120%;
+    background-size: 498px 270px;
   }
   .end-card {
     width: 100%;
