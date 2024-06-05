@@ -1,7 +1,13 @@
+.auth-container {
+  width: 100%;
+  max-width: 40rem;
+
+  margin: 3.7rem auto;
+}
+
 .auth-header {
   display: flex;
   justify-content: center;
-  margin: 3.7rem auto;
 }
 
 .logo {
@@ -105,8 +111,14 @@ input:focus {
   border: none;
   background-color: transparent;
 }
+
 .auth-password-box {
   position: relative;
   display: flex;
   align-items: center;
+}
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .auth-container {
+    margin: 1rem auto;
+  }
 }
