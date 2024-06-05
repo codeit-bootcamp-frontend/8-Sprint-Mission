@@ -37,7 +37,7 @@
     <main class="auth-container">
       <!-- 로그인 정보를 서버로 보낼 form, 비밀번호가 url에 표시되지 않도록 하기위해 post 액션으로 전송 -->
       <!-- 사용자 편의를 위해  autocomplete 속성 on, required 속성 추가-->
-      <form class="auth-form" autocomplete="on" action="post">
+      <form class="auth-form" autocomplete="on" method="post">
         <!-- auth-form 걸려있는 gap의 영향을 받지 않고 auth-label과 input 사이의 간격을 조정하기 위한 div -->
         <div>
           <label for="login-email" class="auth-label">이메일</label>
