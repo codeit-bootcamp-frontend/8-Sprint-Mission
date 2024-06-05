@@ -21,9 +21,9 @@ header {
   cursor: pointer;
 }
 
-.main-top > div,
+.top-page,
 .main-page,
-.main-bottom > div {
+.bottom-page {
   width: 1200px;
   margin: 0 auto;
 }
@@ -41,19 +41,13 @@ header {
   padding: 138px 0;
 }
 
-p, h3 {
-  margin: 0;
-  padding: 0;
-}
-
 .content-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.right-main .content-block h3,
-.right-main .content-block p {
+.right-text {
   text-align: right;
 }
 
