@@ -134,7 +134,7 @@ http://scripts.sil.org/OFL
   cursor: default;
 } /* 버튼 상태에 따른 색상 변화 */
 
-#width-alert > span {
+#width-alert {
   display: none;
 }
 
@@ -142,9 +142,11 @@ http://scripts.sil.org/OFL
   #width-alert {
     width: 100%;
     height: 100%;
-    background-color: var(--error-color);
+    border: 10px solid var(--error-color);
+    background-color: var(--white);
     z-index: 10;
     position: fixed;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,14 +154,14 @@ http://scripts.sil.org/OFL
   #width-alert > span {
     display: block;
     font-size: 20px;
-    color: var(--white);
+    color: var(--gray900);
     font-family: Arial;
   }
   #width-alert > span > br {
     display: none;
   }
 }
-@media (max-width: 280px) {
+@media (max-width: 300px) {
   #width-alert > span > br {
     display: inherit;
   }
