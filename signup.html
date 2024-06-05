@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>판다마켓 회원가입</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+        <a href="/"><img rel="icon" src="logo_image.png"></a>
+       </div>
+    </header>
+    <main>
+        <form>   
+            <label for="signup-email">이메일</lable>
+            <input id="signup-email" name="email" type="email" 
+                placeholder="이메일을 입력해주세요" required>
+            
+        
+            <label for="signup-nick">닉네임</lable>
+            <input id="signup-nick" name="nick"
+                placeholder="닉네임을 입력해주세요" required>
+            
+        
+            <label for="signup-pw">비밀번호</lable>
+                <input id="signup-pw" name="pw" type="password" 
+                placeholder="비밀번호를 입력해주세요" required>
+            
+        
+            <label for="signup-pwcheck">비밀번호 확인</lable>
+                <input id="signup-pwcheck" name="pwcheck" type="password" 
+                placeholder="비밀번호를 다시 한 번 입력해주세요" required>
+
+            <div class="signup-btn">
+            <a href=#><button>회원가입</button></a>
+            </div>
+        </form>
+        <div class="easy-login">
+            <h3>간편 로그인하기</h3>
+            <div>
+                <a href="https://www.google.com/"><img rel="icon" src="google.png"></a>
+                <a href="https://www.kakao.com/"><img rel="icon" src="kakao.png"></a>
+            </div>
+        </div>
+        <div class="already-user">
+            이미 회원이신가요?
+            <span><a href="/login.html">로그인</a></span>
+        </div>
+    </main>
+</body>
+</html>
