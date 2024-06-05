@@ -151,4 +151,10 @@ footer {
   .content {
     flex-direction: column;
   }
+  .content img {
+    width: 100%;
+  }
+  .content-textBox {
+    width: 100%;
+  }
 }
