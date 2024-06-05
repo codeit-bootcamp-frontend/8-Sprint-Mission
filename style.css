@@ -1,8 +1,38 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("./asset/font/pretendard/woff/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("./asset/font/pretendard/woff/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("./asset/font/pretendard/woff/Pretendard-SemiBold.woff")
+    format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("./asset/font/pretendard/woff/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Pretendard, sans-serif;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
 }
 
 :root {
@@ -70,7 +100,7 @@ header {
   height: 540px;
   margin-top: 70px;
   background-color: var(--light-blue);
-  background-image: url("./image/Img_home_top.png");
+  background-image: url("./asset/image/Img_home_top.png");
   background-repeat: no-repeat;
   background-size: 52% auto;
   background-position: bottom 0 right 223px;
@@ -169,7 +199,7 @@ section {
   align-items: center;
   height: 540px;
   background-color: var(--light-blue);
-  background-image: url("./image/Img_home_bottom.png");
+  background-image: url("./asset/image/Img_home_bottom.png");
   background-repeat: no-repeat;
   background-size: 52% auto;
   background-position: bottom 0 right 223px;
