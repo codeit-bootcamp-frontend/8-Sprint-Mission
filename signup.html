@@ -15,85 +15,91 @@
     <title>회원가입</title>
   </head>
   <body>
-    <div class="auth-header">
-      <a href="/">
-        <img class="logo" src="/image/logo.png" alt="판다마켓 로고" />
-      </a>
-    </div>
-    <div class="auth-main">
-      <div class="auth-form-container">
-        <form>
-          <div class="auth-input-box">
-            <label for="auth-email">이메일</label>
-            <input
-              id="auth-email"
-              type="email"
-              placeholder="이메일을 입력해주세요"
-            />
-          </div>
-          <div class="auth-input-box">
-            <label for="auth-name">닉네임</label>
-            <input
-              id="auth-name"
-              type="text"
-              placeholder="닉네임을 입력해주세요"
-            />
-          </div>
-          <div class="auth-input-box">
-            <label for="auth-password">비밀번호</label>
-            <div class="auth-password-box">
+    <div class="auth-container">
+      <div class="auth-header">
+        <a href="/">
+          <img class="logo" src="/image/logo.png" alt="판다마켓 로고" />
+        </a>
+      </div>
+      <div class="auth-main">
+        <div class="auth-form-container">
+          <form>
+            <div class="auth-input-box">
+              <label for="auth-email">이메일</label>
               <input
-                id="auth-password"
-                type="password"
-                autocomplete="on"
-                placeholder="비밀번호를 입력해주세요"
+                id="auth-email"
+                type="email"
+                placeholder="이메일을 입력해주세요"
               />
-              <button type="button" class="password-visible-toggle-btn">
-                <img
-                  src="image/btn_visibility_on.png"
-                  alt="btn_visibility_on"
-                />
-              </button>
             </div>
-          </div>
-          <div class="auth-input-box">
-            <label for="auth-password-confirm">비밀번호</label>
-            <div class="auth-password-box">
+            <div class="auth-input-box">
+              <label for="auth-name">닉네임</label>
               <input
-                id="auth-password-confirm"
-                type="password"
-                autocomplete="on"
-                placeholder="비밀번호를 다시 한 번 입력해주세요"
+                id="auth-name"
+                type="text"
+                placeholder="닉네임을 입력해주세요"
               />
-              <button type="button" class="password-visible-toggle-btn">
-                <img
-                  src="image/btn_visibility_on.png"
-                  alt="btn_visibility_on"
-                />
-              </button>
             </div>
-          </div>
+            <div class="auth-input-box">
+              <label for="auth-password">비밀번호</label>
+              <div class="auth-password-box">
+                <input
+                  id="auth-password"
+                  type="password"
+                  autocomplete="on"
+                  placeholder="비밀번호를 입력해주세요"
+                />
+                <button type="button" class="password-visible-toggle-btn">
+                  <img
+                    src="image/btn_visibility_on.png"
+                    alt="btn_visibility_on"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="auth-input-box">
+              <label for="auth-password-confirm">비밀번호</label>
+              <div class="auth-password-box">
+                <input
+                  id="auth-password-confirm"
+                  type="password"
+                  autocomplete="on"
+                  placeholder="비밀번호를 다시 한 번 입력해주세요"
+                />
+                <button type="button" class="password-visible-toggle-btn">
+                  <img
+                    src="image/btn_visibility_on.png"
+                    alt="btn_visibility_on"
+                  />
+                </button>
+              </div>
+            </div>
 
-          <button type="submit" class="auth-submit-btn">회원가입</button>
-        </form>
-        <div class="easy-login">
-          <span>간편 로그인하기</span>
-          <div class="easy-login-icons">
-            <a href="https://www.google.co.kr/">
-              <img
-                class="easy-login-icon"
-                src="/image/google.png"
-                alt="google"
-              />
-            </a>
-            <a href="https://www.kakaocorp.com/page/">
-              <img class="easy-login-icon" src="/image/kakao.png" alt="kakao" />
-            </a>
+            <button type="submit" class="auth-submit-btn">회원가입</button>
+          </form>
+          <div class="easy-login">
+            <span>간편 로그인하기</span>
+            <div class="easy-login-icons">
+              <a href="https://www.google.co.kr/">
+                <img
+                  class="easy-login-icon"
+                  src="/image/google.png"
+                  alt="google"
+                />
+              </a>
+              <a href="https://www.kakaocorp.com/page/">
+                <img
+                  class="easy-login-icon"
+                  src="/image/kakao.png"
+                  alt="kakao"
+                />
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="auth-confirm">
-          <span>이미 회원이신가요?</span>
-          <a href="login.html">로그인</a>
+          <div class="auth-confirm">
+            <span>이미 회원이신가요?</span>
+            <a href="login.html">로그인</a>
+          </div>
         </div>
       </div>
     </div>
