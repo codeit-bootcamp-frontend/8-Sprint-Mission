@@ -203,16 +203,6 @@ main {
   gap: 12px;
 }
 
-.facebook-icon,
-.twitter-icon,
-.youtube-icon,
-.instagram-icon {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-size: 286px 64px;
-}
-
 .facebook-icon {
   background: url(../images/icon.png) no-repeat -50px -10px;
 }
@@ -224,4 +214,14 @@ main {
 }
 .instagram-icon {
   background: url(../images/icon.png) no-repeat -90px -10px;
+}
+
+.facebook-icon,
+.twitter-icon,
+.youtube-icon,
+.instagram-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-size: 286px 64px;
 }

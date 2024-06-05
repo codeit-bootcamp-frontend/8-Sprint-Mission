@@ -91,6 +91,11 @@
   .copyright {
     padding: 0 6.5rem;
   }
+
+  /* 로그인 회원가입 페이지 */
+  #register-header {
+    margin-top: 3rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -176,21 +181,17 @@
   }
   .copyright {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     padding: 0 2rem;
-    gap: 3.75rem;
+    gap: 3.75rem 0;
   }
   .copyright > p {
     grid-row: 2;
-    grid-column: 1 / span2;
   }
-  .copyright > div:nth-child(2) {
-    grid-column: 1 / span2;
+  .copyright > .policy {
     grid-row: 1;
   }
-  .copyright > div:last-child {
-    grid-column: 3 / span1;
+  .copyright > .sns-list {
     grid-row: 1;
   }
   .footer {
@@ -201,5 +202,12 @@
   #register-container {
     max-width: 27rem;
     padding: 0 1rem;
+  }
+  #register-header {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .register-logo {
+    max-width: 262px;
   }
 }
