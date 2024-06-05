@@ -1,0 +1,117 @@
+@import url('/css/color_palette.css');
+
+* {
+  box-sizing: border-box;
+  font-family: pretendard;
+}
+
+a, button {
+  cursor:pointer;
+}
+label,
+input,
+button,
+form {
+  display: block;
+  width:100%;
+  border:0;
+}
+
+
+form label {
+  font-size:18px;
+  font-weight:700px;
+  color: var(--gray800);
+  margin: 0 0 16px;
+}
+
+form input {
+  padding:16px 24px;
+  font-size:16px;
+  font-weight:400;
+  border-radius: 12px;
+  color: var(--gray800);
+  background-color: var(--gray100);
+  margin: 0 0 24px;
+}
+
+form input:placeholder {
+  color: var(--gray400);
+}
+
+form input:focus {
+  border: 2px solid var(--blue);
+  outline: none;
+}
+
+form button {
+  border-radius: 40px;
+  background-color: var(--gray400);
+  font-size: 20px;
+  padding:16px 294px;
+  color: #ffffff;
+}
+.page-contaner {
+  display: flex;
+  margin: 60px 0;
+}
+
+.eye-icon-parents {
+  position:relative;
+}
+
+.eye-icon-parents img {
+  position: absolute;
+  top:50px;
+  left:595px;
+  width:24px;
+}
+
+.login-container {
+  width:640px;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  flex-shrink: 0;
+  gap:24px;
+}
+
+.login-top-logo img {
+  width: 396px;
+
+}
+
+.empty-space {
+  width: 640px;
+  flex-grow:1;
+}
+
+.easy-login {
+  font-weight: 500;
+  background-color: #E6F2FF;
+  border-radius: 8px;
+  padding:16px 23px;
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.easy-login-icon {
+  display: flex;
+  gap:16px;
+}
+
+.easy-login-icon img {
+ width: 42px;
+}
+
+.login-container p {
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--gray800);
+}
+
+button.enabled {
+  background-color: var(--blue);
+}

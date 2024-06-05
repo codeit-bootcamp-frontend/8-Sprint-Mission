@@ -1,0 +1,341 @@
+/* @import "mediaQuery.css"; */
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+body {
+  margin:0 0 0 0;
+  font-family: pretendard;
+}
+
+a {
+  cursor: pointer;
+}
+header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  top: 0px;
+  left: 0px;
+  padding: 10px 200px;
+  background-color: #ffffff;
+  border-bottom: 1.0003px solid #DFDFDF;
+  z-index: 9999;
+}
+
+header img {
+  width: 153px;
+  height: auto;
+}
+
+header > .logo {
+  display: flex;
+  align-items: center;
+}
+
+header > .login-button {
+  min-width: 128px;
+  min-height: 48px;
+  background-color: #3692ff;
+  color: #ffffff;
+  padding: 12px 20px 12px 20px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15.9994px;
+  font-weight: 600;
+  line-height: 19.0906px;
+}
+
+.logo > h1 {
+  margin-left: 8.5901px;
+  color: #3692FF;
+  font-size: 25.6301px;
+  font-weight: 699.9994px;
+  line-height: 34.6003px;
+  
+}
+
+.banner {
+  display: flex;
+  margin-top: 90px;
+  background-color: #CFE5FF;
+  height: 579.9994px;
+  overflow: hidden;
+  z-index: -2;
+
+ }
+
+ .banner .container {
+  position: relative;
+ }
+
+ .empty-space {
+  width: 360px;
+  flex-grow: 1;
+ }
+
+.banner img {
+  position : absolute;
+  left: 326.4px;
+  bottom: 0px;
+  width:996px;
+  
+  
+}
+.banner h1 {
+  font-size: 39.9994px;
+  font-weight: 700;
+  line-height: 56.0006px;
+  color: #374151;
+  z-index: 1;
+}
+
+.banner .Market-tour-button {
+  background-color: #3692ff;
+  color: #ffffff;
+  padding: 15.9994px 123.9994px;
+  text-align: center;
+  border-radius: 39.9994px;
+  width: 357.001px;
+  height: 56.0006px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20.0006px;
+  line-height: 24px;
+  z-index: 1;
+}
+
+.container {
+  width: 1200px;
+  margin: 0;
+}
+
+.banner > .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+main .text-div {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: center;
+  margin: 0 0;
+  gap: 12px;
+}
+
+main .container {
+  display: flex;
+  flex-direction: row;
+  gap: 63.9994px;
+  padding: 137.5008px 0;
+  flex-wrap: wrap;
+}
+main img {
+  width: 588px;
+  border-radius: 12px;
+}
+
+main .row-reverse {
+  flex-direction: row-reverse;
+}
+
+main .row-reverse .text-div {
+  flex-direction: flex-end;
+}
+
+main .blue-bedge {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25.2px;
+  color: #3692FF;
+  margin: 0;
+}
+
+main .title {
+  font-weight: 700;
+  font-size: 39.9994px;
+  line-height: 56.0006px;
+  letter-spacing: 2%;
+  margin: 0;
+}
+
+main .description {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28.8px;
+  letter-spacing: 8%;
+  margin: 0;
+}
+footer {
+  display: flex;
+  background-color:#111827;
+  color: #E5E7EB;
+  font-weight: 400;
+  padding: 32.0006px 200.0006px 108px;
+  justify-content: space-between;
+  font-size: 15.9994px;
+}
+
+footer .left {
+  color: #9CA3AF;
+}
+
+footer .center{
+  display: flex;
+  gap: 30px;
+}
+
+footer .center a{
+  text-decoration: none;
+  color: #E5E7EB;
+}
+
+footer .sns_icon {
+  display: flex;
+  gap: 12px;
+}
+footer .sns_icon img {
+  width: 20.0006px;
+}
+
+.home-main-section {
+  display:flex;
+}
+
+/**디스플레이 width 0~1920px 모든 수치 vw 반응형 **/
+@media screen and (max-width:1920px) {
+
+  header {
+    height: 4.6875vw;
+    top: 0vw;
+    left: 0vw;
+    padding: .5208vw 10.4167vw;
+    border-bottom: .0521vw solid #DFDFDF;
+  }
+  
+  header img {
+    width: 7.9688vw;
+  }
+  
+  header > .login-button {
+    min-width: 6.6667vw;
+    min-height: 2.5vw;
+    padding: .625vw 1.0417vw .625vw 1.0417vw;
+    border-radius: .4167vw;
+    font-size: .8333vw;
+    line-height: .9943vw;
+  }
+  
+  .logo > h1 {
+    margin-left: .4474vw;
+    font-size: 1.3349vw;
+    font-weight: 36.4583vw;
+    line-height: 1.8021vw;
+    
+  }
+  
+  .banner {
+    margin-top: 4.6875vw;
+    height: 30.2083vw;
+   }
+  
+   .empty-space {
+    width: 18.75vw;
+   }
+  
+  .banner img {
+    left: 17vw;
+    bottom: 0vw;
+    width:51.875vw;
+    
+    
+  }
+  .banner h1 {
+    font-size: 2.0833vw;
+    line-height: 2.9167vw;
+  }
+  
+  .banner .Market-tour-button {
+    padding: .8333vw 6.4583vw;
+    border-radius: 2.0833vw;
+    width: 18.5938vw;
+    height: 2.9167vw;
+    font-size: 1.0417vw;
+    line-height: 1.25vw;
+  }
+  
+  .container {
+    width: 62.5vw;
+  }
+  
+  .banner > .container {
+    height: 100%;
+  }
+  
+  main .text-div {
+    gap: .625vw;
+  }
+  
+  main .container {
+    gap: 3.3333vw;
+    padding: 7.1615vw 0;
+  }
+  main img {
+    width: 30.625vw;
+    border-radius: .625vw;
+  }
+
+  
+  main .blue-bedge {
+    font-size: .9375vw;
+    line-height: 1.3125vw;
+  }
+  
+  main .title {
+    font-size: 2.0833vw;
+    line-height: 2.9167vw;
+    letter-spacing: 2%;
+  }
+  
+  main .description {
+    font-size: 1.25vw;
+    line-height: 1.5vw;
+    letter-spacing: 8%;
+  }
+  footer {
+    padding: 1.6667vw 10.4167vw 5.625vw;
+    font-size: .8333vw;
+  }
+  
+  footer .center{
+    gap: 1.5625vw;
+  }
+  
+  
+  footer .sns_icon {
+    gap: .625vw;
+  }
+  footer .sns_icon img {
+    width: 1.0417vw;
+  }
+
+}
+
