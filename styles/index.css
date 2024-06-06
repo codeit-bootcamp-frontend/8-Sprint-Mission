@@ -14,6 +14,7 @@
 
 body {
   font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  font-size: 16px;
 }
 
 :root {
@@ -91,7 +92,7 @@ img.banner-bottom {
 
 .banner-content>p {
   display: flex;
-  font-size: 2.5em;
+  font-size: 2.5rem;
   line-height: 56px;
   font-weight: 700;
 }
@@ -148,19 +149,19 @@ div.banner-bottom>p {
 }
 
 .topic {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--brand);
 }
 
 .explane {
-  font-size: 3em;
+  font-size: 3rem;
   line-height: 56px;
   font-weight: 700;
 }
 
 .explane-sub {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   line-height: 28.8px;
 }
 
@@ -176,7 +177,7 @@ footer {
   display: flex;
   flex: 1 0 240px;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 1rem;
   padding: 32px 200px;
 }
 
