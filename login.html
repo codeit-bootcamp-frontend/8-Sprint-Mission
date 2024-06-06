@@ -15,10 +15,17 @@
       </a>
     </div>
     <form>
-      <label for="login-email" class="label">이메일</label>
-      <input id="login-email" class="input-container" name="email" type="email" placeholder="이메일을 입력해주세요" required autocomplete="on">
-      <label for="login-password" class="label">비밀번호</label>
-      <input id="login-password" class="input-container" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+      <div class="input-item">
+        <label for="login-email">이메일</label>
+        <input id="login-email" name="email" type="email" placeholder="이메일을 입력해주세요" required autocomplete="on">
+      </div>
+      <div class="input-item">
+        <label for="login-password">비밀번호</label>
+        <div class="input-wrap">
+          <input id="login-password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+          <img src="./images/non_visibility.png" class="password-icon" alt="눈 모양 아이콘">
+        </div>
+      </div>
       <button class="form-button">
         로그인
       </button>

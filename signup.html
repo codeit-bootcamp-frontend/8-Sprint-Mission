@@ -15,14 +15,28 @@
       </a>
     </div>
     <form>
-      <label for="signup-email" class="label">이메일</label>
-      <input id="signup-email" class="input-container" name="email" type="email" placeholder="이메일을 입력해주세요" required autocomplete="on">
-      <label for="signup-nickname" class="label">닉네임</label>
-      <input id="signup-nickname" class="input-container" name="nickname" type="text" placeholder="닉네임을 입력해주세요" required>
-      <label for="signup-password" class="label">비밀번호</label>
-      <input id="signup-password" class="input-container" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
-      <label for="signup-password-confirm" class="label">비밀번호 확인</label>
-      <input id="signup-password-confirm" class="input-container" name="password-confirm" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" required>
+      <div class="input-item">
+        <label for="signup-email">이메일</label>
+        <input id="signup-email" name="email" type="email" placeholder="이메일을 입력해주세요" required autocomplete="on">
+      </div>
+      <div class="input-item">
+        <label for="signup-nickname">닉네임</label>
+        <input id="signup-nickname" name="nickname" type="text" placeholder="닉네임을 입력해주세요">
+      </div>
+      <div class="input-item">
+        <label for="signup-password">비밀번호</label>
+        <div class="input-wrap">
+          <input id="signup-password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+          <img src="./images/non_visibility.png" class="password-icon" alt="눈 모양 아이콘">
+        </div>
+      </div>
+      <div class="input-item">
+        <label for="signup-password-confirm">비밀번호 확인</label>
+        <div class="input-wrap">
+          <input id="signup-password-confirm" name="password-confirm" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+          <img src="./images/non_visibility.png" class="password-icon" alt="눈 모양 아이콘">
+        </div>
+      </div>
       <button class="form-button">
         회원가입
       </button>
