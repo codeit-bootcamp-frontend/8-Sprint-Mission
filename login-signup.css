@@ -1,20 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-:root {
-  --color-label: #1f2937;
-  --color-input: #f3f4f6;
-  --color-blue: #3692ff;
-  --color-button: #9ca3af;
-  --color-button-text: #ffffff;
-  --color-easylogin: #e6f2ff;
-  --color-text: #1f2937;
-  --color-signup: #3182f6;
-}
-
 body {
-  font-family: pretendard;
   width: 640px;
   margin: 60px auto;
 }
@@ -50,11 +34,16 @@ input {
   text-align: left;
 }
 
-#password {
-  background-image: url("eye-off.png");
-  background-position: 592px center;
-  background-repeat: no-repeat;
-  box-sizing: border-box;
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 24px;
+  cursor: pointer;
 }
 
 input:focus {

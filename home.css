@@ -1,23 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: pretendard;
-}
-
-:root {
-  --color-blue: #3692ff;
-  --color-coolgray700: #374151;
-  --color-white: #ffffff;
-  --color-banner: #cfe5ff;
-  --color-footer: #111827;
-  --color-footer_content: #9ca3af;
-  --color-privacy: #e5e7eb;
-  --color-header-border: #dfdfdf;
-}
-
-.header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,7 +16,7 @@ body {
 .login {
   background-color: var(--color-blue);
   border-radius: 8px;
-  padding: 14.5px 43px;
+  padding: 15px 43px;
   width: 128px;
   height: 48px;
 
@@ -43,7 +24,7 @@ body {
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
-  line-height: 19.09px;
+  line-height: 19px;
 }
 
 .banner {
@@ -53,7 +34,7 @@ body {
   margin-top: 70px;
 }
 
-.wrap {
+.wrapper {
   margin: 0 auto;
   width: 1200px;
   position: relative;
@@ -114,8 +95,7 @@ body {
   display: flex;
   align-items: center;
   gap: 64px;
-  margin-top: 137.5px;
-  margin-bottom: 138.5px;
+  margin: 138px 0;
 }
 
 .hot-item-info {
@@ -151,7 +131,7 @@ body {
 .title {
   font-size: 18px;
   font-weight: 700;
-  line-height: 25.2px;
+  line-height: 25px;
   text-align: left;
   color: var(--color-blue);
   margin-bottom: 0;
@@ -178,7 +158,7 @@ body {
 .description {
   font-size: 24px;
   font-weight: 500;
-  line-height: 28.8px;
+  line-height: 29px;
   letter-spacing: 0.08em;
   text-align: left;
   color: var(--color-coolgray700);
@@ -189,7 +169,7 @@ body {
   text-align: right;
 }
 
-.home_bottom_title {
+.bottom h1 {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
@@ -207,18 +187,18 @@ body {
   height: 540px;
 }
 
-.home_bottom_title {
+.bottom h1 {
   position: absolute;
   top: 214px;
   left: 0px;
 }
 
-.home_bottom {
+.banner-bottom {
   position: absolute;
   left: 341px;
 }
 
-.footer {
+footer {
   background-color: var(--color-footer);
   height: 160px;
   width: 1920px;
@@ -226,7 +206,7 @@ body {
   padding: 32px 200px;
 }
 
-.footer_content {
+.footer-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -234,7 +214,7 @@ body {
 
   font-size: 16px;
   font-weight: 400;
-  line-height: 19.09px;
+  line-height: 19px;
   text-align: center;
   color: var(--color-footer_content);
 }

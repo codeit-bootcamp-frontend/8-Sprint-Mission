@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: pretendard;
+}
+
+:root {
+  --color-blue: #3692ff;
+  --color-coolgray700: #374151;
+  --color-white: #ffffff;
+  --color-banner: #cfe5ff;
+  --color-footer: #111827;
+  --color-footer_content: #9ca3af;
+  --color-privacy: #e5e7eb;
+  --color-header-border: #dfdfdf;
+
+  --color-label: #1f2937;
+  --color-input: #f3f4f6;
+  --color-blue: #3692ff;
+  --color-button: #9ca3af;
+  --color-button-text: #ffffff;
+  --color-easylogin: #e6f2ff;
+  --color-text: #1f2937;
+  --color-signup: #3182f6;
+}
