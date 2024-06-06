@@ -7,12 +7,16 @@ html {
   transition: font-size 0.5s ease-in-out;
 }
 
-/* PC & 페이지 레이아웃에서 이미지가 가려지기 시작하는 해상도 1200px - 1600px */
-@media all and (min-width: 1200px) and (max-width: 1600px) {
+/* 너비 1600px 이하 해상도 공통 적용 */
+@media all and (max-width: 1600px) {
   html {
     /* 8px = 1.0rem */
     font-size: 50%;
   }
+}
+
+/* PC & 페이지 레이아웃에서 이미지가 가려지기 시작하는 해상도 1200px - 1600px */
+@media all and (min-width: 1200px) and (max-width: 1600px) {
 }
 
 /* Tablet: 768px - 1199px*/
@@ -21,8 +25,4 @@ html {
 
 /* Mobile : 767px 이하*/
 @media all and (max-width: 767px) {
-  html {
-    /* 7px = 1.0rem */
-    font-size: 43.75%;
-  }
 }

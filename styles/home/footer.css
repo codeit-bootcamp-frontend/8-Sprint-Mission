@@ -12,6 +12,10 @@
   text-align: center;
   color: var(--cool-gray-200);
 
+  & .home-footer-company {
+    color: var(--brand-gray);
+  }
+
   & .home-footer-anchors,
   .home-footer-sns {
     display: flex;

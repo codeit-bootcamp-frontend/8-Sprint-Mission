@@ -94,4 +94,13 @@
       height: 269.95px;
     }
   }
+
+  .home_footer {
+    position: relative;
+    padding: 3.2rem 10.4rem;
+    & .home-footer-company {
+      position: absolute;
+      bottom: 3.2rem;
+    }
+  }
 }
