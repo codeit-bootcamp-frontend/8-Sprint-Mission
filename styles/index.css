@@ -272,8 +272,8 @@ footer {
 }
 
 
-/* mediaQuerry */
-@media (min-width: 375px) and (max-width: 767px){
+/* mediaQuery */
+@media (max-width: 767px){
   /* mobile */
   .gnb {
     padding: 0 16px;
