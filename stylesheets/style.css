@@ -19,6 +19,11 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Pretendard', sans-serif;
+  color: var(--gray700);
+}
+
 /* 헤더 부분입니다. */
 .header {
   width: 100%;
