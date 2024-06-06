@@ -3,7 +3,7 @@
 	font-weight: 45 920;
 	font-style: normal;
 	font-display: swap;
-	src: url('./asset/font/PretendardVariable.woff2') format('woff2-variations');
+	src: url('/assets/fonts/PretendardVariable.woff2') format('woff2-variations');
 }
 
 * {
@@ -155,3 +155,28 @@ input:focus {
 .button:active {
   background: var(--click);
 }
+
+/* icon */
+.messengers {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  gap: 16px;
+}
+
+.ic-google,
+.ic-kakao {
+  display: inline-block;
+  background-size: cover;
+  width: 42px;
+  height: 42px;
+}
+
+.ic-google {
+  background-image: url(/assets/icons/ic_google.png)  
+}
+
+.ic-kakao {
+  background-image: url(/assets/icons/ic_kakaotalk.png)  
+}
+ 

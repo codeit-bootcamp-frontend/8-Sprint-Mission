@@ -3,7 +3,7 @@
 	font-weight: 45 920;
 	font-style: normal;
 	font-display: swap;
-	src: url('./asset/font/PretendardVariable.woff2') format('woff2-variations');
+	src: url('./asset/fonts/PretendardVariable.woff2') format('woff2-variations');
 }
 
 * {
@@ -48,6 +48,7 @@ header {
   width: 153px;
   height: 51px;
 }
+
 
   /* banner */
 .banner-background {
@@ -98,6 +99,7 @@ img.banner-bottom {
 div.banner-bottom>p {
   text-align: right;
 }
+
 
 /* content*/
 .section-wrap {
@@ -161,7 +163,6 @@ div.banner-bottom>p {
   font-size: 1.5em;
   line-height: 28.8px;
 }
-
 
 
 /* footer */
@@ -231,3 +232,37 @@ footer {
   background: var(--click);
 }
 
+
+/* icon */
+.messengers {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.ic-facebook,
+.ic-twitter, 
+.ic-youtube,
+.ic-instagram {
+  display: inline-block;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+}
+
+.ic-facebook {
+  background-image: url(/assets/icons/ic_facebook.png);
+}
+
+.ic-twitter {
+  background-image: url(/assets/icons/ic_twitter.png);
+}
+
+.ic-youtube {
+  background-image: url(/assets/icons/ic_youtube.png);
+}
+
+.ic-instagram {
+  background-image: url(/assets/icons/ic_instagram.png);
+}
