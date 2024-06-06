@@ -12,9 +12,9 @@
   flex-shrink: 0;
 }
 
-body {
+html {
   font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: 16px;  
 }
 
 :root {
@@ -32,9 +32,9 @@ body {
 
 
   /* header */
-header {
+.gnb {
   position: fixed;
-  background-color: var(--f);
+  background-color: var(--fff);
   height: 70px;
   width: 100%;
   padding: 0 200px;
@@ -46,12 +46,14 @@ header {
 }
 
 .logo {
+  background-image: url(/assets/images/logo_pandamarket.png);
+  background-size: cover;
   width: 153px;
   height: 51px;
 }
 
 
-  /* banner */
+  /* main banner */
 .banner-background {
   background-color: var(--banner);
   margin-top: 70px;
@@ -94,7 +96,7 @@ img.banner-bottom {
 .banner-content>p {
   display: flex;
   font-size: 2.5rem;
-  line-height: 56px;
+  line-height: 3.5rem;
   font-weight: 700;
 }
 
@@ -103,20 +105,20 @@ div.banner-bottom>p {
 }
 
 
-/* content*/
-.section-wrap {
+/* main content*/
+.content-wrap {
   display: flex;
   flex-direction: column;
   max-width: 1200px;
-  margin: 0 auto 5%;
+  margin: 138px auto 5%;
+  gap: 138px;
 }
 
 .content-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 138px 0;
-  gap: 10%;
+  gap: 64px;;
 }
 
 .content-container-search {
@@ -124,7 +126,7 @@ div.banner-bottom>p {
   justify-content: flex-end;
   align-items: center;
   text-align: right;
-  margin: 137.5px 0;
+  margin: 138px 0;
   gap: 64px;
 }
 
@@ -146,7 +148,7 @@ div.banner-bottom>p {
 .text-wrap {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 }
 
 .topic {
@@ -157,13 +159,13 @@ div.banner-bottom>p {
 
 .explane {
   font-size: 3rem;
-  line-height: 56px;
+  line-height: 3.5rem;
   font-weight: 700;
 }
 
 .explane-sub {
   font-size: 1.5rem;
-  line-height: 28.8px;
+  line-height: 1.8rem;
 }
 
 
@@ -268,3 +270,223 @@ footer {
 .ic-instagram {
   background-image: url(/assets/icons/ic_instagram.png);
 }
+
+
+/* mediaQuerry */
+@media (min-width: 375px) and (max-width: 767px){
+  /* mobile */
+  .gnb {
+    padding: 0 16px;
+  }
+
+  .logo {
+    background-image: url(/assets/images/logo_name.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    width: 103px;
+    height: 30px;
+  }
+
+  .banner-background {
+    padding-top: 48px;
+    height: auto;
+  }
+
+  .banner-background-bottom {
+    padding-top: 121px;
+    height: auto;
+  }
+
+  .banner-background {
+    padding-top: 121px;
+    height: auto;
+  }
+
+  .banner-container {
+    flex-direction: column;
+    height: auto;
+    margin: 0;
+    gap: 60px;
+  }
+
+  .banner-content {
+    align-items: center;
+    text-align: center;
+    margin: 0;
+  }
+
+  .banner-content>p {
+    width: 240px;
+    font-size: 2rem;
+  }
+  
+  .banner-img {
+    min-width: 626px;
+    margin: auto 0 0;
+    padding: 0;
+  }
+
+  .button.large {
+    display: flex;
+    justify-content: center;
+    width: 154px;
+    padding: 16px 20px;
+  }
+
+  .content-wrap {
+    margin: 138px 16px;
+    align-items: center;
+    min-width: 400px;
+  }
+
+  .content-container,
+  .content-container-search{
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 32px;
+  }
+
+  .content-container>img,
+  .content-container-search>img {
+   width: 100%;
+  }
+
+  .content-container-search {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    margin: 16px 0;
+  }
+
+  .content {
+    flex: 1 0;
+    gap: 0;
+  }
+
+  .text-wrap {
+    gap: 0;
+  }
+
+  .topic,
+  .explane-sub {
+    font-size: 1rem;
+  }
+
+  .explane {
+    font-size: 1.5rem;
+  }
+
+  div.banner-bottom>p {
+    text-align: center;
+  }
+  
+  .footer_container {
+    padding: 32px 50px;
+    position: relative;
+  }
+
+  .footer_container>.middle_wrap {
+    flex: 1.2 0;
+    justify-content: space-between;
+  }
+
+  .messengers {
+    flex: 1 0;
+    justify-content: flex-end;
+  }
+
+  .footer_container>span {
+    position: absolute;
+    bottom: 32px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* tablet */
+  .gnb {
+    padding: 0 24px;
+  }
+
+  .banner-background {
+    padding-top: 84px;
+    height: auto;
+  }
+
+  .banner-background-bottom {
+    padding-top: 201px;
+    height: auto;
+  }
+
+  .banner-container {
+    flex-direction: column;
+    height: auto;
+    gap: 100px;
+  }
+
+  .banner-content {
+    align-items: center;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .banner-img {
+    min-width: 996px;
+    padding: 0;
+    margin: auto 0 0;
+  }
+
+  .button.large {
+    display: flex;
+    justify-content: center;
+    width: 355px;
+    padding: 16px 20px;
+  }
+
+  .content-wrap {
+    margin: 24px 24px;
+    align-items: center;
+    min-width: 400px;
+    gap: 48px;
+  }
+
+  .content-container,
+  .content-container-search{
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 24px;
+  }
+
+  .content-container>img,
+  .content-container-search>img {
+   width: 100%;
+  }
+
+  .content-container-search {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    margin: 16px 0;
+  }
+
+  .content {
+    flex: 1 0;
+  }
+
+  .explane-sub {
+    font-size: 1.2rem;
+  }
+
+  .explane {
+    font-size: 2rem;
+  }
+
+  div.banner-bottom>p {
+    text-align: center;
+    width: 295px;
+  }
+  
+  .footer_container {
+    padding: 32px 50px;
+  }
+} 
