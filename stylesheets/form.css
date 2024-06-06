@@ -19,9 +19,15 @@
   box-sizing: border-box;
 }
 
-.logo-wrap {
+body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Pretendard';
+}
+
+/* 판다마켓 로고 */
+.logo-wrap {
   margin-top: 60px;
 }
 
@@ -46,12 +52,8 @@ h1.name {
   color: var(--blue);
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
-
-form.wrap {
+/* 폼 */
+form {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
@@ -59,25 +61,15 @@ form.wrap {
   gap: 24px;
 }
 
-.login-wrap, .signup-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.email,
-.nickname,
-.password,
-.confirm-password {
+.label {
+  color: var(--gray800);
   font-size: 18px;
   line-height: 21.48px;
   font-weight: 700;
-  color: var(--gray800);
 }
 
-.input {
+.input-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 56px;
   border-radius: 12px;
@@ -86,14 +78,14 @@ form.wrap {
   padding-right: 24px;
 }
 
-.input > .text {
+input::placeholder {
+  color: var(--gray400);
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: var(--gray400);
 }
 
-a.login-button {
+.form-button {
   display: flex;
   justify-content: center;
   height: 56px;
@@ -104,9 +96,14 @@ a.login-button {
   font-size: 20px;
   line-height: 24px;
   font-weight: 600;
-  text-decoration: none;
 }
 
+input,
+button {
+  border: none;
+}
+
+/* 간편 로그인 */
 .easy-login {
   display: flex;
   justify-content: space-between;
@@ -126,6 +123,7 @@ ul.icon-wrap {
   list-style-type: none;
 }
 
+/* 헬퍼 */
 .help {
   display: flex;
   justify-content: center;
@@ -134,7 +132,8 @@ ul.icon-wrap {
   margin-bottom: 60px;
 }
 
-a.signup {
+.help > a {
+  margin-left: 8px;
   color: var(--blue);
 }
 
