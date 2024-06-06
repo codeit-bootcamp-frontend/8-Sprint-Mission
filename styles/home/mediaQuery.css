@@ -1,0 +1,13 @@
+/* Tablet: 768px - 1199pxpx*/
+@media all and (min-width: 768px) and (max-width: 1199px) {
+  .home-header {
+    padding: 0 2.4rem;
+  }
+}
+
+/* Mobile : 767px 이하*/
+@media all and (max-width: 767px) {
+  .home-header {
+    padding: 0 1.6rem;
+  }
+}
