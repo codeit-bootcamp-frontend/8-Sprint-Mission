@@ -3,7 +3,7 @@
 	font-weight: 45 920;
 	font-style: normal;
 	font-display: swap;
-	src: url('./asset/fonts/PretendardVariable.woff2') format('woff2-variations');
+	src: url('/assets/fonts/PretendardVariable.woff2') format('woff2-variations');
 }
 
 * {
@@ -18,8 +18,8 @@ body {
 }
 
 :root {
-  --f : #fff;
-  --0 : #000;
+  --fff : #fff;
+  --000 : #000;
   --click: #1251AA;
   --brand: #3692FF;
   --banner: #CFE5FF;
@@ -87,6 +87,7 @@ img.banner-bottom {
   justify-content: center;
   margin-left: 200px;
   gap: 24px;
+  color: var(--coolgray-700);
   z-index: 1;
 }
 
