@@ -36,7 +36,7 @@ body {
 }
 
 /* main */
-main {
+.main-wrap {
   max-width: 640px;
   margin: 0 auto;
   display: flex;
@@ -182,3 +182,22 @@ input:focus {
   background-image: url(/assets/icons/ic_kakaotalk.png)  
 }
  
+/* mediaQuerry */
+@media (max-width: 767px) {
+  .main-wrap {
+    max-width: 400px;
+  }
+
+  .logo {
+    margin: 24px auto;
+  }
+
+  a>img {
+    max-width: 198px;
+  }
+
+  .login {
+    margin: 0 16px;
+    font-size: 0.875rem;
+  }
+}
