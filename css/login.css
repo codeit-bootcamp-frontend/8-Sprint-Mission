@@ -1,9 +1,15 @@
 /*================logo================*/
+
+.logo-block {
+  width: 396px;
+  height: 132px;
+  margin: 60px auto 40px;
+}
+
 .logo-image {
   display: block;
   width: 396px;
   height: 132px;
-  margin: 60px auto 40px;
 }
 
 /*================input================*/
@@ -110,7 +116,7 @@ button:disabled {
 /*================responsive-web================*/
 
 @media (max-width: 1199px) {
-  .logo-image {
+  .logo-block {
     margin: 48px auto 40px;
   }
 }
@@ -121,10 +127,15 @@ button:disabled {
     padding: 0 16px;
   }
 
-  .logo-image {
+  .logo-block {
     width: 198px;
     height: 66px;
     margin: 24px auto;
+  }
+
+  .logo-image {
+    width: 198px;
+    height: 66px;
   }
 
   .content,
