@@ -1,7 +1,78 @@
-/* Tablet: 768px - 1199pxpx*/
+/* Tablet 이하 해상도 공통 적용 */
+@media all and (max-width: 1199px) {
+  .home-brand {
+    height: auto;
+
+    .container.home-brand-top .home-brand-wrapper {
+      padding: 8.4rem 0 10rem;
+    }
+
+    .container.home-brand-bottom .home-brand-wrapper {
+      padding: 12.1rem 0 5.9rem;
+    }
+
+    & .container {
+      flex-direction: column;
+      margin: 0;
+      /* 이미지가 잘려도 되도록 hidden 속성 부여*/
+      overflow: hidden;
+
+      & .home-brand-wrapper {
+        /* h1 태그가 자신의 너비를 지키면서 중앙 정렬 시키기 위함 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & h1 {
+          text-align: center;
+        }
+      }
+
+      /* 브랜드 대표 이미지 공통 위치 조정 */
+      & .brand-image {
+        position: static;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .feat-item {
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+    margin: 2.4rem auto 8rem;
+    padding: 0 1.5rem;
+
+    & .feat-item-text-box {
+      width: 100%;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .feat-item.align-right {
+    display: flex;
+    /* HTML 상 순서를 뒤집어야 하기 때문 */
+    flex-direction: column-reverse;
+  }
+}
+
+/* Tablet: 768px - 1199px*/
 @media all and (min-width: 768px) and (max-width: 1199px) {
   .home-header {
     padding: 0 2.4rem;
+  }
+
+  .container {
+    /* 미디어쿼리에 우선 순위 부여를 위해 '&' 추가 */
+    && h1 {
+      width: 100%;
+    }
   }
 }
 
@@ -9,5 +80,18 @@
 @media all and (max-width: 767px) {
   .home-header {
     padding: 0 1.6rem;
+  }
+
+  .feat-item {
+    padding: 5.1rem 1.5rem 0 1.5rem;
+  }
+
+  /* 홈 페이지 하단 브랜드 소개 */
+  .container.home-brand-bottom {
+    & img.brand-image {
+      /* 하단 이미지의 경우 rem 배율로 줄어들면 판다가 가려져서 피그마의 px로 수정 */
+      width: 497.91px;
+      height: 269.95px;
+    }
   }
 }

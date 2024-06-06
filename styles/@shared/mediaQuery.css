@@ -15,18 +15,14 @@ html {
   }
 }
 
-/* Tablet: 768px - 1199pxpx*/
+/* Tablet: 768px - 1199px*/
 @media all and (min-width: 768px) and (max-width: 1199px) {
-  html {
-    /* 6px = 1.0rem */
-    font-size: 37.5%;
-  }
 }
 
 /* Mobile : 767px 이하*/
 @media all and (max-width: 767px) {
   html {
-    /* 5px = 1.0rem */
-    font-size: 31.25%;
+    /* 7px = 1.0rem */
+    font-size: 43.75%;
   }
 }
