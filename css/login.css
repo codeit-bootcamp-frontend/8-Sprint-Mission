@@ -1,14 +1,12 @@
+/*================logo================*/
 .logo-image {
-  display: inline-block;
+  display: block;
   width: 396px;
   height: 132px;
-}
-
-.logo-block {
-  width: 396px;
   margin: 60px auto 40px;
 }
 
+/*================input================*/
 .content {
   width: 640px;
   margin: 0 auto;
@@ -51,6 +49,7 @@ input:focus {
   right: 24px;
 }
 
+/*================login-button================*/
 button {
   width: 640px;
   height: 56px;
@@ -65,6 +64,7 @@ button:disabled {
   background-color: var(--cool-gray-400);
 }
 
+/*================simple-login================*/
 .simple-login {
   background-color: var(--simple-login-color);
   border-radius: 8px;
@@ -91,6 +91,7 @@ button:disabled {
   height: 42px;
 }
 
+/*================signup,login link================*/
 .about-signup-page,
 .about-login-page {
   display: flex;
@@ -104,4 +105,33 @@ button:disabled {
 .signup-page-link,
 .login-page-link {
   color: var(--brand-blue);
+}
+
+/*================responsive-web================*/
+
+@media (max-width: 1199px) {
+  .logo-image {
+    margin: 48px auto 40px;
+  }
+}
+
+/*================mobile================*/
+@media (max-width: 767px) {
+  body {
+    padding: 0 16px;
+  }
+
+  .logo-image {
+    width: 198px;
+    height: 66px;
+    margin: 24px auto;
+  }
+
+  .content,
+  button,
+  input,
+  .simple-login {
+    width: 100%;
+    max-width: 400px;
+  }
 }
