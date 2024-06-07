@@ -52,7 +52,7 @@ header .nav {
 
 main section {
     max-width: 120rem;
-    height: 72rem;
+    min-height: 72rem;
     margin: 2.4rem auto;
     display: flex;
     flex-direction: column;
@@ -77,6 +77,15 @@ header .login {
     padding: 1.2rem 2rem;
     border-radius: 0.8rem;
     gap: 1rem;
+}
+
+.nav .logo-img {
+    width: 153px;
+    height: 51px;
+    background-image: url(source/images/logo/logo-login@3x.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 1.5rem 0;
 }
 
 .headline, .footline {
@@ -125,13 +134,13 @@ header .login {
 
 .container {
     display: flex;
+    width: 100%;
     align-items: center;
     gap: 6.4rem;
 }
 
 .container .info-img {
-    width: 58.8rem;
-    height: 44.4rem;
+    width: 50%;
 }
 
 .category {
@@ -176,7 +185,7 @@ footer .bottom-info{
     background-color: var(--footer-color);
     max-width: 1920px;
     height: 160px;
-    padding: 1.5rem 10vw;
+    padding: 1.5rem 10rem;
 }
 
 .bottom-info .bottom-content {
@@ -189,11 +198,15 @@ footer .bottom-info{
     align-items: center;
 }
 
+.version {
+    color: #676767;
+}
+
 .bottom-content .bottom-nav {
     display: flex;
     gap: 30px;
     text-decoration: none;
-
+    color: #cfcfcf;
 }
 
 .bottom-nav a {
@@ -232,7 +245,7 @@ footer .bottom-info{
 
     .container .info-img {
         display: inline-block;
-        width: 69.6rem;
+        width: 100%;
     }
 
     .search .container {
@@ -245,6 +258,8 @@ footer .bottom-info{
 
     main section {
         align-items: center;
+        margin: 10rem 2.4rem;
+        justify-content: center;
     }
 
     section .container {
@@ -267,6 +282,10 @@ footer .bottom-info{
     .search .content {
         align-self: end;
     }
+
+    .footline .footline-title {
+        margin-top: 15rem;
+    }
     
 }
 
@@ -275,16 +294,51 @@ footer .bottom-info{
         padding: 0 1.6rem;
     }
 
+    .nav .logo-img {
+        width: 103px;
+        height: 35px;
+        background-image: url(source/images/logo/logo-mobile.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
     .headline-title-br {
         display: block;
     }
 
-    .container .info-img {
-        width: 100%;
-        margin: 0 2.4rem;
+    section .container {
+        margin: 0 1.6rem;
     }
-    
+
     .container {
         flex-direction: column;
     }
+
+    footer .bottom-info {
+        padding: 3.2rem 3.2rem 6.4rem 3.2rem;
+    }
+
+    .bottom-info .bottom-content {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template: repeat(2, 1fr) / 2fr 1fr;
+        grid-template-areas: 
+        "nav nav sns"
+        "version . .";
+    }
+    
+    .version {
+        grid-area: version;
+        align-self: end;
+    }
+
+    .bottom-nav {
+        grid-area: nav;
+    }
+
+    .sns {
+        grid-area: sns;
+    }
+    
 }
