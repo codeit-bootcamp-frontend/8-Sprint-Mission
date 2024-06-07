@@ -40,7 +40,7 @@ button {
 /* Mobile */
 @media screen and (min-width: 375px) and (max-width: 767px) {
   html {
-    font-size: 70%;
+    font-size: 50%;
   }
   header {
     padding: 0 16px;
