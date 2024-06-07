@@ -24,9 +24,35 @@ body {
     font-family: "Pretendard", sans-serif;
 }
 
-.panda-market-logo {
-    width: 396px;
-    margin: 60px auto 40px;
+/* Sprint Mission 3 기본 요구사항
+(로그인, 회원가입 페이지 공통):
+ - Mobile 사이즈에서 좌우 여백 16px 제외하고 
+ 내부 요소들이 너비를 모두 차지합니다.
+ - Mobile 사이즈에서 내부 요소들의 너비는 
+ 기기의 너비가 커지는 만큼 커지지만 400px을 넘지 않습니다. */
+ /* Mobile */
+@media (min-width: 375px) {
+    .panda-market-logo {
+        width: 198px;
+        margin: 24px auto;
+    }
+
+    .wrapper {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 16px;
+    }
+}
+
+/* Sprint Mission 3 기본 요구사항
+(로그인, 회원가입 페이지 공통):
+ Tablet 사이즈에서 내부 디자인은 PC사이즈와 동일합니다. */
+/* Tablet, PC */
+@media (min-width: 768px) {
+    .panda-market-logo {
+        width: 396px;
+        margin: 60px auto 40px;
+    }
 }
 
 main {

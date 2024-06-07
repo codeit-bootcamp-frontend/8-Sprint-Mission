@@ -17,16 +17,21 @@
   <body>
     <!-- Sprint Mission 2 기본 요구사항 (로그인, 회원가입 페이지 공통):
     “판다마켓" 클릭 시 루트 페이지(“/”)로 이동합니다. -->
-    <div class="panda-market-logo">
-      <a href="/"
-        ><img
-          src="images/logo/panda-market-logo.png"
-          alt="판다마켓 홈"
-          width="396"
-      /></a>
+    <div class="panda-market-logo wrapper">
+      <a href="/">
+        <picture>
+          <source srcset="images/logo/panda-market-logo-mobile.png" media="(max-width: 767px)">
+          <source srcset="images/logo/panda-market-logo.png" media="(max-width: 1200px)">
+          <img
+            src="images/logo/panda-market-logo.png"
+            alt="판다마켓 홈"
+            width="396"
+          />
+        </picture>
+      </a>
     </div>
     <main>
-      <form>
+      <form class="wrapper">
         <div class="input-wrap">
           <label for="email">이메일</label>
           <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" required>
@@ -47,7 +52,7 @@
         </div>
         <button class="button pill-button-submit">로그인</button>
       </form>
-      <section class="easy-login">
+      <section class="easy-login wrapper">
         <div>간편 로그인하기</div>
         <!-- SNS 아이콘들은 클릭시 각각 아래 페이지로 이동합니다.
           - “https://www.google.com/”,
@@ -67,7 +72,7 @@
         /></a>
         </div>
       </section>
-      <section class="signup">
+      <section class="signup wrapper">
         <p>판다마켓이 처음이신가요?</p><a href="signup.html">회원가입</a>
       </section>
     </main>
