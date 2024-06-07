@@ -1,12 +1,33 @@
+:root {
+  --blue: #3692ff;
+  --red: #f74747;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+  --white: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.logo-wrap {
+body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Pretendard';
+}
+
+/* 판다마켓 로고 */
+.logo-wrap {
   margin-top: 60px;
 }
 
@@ -28,15 +49,11 @@ h1.name {
   font-size: 66.34px;
   line-height: 89.56px;
   font-weight: 700;
-  color: #3692ff;
+  color: var(--blue);
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
-
-form.wrap {
+/* 폼 */
+form {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
@@ -44,54 +61,68 @@ form.wrap {
   gap: 24px;
 }
 
-.login-wrap, .signup-wrap {
+.input-item {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.email,
-.nickname,
-.password,
-.confirm-password {
-  font-size: 18px;
-  line-height: 21.48px;
-  font-weight: 700;
-  color: #1f2937;
-}
-
-.input {
+.input-wrap {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 56px;
-  border-radius: 12px;
-  background-color: #f3f4f6;
-  padding-left: 24px;
-  padding-right: 24px;
+  position: relative;
 }
 
-.input > .text {
+input {
+  height: 56px;
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background-color: var(--gray100);
+}
+
+input::placeholder {
+  color: var(--gray400);
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: #9ca3af;
 }
 
-a.login-button {
+input:focus {
+  outline: 2px solid var(--blue);
+}
+
+.password-icon {
+  position: absolute;
+  right: 24px;
+}
+
+label {
+  color: var(--gray800);
+  font-size: 18px;
+  line-height: 21.48px;
+  font-weight: 700;
+}
+
+.form-button {
   display: flex;
   justify-content: center;
   height: 56px;
   border-radius: 40px;
   padding: 16px 124px;
-  background-color: #9ca3af;
-  color: #ffffff;
+  background-color: var(--gray400);
+  color: var(--white);
   font-size: 20px;
   line-height: 24px;
   font-weight: 600;
-  text-decoration: none;
 }
 
+input,
+button {
+  border: none;
+}
+
+/* 간편 로그인 */
 .easy-login {
   display: flex;
   justify-content: space-between;
@@ -111,6 +142,7 @@ ul.icon-wrap {
   list-style-type: none;
 }
 
+/* 헬퍼 */
 .help {
   display: flex;
   justify-content: center;
@@ -119,7 +151,8 @@ ul.icon-wrap {
   margin-bottom: 60px;
 }
 
-a.signup {
-  color: #3182f6;
+.help > a {
+  margin-left: 8px;
+  color: var(--blue);
 }
 
