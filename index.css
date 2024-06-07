@@ -119,9 +119,8 @@ footer {
   align-items: center;
   background-color: var(--gray-900);
   width: 100%;
-  padding: 2rem 12.5rem 6.2rem 12.5rem;
+  padding: 2rem 10rem 6.2rem 12.5rem;
   font-size: 1rem;
-  gap: 3.75rem;
 }
 
 .footer-company {
@@ -147,14 +146,21 @@ footer {
     text-align: center;
     align-items: flex-start;
   }
+  .content:nth-child(2) {
+    flex-flow: column-reverse;
+  }
 
   .content {
     flex-direction: column;
+    padding: 3rem 3rem;
   }
   .content img {
     width: 100%;
   }
   .content-textBox {
     width: 100%;
+  }
+  footer {
+    padding: 1rem 1rem 3rem 1rem;
   }
 }
