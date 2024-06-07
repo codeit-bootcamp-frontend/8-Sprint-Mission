@@ -1,17 +1,19 @@
 .container-sign {
-  max-width: 640px;
+  max-width: 400px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
 .wrapper-btn-logo {
+  margin: 0 auto;
   display: block;
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 40px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  width: 198px;
 }
 
 .btn-home-logo {
-	width: 396px;
+  width: 100%;
 }
 
 .input-item {
@@ -22,9 +24,9 @@
 
 label {
   display: block;
-  margin-bottom: 16px;
-  font-size: 18px;
   font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
 }
 
 input {
@@ -90,4 +92,28 @@ input:focus {
   color: #3182f6;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .container-sign {
+    max-width: 640px;
+  }
+
+  .wrapper-btn-logo {
+    width: 396px;
+    margin-top: 48px;
+    margin-bottom: 40px;
+  }
+
+  label {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrapper-btn-logo {
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
 }
