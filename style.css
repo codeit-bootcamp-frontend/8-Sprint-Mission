@@ -435,19 +435,6 @@ section {
     position: relative;
     width: 100%;
   }
-  .footer-link-bar {
-    /* padding: 0 32px;
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'p s'
-      'c c'; */
-  }
   .codeit {
     grid-area: c;
   }
