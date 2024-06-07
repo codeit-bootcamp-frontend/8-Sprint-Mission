@@ -24,7 +24,7 @@ body {
     font-family: "Pretendard", sans-serif;
 }
 
-figure {
+.panda-market-logo {
     width: 396px;
     margin: 60px auto 40px;
 }
@@ -84,7 +84,7 @@ input:focus {
     border: none;
   }
 
-.pill-button-2 {
+.pill-button-submit {
     font-size: 20px;
     font-weight: 600;
     border-radius: 999px;
