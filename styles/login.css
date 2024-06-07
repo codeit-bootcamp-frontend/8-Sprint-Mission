@@ -1,6 +1,7 @@
 .login-container{
     max-width: 640px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 .logo-home{
@@ -8,6 +9,9 @@
     text-align: center;
     margin-top: 60px;
     margin-bottom: 40px;
+}
+.logo-home img{
+    width: 100%;
 }
 .input-item{
     margin-bottom: 24px;
@@ -73,6 +77,13 @@
 .switch a{
     color: var(--blue);
     text-decoration: underline;
+}
+
+@media (mind-width : 375px){
+    .logo-home{
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
 }
 
 @media (min-width : 768px){
