@@ -31,13 +31,13 @@ a {
   display: flex;
   justify-content: center;
   gap: 24px 0;
+  padding-top: 60px;
 }
 
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 73px;
   gap: 0 22.24px;
 }
 .logo img:first-child {
@@ -52,7 +52,8 @@ a {
   flex-direction: column;
   align-items: center;
   width: 640px;
-  margin: 55.14px auto 0;
+  margin: 0 auto;
+  padding-top: 55px;
   gap: 24px 0;
 }
 
@@ -68,6 +69,7 @@ a {
 }
 
 .login-input label {
+  font-size: 18px;
   margin-bottom: 16px;
   color: var(--gray-800);
 }
@@ -158,4 +160,23 @@ a {
 }
 .sign-up a:visited {
   color: #3182f6;
+}
+
+@media (max-width: 767px) {
+  .header-container .logo {
+    width: 50%;
+    gap: 0 11px;
+  }
+  .login-container {
+    margin: 0 auto;
+    padding: 32px 16px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .login-input label {
+    font-size: 14px;
+  }
+  .login-input input {
+    margin-bottom: 16px;
+  }
 }

@@ -159,3 +159,22 @@ a {
 .login a:visited {
   color: #3182f6;
 }
+
+@media (max-width: 767px) {
+  .header-container .logo {
+    width: 50%;
+    gap: 0 11px;
+  }
+  .signup-container {
+    margin: 0 auto;
+    padding: 32px 16px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .signup-input label {
+    font-size: 14px;
+  }
+  .signup-input input {
+    margin-bottom: 16px;
+  }
+}
