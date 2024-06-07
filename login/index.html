@@ -14,81 +14,57 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <div id="wrap">
-      <header class="header-container">
-        <a class="logo-link" href="/">
-          <img src="/images/logo@2x.png" alt="logo" width="153" height="51" />
+    <main>
+      <section class="auth_form">
+        <a href="/">
+          <img
+            class="logo"
+            src="/images/logo@3x.png"
+            width="396"
+            height="132"
+          />
         </a>
-        <a class="login-link" href="/login">로그인</a>
-      </header>
-      <main class="main-container">
-        <div class="mt-70"></div>
-        <section class="auth_form">
-          <img src="/images/logo@3x.png" width="396" height="132" />
-          <form method="post">
-            <div class="auth_form-el">
-              <label for="login-id">이메일</label>
-              <input id="login-id" placeholder="이메일을 입력해주세요" />
-            </div>
-            <div class="auth_form-el">
-              <label for="login-password">비밀번호</label>
-              <input
-                id="login-password"
-                placeholder="비밀번호를 입력해주세요"
-              />
+        <form method="post">
+          <div class="auth_form-el">
+            <label for="login-id">이메일</label>
+            <input
+              type="email"
+              id="login-id"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+          <div class="auth_form-el">
+            <label for="login-password">비밀번호</label>
+            <input
+              type="password"
+              id="login-password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <button class="check-password">
               <img
                 src="/images/btn_visibility_off_24px.png"
                 width="24"
                 height="24"
               />
-            </div>
-            <button type="submit">로그인</button>
-          </form>
-          <div class="login-easy">
-            <span>간편 로그인하기</span>
-            <div>
-              <a href="https://www.google.com/">
-                <img src="/images/google_logo.png" width="42" height="42" />
-              </a>
-              <a href="https://www.kakaocorp.com/page/">
-                <img src="/images/kakao_logo.png" width="42" height="42" />
-              </a>
-            </div>
+            </button>
           </div>
-          <p class="question">
-            판다마켓이 처음이신가요? <a href="/signup">회원가입</a>
-          </p>
-        </section>
-      </main>
-      <footer class="footer-container">
-        <section class="more-description">
-          <p class="copyright">©codeit - 2024</p>
-          <div class="etc">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/faq">FAQ</a>
+          <button class="submit-button" type="submit">로그인</button>
+        </form>
+        <div class="login-easy">
+          <span>간편 로그인하기</span>
+          <div>
+            <a href="https://www.google.com/">
+              <img src="/images/google_logo.png" width="42" height="42" />
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="/images/kakao_logo.png" width="42" height="42" />
+            </a>
           </div>
-          <div class="messenger">
-            <a href="https://www.facebook.com/"
-              ><img
-                src="/images/ic_facebook.svg"
-                alt="facebook"
-                target="_brank"
-            /></a>
-            <a href="https://x.com/"
-              ><img src="/images/ic_twitter.svg" alt="twitter" target="_blank"
-            /></a>
-            <a href="https://www.youtube.com/"
-              ><img src="/images/ic_youtube.svg" alt="youtube" target="_blank"
-            /></a>
-            <a href="https://www.instagram.com/"
-              ><img
-                src="/images/ic_instagram.svg"
-                alt="instagram"
-                target="_blank"
-            /></a>
-          </div>
-        </section>
-      </footer>
-    </div>
+        </div>
+        <p class="question">
+          판다마켓이 처음이신가요? <a href="/signup">회원가입</a>
+        </p>
+      </section>
+    </main>
   </body>
 </html>

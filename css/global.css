@@ -1,3 +1,17 @@
+@font-face {
+	font-family: ROKAF;
+	font-style: normal;
+	font-weight: 400;
+	src: url("./fonts/ROKAF-Sans-Medium.otf") format("opentype");
+}
+
+@font-face {
+	font-family: ROKAFBold;
+	font-style: normal;
+	font-weight: 700;
+	src: url("./fonts/ROKAF-Sans-Bold.otf") format("opentype");
+}
+
 :root {
 	--brand-blue: #3692ff;
 	--error-red: #f74747;
@@ -28,7 +42,7 @@ body {
 	font-family: 'Pretendard Variable', sans-serif;
 }
 
-h2 {
+h1 {
 	font-size: 40px;
 	font-weight: 700;
 	line-height: 56px;
@@ -42,15 +56,14 @@ a {
 	margin-top: 70px;
 }
 
-#wrap {
+body {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 }
 
-main {}
-
 .main-container {
+	margin-top: 70px;
 	flex: 1;
 	width: 100%;
 }
