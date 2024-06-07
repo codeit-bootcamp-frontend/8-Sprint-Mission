@@ -90,6 +90,7 @@ header .login {
 
 .headline, .footline {
     background-color: var(--background-color);
+    overflow-x: hidden;
 }
 
 .headline .headline-img, .footline .footline-img  {
