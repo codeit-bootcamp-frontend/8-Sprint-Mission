@@ -109,3 +109,42 @@ input:focus-out {
     pointer-events: none;
     /* 눈 모양 아이콘 */
 }
+
+/* Tablet */
+@media (max-width: 1200px) {}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .loginPage {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .logo {
+        margin-top: 50px;
+    }
+
+    .logo img {
+        width: 198px;
+        height: 66px;
+        object-fit: contain;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        width: 343px;
+    }
+
+    .login-button {
+        width: 343px;
+    }
+
+    .easy-login {
+        width: 344px;
+    }
+}
