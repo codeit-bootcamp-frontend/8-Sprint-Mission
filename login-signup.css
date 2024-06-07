@@ -119,8 +119,7 @@ button:hover {
 /* Tablet */
 @media (max-width: 1199px) {
   body {
-    padding: 48px 53px;
-    margin: 0 auto;
+    margin: 48px auto;
   }
 }
 
