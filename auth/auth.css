@@ -117,8 +117,3 @@ input:focus {
   display: flex;
   align-items: center;
 }
-@media screen and (min-width: 375px) and (max-width: 767px) {
-  .auth-container {
-    margin: 1rem auto;
-  }
-}
