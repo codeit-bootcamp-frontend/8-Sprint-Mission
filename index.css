@@ -16,15 +16,14 @@
 }
 
 html {
-    font-size: 24px;
+    font-size: 62.5%;
 }
 
 body {
-    max-width: 1920px;
-    width: 100%;
     color: var(--font);
     font-family: "Pretendard-Regular", 'Noto Sans';
     font-weight: 500;
+    font-size: 2.4rem;
     margin: 0;
 }
 
@@ -46,13 +45,13 @@ header .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 200px;
+    padding: 0 20rem;
 }
 
 main section {
-    max-width: 1200px;
-    height: 720px;
-    margin: 0 auto;
+    max-width: 120rem;
+    /* height: 72rem; */
+    margin: 2.4rem auto;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -62,29 +61,32 @@ main section {
 .btn {
     background-color: var(--main-color);
     color: var(--font-buton);
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 600;
     border: 0;
     cursor: pointer;
 }
 
 header .login {
-    padding: 11.5px 23px;
-    border-radius: 8px;
-    padding: 12px 20px;
+    padding: 1.15rem 2.3rem;
+    border-radius: 0.8rem;
+    padding: 1.2rem 2rem;
 }
-
 
 .headline, .footline {
     background-color: var(--background-color);
 }
 
+.headline .headline-img, .footline .footline-img  {
+    width: 50%;
+    padding-top: 7.2rem;
+} 
+
 .headline .headline-content,
 .footline .footline-content {
-    max-width: 1920px;
+    max-width: 192rem;
     margin: 0 auto;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -94,29 +96,33 @@ header .login {
     display: flex;
     flex-direction: column;
     font-weight: 700;
-    font-size: 40px;
-    line-height: 56px;
-    gap: 32px;
+    font-size: 4rem;
+    line-height: 5.6rem;
+    max-width: 38.4rem;
+    gap: 3.2rem;
 }
 
 .headline{
-    padding-top: 100px;
+    padding-top: 10rem;
 }
 
 .headline .headline-btn {
-    border-radius: 40px;
-    padding: 16px 124px;
+    border-radius: 4rem;
+    padding: 1.6rem 12.4rem;
 }
 
 .container {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 64px;
+    gap: 6.4rem;
+}
+
+.container .info-img {
+    width: 50%;
 }
 
 .category {
-    font-size: 18px;
+    font-size: 1.8rem;
     color: var(--main-color);
     font-weight: 700;
 }
