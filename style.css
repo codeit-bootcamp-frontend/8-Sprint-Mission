@@ -419,6 +419,8 @@ button:hover {
     padding: 0 16px;
     padding-top: 50px;
     padding-bottom: 64px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .header_typo h2 {
