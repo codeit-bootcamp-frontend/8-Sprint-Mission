@@ -116,21 +116,23 @@ button:hover {
   text-align: left;
 }
 
+/* Tablet */
 @media (max-width: 1199px) {
-  html {
-    padding: 48px 53px;
-  }
   body {
+    padding: 48px 53px;
     margin: 0 auto;
-    width: 100%;
   }
 }
 
+.logo {
+  text-align: center;
+  margin: 0;
+}
+
+/* Mobile */
 @media (max-width: 767px) {
-  html {
-    padding: 24px 16px;
-  }
   body {
+    padding: 24px 16px;
     margin: 0 auto;
     max-width: 400px;
     width: 100%;
