@@ -222,6 +222,10 @@ footer .bottom-info{
         text-align: center;
     }
 
+    .headline-title-br {
+        display: none;
+    }
+
     .headline .headline-img, .footline .footline-img  {
         width: 120%;
     } 
@@ -264,4 +268,23 @@ footer .bottom-info{
         align-self: end;
     }
     
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+    header .nav {
+        padding: 0 1.6rem;
+    }
+
+    .headline-title-br {
+        display: block;
+    }
+
+    .container .info-img {
+        width: 100%;
+        margin: 0 2.4rem;
+    }
+    
+    .container {
+        flex-direction: column;
+    }
 }
