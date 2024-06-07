@@ -74,3 +74,18 @@
     color: var(--blue);
     text-decoration: underline;
 }
+
+@media (min-width : 768px){
+    .login-container{
+        max-width: 640px;
+    }
+    .logo-home{
+        width: 640px;
+        margin-top: 48px;
+        margin-bottom: 40px;
+    }
+    label{
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+}
