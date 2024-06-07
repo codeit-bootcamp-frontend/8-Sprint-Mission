@@ -43,7 +43,4 @@ sass --watch assets/scss/style.scss assets/css/style.css
 
 ## 멘토에게
 
-- github push 오류
 - 셀프 코드 리뷰를 통해 질문 이어가겠습니다.
-- PR 오류
-- PR 오류2
