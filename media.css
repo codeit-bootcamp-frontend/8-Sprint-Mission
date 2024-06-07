@@ -1,0 +1,160 @@
+.break-on-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .logoSection {
+    max-width: 640px;
+  }
+
+  .topBigLogo {
+    width: 396px;
+    margin-top: 48px;
+    margin-bottom: 40px;
+  }
+
+  label {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .topBigLogo {
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 0 24px;
+  }
+
+  .limited-width {
+    padding: 0 24px;
+  }
+
+  .inside {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 16px 126px;
+  }
+
+  footer {
+    padding: 32px 104px 108px 104px;
+  }
+
+  .codeit2024 {
+    flex-basis: auto;
+    order: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  header {
+    padding: 0 200px;
+  }
+
+  .break-on-desktop {
+    display: inline;
+  }
+
+  footer {
+    padding: 32px 200px 108px 200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner {
+    height: 90vh;
+    background-size: 120%;
+  }
+
+  .banner h1 {
+    font-size: 40px;
+    line-height: 56px;
+    padding-top: 84px;
+    padding-bottom: 24px;
+  }
+
+  #topBannerPanda h1 br {
+    display: none;
+  }
+
+  #contents {
+    padding-top: 24px;
+    padding-bottom: 16px;
+  }
+
+  .contentText h2 {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 12px;
+  }
+
+  .content:nth-child(2) {
+    flex-direction: column-reverse;
+  }
+
+  .contentText h1 {
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  .contentExplain {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .banner {
+    text-align: left;
+    height: 540px;
+    display: flex;
+    align-items: center;
+    background-position: 80% bottom;
+    background-size: 55%;
+  }
+
+  .banner h1 {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
+
+  #topBannerPanda h1 br {
+    display: inline;
+  }
+
+  #contents {
+    padding: 138px 0;
+  }
+
+  .content {
+    margin-bottom: 138px;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+  }
+
+  .content:nth-child(2) {
+    flex-direction: row-reverse;
+  }
+
+  .contentImg {
+    width: 50%;
+    margin-bottom: 0;
+  }
+
+  .contentText h1 {
+    font-size: 40px;
+    line-height: 56px;
+  }
+
+  .contentExplain {
+    font-size: 24px;
+    line-height: 29px;
+    margin-top: 24px;
+  }
+}

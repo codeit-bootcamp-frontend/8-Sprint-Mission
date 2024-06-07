@@ -44,15 +44,22 @@ body {
 
 header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 200px;
+  padding: 0 16px;
   background-color: var(--header-bg-color);
   border-bottom: 1px solid var(--header-bd-color);
 }
+
+main {
+  margin-top: 70px;
+}
+
 
 .button {
   background-color: var(--btn-bg-color);
@@ -71,29 +78,27 @@ header {
 }
 
 .banner {
-  height: 540px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 60vh;
+  text-align: center;
   background-color: var(--banner-bg-color);
   background-repeat: no-repeat;
-  background-position: 80% bottom;
-  background-size: 55%;
+  background-position: bottom;
+  background-size: 130%;
 }
 
-h1 {
-  font-size: 40px;
+.banner h1 {
   font-weight: 700;
-  line-height: 56px;
-  letter-spacing: 0.02em;
+  font-size: 32px;
+  line-height: 45px;
+  padding-top: 48px;
+  padding-bottom: 18px;
 }
 
 .inside {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   border-radius: 999px;
-  padding: 16px 124px;
-  margin-top: 32px;
+  padding: 15px 34px;
 }
 
 #topBannerPanda {
@@ -103,42 +108,47 @@ h1 {
 .limited-width {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 16px;
   width: 100%;
 }
 
 #contents {
-  padding-bottom: 128px;
+  padding-top: 51px;
 }
 
 .content {
-  padding: 138px 0;
-  display: flex;
-  align-items: center;
-  gap: 5%
+  margin-bottom: 64px;
 }
 
 .contentImg {
-  width: 50%;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .contentText {
   flex: 1;
 }
 
-.contentSmolText {
+.contentText h2 {
   color: var(--content-s-txt-color);
-  font-size: 18px;
-  line-height: 50px;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+}
+
+.contentText h1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
 }
 
 .contentExplain {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 120%;
+  line-height: 19px;
   letter-spacing: 0.08em;
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 #reverseContent {
@@ -155,8 +165,14 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 200px 108px 200px;
+  padding: 32px;
   font-size: 16px;
+  gap: 60px
+}
+
+.codeit2024 {
+  order: 3;
+  flex-basis: 100%;
 }
 
 #bottomThings {
@@ -167,6 +183,7 @@ footer {
 .bottomTextLink {
   color: var(--btm-txt-link-color);
 }
+
 
 #iconLink {
   display: flex;
