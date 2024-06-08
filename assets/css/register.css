@@ -1,10 +1,11 @@
 @charset "uft-8";
-.header {
+
+#register-header {
   margin-top: 3.75rem;
   margin-bottom: 2.5rem;
 }
 
-.logo {
+.register-logo {
   max-width: 460px;
   padding: 0 2rem;
   margin: 0 auto;
@@ -19,7 +20,7 @@
   width: 100%;
 }
 
-#container {
+#register-container {
   max-width: 44rem;
   min-height: calc(67.5rem - 14.75rem);
   padding: 0 2rem;
@@ -36,6 +37,7 @@
   padding: 1rem 1.5rem;
   border-radius: 0.625rem;
   border: none;
+  font-size: 1rem;
   font-weight: 400;
   background-color: var(--color-gray100);
 }
@@ -64,13 +66,14 @@
   right: 24px;
   width: 24px;
   height: 24px;
-  background: url(../assets/images/hide_icon.png) no-repeat;
+  background: url(../images/hide_icon.png) no-repeat;
   background-size: cover;
   border: none;
   cursor: pointer;
 }
+
 .hide-btn.show {
-  background: url(../assets/images/show_icon.png) no-repeat;
+  background: url(../images/show_icon.png) no-repeat;
 }
 
 .error-msg {
@@ -118,6 +121,22 @@
 .login-list {
   display: flex;
   gap: 1rem;
+}
+
+.google-login,
+.kakao-login {
+  display: block;
+  width: 42px;
+  height: 42px;
+  background-size: 286px 64px;
+}
+
+.google-login {
+  background: url(../images/icon.png) -233px -10px;
+}
+
+.kakao-login {
+  background: url(../images/icon.png) -170px -10px;
 }
 
 .login-simple {

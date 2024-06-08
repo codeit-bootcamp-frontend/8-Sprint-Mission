@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="믿을 수 있는 판다마켓" />
-    <link rel="stylesheet" href="./assets/style.css" />
-    <link rel="stylesheet" href="./assets/reset.css">
+    <meta name="description" content="일상의 모든 물건을 거래해보세요" />
+
+    <meta property="og:title" content="판다마켓" />
+    <meta property="og:url" content="https://sprint-fe8-kjh.netlify.app/" />
+    <meta
+      property="og:image"
+      content="https://sprint-fe8-kjh.netlify.app/assets/images/og_image.jpg"
+    />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/response.css" />
     <link
       rel="stylesheet"
       as="style"
@@ -15,23 +25,23 @@
     <title>판다마켓</title>
   </head>
   <body>
-    <header>
-      <div class="header">
+    <header id="header">
+      <div class="main-header">
         <div class="logo">
           <a href="/">
             <img
               src="./assets/images/logo.png"
-              srcset="./assets/images/Property1=Variant3@2x.png 2x"
-              alt="판다마켓"
+              srcset="./assets/images/logo@2.png 2x"
+              alt="판다마켓 로고"
             />
           </a>
         </div>
         <div class="mobile-logo">
           <a href="/">
             <img
-              src="./assets/images/logo_type_text.png"
-              srcset="./assets/images/Property1=Typo@2x.png 2x"
-              alt="판다마켓"
+              src="./assets/images/mobile_logo.png"
+              srcset="./assets/images/mobile_logo@2.png 2x"
+              alt="판다마켓 모바일 로고"
             />
           </a>
         </div>
@@ -44,14 +54,12 @@
       <section id="banner">
         <div class="container banner">
           <div class="banner-title">
-            <h1>
-              일상의 모든 물건을<br />
+            <h1 class="title">
+              일상의 모든 물건을
+              <br />
               거래해 보세요
             </h1>
-            <a href="./items.html">구경하러 가기</a>
-          </div>
-          <div class="panda-img">
-            <img src="./assets/images/Img_home_top.png" alt="panda" />
+            <a href="./items.html" class="visit-btn">구경하러 가기</a>
           </div>
         </div>
       </section>
@@ -59,38 +67,67 @@
         <div class="container">
           <div class="wrapper">
             <div class="item-list">
-              <img src="./assets/images/Img_home_01.png" alt="hotItem" />
+              <img
+                src="./assets/images/hot_item.png"
+                srcset="./assets/images/hot_item@2.png 2x"
+                alt="인기 상품"
+              />
               <div class="info">
                 <span class="top-line">Hot item</span>
-                <h2>인기 상품을<br />확인해 보세요</h2>
-                <span class="bottom-line"
-                  >가장 HOT한 중고거래 물품을<br />판다 마켓에서 확인해
-                  보세요</span
-                >
+                <h2 class="info-title">
+                  인기 상품을
+                  <br />
+                  확인해 보세요
+                </h2>
+                <span class="bottom-line">
+                  가장 HOT한 중고거래 물품을
+                  <br />
+                  판다 마켓에서 확인해 보세요
+                </span>
               </div>
             </div>
           </div>
           <div class="wrapper">
             <div class="item-list reverse align-right">
-              <img src="./assets/images/Img_home_02-1.png" alt="hotItem" />
+              <img
+                src="./assets/images/search_item.png"
+                srcset="./assets/images/search_item@2.png 2x"
+                alt="상품 검색"
+              />
               <div class="info">
                 <span class="top-line">Search</span>
-                <h2>구매를 원하는<br />상품을 검색하세요</h2>
-                <span class="bottom-line"
-                  >구매하고 싶은 물픔을 검색해서<br />쉽게 찾아보세요</span
-                >
+                <h2 class="info-title">
+                  구매를 원하는
+                  <br />
+                  상품을 검색하세요
+                </h2>
+                <span class="bottom-line">
+                  구매하고 싶은 물픔을 검색해서
+                  <br />
+                  쉽게 찾아보세요
+                </span>
               </div>
             </div>
           </div>
           <div class="wrapper">
             <div class="item-list">
-              <img src="./assets/images/Img_home_03.png" alt="hotItem" />
+              <img
+                src="./assets/images/register_item.png"
+                srcset="./assets/images/register_item@2.png 2x"
+                alt="상품 등록"
+              />
               <div class="info">
                 <span class="top-line">Register</span>
-                <h2>판매를 원하는<br />상품을 등록하세요</h2>
-                <span class="bottom-line"
-                  >어떤 물건이든 판매하고 싶은 상품을<br />쉽게 등록하세요</span
-                >
+                <h2 class="info-title">
+                  판매를 원하는
+                  <br />
+                  상품을 등록하세요
+                </h2>
+                <span class="bottom-line">
+                  어떤 물건이든 판매하고 싶은 상품을
+                  <br />
+                  쉽게 등록하세요
+                </span>
               </div>
             </div>
           </div>
@@ -99,13 +136,11 @@
       <section id="comment">
         <div class="container comment">
           <div class="comment-title">
-            <h2>
-              믿을 수 있는<br />
+            <h2 class="title">
+              믿을 수 있는
+              <br />
               판다 마켓 중고거래
             </h2>
-          </div>
-          <div class="panda-img">
-            <img src="./assets/images/Img_home_bottom.png" alt="panda" />
           </div>
         </div>
       </section>
@@ -123,35 +158,43 @@
             </li>
           </ul>
         </div>
-        <div>
+        <div class="sns-list">
           <ul class="sns">
             <li>
               <a
                 href="https://www.facebook.com"
                 target="_blank"
                 class="facebook-icon"
-              ></a>
+              >
+                <span class="ir_pm">페이스북 바로가기</span>
+              </a>
             </li>
             <li>
               <a
                 href="https://www.twitter.com"
                 target="_blank"
                 class="twitter-icon"
-              ></a>
+              >
+                <span class="ir_pm">트위터 바로가기</span>
+              </a>
             </li>
             <li>
               <a
                 href="https://www.youtube.com"
                 target="_blank"
                 class="youtube-icon"
-              ></a>
+              >
+                <span class="ir_pm">유튜브 바로가기</span>
+              </a>
             </li>
             <li>
               <a
                 href="https://www.instagram.com"
                 target="_blank"
                 class="instagram-icon"
-              ></a>
+              >
+                <span class="ir_pm">인스타그램 바로가기</span>
+              </a>
             </li>
           </ul>
         </div>

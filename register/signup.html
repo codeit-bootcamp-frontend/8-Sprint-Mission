@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="판다마켓 회원가입" />
     <title>판다마켓 회원가입</title>
-    <link rel="stylesheet" href="../assets/register.css" />
-    <link rel="stylesheet" href="../assets/reset.css" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/register.css" />
+    <link rel="stylesheet" href="../assets/css/response.css" />
     <link
       rel="stylesheet"
       as="style"
@@ -15,14 +16,14 @@
     />
   </head>
   <body>
-    <header class="header">
-      <div class="logo">
+    <header id="register-header">
+      <div class="register-logo">
         <a href="/" class="btn-home">
-          <img src="../assets/images/register_logo.png" alt="logo" />
+          <img src="../assets/images/register_logo.png" alt="판다마켓 로고" />
         </a>
       </div>
     </header>
-    <div id="container">
+    <div id="register-container">
       <form class="form">
         <div class="input-box">
           <label for="email">이메일</label>
@@ -79,19 +80,22 @@
         <span class="login-simple">간편 로그인하기</span>
         <ul class="login-list">
           <li>
-            <a href="https://www.google.com/">
-              <img src="../assets/images/google.png" alt="googleLogin" />
+            <a href="https://www.google.com/" class="google-login">
+              <span class="ir_pm">구글 로그인</span>
             </a>
           </li>
           <li>
-            <a href="https://www.kakaocorp.com/page/">
-              <img src="../assets/images/kakao.png" alt="kakaoLogin" />
+            <a href="https://www.kakaocorp.com/page/" class="kakao-login">
+              <span class="ir_pm">카카오 로그인</span>
             </a>
           </li>
         </ul>
       </div>
       <div class="register-box">
-        <span>이미 회원이신가요? <a href="./login.html">로그인</a></span>
+        <span>
+          이미 회원이신가요?
+          <a href="./login.html">로그인</a>
+        </span>
       </div>
     </div>
     <script type="module" src="../assets/JS/signupValidation.js"></script>
