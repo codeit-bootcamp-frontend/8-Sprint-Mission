@@ -7,9 +7,12 @@
   display: flex;
   justify-content: center;
 }
+.form-container {
+  display: flex;
+  justify-content: center;
+}
 .form-section {
-  max-width: 640px;
-  margin: 0 auto;
+  flex-basis: 640px;
 }
 .form-section > form {
   display: flex;
@@ -87,6 +90,7 @@
   padding: 16px 23px;
   background-color: #e6f2ff;
   border-radius: 8px;
+  margin-bottom: 24px;
 }
 .icon-login {
   display: flex;
@@ -111,4 +115,20 @@
   font-weight: 500;
   color: var(--gray800);
   text-align: center;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .center-logo > a > img {
+    width: 198px;
+  }
+  .center-logo {
+    margin: 24px auto;
+  }
+  .form-section {
+    flex-basis: 400px;
+    margin: 0 16px;
+  }
+  .no-toggle-eye {
+    display: none;
+  }
 }
