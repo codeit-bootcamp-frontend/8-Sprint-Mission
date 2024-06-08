@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,68 +11,79 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <meta property="og:image" content="/image/메타태그이미지.png" />
+    <meta property="og:title" content="판다마켓" />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta property="og:url" content="https://www.codeit.kr" />
   </head>
   <body>
-    <header>
+    <header class="topBar">
       <a href="/">
-        <img src="/image/logo1.png" alt="main logo" />
+        <picture>
+          <source
+            srcset="/image/판다마켓.png"
+            media="all and (max-width:375px)"
+            alt="mobile log"
+          />
+          <img src="/image/logo1.png" alt="main logo" />
+        </picture>
       </a>
       <a class="login" href="/login.html">로그인</a>
     </header>
     <main>
       <div class="title">
         <h1>
-          일상의 모든 물건을<br />
+          일상의 모든 물건을<br class="break-banner" />
           거래해 보세요
         </h1>
-        <a href="/item.html">
-          <div class="button">구경하러 가기</div>
-        </a>
+        <div class="button">
+          <a href="/item.html"> 구경하러 가기 </a>
+        </div>
       </div>
       <div class="container">
         <!--섹션 1 -->
-        <section>
+        <section class="main-section">
           <img class="homeimg" src="/image/home1.png" alt="hot item" />
           <div class="text">
-            <div class="section-title">Hot item</div>
+            <span class="section-title">Hot item</span>
             <h2>
-              인기 상품을<br />
+              인기 상품을<br class="break-m" />
               확인해 보세요
             </h2>
-            <div class="content">
+            <p class="content">
               가장 HOT한 중고거래 물품을<br />
               판다 마켓에서 확인해 보세요
-            </div>
+            </p>
           </div>
         </section>
         <!--섹션 2 -->
         <section class="reverse">
           <img class="homeimg" src="/image/home2.png" alt="hot item" />
           <div class="text">
-            <div class="section-title">Search</div>
+            <span class="section-title">Search</span>
             <h2>
-              구매를 원하는 <br />
+              구매를 원하는 <br class="break-m" />
               상품을 검색하세요
             </h2>
-            <div class="content">
+            <p class="content">
               구매하고 싶은 물품은 검색해서<br />
               쉽게 찾아보세요
-            </div>
+            </p>
           </div>
         </section>
         <!--섹션 3 -->
-        <section>
+        <section class="main-section">
           <img class="homeimg" src="/image/home3.png" alt="hot item" />
           <div class="text">
-            <div class="section-title">Register</div>
+            <span class="section-title">Register</span>
             <h2>
-              판매를 원하는<br />
+              판매를 원하는<br class="break-m" />
               상품을 등록하세요
             </h2>
-            <div class="content">
+            <p class="content">
               어떤 물건이든 판매하고 싶은 상품을<br />
               쉽게 등록하세요
-            </div>
+            </p>
           </div>
         </section>
       </div>
@@ -83,16 +94,16 @@
     </main>
     <!--footer-->
     <footer>
-      <div class="year">©cod eit 2024</div>
-      <div class="FAQ">
+      <p class="year">©cod eit 2024</p>
+      <p class="FAQ">
         <a href="/privacy.html">
-          <div>Privacy Policy</div>
+          <span>Privacy Policy</span>
         </a>
         <a href="/faq.html">
-          <div>FAQ</div>
+          <span>FAQ</span>
         </a>
-      </div>
-      <div class="icon">
+      </p>
+      <ul class="icon">
         <a href="https://www.facebook.com" target="_blank">
           <img src="/image/icon/ic_facebook.png" alt="fecebook" />
         </a>
@@ -105,7 +116,7 @@
         <a href="https://www.instagram.com/" target="_blank">
           <img src="/image/icon/ic_instagram.png" alt="imstrgram" />
         </a>
-      </div>
+      </ul>
     </footer>
   </body>
 </html>

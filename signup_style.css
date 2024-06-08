@@ -12,7 +12,14 @@
     height: 132px;
     margin: 60px auto 40px;
   }
-  
+  @media (max-width : 400px) {
+    header img{
+      width: 198px;
+      height: 66px;
+      margin: 24px auto 24px;
+    }
+  }
+
   body {
     text-align: center;
   }
@@ -25,11 +32,24 @@
     height: 664px;
     margin: 0 auto;
   }
+  @media (max-width : 400px) {
+    main {
+      gap: 16px;
+      width: 343px;
+      height: 250px;
+    }
+  }
   
-  input, button {
+  input, .login {
     width : 640px;
     height: 56px;
     border: none;
+  }
+  @media (max-width : 400px) {
+    input, .login {
+      width : 343px;
+      height: 56px;
+    }
   }
   
   label {
@@ -38,6 +58,14 @@
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 16px;
+  }
+  @media (max-width : 400px) {
+    label {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21.48px;
+      margin-bottom: 8px;
+    }
   }
   
   input {
@@ -71,7 +99,7 @@
     background-color: #f3f4f6;
   }
   
-  button {
+  .login {
     background: #9CA3AF;
     padding: 16px 124px 16px 124px;
     border-radius: 40px;
@@ -86,23 +114,37 @@
     width: 640px;
     height: 74px;
     border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 393px;
   }
-  
+  @media (max-width : 400px) {
+  .easy-login {
+    gap: 95px;
+    width: 344px;
+    padding: 13px 0px;
+  }
+}
 
-  
   form ::placeholder {
   padding : 16px 24px;
   font-family: "Pretendard";
   font-size: 16px;
   font-weight: 400;
   }
-  
-  .easy-login {
+
+  .form-section {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 393px;
+    flex-direction: column;
+    gap: 24px;
   }
+  @media (max-width : 400px) {
+    .form-section {
+      gap: 16px;
+    }
+  }
+
   
   .easy-login-icon {
     display: flex;
@@ -120,6 +162,6 @@
     font-weight: 500;
   }
   
-  main > button:hover {
+  .login:hover {
     background-color: #3692ff;
   }
