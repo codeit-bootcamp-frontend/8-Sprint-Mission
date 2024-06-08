@@ -3,22 +3,23 @@ box-sizing: border-box;
 }
 
 header{
-  position: sticky;
-  top:0;
+  position: fixed;
   background-color: #ffffff;
-}
-
-.logo-login {
-  width: 1520px;
-  margin: 10px auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 200px;
+  border-bottom: 1px solid #dfdfdf;
 }
+
 
 section.top-section {
   background-color: #CFE5FF;
-  background-image: url(Img_home_top.png);
+  background-image: url(images/Img_home_top.png);
   background-repeat: no-repeat;
   background-position: bottom;
   background-position-x: 70%;
@@ -75,7 +76,8 @@ section.top-section {
   margin: 70px auto;
   width: 1200px;
   display: grid;
-  grid-template-columns: "1fr 1fr";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr); 
   grid-template-areas: 
   "img1 text1"
   "text2 img2"
@@ -83,28 +85,28 @@ section.top-section {
   gap: 50px;
 }
 
-.hot-item > .img {
-  grid-area: "img1";
+.hot-item.img {
+  grid-area: img1;
 }
 
-.hot-item > .text {
-  grid-area: "text1";
+.hot-item.text {
+  grid-area: text1;
 }
 
-.search > .img {
-  grid-area: "img2";
+.search.img {
+  grid-area: img2;
 }
 
-.search > .text {
-  grid-area: "text2";
+.search.text {
+  grid-area: text2;
 }
 
-.resister > .img {
-  grid-area: "img3";
+.resister.img {
+  grid-area: img3;
 }
 
-.resister > .text {
-  grid-area: "text3";
+.resister.text {
+  grid-area: text3;
 }
 
 
@@ -123,13 +125,13 @@ section.top-section {
 #search-img,
 #resister-img {
   display: block;
-  width: 588px;
-  height: 444px;
+  width: 100%;
+  height: 100%;
 }
 
 section.bottom-section {
   background-color: #CFE5FF;
-  background-image: url(Img_home_bottom.png);
+  background-image: url(images/Img_home_bottom.png);
   background-repeat: no-repeat;
   background-position: bottom;
   background-position-x: 70%;
@@ -197,3 +199,5 @@ footer {
   line-height: 28.8px;
   color: #374151;
 }
+
+
