@@ -472,4 +472,28 @@ button:hover {
     ;
     gap: 60px 32px;
   }
+  /** 로그인 */
+  .login-logo{
+    max-width: 400px;
+  }
+
+  .login-logo img{
+    width: 100%;
+  }
+  #log-wrap{
+    width: 100%;
+    max-width: 400px;
+    padding: 16px;
+    margin: 0 auto;
+  }
+  .login-form,
+  .pw-form{
+    width: 100%;
+    max-width: 400px;
+  }
+  input{
+    width: 100%;
+  }
+
+
 }
