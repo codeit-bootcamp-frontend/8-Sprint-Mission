@@ -1,9 +1,6 @@
-@media (max-width : 767px) {
+
+@media (max-width : 1199px) {
     header{
-        position: fixed;
-        background-color: #ffffff;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 70px;
         display: flex;
@@ -19,38 +16,27 @@
      
       
       section.top-section {
-        background-color: #CFE5FF;
-        background-image: url(images/Img_home_top.png);
-        background-repeat: no-repeat;
-        background-position: bottom;
-        height: 540px;
+        height: 771px;
         display: flex;
         align-items: center;
         justify-content: start;
         text-align: center;
-        background-size: contain;
       }
 
-      .login-button {
-        font-size: 16px;
+      .top-section .ment {
+        width: 100%;
       }
-
+      
       
       .top-section > .container {
         width: 1200px;
         margin-top: 10%;
-        font-size: 32px;
-        font-weight: 700;
+        font-size: 40px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: start;
       }
-
-      .lookfor-button {
-        padding: 16px 20px;
-        font-size: 16px;
-      }      
       
       .main-section {
         margin: 70px auto;
@@ -81,14 +67,15 @@
       }
       
       section.bottom-section {
-        background-size: contain;
-        height: 549px;
+        background-position: bottom;
+        height: 927px;
       }
       
       .bottom-section > .container {
         width: 1200px;
         margin-top: 30%;
-        font-size: 32px;
+        font-family: Pretendard;
+        font-size: 40px;
         font-weight: 700;
         line-height: 56px;
         text-align: center;
@@ -99,9 +86,8 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        color:aliceblue;
         align-items: center;
-        padding: 32px 10px;
+        padding: 32px 100px 108px 50px;
         margin: 0 auto;
       }
    
@@ -110,16 +96,15 @@
       /* text decoration */
       
       .title {
-        font-size: 16px;
+        font-size: 18px;
       }
       
       .main-section .ment-doit {
-        font-size: 24px;
-        margin: 0;
+        font-size: 32px;
       }
       
       .small-ment-doit {
-        font-size: 16px;
+        font-size: 18px;
       }
   
   }

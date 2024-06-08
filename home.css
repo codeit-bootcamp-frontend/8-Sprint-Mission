@@ -1,5 +1,6 @@
 * {
 box-sizing: border-box;    
+word-break: keep-all;
 }
 
 header{
@@ -63,13 +64,16 @@ section.top-section {
 .top-section > .container {
   width: 1200px;
   margin: auto;
-  font-family: Pretendard;
   font-size: 40px;
   font-weight: 700;
-  line-height: 56px;
   display: flex;
   flex-direction: column;
   align-items: start;
+}
+
+.top-section .ment {
+  width: 350px;
+  word-break: keep-all;
 }
 
 .main-section {
@@ -143,7 +147,6 @@ section.bottom-section {
 .bottom-section > .container {
   width: 1200px;
   margin: auto;
-  font-family: Pretendard;
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
@@ -155,12 +158,12 @@ footer {
 }
 
 .footer-container {
-  width: 1520px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   color:aliceblue;
   align-items: center;
-  padding: 0;
+  padding: 32px 200px 108px 200px;
   margin: 0 auto;
 }
 
@@ -183,6 +186,8 @@ footer {
   line-height: 25.2px;
 }
 
+
+
 .main-section .ment-doit {
   color: #000000;
   font-size: 40px;
@@ -190,6 +195,7 @@ footer {
   line-height: 56px;
   margin: 10px 0;
   color: #374151;
+  word-break: keep-all;
 }
 
 .small-ment-doit {
