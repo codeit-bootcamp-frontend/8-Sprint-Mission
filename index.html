@@ -3,6 +3,19 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8">
+    
+    <meta property="og:title" content="판다마켓"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://leehj322-codeit.netlify.app/"/>
+    <meta property="og:discription" content="일상의 모든 물건을 거래해보세요"/>
+    <meta property="og:image" content="https://leehj322-codeit.netlify.app/images/preview_img.png"/>
+
+    <meta name="twitter:title" content="판다마켓"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:url" content="https://leehj322-codeit.netlify.app/"/>
+    <meta name="twitter:description" content="일상의 모든 물건을 거래해보세요"/>
+    <meta name="twitter:image" content="https://leehj322-codeit.netlify.app/images/preview_img.png"/>
+
     <link rel="icon" href="/images/logo.png?v=2"/>
     <title>판다마켓</title>
     <link rel="stylesheet"
@@ -17,8 +30,9 @@
   <body>
     <header>
       <div>
-        <a class="main-logo-block" href="./">
+        <a class="main-logo-block" href="/">
           <img class="main-logo" src="/images/logo_with_typo.png" alt="로고 이미지"/>
+          <img class="main-typo" src="/images/logo_typo.png" alt="로고 타이포"/>
         </a>
       </div>
       <button class="login-button" onclick="location.href='/pages/login'">로그인</button>
@@ -27,7 +41,7 @@
       <div class="main-top">
         <div class="top-page">
           <div>
-            <p class="main-content">일상의 모든 물건을<br>거래해 보세요</p>
+            <p class="top-content">일상의 모든 물건을<br>거래해보세요</p>
             <button class="item-button" onclick="location.href='/pages/items'">구경하러가기</button>
           </div>
           <img
@@ -37,7 +51,7 @@
       <div class="main-page1">
         <div class="main-page left-main">
           <div>
-            <img class="main-page-img" src="/images/img_home_01.png" alt="홈 이미지 1" />
+            <img class="main-page-img" src="/images/img_home_items.png" alt="홈 이미지 1" />
           </div>
           <div class="content-block">
             <h3>Hot item</h3>
@@ -49,19 +63,19 @@
       <div class="main-page2">
         <div class="main-page right-main">
           <div>
-            <img class="main-page-img" src="/images/img_home_02.png" alt="홈 이미지 2" />
+            <img class="main-page-img" src="/images/img_home_search.png" alt="홈 이미지 2" />
           </div>
           <div class="content-block">
-            <h3>Search</h3>
-            <p class="main-content">구매를 원하는<br>상품을 검색하세요</p>
-            <p class="sub-content">구매하고 싶은 물품은 검색해서<br>쉽게 찾아보세요</p>
+            <h3 class="right-text">Search</h3>
+            <p class="main-content right-text">구매를 원하는<br>상품을 검색하세요</p>
+            <p class="sub-content right-text">구매하고 싶은 물품은 검색해서<br>쉽게 찾아보세요</p>
           </div>
         </div>
       </div>
       <div class="main-page3">
         <div class="main-page left-main">
           <div>
-            <img class="main-page-img" src="/images/Img_home_03.png" alt="홈 이미지 3" />
+            <img class="main-page-img" src="/images/img_home_register.png" alt="홈 이미지 3" />
           </div>
           <div class="content-block">
             <h3>Register</h3>
@@ -72,8 +86,8 @@
       </div>
       <div class="main-bottom">
         <div class="bottom-page">
-          <p class="main-content">믿을 수 있는<br>판다마켓 중고거래</p>
-          <img class="bottom-img" src="/images/Img_home_bottom.png" alt="홈 페이지 하단 이미지" />
+          <p class="bottom-content">믿을 수 있는<br>판다마켓 중고거래</p>
+          <img class="bottom-img" src="/images/img_home_bottom.png" alt="홈 페이지 하단 이미지" />
         </div>
       </div>
     </main>
@@ -84,7 +98,7 @@
           <a class= "privacy-link" href="/pages/privacy">Privacy Policy</a>
           <a class= "faq-link" href="/pages/faq">FAQ</a>
         </div>
-        <div>
+        <div class="external-icons">
           <a class="external-link" href="https://www.facebook.com" target="_blank">
             <img src="/images/ic_facebook.png" alt="페이스북 로고" />
           </a>
