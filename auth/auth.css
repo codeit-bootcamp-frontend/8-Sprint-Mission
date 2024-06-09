@@ -1,46 +1,31 @@
-@import "/mediaQuery.css";
-@import "/variable.css";
+.auth-container {
+  width: 100%;
+  max-width: 40rem;
 
-* {
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  cursor: pointer;
-  color: inherit;
+  margin: 3.7rem auto;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Pretendard", sans-serif;
-}
-button {
-  cursor: pointer;
-}
-header {
+.auth-header {
   display: flex;
   justify-content: center;
-  margin: 3.7rem auto;
 }
 
 .logo {
   width: 24.5rem;
 }
 
-main {
+.auth-main {
   display: flex;
   justify-content: center;
 }
 
-.login {
+.auth-form-container {
   display: flex;
   flex-direction: column;
   width: 40rem;
 }
 
-.login-input-box {
+.auth-input-box {
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.3rem;
@@ -68,7 +53,7 @@ input:focus {
   color: var(--gray-400);
 }
 
-.login-btn {
+.auth-submit-btn {
   width: 100%;
   background-color: var(--gray-400);
   border-radius: 2.5rem;
@@ -81,7 +66,7 @@ input:focus {
   border: none;
 }
 
-.oauth-login {
+.easy-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -91,42 +76,43 @@ input:focus {
   border-radius: 0.5rem;
 }
 
-.oauth-login span {
+.easy-login span {
   font-size: 1rem;
   color: var(--gray-800);
   font-weight: 500;
   line-height: 1.5rem;
 }
 
-.oauth-login-icon {
+.easy-login-icon {
   width: 2rem;
 }
 
-.oauth-login-icons {
+.easy-login-icons {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.signup {
+.auth-confirm {
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.1rem;
 }
 
-.signup a {
+.auth-confirm a {
   text-decoration: underline;
   color: var(--brand-blue);
 }
 
-.password-visible-toggle {
+.password-visible-toggle-btn {
   position: absolute;
   right: 1rem;
   border: none;
   background-color: transparent;
 }
-.login-password-box {
+
+.auth-password-box {
   position: relative;
   display: flex;
   align-items: center;
