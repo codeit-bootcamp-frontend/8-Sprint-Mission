@@ -4,6 +4,7 @@
 
 body {
     margin: 70px 0 0;
+    width: 100%;
 }
 
 
@@ -30,6 +31,7 @@ body {
 search 부분 텍스트 오른쪽 정렬  */
 .element-text-right {
     display: flex;
+    width: 100%;
     text-align: right;
     flex-direction: column;
     gap: 30px;
@@ -37,6 +39,7 @@ search 부분 텍스트 오른쪽 정렬  */
 
 .element-text-left {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 30px;
 }
@@ -44,9 +47,9 @@ search 부분 텍스트 오른쪽 정렬  */
 /* 
 요소 3개중 큰 글씨들 */
 .element-main-text {
-
     font-size: 40px;
     font-weight: 700;
+    margin: 0px;
 }
 
 /* 
@@ -55,6 +58,7 @@ search 부분 텍스트 오른쪽 정렬  */
 
     font-size: 24px;
     font-weight: 500;
+    margin: 0px;
 }
 
 /* 
@@ -72,7 +76,6 @@ search 부분 텍스트 오른쪽 정렬  */
     padding: 10px 200px;
     align-items: center;
 }
-
 
 
 .category {
@@ -104,7 +107,6 @@ search 부분 텍스트 오른쪽 정렬  */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 70px 0 0 200px;
 }
 
 
@@ -115,6 +117,7 @@ search 부분 텍스트 오른쪽 정렬  */
     width: 100%;
     height: 540px;
     overflow: hidden;
+    padding: 0 360px;
 
 }
 
@@ -129,20 +132,19 @@ search 부분 텍스트 오른쪽 정렬  */
 장바구니 판다 인사 프레임 */
 .frame-img {
     position: relative;
-    width: 820px;
-    height: 410px;
-    top: 140px;
-    left: 40px;
+    width: 996px;
+    height: 447px;
+    top: 93px;
+    left: 0px;
 }
 
 /* 
 친구끼리 대화하는 판다 프레임 */
 .frame-img2 {
     position: relative;
-    width: 800px;
-    height: 450px;
-    top: 90px;
-    left: 40px;
+    width: 996px;
+    height: 540px;
+
 }
 
 /* 
@@ -156,7 +158,7 @@ search 부분 텍스트 오른쪽 정렬  */
     padding: 16px 124px;
     width: 357px;
     height: 56px;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 600;
     text-decoration: none;
 }
@@ -169,13 +171,11 @@ search 부분 텍스트 오른쪽 정렬  */
     height: 160px;
     display: flex;
     justify-content: space-between;
-    padding: 10px 200px;
     align-items: center;
     padding: 32px 200px;
 }
 
 
-.footer-wrap {}
 
 .footer-text-1 {
     color: #9CA3AF;
@@ -197,4 +197,147 @@ search 부분 텍스트 오른쪽 정렬  */
 .footer-icon {
     display: flex;
     gap: 12px;
+}
+
+
+
+/* Tablet */
+@media (max-width: 1200px) {
+
+    .line {
+        display: none;
+    }
+
+    .topBar {
+        padding: 10px 24px;
+    }
+
+    .content {
+        align-items: center;
+    }
+
+    .frame {
+        flex-direction: column;
+        align-items: center;
+        height: 744px;
+        padding: 84px;
+    }
+
+    .frame-img {
+        top: 45px;
+    }
+
+    .frame-text {
+        text-align: center;
+    }
+
+    .elements {
+        gap: 100px;
+        margin: 30px 0px;
+    }
+
+    .element {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .right {
+        flex-direction: column-reverse;
+    }
+
+    .element-text-right {
+        gap: 20px;
+    }
+
+    .element-text-left {
+        gap: 20px;
+    }
+
+    .element-main-text {
+        font-size: 32px;
+
+    }
+
+    .element-sub-text {
+        font-size: 18px;
+    }
+
+    .element-img {
+        width: 90vw;
+    }
+
+    .bottomBar {
+        background-color: #111827;
+        width: 100%;
+        height: 160px;
+        display: flex;
+        justify-content: space-between;
+        align-items: self-start;
+        padding: 32px 100px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .topBar {
+        padding: 10px 16px;
+    }
+
+    .mobile-line {
+        display: inline-block;
+    }
+
+    .bottomBar {
+        flex-wrap: wrap;
+        padding: 32px;
+    }
+
+    .see-more {
+        width: 154px;
+        font-size: 15px;
+        white-space: nowrap;
+        /* 텍스트 줄 바꿈 방지 */
+        display: flex;
+        /* 플렉스 컨테이너로 설정 */
+        align-items: center;
+        /* 수직 중앙 정렬 */
+        justify-content: center;
+        /* 수평 중앙 정렬 */
+    }
+
+    .frame-text {
+        font-size: 32px;
+    }
+
+    .category {
+        font-size: 16px;
+    }
+
+    .elements {
+        gap: 60px;
+    }
+
+    .element-main-text {
+        font-size: 24px;
+    }
+
+    .element-sub-text {
+        font-size: 16px;
+    }
+
+    .frame {
+        height: 540px;
+    }
+
+    .frame-img {
+        width: 626px;
+        height: 281px;
+        top: 0px;
+    }
+
+    .frame-img2 {
+        width: 497px;
+        height: 269px;
+        top: 50px;
+    }
 }
