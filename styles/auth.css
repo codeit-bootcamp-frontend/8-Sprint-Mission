@@ -3,31 +3,33 @@
 }
 
 .auth-container {
-  max-width: 640px;
+  padding: 24px 16px;
+  max-width: 432px;
   margin: 0 auto;
 }
 
 .home-logo {
   display: block;
+  margin-bottom: 24px;
   text-align: center;
-  margin-top: 60px;
-  margin-bottom: 40px;
+}
+
+.home-logo img {
+  width: 198px;
 }
 
 .input-info {
   margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
 }
 
-label {
+.input-info label {
   display: block;
-  margin-bottom: 16px;
-  font-size: 18px;
   font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
 }
 
-input {
+.input-info input {
   padding: 16px 24px;
   background-color: #f3f4f6;
   border: none;
@@ -37,7 +39,7 @@ input {
   width: 100%;
 }
 
-input::placeholder {
+.input-info input::placeholder {
   color: #9ca3af;
   font-size: 16px;
   line-height: 24px;
@@ -52,7 +54,6 @@ input::placeholder {
 .toggle-password {
   position: absolute;
   right: 24px;
-  cursor: pointer;
 }
 
 .social-login {
@@ -86,4 +87,25 @@ input::placeholder {
   color: #3182f6;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+
+@media (min-width: 768px) {
+  .auth-container {
+    max-width: 640px;
+    padding: 48px 0;
+  }
+
+  .home-logo {
+    margin-bottom: 40px;
+  }
+
+  .home-logo img {
+    width: 396px;
+  }
+
+  .input-info label {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
 }

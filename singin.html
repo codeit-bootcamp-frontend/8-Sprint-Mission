@@ -8,7 +8,7 @@
       as="style"
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-      >
+    >
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/auth.css">
     <link rel="icon" href="images/panda/panda.png">
@@ -16,12 +16,10 @@
   </head>
 
   <body>
-    <div class="auth-container">
-      <div class="home-logo">
-        <a href="/">
-          <img src="images/panda/panda_logo.png" alt="판다마켓 홈" width="396">
-        </a>
-      </div>
+    <main class="auth-container">
+      <a href="/" class="home-logo">
+        <img src="images/panda/panda_logo.png" alt="판다마켓 홈">
+      </a>
 
       <form method="post">
         <div class="input-info">
@@ -31,7 +29,7 @@
             name="email"
             type="email"
             placeholder="이메일을 입력해 주세요"
-            >
+          >
         </div>
         <div class="input-info">
           <label for="nickname">닉네임</label>
@@ -40,7 +38,7 @@
             name="nickname"
             type="text"
             placeholder="닉네임을 입력해 주세요"
-            >
+          >
         </div>
         <div class="input-info">
           <label for="password">비밀번호</label>
@@ -50,13 +48,13 @@
               name="password"
               type="password"
               placeholder="비밀번호를 입력해 주세요"
-              >
+            >
             <img
               src="images/icon/invisible.png"
               alt="비밀번호 숨김"
               class="toggle-password"
               width="24"
-              >
+            >
           </div>
         </div>
         <div class="input-info">
@@ -67,13 +65,13 @@
               name="check-PW"
               type="password"
               placeholder="비밀번호를 다시 한 번 입력해 주세요"
-              >
+            >
             <img
               src="images/icon/invisible.png"
               alt="비밀번호 숨김"
               class="toggle-password"
               width="24"
-              >
+            >
           </div>
         </div>
 
@@ -90,14 +88,14 @@
               src="images/social/ic_google.png"
               alt="구글 로그인"
               width="42"
-              >
+            >
           </a>
           <a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener noreferrer">
             <img
               src="images/social/ic_kakaotalk.png"
               alt="카카오톡 로그인"
               width="42"
-              >
+            >
           </a>
         </div>
       </div>
@@ -105,6 +103,6 @@
       <div class="auth-switch">
         이미 회원이신가요? <a href="login.html">로그인</a>
       </div>
-    </div>
+    </main>
   </body>
 </html>
