@@ -260,7 +260,7 @@ footer .footer-icons img {
 /* =============================== */
 @media (max-width: 767px) {
   /* Heading nav */
-  .logo {
+  .logo-tablet {
     display: none;
   }
   .logo-mobile {
