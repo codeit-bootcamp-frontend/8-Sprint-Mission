@@ -224,7 +224,7 @@ search 부분 텍스트 오른쪽 정렬  */
     }
 
     .frame-img {
-        top: 45px;
+        top: 0px;
     }
 
     .frame-text {
@@ -292,10 +292,12 @@ search 부분 텍스트 오른쪽 정렬  */
         padding: 32px;
     }
 
+
     .see-more {
         width: 154px;
         font-size: 15px;
         white-space: nowrap;
+        margin: 0px;
         /* 텍스트 줄 바꿈 방지 */
         display: flex;
         /* 플렉스 컨테이너로 설정 */
@@ -327,17 +329,18 @@ search 부분 텍스트 오른쪽 정렬  */
 
     .frame {
         height: 540px;
+        padding: 50px;
     }
 
     .frame-img {
         width: 626px;
         height: 281px;
-        top: 0px;
+        top: 10px;
     }
 
     .frame-img2 {
         width: 497px;
         height: 269px;
-        top: 50px;
+        top: 90px;
     }
 }
