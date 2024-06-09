@@ -285,6 +285,7 @@ button.enabled {
     }
 
     .logo_block .image_logo{
+        max-width: 400px;
         width: 13vw;
     }
 
@@ -303,6 +304,7 @@ button.enabled {
     }
 
     .login_block{
+        max-width: 400px;
         width: 100%;
         height: 100%;
         gap: 24px;
