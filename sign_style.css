@@ -37,12 +37,13 @@ input:focus{
 
 .text_logo_bt{
     width: 266px;
-    height: 90px;
+    height: 60px;
     border:none;
     background-image: url("text_logo_big.png");
     background-color: #FFFFFF;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }
 
 button:hover{
@@ -275,4 +276,51 @@ button:hover{
 
 button.enabled {
     background-color: var(--blue);
+}
+
+@media screen and (max-width: 767px){
+
+    body{
+        margin: 0 16px;
+    }
+
+    .logo_block .image_logo{
+        width: 13vw;
+    }
+
+    .logo_block .text_logo_bt{
+        width: 35vw;
+        height: 8vw;
+    }
+
+    .logo_block{
+        margin-top: 9vw;
+        height: 6.6vw;
+    }
+
+    .email_input_block{
+        width: 100%;
+    }
+
+    .login_block{
+        width: 100%;
+        height: 100%;
+        gap: 24px;
+    }
+    
+    .pw_input{
+        width: 100%;
+    }
+
+    .pw_input_box{
+        display: flex;
+    }
+
+    .pw_check_input{
+        width: 100%;
+    }
+
+    .pw_check_input_box{
+        display: flex;
+    }
 }
