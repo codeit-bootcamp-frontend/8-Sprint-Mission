@@ -1,5 +1,5 @@
-/* @import "mediaQuery.css"; */
-
+@import url('/css/mediaQuery.css');
+@import url('/css/color_palette.css');
 
 * {
   box-sizing: border-box;
@@ -26,8 +26,8 @@ header {
   top: 0px;
   left: 0px;
   padding: 10px 200px;
-  background-color: #ffffff;
-  border-bottom: 1.0003px solid #DFDFDF;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--borderBottom);
   z-index: 9999;
 }
 
@@ -44,23 +44,23 @@ header > .logo {
 header > .login-button {
   min-width: 128px;
   min-height: 48px;
-  background-color: #3692ff;
-  color: #ffffff;
+  background-color: var(--blue);
+  color: var(--white);
   padding: 12px 20px 12px 20px;
   text-align: center;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 15.9994px;
+  font-size: 16px;
   font-weight: 600;
-  line-height: 19.0906px;
+  line-height: 20px;
 }
 
 .logo > h1 {
-  margin-left: 8.5901px;
-  color: #3692FF;
-  font-size: 25.6301px;
-  font-weight: 699.9994px;
-  line-height: 34.6003px;
+  margin-left: 9px;
+  color: var(--blue);
+  font-size: 26px;
+  font-weight: 700px;
+  line-height: 35px;
   
 }
 
@@ -68,7 +68,7 @@ header > .login-button {
   display: flex;
   margin-top: 90px;
   background-color: #CFE5FF;
-  height: 579.9994px;
+  height: 580px;
   overflow: hidden;
   z-index: -2;
 
@@ -85,31 +85,31 @@ header > .login-button {
 
 .banner img {
   position : absolute;
-  left: 326.4px;
+  left: 326.5px;
   bottom: 0px;
   width:996px;
   
   
 }
 .banner h1 {
-  font-size: 39.9994px;
+  font-size: 40px;
   font-weight: 700;
-  line-height: 56.0006px;
-  color: #374151;
+  line-height: 56px;
+  color: var(--gray700);
   z-index: 1;
 }
 
 .banner .Market-tour-button {
-  background-color: #3692ff;
-  color: #ffffff;
-  padding: 15.9994px 123.9994px;
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 16px 124px;
   text-align: center;
-  border-radius: 39.9994px;
-  width: 357.001px;
-  height: 56.0006px;
+  border-radius: 40px;
+  width: 357px;
+  height: 56px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 20.0006px;
+  font-size: 20px;
   line-height: 24px;
   z-index: 1;
 }
@@ -144,8 +144,8 @@ main .text-div {
 main .container {
   display: flex;
   flex-direction: row;
-  gap: 63.9994px;
-  padding: 137.5008px 0;
+  gap: 64px;
+  padding: 138px 0;
   flex-wrap: wrap;
 }
 main img {
@@ -165,15 +165,15 @@ main .blue-bedge {
   font-weight: 700;
   font-size: 18px;
   line-height: 25.2px;
-  color: #3692FF;
+  color: var(--blue);
   margin: 0;
 }
 
 main .title {
   font-weight: 700;
-  font-size: 39.9994px;
-  line-height: 56.0006px;
-  letter-spacing: 2%;
+  font-size: 40px;
+  line-height: 56px;
+  letter-spacing: 0.02rem;
   margin: 0;
 }
 
@@ -181,21 +181,21 @@ main .description {
   font-weight: 500;
   font-size: 24px;
   line-height: 28.8px;
-  letter-spacing: 8%;
+  letter-spacing: 0.08em;
   margin: 0;
 }
 footer {
   display: flex;
-  background-color:#111827;
-  color: #E5E7EB;
+  background-color: var(--gray900);
+  color: var(--gray200);
   font-weight: 400;
   padding: 32.0006px 200.0006px 108px;
   justify-content: space-between;
-  font-size: 15.9994px;
+  font-size: 16px;
 }
 
 footer .left {
-  color: #9CA3AF;
+  color: var(--gray400);
 }
 
 footer .center{
@@ -205,7 +205,7 @@ footer .center{
 
 footer .center a{
   text-decoration: none;
-  color: #E5E7EB;
+  color: var(--gray200);
 }
 
 footer .sns_icon {
@@ -213,129 +213,143 @@ footer .sns_icon {
   gap: 12px;
 }
 footer .sns_icon img {
-  width: 20.0006px;
+  width: 20px;
 }
 
 .home-main-section {
   display:flex;
 }
 
+
+
+/*- PC: 1200px 이상
+ - Tablet: 768px 이상 ~ 1199px 이하 
+- Mobile: 375px 이상 ~ 767px 이하*/
+
+
 /**디스플레이 width 0~1920px 모든 수치 vw 반응형 **/
 @media screen and (max-width:1920px) {
 
   header {
-    height: 4.6875vw;
+    height: 5vw;
     top: 0vw;
     left: 0vw;
-    padding: .5208vw 10.4167vw;
-    border-bottom: .0521vw solid #DFDFDF;
+    padding: 0.5vw 10.4vw;
+    border-bottom: 0.06vw solid var(--borderBottom);
   }
   
   header img {
-    width: 7.9688vw;
+    width: 8vw;
   }
   
   header > .login-button {
-    min-width: 6.6667vw;
+    min-width: 7vw;
     min-height: 2.5vw;
-    padding: .625vw 1.0417vw .625vw 1.0417vw;
-    border-radius: .4167vw;
-    font-size: .8333vw;
-    line-height: .9943vw;
+    padding: 0.6vw 1vw 0.6vw 1vw;
+    border-radius: 0.4vw;
+    font-size: 1vw;
+    line-height: 1vw;
   }
   
   .logo > h1 {
-    margin-left: .4474vw;
-    font-size: 1.3349vw;
-    font-weight: 36.4583vw;
-    line-height: 1.8021vw;
+    margin-left: 0.4vw;
+    font-size: 1.3vw;
+    font-weight: 36.4vw;
+    line-height: 2vw;
     
   }
   
   .banner {
-    margin-top: 4.6875vw;
-    height: 30.2083vw;
+    margin-top: 4.7vw;
+    height: 30vw;
    }
   
    .empty-space {
-    width: 18.75vw;
+    width: 22.5vw;
    }
   
   .banner img {
     left: 17vw;
     bottom: 0vw;
-    width:51.875vw;
+    width:52vw;
     
     
   }
   .banner h1 {
-    font-size: 2.0833vw;
-    line-height: 2.9167vw;
+    font-size: 2vw;
+    line-height: 3vw;
   }
   
   .banner .Market-tour-button {
-    padding: .8333vw 6.4583vw;
-    border-radius: 2.0833vw;
-    width: 18.5938vw;
-    height: 2.9167vw;
-    font-size: 1.0417vw;
-    line-height: 1.25vw;
+    padding: 0.8vw 6.5vw;
+    border-radius: 2vw;
+    width: 19vw;
+    height: 3vw;
+    font-size: 1vw;
+    line-height: 1vw;
   }
   
-  .container {
-    width: 62.5vw;
-  }
+ 
   
   .banner > .container {
     height: 100%;
   }
   
   main .text-div {
-    gap: .625vw;
+    gap: 1vw;
   }
   
   main .container {
-    gap: 3.3333vw;
-    padding: 7.1615vw 0;
+    gap: 3vw;
+    padding: 7vw 0;
   }
   main img {
-    width: 30.625vw;
-    border-radius: .625vw;
+    width: 30vw;
+    border-radius: 1vw;
   }
 
   
   main .blue-bedge {
-    font-size: .9375vw;
-    line-height: 1.3125vw;
+    font-size: 1vw;
+    line-height: 1vw;
   }
   
   main .title {
-    font-size: 2.0833vw;
-    line-height: 2.9167vw;
+    font-size: 2vw;
+    line-height: 3vw;
     letter-spacing: 2%;
   }
   
   main .description {
-    font-size: 1.25vw;
+    font-size: 1vw;
     line-height: 1.5vw;
     letter-spacing: 8%;
   }
   footer {
-    padding: 1.6667vw 10.4167vw 5.625vw;
-    font-size: .8333vw;
+    padding: 2vw 10vw 6vw;
+    font-size: 1vw;
   }
   
   footer .center{
-    gap: 1.5625vw;
+    gap: 2vw;
   }
   
   
   footer .sns_icon {
-    gap: .625vw;
+    gap: 1vw;
   }
   footer .sns_icon img {
-    width: 1.0417vw;
+    width: 1vw;
   }
 
 }
 
+
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  
+}
