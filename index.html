@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 페이지 표기 설정 -->
     <title>판다마켓</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="source/icons/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="source/icons/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="source/icons/favicon/favicon-16x16.png">
+    <meta name="description" description="일상의 모든 물건을 거래해보세요" />
+
+    <!-- 링크 공유 설정 -->
+    <meta property="og:title" content="판다마켓" />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta property="og:image" content="./source/images/logo/logo.png" />
+    <meta property="twitter:title" content="판다마켓"/>
+    <meta property="twitter:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta property="twitter:image" content="./source/images/logo/logo.png" />
+    <meta property="twitter:card" content="summary" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="source/icons/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="source/icons/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="source/icons/favicon/favicon-16x16.png" />
     <link rel="stylesheet" href="index.css" />
     
 </head>
@@ -14,7 +26,8 @@
     <header>
         <nav class="nav">
             <a href="/" class="logo">
-                <img class="logo-img" src="source/images/logo/logo.png" alt="판다마켓 로고"/>
+                <!-- <img class="logo-img" src="source/images/logo/logo.png" alt="판다마켓 로고"/> -->
+                <div class="logo-img"></div>
             </a>
             <button class="btn login" onclick="goAnotherPage('login/login.html')">로그인</button>
         </nav>
@@ -22,19 +35,19 @@
     <section class="headline">
         <div class="headline-content">
             <div class="headline-title">
-                <h3 class="title">일상의 모든 물건을<br>거래해 보세요</h3>
+                <h3 class="title">일상의 모든 물건을<br class="headline-title-br"> 거래해 보세요</h3>
                 <button class="btn headline-btn" onclick="goAnotherPage('items/')">구경하러 가기</button>   
             </div>
-            <img src="source/images/headline/Img_home_top.png" alt="headline image" width="50%">
+            <img class="headline-img" src="source/images/headline/Img_home_top.png" alt="headline image" >
         </div>
     </section>
     <main>
         <section class="popular">
             <div class="container">
-                <img class="info-img" src="source/images/main/section1/Img_home_01.png" alt="Hot Item Image" width="50%">
+                <img class="info-img" src="source/images/main/section1/Img_home_01.png" alt="Hot Item Image" >
                 <div class="content">
                     <div class="category">Hot item</div>
-                    <h3 class="section-title popular-title">인기 상품을<br>확인해 보세요</h3>
+                    <h3 class="section-title popular-title">인기 상품을 <br class="title-br">확인해 보세요</h3>
                     <div class="section-description popular-description">
                         가장 HOT한 중고거래 물품을<br>판다 마켓에서 확인해 보세요
                     </div>
@@ -43,10 +56,10 @@
         </section>
         <section class="search">
             <div class="container">
-                <img class="info-img" src="source/images/main/section2/Img_home_02.png" alt="Search Image" width="50%">
+                <img class="info-img" src="source/images/main/section2/Img_home_02.png" alt="Search Image" >
                 <div class="content">
                     <div class="category">Search</div>
-                    <h3 class="section-title search-title">구매를 원하는<br>상품을 검색하세요</h3>
+                    <h3 class="section-title search-title">구매를 원하는 <br class="title-br">검색하세요</h3>
                     <div class="section-description search-description">
                         구매하고 싶은 물품은 검색해서<br>쉽게 찾아보세요
                     </div>
@@ -55,10 +68,10 @@
         </section>
         <section class="register">
             <div class="container">
-                <img class="info-img" src="source/images/main/section3/Img_home_03.png" alt="Register Image" width="50%">
+                <img class="info-img" src="source/images/main/section3/Img_home_03.png" alt="Register Image" >
                 <div class="content">
                     <div class="category">Register</div>
-                    <h3 class="section-title register-title">판매를 원하는<br>상품을 등록하세요</h3>
+                    <h3 class="section-title register-title">판매를 원하는 <br class="title-br" />상품을 등록하세요</h3>
                     <div class="section-description register-description">
                         어떤 물건이든 판매하고 싶은 상품을<br>쉽게 등록하세요
                     </div>
@@ -73,7 +86,7 @@
                     믿을 수 있는<br>판다마켓 중고거래
                 </h3>   
             </div>
-            <img src="source/images/footline/Img_home_bottom.png" alt="headline image" width="50%">
+            <img class="footline-img" src="source/images/footline/Img_home_bottom.png" alt="headline image" >
         </div>
     </section>
     <footer>
