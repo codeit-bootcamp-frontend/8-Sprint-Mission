@@ -1,8 +1,38 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("./asset/font/pretendard/woff/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("./asset/font/pretendard/woff/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("./asset/font/pretendard/woff/Pretendard-SemiBold.woff")
+    format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("./asset/font/pretendard/woff/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Pretendard, sans-serif;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
 }
 
 :root {
@@ -22,6 +52,7 @@
   --white: #fff;
 }
 
+/* --------------------- PC: 1200px 이상 --------------------- */
 nav {
   display: flex;
   justify-content: space-between;
@@ -37,14 +68,24 @@ nav {
   z-index: 1;
 }
 
-.logo {
+.logo-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-grow: 0;
+  width: 153px;
+  height: 51px;
   cursor: pointer;
 }
 
-.logo-img {
-  width: 153px;
-  height: 51px;
+.logo-icon {
+  width: 40px;
+  height: auto;
+}
+
+.logo-text {
+  width: 103px;
+  height: auto;
 }
 
 .login-link {
@@ -70,10 +111,15 @@ header {
   height: 540px;
   margin-top: 70px;
   background-color: var(--light-blue);
-  background-image: url("./image/Img_home_top.png");
+  background-image: url("./asset/image/Img_home_top.png");
   background-repeat: no-repeat;
   background-size: 52% auto;
   background-position: bottom 0 right 223px;
+}
+
+.header-wrapper {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .title {
@@ -81,11 +127,6 @@ header {
   font-size: 40px;
   color: var(--gray700);
   line-height: 140%;
-}
-
-.header-wrapper {
-  width: 1200px;
-  margin: 0 auto;
 }
 
 .header-wrapper .title {
@@ -169,7 +210,7 @@ section {
   align-items: center;
   height: 540px;
   background-color: var(--light-blue);
-  background-image: url("./image/Img_home_bottom.png");
+  background-image: url("./asset/image/Img_home_bottom.png");
   background-repeat: no-repeat;
   background-size: 52% auto;
   background-position: bottom 0 right 223px;
@@ -220,4 +261,147 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 12px;
+}
+
+/* --------------------- Tablet: 1199px 이하 --------------------- */
+@media (max-width: 1199px) {
+  br.onlyPC {
+    display: none;
+  }
+
+  nav {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  header {
+    display: block;
+    height: 771px;
+    background-size: 996px auto;
+    background-position: center bottom 0;
+  }
+
+  .header-wrapper {
+    width: 744px;
+    text-align: center;
+  }
+
+  .header-wrapper > .title {
+    padding-top: 84px;
+  }
+
+  .header-link {
+    margin: 0 auto;
+  }
+
+  .main-wrapper {
+    width: 100%;
+  }
+
+  section {
+    display: block;
+    padding: 24px;
+  }
+
+  .section-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .section-content {
+    margin: 0 0 64px 0;
+  }
+
+  .section-content .title {
+    font-size: 32px;
+  }
+
+  .section-content-description {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 8%;
+    color: var(--gray700);
+    line-height: 120%;
+  }
+
+  .main-wrapper section:nth-child(even) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: end;
+    padding: 24px;
+    text-align: right;
+  }
+
+  .banner {
+    height: 927px;
+    background-size: 996px auto;
+    background-position: center bottom 0;
+  }
+
+  .banner-wrapper {
+    height: 927px;
+    text-align: center;
+  }
+
+  .banner-wrapper > .title {
+    margin-top: 200px;
+  }
+}
+
+/* --------------------- Mobile: 767px 이하 --------------------- */
+@media (max-width: 767px) {
+  nav {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .logo-icon {
+    display: none;
+  }
+
+  .header-wrapper {
+    width: 540px;
+    text-align: center;
+  }
+
+  .header-wrapper > .title {
+    padding-top: 48px;
+  }
+
+  header .title > br.onlyPC {
+    display: block;
+  }
+
+  .header-link {
+    width: 154px;
+    height: 48px;
+    font-size: 1rem;
+  }
+
+  .banner {
+    height: 540px;
+    background-size: 500px auto;
+    background-position: center bottom 0;
+  }
+
+  .banner-wrapper {
+    height: 540px;
+    text-align: center;
+  }
+
+  .banner-wrapper > .title {
+    margin-top: 121px;
+    font-size: 32px;
+  }
+
+  footer {
+    padding: 32px;
+  }
+
+  .footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

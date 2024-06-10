@@ -3,29 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="판다마켓 홈페이지" />
+
+    <meta property="og:title" content="판다 마켓" />
+    <meta
+      property="og:url"
+      content="https://8-sprint-mission-jeongminoh.netlify.app"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./asset/image/Img_home_top.png" />
+    <meta property="og:image:alt" content="판다 마켓 배너 이미지" />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+
     <title>판다마켓</title>
+    <link rel="icon" href="asset/image/favicon.ico" />
     <link rel="stylesheet" href="style.css" />
-    <link
+    <!-- <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-    />
+    /> -->
   </head>
 
   <body>
     <nav>
-      <a class="logo" href="/"
+      <a class="logo-wrapper" href="/"
         ><img
-          class="logo-img"
-          src="./image/Img_logo.png"
-          alt="판다마켓 로고 이미지"
+          class="logo-icon"
+          src="./asset/image/Img_logo_icon.png"
+          alt="판다마켓 로고 중 아이콘" /><img
+          class="logo-text"
+          src="./asset/image/Img_logo_text.png"
+          alt="판다마켓 로고 중 텍스트"
       /></a>
       <a class="login-link" href="/login">로그인</a>
     </nav>
 
     <header>
       <div class="header-wrapper">
-        <h1 class="title">일상의 모든 물건을<br />거래해 보세요</h1>
+        <h1 class="title">
+          일상의 모든 물건을 <br class="onlyPC" />거래해 보세요
+        </h1>
         <a class="header-link" href="/items">구경하러 가기</a>
       </div>
     </header>
@@ -35,14 +53,16 @@
         <section>
           <img
             class="section-img hot-item"
-            src="./image/Img_home_01.png"
+            src="./asset/image/Img_home_01.png"
             alt="판다가 반팔티를 보고 있는 이미지"
           />
           <div class="section-content hot-item">
             <p class="section-content-label hot-item">Hot item</p>
-            <h1 class="title hot-item">인기 상품을<br />확인해 보세요</h1>
+            <h1 class="title hot-item">
+              인기 상품을 <br class="onlyPC" />확인해 보세요
+            </h1>
             <h2 class="section-content-description hot-item">
-              가장 HOT한 중고거래 물품을<br />판다 마켓에서 확인해 보세요
+              가장 HOT한 중고거래 물품을 <br />판다 마켓에서 확인해 보세요
             </h2>
           </div>
         </section>
@@ -50,14 +70,16 @@
         <section>
           <div class="section-content search">
             <p class="section-content-label search">Search</p>
-            <h1 class="title search">구매를 원하는<br />상품을 검색하세요</h1>
+            <h1 class="title search">
+              구매를 원하는 <br class="onlyPC" />상품을 검색하세요
+            </h1>
             <h2 class="section-content-description search">
-              구매하고 싶은 물품은 검색해서<br />쉽게 찾아보세요
+              구매하고 싶은 물품은 검색해서 <br />쉽게 찾아보세요
             </h2>
           </div>
           <img
             class="section-img search"
-            src="./image/Img_home_02.png"
+            src="./asset/image/Img_home_02.png"
             alt="돋보기로 물음표를 보는 이미지"
           />
         </section>
@@ -65,14 +87,16 @@
         <section>
           <img
             class="section-img register"
-            src="./image/Img_home_03.png"
+            src="./asset/image/Img_home_03.png"
             alt="상품 파일이 담긴 폴더를 고르는 이미지"
           />
           <div class="section-content register">
             <p class="section-content-label register">Register</p>
-            <h1 class="title register">판매를 원하는<br />상품을 등록하세요</h1>
+            <h1 class="title register">
+              판매를 원하는 <br class="onlyPC" />상품을 등록하세요
+            </h1>
             <h2 class="section-content-description register">
-              어떤 물건이든 판매하고 싶은 상품을<br />쉽게 등록하세요
+              어떤 물건이든 판매하고 싶은 상품을 <br />쉽게 등록하세요
             </h2>
           </div>
         </section>
@@ -81,7 +105,7 @@
 
     <div class="banner">
       <div class="banner-wrapper">
-        <h1 class="title">믿을 수 있는<br />판다마켓 중고거래</h1>
+        <h1 class="title">믿을 수 있는 <br />판다마켓 중고거래</h1>
       </div>
     </div>
 
@@ -94,16 +118,16 @@
         </div>
         <div class="footer-sns">
           <a href="https://www.youtube.com" target="_blank"
-            ><img src="./icon/ic_facebook.png" alt="facebook 아이콘"
+            ><img src="./asset/icon/ic_facebook.png" alt="facebook 아이콘"
           /></a>
           <a href="https://www.twitter.com" target="_blank"
-            ><img src="./icon/ic_twitter.png" alt="twitter 아이콘"
+            ><img src="./asset/icon/ic_twitter.png" alt="twitter 아이콘"
           /></a>
           <a href="https://www.youtube.com" target="_blank"
-            ><img src="./icon/ic_youtube.png" alt="youtube 아이콘"
+            ><img src="./asset/icon/ic_youtube.png" alt="youtube 아이콘"
           /></a>
           <a href="https://www.instagram.com" target="_blank"
-            ><img src="./icon/ic_instagram.png" alt="instagram 아이콘"
+            ><img src="./asset/icon/ic_instagram.png" alt="instagram 아이콘"
           /></a>
         </div>
       </div>
