@@ -207,7 +207,6 @@ header .login-link {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
 }
 
 .auth_form-el .check-password {
@@ -230,6 +229,7 @@ label {
 
 .auth_input {
 	width: 100%;
+	margin-top: 16px;
 	padding: 16px 24px;
 	border: 0;
 	border-radius: 12px;
@@ -238,6 +238,10 @@ label {
 	font-weight: 400;
 	line-height: 24px;
 	color: var(--gray-800);
+}
+
+.input-invalid {
+	border: 1px solid var(--error-red);
 }
 
 .auth_input:focus {
@@ -258,6 +262,12 @@ label {
 	line-height: 24px;
 	color: #ffffff;
 	text-align: center;
+	pointer-events: none;
+}
+
+.auth_form .submit-button.active {
+	background: var(--brand-blue-active);
+	pointer-events: auto;
 }
 
 .login-easy {

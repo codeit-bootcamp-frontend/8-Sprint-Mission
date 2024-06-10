@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="/main.js"></script>
   </head>
   <body>
     <main>
@@ -24,7 +25,7 @@
             height="132"
           />
         </a>
-        <form method="post">
+        <form method="post" action="/items">
           <div class="auth_form-el">
             <label for="login-id">이메일</label>
             <input
@@ -32,15 +33,18 @@
               type="email"
               id="login-id"
               placeholder="이메일을 입력해주세요"
+              required
             />
           </div>
           <div class="auth_form-el">
             <label for="login-password">비밀번호</label>
             <input
               class="auth_input"
-              type="password"
               id="login-password"
+              type="password"
+              minlength="8"
               placeholder="비밀번호를 입력해주세요"
+              required
             />
             <button class="check-password">
               <img
