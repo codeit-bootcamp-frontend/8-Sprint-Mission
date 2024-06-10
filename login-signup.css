@@ -1,20 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-:root {
-  --color-label: #1f2937;
-  --color-input: #f3f4f6;
-  --color-blue: #3692ff;
-  --color-button: #9ca3af;
-  --color-button-text: #ffffff;
-  --color-easylogin: #e6f2ff;
-  --color-text: #1f2937;
-  --color-signup: #3182f6;
-}
-
 body {
-  font-family: pretendard;
   width: 640px;
   margin: 60px auto;
 }
@@ -24,7 +8,7 @@ body {
 }
 
 label {
-  color: var(--color-label);
+  color: var(--color-coolgray800);
   display: block;
   margin: 24px 0 16px;
 
@@ -37,7 +21,7 @@ label {
 input {
   display: block;
   border: none;
-  background: var(--color-input);
+  background: var(--color-coolgray100);
   margin: 16px 0 24px;
   height: 56px;
   padding: 16px 24px;
@@ -50,11 +34,16 @@ input {
   text-align: left;
 }
 
-#password {
-  background-image: url("eye-off.png");
-  background-position: 592px center;
-  background-repeat: no-repeat;
-  box-sizing: border-box;
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 24px;
+  cursor: pointer;
 }
 
 input:focus {
@@ -63,14 +52,14 @@ input:focus {
 }
 
 button {
-  background-color: var(--color-button);
+  background-color: var(--color-coolgray400);
   width: 100%;
   height: 56px;
   padding: 16px 124px;
   border-radius: 40px;
   border: none;
 
-  color: var(--color-button-text);
+  color: var(--color-white);
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
@@ -96,7 +85,7 @@ button:hover {
   flex: 1 1 auto;
   margin: 0 23px 0;
 
-  color: var(--color-text);
+  color: var(--color-coolgray800);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -110,7 +99,7 @@ button:hover {
 }
 
 .signup-text {
-  color: var(--color-text);
+  color: var(--color-coolgray800);
   font-size: 15px;
   font-weight: 500;
   line-height: 17.9px;
@@ -125,4 +114,50 @@ button:hover {
   font-weight: 500;
   line-height: 17.9px;
   text-align: left;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+  body {
+    margin: 48px auto;
+  }
+}
+
+.logo {
+  text-align: center;
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  body {
+    padding: 24px 16px;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .logo {
+    text-align: center;
+    margin: 0;
+  }
+
+  .logo img {
+    width: 60%;
+    height: 60%;
+  }
+
+  label {
+    margin: 24px 0 8px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  input {
+    margin: 8px 0 16px;
+    height: 56px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    width: 100%;
+  }
 }

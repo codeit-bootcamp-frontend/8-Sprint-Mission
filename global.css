@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "pretendard", sans-serif;
+}
+
+:root {
+  --color-blue: #3692ff;
+  --color-white: #ffffff;
+  --color-coolgray900: #111827;
+  --color-coolgray800: #1f2937;
+  --color-coolgray700: #374151;
+  --color-coolgray400: #9ca3af;
+  --color-coolgray200: #e5e7eb;
+  --color-coolgray100: #f3f4f6;
+  --color-banner: #cfe5ff;
+  --color-header-border: #dfdfdf;
+  --color-easylogin: #e6f2ff;
+  --color-signup: #3182f6;
+}
