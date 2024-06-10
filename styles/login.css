@@ -1,6 +1,7 @@
 .login-container{
     max-width: 640px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 .logo-home{
@@ -8,6 +9,9 @@
     text-align: center;
     margin-top: 60px;
     margin-bottom: 40px;
+}
+.logo-home img{
+    width: 100%;
 }
 .input-item{
     margin-bottom: 24px;
@@ -48,7 +52,7 @@
     width: 100%;
 }
 .social-login{
-    background-color: #e6f2ff;
+    background-color: var(--aliceblue);
     border-radius: 8px;
 
     display: flex;
@@ -73,4 +77,26 @@
 .switch a{
     color: var(--blue);
     text-decoration: underline;
+}
+
+@media (mind-width : 375px){
+    .logo-home{
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+}
+
+@media (min-width : 768px){
+    .login-container{
+        max-width: 640px;
+    }
+    .logo-home{
+        width: 640px;
+        margin-top: 48px;
+        margin-bottom: 40px;
+    }
+    label{
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
 }
