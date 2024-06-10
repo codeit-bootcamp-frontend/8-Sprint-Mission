@@ -11,7 +11,6 @@ import passwordVerifiedCheck from "./passwordVerifiedCheck.js";
 export default function btnValidCheck() {
     const validChecklist = [filledInputCheck(), passwordVerifiedCheck()]; // 함수가 호출될때마다 배열 안의 함수들을 실행합니다.
 
-    validChecklist.every((e) => e === true)
-    ? btn.classList.add('valid')
-    : btn.classList.remove('valid');
+    const isValid = validChecklist.every(e => e);
+    btn.classList.toggle('valid', isValid);
 }

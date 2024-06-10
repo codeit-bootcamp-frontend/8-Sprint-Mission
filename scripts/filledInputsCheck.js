@@ -3,9 +3,8 @@
 const inputs = document.querySelectorAll('input');
 
 export default function filledInputCheck() {
-    const hiddenPlaceholders = document.querySelectorAll('input:not(:placeholder-shown)');
 
-    return hiddenPlaceholders.length === inputs.length
-    ? true
-    : false;
+    if (!inputs || !inputs.length) return true;
+    
+    return [...inputs].every( (e) => e.value !== '' );
 }

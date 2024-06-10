@@ -4,18 +4,15 @@
 
 const passwordInput = document.querySelector('#password');
 const verifyPasswordInput = document.querySelector('#verify-password');
-const passwordMismatchingMsg = document.querySelector('.password-mismatching-msg');
+const passwordMismatchingMessage = document.querySelector('.password-mismatching-msg');
 
 export default function passwordVerifiedCheck() {
     if (!verifyPasswordInput) return true;
 
-    if (verifyPasswordInput.value !== passwordInput.value) {
-        verifyPasswordInput.classList.add('mismatching');
-        passwordMismatchingMsg.classList.remove('hidden');
-        return false;
-    }
+    const isPasswordMatching = passwordInput.value === verifyPasswordInput.value;
 
-    verifyPasswordInput.classList.remove('mismatching');
-    passwordMismatchingMsg.classList.add('hidden');
-    return true;
+    verifyPasswordInput.classList.toggle('misatching', !isPasswordMatching);
+    passwordMismatchingMessage.classList.toggle('hidden', isPasswordMatching);
+
+    return isPasswordMatching;
 }
