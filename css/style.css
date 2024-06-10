@@ -55,27 +55,24 @@ header .login-link {
 
 .banner-container {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	gap: 32px;
 	margin: 0 auto;
 	width: 1200px;
 }
 
-.banner-info {
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
-}
-
-.banner-info h1 {
+.banner-container h1 {
 	color: var(--gray-700);
 	text-align: left;
 }
 
-.banner-info h1 span {
+.banner-container h1 span {
 	display: block;
 }
 
-.banner-info a {
+.banner-container a {
 	display: flex;
 	justify-content: center;
 	padding: 16px 125px;
@@ -134,7 +131,7 @@ header .login-link {
 	color: var(--brand-blue);
 }
 
-.content-text h1 {
+.content-text h2 {
 	display: flex;
 	flex-direction: column;
 	letter-spacing: 0.02em;
@@ -231,7 +228,7 @@ label {
 	text-align: left;
 }
 
-input {
+.auth_input {
 	width: 100%;
 	padding: 16px 24px;
 	border: 0;
@@ -243,11 +240,11 @@ input {
 	color: var(--gray-800);
 }
 
-input:focus {
+.auth_input:focus {
 	outline: 1px solid var(--brand-blue);
 }
 
-input::placeholder {
+.auth_input::placeholder {
 	color: var(--gray-400);
 }
 
@@ -311,16 +308,12 @@ input::placeholder {
 	.banner-container {
 		display: flex;
 		justify-content: center;
-		align-items: start;
 		width: 100%;
-	}
-
-	.banner-info {
 		align-items: center;
 		gap: 24px;
 	}
 
-	.banner-info h1 span {
+	.banner-container h1 span {
 		display: inline;
 	}
 
@@ -372,7 +365,7 @@ input::placeholder {
 		color: var(--brand-blue);
 	}
 
-	.content-text h1 {
+	.content-text h2 {
 		display: block;
 		font-family: "Pretendard Variable";
 		font-size: 32px;
@@ -425,18 +418,18 @@ input::placeholder {
 		padding-top: 121px;
 	}
 
-	.banner-info h1 {
+	.banner-container h1 {
 		font-size: 32px;
 		font-weight: 700;
 		line-height: 44.8px;
 		text-align: center;
 	}
 
-	.banner-info h1 span {
+	.banner-container h1 span {
 		display: block;
 	}
 
-	.banner-info a {
+	.banner-container a {
 		padding: 16px 20px;
 		font-size: 16px;
 		font-weight: 600;
@@ -444,7 +437,12 @@ input::placeholder {
 	}
 
 	.content-container {
-		width: 344px;
+		/*width: 344px;*/
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
 		padding: 51px 0 64px;
 	}
 
@@ -459,7 +457,7 @@ input::placeholder {
 		line-height: 22.4px;
 	}
 
-	.content h1 {
+	.content h2 {
 		font-size: 24px;
 		font-weight: 700;
 		line-height: 33.6px;
