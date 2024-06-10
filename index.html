@@ -9,36 +9,12 @@
     <meta property="og:url" content="https://www.codeit.kr" />
     <title>판다마켓</title>
     <link rel="stylesheet" href="style.css" />
-    <script>
-      (function (d) {
-        var config = {
-            kitId: 'sjs5cbs',
-            scriptTimeout: 3000,
-            async: true,
-          },
-          h = d.documentElement,
-          t = setTimeout(function () {
-            h.className = h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive';
-          }, config.scriptTimeout),
-          tk = d.createElement('script'),
-          f = false,
-          s = d.getElementsByTagName('script')[0],
-          a;
-        h.className += ' wf-loading';
-        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-        tk.async = true;
-        tk.onload = tk.onreadystatechange = function () {
-          a = this.readyState;
-          if (f || (a && a != 'complete' && a != 'loaded')) return;
-          f = true;
-          clearTimeout(t);
-          try {
-            Typekit.load(config);
-          } catch (e) {}
-        };
-        s.parentNode.insertBefore(tk, s);
-      })(document);
-    </script>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
   </head>
   <body>
     <header class="header-nav">
@@ -66,7 +42,11 @@
     <main>
       <section>
         <div class="section-box">
-          <img src="image/main/Img_home_hot_item.png" alt="인기 상품 기능 소개 이미지" class="section-image" />
+          <img
+            src="image/main/Img_home_hot_item.png"
+            alt="인기 상품 기능 소개 이미지"
+            class="section-image"
+          />
           <div class="contents">
             <div class="content-category">Hot item</div>
             <div class="content-title">
@@ -93,12 +73,20 @@
               쉽게 찾아보세요
             </div>
           </div>
-          <img src="image/main/Img_home_item_search.png" alt="검색 기능 소개 이미지" class="section-image" />
+          <img
+            src="image/main/Img_home_item_search.png"
+            alt="검색 기능 소개 이미지"
+            class="section-image"
+          />
         </div>
       </section>
       <section>
         <div class="section-box">
-          <img src="image/main/Img_home_for_sale_item.png" alt="상품 등록 기능 소개 이미지" class="section-image" />
+          <img
+            src="image/main/Img_home_for_sale_item.png"
+            alt="상품 등록 기능 소개 이미지"
+            class="section-image"
+          />
           <div class="contents">
             <div class="content-category">Register</div>
             <div class="content-title">
@@ -113,10 +101,10 @@
         </div>
       </section>
     </main>
-    <footer class="footer-contents">
-      <div class="footer-contents-background">
-        <div class="footer-text-image">
-          <div class="footer-text">
+    <section class="bottom-contents">
+      <div class="bottom-contents-background">
+        <div class="bottom-text-image">
+          <div class="bottom-text">
             <div class="slogan">
               믿을 수 있는<br />
               판다마켓 중고거래
@@ -124,10 +112,10 @@
           </div>
         </div>
       </div>
-    </footer>
+    </section>
     <footer class="footer-link-bar-background">
       <div class="footer-link-bar">
-        <div class="codeit">@codeit - 2024</div>
+        <address class="codeit">@codeit - 2024</address>
         <div class="privacy-faq-box">
           <div>
             <a href="privacy" class="privacy">Privacy Policy</a>
@@ -136,20 +124,30 @@
             <a href="faq" class="faq">FAQ</a>
           </div>
         </div>
-        <div class="sns-links">
-          <a href="/facebook" target="_blank">
-            <img class="sns-link-mini" src="/image//icon/ic_facebook.png" />
-          </a>
-          <a href="/twitter" target="_blank">
-            <img class="sns-link-mini" src="/image//icon/ic_twitter.png" />
-          </a>
-          <a href="/youtube" target="_blank">
-            <img class="sns-link-mini" src="/image//icon/ic_youtube.png" />
-          </a>
-          <a href="/instagram" target="_blank">
-            <img class="sns-link-mini" src="/image//icon/ic_instagram.png" />
-          </a>
-        </div>
+        <nav class="sns-links">
+          <ul>
+            <li>
+              <a href="/facebook" target="_blank">
+                <img class="sns-link-mini" src="/image//icon/ic_facebook.png" />
+              </a>
+            </li>
+            <li>
+              <a href="/twitter" target="_blank">
+                <img class="sns-link-mini" src="/image//icon/ic_twitter.png" />
+              </a>
+            </li>
+            <li>
+              <a href="/youtube" target="_blank">
+                <img class="sns-link-mini" src="/image//icon/ic_youtube.png" />
+              </a>
+            </li>
+            <li>
+              <a href="/instagram" target="_blank">
+                <img class="sns-link-mini" src="/image//icon/ic_instagram.png" />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
   </body>
