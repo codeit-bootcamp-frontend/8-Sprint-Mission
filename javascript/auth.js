@@ -5,8 +5,6 @@ const passwordToggleButton = document.querySelectorAll(
 
 const handlePasswordToggleButton = (e) => {
   const toggleBtn = e.currentTarget;
-  // toggleBtn.classList.toggle("visible");
-  // const isPasswordVisible = toggleBtn.classList.contains("visible");
   const isPasswordVisible = toggleBtn.classList.toggle("visible");
   const toggleImg = toggleBtn.firstElementChild;
   const authPasswordInput = toggleBtn.previousElementSibling;
