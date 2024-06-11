@@ -1,3 +1,4 @@
+
 :root{
   --main-blue-color: #3692FF;
   --hover-blue-color: #1967D6;
@@ -10,7 +11,7 @@ a{
   cursor: pointer;
 }
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -18,44 +19,45 @@ a{
   text-decoration: none;
 }
 
-body{
-  font-family: 'Pretendard', sans-serif;
+body {
+  font-family: "Pretendard", sans-serif;
 }
 
-.wrap{
+.wrap {
   margin-top: 70px;
 }
 
-.container{
+.container {
   width: 1200px;
   margin: 0 auto;
 }
 
-header{
+header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background: #fff;
+  z-index: 1;
 }
 
-nav{
+nav {
   padding: 10px 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-nav #logo{
+nav #logo {
   height: 51px;
 }
 
-nav a{
+nav a {
   display: inline-block;
   height: 51px;
 }
 
-nav .login{
+nav .login {
   display: flex;
   background-color: var(--main-blue-color);
   width: 128px;
@@ -78,22 +80,25 @@ a.login:hover{
   background-repeat: no-repeat;
   background-position: right 223px bottom;
   width: 100%;
-
+  position: relative;
+  height: 540px;
 }
 
-.main_img .header_typo{
+.main_img .header_typo {
   padding: 170px 0;
+  position: absolute;
 }
 
-.main_img .header_typo h2{
+.main_img .header_typo h2 {
   font-size: 40px;
   font-weight: 700;
   color: var(--mainText-blue-color);
   margin-bottom: 32px;
   line-height: 56px;
+  width: 300px;
 }
 
-.main_img .header_typo a{
+.main_img .header_typo a {
   font-weight: 600;
   font-size: 20px;
   color: #fff;
@@ -107,15 +112,16 @@ a.login:hover{
   background: var(--hover-blue-color);
 }
 
-.cards{
+.cards {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 64px;
   height: 720px;
 }
 
-.cards.right_side{
-  justify-content: flex-end;
+.cards.right_side {
+  justify-content: center;
 }
 
 .cards .card .item_icon{
@@ -124,6 +130,7 @@ a.login:hover{
   font-size: 18px;
 }
 
+
 .cards .card h3{
   color: var(--mainText-blue-color);
   font-size: 40px;
@@ -131,7 +138,10 @@ a.login:hover{
   line-height: 56px;
   letter-spacing: 0.02em;
   text-align: left;
+  word-break: keep-all;
+  width: 300px;
 }
+
 
 .cards .card p{
   color: var(--mainText-blue-color);
@@ -139,8 +149,9 @@ a.login:hover{
   font-weight: 500;
   line-height: 28.8px;
   letter-spacing: 0.08em;
-  text-align: left; 
+  text-align: left;
 }
+
 
 .footer_img{
   background: var(--imgBg-blue-color);
@@ -148,60 +159,63 @@ a.login:hover{
   background-repeat: no-repeat;
   background-position: right 223px bottom;
   width: 100%;
-  
+  position: relative;
+  height: 540px;
 }
 
-.footer_img .footer_typo{
+.footer_img .footer_typo {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
   text-align: left;
   color: var(--mainText-blue-color);
   padding: 214px 0;
+  position: absolute;
+  word-break: keep-all;
+  width: 300px;
 }
 
-footer{
-  padding:32px 200px 108px 200px;
+footer {
+  padding: 32px 200px 108px 200px;
   background: #111827;
   display: flex;
   justify-content: space-between;
-  
 }
 
-footer .copyright{
-  color: #9CA3AF;
+footer .copyright {
+  color: #9ca3af;
+  grid-area: cp;
 }
 
-footer .quest{
-
+footer .quest {
+  grid-area: qst;
 }
 
-footer .quest a{
-  color: #E5E7EB;
+footer .quest a {
+  color: #e5e7eb;
   padding-right: 30px;
 }
 
-footer .sns{
+footer .sns {
+grid-area: sns;
 
 }
 
-footer .sns ul{
+footer .sns ul {
   display: flex;
   gap: 12px;
 }
 
-footer .sns ul li{
-
+footer .sns ul li {
 }
 
-
 /* 로그인, 회원가입 */
-#log-wrap{
+#log-wrap {
   width: 640px;
   margin: 60px auto 0;
 }
 
-form{
+form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -210,12 +224,12 @@ form{
   gap: 24px;
 }
 
-.login-logo{
+.login-logo {
   width: 100%;
   margin-bottom: 40px;
 }
 
-.login-logo a{
+.login-logo a {
   display: block;
   text-align: center;
   height: 132px;
@@ -230,36 +244,37 @@ label{
   margin-bottom: 16px;
 }
 
-input{
+input {
   width: 640px;
-  background: #F3F4F6;
+  background: #f3f4f6;
   border-radius: 12px;
   padding: 16px 0 16px 12px;
   border: none;
   outline: none;
 }
 
+
 input:focus{
   outline: 1px solid var(--main-blue-color);
 }
 
-.pw-box{
+.pw-box {
   position: relative;
 }
 
-.pw-box img{
+.pw-box img {
   position: absolute;
   right: 20px;
   top: 12px;
   cursor: pointer;
 }
 
-button{
+button {
   width: 100%;
   padding: 16px 0;
   border: none;
   border-radius: 40px;
-  background: #9CA3AF;
+  background: #9ca3af;
   color: #fff;
   font-size: 20px;
   font-weight: 600;
@@ -267,20 +282,21 @@ button{
   cursor: pointer;
 }
 
+
 button:hover{
   background: var(--main-blue-color);
 }
 
-.log-information{
+.log-information {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 23px;
-  background: #E6F2FF;
+  background: #e6f2ff;
 }
 
-.messenger{
+.messenger {
   display: flex;
   font-size: 16px;
   font-weight: 500;
@@ -289,8 +305,8 @@ button:hover{
   gap: 16px;
 }
 
-.messenger .log-kakao{
-  background: #F5E14B;
+.messenger .log-kakao {
+  background: #f5e14b;
   width: 42px;
   height: 42px;
   border-radius: 9999px;
@@ -298,25 +314,200 @@ button:hover{
   padding-top: 10px;
 }
 
-.messenger .log-google{
+.messenger .log-google {
   background: #fff;
   width: 42px;
   height: 42px;
-  border: 1px solid #F9FAFB;
+  border: 1px solid #f9fafb;
   border-radius: 9999px;
   text-align: center;
   padding-top: 10px;
 }
 
-.first{
+.first {
   font-size: 15px;
   font-weight: 500;
   color: var(--subText-blue-color);
 }
 
-.first a{
+.first a {
   font-size: 15px;
   font-weight: 500;
-  color: #3182F6;
-  text-decoration:underline
+  color: #3182f6;
+  text-decoration: underline;
+}
+
+/* 반응형 768px - 1199px */
+@media (max-width: 1199px) {
+  .main_img .header_typo {
+    text-align: center;
+    width: 100%;
+  }
+
+  .main_img .header_typo h2 {
+    text-align: center;
+    width: 100%; /* 너비를 500px로 변경 */
+  }
+
+  .container-card {
+    padding: 24px;
+  }
+
+  .main_img {
+    background-position: 50% 100%;
+  }
+
+  nav {
+    padding: 10px 24px;
+  }
+
+  .main_img {
+    height: 100vh;
+  }
+
+  div.cards {
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+    height: auto;
+    padding-bottom: 64px;
+  }
+  div.cards:last-child {
+    padding-bottom: 56px;
+  }
+
+  .cards .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cards .card h3 {
+    width: 100%;
+  }
+
+  .cards img {
+    width: 100%;
+  }
+
+  .cards.right_side {
+  }
+
+  .cards.right_side .card {
+    grid-area: bt;
+  }
+  .cards.right_side img {
+    grid-area: tp;
+  }
+
+  .cards.right_side .card .item_icon,
+  .cards.right_side .card p,
+  .cards.right_side .card h3 {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .container .footer_typo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer_img {
+    height: 100vh;
+    background-position: 50% 100%;
+  }
+
+  footer {
+    padding: 32px 104px 108px 104px;
+  }
+}
+
+/* 반응형 375px - 767px */
+@media (max-width: 767px) {
+  nav {
+    padding: 10px 16px;
+  }
+
+  .container-card {
+    padding: 0 16px;
+    padding-top: 50px;
+    padding-bottom: 64px;
+    margin: 0 auto;
+  }
+
+  .header_typo h2 {
+    font-size: 32px;
+    word-break: keep-all;
+  }
+
+  .main_img .header_typo a {
+    font-size: 16px;
+  }
+
+  .main_img .header_typo a.item {
+    width: 154px;
+    height: 48px;
+    display: inline-block;
+    padding: 0;
+    line-height: 48px;
+  }
+
+  .container-card .cards {
+    gap: 20px;
+  }
+  .container-card .cards .card p {
+    font-size: 18px;
+  }
+  .container-card .cards .card .item_icon {
+    font-size: 16px;
+  }
+
+  .cards .card h3 {
+    font-size: 24px;
+  }
+
+  div.cards:last-child {
+    padding-bottom: 0px;
+  }
+  .container .footer_typo{
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  footer{
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "qst sns"
+    "cp ."
+    ;
+    gap: 60px 32px;
+  }
+  /** 로그인 */
+  .login-logo{
+    max-width: 400px;
+  }
+
+  .login-logo img{
+    width: 100%;
+  }
+  #log-wrap{
+    width: 100%;
+    max-width: 400px;
+    padding: 16px;
+    margin: 0 auto;
+  }
+  .login-form,
+  .pw-form{
+    width: 100%;
+    max-width: 400px;
+  }
+  input{
+    width: 100%;
+  }
+
+
 }
