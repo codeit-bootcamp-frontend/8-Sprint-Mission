@@ -376,5 +376,18 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* 요소들이 영역을 벗어난 경우의 개행 여부를 설정해줌 */
+    height: 100%;
+  }
+
+  /* .footer-wrapper 내에서 보여질 순서 */
+  .footer-copyright {
+    order: 3;
+  }
+  .footer-menu {
+    order: 1;
+  }
+  .footer-sns {
+    order: 2;
   }
 }
