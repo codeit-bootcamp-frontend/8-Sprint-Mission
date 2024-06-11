@@ -108,6 +108,7 @@ a {
   cursor: pointer;
   float: right;
   background-image: url(/images/invisible-btn.svg);
+  background-color: inherit;
 }
 /* .visible-btn {
   background-image: url(/images/visible-btn.svg);
