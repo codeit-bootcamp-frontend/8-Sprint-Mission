@@ -1,13 +1,10 @@
-const passwordInput = document.querySelector("#auth-password");
 const passwordToggleButton = document.querySelectorAll(
   ".password-visible-toggle-btn"
 );
 
-const handlePasswordToggleButton = (e) => {
-  const toggleBtn = e.currentTarget;
-  const isPasswordVisible = toggleBtn.classList.toggle("visible");
-  const toggleImg = toggleBtn.firstElementChild;
-  const authPasswordInput = toggleBtn.previousElementSibling;
+const setToggleButtonState = (toggleButton, isPasswordVisible) => {
+  const toggleImg = toggleButton.querySelector("img");
+  const authPasswordInput = toggleButton.parentElement.querySelector("input");
 
   if (isPasswordVisible) {
     toggleImg.src = "/image/btn_visibility_on.png";
@@ -15,9 +12,17 @@ const handlePasswordToggleButton = (e) => {
     authPasswordInput.type = "text";
     return;
   }
+
   toggleImg.src = "/image/btn_visibility_off.png";
   toggleImg.alt = "invisible";
   authPasswordInput.type = "password";
+};
+
+const handlePasswordToggleButton = (e) => {
+  const toggleButton = e.currentTarget;
+  const isPasswordVisible = toggleButton.classList.toggle("visible");
+
+  setToggleButtonState(toggleButton, isPasswordVisible);
 };
 
 passwordToggleButton.forEach((passwordBtn) => {
