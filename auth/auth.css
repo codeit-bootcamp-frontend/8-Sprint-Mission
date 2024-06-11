@@ -30,6 +30,7 @@
   font-size: 1rem;
   line-height: 1.3rem;
   color: var(--gray-800);
+  margin-top: 1rem;
 }
 
 input {
@@ -51,6 +52,11 @@ input:focus {
 
 ::placeholder {
   color: var(--gray-400);
+}
+.input-error {
+  color: var(--error-red);
+  padding-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 .auth-submit-btn {
