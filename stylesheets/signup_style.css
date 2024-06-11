@@ -67,6 +67,10 @@ main .container {
     color: var(--gray800);
 }
 
+.text-input.mismatching {
+    outline: solid var(--red);
+}
+
 .text-input:focus {
     outline: solid var(--blue);
 }

@@ -11,7 +11,7 @@ export default function passwordVerifiedCheck() {
 
     const isPasswordMatching = passwordInput.value === verifyPasswordInput.value;
 
-    verifyPasswordInput.classList.toggle('misatching', !isPasswordMatching);
+    verifyPasswordInput.classList.toggle('mismatching', !isPasswordMatching);
     passwordMismatchingMessage.classList.toggle('hidden', isPasswordMatching);
 
     return isPasswordMatching;
