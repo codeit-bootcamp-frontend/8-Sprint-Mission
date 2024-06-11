@@ -11,7 +11,7 @@
     margin-bottom: 40px;
 }
 .logo-home img{
-    width: 100%;
+    width: 90%;
 }
 .input-item{
     margin-bottom: 24px;
@@ -79,7 +79,7 @@
     text-decoration: underline;
 }
 
-@media (mind-width : 375px){
+@media (min-width : 375px){
     .logo-home{
         margin-top: 24px;
         margin-bottom: 24px;
