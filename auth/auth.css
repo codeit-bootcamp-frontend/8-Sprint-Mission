@@ -111,6 +111,9 @@ input:focus {
   border: none;
   background-color: transparent;
 }
+.password-visible-toggle-btn img {
+  width: 1.5rem;
+}
 
 .auth-password-box {
   position: relative;
