@@ -46,6 +46,8 @@ form label{
     font-weight: 700;
     margin-bottom: 16px;
     display: inline-block;
+    width: 100%;
+    position:relative;
 }
 
 main .container {
@@ -61,38 +63,29 @@ main .container {
     background-color: var(--gray100);
     border: none;
     padding: 22px;
-    margin-bottom: 20px;
+    margin-bottom: 1.625rem;
     font-size: 16px;
     font-weight: 400;
     color: var(--gray800);
 }
 
-.text-input.mismatching {
-    outline: solid var(--red);
+.text-input.errored {
+    outline: solid 1px var(--red);
 }
 
 .text-input:focus {
-    outline: solid var(--blue);
+    outline: solid 1px var(--blue);
 }
 
-.text-input.mismatching:focus {
-    outline: solid var(--red);
-}
-
-.verify-password-label {
-    position: relative;
-    width: 100%;
-}
-
-.password-mismatching-msg {
+.error-message {
     position: absolute;
-    right: 10px;
-    bottom: -10px;
+    left: 10px;
+    bottom: -92px;
     font-size: 0.8rem;
     color: var(--red);
 }
 
-.hidden {
+.error-message.hidden {
     display: none;
 }
 
