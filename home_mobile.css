@@ -1,0 +1,125 @@
+@media (max-width : 767px) {
+    header{
+        position: fixed;
+        background-color: #ffffff;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        border-bottom: 1px solid #dfdfdf;
+      }
+
+      body {
+        margin-top: 70px;
+      }
+     
+      
+      section.top-section {
+        background-color: #CFE5FF;
+        background-image: url(images/Img_home_top.png);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        height: 540px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        text-align: center;
+        background-size: contain;
+      }
+
+      .login-button {
+        font-size: 16px;
+      }
+
+      
+      .top-section > .container {
+        width: 1200px;
+        margin-top: 10%;
+        font-size: 32px;
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+
+      .lookfor-button {
+        padding: 16px 20px;
+        font-size: 16px;
+      }      
+      
+      .main-section {
+        margin: 70px auto;
+        width: 100%;
+        display: block;
+      }
+
+      .main-section div {
+        margin: 20px;
+      }
+      
+      .main-section > .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      
+      
+      .search.text {
+        text-align: right;
+      }
+      
+      #hot-item-img,
+      #search-img,
+      #resister-img {
+        display: block;
+        width: 100%;
+      }
+      
+      section.bottom-section {
+        background-size: contain;
+        height: 549px;
+      }
+      
+      .bottom-section > .container {
+        width: 1200px;
+        margin-top: 30%;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 56px;
+        text-align: center;
+      }
+      
+      
+      .footer-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        color:aliceblue;
+        align-items: center;
+        padding: 32px 10px;
+        margin: 0 auto;
+      }
+   
+      
+      
+      /* text decoration */
+      
+      .title {
+        font-size: 16px;
+      }
+      
+      .main-section .ment-doit {
+        font-size: 24px;
+        margin: 0;
+      }
+      
+      .small-ment-doit {
+        font-size: 16px;
+      }
+  
+  }

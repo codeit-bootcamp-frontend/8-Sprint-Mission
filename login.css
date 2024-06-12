@@ -57,7 +57,7 @@ button:focus {
 
 #signup-pw,
 #signup-pwcheck {
-    background: url('non_visibility.png') no-repeat 5px center;
+    background: url('images/non_visibility.png') no-repeat 5px center;
     background-position : 97%;
     background-size: 27px;
     background-color: #F3F4F6;
