@@ -116,11 +116,11 @@ passwordToggleButton.forEach((passwordBtn) => {
 
 emailInput.addEventListener("focusout", handleEmailValidation);
 
-nameInput.addEventListener("focusout", handleNameValidation);
+nameInput?.addEventListener("focusout", handleNameValidation);
 
 passwordInput.addEventListener("focusout", handlePasswordValidation);
 
-passwordConfirmInput.addEventListener(
+passwordConfirmInput?.addEventListener(
   "focusout",
   handlePasswordConfirmValidation
 );
