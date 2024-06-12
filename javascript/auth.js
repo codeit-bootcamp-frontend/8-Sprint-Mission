@@ -4,6 +4,7 @@ const passwordToggleButton = document.querySelectorAll(
 const allInput = document.querySelectorAll("input");
 const emailInput = document.getElementById("auth-email");
 const passwordInput = document.getElementById("auth-password");
+const nameInput = document.getElementById("auth-name");
 const loginButton = document.getElementsByClassName("auth-submit-btn");
 
 const setToggleButtonState = (toggleButton, isPasswordVisible) => {
@@ -53,6 +54,19 @@ const handleEmailValidation = () => {
   emailInput.style.border = "1px solid #f74747";
 };
 
+const handleNameValidation = () => {
+  const emptyName = document.getElementById("name-empty");
+  const nameValue = nameInput.value;
+
+  if (!nameValue) {
+    emptyName.style.display = "block";
+    nameInput.style.border = "1px solid #f74747";
+    return;
+  }
+  emptyName.style.display = "none";
+  nameInput.style.border = "none";
+};
+
 const handlePasswordValidation = () => {
   const emptyPassword = document.getElementById("password-empty");
   const errorPassword = document.getElementById("password-error");
@@ -83,5 +97,7 @@ passwordToggleButton.forEach((passwordBtn) => {
 });
 
 emailInput.addEventListener("focusout", handleEmailValidation);
+
+nameInput.addEventListener("focusout", handleNameValidation);
 
 passwordInput.addEventListener("focusout", handlePasswordValidation);
