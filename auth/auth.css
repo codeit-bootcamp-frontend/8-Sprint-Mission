@@ -30,7 +30,9 @@
   font-size: 1rem;
   line-height: 1.3rem;
   color: var(--gray-800);
-  margin-top: 1rem;
+}
+.auth-input-box span {
+  display: none;
 }
 
 input {
@@ -57,6 +59,9 @@ input:focus {
   color: var(--error-red);
   padding-left: 1rem;
   margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.1rem;
 }
 
 .auth-submit-btn {
