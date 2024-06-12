@@ -81,8 +81,17 @@ form input:focus {
     border: var(--blue);
 }
 
-.password {
+.input-wrap {
     position: relative;
+}
+
+.error-message {
+    visibility: hidden;
+    margin: 0 0 0 1.6rem;
+    color: red;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.79rem;
 }
 
 .hide-icon {
