@@ -5,6 +5,7 @@ const allInput = document.querySelectorAll("input");
 const emailInput = document.getElementById("auth-email");
 const passwordInput = document.getElementById("auth-password");
 const nameInput = document.getElementById("auth-name");
+const passwordConfirmInput = document.getElementById("auth-password-confirm");
 const loginButton = document.getElementsByClassName("auth-submit-btn");
 
 const setToggleButtonState = (toggleButton, isPasswordVisible) => {
@@ -92,6 +93,23 @@ const handlePasswordValidation = () => {
   passwordInput.style.border = "none";
 };
 
+const handlePasswordConfirmValidation = () => {
+  const errorPasswordConfirm = document.getElementById(
+    "password-confirm-error"
+  );
+  const passwordConfirmValue = passwordConfirmInput.value;
+  const passwordValue = passwordInput.value;
+  const isMatch = passwordConfirmValue === passwordValue;
+
+  if (!isMatch) {
+    errorPasswordConfirm.style.display = "block";
+    passwordConfirmInput.style.border = "1px solid #f74747";
+    return;
+  }
+  errorPasswordConfirm.style.display = "none";
+  passwordConfirmInput.style.border = "none";
+};
+
 passwordToggleButton.forEach((passwordBtn) => {
   passwordBtn.addEventListener("click", handlePasswordToggleButton);
 });
@@ -101,3 +119,8 @@ emailInput.addEventListener("focusout", handleEmailValidation);
 nameInput.addEventListener("focusout", handleNameValidation);
 
 passwordInput.addEventListener("focusout", handlePasswordValidation);
+
+passwordConfirmInput.addEventListener(
+  "focusout",
+  handlePasswordConfirmValidation
+);
