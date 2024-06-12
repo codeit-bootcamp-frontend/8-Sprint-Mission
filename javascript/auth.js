@@ -1,7 +1,10 @@
 const passwordToggleButton = document.querySelectorAll(
   ".password-visible-toggle-btn"
 );
+const allInput = document.querySelectorAll("input");
 const emailInput = document.getElementById("auth-email");
+const passwordInput = document.getElementById("auth-password");
+const loginButton = document.getElementsByClassName("auth-submit-btn");
 
 const setToggleButtonState = (toggleButton, isPasswordVisible) => {
   const toggleImg = toggleButton.querySelector("img");
@@ -27,8 +30,8 @@ const handlePasswordToggleButton = (e) => {
 };
 
 const handleEmailValidation = () => {
-  const emptyEmail = document.querySelector("#email-empty");
-  const errorEmail = document.querySelector("#email-error");
+  const emptyEmail = document.getElementById("email-empty");
+  const errorEmail = document.getElementById("email-error");
   const emailValue = emailInput.value;
   const regex =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -40,14 +43,39 @@ const handleEmailValidation = () => {
     return;
   }
   emptyEmail.style.display = "none";
-  emailInput.style.border = "1px solid none";
+  emailInput.style.border = "none";
   if (regex.test(emailValue)) {
     errorEmail.style.display = "none";
-    emailInput.style.border = "1px solid none";
+    emailInput.style.border = "none";
     return;
   }
   errorEmail.style.display = "block";
   emailInput.style.border = "1px solid #f74747";
+};
+
+const handlePasswordValidation = () => {
+  const emptyPassword = document.getElementById("password-empty");
+  const errorPassword = document.getElementById("password-error");
+  const passwordValue = passwordInput.value;
+
+  if (!passwordValue) {
+    errorPassword.style.display = "none";
+    emptyPassword.style.display = "block";
+    passwordInput.style.border = "1px solid #f74747";
+
+    return;
+  }
+  emptyPassword.style.display = "none";
+  passwordInput.style.border = "none";
+
+  if (passwordValue.length < 8) {
+    errorPassword.style.display = "block";
+    passwordInput.style.border = "1px solid #f74747";
+
+    return;
+  }
+  errorPassword.style.display = "none";
+  passwordInput.style.border = "none";
 };
 
 passwordToggleButton.forEach((passwordBtn) => {
@@ -55,3 +83,5 @@ passwordToggleButton.forEach((passwordBtn) => {
 });
 
 emailInput.addEventListener("focusout", handleEmailValidation);
+
+passwordInput.addEventListener("focusout", handlePasswordValidation);
