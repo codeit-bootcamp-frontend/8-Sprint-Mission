@@ -77,6 +77,10 @@ header {
   text-align: center;
   width: 357px;
   height: 56px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .introduce-image {

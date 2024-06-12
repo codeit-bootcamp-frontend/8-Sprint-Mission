@@ -1,8 +1,4 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import "reset.css";
 
 body {
   font-family: "pretendard", sans-serif;

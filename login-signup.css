@@ -1,9 +1,11 @@
+@import "reset.css";
+
 body {
   width: 640px;
   margin: 60px auto;
 }
 
-.logo {
+.logo img {
   margin: 40px 122px;
 }
 
@@ -22,7 +24,6 @@ input {
   display: block;
   border: none;
   background: var(--color-coolgray100);
-  margin: 16px 0 24px;
   height: 56px;
   padding: 16px 24px;
   border-radius: 12px;
@@ -46,9 +47,14 @@ input {
   cursor: pointer;
 }
 
+input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 input:focus {
-  outline: none;
-  border-color: var(--color-blue);
+  outline-color: var(--color-blue);
 }
 
 button {
@@ -58,6 +64,7 @@ button {
   padding: 16px 124px;
   border-radius: 40px;
   border: none;
+  margin-top: 24px;
 
   color: var(--color-white);
   font-size: 20px;
@@ -145,19 +152,23 @@ button:hover {
   .logo img {
     width: 60%;
     height: 60%;
+    margin: 24px auto;
   }
 
   label {
-    margin: 24px 0 8px;
+    margin: 16px 0 8px;
     font-size: 14px;
     line-height: 17px;
   }
 
   input {
-    margin: 8px 0 16px;
     height: 56px;
     padding: 16px 24px;
     border-radius: 12px;
     width: 100%;
+  }
+
+  button {
+    margin-top: 16px;
   }
 }
