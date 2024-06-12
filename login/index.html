@@ -29,15 +29,18 @@
           <div class="form-content">
             <label for="email">이메일</label>
             <input
+              id="input-email"
               type="email"
               name="email"
               placeholder="이메일을 입력해주세요"
             />
+            <div class="error-message email">이메일을 입력해주세요.</div>
           </div>
           <div class="form-content">
             <label for="password">비밀번호</label>
             <div class="password">
               <input
+                id="input-password"
                 type="password"
                 name="password"
                 placeholder="비밀번호를 입력해주세요"
@@ -49,9 +52,16 @@
                 width="24px"
                 height="24px"
               />
+              <div class="error-message password">비밀번호를 입력해주세요.</div>
             </div>
           </div>
-          <button class="form-login-btn" type="button" value="로그인">
+
+          <button
+            class="form-login-btn"
+            type="button"
+            value="로그인"
+            disabled="true"
+          >
             로그인
           </button>
         </form>
@@ -82,5 +92,7 @@
         <a class="signup-link" href="/signup/">회원가입</a>
       </div>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>

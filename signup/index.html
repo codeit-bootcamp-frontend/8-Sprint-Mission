@@ -31,23 +31,28 @@
           <div class="form-content">
             <label for="email">이메일</label>
             <input
+              id="input-email"
               type="email"
               name="email"
               placeholder="이메일을 입력해주세요"
             />
+            <div class="error-message email">이메일을 입력해주세요.</div>
           </div>
           <div class="form-content">
             <label for="nickname">닉네임</label>
             <input
+              id="input-nickname"
               type="text"
               name="nickname"
               placeholder="닉네임을 입력해주세요"
             />
+            <div class="error-message nickname">닉네임을 입력해주세요.</div>
           </div>
           <div class="form-content">
             <label for="password">비밀번호</label>
             <div class="password">
               <input
+                id="input-password"
                 type="password"
                 name="password"
                 placeholder="비밀번호를 입력해주세요"
@@ -59,12 +64,14 @@
                 width="24px"
                 height="24px"
               />
+              <div class="error-message password">비밀번호를 입력해주세요.</div>
             </div>
           </div>
           <div class="form-content">
             <label for="password-check">비밀번호 확인</label>
             <div class="password">
               <input
+                id="input-password-check"
                 type="password"
                 name="password-check"
                 placeholder="비밀번호를 다시 한 번 입력해주세요"
@@ -76,6 +83,9 @@
                 width="24px"
                 height="24px"
               />
+              <div class="error-message password-check">
+                비밀번호가 일치하지 않습니다.
+              </div>
             </div>
           </div>
           <button class="form-signup-btn" type="button" value="회원가입">
@@ -109,5 +119,7 @@
         <a class="login-link" href="/login/">로그인</a>
       </div>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>

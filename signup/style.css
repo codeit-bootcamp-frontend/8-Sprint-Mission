@@ -82,6 +82,17 @@ input::placeholder {
   cursor: pointer;
 }
 
+.error {
+  border: 1px solid var(--red);
+}
+.error-message {
+  display: none;
+  padding: 8px 16px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--red);
+}
+
 .form-signup-btn {
   width: 100%;
   border: 0;

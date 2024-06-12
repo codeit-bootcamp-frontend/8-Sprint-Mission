@@ -82,6 +82,17 @@ input::placeholder {
   cursor: pointer;
 }
 
+.error {
+  border: 1px solid var(--red);
+}
+.error-message {
+  display: none;
+  padding: 8px 16px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--red);
+}
+
 .form-login-btn {
   width: 100%;
   padding: 16px;
@@ -93,7 +104,7 @@ input::placeholder {
   text-align: center;
   line-height: 24px;
   color: #ffffff;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .form-login-btn:focus {
