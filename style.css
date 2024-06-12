@@ -121,7 +121,7 @@ a.login:hover{
 }
 
 .cards.right_side {
-  justify-content: center;
+  flex-direction: row-reverse;
 }
 
 .cards .card .item_icon{
