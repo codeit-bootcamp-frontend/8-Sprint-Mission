@@ -2,13 +2,17 @@
 
 import toggleVisibility from "./togglePasswordVisibility.js";
 import btnValidCheck from "./buttonValidationCheck.js";
-import { form } from "./constLib.js";
+import { form, btn } from "./constLib.js";
 import emailValidationCheck from "./emailValidationCheck.js";
 import nicknameEmptyCheck from "./nicknameEmptyCheck.js";
 import passwordVerifiedCheck from "./passwordVerifiedCheck.js";
 import passwordFormatCheck from "./passwordFormatCheck.js";
 
 const passwordVisibilityIcons = document.querySelectorAll('.password-visibility-icon');
+
+
+// 버튼 disabled 설정
+btn.disabled = true;
 
 // 눈 이미지에 패스워드 가시성 토글 스크립트 지정
 for (let each of passwordVisibilityIcons) {
