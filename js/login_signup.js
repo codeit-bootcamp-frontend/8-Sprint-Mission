@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-const toggleEye = document.querySelectorAll(".toggle-eye-container");
+const toggleEyes = document.querySelectorAll(".toggle-eye");
 const input = form.querySelectorAll("input");
 const password = document.querySelector("#user-password");
 const confirmPassword = document.querySelector("#confirm-user-password");
@@ -162,5 +162,29 @@ function cautionInputEvent(e) {
   btnActivation();
 }
 
+function passwordDisplayToggle(e) {
+  if (e.target.classList.contains("toggle-eye")) {
+    for (toggleEye of toggleEyes) {
+      toggleEye.classList.toggle("toggle-eye-open");
+    }
+    if (confirmPassword === null) {
+      if (password.getAttribute("type") === "password") {
+        password.setAttribute("type", "text");
+      } else if (password.getAttribute("type") === "text") {
+        password.setAttribute("type", "password");
+      }
+    } else if (confirmPassword !== null) {
+      if (password.getAttribute("type") === "password") {
+        password.setAttribute("type", "text");
+        confirmPassword.setAttribute("type", "text");
+      } else if (password.getAttribute("type") === "text") {
+        password.setAttribute("type", "password");
+        confirmPassword.setAttribute("type", "password");
+      }
+    }
+  }
+}
+
 form.addEventListener("focusout", cautionFocusOutEvent);
 form.addEventListener("input", cautionInputEvent);
+form.addEventListener("click", passwordDisplayToggle);

@@ -98,6 +98,9 @@
   background-position: center center;
   background-size: 24px 24px;
 }
+.toggle-eye-open {
+  background-image: url(../icon/visible_on.png);
+}
 
 .other-login-section {
   display: flex;
@@ -143,8 +146,5 @@
   .form-section {
     flex-basis: 400px;
     margin: 0 16px;
-  }
-  .no-toggle-eye {
-    display: none;
   }
 }
