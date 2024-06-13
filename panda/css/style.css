@@ -10,6 +10,47 @@
     --footer-bg-color: #111827;
 }
 
+/* PC */
+@media (min-width: 1200px) {
+    .header-top {
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .header-top {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .header-top .logo {
+        margin-left: 24px;
+    }
+    .header-top .btn {
+        margin-right: 24px;
+    }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+    .header-top {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .header-top .logo {
+        margin-left: 16px;
+    }
+    .header-top .btn {
+        margin-right: 16px;
+    }
+
+    .footer-bt {
+        flex-direction: column;
+        padding: 16px;
+    }
+}
+
 *{
     box-sizing: border-box;
 }
