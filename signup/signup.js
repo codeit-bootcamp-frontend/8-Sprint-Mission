@@ -1,4 +1,5 @@
 import handleError from "../modules/handleError.js";
+import handleFormTag from "../modules/handleForm.js";
 import handlePasswordVisiblity from "../modules/passwordVisibility.js";
 import { signupValidationState, passwordState } from "../modules/state.js";
 
@@ -21,7 +22,7 @@ const activateSignupBtn = () => {
         signupBtn.style.backgroundColor = "var(--gray-400)";
         signupBtn.disabled = true;
     }
-}
+};
 
 
 
@@ -51,12 +52,4 @@ handleError({
 handlePasswordVisiblity();
 handlePasswordVisiblity('confirm');
 
-const goOtherPage = () => {
-    location.href = '../login/login.html';
-}
-
-const formTag = document.getElementById("signup-form");
-formTag.addEventListener('submit', (event) => {
-    event.preventDefault();
-    goOtherPage();
-})
+handleFormTag('signup', '../login/login.html');

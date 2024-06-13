@@ -1,4 +1,5 @@
 import handleError from "../modules/handleError.js";
+import handleFormTag from "../modules/handleForm.js";
 import handlePasswordVisiblity from "../modules/passwordVisibility.js";
 import { loginValidationState } from "../modules/state.js";
 
@@ -16,7 +17,7 @@ const activateLoginBtn = () => {
         loginBtn.style.backgroundColor = "var(--gray-400)";
         loginBtn.disabled = true;
     }
-}
+};
 
 handleError({
     inputType:"이메일",
@@ -29,14 +30,6 @@ handleError({
     validation,
 });
 
-const goOtherPage = () => {
-    location.href = '/items';
-}
-
-const formTag = document.getElementById("login-form");
-formTag.addEventListener('submit', (event) => {
-    event.preventDefault();
-    goOtherPage();
-})
-
 handlePasswordVisiblity();
+
+handleFormTag('login','/items');
