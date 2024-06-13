@@ -47,7 +47,7 @@ form label {
 }
 
 .form-input:focus {
-  border: #3692ff 1px solid;
+  border: var(--brand-blue) 1px solid;
 }
 
 .form-input::-moz-placeholder {
