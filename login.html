@@ -15,23 +15,22 @@
     <a href="/" class="logo-center">
       <h1 class="sr-only">판다마켓</h1>
     </a>
-    <form action="" method="get" class="login-box">
+    <form action="./items.html" method="post" class="signup-form" id="loginForm">
       <fieldset>
         <legend class="sr-only">판다마켓 로그인</legend>
         <div class="input-group">
           <label for="email">이메일</label>
-          <input type="email" id="email" placeholder="이메일을 입력해 주세요" autofocus>
+          <input type="email" id="email" name="email" placeholder="이메일을 입력해 주세요" required>
         </div>
         <div class="input-group">
           <label for="password">비밀번호</label>
-          <div class="password">
-            <input type="password" id="password" placeholder="비밀번호를 입력해 주세요">
-            <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
-              <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
-            </button>
-          </div>
+          <input type="password" id="password" name="password" placeholder="비밀번호를 입력해 주세요" minlength="8" required>
+          <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
+            <!-- <i class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘"> -->
+            <i class="icon ic_visible_on"></i>
+          </button>
         </div>
-        <button type="submit" class="btn-lg btn-primary" disabled>로그인</button>
+        <button id="loginBtn" type="submit" class="btn-lg btn-primary">로그인</button>
 
       </fieldset>
     </form>
@@ -46,6 +45,8 @@
     </div>
     <div class="auth-switch">판다마켓이 처음이신가요? <a class="underline" href="/signup.html">회원가입</a></div>
   </div>
+
+  <script src="./assets/js/login.js" type="module"></script>
 </body>
 
 </html>
