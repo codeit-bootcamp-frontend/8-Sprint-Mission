@@ -73,13 +73,13 @@ footer {
   gap: 60px;
 }
 
-#footerMenu {
+.footerMenu {
   display: flex;
   gap: 30px;
   color: var(--gray-200);
 }
 
-#socialMedia {
+.socialMedia {
   display: flex;
   gap: 12px;
 }
@@ -139,8 +139,14 @@ img{
   }
 
   footer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     padding : 32px;
-    
+    grid-template-areas:
+    "footerMenu socialMedia"
+    "copyright copyright";
+    height: inherit;
+    gap: 0;
   }
   .spacing-desktop{
     display: none;
@@ -158,9 +164,10 @@ img{
 
   footer{
     padding: 32px 184px 108px 104px;
+    display: flex;
   }
 
-  #footerMenu{
+  .footerMenu{
     flex-basis: auto;
     order: 0;
   }
