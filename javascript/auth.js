@@ -11,6 +11,8 @@ const authForm = document.querySelector("form");
 
 let isEmailError = true;
 let isPasswordError = true;
+let isPasswordConfirmError = true;
+let isNameError = true;
 
 const setToggleButtonState = (toggleButton, isPasswordVisible) => {
   const toggleImg = toggleButton.querySelector("img");
@@ -27,11 +29,27 @@ const setToggleButtonState = (toggleButton, isPasswordVisible) => {
   toggleImg.alt = "invisible";
   authPasswordInput.type = "password";
 };
-const activateSubmit = () => {
+const loginActivateSubmit = () => {
   if (isEmailError === false && isPasswordError === false) {
     submitButton.disabled = false;
+    submitButton.style.backgroundColor = "#3692ff";
   } else {
     submitButton.disabled = true;
+    submitButton.style.backgroundColor = "#9ca3af";
+  }
+};
+const signupActivateSubmit = () => {
+  if (
+    isEmailError === false &&
+    isPasswordError === false &&
+    isNameError === false &&
+    isPasswordConfirmError === false
+  ) {
+    submitButton.disabled = false;
+    submitButton.style.backgroundColor = "#3692ff";
+  } else {
+    submitButton.disabled = true;
+    submitButton.style.backgroundColor = "#9ca3af";
   }
 };
 
@@ -67,7 +85,7 @@ const handleEmailValidation = () => {
       isEmailError = true;
     }
   }
-  activateSubmit();
+  nameInput ? signupActivateSubmit() : loginActivateSubmit();
 };
 
 const handleNameValidation = () => {
@@ -77,10 +95,13 @@ const handleNameValidation = () => {
   if (!nameValue) {
     emptyName.style.display = "block";
     nameInput.style.border = "1px solid #f74747";
-    return;
+    isNameError = true;
+  } else {
+    emptyName.style.display = "none";
+    nameInput.style.border = "none";
+    isNameError = false;
   }
-  emptyName.style.display = "none";
-  nameInput.style.border = "none";
+  signupActivateSubmit();
 };
 
 const handlePasswordValidation = () => {
@@ -106,7 +127,7 @@ const handlePasswordValidation = () => {
       isPasswordError = true;
     }
   }
-  activateSubmit();
+  nameInput ? signupActivateSubmit() : loginActivateSubmit();
 };
 
 const handlePasswordConfirmValidation = () => {
@@ -120,14 +141,22 @@ const handlePasswordConfirmValidation = () => {
   if (!isMatch) {
     errorPasswordConfirm.style.display = "block";
     passwordConfirmInput.style.border = "1px solid #f74747";
-    return;
+    isPasswordConfirmError = true;
+  } else {
+    errorPasswordConfirm.style.display = "none";
+    passwordConfirmInput.style.border = "none";
+    isPasswordConfirmError = false;
   }
-  errorPasswordConfirm.style.display = "none";
-  passwordConfirmInput.style.border = "none";
+  signupActivateSubmit();
 };
+
 const handleSubmit = (e) => {
   e.preventDefault();
-  location.href = "/item.html";
+  if (nameInput) {
+    location.href = "/auth/login.html";
+  } else {
+    location.href = "/item.html";
+  }
 };
 
 passwordToggleButton.forEach((passwordBtn) => {
