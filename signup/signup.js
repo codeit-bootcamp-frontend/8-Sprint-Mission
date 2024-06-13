@@ -217,3 +217,23 @@ formTag.addEventListener('submit', (event) => {
     event.preventDefault();
     goOtherPage();
 })
+
+const visibleTag = document.getElementById("visibility");
+visibleTag.addEventListener("click", (event) => {
+    event.target.classList.toggle("active");
+    if (event.target.classList.contains("active")) {
+        passwordTag.type = 'text';
+    } else {
+        passwordTag.type = 'password';
+    }
+})
+
+const confirmVisibleTag = document.getElementById("confirm-visibility");
+confirmVisibleTag.addEventListener("click", (event) => {
+    event.target.classList.toggle("active");
+    if (event.target.classList.contains("active")) {
+        passwordConfirmTag.type = 'text';
+    } else {
+        passwordConfirmTag.type = 'password';
+    }
+})

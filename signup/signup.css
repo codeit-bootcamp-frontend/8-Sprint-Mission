@@ -95,7 +95,7 @@ form input:focus {
     line-height: 1.79rem;
 }
 
-.hide-icon {
+.visibility-icon {
     position: absolute;
     right: 1.6rem;
     bottom: 1.6rem;
@@ -103,27 +103,27 @@ form input:focus {
     cursor: pointer;
 }
 
-#hidden {
+#visibility {
     background-image: url(../source/icons/password/btn_visibility_on_24px.svg);
     width: 2.4rem;
     height: 2.4rem;
     cursor: pointer;
 }
 
-#hidden:active {
+#visibility.active {
     background-image: url(../source/icons/password/btn_visibility_on_24pxshow.svg);
     width: 2.4rem;
     height: 2.4rem;
     cursor: pointer;
 }
-#confirm-hidden {
+#confirm-visibility {
     background-image: url(../source/icons/password/btn_visibility_on_24px.svg);
     width: 2.4rem;
     height: 2.4rem;
     cursor: pointer;
 }
 
-#confirm-hidden:active {
+#confirm-visibility.active {
     background-image: url(../source/icons/password/btn_visibility_on_24pxshow.svg);
     width: 2.4rem;
     height: 2.4rem;
