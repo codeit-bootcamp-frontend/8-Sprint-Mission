@@ -30,6 +30,7 @@
                 id="auth-email"
                 type="email"
                 placeholder="이메일을 입력해주세요"
+                autocomplete="off"
                 required
               />
               <span id="email-empty" class="input-error"
@@ -65,7 +66,9 @@
               >
             </div>
 
-            <button type="submit" class="auth-submit-btn">로그인</button>
+            <button type="submit" class="auth-submit-btn" disabled>
+              로그인
+            </button>
           </form>
           <div class="easy-login">
             <span>간편 로그인하기</span>
