@@ -1,12 +1,10 @@
 import handleError from "../modules/handleError.js";
+import handlePasswordVisiblity from "../modules/passwordVisibility.js";
 import { signupValidationState, passwordState } from "../modules/state.js";
 
 const validation = new signupValidationState();
-
 const password = new passwordState();
 
-const passwordTag = document.getElementById("password");
-const passwordConfirmTag = document.getElementById("password-confirm");
 
 const activateSignupBtn = () => {
     const signupBtn = document.getElementById("signup-btn");
@@ -24,6 +22,8 @@ const activateSignupBtn = () => {
         signupBtn.disabled = true;
     }
 }
+
+
 
 handleError({
     inputType:"이메일",
@@ -48,7 +48,8 @@ handleError({
     password,
 });
 
-
+handlePasswordVisiblity();
+handlePasswordVisiblity('confirm');
 
 const goOtherPage = () => {
     location.href = '../login/login.html';
@@ -58,24 +59,4 @@ const formTag = document.getElementById("signup-form");
 formTag.addEventListener('submit', (event) => {
     event.preventDefault();
     goOtherPage();
-})
-
-const visibleTag = document.getElementById("visibility");
-visibleTag.addEventListener("click", (event) => {
-    event.target.classList.toggle("active");
-    if (event.target.classList.contains("active")) {
-        passwordTag.type = 'text';
-    } else {
-        passwordTag.type = 'password';
-    }
-})
-
-const confirmVisibleTag = document.getElementById("confirm-visibility");
-confirmVisibleTag.addEventListener("click", (event) => {
-    event.target.classList.toggle("active");
-    if (event.target.classList.contains("active")) {
-        passwordConfirmTag.type = 'text';
-    } else {
-        passwordConfirmTag.type = 'password';
-    }
 })

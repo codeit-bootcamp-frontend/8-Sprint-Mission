@@ -1,9 +1,10 @@
 import handleError from "../modules/handleError.js";
+import handlePasswordVisiblity from "../modules/passwordVisibility.js";
 import { loginValidationState } from "../modules/state.js";
 
 const validation = new loginValidationState();
 
-const passwordTag = document.getElementById("password");
+
 const loginBtn = document.getElementById("login-btn");
 
 const activateLoginBtn = () => {
@@ -38,12 +39,4 @@ formTag.addEventListener('submit', (event) => {
     goOtherPage();
 })
 
-const visibleTag = document.getElementById("visibility");
-visibleTag.addEventListener("click", (event) => {
-    event.target.classList.toggle("active");
-    if (event.target.classList.contains("active")) {
-        passwordTag.type = 'text';
-    } else {
-        passwordTag.type = 'password';
-    }
-})
+handlePasswordVisiblity();
