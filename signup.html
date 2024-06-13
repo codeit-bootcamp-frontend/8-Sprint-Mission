@@ -14,7 +14,7 @@
     <a href="/" class="logo-center">
       <h1 class="sr-only">판다마켓</h1>
     </a>
-    <form action="./signup.html" method="post" class="signup-form" id="signupForm">
+    <form action="./signup.html" method="post" class="form" id="signupForm">
       <fieldset>
         <legend class="sr-only">판다마켓 로그인</legend>
         <div class="input-group">
@@ -34,13 +34,13 @@
         </div>
         <div class="input-group">
           <label for="confirmPassword">비밀번호 확인</label>
-          <input type="password" id="confirmPassword" name="password" placeholder="비밀번호를 다시 한 번 입력해주세요" minlength="8"
-            required>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="비밀번호를 다시 한 번 입력해주세요"
+            minlength="8" required>
           <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
             <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
           </button>
         </div>
-        <button id="signupBtn" type="submit" class="btn-lg btn-primary" disabled>회원가입</button>
+        <button id="submitBtn" type="submit" class="btn-lg btn-primary" disabled>회원가입</button>
 
       </fieldset>
     </form>
@@ -58,6 +58,7 @@
 
 
   <script src="./assets/js/signup.js" type="module"></script>
+  <!-- <script src="./assets/js/signup2.js" type="module"></script> -->
 </body>
 
 </html>
