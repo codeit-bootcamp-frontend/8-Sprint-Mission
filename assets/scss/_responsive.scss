@@ -8,6 +8,8 @@
     padding: 0 24px;
   }
 
+
+
   .main-banner {
     height: 771px;
     align-items: unset;
@@ -100,6 +102,12 @@
   //스타일 입력
   header {
     padding: 0 16px;
+  }
+
+  .logo {
+    background: url('../img/m-logo.svg') no-repeat;
+    width: 103px;
+    height: 51px;
   }
 
   .main-banner {

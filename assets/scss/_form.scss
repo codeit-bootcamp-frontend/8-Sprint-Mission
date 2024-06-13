@@ -43,14 +43,25 @@
   }
 }
 
-.input-group input {
-  width: 100%;
-  font-size: 16px;
-  background: var(--gray100);
-  border-radius: 12px;
+.input-group {
+  position: relative;
   margin-bottom: 24px;
-  padding: 1em 1.5em;
-  height: 56px;
+
+
+  input {
+    width: 100%;
+    font-size: 16px;
+    background: var(--gray100);
+    border-radius: 12px;
+
+    padding: 1em 1.5em;
+    height: 56px;
+
+    &.error-border,
+    &.error-border:focus {
+      outline: 2px solid var(--error);
+    }
+  }
 
   @media (max-width:767px) {
     margin-bottom: 16px;
@@ -68,8 +79,12 @@
   height: 24px;
   position: absolute;
   right: 24px;
-  top: 16px;
+  top: 52px;
   background-color: transparent;
+
+  @media (max-width:767px) {
+    top: 40px;
+  }
 }
 
 
@@ -82,8 +97,14 @@
   font-weight: 500;
 }
 
-.login-box .btn-lg,
-.signup-box .btn-lg {
+.error-message {
+  font-size: 15px;
+  padding: 8px 16px;
+  color: var(--error);
+}
+
+.signup-form .btn-lg,
+.signup-form .btn-lg {
   font-size: 20px;
   height: 56px;
 }
