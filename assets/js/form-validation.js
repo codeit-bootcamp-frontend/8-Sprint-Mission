@@ -18,6 +18,7 @@ export const validate = {
     }
   },
   showError: function (e, message) {
+    e.parentNode.classList.remove('valid')
     e.classList.add('error-border');
     e.dataset.valid = 'false';
     this.errorPlacement(e, message);
