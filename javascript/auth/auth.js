@@ -9,9 +9,9 @@ const inputPassword = document.querySelector(
 const inputNickname = document.querySelector(
   `.${INPUT_WRAPPER} #signup-nickname`
 );
-// const inputVerifyPassword = document.querySelector(
-//   `.${INPUT_WRAPPER} #verify-password`
-// );
+const inputVerifyPassword = document.querySelector(
+  `.${INPUT_WRAPPER} #verify-password`
+);
 
 /**
  * 입력값이 유효하지 않은 경우, error 스타일을 적용시키는 함수
@@ -41,7 +41,6 @@ const showSuccess = (input) => {
     input.parentElement.classList[0] === INPUT_WRAPPER
       ? input.parentElement
       : input.parentElement.parentElement;
-  console.log(input.parentElement.className);
   inputWrapper.className = `${INPUT_WRAPPER} success`;
 };
 
@@ -74,6 +73,22 @@ const isValidNickname = (event) => {
 };
 
 /**
+ * 입력된 비밀번호 확인란 내용이 비밀번호란과 일치하는 지 검사하여 error 혹은 success를 판별하는 함수
+ *
+ * @param {*} event event object
+ * @returns error 혹은 success 결과에 따른 스타일 적용 함수
+ */
+const isMatchedPasswords = () => {
+  const originPassword = inputPassword.value;
+  const verifyPassword = inputVerifyPassword.value;
+
+  if (originPassword !== verifyPassword) {
+    return showError(inputVerifyPassword, '비밀번호가 일치하지 않습니다.');
+  }
+  return showSuccess(inputVerifyPassword);
+};
+
+/**
  * 입력된 비밀번호란 내용을 유효성 검사하여 error 혹은 success를 판별하는 함수
  *
  * @param {*} event event object
@@ -81,7 +96,9 @@ const isValidNickname = (event) => {
  */
 const isValidPassword = (event) => {
   const password = event.target.value;
-  console.log(password);
+
+  // 비밀번호 확인란과 일치 검사 시행
+  isMatchedPasswords();
 
   if (password === '') {
     return showError(event.target, '비밀번호를 입력해주세요');
@@ -95,3 +112,4 @@ const isValidPassword = (event) => {
 inputEmail.addEventListener('focusout', (event) => isValidEmail(event));
 inputPassword.addEventListener('focusout', (event) => isValidPassword(event));
 inputNickname.addEventListener('focusout', (event) => isValidNickname(event));
+inputVerifyPassword.addEventListener('focusout', () => isMatchedPasswords());
