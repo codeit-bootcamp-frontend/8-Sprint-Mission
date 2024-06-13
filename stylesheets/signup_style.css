@@ -73,8 +73,12 @@ main .container {
     outline: solid 1px var(--red);
 }
 
-.text-input:focus {
+.text-input.correct {
     outline: solid 1px var(--blue);
+}
+
+.text-input:focus {
+    outline: solid 3px var(--blue);
 }
 
 .error-message {
