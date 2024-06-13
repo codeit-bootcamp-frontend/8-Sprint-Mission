@@ -11,6 +11,14 @@ const isValidEmail = (inputText) => {
     return { isvaild: true, message: "vaild" };   
 }
 
+const isValidNickname = (inputText) => {
+    if (inputText === '') {
+        return { isvaild: false, message: "empty" };
+    }
+    
+    return { isvaild: true, message: "vaild" };   
+}
+
 const isValidPassword = (inputText) => {
     if (!inputText.length) {
         return { isvaild: false, message: "empty" };
@@ -22,5 +30,13 @@ const isValidPassword = (inputText) => {
     return { isvaild: true, message:"vaild" };
 }
 
+const isValidPasswordConfirm = (inputText, password) => {
+    if (inputText !== password) {
+        return { isvaild: false, message: "differ" };
+    }
 
-export { isValidEmail, isValidPassword }
+    return { isvaild: true, message:"vaild" };
+}
+
+
+export { isValidEmail, isValidNickname, isValidPassword, isValidPasswordConfirm }
