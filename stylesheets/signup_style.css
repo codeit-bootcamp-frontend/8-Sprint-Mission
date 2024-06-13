@@ -40,7 +40,7 @@ main {
     padding: 0 16px;
 }
 
-form label{
+.pseudo-form label{
     color: var(--gray800);
     font-size: 18px;
     font-weight: 700;
@@ -113,7 +113,7 @@ main .container {
     cursor: pointer;
 }
 
-.doit {
+.action-button {
     background-color: var(--gray400);
     border-radius: 40px;
     width: 100%;
@@ -125,7 +125,7 @@ main .container {
     margin: 10px 0;
 }
 
-.doit.valid {
+.action-button.valid {
     background-color: var(--blue);
 }
 
