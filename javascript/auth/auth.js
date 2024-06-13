@@ -6,9 +6,9 @@ const inputEmail = document.querySelector(`.${INPUT_WRAPPER} .auth-email`);
 const inputPassword = document.querySelector(
   `.${INPUT_WRAPPER} .auth-password`
 );
-// const inputNickname = document.querySelector(
-//   `.${INPUT_WRAPPER} #signup-nickname`
-// );
+const inputNickname = document.querySelector(
+  `.${INPUT_WRAPPER} #signup-nickname`
+);
 // const inputVerifyPassword = document.querySelector(
 //   `.${INPUT_WRAPPER} #verify-password`
 // );
@@ -61,6 +61,19 @@ const isValidEmail = (event) => {
 };
 
 /**
+ * 입력된 닉네임란 내용을 유효성 검사하여 error 혹은 success를 판별하는 함수
+ *
+ * @param {*} event event object
+ * @returns error 혹은 success 결과에 따른 스타일 적용 함수
+ */
+const isValidNickname = (event) => {
+  const nickname = event.target.value;
+
+  if (nickname === '') return showError(event.target, '닉네임을 입력해주세요');
+  return showSuccess(event.target);
+};
+
+/**
  * 입력된 비밀번호란 내용을 유효성 검사하여 error 혹은 success를 판별하는 함수
  *
  * @param {*} event event object
@@ -81,3 +94,4 @@ const isValidPassword = (event) => {
 
 inputEmail.addEventListener('focusout', (event) => isValidEmail(event));
 inputPassword.addEventListener('focusout', (event) => isValidPassword(event));
+inputNickname.addEventListener('focusout', (event) => isValidNickname(event));
