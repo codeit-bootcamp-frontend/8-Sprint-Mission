@@ -1,3 +1,24 @@
+/* Tablet 스타일 */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .home img, .form, .input, .pw-input, .login-btn, .social-login-container {
+        width: 100%;
+        max-width: 640px;
+    }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+    .home, .form, .social-login-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .home img, .form, .input, .pw-input, .login-btn, .social-login-container {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
 *{
     margin: 0;
     padding: 0;

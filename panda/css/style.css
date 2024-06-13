@@ -45,9 +45,20 @@
         margin-right: 16px;
     }
 
+    main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .home img, .form, .input, .pw-input, .login-btn, .social-login-container {
+        width: 100%;
+        max-width: 400px;
+    }
+
     .footer-bt {
         flex-direction: column;
-        padding: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }
 
