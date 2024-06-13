@@ -41,6 +41,7 @@ inputPassword.addEventListener("focusout", ({ target }) => {
   checkInputs();
 });
 
+// 버튼 활성화를 위한 input 유효성 검사
 const loginBtn = document.querySelector(".form-login-btn");
 function checkInputs() {
   if (flagEmail && flagPassword) {
@@ -54,3 +55,20 @@ function checkInputs() {
     loginBtn.classList.remove("enabled");
   }
 }
+
+// 비밀번호 문자열 보이거나 가리기
+let flagVisibility = 0; // 0 = 비밀번호 가리기, 1 = 비밀번호 보이기
+const pwVisibilityIcon = document.querySelector(".password-show-btn");
+pwVisibilityIcon.addEventListener("click", () => {
+  if (!flagVisibility) {
+    inputPassword.type = "text";
+    document.querySelector(".password-show-icon").src =
+      "../asset/icon/btn_visibility_on.png";
+    flagVisibility = 1;
+  } else {
+    inputPassword.type = "password";
+    document.querySelector(".password-show-icon").src =
+      "../asset/icon/btn_visibility_off.png";
+    flagVisibility = 0;
+  }
+});

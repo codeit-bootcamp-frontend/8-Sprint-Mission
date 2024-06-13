@@ -74,11 +74,13 @@ input::placeholder {
   color: var(--gray400);
 }
 
-.password-show-icon {
+.password-show-btn {
   position: absolute;
   top: 16px;
   right: 24px;
   bottom: 16px;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
 }
 

@@ -39,6 +39,7 @@ inputNickname.addEventListener("focusout", ({ target }) => {
 const inputPassword = document.getElementById("input-password");
 const errorMsgPassword = document.querySelector(".error-message.password");
 let flagPassword = 0;
+let flagPasswordCheck = 0;
 inputPassword.addEventListener("focusout", ({ target }) => {
   if (target.value === "") {
     target.classList.add("error");
@@ -61,7 +62,6 @@ const inputPasswordCheck = document.getElementById("input-password-check");
 const errorMsgPasswordCheck = document.querySelector(
   ".error-message.password-check"
 );
-let flagPasswordCheck = 0;
 inputPasswordCheck.addEventListener("focusout", ({ target }) => {
   if (target.value !== inputPassword.value) {
     target.classList.add("error");
@@ -75,6 +75,7 @@ inputPasswordCheck.addEventListener("focusout", ({ target }) => {
   checkInputs();
 });
 
+// 버튼 활성화를 위한 input 유효성 검사
 const signupBtn = document.querySelector(".form-signup-btn");
 function checkInputs() {
   if (flagEmail && flagNickname && flagPassword && flagPasswordCheck) {
@@ -88,3 +89,38 @@ function checkInputs() {
     signupBtn.classList.remove("enabled");
   }
 }
+
+// 비밀번호 문자열 보이거나 가리기
+let flagVisibility_pw = 0; // 0 = 비밀번호 가리기, 1 = 비밀번호 보이기
+const pwVisibilityIcon = document.querySelector(".password-show-btn.password");
+pwVisibilityIcon.addEventListener("click", () => {
+  if (!flagVisibility_pw) {
+    inputPassword.type = "text";
+    document.querySelector(".password-show-icon.password").src =
+      "../asset/icon/btn_visibility_on.png";
+    flagVisibility_pw = 1;
+  } else {
+    inputPassword.type = "password";
+    document.querySelector(".password-show-icon.password").src =
+      "../asset/icon/btn_visibility_off.png";
+    flagVisibility_pw = 0;
+  }
+});
+
+let flagVisibility_pwCheck = 0; // 0 = 비밀번호 가리기, 1 = 비밀번호 보이기
+const pwCheckVisibilityIcon = document.querySelector(
+  ".password-show-btn.password-check"
+);
+pwCheckVisibilityIcon.addEventListener("click", () => {
+  if (!flagVisibility_pwCheck) {
+    inputPasswordCheck.type = "text";
+    document.querySelector(".password-show-icon.password-check").src =
+      "../asset/icon/btn_visibility_on.png";
+    flagVisibility_pwCheck = 1;
+  } else {
+    inputPasswordCheck.type = "password";
+    document.querySelector(".password-show-icon.password-check").src =
+      "../asset/icon/btn_visibility_off.png";
+    flagVisibility_pwCheck = 0;
+  }
+});
