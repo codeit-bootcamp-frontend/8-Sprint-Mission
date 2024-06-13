@@ -27,29 +27,14 @@ body {
 }
 
 /* 판다마켓 로고 */
-.logo-wrap {
+.home-button {
   margin-top: 60px;
-}
-
-a.home-button {
-  display: flex;
-  align-items: center;
-  gap: 20px;
   width: 396px;
   height: 132px;
-  text-decoration: none;
-}
-
-img.logo-img {
-  width: 103.53px;
-  height: 103.88px;
-}
-
-h1.name {
-  font-size: 66.34px;
-  line-height: 89.56px;
-  font-weight: 700;
-  color: var(--blue);
+  background-image: url(../images/logo3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 /* 폼 */
@@ -156,3 +141,18 @@ ul.icon-wrap {
   color: var(--blue);
 }
 
+@media (max-width: 767px) {
+  body {
+    padding: 0 16px;
+  }
+
+  .home-button {
+    margin-top: 24px;
+    width: 198px;
+    height: 66px;
+  }
+
+  form {
+    max-width: 400px;
+  }
+}
