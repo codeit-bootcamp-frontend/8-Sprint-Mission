@@ -10,7 +10,6 @@ function validateEmail(email) {
 }
 
 function addInputCaution(eTarget, msg) {
-  eTarget.classList.add("input-focus-out");
   const span = document.createElement("span");
   span.textContent = msg;
   span.classList.add("caution");
@@ -22,14 +21,15 @@ function addInputCaution(eTarget, msg) {
   }
 
   eTarget.classList.add("caution-margin");
+  eTarget.classList.add("input-focus-out");
 }
 
 function removeInputCaution(eTarget) {
   if (eTarget.nextElementSibling.classList.contains("caution")) {
     eTarget.nextElementSibling.remove();
-    eTarget.classList.remove("caution-margin");
   }
 
+  eTarget.classList.remove("caution-margin");
   eTarget.classList.remove("input-focus-out");
 }
 
@@ -164,21 +164,25 @@ function cautionInputEvent(e) {
 
 function passwordDisplayToggle(e) {
   if (e.target.classList.contains("toggle-eye")) {
-    for (toggleEye of toggleEyes) {
+    const textType = password.getAttribute("type");
+    const toggleAttribute = function (type) {
+      password.setAttribute("type", type);
+    };
+    for (let toggleEye of toggleEyes) {
       toggleEye.classList.toggle("toggle-eye-open");
     }
     if (confirmPassword === null) {
-      if (password.getAttribute("type") === "password") {
-        password.setAttribute("type", "text");
-      } else if (password.getAttribute("type") === "text") {
-        password.setAttribute("type", "password");
+      if (textType === "password") {
+        toggleAttribute("text");
+      } else if (textType === "text") {
+        toggleAttribute("password");
       }
     } else if (confirmPassword !== null) {
-      if (password.getAttribute("type") === "password") {
-        password.setAttribute("type", "text");
+      if (textType === "password") {
+        toggleAttribute("text");
         confirmPassword.setAttribute("type", "text");
-      } else if (password.getAttribute("type") === "text") {
-        password.setAttribute("type", "password");
+      } else if (textType === "text") {
+        toggleAttribute("password");
         confirmPassword.setAttribute("type", "password");
       }
     }
