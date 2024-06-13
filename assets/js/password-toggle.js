@@ -2,7 +2,7 @@ export let passwordToggleBtns = document.querySelectorAll('.password-toggle-butt
 
 export function passwordToggle(e) {
   let button = e.currentTarget;
-  let passwordInput = button.parentElement.querySelector('input[name="password"]');
+  let passwordInput = button.parentElement.querySelector('input');
   let toggleIcon = document.createElement('i');
   toggleIcon.classList.add('icon');
   if (passwordInput.type == "password") {
