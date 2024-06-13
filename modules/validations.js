@@ -30,8 +30,8 @@ const isValidPassword = (inputText) => {
     return { isvalid: true, message:"valid" };
 }
 
-const isValidPasswordConfirm = (inputText, password) => {
-    if (inputText !== password) {
+const isValidPasswordConfirm = (password, passwordConfirm=undefined) => {
+    if (password !== passwordConfirm) {
         return { isvalid: false, message: "differ" };
     }
 
