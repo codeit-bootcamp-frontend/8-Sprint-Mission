@@ -3,6 +3,12 @@
   flex-direction: column;
   gap: 2.4rem;
 
+  .auth-input-wrapper {
+    & small {
+      display: none;
+    }
+  }
+
   & .auth-label {
     display: inline-block;
     font-size: 1.8rem;
@@ -67,5 +73,33 @@
       height: 100%;
       width: 100%;
     }
+  }
+}
+
+/* 유효하지 않은 입력값이 들어온 경우 */
+.auth-input-wrapper.error {
+  & input {
+    outline: 1px solid var(--error-red);
+  }
+
+  & small {
+    display: block;
+    color: var(--error-red);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.79rem;
+    padding-left: 1.6rem;
+    padding-top: 0.8rem;
+  }
+}
+
+/* 유효한 입력값이 들어온 경우 */
+.auth-input-wrapper.success {
+  & input {
+    outline: 1px solid var(--brand-blue);
+  }
+
+  & small {
+    display: none;
   }
 }

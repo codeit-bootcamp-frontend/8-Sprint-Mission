@@ -33,7 +33,7 @@
       <!-- 사용자 편의를 위해  autocomplete 속성 on, required 속성 추가-->
       <form class="auth-form" autocomplete="on" method="post">
         <!-- auth-form 걸려있는 gap의 영향을 받지 않고 auth-label과 input 사이의 간격을 조정하기 위한 div -->
-        <div>
+        <div class="auth-input-wrapper">
           <label for="login-email" class="auth-label">이메일</label>
           <input
             id="login-email"
@@ -43,9 +43,10 @@
             placeholder="이메일을 입력해주세요"
             required
           />
+          <small>Error Message</small>
         </div>
 
-        <div>
+        <div class="auth-input-wrapper">
           <label for="login-password" class="auth-label">비밀번호</label>
           <!-- visibility-icon을 absolute 속성을 주기 위해
             password-wrapper는 relative로 감싸주어
@@ -61,11 +62,11 @@
               placeholder="비밀번호를 입력해주세요"
               required
             />
-            <!-- 향후 sprint에서 visibility-on or off 기능 추가 예정이라 함 -->
             <i class="password-visibility-icon"
               ><img src="../../assets/images/auth/visibility-off.png"
             /></i>
           </div>
+          <small>Error Message</small>
         </div>
 
         <button class="auth-submit-button">로그인</button>
