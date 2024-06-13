@@ -13,10 +13,12 @@ const emailTag = document.getElementById("email");
 const passwordTag = document.getElementById("password");
 const emailErrorTag = document.getElementById("email-error-message");
 const passwordErrorTag = document.getElementById("password-error-message");
+const loginBtn = document.getElementById("login-btn");
+
+
 
 
 const activateLoginBtn = () => {
-    const loginBtn = document.getElementById("login-btn");
     
     if (validation.email && validation.password) {
         loginBtn.style.backgroundColor = "var(--blue)";
@@ -98,3 +100,12 @@ passwordTag.addEventListener("focusin", (event) => {
 })
 
 
+const goOtherPage = () => {
+    location.href = '/items';
+}
+
+const formTag = document.getElementById("login-form");
+formTag.addEventListener('submit', (event) => {
+    event.preventDefault();
+    goOtherPage();
+})

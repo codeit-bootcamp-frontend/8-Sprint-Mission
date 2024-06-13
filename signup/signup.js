@@ -208,3 +208,12 @@ passwordConfirmTag.addEventListener("focusin", (event) => {
 })
 
 
+const goOtherPage = () => {
+    location.href = '../login/login.html';
+}
+
+const formTag = document.getElementById("signup-form");
+formTag.addEventListener('submit', (event) => {
+    event.preventDefault();
+    goOtherPage();
+})

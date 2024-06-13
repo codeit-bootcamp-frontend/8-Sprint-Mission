@@ -19,7 +19,7 @@
     </header>
     <main>
         <article>
-            <form action="/index.html">
+            <form action="#" method="POST" id="signup-form">
                 <div class="email">
                     <label for="email">이메일</label>
                     <input type="email" name="email" id="email" placeholder="이메일을 입력해주세요">
@@ -50,7 +50,7 @@
                     </div>
                     <p class="error-message" id="password-confirm-error-message"></p>
                 </div>
-                <button class="signup-btn" id="signup-btn" disabled>회원가입</button>
+                <button class="signup-btn" id="signup-btn" onclick="goOtherPage('login/login.html')" disabled>회원가입</button>
             </form>
             <div class="oauth-login">
                 <p>간편 로그인하기</p>
