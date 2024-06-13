@@ -1,13 +1,7 @@
 import { isValidEmail, isValidPassword } from "../modules/validations.js";
+import { loginValidationState } from "../modules/state.js";
 
-const validation = {
-    email: false,
-    password: false,
-    setValid: function (name, newValue) {
-        this[`${name}`] = newValue;
-    },
-};
-
+const validation = new loginValidationState();
 
 const emailTag = document.getElementById("email");
 const passwordTag = document.getElementById("password");

@@ -1,22 +1,9 @@
 import { isValidEmail, isValidNickname, isValidPassword, isValidPasswordConfirm } from "../modules/validations.js";
+import { signupValidationState, passwordState } from "../modules/state.js";
 
-const validation = {
-    email: false,
-    nickname: false,
-    password: false,
-    passwordConfirm: false,
-    setValid: function (name, newValue) {
-        this[`${name}`] = newValue;
-    },
-}
+const validation = new signupValidationState();
 
-const password = {
-    passwordContent: '',
-    passwordConfirmContent: '',
-    setContent: function (name, newValue) {
-        this[`${name}`] = newValue;
-    },
-}
+const password = new passwordState();
 
 
 
@@ -152,6 +139,8 @@ passwordTag.addEventListener("focusout", (event) => {
     if (passwordConfirmValidate.isvaild) {
         validation.setValid("passwordConfirm", true);
         passwordConfirmTag.style.border = "0.1rem solid var(--blue)";
+        passwordConfirmErrorTag.style.visibility = "hidden";
+        passwordConfirmErrorTag.textContent = '';
         activateSignupBtn();
     } else {
         let errorMessage = '';
