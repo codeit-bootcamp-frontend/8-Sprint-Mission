@@ -1,12 +1,13 @@
 const passwordToggleButton = document.querySelectorAll(
   ".password-visible-toggle-btn"
 );
-const allInput = document.querySelectorAll("input");
+
 const emailInput = document.getElementById("auth-email");
 const passwordInput = document.getElementById("auth-password");
 const nameInput = document.getElementById("auth-name");
 const passwordConfirmInput = document.getElementById("auth-password-confirm");
-const loginButton = document.getElementsByClassName("auth-submit-btn");
+const submitButton = document.querySelector(".auth-submit-btn");
+const authForm = document.querySelector("form");
 
 let isEmailError = true;
 let isPasswordError = true;
@@ -25,6 +26,13 @@ const setToggleButtonState = (toggleButton, isPasswordVisible) => {
   toggleImg.src = "/image/btn_visibility_off.png";
   toggleImg.alt = "invisible";
   authPasswordInput.type = "password";
+};
+const activateSubmit = () => {
+  if (isEmailError === false && isPasswordError === false) {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
 };
 
 const handlePasswordToggleButton = (e) => {
@@ -59,6 +67,7 @@ const handleEmailValidation = () => {
       isEmailError = true;
     }
   }
+  activateSubmit();
 };
 
 const handleNameValidation = () => {
@@ -83,20 +92,21 @@ const handlePasswordValidation = () => {
     errorPassword.style.display = "none";
     emptyPassword.style.display = "block";
     passwordInput.style.border = "1px solid #f74747";
-
-    return;
+    isPasswordError = true;
+  } else {
+    emptyPassword.style.display = "none";
+    passwordInput.style.border = "none";
+    if (passwordValue.length >= 8) {
+      errorPassword.style.display = "none";
+      passwordInput.style.border = "none";
+      isPasswordError = false;
+    } else {
+      errorPassword.style.display = "block";
+      passwordInput.style.border = "1px solid #f74747";
+      isPasswordError = true;
+    }
   }
-  emptyPassword.style.display = "none";
-  passwordInput.style.border = "none";
-
-  if (passwordValue.length < 8) {
-    errorPassword.style.display = "block";
-    passwordInput.style.border = "1px solid #f74747";
-
-    return;
-  }
-  errorPassword.style.display = "none";
-  passwordInput.style.border = "none";
+  activateSubmit();
 };
 
 const handlePasswordConfirmValidation = () => {
@@ -115,6 +125,10 @@ const handlePasswordConfirmValidation = () => {
   errorPasswordConfirm.style.display = "none";
   passwordConfirmInput.style.border = "none";
 };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  location.href = "/item.html";
+};
 
 passwordToggleButton.forEach((passwordBtn) => {
   passwordBtn.addEventListener("click", handlePasswordToggleButton);
@@ -130,3 +144,5 @@ passwordConfirmInput?.addEventListener(
   "focusout",
   handlePasswordConfirmValidation
 );
+
+authForm.addEventListener("submit", handleSubmit);
