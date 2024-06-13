@@ -39,6 +39,11 @@
 ![login Allowed](./readmeSource/loginAllowed.png)
 ![login visibility](./readmeSource/loginVisibility.png)
 
+![login Error1](./readmeSource/loginError1.png)
+![login Error2](./readmeSource/loginError2.png)
+![login Allowed](./readmeSource/loginAllowed.png)
+![login visibility](./readmeSource/loginVisibility.png)
+
 
 ## 사이트 주소
 - https://storepanda.netlify.app
