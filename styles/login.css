@@ -11,7 +11,8 @@
     margin-bottom: 40px;
 }
 .logo-home img{
-    width: 90%;
+    width: 396px;
+    height: 132px;
 }
 .input-item{
     margin-bottom: 24px;
@@ -84,6 +85,10 @@
         margin-top: 24px;
         margin-bottom: 24px;
     }
+    .logo-home img{
+        width: 198px;
+        height: 66px;
+    }
 }
 
 @media (min-width : 768px){
@@ -94,6 +99,10 @@
         width: 640px;
         margin-top: 48px;
         margin-bottom: 40px;
+    }
+    .logo-home img{
+        width: 396px;
+        height: 132px;
     }
     label{
         font-size: 18px;
