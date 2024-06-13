@@ -7,10 +7,12 @@ import { passwordInput, verifyPasswordInput } from "./constLib.js";
 const passwordMismatchingMessage = document.querySelector('.password-mismatching');
 
 export default function passwordVerifiedCheck(event) {
-    if (event.target !== verifyPasswordInput) return;
+    if (!verifyPasswordInput) return;
+    if (event.target === !verifyPasswordInput || !passwordInput) return;
 
     const isPasswordMatching = passwordInput.value === verifyPasswordInput.value;
+    const isVerifyPasswordEmpty = verifyPasswordInput.value === '';
 
-    verifyPasswordInput.classList.toggle('errored', !isPasswordMatching);
-    passwordMismatchingMessage.classList.toggle('hidden', isPasswordMatching);
+    verifyPasswordInput.classList.toggle('errored', !isPasswordMatching && !isVerifyPasswordEmpty);
+    passwordMismatchingMessage.classList.toggle('hidden', isPasswordMatching || isVerifyPasswordEmpty);
 }
