@@ -1,3 +1,4 @@
+import handleBtnActive from './handleBtnActive.js';
 import { isValidEmail, isValidNickname, isValidPassword, isValidPasswordConfirm } from './validations.js';
 
 const handleErrorMessage = (inputType, errorType) => {
@@ -47,7 +48,7 @@ const camelization = (typeText) => {
 
 const handleError = ({
     inputType, 
-    handleBtn, 
+    btnName, 
     validation,
     password=undefined, 
 }) => {
@@ -90,7 +91,7 @@ const handleError = ({
                 passwordConfirmErrorTag.textContent = errorMessage;
             }
         }
-        handleBtn();
+        handleBtnActive(btnName, validation)
     }
 
     const handleFocusInEvent = (event) => {

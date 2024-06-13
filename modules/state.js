@@ -7,6 +7,14 @@ export class loginValidationState {
     setValid(name, newValue) {
         this[`${name}`] = newValue;
     }
+
+    isValid() {
+        if (this.email && this.password) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
 }
 
 export class signupValidationState extends loginValidationState {
@@ -14,6 +22,19 @@ export class signupValidationState extends loginValidationState {
         super();
         this.nickname= false;
         this.passwordConfirm= false;
+    }
+
+    isValid() {
+        if (
+            this.email 
+            && this.nickname
+            && this.password
+            && this.passwordConfirm
+        ) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
