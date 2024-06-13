@@ -14,36 +14,33 @@
     <a href="/" class="logo-center">
       <h1 class="sr-only">판다마켓</h1>
     </a>
-    <form action="" method="get" class="signup-box">
+    <form action="./signup.html" method="post" class="signup-form" id="signupForm">
       <fieldset>
         <legend class="sr-only">판다마켓 로그인</legend>
         <div class="input-group">
           <label for="email">이메일</label>
-          <input type="email" id="email" placeholder="이메일을 입력해 주세요" autofocus>
+          <input type="email" id="email" name="email" placeholder="이메일을 입력해 주세요" required>
         </div>
         <div class="input-group">
           <label for="nickname">닉네임</label>
-          <input type="text" id="nickname" placeholder="닉네임을 입력해 주세요" autofocus>
+          <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해 주세요" required>
         </div>
         <div class="input-group">
           <label for="password">비밀번호</label>
-          <div class="password">
-            <input type="password" id="password" placeholder="비밀번호를 입력해 주세요">
-            <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
-              <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
-            </button>
-          </div>
+          <input type="password" id="password" name="password" placeholder="비밀번호를 입력해 주세요" minlength="8" required>
+          <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
+            <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
+          </button>
         </div>
         <div class="input-group">
-          <label for="passwordConfirmation">비밀번호 확인</label>
-          <div class="password">
-            <input type="password" id="passwordConfirmation" placeholder="비밀번호를 다시 한 번 입력해주세요">
-            <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
-              <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
-            </button>
-          </div>
+          <label for="confirmPassword">비밀번호 확인</label>
+          <input type="password" id="confirmPassword" name="password" placeholder="비밀번호를 다시 한 번 입력해주세요" minlength="8"
+            required>
+          <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
+            <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
+          </button>
         </div>
-        <button type="submit" class="btn-lg btn-primary">회원가입</button>
+        <button id="signupBtn" type="submit" class="btn-lg btn-primary" disabled>회원가입</button>
 
       </fieldset>
     </form>
@@ -58,6 +55,9 @@
     </div>
     <div class="auth-switch">이미 회원이신가요? <a class="underline" href="/login.html">로그인</a></div>
   </div>
+
+
+  <script src="./assets/js/signup.js" type="module"></script>
 </body>
 
 </html>
