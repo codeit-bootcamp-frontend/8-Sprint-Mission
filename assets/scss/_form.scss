@@ -57,10 +57,15 @@
     padding: 1em 1.5em;
     height: 56px;
 
-    &.error-border,
-    &.error-border:focus {
-      outline: 2px solid var(--error);
-    }
+  }
+
+  &.is-valid .error-border,
+  &.is-valid .error-border:focus {
+    outline: 2px solid var(--error);
+  }
+
+  &.is-valid.valid .error-message {
+    display: none;
   }
 
   @media (max-width:767px) {
@@ -98,16 +103,22 @@
 }
 
 .error-message {
+  display: none;
   font-size: 15px;
   padding: 8px 16px;
   color: var(--error);
 }
 
-.signup-form .btn-lg,
-.signup-form .btn-lg {
+.is-valid .error-message {
+  display: block;
+}
+
+.form .btn-lg {
   font-size: 20px;
   height: 56px;
 }
+
+
 
 .sns-box {
   display: flex;
