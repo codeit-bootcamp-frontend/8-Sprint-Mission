@@ -8,6 +8,7 @@ import {
 let emailInvalid = false;
 let passwordInvalid = false;
 
+const loginForm = document.querySelector('.form');
 const emailInput = document.querySelector('input[type="email"]');
 const passwordInput = document.querySelector('input[type="password"]');
 const passwordHideBtn = document.querySelector('.hide-btn');
@@ -19,17 +20,37 @@ function checkFormButton() {
 }
 // 로그인 버튼 활성화
 
-emailInput.addEventListener('change', e => {
-  const value = e.target.value;
-  emailInvalid = !isEmail(value, emailInput) || isNotEmpty(value, emailInput);
-  checkFormButton();
-});
+function validationEmail() {
+  const value = emailInput.value;
+  emailInvalid = isNotEmpty(value, emailInput, 'emailEmpty');
 
-passwordInput.addEventListener('change', e => {
-  passwordInvalid = hasMinLength(e.target.value, 8, passwordInput);
+  if (emailInvalid) {
+    emailInvalid = isEmail(value, emailInput, 'emailValid');
+  }
+
   checkFormButton();
-});
+}
+// 이메일 검사
+
+function validationPassword() {
+  const value = passwordInput.value;
+  passwordInvalid = isNotEmpty(value, passwordInput, 'passwordEmpty');
+
+  if (passwordInvalid) {
+    passwordInvalid = hasMinLength(value, 8, passwordInput, 'passwordValid');
+  }
+  checkFormButton();
+}
+// 비밀번호 검사
+
+emailInput.addEventListener('blur', validationEmail);
+passwordInput.addEventListener('blur', validationPassword);
 
 passwordHideBtn.addEventListener('click', e => {
   isPasswordHide(passwordHideBtn, passwordInput);
+});
+
+loginForm.addEventListener('submit', e => {
+  e.preventDefault();
+  location.href = '../items.html';
 });

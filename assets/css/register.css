@@ -1,13 +1,13 @@
 @charset "uft-8";
 
 #register-header {
-  margin-top: 3.75rem;
-  margin-bottom: 2.5rem;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
 }
 
 .register-logo {
   max-width: 460px;
-  padding: 0 2rem;
+  padding: 0 3.2rem;
   margin: 0 auto;
 }
 
@@ -21,29 +21,28 @@
 }
 
 #register-container {
-  max-width: 44rem;
-  min-height: calc(67.5rem - 14.75rem);
-  padding: 0 2rem;
+  max-width: 70.4rem;
+  min-height: calc(1080px - 236px);
+  padding: 0 3.2rem;
   margin: 0 auto;
 }
 
 .input-box {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.4rem;
 }
 
 .input-box input {
   width: 100%;
-  line-height: 1.5rem;
-  padding: 1rem 1.5rem;
-  border-radius: 0.625rem;
+  line-height: 2.4rem;
+  padding: 1.6rem 2.4rem;
+  border-radius: 1rem;
   border: none;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 400;
   background-color: var(--color-gray100);
 }
 .input-box input.error {
   outline: 1px solid var(--color-red);
-  background-color: #ffb8c4;
 }
 .input-box input:focus {
   outline: 1px solid #3692ff;
@@ -51,9 +50,9 @@
 
 .input-box label {
   display: inline-block;
-  font-size: 1.125rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
 }
 
 .input-password {
@@ -77,30 +76,26 @@
 }
 
 .error-msg {
-  display: none;
-  padding-top: 0.625rem;
-  padding-left: 0.5rem;
+  padding-top: 1rem;
+  padding-left: 1.6rem;
   color: var(--color-red);
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.error-msg.show-msg {
-  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 17.9px;
 }
 
 .login-btn {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.4rem;
 }
 
 .login-btn > button {
   width: 100%;
-  border-radius: 2.5rem;
-  padding: 1rem 0;
+  border-radius: 4rem;
+  padding: 1.6rem 0;
   border: none;
   color: #fff;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 2rem;
   background: var(--color-blue);
 }
 
@@ -112,15 +107,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding: 1rem 1.5rem;
+  margin-bottom: 2.4rem;
+  padding: 1.6rem 2.4rem;
   border-radius: 0.5rem;
   background: #e6f2ff;
 }
 
 .login-list {
   display: flex;
-  gap: 1rem;
+  gap: 1.6rem;
 }
 
 .google-login,
@@ -140,6 +135,7 @@
 }
 
 .login-simple {
+  font-size: 1.6rem;
   font-weight: 500;
 }
 
@@ -148,6 +144,7 @@
 }
 
 .register-box > span {
+  font-size: 1.6rem;
   font-weight: 500;
 }
 
