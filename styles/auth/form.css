@@ -103,3 +103,9 @@
     display: none;
   }
 }
+
+/* 로그인, 회원가입 버튼 활성화 */
+.auth-submit-button.activate {
+  background-color: var(--brand-blue);
+  color: var(--white);
+}

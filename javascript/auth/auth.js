@@ -1,5 +1,13 @@
-// 상수
+// constants
 const INPUT_WRAPPER = 'auth-input-wrapper';
+const PATHNAME_LOGIN = '/pages/login/';
+const PATHNAME_SIGNUP = '/pages/signup/';
+
+// variables
+let isValidEmail = false;
+let isValidPassword = false;
+let isValidNickName = false;
+let isPasswordMatched = false;
 
 // element
 const inputEmail = document.querySelector(`.${INPUT_WRAPPER} .auth-email`);
@@ -12,6 +20,32 @@ const inputNickname = document.querySelector(
 const inputVerifyPassword = document.querySelector(
   `.${INPUT_WRAPPER} #verify-password`
 );
+const submitButton = document.querySelector('.auth-form .auth-submit-button');
+
+// input control functions
+/**
+ * Submit이 활성화될 수 있는 지 판별하는 함수
+ */
+const validateSubmit = () => {
+  const pathname = window.location.pathname;
+  if (pathname === PATHNAME_LOGIN && isValidEmail && isValidPassword) {
+    submitButton.className = 'auth-submit-button activate';
+    return console.log('활성화');
+  }
+  if (
+    pathname === PATHNAME_SIGNUP &&
+    isValidEmail &&
+    isValidPassword &&
+    isValidNickName &&
+    isPasswordMatched
+  ) {
+    submitButton.className = 'auth-submit-button activate';
+    return console.log('활성화');
+  }
+
+  submitButton.className = 'auth-submit-button';
+  return console.log('비활성화');
+};
 
 /**
  * 입력값이 유효하지 않은 경우, error 스타일을 적용시키는 함수
@@ -29,6 +63,7 @@ const showError = (input, message) => {
   inputWrapper.className = `${INPUT_WRAPPER} error`;
   const small = inputWrapper.querySelector('small');
   small.innerText = message;
+  validateSubmit();
 };
 
 /**
@@ -42,6 +77,7 @@ const showSuccess = (input) => {
       ? input.parentElement
       : input.parentElement.parentElement;
   inputWrapper.className = `${INPUT_WRAPPER} success`;
+  validateSubmit();
 };
 
 /**
@@ -50,12 +86,19 @@ const showSuccess = (input) => {
  * @param {*} event event object
  * @returns error 혹은 success 결과에 따른 스타일 적용 함수
  */
-const isValidEmail = (event) => {
+const validateEmail = (event) => {
   const regex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
   const email = event.target.value;
 
-  if (email === '') return showError(event.target, '이메일을 입력해주세요');
-  if (regex.test(email)) return showSuccess(event.target);
+  if (regex.test(email)) {
+    isValidEmail = true;
+    return showSuccess(event.target);
+  }
+
+  isValidEmail = false;
+  if (email === '') {
+    return showError(event.target, '이메일을 입력해주세요');
+  }
   return showError(event.target, '잘못된 이메일 형식입니다');
 };
 
@@ -65,10 +108,14 @@ const isValidEmail = (event) => {
  * @param {*} event event object
  * @returns error 혹은 success 결과에 따른 스타일 적용 함수
  */
-const isValidNickname = (event) => {
+const validateNickname = (event) => {
   const nickname = event.target.value;
 
-  if (nickname === '') return showError(event.target, '닉네임을 입력해주세요');
+  if (nickname === '') {
+    isValidNickName = false;
+    return showError(event.target, '닉네임을 입력해주세요');
+  }
+  isValidNickName = true;
   return showSuccess(event.target);
 };
 
@@ -78,13 +125,15 @@ const isValidNickname = (event) => {
  * @param {*} event event object
  * @returns error 혹은 success 결과에 따른 스타일 적용 함수
  */
-const isMatchedPasswords = () => {
+const validatePasswordMatch = () => {
   const originPassword = inputPassword.value;
   const verifyPassword = inputVerifyPassword.value;
 
   if (originPassword !== verifyPassword) {
+    isPasswordMatched = false;
     return showError(inputVerifyPassword, '비밀번호가 일치하지 않습니다.');
   }
+  isPasswordMatched = true;
   return showSuccess(inputVerifyPassword);
 };
 
@@ -94,22 +143,28 @@ const isMatchedPasswords = () => {
  * @param {*} event event object
  * @returns error 혹은 success 결과에 따른 스타일 적용 함수
  */
-const isValidPassword = (event) => {
+const validatePassword = (event) => {
   const password = event.target.value;
 
-  // 비밀번호 확인란과 일치 검사 시행
-  isMatchedPasswords();
+  // 비밀번호 확인란이 있는 회원가입 페이지에서만 비밀번호 확인란과 일치 검사 시행
+  if (inputVerifyPassword) {
+    validatePasswordMatch();
+  }
 
+  isValidPassword = false;
   if (password === '') {
     return showError(event.target, '비밀번호를 입력해주세요');
   }
   if (password.length < 8) {
     return showError(event.target, '비밀번호를 8자 이상 입력해주세요');
   }
+
+  isValidPassword = true;
   return showSuccess(event.target);
 };
 
-inputEmail.addEventListener('focusout', (event) => isValidEmail(event));
-inputPassword.addEventListener('focusout', (event) => isValidPassword(event));
-inputNickname.addEventListener('focusout', (event) => isValidNickname(event));
-inputVerifyPassword.addEventListener('focusout', () => isMatchedPasswords());
+// addEventListeners
+inputEmail.addEventListener('focusout', (event) => validateEmail(event));
+inputPassword.addEventListener('focusout', (event) => validatePassword(event));
+inputNickname.addEventListener('focusout', (event) => validateNickname(event));
+inputVerifyPassword.addEventListener('focusout', () => validatePasswordMatch());
