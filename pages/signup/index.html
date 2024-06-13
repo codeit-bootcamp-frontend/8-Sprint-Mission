@@ -37,6 +37,7 @@
           <label for="signup-email" class="auth-label">이메일</label>
           <input
             id="signup-email"
+            class="auth-email"
             type="email"
             name="email"
             placeholder="이메일을 입력해주세요"
@@ -63,6 +64,7 @@
             <!-- 비밀번호는 자동완성되지 않도록 autocomplete off -->
             <input
               id="signup-password"
+              class="auth-password"
               type="password"
               name="password"
               autocomplete="off"
@@ -86,7 +88,7 @@
           <div class="password-wrapper">
             <!-- 비밀번호는 자동완성되지 않도록 autocomplete off -->
             <input
-              id="signup-verify-password"
+              id="verify-password"
               type="password"
               name="verify-password"
               autocomplete="off"
@@ -138,5 +140,6 @@
       type="text/javascript"
       src="../../javascript/utils/location.js"
     ></script>
+    <script type="text/javascript" src="../../javascript/auth/auth.js"></script>
   </body>
 </html>
