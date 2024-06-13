@@ -1,12 +1,9 @@
-export let signupForm = document.querySelector('#signupForm')
-export let loginForm = document.querySelector('#loginForm')
+export let form = document.querySelector('.form');
 export let email = document.querySelector('#email');
 export let password = document.querySelector('#password');
 export let confirmPassword = document.querySelector('#confirmPassword');
 export let nickName = document.querySelector('#nickname');
-export let signUpBtn = document.querySelector('#signupBtn');
-export let loginBtn = document.querySelector('#loginBtn');
-export const formSubmitDone = false;
+export let submitBtn = document.querySelector('#submitBtn');
 
 export const validate = {
   errorPlacement: function (e, message) {
@@ -14,7 +11,6 @@ export const validate = {
     if (errorDiv && errorDiv.classList.contains('error-message')) {
       errorDiv.innerHTML = message;
     } else {
-      e.classList.add('is-valid');
       errorDiv = document.createElement('div');
       errorDiv.classList.add('error-message');
       errorDiv.innerHTML = message;
@@ -28,9 +24,10 @@ export const validate = {
   },
   success: function (e) {
     e.classList.remove('error-border');
+    e.parentNode.classList.add('valid');
     e.dataset.valid = 'true';
     let errorDiv = e.nextElementSibling;
-    if (errorDiv) {
+    if (errorDiv && errorDiv.classList.contains('error-message')) {
       errorDiv.innerHTML = '';
     }
   },
@@ -96,7 +93,6 @@ export function validateNickname() {
   return true;
 }
 
-
 export function validatePassword() {
   let value = password.value.trim();
   let rules = validate.rules['val-password'];
@@ -132,15 +128,9 @@ export function validateConfirmPassword() {
   return true;
 }
 
-export function checkLoginValidity() {
-  let isEmailValid = validateEmail();
-  let isPasswordValid = validatePassword();
-  loginBtn.disabled = !(isEmailValid && isPasswordValid);
+
+export function checkFormValidity() {
+  let formSubmitDone = [...form.querySelectorAll('input')].every(input => input.dataset.valid === 'true');
+  submitBtn.disabled = !formSubmitDone;
 }
-export function checkSignupValidity() {
-  let isEmailValid = validateEmail();
-  let isNicknameValid = validateNickname();
-  let isPasswordValid = validatePassword();
-  let isConfirmPasswordValid = validateConfirmPassword();
-  signUpBtn.disabled = !(isEmailValid && isPasswordValid && isConfirmPasswordValid && isNicknameValid);
-}
+
