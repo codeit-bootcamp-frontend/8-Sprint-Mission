@@ -1,5 +1,5 @@
 import {
-  signupForm,
+  form,
   email,
   password,
   confirmPassword,
@@ -8,49 +8,58 @@ import {
   validateNickname,
   validatePassword,
   validateConfirmPassword,
-  signUpBtn
+  checkFormValidity,
+  submitBtn
 } from './form-validation.js';
 import { passwordToggleBtns, passwordToggle } from './password-toggle.js';
 
-signUpBtn.disabled = true;
+submitBtn.disabled = true;
 
-function checkFormValidity() {
-  const isValid = [...signupForm.querySelectorAll('input')].every(input => input.dataset.valid === 'true');
-  signUpBtn.disabled = !isValid;
-}
 
-email.addEventListener('blur', validateEmail);
-nickName.addEventListener('blur', validateNickname);
-password.addEventListener('blur', validatePassword);
-confirmPassword.addEventListener('blur', validateConfirmPassword);
+email.addEventListener('blur', function () {
+  this.parentNode.classList.add('is-valid');
+  if (!validateEmail) { this.parentNode.classList.remove('is-valid'); }
+});
+nickName.addEventListener('blur', function () {
+  this.parentNode.classList.add('is-valid');
+  validateNickname();
+});
+password.addEventListener('blur', function () {
+  this.parentNode.classList.add('is-valid');
+  validatePassword();
+});
+confirmPassword.addEventListener('blur', function () {
+  this.parentNode.classList.add('is-valid');
+  validateConfirmPassword();
+});
 
 email.addEventListener('keyup', function () {
-  if (this.classList.contains('is-valid')) {
-    validateEmail();
+  if (this.parentNode.classList.contains('is-valid')) {
   }
+  validateEmail();
   checkFormValidity();
 });
 nickName.addEventListener('keyup', function () {
-  if (this.classList.contains('is-valid')) {
-    validateNickname();
+  if (this.parentNode.classList.contains('is-valid')) {
   }
+  validateNickname();
   checkFormValidity();
 });
 password.addEventListener('keyup', function () {
-  if (this.classList.contains('is-valid')) {
-    validatePassword();
+  if (this.parentNode.classList.contains('is-valid')) {
   }
+  validatePassword();
   checkFormValidity();
 });
 confirmPassword.addEventListener('keyup', function () {
-  if (this.classList.contains('is-valid')) {
-    validateConfirmPassword();
+  if (this.parentNode.classList.contains('is-valid')) {
   }
+  validateConfirmPassword();
   checkFormValidity();
 });
 
 
-signupForm.addEventListener('submit', function (event) {
+form.addEventListener('submit', function (event) {
   if (validateEmail() && validatePassword() && validateConfirmPassword() && validateNickname()) {
     event.preventDefault();
     alert('회원가입성공');

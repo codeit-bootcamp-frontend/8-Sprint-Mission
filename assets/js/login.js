@@ -1,37 +1,39 @@
 import {
-  loginForm,
+  form,
   email,
   password,
   validateEmail,
   validatePassword,
-  loginBtn
+  checkFormValidity,
+  submitBtn
 } from './form-validation.js';
 import { passwordToggleBtns, passwordToggle } from './password-toggle.js';
 
-loginBtn.disabled = true;
+submitBtn.disabled = true;
 
-function checkFormValidity() {
-  const isValid = [...loginForm.querySelectorAll('input')].every(input => input.dataset.valid === 'true');
-  loginBtn.disabled = !isValid;
-}
-
-email.addEventListener('blur', validateEmail);
-password.addEventListener('blur', validatePassword);
+email.addEventListener('blur', function () {
+  this.parentNode.classList.add('is-valid');
+  if (!validateEmail) { this.parentNode.classList.remove('is-valid'); }
+});
+password.addEventListener('blur', function () {
+  this.parentNode.classList.add('is-valid');
+  validatePassword();
+});
 
 email.addEventListener('keyup', function () {
-  if (this.classList.contains('is-valid')) {
-    validateEmail();
+  if (this.parentNode.classList.contains('is-valid')) {
   }
+  validateEmail();
   checkFormValidity();
 });
 password.addEventListener('keyup', function () {
-  if (this.classList.contains('is-valid')) {
-    validatePassword();
+  if (this.parentNode.classList.contains('is-valid')) {
   }
+  validatePassword();
   checkFormValidity();
 });
 
-loginForm.addEventListener('submit', function (event) {
+form.addEventListener('submit', function (event) {
   event.preventDefault();
   if (validateEmail() && validatePassword()) {
     alert('로그인성공');
