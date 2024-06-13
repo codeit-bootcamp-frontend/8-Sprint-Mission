@@ -22,12 +22,12 @@
             <form action="/index.html">
                 <div class="email">
                     <label for="email">이메일</label>
-                    <input type="email" name="email" placeholder="이메일을 입력해주세요">
+                    <input type="email" name="email" id="email" placeholder="이메일을 입력해주세요">
                     <p class="error-message" id="email-error-message"></p>
                 </div>
                 <div class="nickname">
                     <label for="nickname">닉네임</label>
-                    <input type="nickname" name="nickname" placeholder="닉네임을 입력해주세요">
+                    <input type="nickname" name="nickname" id="nickname" placeholder="닉네임을 입력해주세요">
                     <p class="error-message" id="nickname-error-message"></p>
                 </div>
                 <div class="password">
@@ -50,7 +50,7 @@
                     </div>
                     <p class="error-message" id="password-confirm-error-message"></p>
                 </div>
-                <button class="signin-btn" disabled>회원가입</button>
+                <button class="signup-btn" disabled>회원가입</button>
             </form>
             <div class="oauth-login">
                 <p>간편 로그인하기</p>
@@ -64,5 +64,6 @@
             </div>
         </article>
     </main>
+    <script type="module" src="./signup.js"></script>
 </body>
 </html>

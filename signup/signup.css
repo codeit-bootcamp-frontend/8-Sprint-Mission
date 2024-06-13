@@ -136,7 +136,7 @@ form div {
     gap: 1rem;
 }
 
-.signin-btn {
+.signup-btn {
     background-color: var(--gray-400);
     border-radius: 40px;
     padding: 1.6rem 12.4rem;
