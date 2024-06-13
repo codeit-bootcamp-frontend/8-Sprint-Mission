@@ -81,7 +81,7 @@ form input:focus {
     border: var(--blue);
 }
 
-.password, .password-confirm {
+.input-wrap {
     position: relative;
 }
 
