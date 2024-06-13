@@ -8,6 +8,9 @@ const nameInput = document.getElementById("auth-name");
 const passwordConfirmInput = document.getElementById("auth-password-confirm");
 const loginButton = document.getElementsByClassName("auth-submit-btn");
 
+let isEmailError = true;
+let isPasswordError = true;
+
 const setToggleButtonState = (toggleButton, isPasswordVisible) => {
   const toggleImg = toggleButton.querySelector("img");
   const authPasswordInput = toggleButton.parentElement.querySelector("input");
@@ -42,17 +45,20 @@ const handleEmailValidation = () => {
     errorEmail.style.display = "none";
     emptyEmail.style.display = "block";
     emailInput.style.border = "1px solid #f74747";
-    return;
-  }
-  emptyEmail.style.display = "none";
-  emailInput.style.border = "none";
-  if (regex.test(emailValue)) {
-    errorEmail.style.display = "none";
+    isEmailError = true;
+  } else {
+    emptyEmail.style.display = "none";
     emailInput.style.border = "none";
-    return;
+    if (regex.test(emailValue)) {
+      errorEmail.style.display = "none";
+      emailInput.style.border = "none";
+      isEmailError = false;
+    } else {
+      errorEmail.style.display = "block";
+      emailInput.style.border = "1px solid #f74747";
+      isEmailError = true;
+    }
   }
-  errorEmail.style.display = "block";
-  emailInput.style.border = "1px solid #f74747";
 };
 
 const handleNameValidation = () => {
