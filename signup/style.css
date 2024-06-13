@@ -107,7 +107,7 @@ input::placeholder {
   color: #ffffff;
 }
 
-.form-signup-btn:focus {
+.enabled {
   background-color: var(--blue);
 }
 

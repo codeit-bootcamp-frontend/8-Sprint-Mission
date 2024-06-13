@@ -104,10 +104,10 @@ input::placeholder {
   text-align: center;
   line-height: 24px;
   color: #ffffff;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
-.form-login-btn:focus {
+.enabled {
   background-color: var(--blue);
 }
 
