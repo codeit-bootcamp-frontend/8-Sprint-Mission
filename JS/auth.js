@@ -1,22 +1,38 @@
-/** IIFE
- *
- */
-// (function () {
-//   const sumbitButton = document.querySelector("#login-button");
-//   sumbitButton.disabled = true;
-// });
-
 const FORM_ELEMENT = document.querySelector("form");
+const passwordInvisibleElement = document.querySelectorAll("a.password-inv");
+const passwordInputElement = document.querySelectorAll(
+  "#password, #password-check"
+);
 
-/**
- * focusout이 일어나면 form의 요소들을 변화시킴
- */
+// focusout이 일어나면 <input>과 <button> 변화 기능
 FORM_ELEMENT.addEventListener("focusout", (e) => {
   if (e.target.classList.contains("form-input")) {
     validateInput(e.target);
     checkRequiredValues();
   }
 });
+
+// 비밀번호 표시 버튼 기능
+passwordInvisibleElement.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    invisibleInputPassword(e.target, e.target.previousElementSibling);
+  });
+});
+
+// 비밀번호 입력 제한 기능
+passwordInputElement.forEach((el) => {
+  el.addEventListener("input", (e) => {
+    const pattern = /[^A-Za-z\d@$!%*?&]/g;
+    if (pattern.test(e.target.value)) {
+      e.target.value = e.target.value.replace(pattern, "");
+      alert(
+        "숫자, 영소문자, 영대문자, 특수 문자(@$!%*?&)만 입력할 수 있습니다."
+      );
+    }
+  });
+});
+
+/* -------------------------------------------------------------- */
 
 /**
  * Input 태그를 검사하는 함수
@@ -29,7 +45,7 @@ function validateInput(input) {
   let validMessage = ""; // 에러 메세지
 
   if (input.value == "" && input.required) {
-    validMessage = `${input.dataset.input}을(를) 입력해주세요.`;
+    validMessage = `${input.placeholder}.`;
   } else {
     switch (input.id) {
       case "email":
@@ -107,6 +123,8 @@ function createErrorMessage(eventTarget, errText) {
   eventTarget.parentElement.append(newErrorMessage);
 }
 
+/* -------------------------------------------------------------- */
+
 /**
  * 모든 Required <input>이 올바르게 입력되었는지 확인하는 함수
  * 모두 올바르면 버튼을 활성화합니다.
@@ -126,10 +144,29 @@ function checkRequiredValues() {
   });
 
   const hasError = document.querySelector(".form-input-errmsg");
-  const sumbitButton = document.querySelector(".login-button");
+  const sumbitButton = document.querySelector(".submit-button");
   if (allFilled && !hasError) {
     sumbitButton.disabled = false;
   } else {
     sumbitButton.disabled = true;
+  }
+}
+
+/* -------------------------------------------------------------- */
+
+/**
+ * 버튼을 누를 경우, 비밀번호 관련 input을 보여주는 함수
+ * @param {HTMLElement} eventTarget - 버튼
+ * @param {HTMLElement} input - 관련 input
+ */
+function invisibleInputPassword(eventTarget, input) {
+  if (input.type === "password") {
+    input.type = "text";
+    eventTarget.style.backgroundImage = `url("../assets/login/btn_visibility_on_24px.svg")`;
+  } else if (input.type === "text") {
+    {
+      input.type = "password";
+      eventTarget.style.backgroundImage = `url("../assets/login/btn_visibility_off_24px.svg")`;
+    }
   }
 }
