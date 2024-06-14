@@ -34,6 +34,9 @@
             type="email"
             placeholder="이메일을 입력해 주세요"
           />
+          <span id="message-error-email" class="message-error"
+            >이메일을 입력해d주세요.</span
+          >
         </div>
         <div class="input-item">
           <label for="password">비밀번호</label>
@@ -44,14 +47,24 @@
               type="password"
               placeholder="비밀번호를 입력해 주세요"
             />
-            <img
-              src="/images/icons/eye-invisible.svg"
-              alt="비밀번호 숨김"
-              class="img-password-toggle"
-            />
+            <button id="btn-password-visible" class="btn-password-visible">
+              <img
+                class="img-password-visible"
+                src="/images/icons/eye-invisible.svg"
+                alt="비밀번호 숨김"
+              />
+            </button>
           </div>
+          <span id="message-error-password" class="message-error"
+            >비밀번호를 입력해주세요.</span
+          >
         </div>
-        <button type="submit" class="button pill-button full-width">
+        <button
+          id="btn-signin"
+          type="submit"
+          class="button pill-button full-width"
+          disabled
+        >
           로그인
         </button>
       </form>
@@ -76,5 +89,6 @@
         판다마켓이 처음이신가요? <a href="/signup">회원가입</a>
       </div>
     </div>
+    <script src="/scripts/signin.js"></script>
   </body>
 </html>
