@@ -18,7 +18,7 @@ submitBtn.disabled = true;
 
 email.addEventListener('blur', function () {
   this.parentNode.classList.add('is-valid');
-  if (!validateEmail) { this.parentNode.classList.remove('is-valid'); }
+  validateEmail();
 });
 nickName.addEventListener('blur', function () {
   this.parentNode.classList.add('is-valid');
