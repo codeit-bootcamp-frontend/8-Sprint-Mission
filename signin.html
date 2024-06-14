@@ -21,8 +21,8 @@
         ><img src="images/logo/logo.svg" alt="판다마켓 홈"
       /></a>
 
-      <form method="post">
-        <div class="input-item">
+      <form>
+        <div class="input-email">
           <label for="email">이메일</label>
           <input
             id="email"
@@ -30,8 +30,9 @@
             type="email"
             placeholder="이메일을 입력해 주세요"
           />
+          <div class="error-message-email">이메일을 입력해주세요.</div>
         </div>
-        <div class="input-item">
+        <div class="input-password">
           <label for="password">비밀번호</label>
           <div class="input-wrapper">
             <input
@@ -45,6 +46,7 @@
               alt="비밀번호 숨김"
               class="toggle-password"
             />
+            <div class="error-message-password">비밀번호를 입력해주세요.</div>
           </div>
         </div>
 

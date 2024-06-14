@@ -11,6 +11,8 @@
 
   /* Primary color */
   --blue: #3692ff;
+  --red: #f74747;
+  --white: #ffffff;
 }
 
 * {
@@ -35,7 +37,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-bottom: 1px solid #dfdfdf;
 }
 
@@ -104,7 +106,7 @@ button {
 
 .button {
   background-color: var(--blue);
-  color: #ffffff;
+  color: var(--white);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -133,6 +135,7 @@ button {
 
 .full-width {
   width: 100%;
+  background-color: var(--gray-400);
 }
 
 .break-on-desktop {
