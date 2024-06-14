@@ -34,20 +34,18 @@ const submitButton = document.querySelector(
  */
 const validateSubmit = () => {
   const pathname = window.location.pathname;
-  if (pathname === PATHNAME_LOGIN && isValidEmail && isValidPassword) {
-    submitButton.className = 'auth-submit-button activate';
-    return true;
-  }
   if (
-    pathname === PATHNAME_SIGNUP &&
-    isValidEmail &&
-    isValidPassword &&
-    isValidNickName &&
-    isPasswordMatched
+    (pathname === PATHNAME_LOGIN && isValidEmail && isValidPassword) ||
+    (pathname === PATHNAME_SIGNUP &&
+      isValidEmail &&
+      isValidPassword &&
+      isValidNickName &&
+      isPasswordMatched)
   ) {
     submitButton.className = 'auth-submit-button activate';
     return true;
   }
+
   submitButton.className = 'auth-submit-button';
   return false;
 };
