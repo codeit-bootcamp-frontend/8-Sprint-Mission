@@ -80,7 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const validatePasswordConfirmation = () => {
     const passwordConfirmationValue = inputPasswordConfirmation.value.trim();
     const passwordValue = inputPassword.value.trim();
-    if (passwordConfirmationValue !== passwordValue) {
+    if (!passwordConfirmationValue) {
+      showError(
+        inputPasswordConfirmation,
+        messageErrorPasswordConfirmation,
+        '비밀번호를 입력해주세요.'
+      );
+    } else if (passwordConfirmationValue !== passwordValue) {
       showError(
         inputPasswordConfirmation,
         messageErrorPasswordConfirmation,
