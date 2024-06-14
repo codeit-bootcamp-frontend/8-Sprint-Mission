@@ -47,6 +47,7 @@ function posInvalid(target, text) {
     span = document.createElement("span");
     target.after(span);
   }
+	span.style.padding = "8px 16px 0px";
   span.textContent = text;
   span.style.color = "#f74747";
   target.classList.add("input-invalid");
