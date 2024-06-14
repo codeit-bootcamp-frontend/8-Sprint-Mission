@@ -35,7 +35,6 @@ function isMatch(password1, password2) {
 
 function emailCheck () {
   if (inputEmail.value.length == 0) {
-    console.log(inputEmail.value);
     blankMessage.classList.remove('hide');
   } else if (isEmail(inputEmail.value) === false) {
     // 유효한 이메일 형식이 아닐 경우

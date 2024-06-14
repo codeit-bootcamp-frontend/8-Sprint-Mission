@@ -19,15 +19,14 @@
             <label for="signup-email">이메일</lable>
             <input id="signup-email" name="email" type="email" 
                 placeholder="이메일을 입력해주세요" required>
-            <div>이메일을 입력해주세요</div>
-            <div>잘못된 이메일 형식입니다</div>    
+            <div class="error blank-message hide">이메일을 입력해주세요.</div>
+            <div class="error invalid-message hide">잘못된 이메일 형식입니다.</div>    
         
             <label for="signup-pw">비밀번호</lable>
                 <input id="signup-pw" name="pw" type="password" 
                 placeholder="비밀번호를 입력해주세요" required>
-            <div>비밀번호를 입력해주세요</div>
-            <div>비밀번호를 8자 이상 입력해주세요</div>    
-            
+            <div class="error blank-message3 hide">비밀번호를 입력해주세요.</div>
+            <div class="error longer-message hide">비밀번호를 8자 이상 입력해주세요.</div>    
             <div class="login-btn">
             <a href=/items.html><button>로그인</button></a>
             </div>
@@ -43,6 +42,7 @@
             판다마켓이 처음이신가요?
             <span><a href="/signup.html">회원가입</a></span>
         </div>
+        <script src="login_valid_check.js"></script>
     </main>
 </body>
 </html>
