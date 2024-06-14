@@ -19,10 +19,12 @@
           <div class="email">
             <h3>이메일</h3>
             <input type="text" placeholder="이메일을 입력해주세요" />
+            <span id="email-error" class="error-message"></span>
           </div>
           <div class="nickname">
             <h3>닉네임</h3>
             <input type="text" placeholder="이메일을 입력해주세요" />
+            <span id="nickname-error" class="error-message"></span>
           </div>
           <div class="password">
             <h3>비밀번호</h3>
@@ -30,6 +32,7 @@
               <input type="password" placeholder="비밀번호를 입력해주세요" />
               <img src="image/hidden.png" width="24px" height="24px" alt="" />
             </div>
+            <span id="password-error" class="error-message"></span>
           </div>
           <div class="password-check">
             <h3>비밀번호 확인</h3>
@@ -37,9 +40,12 @@
               <input type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" />
               <img src="image/hidden.png" width="24px" height="24px" alt="" />
             </div>
+            <span id="password-check-error" class="error-message"></span>
           </div>
         </div>
-        <button>회원가입</button>
+        <a>
+          <button id="signup-button">회원가입</button>
+        </a>
         <div class="easy-login">
           <h2>간편 로그인하기</h2>
           <div class="social-login">
@@ -57,5 +63,6 @@
         <a href="/login.html">로그인</a>
       </div>
     </div>
+    <script src="signup.js"></script>
   </body>
 </html>
