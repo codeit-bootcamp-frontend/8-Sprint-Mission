@@ -13,6 +13,7 @@
 }
 
 *{
+    box-sizing: border-box;
     font-family: Pretendard;
 }
 
@@ -170,7 +171,7 @@ button:hover{
 }
 
 .pw_input{
-    width: 592px;
+    width: 100%;
     border: none; 
     background-color:var(--gray100);
     padding: 12px 24px;
@@ -182,7 +183,7 @@ button:hover{
 }
 
 .pw_check_input{
-    width: 592px;
+    width: 100%;
     border: none; 
     background-color:var(--gray100);
     padding: 12px 24px;
@@ -294,7 +295,6 @@ button.enabled {
     }
 
     .logo_block .image_logo{
-        max-width: 400px;
         width: 13vw;
     }
 
@@ -308,30 +308,11 @@ button.enabled {
         height: 6.6vw;
     }
 
-    .email_input_block{
-        width: 100%;
-    }
-
     .login_block{
         max-width: 400px;
         width: 100%;
         height: 100%;
         gap: 24px;
     }
-    
-    .pw_input{
-        width: 100%;
-    }
 
-    .pw_input_box{
-        display: flex;
-    }
-
-    .pw_check_input{
-        width: 100%;
-    }
-
-    .pw_check_input_box{
-        display: flex;
-    }
 }
