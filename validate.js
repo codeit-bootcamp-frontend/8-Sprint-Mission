@@ -1,5 +1,4 @@
 // querySelector
-const input = document.querySelector('input');
 const email = document.querySelector('#email');
 const nickname = document.querySelector('#nickname');
 const password = document.querySelector('#pw');
@@ -39,7 +38,7 @@ function validateEmail() {
   } else if (!regex.test(email.value)) {
     showErrorMessage(email, "잘못된 이메일 형식입니다.", 'emailErrorForm');
   }
-  activeButton()
+  activateButton()
 }
 
 function validateName() {
@@ -47,7 +46,7 @@ function validateName() {
   if (nickname.value.trim() === "") {
     showErrorMessage(nickname, "닉네임을 입력해주세요.", 'nameErrorEmpty');
   }
-  activeButton()
+  activateButton()
 }
 
 function validatePw() {
@@ -58,7 +57,7 @@ function validatePw() {
   } else if (password.value.length < 8) {
     showErrorMessage(password, "비밀번호를 8자 이상 입력해주세요.", 'pwErrorShort');
   }
-  activeButton()
+  activateButton()
 }
 
 function validatePwConfirm() {
@@ -69,18 +68,25 @@ function validatePwConfirm() {
   } else if (password.value.trim() !== passwordConfirm.value.trim()) {
     showErrorMessage(passwordConfirm, "비밀번호가 일치하지 않습니다.", 'pwConfirmError');
   }
-  activeButton()
+  activateButton()
 }
 
 // button activation eventHandler
-function activeButton() {
+function activateButton() {
   const errors = document.querySelectorAll('.errorColor');
-  if (errors.length === 0 && input.value !== "") {
+  if (errors.length === 0 && 
+      email.value !== "" &&
+      password.value !== "" &&
+      (submitBtn.textContent === '로그인' || 
+        (nickname.value !== "" && 
+          passwordConfirm.value !== ""))) {
     submitBtn.classList.remove('inactive-btn');
     submitBtn.classList.add('active-btn');
-      submitBtn.textContent === '로그인' 
-      ? submitBtn.href = "/pages/login/login.html" 
-      : submitBtn.href = "/pages/signup/signup.html";
+    if (submitBtn.textContent === '로그인') {
+      submitBtn.href = "/pages/items/items.html";
+    } else {
+      submitBtn.href = "/pages/signup/signup.html";
+    }
   } else {
     submitBtn.classList.remove('active-btn');
     submitBtn.classList.add('inactive-btn');
@@ -99,12 +105,14 @@ function togglePwVisibility(target, inputElement) {
   }
 }
 
-// eventListener
+// login eventListener
 email.addEventListener('blur', validateEmail);
 password.addEventListener('blur', validatePw);
-passwordConfirm.addEventListener('blur', validatePwConfirm);
-nickname.addEventListener('blur', validateName);
 pwVisible.addEventListener('click', 
   (e) => togglePwVisibility(e.target, password));
+
+// signup eventListener
+nickname.addEventListener('blur', validateName);
+passwordConfirm.addEventListener('blur', validatePwConfirm);
 pwConfirmVisible.addEventListener('click', 
   (e) => togglePwVisibility(e.target, passwordConfirm));
