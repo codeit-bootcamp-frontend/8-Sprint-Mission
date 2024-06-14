@@ -1,3 +1,5 @@
+import { handlePasswordToggleButton } from "./password-toggle.js";
+
 const passwordToggleButton = document.querySelectorAll(
   ".password-visible-toggle-btn"
 );
@@ -14,21 +16,6 @@ let isPasswordError = true;
 let isPasswordConfirmError = true;
 let isNameError = true;
 
-const setToggleButtonState = (toggleButton, isPasswordVisible) => {
-  const toggleImg = toggleButton.querySelector("img");
-  const authPasswordInput = toggleButton.parentElement.querySelector("input");
-
-  if (isPasswordVisible) {
-    toggleImg.src = "/image/btn_visibility_on.png";
-    toggleImg.alt = "visible";
-    authPasswordInput.type = "text";
-    return;
-  }
-
-  toggleImg.src = "/image/btn_visibility_off.png";
-  toggleImg.alt = "invisible";
-  authPasswordInput.type = "password";
-};
 const loginActivateSubmit = () => {
   if (isEmailError === false && isPasswordError === false) {
     submitButton.disabled = false;
@@ -51,13 +38,6 @@ const signupActivateSubmit = () => {
     submitButton.disabled = true;
     submitButton.style.backgroundColor = "#9ca3af";
   }
-};
-
-const handlePasswordToggleButton = (e) => {
-  const toggleButton = e.currentTarget;
-  const isPasswordVisible = toggleButton.classList.toggle("visible");
-
-  setToggleButtonState(toggleButton, isPasswordVisible);
 };
 
 const handleEmailValidation = () => {
