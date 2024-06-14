@@ -27,7 +27,7 @@ function validateInput(input) {
   let isValid = false; // boolean (input 태그가 유효한지 검증하는 변수)
   let validMessage = ""; // 에러 메세지
 
-  if (input.value == "") {
+  if (input.value == "" && input.required) {
     validMessage = `${input.dataset.input}을(를) 입력해주세요.`;
   } else {
     switch (input.id) {
