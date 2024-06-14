@@ -21,34 +21,52 @@
       </div>
     </header>
     <main>
-      <form>
+      <form class="signup" id="loginForm">
         <div class="input-container">
           <div class="input-box">
             <label>이메일</label>
-            <input type="email" placeholder="이메일을 입력해주세요" class="input" />
+            <input type="email" placeholder="이메일을 입력해주세요" class="input" id="email" />
+            <div class="error-message">이메일을 입력해주세요</div>
+            <div class="condition-message">잘못된 이메일 형식입니다.</div>
           </div>
           <div class="input-box">
             <label>닉네임</label>
-            <input type="text" placeholder="닉네임을 입력해주세요" class="input" />
+            <input type="text" placeholder="닉네임을 입력해주세요" class="input" id="name" />
+            <div class="error-message">닉네임을 입력해주세요</div>
           </div>
           <div class="input-box">
             <label>비밀번호</label>
-            <input type="password" placeholder="비밀번호를 입력해주세요" class="input" />
+            <input
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+              class="input"
+              id="password"
+            />
+            <div class="error-message">비밀번호를 입력해주세요</div>
+            <div class="condition-message">비밀번호를 8자 이상 입력해주세요.</div>
             <img
               src="image/icon/btn_icon/visibilty_off.png"
               width="24px"
               height="24px"
               class="visibilty"
+              id="passwordEye"
             />
           </div>
           <div class="input-box">
             <label>비밀번호 확인</label>
-            <input type="text" placeholder="비밀번호를 다시 한 번 입력해주세요" class="input" />
+            <input
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              class="input"
+              id="checkPassword"
+            />
+            <div class="condition-message">비밀번호가 일치하지 않습니다.</div>
             <img
-              src="image/icon/btn_icon/visibilty_on.png"
+              src="image/icon/btn_icon/visibilty_off.png"
               width="24px"
               height="24px"
               class="visibilty"
+              id="checkPasswordEye"
             />
           </div>
         </div>
@@ -73,5 +91,6 @@
         <span>이미 회원이신가요?</span> <a href="./login.html">로그인</a>
       </div>
     </footer>
+    <script src="login-signup.js"></script>
   </body>
 </html>
