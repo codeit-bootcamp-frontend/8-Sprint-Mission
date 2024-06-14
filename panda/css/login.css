@@ -93,6 +93,10 @@ form{
     text-align: center;
 }
 
+.login-btn:hover{
+    background-color: var(--btn-hover-color);
+}
+
 /*main - form - login - social-login-btn*/
 .social-login-container{
     width: 100%;

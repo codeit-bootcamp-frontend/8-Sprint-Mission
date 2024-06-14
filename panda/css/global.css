@@ -2,7 +2,7 @@
     --white : #ffffff;
     --header-top-border-color: #dfdfdf;
     --blue: #3692FF;
-    --header-btn-hover-color: #1251AA;
+    --btn-hover-color: #1251AA;
     --background-color: #cfe5ff;
     --default-txt-color: #374151;
     --footer-bg-color: #111827;
@@ -56,7 +56,7 @@ header .logo{
 }
 
 #login-btn:hover{
-    background-color: var(--header-btn-hover-color);
+    background-color: var(--btn-hover-color);
 }
 
 /* main */
