@@ -59,6 +59,7 @@ header .logo{
     background-color: var(--header-btn-hover-color);
 }
 
+/* main */
 main{
     margin-top: 70px;
 }
@@ -70,6 +71,11 @@ main{
     padding: 0 16px;
 }
 
+.tablet {
+    display: none;
+  }
+
+/* footer */
 footer{
     padding : 32px;
     background-color: var(--footer-bg-color);
@@ -100,8 +106,8 @@ footer{
     margin-left: 5px;
 }
 
-.tablet {
-    display: none;
+.full-width {
+    width: 100%;
   }
 
 /* tablet */
