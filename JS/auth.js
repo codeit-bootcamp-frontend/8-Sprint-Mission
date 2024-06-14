@@ -4,11 +4,24 @@ const passwordInputElement = document.querySelectorAll(
   "#password, #password-check"
 );
 
-// focusout이 일어나면 <input>과 <button> 변화 기능
+// focusout이 일어나면 <input>+<button> 변화 기능
 FORM_ELEMENT.addEventListener("focusout", (e) => {
   if (e.target.classList.contains("form-input")) {
     validateInput(e.target);
     checkRequiredValues();
+  }
+});
+
+// input이 일어나면 <button> 변화 기능
+FORM_ELEMENT.addEventListener("input", (e) => {
+  if (e.target.classList.contains("form-input")) {
+    switch (e.target.id) {
+      case "email":
+      case "nickname":
+      case "password":
+      case "password-check":
+    }
+    checkRequiredValues("input");
   }
 });
 
@@ -53,6 +66,11 @@ function validateInput(input) {
         validMessage = isValid ? "" : "잘못된 이메일 형식입니다.";
         break;
 
+      case "nickname":
+        isValid = validateNickname(input.value);
+        validMessage = isValid ? "" : "닉네임은 한글/영문자/숫자만 가능합니다.";
+        break;
+
       case "password":
         isValid = validatePassword(input.value);
         validMessage = isValid ? "" : "비밀번호를 8자 이상 입력해주세요.";
@@ -92,6 +110,11 @@ function validateEmail(email) {
   return re.test(email);
 }
 
+function validateNickname(nickname) {
+  const re = /^[가-힣a-zA-Z0-9]+$/;
+  return re.test(nickname);
+}
+
 /**
  * 비밀번호의 길이가 맞는지 확인하는 함수
  * @param {string} password - 확인할 비밀번호
@@ -129,8 +152,10 @@ function createErrorMessage(eventTarget, errText) {
  * 모든 Required <input>이 올바르게 입력되었는지 확인하는 함수
  * 모두 올바르면 버튼을 활성화합니다.
  * 그렇지 않으면 버튼을 비활성화합니다.
+ *
+ * @param {string} [eventType="focusout"] - input 을 받으면 추가적인 코드가 실행됨
  */
-function checkRequiredValues() {
+function checkRequiredValues(eventType = "focusout") {
   const requiredInputElements = document.querySelectorAll(
     ".form-input[required]"
   );
