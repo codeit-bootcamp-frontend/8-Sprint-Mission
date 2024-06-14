@@ -1,19 +1,19 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
 }
 
-html{
+html {
   font-family: "pretendard";
 }
 
-header img{
+header img {
   width: 396px;
   height: 132px;
   margin: 60px auto 40px;
 }
-@media (max-width : 400px) {
-  header img{
+@media (max-width: 400px) {
+  header img {
     width: 198px;
     height: 66px;
     margin: 24px auto 24px;
@@ -32,7 +32,7 @@ main {
   height: 430px;
   margin: 0 auto;
 }
-@media (max-width : 400px) {
+@media (max-width: 400px) {
   main {
     gap: 16px;
     width: 343px;
@@ -40,15 +40,16 @@ main {
   }
 }
 
-
-input, .login {
-  width : 640px;
+input,
+.login {
+  width: 640px;
   height: 56px;
   border: none;
 }
-@media (max-width : 400px) {
-  input, .login {
-    width : 343px;
+@media (max-width: 400px) {
+  input,
+  .login {
+    width: 343px;
     height: 56px;
   }
 }
@@ -61,7 +62,7 @@ label {
   line-height: 16.71px;
   margin-bottom: 16px;
 }
-@media (max-width : 400px) {
+@media (max-width: 400px) {
   label {
     font-size: 18px;
     font-weight: 700;
@@ -79,11 +80,11 @@ input {
   position: relative;
 }
 
-#signup-email:focus{
-  outline: 1px solid #3182F6;
+#signup-email:focus {
+  outline: 1px solid #3182f6;
 }
 
-.error-message{
+.error-message {
   color: red;
   display: none;
   font-size: 15px;
@@ -92,13 +93,12 @@ input {
   text-align: left;
 }
 
-.input-error{
-  border : 2px solid red;
+.input-error {
+  border: 2px solid red;
 }
 
-
-#signup-password:focus{
-  outline: 1px solid #3182F6;
+#signup-password:focus {
+  outline: 1px solid #3182f6;
 }
 
 #password-icon {
@@ -109,22 +109,22 @@ input {
   padding: 0;
   position: absolute;
   top: 53px;
-  right : 25px;
+  right: 25px;
   background-color: #f3f4f6;
 }
 
 .login {
-  background: #9CA3AF;
+  background: #9ca3af;
   padding: 16px 124px 16px 124px;
   border-radius: 40px;
-  color : #ffffff;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;
 }
 
 .easy-login {
-  background: #E6F2FF;
+  background: #e6f2ff;
   width: 640px;
   height: 74px;
   border-radius: 8px;
@@ -133,7 +133,7 @@ input {
   justify-content: center;
   gap: 393px;
 }
-@media (max-width : 400px) {
+@media (max-width: 400px) {
   .easy-login {
     gap: 95px;
     width: 344px;
@@ -148,13 +148,11 @@ form {
 }
 
 form ::placeholder {
-padding : 16px 24px;
-font-family: "Pretendard";
-font-size: 16px;
-font-weight: 400;
+  padding: 16px 24px;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 400;
 }
-
-
 
 .easy-login-icon {
   display: flex;
@@ -166,12 +164,12 @@ font-weight: 400;
   font-weight: 500;
 }
 
-.footer a{
-  color: #3182F6;
+.footer a {
+  color: #3182f6;
   font-size: 15px;
   font-weight: 500;
 }
 
-.login:hover{
+.login:hover {
   background-color: #3692ff;
 }

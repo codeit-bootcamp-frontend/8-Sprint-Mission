@@ -17,14 +17,16 @@
       <a href="/"><img src="/image/logo3x.png" alt="mainlogo" /></a>
     </header>
     <main>
-      <form class="form-section">
+      <form class="form-section" action="/signin.html">
         <div>
           <label for="signup-email">이메일</label>
           <input
             id="signup-email"
             name="email"
             placeholder="이메일을 입력해주세요"
+            autocomplete="off"
           />
+          <span id="email-error" class="error-message"></span>
         </div>
         <div>
           <label for="signup-name">닉네임</label>
@@ -32,7 +34,9 @@
             id="signup-name"
             name="name"
             placeholder="닉네임을 입력해주세요"
+            autocomplete="off"
           />
+          <span id="name-error" class="error-message"></span>
         </div>
         <div class="password">
           <label for="signup-password">비밀번호</label>
@@ -41,20 +45,28 @@
             name="password"
             type="password"
             placeholder="비밀번호를 입력해주세요"
+            autocomplete="off"
           />
-          <button class="password-incon"></button>
+          <span id="password-error" class="error-message"></span>
+          <button type="button" id="password-icon" onclick="blink1()">
+            <img src="/image/icon/PropertyVariant.png" />
+          </button>
         </div>
         <div class="password">
-          <label for="signup-password-reconfirmation">비밀번호 확인</label>
+          <label for="signup-password">비밀번호 확인</label>
           <input
-            id="signup-password-reconfirmation"
-            name="password-reconfirmation"
+            id="signup-repassword"
+            name="repassword"
             type="password"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
+            autocomplete="off"
           />
-          <button class="password-incon"></button>
+          <span id="repassword-error" class="error-message"></span>
+          <button type="button" id="repassword-icon" onclick="blink2()">
+            <img src="/image/icon/PropertyVariant.png" />
+          </button>
         </div>
-        <button class="login" type="submit">로그인</button>
+        <button class="login" type="submit">회원가입</button>
       </form>
       <div class="easy-login">
         간편 로그인하기
@@ -71,5 +83,6 @@
         이미 회원이신가요? <a href="/login.html">로그인</a>
       </div>
     </main>
+    <script src="index.js"></script>
   </body>
 </html>

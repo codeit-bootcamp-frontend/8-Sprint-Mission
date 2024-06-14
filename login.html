@@ -17,13 +17,14 @@
       <a href="/"><img src="/image/logo3x.png" alt="mainlogo" /></a>
     </header>
     <main>
-      <form>
+      <form action="/item.html">
         <div class="eamil">
           <label for="signup-email">이메일</label>
           <input
             id="signup-email"
             name="email"
             placeholder="이메일을 입력해주세요"
+            autocomplete="off"
           />
           <span id="email-error" class="error-message"></span>
         </div>
@@ -34,14 +35,12 @@
             name="password"
             type="password"
             placeholder="비밀번호를 입력해주세요"
-            required
+            autocomplete="off"
           />
           <span id="password-error" class="error-message"></span>
-          <div>
-            <button type="button" id="password-icon" onclick="blink()">
-              <img src="/image/icon/PropertyVariant.png" />
-            </button>
-          </div>
+          <button type="button" id="password-icon" onclick="blink1()">
+            <img src="/image/icon/PropertyVariant.png" />
+          </button>
         </div>
         <button class="login" type="submit">로그인</button>
       </form>
