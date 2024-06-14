@@ -15,13 +15,7 @@ FORM_ELEMENT.addEventListener("focusout", (e) => {
 // input이 일어나면 <button> 변화 기능
 FORM_ELEMENT.addEventListener("input", (e) => {
   if (e.target.classList.contains("form-input")) {
-    switch (e.target.id) {
-      case "email":
-      case "nickname":
-      case "password":
-      case "password-check":
-    }
-    checkRequiredValues("input");
+    updateButtonLive(e.target);
   }
 });
 
@@ -121,7 +115,7 @@ function validateNickname(nickname) {
  * @return {boolean} - 유효하면 true, 그렇지 않으면 false
  */
 function validatePassword(password) {
-  return password.length < 8 ? false : true;
+  return password.length >= 8;
 }
 
 /**
@@ -149,13 +143,39 @@ function createErrorMessage(eventTarget, errText) {
 /* -------------------------------------------------------------- */
 
 /**
+ * 입력을 받았을 때, 모든 input의 조건이 만족할 때 버튼을 활성화하는 함수
+ * @param {HTMLElement} input - input이 일어났을 때 검사할 Input
+ *  */
+function updateButtonLive(input) {
+  let isValid = false;
+  switch (input.id) {
+    case "email":
+      isValid = validateEmail(input.value);
+      break;
+    case "nickname":
+      isValid = validateNickname(input.value);
+      break;
+    case "password":
+      isValid = validatePassword(input.value);
+      break;
+    case "password-check":
+      const firstPassword = document.querySelector("#password");
+      isValid = validatePasswordCheck(firstPassword.value, input.value);
+      break;
+  }
+  if (isValid) {
+    checkRequiredValues();
+  }
+}
+
+/* -------------------------------------------------------------- */
+
+/**
  * 모든 Required <input>이 올바르게 입력되었는지 확인하는 함수
  * 모두 올바르면 버튼을 활성화합니다.
  * 그렇지 않으면 버튼을 비활성화합니다.
- *
- * @param {string} [eventType="focusout"] - input 을 받으면 추가적인 코드가 실행됨
  */
-function checkRequiredValues(eventType = "focusout") {
+function checkRequiredValues() {
   const requiredInputElements = document.querySelectorAll(
     ".form-input[required]"
   );
