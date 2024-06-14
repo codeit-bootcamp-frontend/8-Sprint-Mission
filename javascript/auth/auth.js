@@ -28,23 +28,18 @@ const submitButton = document.querySelector('.auth-form .auth-submit-button');
  */
 const validateSubmit = () => {
   const pathname = window.location.pathname;
-  if (pathname === PATHNAME_LOGIN && isValidEmail && isValidPassword) {
-    submitButton.className = 'auth-submit-button activate';
-    return console.log('활성화');
-  }
   if (
-    pathname === PATHNAME_SIGNUP &&
-    isValidEmail &&
-    isValidPassword &&
-    isValidNickName &&
-    isPasswordMatched
+    (pathname === PATHNAME_LOGIN && isValidEmail && isValidPassword) ||
+    (pathname === PATHNAME_SIGNUP &&
+      isValidEmail &&
+      isValidPassword &&
+      isValidNickName &&
+      isPasswordMatched)
   ) {
     submitButton.className = 'auth-submit-button activate';
-    return console.log('활성화');
+    return;
   }
-
   submitButton.className = 'auth-submit-button';
-  return console.log('비활성화');
 };
 
 /**
@@ -99,7 +94,7 @@ const validateEmail = (event) => {
   if (email === '') {
     return showError(event.target, '이메일을 입력해주세요');
   }
-  return showError(event.target, '잘못된 이메일 형식입니다');
+  showError(event.target, '잘못된 이메일 형식입니다');
 };
 
 /**
@@ -116,7 +111,7 @@ const validateNickname = (event) => {
     return showError(event.target, '닉네임을 입력해주세요');
   }
   isValidNickName = true;
-  return showSuccess(event.target);
+  showSuccess(event.target);
 };
 
 /**
@@ -134,7 +129,7 @@ const validatePasswordMatch = () => {
     return showError(inputVerifyPassword, '비밀번호가 일치하지 않습니다.');
   }
   isPasswordMatched = true;
-  return showSuccess(inputVerifyPassword);
+  showSuccess(inputVerifyPassword);
 };
 
 /**
@@ -160,11 +155,21 @@ const validatePassword = (event) => {
   }
 
   isValidPassword = true;
-  return showSuccess(event.target);
+  showSuccess(event.target);
 };
 
 // addEventListeners
 inputEmail.addEventListener('focusout', (event) => validateEmail(event));
 inputPassword.addEventListener('focusout', (event) => validatePassword(event));
-inputNickname.addEventListener('focusout', (event) => validateNickname(event));
-inputVerifyPassword.addEventListener('focusout', () => validatePasswordMatch());
+
+// 회원가입 페이지라면
+if (inputNickname) {
+  inputNickname.addEventListener('focusout', (event) =>
+    validateNickname(event)
+  );
+}
+if (inputVerifyPassword) {
+  inputVerifyPassword.addEventListener('focusout', () =>
+    validatePasswordMatch()
+  );
+}
