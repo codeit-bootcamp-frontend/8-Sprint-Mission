@@ -47,9 +47,7 @@
             alt="앱 로고와 이름 이미지"
           />
         </a>
-        <button class="header-login" onclick="moveLocation('./pages/login')">
-          로그인
-        </button>
+        <button class="header-login move-to-login">로그인</button>
       </div>
     </header>
 
@@ -57,7 +55,7 @@
       <div class="container home-brand-top">
         <div class="home-brand-wrapper">
           <h1>일상의 모든 물건을 거래해 보세요</h1>
-          <button onclick="moveLocation('/items')">구경하러 가기</button>
+          <button class="move-to-items">구경하러 가기</button>
         </div>
         <img
           class="brand-image"
@@ -165,9 +163,6 @@
     </footer>
 
     <!-- script -->
-    <script
-      type="text/javascript"
-      src="./javascript/utils/location.js"
-    ></script>
+    <script type="module" src="../../javascript/router/router.js"></script>
   </body>
 </html>

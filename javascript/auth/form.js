@@ -2,6 +2,7 @@
 const INPUT_WRAPPER = 'auth-input-wrapper';
 const PATHNAME_LOGIN = '/pages/login/';
 const PATHNAME_SIGNUP = '/pages/signup/';
+const AUTH_FORM = 'auth-form';
 
 // variables
 let isValidEmail = false;
@@ -20,7 +21,10 @@ const inputNickname = document.querySelector(
 const inputVerifyPassword = document.querySelector(
   `.${INPUT_WRAPPER} #verify-password`
 );
-const submitButton = document.querySelector('.auth-form .auth-submit-button');
+const authForm = document.querySelector(`.${AUTH_FORM}`);
+const submitButton = document.querySelector(
+  `.${AUTH_FORM} .auth-submit-button`
+);
 
 // input control functions
 /**
@@ -158,9 +162,14 @@ const validatePassword = (event) => {
   showSuccess(event.target);
 };
 
+const sumbitForm = () => {
+  moveLocation('/items');
+};
+
 // addEventListeners
 inputEmail.addEventListener('focusout', (event) => validateEmail(event));
 inputPassword.addEventListener('focusout', (event) => validatePassword(event));
+authForm.addEventListener('submit', () => sumbitForm);
 
 // 회원가입 페이지라면
 if (inputNickname) {

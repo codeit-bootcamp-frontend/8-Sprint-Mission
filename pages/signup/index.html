@@ -21,7 +21,7 @@
       로그인 & 회원가입 화면에 공통적인 스타일로 적용시킬 예정 -->
 
     <!-- 메인 페이지로 이동하는 기능을 가진 로고 -->
-    <article class="auth-logo" onclick="moveLocation('/')">
+    <article class="auth-logo move-to-home">
       <img
         src="../../assets/images/auth/auth-logo.png"
         alt="판다마켓 로고와 타이포"
@@ -104,7 +104,7 @@
           <small>Error Message</small>
         </div>
 
-        <button class="auth-submit-button">회원가입</button>
+        <button class="auth-submit-button move-to-login">회원가입</button>
       </form>
 
       <section class="social-auth">
@@ -138,10 +138,7 @@
     </main>
 
     <!-- script -->
-    <script
-      type="text/javascript"
-      src="../../javascript/utils/location.js"
-    ></script>
+    <script type="module" src="../../javascript/router/router.js"></script>
     <script type="text/javascript" src="../../javascript/auth/form.js"></script>
     <script
       type="text/javascript"

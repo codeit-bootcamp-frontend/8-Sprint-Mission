@@ -1,3 +1,3 @@
-const moveLocation = (href) => {
+export const moveLocation = (href) => {
   location.href = href;
 };
