@@ -5,6 +5,7 @@
   --imgBg-blue-color: #CFE5FF;
   --mainText-blue-color: #374151;
   --subText-blue-color: #1F2937;
+  --error-line-color: #F74747;
 }
 
 a{
@@ -282,6 +283,12 @@ button {
   cursor: pointer;
 }
 
+.btn-a{
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  width: 100%;
+}
 
 button:hover{
   background: var(--main-blue-color);
@@ -510,4 +517,29 @@ button:hover{
   }
 
 
+}
+
+
+/* js */
+.error2{
+  outline: 1px solid var(--error-line-color);
+}
+
+.error{
+  outline: 1px solid var(--error-line-color);
+}
+
+.email-error,
+.email-error2,
+.pw-error,
+.pw-error2,
+.nickname-error,
+.pwChecker-error {
+  display: none;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--error-line-color);
+  padding-left: 16px;
+  padding-top: 8px;
 }
