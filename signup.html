@@ -6,6 +6,7 @@
   <title>판다마켓</title>
   <link rel="stylesheet" href="css/style-signup.css">
   <link rel="icon" href="image/title_ic.png">
+  <link rel="stylesheet" as="style"href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 </head>
 <body>
   <header class="signup-header">
@@ -13,46 +14,71 @@
       <img src="image/Property 1=Variant3@3x.png" alt="판다마켓 메인페이지로 가기" width="396px" height="132px">
     </a>
   </header>
-  <main class="signup-main">
-    <section class="signup-section">
-      <label class="signup-label-font" for="email">이메일</label>
-      <input class="signup-layout" id="email" type="email" placeholder="이메일을 입력해주세요">
-    </section>
-    <section class="signup-section">
-      <label class="signup-label-font" for="Nname">닉네임</label>
-      <input class="signup-layout" id="Nname" type="text" placeholder="닉네임을 입력해주세요">
-    </section>
-    <section class="signup-section">
-      <label class="signup-label-font" for="password">비밀번호</label>
-      <div class="password-hidden-layout">
-        <input class="signup-layout" id="password" type="password" placeholder="비밀번호를 입력해주세요">
-        <img class="password-hidden cursor-pointer" src="image/btn_visibility_on_24px.png" alt="비밀번호 표시 변경">
+  <form action="" accept-charset="UTF-8" name="panda-signup" method="get">
+    <main class="signup-main">
+      <div class="signup-section">
+        <label class="signup-label-font" for="email">이메일</label>
+        <input class="signup-layout" id="email" type="email" placeholder="이메일을 입력해주세요">
+        <div class="fail-login-blank hide">
+          이메일을 입력해주세요.
+        </div>
+        <div class="fail-login-email hide">
+          잘못된 이메일 형식입니다.
+        </div>
       </div>
-    </section>
-    <section class="signup-section">
-      <label class="signup-label-font" for="passwordCheck">비밀번호 확인</label>
-      <div class="password-hidden-layout">
-        <input class="signup-layout" id="passwordCheck" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
-        <img class="password-hidden cursor-pointer" src="image/btn_visibility_on_24px.png" alt="비밀번호 표시 변경">
+      <div class="signup-section">
+        <label class="signup-label-font" for="nickname">닉네임</label>
+        <input class="signup-layout" id="nickname" type="text" placeholder="닉네임을 입력해주세요">
+        <div class="fail-nickname-blank hide">
+          닉네임을 입력해주세요.
+        </div>
       </div>
-    </section>
-    <img class="cursor-pointer" src="image/btn_large_signup.png" alt="회원가입" width="640px" height="56px">
-    <section class="easy-login-section">
-      <div class="easy-login-font">
-        간편 로그인하기
+      <div class="signup-section">
+        <label class="signup-label-font" for="password">비밀번호</label>
+        <div class="password-hidden-layout">
+          <input class="signup-layout" id="password" type="password" placeholder="비밀번호를 입력해주세요">
+          <img class="password-hidden cursor-pointer" src="image/btn_visibility_on_24px.png" alt="비밀번호 표시 변경">
+        </div>
+        <div class="fail-password-blank hide">
+          비밀번호를 입력해주세요.
+        </div>
+        <div class="fail-password-length hide">
+          비밀번호를 8자 이상 입력해주세요.
+        </div>
       </div>
-      <div class="easy-login-layout">
-        <a href="https://www.google.com/">
-          <img src="image/Component 2.png" alt="구글 로그인" width="42px" height="42px">
-        </a>
-        <a href="https://www.kakaocorp.com/page/">
-          <img src="image/Component 3.png" alt="카카오톡 로그인" width="42px" height="42px">
-        </a>
+      <div class="signup-section">
+        <label class="signup-label-font" for="passwordCheck">비밀번호 확인</label>
+        <div class="password-hidden-layout">
+          <input class="signup-layout" id="passwordCheck" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+          <img class="password-hidden cursor-pointer" src="image/btn_visibility_on_24px.png" alt="비밀번호 표시 변경">
+        </div>
+        <div class="fail-password-check hide">
+          비밀번호가 일치하지 않습니다.
+        </div>
       </div>
-    </section>
-    <section class="login-link-font">
-      이미 회원이신가요? <a class="login-link" href="login.html">로그인</a>
-    </section>
-  </main>
+      <a id="signup-success-link">
+        <button class="signup-button cursor-pointer" type="button">
+          회원가입
+        </button>
+      </a>
+      <div class="easy-login-section">
+        <p class="easy-login-font">
+          간편 로그인하기
+        </p>
+        <div class="easy-login-layout">
+          <a href="https://www.google.com/">
+            <img src="image/Component 2.png" alt="구글 로그인" width="42px" height="42px">
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img src="image/Component 3.png" alt="카카오톡 로그인" width="42px" height="42px">
+          </a>
+        </div>
+      </div>
+      <div class="login-link-font">
+        이미 회원이신가요? <a class="login-link" href="login.html">로그인</a>
+      </div>
+    </main>
+  </form>
+  <script src="js/verifySignup.js"></script>
 </body>
 </html>

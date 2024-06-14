@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+.hide {
+  display: none;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -75,6 +79,25 @@ a {
   line-height: 24px;
 }
 
+.login-button {
+  width: 640px;
+  height: 56px;
+  padding: 16px 124px;
+  border: 1px solid;
+  border-radius: 40px;
+  border-color: #9CA3AF;
+  background-color: #9CA3AF;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  font-family: Pretendard, sans-serif;
+  font-weight: 600;
+}
+
+.login-button-toggle {
+  background-color: #3692FF;
+}
+
 input::placeholder {
   color: #9CA3AF;
 }
@@ -112,4 +135,51 @@ input::placeholder {
 .signup-link {
   color: #3182F6;
   text-decoration: underline #3182F6;
+}
+
+.fail-login-blank,
+.fail-login-email,
+.fail-password-blank,
+.fail-password-length {
+  color: #F74747;
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 16px;
+}
+
+.fail-layout {
+  border: 2px solid;
+  border-color: #F74747;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .login-header {
+    height: 66px;
+    margin-top: 24px;
+  }
+
+  .login-header img {
+    width: 198px;
+    height: 66px;
+  }
+
+  .login-main {
+    margin-top: 24px;
+  }
+
+  .login-layout {
+    width: 90vw;
+    max-width: 640px;
+    padding-left: 24px;
+  }
+  
+  .login-button {
+    width: 90vw;
+    max-width: 640px;
+  }
+
+  .easy-login-section {
+    width: 90vw;
+    max-width: 640px;
+  }
 }
