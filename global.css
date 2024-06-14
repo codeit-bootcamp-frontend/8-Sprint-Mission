@@ -298,13 +298,9 @@ footer {
     height: auto;
   }
 
-  .banner-background {
-    padding-top: 121px;
-    height: auto;
-  }
-
   .banner-container {
     flex-direction: column;
+    width: auto;
     height: auto;
     margin: 0;
     gap: 60px;

@@ -16,16 +16,16 @@
 
     <div class="login"> 
       <form class="login-form">
-        <div class="input-container">
+        <div class="input-container email-container">
           <label for="email" >이메일</label>
           <input id="email" type="email" placeholder="이메일을 입력해주세요">
         </div>
         <div class="input-container pw-container">
           <label for="pw">비밀번호</label>
           <input id="pw" type="password" placeholder="비밀번호를 입력해주세요">
-          <img class="btn-off" src="/assets/icons/btn_visibility_off.png">
+          <img class="pw-visible" src="/assets/icons/btn_visibility_off.png">
         </div>
-        <button class=button type="submit">로그인</button>
+        <button class="submit-btn inactive-btn" type="submit">로그인</button>
       </form>
       
       <div class="login-messenger">
@@ -41,9 +41,10 @@
       </div>
       <div class="signup">
         판다마켓이 처음이신가요?
-        <a href="/signup.html">회원가입</a>
+        <a href="/pages/signup/signup.html">회원가입</a>
       </div>
     </div>
   </main>
+  <script src="/validate.js"></script>
 </body>
 </html>
