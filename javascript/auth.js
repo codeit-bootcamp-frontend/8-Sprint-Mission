@@ -1,4 +1,5 @@
 import { handlePasswordToggleButton } from "./password-toggle.js";
+import { showError, hideError } from "./authErrorHandler.js";
 
 const passwordToggleButton = document.querySelectorAll(
   ".password-visible-toggle-btn"
@@ -38,19 +39,6 @@ const signupActivateSubmit = () => {
     submitButton.disabled = true;
     submitButton.style.backgroundColor = "var(--gray-400)";
   }
-};
-
-const showError = (input, errorElementId, isElementError) => {
-  const errorElement = document.getElementById(errorElementId);
-  errorElement.style.display = "block";
-  input.style.border = "1px solid var(--error-red)";
-  isElementError = true;
-};
-const hideError = (input, errorElementId, isElementError) => {
-  const errorElement = document.getElementById(errorElementId);
-  errorElement.style.display = "none";
-  input.style.border = "none";
-  isElementError = false;
 };
 
 const handleEmailValidation = () => {
