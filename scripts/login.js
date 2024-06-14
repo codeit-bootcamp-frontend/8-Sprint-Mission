@@ -5,11 +5,13 @@ document.addEventListener("DOMContentLoaded",function(){
     const togglePassword = document.getElementById("toggle-password");
 
     emailInput.addEventListener("focusout", function(){
-        checkEmailValidation(emailInput);
+        loginValidationResults.email = checkEmailValidation(emailInput);
+        toggleSubmitButton();
     });
 
     passwordInput.addEventListener("focusout", function() {
-        checkPasswordValidation(passwordInput);
+        loginValidationResults.password = checkPasswordValidation(passwordInput);
+        toggleSubmitButton();
     });
 
     togglePassword.addEventListener("click", function(){

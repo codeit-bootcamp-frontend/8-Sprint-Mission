@@ -3,6 +3,17 @@ const nicknameInput = document.getElementById("nickname");
 const passwordInput = document.getElementById("password");
 const checkPasswordInput = document.getElementById("password-check");
 
+const loginValidationResults = {
+    email: false,
+    password: false
+};
+const signupValidationResults = {
+    email: false,
+    password: false,
+    passwordCheck : false,
+    nickname : false
+};
+
 // 에러 메시지 요소 생성 함수
 function createErrorMessageElement(id, message){
     const errorElement = document.createElement('span');
@@ -127,6 +138,19 @@ function togglePasswordVisibility(idInput, togglebtn){
 }
 
 // 버튼 활성화 함수( 모든 값이 들어있을 경우에 버튼 활성화, 아닐땐 비활성화 )
+function toggleSubmitButton() {
+    const submitButton = document.getElementById("submit-button");
+    const loginAllValid = Object.values(loginValidationResults).every(value => value === true);
+    const signUpAllValid = Object.values(signupValidationResults).every(value => value === true);
 
-
+    if (loginAllValid) {
+        submitButton.removeAttribute("disabled");
+    }
+    else if(signUpAllValid){
+        submitButton.removeAttribute("disabled");
+    }
+    else {
+        submitButton.setAttribute("disabled", "disabled");
+    }
+}
 
