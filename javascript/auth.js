@@ -19,10 +19,10 @@ let isNameError = true;
 const loginActivateSubmit = () => {
   if (isEmailError === false && isPasswordError === false) {
     submitButton.disabled = false;
-    submitButton.style.backgroundColor = "#3692ff";
+    submitButton.style.backgroundColor = "var(--brand-blue)";
   } else {
     submitButton.disabled = true;
-    submitButton.style.backgroundColor = "#9ca3af";
+    submitButton.style.backgroundColor = "var(--gray-400)";
   }
 };
 const signupActivateSubmit = () => {
@@ -33,99 +33,93 @@ const signupActivateSubmit = () => {
     isPasswordConfirmError === false
   ) {
     submitButton.disabled = false;
-    submitButton.style.backgroundColor = "#3692ff";
+    submitButton.style.backgroundColor = "var(--brand-blue)";
   } else {
     submitButton.disabled = true;
-    submitButton.style.backgroundColor = "#9ca3af";
+    submitButton.style.backgroundColor = "var(--gray-400)";
   }
 };
 
+const showError = (input, errorElementId, isElementError) => {
+  const errorElement = document.getElementById(errorElementId);
+  errorElement.style.display = "block";
+  input.style.border = "1px solid var(--error-red)";
+  isElementError = true;
+};
+const hideError = (input, errorElementId, isElementError) => {
+  const errorElement = document.getElementById(errorElementId);
+  errorElement.style.display = "none";
+  input.style.border = "none";
+  isElementError = false;
+};
+
 const handleEmailValidation = () => {
-  const emptyEmail = document.getElementById("email-empty");
-  const errorEmail = document.getElementById("email-error");
   const emailValue = emailInput.value;
   const regex =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+  hideError(emailInput, "email-error", isEmailError);
+  hideError(emailInput, "email-empty", isEmailError);
 
   if (!emailValue) {
-    errorEmail.style.display = "none";
-    emptyEmail.style.display = "block";
-    emailInput.style.border = "1px solid #f74747";
-    isEmailError = true;
+    showError(emailInput, "email-empty", isEmailError);
   } else {
-    emptyEmail.style.display = "none";
-    emailInput.style.border = "none";
+    hideError(emailInput, "email-empty", isEmailError);
     if (regex.test(emailValue)) {
-      errorEmail.style.display = "none";
-      emailInput.style.border = "none";
-      isEmailError = false;
+      hideError(emailInput, "email-error", isEmailError);
     } else {
-      errorEmail.style.display = "block";
-      emailInput.style.border = "1px solid #f74747";
-      isEmailError = true;
+      showError(emailInput, "email-error", isEmailError);
     }
   }
   nameInput ? signupActivateSubmit() : loginActivateSubmit();
 };
 
 const handleNameValidation = () => {
-  const emptyName = document.getElementById("name-empty");
   const nameValue = nameInput.value;
 
   if (!nameValue) {
-    emptyName.style.display = "block";
-    nameInput.style.border = "1px solid #f74747";
-    isNameError = true;
+    showError(nameInput, "name-empty", isNameError);
   } else {
-    emptyName.style.display = "none";
-    nameInput.style.border = "none";
-    isNameError = false;
+    hideError(nameInput, "name-empty", isNameError);
   }
   signupActivateSubmit();
 };
 
 const handlePasswordValidation = () => {
-  const emptyPassword = document.getElementById("password-empty");
-  const errorPassword = document.getElementById("password-error");
   const passwordValue = passwordInput.value;
 
+  hideError(passwordInput, "password-empty", isPasswordError);
+  hideError(passwordInput, "password-error", isPasswordError);
+
   if (!passwordValue) {
-    errorPassword.style.display = "none";
-    emptyPassword.style.display = "block";
-    passwordInput.style.border = "1px solid #f74747";
-    isPasswordError = true;
+    showError(passwordInput, "password-empty", isPasswordError);
   } else {
-    emptyPassword.style.display = "none";
-    passwordInput.style.border = "none";
+    hideError(passwordInput, "password-empty", isPasswordError);
     if (passwordValue.length >= 8) {
-      errorPassword.style.display = "none";
-      passwordInput.style.border = "none";
-      isPasswordError = false;
+      hideError(passwordInput, "password-error", isPasswordError);
     } else {
-      errorPassword.style.display = "block";
-      passwordInput.style.border = "1px solid #f74747";
-      isPasswordError = true;
+      showError(passwordInput, "password-error", isPasswordError);
     }
   }
   nameInput ? signupActivateSubmit() : loginActivateSubmit();
 };
 
 const handlePasswordConfirmValidation = () => {
-  const errorPasswordConfirm = document.getElementById(
-    "password-confirm-error"
-  );
   const passwordConfirmValue = passwordConfirmInput.value;
   const passwordValue = passwordInput.value;
   const isMatch = passwordConfirmValue === passwordValue;
 
-  if (!isMatch) {
-    errorPasswordConfirm.style.display = "block";
-    passwordConfirmInput.style.border = "1px solid #f74747";
-    isPasswordConfirmError = true;
+  if (!passwordValue || !isMatch) {
+    showError(
+      passwordConfirmInput,
+      "password-confirm-error",
+      isPasswordConfirmError
+    );
   } else {
-    errorPasswordConfirm.style.display = "none";
-    passwordConfirmInput.style.border = "none";
-    isPasswordConfirmError = false;
+    hideError(
+      passwordConfirmInput,
+      "password-confirm-error",
+      isPasswordConfirmError
+    );
   }
   signupActivateSubmit();
 };
