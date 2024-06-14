@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/base/global.css" />
     <link rel="stylesheet" href="/css/login.css" />
   </head>
+
   <body>
     <header>
       <div class="logo-block">
@@ -26,20 +27,21 @@
       <div class="content">
         <div>
           <h3>이메일</h3>
-          <input type="email"
+          <input type="email" id="email-input"
            placeholder="이메일을 입력해주세요"
            onfocus="this.placeholder=''"
            onblur="this.placeholder='이메일을 입력해주세요'"
           />
+          <p id="email-error-message" class="error-message"></p>
         </div>
         <div>
           <h3>비밀번호</h3>
           <div class="password-input">
-            <input type="password"
+            <input type="password" id="password-input"
              placeholder="비밀번호를 입력해주세요"
              onfocus="this.placeholder=''"
              onblur="this.placeholder='비밀번호를 입력해주세요'"
-            />
+            /> 
             <a>
               <img
                   class="visibility-button"
@@ -47,9 +49,10 @@
                   alt="비밀번호 표시 옵션"
               />
             </a>
+            <p id="password-error-message" class="error-message"></p>
           </div>
         </div>
-        <button>로그인</button>
+        <button id="login-button" onclick="location.href='/pages/items'" disabled="true">로그인</button>
         <div class="simple-login">
           <p>
             간편 로그인하기
@@ -70,4 +73,7 @@
       </div>
     </main>
   </body>
+
+  <script src="/js/input.js"></script>
+  <script src="/js/pw_visibility.js"></script>
 </html>

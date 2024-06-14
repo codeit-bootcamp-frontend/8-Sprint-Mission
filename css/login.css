@@ -40,11 +40,24 @@ input {
 }
 
 input:focus {
-  outline: 2px solid var(--brand-blue);
+  outline: 1px solid var(--brand-blue);
+}
+
+.error-input,
+.error-input:focus {
+  outline: 1px solid var(--error-red);
 }
 
 .password-input {
   position: relative;
+}
+
+.error-message {
+  margin-top: 8px;
+  margin-left: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--error-red);
 }
 
 .visibility-button {
