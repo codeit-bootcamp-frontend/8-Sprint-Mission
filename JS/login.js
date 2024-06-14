@@ -1,8 +1,10 @@
-// window.onload = function () {
-//   (function () {
-//     document.getElementsByClassName("login-button").disabled = true;
-//   })();
-// };
+/** IIFE
+ *
+ */
+// (function () {
+//   const sumbitButton = document.querySelector("#login-button");
+//   sumbitButton.disabled = true;
+// });
 
 const FORM_ELEMENT = document.querySelector("form");
 
@@ -66,7 +68,7 @@ function validateInput(input) {
 /**
  * 이메일이 정규식에 맞는지 검증하는 함수
  * @param {string} email - 이메일
- * @return {boolean} - 유효하면 true, 않으면 false
+ * @return {boolean} - 유효하면 true, 그렇지 않으면 false
  */
 function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -76,7 +78,7 @@ function validateEmail(email) {
 /**
  * 비밀번호의 길이가 맞는지 확인하는 함수
  * @param {string} password - 확인할 비밀번호
- * @return {boolean} - 유효하면 true, 않으면 false
+ * @return {boolean} - 유효하면 true, 그렇지 않으면 false
  */
 function validatePassword(password) {
   return password.length <= 8 ? false : true;
@@ -86,6 +88,7 @@ function validatePassword(password) {
  * 비밀번호 확인 input과 비밀번호 input이 같은지 확인하는 함수
  * @param {string} pw1 - 비교할 비밀번호
  * @param {string} pw2 - 비밀번호 확인
+ * @return {boolean} - 비밀번호가 같으면 true, 그렇지 않으면 false
  */
 function validatePasswordCheck(pw1, pw2) {
   return pw1 === pw2;
