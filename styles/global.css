@@ -25,7 +25,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/* 
+  프로젝트 전체에 일관된 텍스트 스타일을 적용합니다. 
+  word-break: keep-all 속성을 사용하면 띄어쓰기를 기준으로 줄바꿈하도록 설정하여 
+  어절 기반의 한국어 특성에 적합한 읽기 편한 레이아웃을 제공할 수 있습니다.
+*/
 body {
   color: var(--gray-700);
   word-break: keep-all;
@@ -52,7 +56,7 @@ main {
 
 
 footer {
-  background-color: #111827;
+  background-color: var(--gray-900);
   color: var(--gray-400);
   display: flex;
   justify-content: space-between;
@@ -60,18 +64,22 @@ footer {
   padding: 32px 200px 108px 200px;
   font-size: 16px;
 }
+
+#footerMenu {
+  display: flex;
+  gap: 30px;
+  color: var(--gray-200);
+}
+
+#socialMedia {
+  display: flex;
+  gap: 12px;
+}
+
 /* 링크가 상위 요소 또는 설정된 기본 텍스트 색상과 동일하게 표현되길 원한다면 a 태그에 명시적으로 color: inherit을 지정해 줘야 합니다. */
 a {
   text-decoration: none;
   color: inherit;
-}
-
-button {
-  background: none;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  cursor: pointer;
 }
 
 /* 
@@ -86,25 +94,6 @@ button {
 */
 img {
   vertical-align: bottom;
-}
-
-/* 
-  프로젝트 전체에 일관된 텍스트 스타일을 적용합니다. 
-  word-break: keep-all 속성을 사용하면 띄어쓰기를 기준으로 줄바꿈하도록 설정하여 
-  어절 기반의 한국어 특성에 적합한 읽기 편한 레이아웃을 제공할 수 있습니다.
-*/
-
-
-
-#footerMenu {
-  display: flex;
-  gap: 30px;
-  color: var(--gray-200);
-}
-
-#socialMedia {
-  display: flex;
-  gap: 12px;
 }
 
 /* 요소의 최대 너비를 1200px로 제한하고, 
@@ -122,10 +111,25 @@ h1 {
   letter-spacing: 0.02em;
 }
 
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 /* 위에서 스타일링해준 <button> 태그와 달리 
 버튼 모양이지만 <a> 태그를 사용한 class='button' 요소들을 지칭하는 부분이니 혼동하지 않도록 주의하세요. */
 .button {
-  background-color: #3692ff;
+  background-color: var(--blue);
   color: #ffffff;
   display: inline-flex;
   align-items: center;
@@ -146,7 +150,7 @@ h1 {
 }
 
 .button:disabled {
-  background-color: #9ca3af;
+  background-color: var(--gray-400);
   cursor: default;
   pointer-events: none;
 }
@@ -162,4 +166,8 @@ h1 {
   font-weight: 700;
   border-radius: 999px;
   padding: 16px 124px;
+}
+
+.full-width {
+  width: 100%;
 }

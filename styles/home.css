@@ -21,11 +21,11 @@
 }
 
 /* 버튼 등의 요소에 고정된 width나 height을 부여하는 것보다 내부 콘텐츠에 padding을 적용해서 요소의 전체 크기를 유동적으로 조정하는 방법이 반응형 웹 디자인과 접근성(accessibility) 측면에서 더 적합합니다. */
-#loginLinkButton {
+#signinLinkButton {
   font-size: 16px;
   font-weight: 600;
   border-radius: 8px;
-  padding: 11.5px 23px;
+  padding: 14.5px 43px;
 }
 
 /* banner 요소 내의 pill-button을 선택해 스타일 적용. ID 선택자 대신 이렇게 캐스캐이딩을 활용하는 방법은 특정 컨텍스트 내에서만 스타일을 적용하고자 할 때 유용해요. */
@@ -52,7 +52,7 @@
 }
 
 .feature-tag {
-  color: #3692ff;
+  color: var(--blue);
   font-size: 18px;
   line-height: 25px;
   font-weight: 700;
