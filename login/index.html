@@ -8,30 +8,43 @@
 </head>
 <body>
     <header>
-        <a class="home-logo" href="/"><img class="header-img" src=../imgs/signup_logo.png></a>
+        <a class="home-logo" href="/"><img class="header-img" src=../imgs/signup_logo.png alt="홈으로"></a>
     </header>
     <main>
         <div class="container">
-            <form>
-                <label for="email">이메일</label>
+            <div class="pseudo-form">
+                
+                <label for="email">
+                    이메일
+                    <span class="email-empty error-message hidden">이메일을 입력해주세요.</span>
+                    <span class="email-wrong-format error-message hidden">잘못된 이메일 형식입니다.</span>
+                </label>
                 <input id="email" name="email" class="text-input" placeholder="이메일을 입력해주세요">
-                <label for="password">비밀번호</label>
+                
+                <label for="password">
+                    비밀번호
+                    <span class="password-empty error-message hidden">비밀번호를 입력해주세요.</span>
+                    <span class="password-wrong-format error-message hidden">비밀번호를 8자 이상 입력해주세요.</span>
+                </label>
                 <div class="password-field">
                     <input id="password" name="password" class="text-input" type="password" placeholder="비밀번호를 입력해주세요">
-                    <img src="../imgs/EyeIconSlashed.png" class="password-visibility-icon">
+                    <img src="../imgs/EyeIconSlashed.png" class="password-visibility-icon" alt="패스워드 보이기">
+                
                 </div>
-                <button class="doit">로그인</button>
+                <button class="login action-button">로그인</button>
+                
                 <div class="easy-login">
                     <span>간편 로그인하기</span>
                     <div class="media-icons">
-                        <a href="https://www.google.com/"><img src="../imgs/Component2.png"></a>
-                        <a href="https://www.kakaocorp.com/page/"><img src="../imgs/Component3.png"></a>
+                        <a href="https://www.google.com/"><img src="../imgs/Component2.png" alt="Google"></a>
+                        <a href="https://www.kakaocorp.com/page/"><img src="../imgs/Component3.png" alt="Kakao"></a>
                     </div>
                 </div>
-            </form>
+
+            </div>
             <span class=signup-link>판다마켓이 처음이신가요? <a href="/signup">회원가입</a></span>
         </div>
     </main>
-    <script type="module" src="../scripts/signupIndex.js"></script>
+    <script type="module" src="../scripts/signupEventHandler.js"></script>
 </body>
 </html>

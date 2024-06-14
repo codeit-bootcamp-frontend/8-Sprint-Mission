@@ -1,7 +1,5 @@
 import { btnLink } from "./stdLib.js";
-
-const loginPage = '/login';
-const itemsPage = '/items';
+import { loginPage, itemsPage } from "./constLib.js";
 
 const loginBtn = document.querySelector('.login-button');
 const itemsBtn = document.querySelector('.items-button');
