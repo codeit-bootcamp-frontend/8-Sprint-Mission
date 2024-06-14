@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const inputEmail = document.getElementById('email');
   const inputPassword = document.getElementById('password');
-  const btnPasswordVisible = document.getElementById('btn-password-visible');
+  const btnTogglePasswordVisibleList = document.querySelectorAll(
+    '.btn-password-visible'
+  );
   const btnSignin = document.getElementById('btn-signin');
   const messageErrorEmail = document.getElementById('message-error-email');
   const messageErrorPassword = document.getElementById(
@@ -52,12 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const togglePasswordVisible = (e) => {
     e.preventDefault();
-    if (!isPasswordVisible) {
-      inputPassword.type = 'text';
-      isPasswordVisible = true;
+    const visibleBtn = e.currentTarget;
+    const targetInput = visibleBtn.parentElement.querySelector('input');
+    const visibleImg = visibleBtn.querySelector('.img-password-visible');
+    if (targetInput.type === 'password') {
+      targetInput.type = 'text';
+      visibleImg.src = '/images/icons/eye-visible.svg';
     } else {
-      inputPassword.type = 'password';
-      isPasswordVisible = false;
+      targetInput.type = 'password';
+      visibleImg.src = '/images/icons/eye-invisible.svg';
     }
   };
 
@@ -97,5 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
   inputEmail.addEventListener('input', validateEmail);
   inputPassword.addEventListener('input', validatePassword);
   btnSignin.addEventListener('click', handleSubmit);
-  btnPasswordVisible.addEventListener('click', togglePasswordVisible);
+  btnTogglePasswordVisibleList.forEach((button) => {
+    button.addEventListener('click', togglePasswordVisible);
+  });
 });

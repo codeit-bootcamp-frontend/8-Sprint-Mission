@@ -102,9 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (targetInput.type === 'password') {
       targetInput.type = 'text';
       visibleImg.src = '/images/icons/eye-visible.svg';
+      visibleImg.alt = '비밀번호 표시';
     } else {
       targetInput.type = 'password';
       visibleImg.src = '/images/icons/eye-invisible.svg';
+      visibleImg.alt = '비밀번호 숨김';
     }
   };
 
