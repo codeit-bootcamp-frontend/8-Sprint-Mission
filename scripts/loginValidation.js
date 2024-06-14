@@ -9,9 +9,9 @@ const loginValidationResults = {
 };
 const signupValidationResults = {
     email: false,
+    nickname : false,
     password: false,
-    passwordCheck : false,
-    nickname : false
+    passwordCheck : false
 };
 
 // 에러 메시지 요소 생성 함수
@@ -67,10 +67,34 @@ function checkEmailValidation(){
     }
 }
 
-// 비밀번호 검사 함수
-function checkPasswordValidation(){
+//비밀번호 확인 함수
+function checkPasswordValidation(checkPasswordInput){
+
+    const passwordInput = document.getElementById("password");
     const isPassword = passwordInput.value.trim();
     const minLength  = 8;
+
+    if (!isPassword) {
+        errorDisplay(passwordInput, '비밀번호를 입력해주세요.');
+        checkPasswordInput.disabled = true;
+        return false;
+    } else if (isPassword.length < minLength) {
+        errorDisplay(passwordInput, '비밀번호를 8자 이상 입력해주세요.');
+        checkPasswordInput.disabled = true;
+        return false;
+    } else {
+        errorReset(passwordInput);
+        checkPasswordInput.disabled = false;
+        return true;
+    }
+}
+
+function checkPasswordInputValidation(){
+
+    const passwordInput = document.getElementById("password");
+    const isPassword = passwordInput.value.trim();
+    const minLength  = 8;
+
     if (!isPassword) {
         errorDisplay(passwordInput, '비밀번호를 입력해주세요.');
         return false;
@@ -84,6 +108,7 @@ function checkPasswordValidation(){
         return true;
     }
 }
+
 
 // 비밀번호 일치 검사 함수
 function checkPasswordMatch(){
