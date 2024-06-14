@@ -63,6 +63,13 @@ button:focus {
     background-color: #F3F4F6;
 }
 
+.visibility {
+    background: url('images/visibility.png') no-repeat 5px center;
+    background-position : 97%;
+    background-size: 27px;
+    background-color: #F3F4F6;
+}
+
 
 button {
     width: 100%;

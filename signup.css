@@ -51,7 +51,7 @@ input:focus {
     border: 2px solid #3692FF;
 }
 
-button:focus {
+.button-active {
     background-color: #3692FF;
 }
 
@@ -63,6 +63,22 @@ button:focus {
     background-color: #F3F4F6;
 }
 
+.visibility {
+    background: url('images/visibility.png') no-repeat 5px center;
+    background-position : 97%;
+    background-size: 27px;
+    background-color: #F3F4F6;
+}
+
+.error {
+    color: red;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.hide {
+    display: none;
+}
 
 button {
     width: 100%;
