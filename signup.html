@@ -13,30 +13,41 @@
 
   <body>
     <div class="logoSection">
-      <a href="/" class="topBigLogo"><img class="topBigLogoImg" src="img/top_big_logo.png" alt="판다마켓"></a>
+      <a href="/" class="topBigLogo" aria-label="홈으로 이동하기"><img class="topBigLogoImg" src="img/top_big_logo.png" alt="판다마켓"></a>
 
-      <form method="post">
+      <form id="signupForm" method="post">
         <div class="inputSection">
           <label for="email">이메일</label>
-          <input id="email" name="email" type="email" placeholder="이메일을 입력해 주세요">
+          <input id="email" name="email" type="email" placeholder="이메일을 입력해 주세요" required />
+          <span id="emailEmpty" class="errorMessage">이메일을 입력해 주세요</span>
+          <span id="emailWrong" class="errorMessage">잘못된 이메일 형식입니다</span>
         </div>
         <div class="inputSection">
           <label for="nickname">닉네임</label>
-          <input id="nickname" name="nickname" type="txt" placeholder="닉네임을 입력해 주세요">
+          <input id="nickname" name="nickname" type="text" placeholder="닉네임을 입력해 주세요" required />
+          <span id="nicknameEmpty" class="errorMessage">닉네임을 입력해 주세요</span>
         </div>
         <div class="inputSection">
           <label for="password">비밀번호</label>
           <div class="inputPassword">
-            <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요">
-            <img class="visibilityIcon" src="img/ic_password_visibility.png" alt="비밀번호 온오프">
+            <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요" required />
+            <button type="button" class="visibilityButton">
+              <img class="visibilityIcon" src="img/ic_password_visibility.png" alt="비밀번호 온오프">
+            </button>
           </div>
+          <span id="passwordEmpty" class="errorMessage">비밀번호를 입력해 주세요</span>
+          <span id="passwordWrong" class="errorMessage">비밀번호를 8자 이상 입력해 주세요</span>
         </div>
         <div class="inputSection">
-          <label for="passwordCheck">비밀번호</label>
+          <label for="passwordCheck">비밀번호 확인</label>
           <div class="inputPassword">
-            <input id="passwordCheck" name="passwordCheck" type="passwordCheck" placeholder="비밀번호를 다시 한 번 입력해 주세요">
-            <img class="visibilityIcon" src="img/ic_password_visibility.png" alt="비밀번호 온오프">
+            <input id="passwordCheck" name="passwordCheck" type="passwordCheck" placeholder="비밀번호를 다시 한 번 입력해 주세요" required />
+            <button type="button" class="visibilityButton">
+              <img class="visibilityIcon" src="img/ic_password_visibility.png" alt="비밀번호 온오프">
+            </button>
           </div>
+          <span id="passwordFulfillConditions" class="errorMessage">먼저 조건에 맞는 비밀번호를 입력해 주세요</span>
+          <span id="passwordNotSame" class="errorMessage">비밀번호가 일치하지 않습니다</span>
         </div>
         <button type="submit" class="button inside widthFull">회원가입</button>
       </form>
@@ -44,9 +55,9 @@
       <div class="simpleLogin">
         <h3>간편 로그인하기</h3>
         <div class="simpLoginWays">
-          <a href="https://www.google.com/" target="_blank"
+          <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" aria-label="구글 로그인"
             ><img class="simpLoginWay" src="img/google_logo.png" alt="구글 로그인"></a>
-          <a href="https://www.kakaocorp.com/page/" target="_blank"
+          <a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener noreferrer" aria-label="카톡 로그인"
             ><img class="simpLoginWay" src="img/cacao_logo.png" alt="카톡 로그인"></a>
         </div>
       </div>
@@ -56,5 +67,7 @@
         </div>
       </div>
     </div>
+
+    <script src="scripts/sign.js"></script>
   </body>
 </html>
