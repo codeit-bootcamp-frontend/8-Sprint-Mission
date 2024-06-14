@@ -7,6 +7,7 @@ const passwordVisiblityIcons = document.querySelectorAll(
   '.password-visibility-icon'
 );
 
+// input control functions
 /**
  * 눈 모양 아이콘을 클릭 시, 비밀번호 숨김/보기 처리를 하는 함수
  *
@@ -29,6 +30,7 @@ const handleEyeClick = (event) => {
   input.setAttribute('type', 'text');
 };
 
+// add event listener
 for (let passwordVisiblityIcon of passwordVisiblityIcons) {
   passwordVisiblityIcon.addEventListener('click', handleEyeClick);
 }

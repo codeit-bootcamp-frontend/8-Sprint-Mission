@@ -127,7 +127,6 @@ const validateNickname = (event) => {
 /**
  * 입력된 비밀번호 확인란 내용이 비밀번호란과 일치하는 지 검사하여 error 혹은 success를 판별하는 함수
  *
- * @param {*} event event object
  * @returns error 혹은 success 결과에 따른 스타일 적용 함수
  */
 const validatePasswordMatch = () => {
@@ -190,12 +189,13 @@ inputEmail.addEventListener('focusout', (event) => validateEmail(event));
 inputPassword.addEventListener('focusout', (event) => validatePassword(event));
 authForm.addEventListener('submit', (event) => handleSubmit(event));
 
-// 회원가입 페이지라면
+// 회원가입 페이지라서 해당 엘리먼트가 존재한다면
 if (inputNickname) {
   inputNickname.addEventListener('focusout', (event) =>
     validateNickname(event)
   );
 }
+
 if (inputVerifyPassword) {
   inputVerifyPassword.addEventListener('focusout', () =>
     validatePasswordMatch()
