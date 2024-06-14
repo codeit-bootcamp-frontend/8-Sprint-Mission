@@ -29,21 +29,27 @@ const submitButton = document.querySelector(
 // input control functions
 /**
  * Submit이 활성화될 수 있는 지 판별하는 함수
+ *
+ * @returns {boolean} 활성화 될 수 있는 지 boolean값으로 반환
  */
 const validateSubmit = () => {
   const pathname = window.location.pathname;
+  if (pathname === PATHNAME_LOGIN && isValidEmail && isValidPassword) {
+    submitButton.className = 'auth-submit-button activate';
+    return true;
+  }
   if (
-    (pathname === PATHNAME_LOGIN && isValidEmail && isValidPassword) ||
-    (pathname === PATHNAME_SIGNUP &&
-      isValidEmail &&
-      isValidPassword &&
-      isValidNickName &&
-      isPasswordMatched)
+    pathname === PATHNAME_SIGNUP &&
+    isValidEmail &&
+    isValidPassword &&
+    isValidNickName &&
+    isPasswordMatched
   ) {
     submitButton.className = 'auth-submit-button activate';
-    return;
+    return true;
   }
   submitButton.className = 'auth-submit-button';
+  return false;
 };
 
 /**
@@ -162,14 +168,27 @@ const validatePassword = (event) => {
   showSuccess(event.target);
 };
 
-const sumbitForm = () => {
-  moveLocation('/items');
+/**
+ * 현재 위치에 따라 서로 다른 routing을 실행하는 form submit 함수
+ *
+ * @param {*} event event object
+ */
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const pathname = window.location.pathname;
+  if (validateSubmit()) {
+    if (pathname === PATHNAME_LOGIN) {
+      location.href = '/pages/items';
+    } else if (pathname === PATHNAME_SIGNUP) {
+      location.href = '/pages/login';
+    }
+  }
 };
 
 // addEventListeners
 inputEmail.addEventListener('focusout', (event) => validateEmail(event));
 inputPassword.addEventListener('focusout', (event) => validatePassword(event));
-authForm.addEventListener('submit', () => sumbitForm);
+authForm.addEventListener('submit', (event) => handleSubmit(event));
 
 // 회원가입 페이지라면
 if (inputNickname) {

@@ -13,5 +13,7 @@ for (let el of moveToLogins) {
 }
 
 for (let el of moveToItems) {
-  el.addEventListener('click', () => moveLocation('/pages/items'));
+  el.addEventListener('click', () => {
+    moveLocation('/pages/items');
+  });
 }
