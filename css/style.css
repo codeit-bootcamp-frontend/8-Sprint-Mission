@@ -209,15 +209,20 @@ header .login-link {
 	flex-direction: column;
 }
 
-.auth_form-el .check-password {
+.auth_form-el .view-password {
 	position: absolute;
-	bottom: 16px;
+	/*bottom: 16px;*/
+	top: 52px;
 	right: 24px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border: 0;
 	background-color: transparent;
+}
+
+.auth_form-el .view-password .hidden {
+	display: none;
 }
 
 label {
