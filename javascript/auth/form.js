@@ -53,8 +53,8 @@ const validateSubmit = () => {
 /**
  * 입력값이 유효하지 않은 경우, error 스타일을 적용시키는 함수
  *
- * @param {*} input input element
- * @param {*} message 에러 발생 시 input element 아래에 표출될 메시지
+ * @param {HTMLInputElement} input input element
+ * @param {string} message 에러 발생 시 input element 아래에 표출될 메시지
  */
 const showError = (input, message) => {
   // 비밀번호 표시 숨김 아이콘을 position: absolute로 설정하여 위치를 잡아주기 위해
@@ -72,7 +72,7 @@ const showError = (input, message) => {
 /**
  * 입력값이 유효한 값인 경우, success 스타일을 적용시키는 함수
  *
- * @param {*} input element
+ * @param {HTMLInputElement} input input element
  */
 const showSuccess = (input) => {
   const inputWrapper =
@@ -86,7 +86,7 @@ const showSuccess = (input) => {
 /**
  * 입력된 이메일란 내용을 유효성 검사하여 error 혹은 success를 판별하는 함수
  *
- * @param {*} event event object
+ * @param {Event} event event object
  * @returns error 혹은 success 결과에 따른 스타일 적용 함수
  */
 const validateEmail = (event) => {
@@ -108,7 +108,7 @@ const validateEmail = (event) => {
 /**
  * 입력된 닉네임란 내용을 유효성 검사하여 error 혹은 success를 판별하는 함수
  *
- * @param {*} event event object
+ * @param {Event} event event object
  * @returns error 혹은 success 결과에 따른 스타일 적용 함수
  */
 const validateNickname = (event) => {
@@ -142,7 +142,7 @@ const validatePasswordMatch = () => {
 /**
  * 입력된 비밀번호란 내용을 유효성 검사하여 error 혹은 success를 판별하는 함수
  *
- * @param {*} event event object
+ * @param {Event} event event object
  * @returns error 혹은 success 결과에 따른 스타일 적용 함수
  */
 const validatePassword = (event) => {
@@ -168,7 +168,7 @@ const validatePassword = (event) => {
 /**
  * 현재 위치에 따라 서로 다른 routing을 실행하는 form submit 함수
  *
- * @param {*} event event object
+ * @param {Event} event event object
  */
 const handleSubmit = (event) => {
   event.preventDefault();
