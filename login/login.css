@@ -81,11 +81,20 @@ form input:focus {
     border: var(--blue);
 }
 
-.password {
+.input-wrap {
     position: relative;
 }
 
-.hide-icon {
+.error-message {
+    visibility: hidden;
+    margin: 0 0 0 1.6rem;
+    color: red;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.79rem;
+}
+
+.visibility-icon {
     position: absolute;
     right: 1.6rem;
     bottom: 1.6rem;
@@ -93,14 +102,14 @@ form input:focus {
     cursor: pointer;
 }
 
-#hidden {
+#visibility {
     background-image: url(../source/icons/password/btn_visibility_on_24px.svg);
     width: 2.4rem;
     height: 2.4rem;
     cursor: pointer;
 }
 
-#hidden:active {
+#visibility.active {
     background-image: url(../source/icons/password/btn_visibility_on_24pxshow.svg);
     width: 2.4rem;
     height: 2.4rem;
