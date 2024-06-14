@@ -59,6 +59,51 @@ header .logo{
     background-color: var(--header-btn-hover-color);
 }
 
+main{
+    margin-top: 70px;
+}
+
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 16px;
+}
+
+footer{
+    padding : 32px;
+    background-color: var(--footer-bg-color);
+    display: flex;
+    flex-direction: row;
+    color: var(--white);
+    justify-content: space-between;
+    gap: 60px;
+}
+
+#copyright{
+    color: #9ca3af;
+    flex-basis: 100%;
+}
+
+.policy{
+    display: flex;
+    gap: 30px;
+}
+
+#go-sns{
+    display: flex;
+    gap: 12px;
+}
+
+.sns img{
+    width: 20px;
+    margin-left: 5px;
+}
+
+.tablet {
+    display: none;
+  }
+
 /* tablet */
 @media (min-width: 768px) {
     header{
@@ -91,7 +136,7 @@ header .logo{
         padding: 0 200px;
     }
 
-    .tab-txt{
+    .tablet{
         display: inline;
     }
 
