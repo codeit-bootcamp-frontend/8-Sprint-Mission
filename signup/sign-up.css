@@ -10,9 +10,9 @@
   --gray-200: #e5e7eb;
   --gray-100: #f3f4f6;
   --gray-50: #f9fafb;
-
   --blue: #3692ff;
   --bg-skyblue: #cfe5ff;
+  --error: #f74747;
 }
 * {
   margin: 0;
@@ -65,6 +65,7 @@ a {
 .signup-input {
   display: flex;
   flex-direction: column;
+  padding-bottom: 24px;
 }
 
 .signup-input label {
@@ -78,15 +79,15 @@ a {
   border-radius: 12px;
   padding: 16px 24px;
   font-size: 16px;
-  margin-bottom: 24px;
   height: 56px;
   width: 100%;
   font-weight: 400;
   color: var(--gray-800);
+  outline: none;
 }
 
 .signup-input input:focus {
-  outline: 1px solid var(--blue);
+  border: 1px solid var(--blue);
 }
 .signup-input input::placeholder {
   color: var(--gray-400);
@@ -96,7 +97,7 @@ a {
   position: relative;
 }
 
-.invisible-btn {
+.toggle-password {
   position: absolute;
   top: 15px;
   right: 24px;
@@ -109,10 +110,10 @@ a {
   background-color: inherit;
 }
 
-.visible-btn {
+.visible-pw {
   background-image: url(/images/visible-btn.svg);
-  background-color: inherit;
 }
+
 .signup-btn {
   width: 100%;
   height: 56px;
@@ -160,6 +161,26 @@ a {
 }
 .login a:visited {
   color: #3182f6;
+}
+
+/* js로 생성한 element */
+@keyframes wrong {
+  from {
+    top: -10px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+.wrong {
+  position: relative;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--error);
+  padding: 8px 0 0 16px;
+  animation: wrong 1s;
 }
 
 @media (max-width: 767px) {

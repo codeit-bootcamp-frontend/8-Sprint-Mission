@@ -28,15 +28,16 @@
           <label for="password">비밀번호</label>
           <div class="pw-container">
             <input
+              class="invisible"
               type="password"
               id="password"
               name="password"
               placeholder="비밀번호를 입력해주세요"
             />
-            <button type="button" class="invisible-btn"></button>
+            <button type="button" class="toggle-password"></button>
           </div>
         </div>
-        <button class="login-btn">로그인</button>
+        <button class="login-btn submit-btn">로그인</button>
       </form>
 
       <div class="easy-login">
@@ -57,5 +58,6 @@
         </p>
       </div>
     </main>
+    <script src="/validator.js" type="module"></script>
   </body>
 </html>

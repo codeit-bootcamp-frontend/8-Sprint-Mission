@@ -29,7 +29,7 @@
           <label for="nickname">닉네임</label>
           <input
             type="text"
-            id="useremail"
+            id="nickname"
             name="signup-nickname"
             placeholder="닉네임을 입력해주세요"
           />
@@ -39,27 +39,29 @@
           <label for="password">비밀번호</label>
           <div class="pw-container">
             <input
+              class="invisible"
               type="password"
               id="password"
               name="signup-password"
               placeholder="비밀번호를 입력해주세요"
             />
-            <button type="button" class="invisible-btn"></button>
+            <button type="button" class="toggle-password"></button>
           </div>
         </div>
         <div class="signup-input">
           <label for="repeat-password">비밀번호 확인</label>
           <div class="pw-container">
             <input
+              class="invisible"
               type="password"
               id="repeat-password"
               name="repeat-signup-password"
               placeholder="비밀번호를 다시 한 번 입력해주세요"
             />
-            <button type="button" class="invisible-btn"></button>
+            <button type="button" class="toggle-password"></button>
           </div>
         </div>
-        <button class="signup-btn">회원가입</button>
+        <button class="signup-btn submit-btn">회원가입</button>
       </form>
 
       <div class="easy-login">
@@ -80,5 +82,6 @@
         </p>
       </div>
     </main>
+    <script src="/validator.js" type="module"></script>
   </body>
 </html>
