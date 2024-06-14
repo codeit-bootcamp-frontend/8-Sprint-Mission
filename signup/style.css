@@ -23,12 +23,12 @@
     object-fit: contain;
 }
 
-label {
+.label {
     font-size: 18px;
     font-weight: 700;
 }
 
-input {
+.input {
     width: 640px;
     height: 56px;
     border-radius: 12px;
