@@ -1,85 +1,6 @@
-:root{
-    --btn-txt-color : #ffffff;
-    --default-bg-color: #ffffff;
-    --header-top-border-color: #dfdfdf;
-    --header-btn-color: #3692FF;
-    --header-btn-hover-color: #1251AA;
-    --background-color: #cfe5ff;
-    --tab-h5-color : #3692ff;
-    --default-txt-color: #374151;
-    --footer-bg-color: #111827;
-}
-
-/* PC */
-@media (min-width: 1200px) {
-    .header-top {
-        padding-left: 150px;
-        padding-right: 150px;
-    }
-}
-
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1199px) {
-    .header-top {
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-    .header-top .logo {
-        margin-left: 24px;
-    }
-    .header-top .btn {
-        margin-right: 24px;
-    }
-}
-
-/* Mobile */
-@media (min-width: 375px) and (max-width: 767px) {
-    .header-top {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    .header-top .logo {
-        margin-left: 16px;
-    }
-    .header-top .btn {
-        margin-right: 16px;
-    }
-
-    main {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .home img, .form, .input, .pw-input, .login-btn, .social-login-container {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .footer-bt {
-        flex-direction: column;
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-}
-
-*{
-    box-sizing: border-box;
-}
-
-body{
-    margin: 0;
-    padding: 0;
-    display: block;
-    justify-content: center;
-    font-family: 'Pretendard', sans-serif;
-}
-
-header{
-    width: 100%;
-}
 
 .btn{
-    color: var(--btn-txt-color);
+    color: var(--white);
     align-items: center;
     justify-content: center;
     text-decoration: none;
@@ -87,79 +8,39 @@ header{
     cursor: pointer;
 }
 
-/*header*/
-/*header-header-top*/
-@media (max-width: 1920px){
-    .header-top {
-        padding: 100px 200px;
-    }
-    .header-top .logo{
-        margin-left: 200px;
-    }
-    .header-top .btn{
-        margin-right: 200px;
-    }
-}
-
-
-.header-top{
+.banner{
     width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    display: flex;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    padding: 10px 150px;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    background-color: var(--default-bg-color);
-    border-bottom: 1px solid var(--header-top-border-color);
-}
-
-.header-top .logo{
-    height: 50px;
-}
-
-.header-top .btn{
-    background-color: var(--header-btn-color);
-    border-radius: 8px;
-    padding: 10px 20px;
-}
-
-.header-top .btn:hover{
-    background-color: var(--header-btn-hover-color);
-}
-
-/*header-header-bg*/
-.header-bg{
-    padding: 0 75px;
-    background-image: url(../img/randing/bg_top.png);
     background-color: var(--background-color);
+    height: 540px;
+    text-align: center;
     background-repeat: no-repeat;
     background-position: 80% bottom;
     background-size: 55%;
-    display: flex;
-    width: 100%;
-    box-sizing: border-box;
-    height: 540px;
-    align-items: start;
-    font-size: 20px;
-    color: #374151;
-    font-weight: 900;
+}
+
+.banner h1{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44.8px;
+    padding-top: 48px;
+    padding-bottom: 18px;
+}
+
+/* top banner */
+#top-banner{
+    background-image: url(../img/randing/bg_top.png);
     flex-direction: column;
     justify-content: center;
 }
 
-.header-bg .btn{
-    background-color: var(--header-btn-color);
+#top-banner .btn{
+    background-color: var(--blue);
     border-radius: 50px;
     padding: 15px 120px;
     margin-top: 10px;
 }
 
-.header-bg .btn:hover{
+#top-banner .btn:hover{
     background-color: var(--header-btn-hover-color);
 }
 
@@ -183,7 +64,7 @@ section{
 }
 
 .tab-txt h5{
-    color: var(--tab-h5-color);
+    color: var(--blue);
     font-size: 18px;
     margin-top: 0;
     margin-bottom: 10px;
@@ -227,7 +108,7 @@ section{
     background-color: var(--footer-bg-color);
     display: flex;
     flex-direction: row;
-    color: var(--btn-txt-color);
+    color: var(--white);
     justify-content: space-around;
     height: 160px;
 }
