@@ -3,26 +3,22 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codeit8-sprint-mission-jgj.netlify.app/">
+    <meta property="og:title" content="판다마켓">
+    <meta property="og:image" content="images/pandamarket/og-image.png">
+    <meta property="og:description" content="일상의 모든 물건을 거래해 보세요">
+    <title>판다마켓</title>
+    <link rel="icon" href="images/pandamarket/favicon.ico">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/home.css">
-    <link rel="icon" href="images/panda/panda.png">
-    <title>판다마켓</title>
   </head>
 
   <body>
     <header>
-      <a href="/">
-        <img
-          src="images/panda/panda_logo.png"
-          alt="판다마켓 홈"
-          width="153"
-        >
+      <a href="/" aria-label="홈으로 이동">
+        <img src="images/pandamarket/logo.svg" alt="판다마켓 로고">
       </a>
       <a href="login.html" class="button login">로그인</a>
     </header>
@@ -30,26 +26,23 @@
     <main>
       <section class="banner hero">
         <div class="wrapper">
-          <h1>
+          <h2>
             일상의 모든 물건을<br>
             거래해 보세요
-          </h1>
+          </h2>
           <a href="items.html" class="button pill">구경하러 가기</a>
         </div>
       </section>
 
       <section class="wrapper features">
         <div class="feature">
-          <img
-            src="images/home/feature1_hot_item.png"
-            alt="인기 상품"
-          >
+          <img src="images/home/feature1_hot_item.png" alt="인기 상품">
           <div class="feature-content">
-            <h2 class="feature-tag">Hot item</h2>
-            <h1>
+            <h3>Hot Item</h3>
+            <h2>
               인기 상품을<br>
               확인해 보세요
-            </h1>
+            </h2>
             <p class="feature-description">
               가장 HOT한 중고거래 물품을<br>
               판다마켓에서 확인해 보세요
@@ -57,33 +50,27 @@
           </div>
         </div>
         <div class="feature">
+          <img src="images/home/feature2_search.png" alt="검색 기능">
           <div class="feature-content">
-            <h2 class="feature-tag">Search</h2>
-            <h1>
+            <h3>Search</h3>
+            <h2>
               구매를 원하는<br>
               상품을 검색하세요
-            </h1>
+            </h2>
             <p class="feature-description">
               구매하고 싶은 물품은 검색해서<br>
               쉽게 찾아보세요
             </p>
           </div>
-          <img
-            src="images/home/feature2_search.png"
-            alt="검색 기능"
-          >
         </div>
         <div class="feature">
-          <img
-            src="images/home/feature3_register.png"
-            alt="판매 상품 등록"
-          >
+          <img src="images/home/feature3_register.png" alt="판매 상품 등록">
           <div class="feature-content">
-            <h2 class="feature-tag">Register</h2>
-            <h1>
+            <h3>Register</h3>
+            <h2>
               판매를 원하는<br>
               상품을 등록하세요
-            </h1>
+            </h2>
             <p class="feature-description">
               어떤 물건이든 판매하고 싶은 상품을<br>
               쉽게 등록하세요
@@ -94,21 +81,21 @@
 
       <section class="banner bottom">
         <div class="wrapper">
-          <h1>
+          <h2>
             믿을 수 있는<br>
             판다마켓 중고거래
-          </h1>
+          </h2>
         </div>
       </section>
     </main>
 
     <footer>
-      <div>©codeit - 2024</div>
-      <div class="footerMenu">
+      <address>©codeit - 2024</address>
+      <div class="footer-menu">
         <a href="privacy.html">Privacy Policy</a>
         <a href="faq.html">FAQ</a>
       </div>
-      <div class="socialMedia">
+      <nav class="social-media">
         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
           <img src="images\social\ic_facebook.png" alt="페이스북" width="20px">
         </a>
@@ -121,7 +108,7 @@
         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
           <img src="images\social\ic_instagram.png" alt="인스타그램" width="20px">
         </a>
-      </div>
+      </nav>
     </footer>
   </body>
 </html>
