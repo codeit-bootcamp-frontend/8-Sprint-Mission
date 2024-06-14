@@ -5,6 +5,13 @@
   font-family: pretendard;
 }
 
+html {
+  width: 100vw;
+}
+body {
+  margin: 0 0;
+}
+
 a, button {
   cursor:pointer;
 }
@@ -48,7 +55,10 @@ form button {
   border-radius: 40px;
   background-color: var(--gray400);
   font-size: 20px;
-  padding:16px 294px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #ffffff;
 }
 .page-container {
@@ -114,4 +124,301 @@ form button {
 
 button.enabled {
   background-color: var(--blue);
+}
+
+/* @media screen and (min-width:1199px) and (max-width:1920px) {
+
+  form label {
+    font-size:1vw;
+    font-weight:36.4vw;
+    margin: 0 0 0.8vw;
+  }
+  
+  form input {
+    padding:0.8vw 1.2vw;
+    font-size:0.8vw;
+    border-radius: 0.6vw;
+    margin: 0 0 1.2vw;
+  }
+  
+  form input:placeholder {
+
+  }
+  
+  
+  form button {
+    border-radius: 2vw;
+    font-size: 1vw;
+    padding:0.8vw 15vw;
+  }
+  .page-container {
+    margin: 3vw 0;
+  }
+  
+  .eye-icon-parents img {
+    top:2.6vw;
+    left:31vw;
+    width:1.2vw;
+  }
+  
+  .login-container {
+    width:33vw;
+    gap:1.2vw;
+  }
+  
+  .login-top-logo img {
+    width: 20.6vw;
+  
+  }
+  
+  .empty-space {
+    width: 33vw;
+  }
+  
+  .easy-login {
+    border-radius: 0.4vw;
+    padding:0.8vw 1.2vw;
+  }
+  
+  .easy-login-icon {
+    gap:0.8vw;
+  }
+  
+  .easy-login-icon img {
+   width: 2.2vw;
+  }
+  
+  .login-container p {
+    font-size: 0.8vw;
+  }
+
+} */
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  a, button {
+    cursor:pointer;
+  }
+  label,
+  input,
+  button,
+  form {
+    display: block;
+    width:100%;
+    border:0;
+  }
+  
+  
+  form label {
+    font-size:18px;
+    font-weight:700px;
+    color: var(--gray800);
+    margin: 0 0 16px;
+  }
+  
+  form input {
+    padding:16px 24px;
+    font-size:16px;
+    font-weight:400;
+    border-radius: 12px;
+    color: var(--gray800);
+    background-color: var(--gray100);
+    margin: 0 0 24px;
+  }
+  
+  form input:placeholder {
+    color: var(--gray400);
+  }
+  
+  form input:focus {
+    border: 2px solid var(--blue);
+    outline: none;
+  }
+  
+  form button {
+    border-radius: 40px;
+    background-color: var(--gray400);
+    font-size: 20px;
+    padding:16px;
+    color: #ffffff;
+  }
+  .page-container {
+    display: flex;
+    margin: 48px 0 0;
+  }
+  
+  .eye-icon-parents {
+    position:relative;
+  }
+  
+  .eye-icon-parents img {
+    position: absolute;
+    top:50px;
+    left:595px;
+    width:24px;
+  }
+  
+  .login-container {
+    width:640px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    flex-shrink: 0;
+    gap:24px;
+  }
+  
+  .login-top-logo img {
+    width: 396px;
+  
+  }
+  
+  .empty-space {
+    width: 640px;
+    flex-grow:1;
+  }
+  
+  .easy-login {
+    font-weight: 500;
+    background-color: #E6F2FF;
+    border-radius: 8px;
+    padding:16px 23px;
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .easy-login-icon {
+    display: flex;
+    gap:16px;
+  }
+  
+  .easy-login-icon img {
+   width: 42px;
+  }
+  
+  .login-container p {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--gray800);
+  }
+  
+  button.enabled {
+    background-color: var(--blue);
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+  
+  a, button {
+    cursor:pointer;
+  }
+  label,
+  input,
+  button,
+  form {
+    display: block;
+    width:100%;
+    border:0;
+  }
+  
+  
+  form label {
+    font-size:14px;
+    font-weight:700px;
+    color: var(--gray800);
+    margin: 0 0 8px;
+  }
+  
+  form input {
+    padding:16px 24px;
+    font-size:16px;
+    font-weight:400;
+    border-radius: 12px;
+    color: var(--gray800);
+    background-color: var(--gray100);
+    margin: 0 0 16px;
+  }
+  
+  form input:placeholder {
+    color: var(--gray400);
+  }
+  
+  form input:focus {
+    border: 2px solid var(--blue);
+    outline: none;
+  }
+  
+  form button {
+    border-radius: 40px;
+    background-color: var(--gray400);
+    font-size: 20px;
+    padding:16px 0px;
+    color: #ffffff;
+  }
+  .page-container {
+    display: flex;
+    margin: 24px 0;
+    width:100%
+  }
+  
+  .eye-icon-parents {
+    position:relative;
+  }
+  
+  .eye-icon-parents img {
+    position: absolute;
+    top:40px;
+    left: 80vw;
+    width:24px;
+  }
+  
+  .login-container {
+    padding: 0 16px;
+    width:100vw;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    flex-shrink: 0;
+    gap:24px;
+  }
+  
+  .login-top-logo img {
+    width: 198px;
+  
+  }
+  
+  .empty-space {
+    width: 640px;
+    flex-grow:1;
+  }
+  
+  .easy-login {
+    font-weight: 500;
+    background-color: #E6F2FF;
+    border-radius: 8px;
+    padding:16px 23px;
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .easy-login-icon {
+    display: flex;
+    gap:16px;
+  }
+  
+  .easy-login-icon img {
+   width: 42px;
+  }
+  
+  .login-container p {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--gray800);
+  }
+  
+  button.enabled {
+    background-color: var(--blue);
+  }
 }
