@@ -14,6 +14,7 @@ const FORM_ELEMENT = document.querySelector("form");
 FORM_ELEMENT.addEventListener("focusout", (e) => {
   if (e.target.classList.contains("form-input")) {
     validateInput(e.target);
+    checkRequiredValues();
   }
 });
 
@@ -104,4 +105,31 @@ function createErrorMessage(eventTarget, errText) {
   newErrorMessage.textContent = `${errText}`;
   newErrorMessage.classList.add("form-input-errmsg");
   eventTarget.parentElement.append(newErrorMessage);
+}
+
+/**
+ * 모든 Required <input>이 올바르게 입력되었는지 확인하는 함수
+ * 모두 올바르면 버튼을 활성화합니다.
+ * 그렇지 않으면 버튼을 비활성화합니다.
+ */
+function checkRequiredValues() {
+  const requiredInputElements = document.querySelectorAll(
+    ".form-input[required]"
+  );
+  let allFilled = true;
+
+  // 모든 required input에 대해 조사
+  requiredInputElements.forEach((el) => {
+    if (el.value == "") {
+      allFilled = false;
+    }
+  });
+
+  const hasError = document.querySelector(".form-input-errmsg");
+  const sumbitButton = document.querySelector(".login-button");
+  if (allFilled && !hasError) {
+    sumbitButton.disabled = false;
+  } else {
+    sumbitButton.disabled = true;
+  }
 }
