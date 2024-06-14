@@ -9,7 +9,7 @@
 const FORM_ELEMENT = document.querySelector("form");
 
 /**
- * 알고리즘:
+ * focusout이 일어나면 form의 요소들을 변화시킴
  */
 FORM_ELEMENT.addEventListener("focusout", (e) => {
   if (e.target.classList.contains("form-input")) {
@@ -82,7 +82,7 @@ function validateEmail(email) {
  * @return {boolean} - 유효하면 true, 그렇지 않으면 false
  */
 function validatePassword(password) {
-  return password.length <= 8 ? false : true;
+  return password.length < 8 ? false : true;
 }
 
 /**
