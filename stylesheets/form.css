@@ -73,8 +73,19 @@ input::placeholder {
   font-weight: 400;
 }
 
-input:focus {
-  outline: 2px solid var(--blue);
+.focus-in-blue {
+  border: 1px solid var(--blue);
+}
+
+.alert-border {
+  border: 1px solid var(--red);
+}
+
+.alert-message {
+  color: var(--red);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 17.9px;
 }
 
 .password-icon {
@@ -105,6 +116,11 @@ label {
 input,
 button {
   border: none;
+  outline: none;
+}
+
+.button-enable {
+  background-color: var(--blue);
 }
 
 /* 간편 로그인 */
