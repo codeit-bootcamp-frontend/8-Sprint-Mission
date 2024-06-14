@@ -45,19 +45,22 @@ const handleEmailValidation = () => {
   const emailValue = emailInput.value;
   const regex =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-  hideError(emailInput, "email-error", isEmailError);
-  hideError(emailInput, "email-empty", isEmailError);
-
+  hideError(emailInput, "email-error");
+  hideError(emailInput, "email-empty");
   if (!emailValue) {
-    showError(emailInput, "email-empty", isEmailError);
+    showError(emailInput, "email-empty");
+    isEmailError = true;
   } else {
-    hideError(emailInput, "email-empty", isEmailError);
+    hideError(emailInput, "email-empty");
     if (regex.test(emailValue)) {
-      hideError(emailInput, "email-error", isEmailError);
+      hideError(emailInput, "email-error");
+      isEmailError = false;
     } else {
-      showError(emailInput, "email-error", isEmailError);
+      showError(emailInput, "email-error");
+      isEmailError = true;
     }
   }
+
   nameInput ? signupActivateSubmit() : loginActivateSubmit();
 };
 
@@ -65,9 +68,11 @@ const handleNameValidation = () => {
   const nameValue = nameInput.value;
 
   if (!nameValue) {
-    showError(nameInput, "name-empty", isNameError);
+    showError(nameInput, "name-empty");
+    isNameError = true;
   } else {
-    hideError(nameInput, "name-empty", isNameError);
+    hideError(nameInput, "name-empty");
+    isNameError = false;
   }
   signupActivateSubmit();
 };
@@ -75,17 +80,20 @@ const handleNameValidation = () => {
 const handlePasswordValidation = () => {
   const passwordValue = passwordInput.value;
 
-  hideError(passwordInput, "password-empty", isPasswordError);
-  hideError(passwordInput, "password-error", isPasswordError);
+  hideError(passwordInput, "password-empty");
+  hideError(passwordInput, "password-error");
 
   if (!passwordValue) {
-    showError(passwordInput, "password-empty", isPasswordError);
+    showError(passwordInput, "password-empty");
+    isPasswordError = true;
   } else {
-    hideError(passwordInput, "password-empty", isPasswordError);
+    hideError(passwordInput, "password-empty");
     if (passwordValue.length >= 8) {
-      hideError(passwordInput, "password-error", isPasswordError);
+      hideError(passwordInput, "password-error");
+      isPasswordError = false;
     } else {
-      showError(passwordInput, "password-error", isPasswordError);
+      showError(passwordInput, "password-error");
+      isPasswordError = true;
     }
   }
   nameInput ? signupActivateSubmit() : loginActivateSubmit();
@@ -102,12 +110,14 @@ const handlePasswordConfirmValidation = () => {
       "password-confirm-error",
       isPasswordConfirmError
     );
+    isPasswordConfirmError = true;
   } else {
     hideError(
       passwordConfirmInput,
       "password-confirm-error",
       isPasswordConfirmError
     );
+    isPasswordConfirmError = false;
   }
   signupActivateSubmit();
 };
