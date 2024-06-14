@@ -29,7 +29,6 @@
 .input-item input{
     padding: 16px 24px;
     background-color: var(--gray-100);
-    
     border: none;
     border-radius: 12px;
     font-size: 16px;
@@ -38,17 +37,21 @@
 .input-item input:focus{
     outline-color : var(--blue);
 }
-
 .input-wrapper{
-    position: relative;
     display: flex;
+    flex-direction: column;
+}
+.input-container{
+    position: relative;
+    display: block;
     align-items: center;
 }
 .password-toggle-btn{
     position: absolute;
+    top : 50%;
     right: 24px;
+    transform: translateY(-50%);
 }
-
 .pill-button{
     width: 100%;
 }

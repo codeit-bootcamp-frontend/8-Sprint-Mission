@@ -18,6 +18,8 @@
 
   --blue : #3692FF;
   --aliceblue : #E6F2FF;
+
+  --red : #F74747;
 }
 
 a {
@@ -131,6 +133,14 @@ img{
 
 .spacing-desktop{
   display: inline;
+}
+
+.error-message{
+  color: var(--red);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+  margin-top: 5px;
 }
 
 @media(min-width : 375px){
