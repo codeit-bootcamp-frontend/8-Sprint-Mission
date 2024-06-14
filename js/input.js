@@ -1,62 +1,86 @@
-const emailInput = document.querySelector('#email-input');
-const emailErrorMessage = document.querySelector('#email-error-message');
-const passwordInput = document.querySelector('#password-input');
-const passwordErrorMessage = document.querySelector('#password-error-message');
+// password valid condition
+const PW_MIN_LENGTH = 8;
 
-const passwordMinLength = 8;
+// for button disable toggle
+export let emailIsValid = false;
+export let nicknameIsValid = false;
+export let pwIsValid = false;
+export let pwRetypeIsValid = false;
 
 // email validitiychecker
-function emailInputCheck(event) {
-  const emailInput = event.target;
+export function emailInputCheck(event) {
+  const target = event.target;
+  const errorMessage = document.querySelector('#email-error-message');
 
-  if (emailInput.value === "") {
-    emailInput.classList.add('error-input');
-    emailErrorMessage.textContent = '이메일을 입력해주세요.';
+  if (target.value === "") {
+    target.classList.add('error-input');
+    errorMessage.textContent = '이메일을 입력해주세요.';
+    emailIsValid = false;
   }
   // checkValidity() : true ("" or type match), false (different type)
-  if (!emailInput.checkValidity()) {
-    emailInput.classList.add('error-input');
-    emailErrorMessage.textContent = '잘못된 이메일 형식입니다.';
+  if (!target.checkValidity()) {
+    target.classList.add('error-input');
+    errorMessage.textContent = '잘못된 이메일 형식입니다.';
+    emailIsValid = false;
   }
-  if (emailInput.checkValidity() && emailInput.value !== "") {
-    emailInput.classList.remove('error-input');
-    emailErrorMessage.textContent = '';
+  if (target.checkValidity() && target.value !== "") {
+    target.classList.remove('error-input');
+    errorMessage.textContent = '';
+    emailIsValid = true;
+  }
+}
+
+// nickname validitiychecker
+export function nicknameInputCheck(event) {
+  const target = event.target;
+  const errorMessage = document.querySelector('#nickname-error-message');
+
+  if (target.value === "") {
+    target.classList.add('error-input');
+    errorMessage.textContent = '닉네임을 입력해주세요.';
+    nicknameIsValid = false;
+  } else {
+    target.classList.remove('error-input');
+    errorMessage.textContent = '';
+    nicknameIsValid = true;
   }
 }
 
 // password validitiychecker
-function pwInputCheck(event) {
-  const passwordInput = event.target;
+export function pwInputCheck(event) {
+  const target = event.target;
+  const errorMessage = document.querySelector('#password-error-message');
 
-  if (emailInput.value.length === 0) {
-    passwordInput.classList.add('error-input');
-    passwordErrorMessage.textContent = '비밀번호를 입력해주세요.';
+  if (target.value.length === 0) {
+    target.classList.add('error-input');
+    errorMessage.textContent = '비밀번호를 입력해주세요.';
+    pwIsValid = false;
   }
-  if (passwordInput.value.length < passwordMinLength && passwordInput.value.length > 0) {
-    passwordInput.classList.add('error-input');
-    passwordErrorMessage.textContent = '비밀번호를 8자 이상 입력해주세요.';
+  if (target.value.length < PW_MIN_LENGTH && target.value.length > 0) {
+    target.classList.add('error-input');
+    errorMessage.textContent = '비밀번호를 8자 이상 입력해주세요.';
+    pwIsValid = false;
   }
-  if (passwordInput.value.length >= passwordMinLength) {
-    passwordInput.classList.remove('error-input');
-    passwordErrorMessage.textContent = '';
+  if (target.value.length >= PW_MIN_LENGTH) {
+    target.classList.remove('error-input');
+    errorMessage.textContent = '';
+    pwIsValid = true;
   }
 }
 
-emailInput.addEventListener('focusout', emailInputCheck);
-passwordInput.addEventListener('focusout', pwInputCheck);
+// retype password validitiychecker
+export function pwRetypeInputCheck(event) {
+  const target = event.target;
+  const pwInput = document.querySelector('#password-input');
+  const errorMessage = document.querySelector('#password-retype-error-message');
 
-// login button disabled on/off
-const loginButton = document.querySelector('#login-button');
-
-function inputChecker(event) {
-  if (passwordInput.value.length >= passwordMinLength
-     && emailInput.checkValidity() 
-     && emailInput.value !== "") {
-      loginButton.disabled = false;
-     } else {
-      loginButton.disabled = true;
-     }
+  if (target.value !== pwInput.value) {
+    target.classList.add('error-input');
+    errorMessage.textContent = '비밀번호가 일치하지 않습니다.';
+    pwRetypeIsValid = false;
+  } else {
+    target.classList.remove('error-input');
+    errorMessage.textContent = '';
+    pwRetypeIsValid = true;
+  }
 }
-
-emailInput.addEventListener('focusout', inputChecker);
-passwordInput.addEventListener('focusout', inputChecker);
