@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="/main.js" type="module"></script>
   </head>
   <body>
     <main>
@@ -24,29 +25,40 @@
             height="132"
           />
         </a>
-        <form method="post">
+        <form method="get" action="/items">
           <div class="auth_form-el">
             <label for="login-id">이메일</label>
             <input
+              class="auth_input"
               type="email"
               id="login-id"
               placeholder="이메일을 입력해주세요"
+              required
             />
           </div>
           <div class="auth_form-el">
-            <label for="login-password">비밀번호</label>
-            <input
-              type="password"
-              id="login-password"
-              placeholder="비밀번호를 입력해주세요"
-            />
-            <button class="check-password">
+            <button class="view-password" type="button">
               <img
                 src="/images/btn_visibility_off_24px.png"
                 width="24"
                 height="24"
               />
+              <img
+                class="hidden"
+                src="/images/btn_visibility_on_24px.png"
+                width="24"
+                height="24"
+              />
             </button>
+            <label for="login-password">비밀번호</label>
+            <input
+              class="auth_input"
+              id="login-password"
+              type="password"
+              minlength="8"
+              placeholder="비밀번호를 입력해주세요"
+              required
+            />
           </div>
           <button class="submit-button" type="submit">로그인</button>
         </form>
