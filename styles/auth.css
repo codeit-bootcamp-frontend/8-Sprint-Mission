@@ -21,8 +21,10 @@
   width: 100%;
 }
 
-.input-email, 
-.input-password {
+.input-email,
+.input-nickname,
+.input-password,
+.input-password-check {
   margin-bottom: 24px;
   display: flex;
   flex-direction: column;
@@ -34,7 +36,9 @@
 }
 
 .error-message-email,
-.error-message-password {
+.error-message-nickname,
+.error-message-password,
+.error-message-password-check {
   position: absolute;
   bottom: -20px;
   display: none;
