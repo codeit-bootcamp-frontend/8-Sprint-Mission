@@ -11,7 +11,8 @@
     margin-bottom: 40px;
 }
 .logo-home img{
-    width: 100%;
+    width: 396px;
+    height: 132px;
 }
 .input-item{
     margin-bottom: 24px;
@@ -28,7 +29,6 @@
 .input-item input{
     padding: 16px 24px;
     background-color: var(--gray-100);
-    
     border: none;
     border-radius: 12px;
     font-size: 16px;
@@ -37,17 +37,21 @@
 .input-item input:focus{
     outline-color : var(--blue);
 }
-
 .input-wrapper{
-    position: relative;
     display: flex;
+    flex-direction: column;
+}
+.input-container{
+    position: relative;
+    display: block;
     align-items: center;
 }
 .password-toggle-btn{
     position: absolute;
+    top : 50%;
     right: 24px;
+    transform: translateY(-50%);
 }
-
 .pill-button{
     width: 100%;
 }
@@ -79,10 +83,14 @@
     text-decoration: underline;
 }
 
-@media (mind-width : 375px){
+@media (min-width : 375px){
     .logo-home{
         margin-top: 24px;
         margin-bottom: 24px;
+    }
+    .logo-home img{
+        width: 198px;
+        height: 66px;
     }
 }
 
@@ -94,6 +102,10 @@
         width: 640px;
         margin-top: 48px;
         margin-bottom: 40px;
+    }
+    .logo-home img{
+        width: 396px;
+        height: 132px;
     }
     label{
         font-size: 18px;
