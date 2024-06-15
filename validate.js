@@ -38,7 +38,7 @@ function validateEmail() {
   } else if (!regex.test(email.value)) {
     showErrorMessage(email, "잘못된 이메일 형식입니다.", 'emailErrorForm');
   }
-  activateButton()
+  activateButton();
 }
 
 function validateName() {
@@ -46,7 +46,7 @@ function validateName() {
   if (nickname.value.trim() === "") {
     showErrorMessage(nickname, "닉네임을 입력해주세요.", 'nameErrorEmpty');
   }
-  activateButton()
+  activateButton();
 }
 
 function validatePw() {
@@ -57,12 +57,12 @@ function validatePw() {
   } else if (password.value.length < 8) {
     showErrorMessage(password, "비밀번호를 8자 이상 입력해주세요.", 'pwErrorShort');
   }
-  activateButton()
-  validatePwConfirm()
-  
+  activateButton();
+  validatePwConfirm();
 }
 
 function validatePwConfirm() {
+  if (!passwordConfirm) return;
   removeErrorMessage('pwConfirmErrorEmpty', passwordConfirm);
   removeErrorMessage('pwConfirmError', passwordConfirm);
   if (passwordConfirm.value.trim() === "") {
@@ -70,7 +70,7 @@ function validatePwConfirm() {
   } else if (password.value.trim() !== passwordConfirm.value.trim()) {
     showErrorMessage(passwordConfirm, "비밀번호가 일치하지 않습니다.", 'pwConfirmError');
   }
-  activateButton()
+  activateButton();
 }
 
 // button activation eventHandler
@@ -81,7 +81,7 @@ function activateButton() {
       password.value !== "" &&
       (submitBtn.textContent === '로그인' || 
         (nickname.value !== "" && 
-          passwordConfirm.value !== ""))) {
+          passwordConfirm && passwordConfirm.value !== ""))) {
     submitBtn.classList.remove('inactive-btn');
     submitBtn.classList.add('active-btn');
     if (submitBtn.textContent === '로그인') {
@@ -114,7 +114,13 @@ pwVisible.addEventListener('click',
   (e) => togglePwVisibility(e.target, password));
 
 // signup eventListener
-nickname.addEventListener('blur', validateName);
-passwordConfirm.addEventListener('blur', validatePwConfirm);
-pwConfirmVisible.addEventListener('click', 
-  (e) => togglePwVisibility(e.target, passwordConfirm));
+if (nickname) {
+  nickname.addEventListener('blur', validateName);
+}
+if (passwordConfirm) {
+  passwordConfirm.addEventListener('blur', validatePwConfirm);
+}
+if (pwConfirmVisible) {
+  pwConfirmVisible.addEventListener('click', 
+    (e) => togglePwVisibility(e.target, passwordConfirm));
+}
