@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    font-family: Pretendard;
 }
 
 header{
@@ -12,6 +13,7 @@ header{
     align-items: center;
     padding: 10px 0;
     background-color: #FFFFFF;
+    z-index: 1;
 }
 
 
@@ -26,15 +28,28 @@ button{
     cursor: pointer;
 }
 
-.logo_button:hover{
-    cursor: pointer;
+.logo_button{
+    border: none;
+    background-color: #FFFFFF;
+}
+
+.login_link{
+    position: absolute;
+    display: block;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 3em;
+    color: inherit;
+    text-decoration: none;
+    z-index: 1;
 }
 
 .login_bt{
-    font-family: pretendard;
+    position: relative;
     font-size: 16px;
     font-weight: 600;
-    line-height: 19.09px;
+    line-height: 25px;
     margin-right: 200px;
     padding: 10px 20px;
     text-align: center;
@@ -69,7 +84,6 @@ button{
 }
 
 .banner_bt{
-    font-family: pretendard;
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
@@ -84,9 +98,6 @@ button{
     gap: 10px
 }
 
-.top_center{
-    display:flex;
-}
 
 .top_left_spacer{
     width: 360px;
@@ -124,7 +135,6 @@ button{
 
 .banner_text{
     font: #374151;
-    font-family: pretendard;
     font-weight: 700;
     font-size: 40px;
     line-height: 56px;
@@ -167,7 +177,6 @@ button{
 }
 
 .sec_txt_tag{
-    font-family: Pretendard;
     font-size: 18px;
     font-weight: 700;
     line-height: 25.2px;
@@ -178,7 +187,6 @@ button{
 .sec_txt_title{
     width: 343px;
     height: 112px;
-    font-family: Pretendard;
     font-size: 40px;
     font-weight: 700;
     line-height: 56px;
@@ -188,7 +196,6 @@ button{
 }
 
 .sec_txt_content{
-    font-family: Pretendard;
     font-size: 24px;
     font-weight: 500;
     line-height: 28.8px;
@@ -270,7 +277,6 @@ button{
 .bottom_banner_txt{
     width: 296px;
     height: 112px;
-    font-family: Pretendard;
     font-size: 40px;
     font-weight: 700;
     line-height: 56px;
@@ -299,7 +305,6 @@ footer{
 }
 
 .codeit-2024{
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.09px;
@@ -307,14 +312,13 @@ footer{
     color: #9CA3AF;
 }
 
-a{
+.privacy_policy_and_faq > a{
     color: inherit;
     text-decoration: none;
     margin: 0 15px;
 }
 
 .privacy_policy_and_faq{
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.09px;
@@ -365,160 +369,186 @@ a{
 
 @media screen and (max-width: 1920px) {
     header {
-        height: 3.3vw;
-        padding-left: 200px;
-        padding-right: 200px;
+        padding-left: 24px;
+        padding-right: 24px;
         max-width: none;
-    }
-    
-    .image_logo{
-        width: 2.1vw;
-    }
-    
-    .text_logo{
-        width: 5.4vw;
     }
 
     .login_bt {    
-        font-size: 0.8125vw;
-        line-height: 0.969414vw;
-        padding: 0.609375vw 1.015625vw;
-        width: 6.6vw;
-        height: 2.5vw;
         margin-right: 0px;
     }
 
     .page_logo {
         margin-left: 0px;
     }
+    
+    .top_left_spacer{
+        display: none;
+    }
+
+    .top_right_spacer{
+        display: none;
+    }
 
     .banner_bt{
-        width: 18.6vw;
-        height: 2.9vw;
-        font-size: 1.05vw;
-        line-height: 1vw;
-        padding: 0.6vw 4.2vw;
+        font-size: 2vw;
+        width: 44vw;
+        height: 5.5vw;
+        padding: 0.8vw 6.2vw;
     }
+
+    .top_center{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .banner_image{
+        width: 120%;
+    }
+
 
     .header_spacer { 
         flex-grow: 1;
     }
+    
     
 
     .top_banner{
         height: auto;
     }
 
-    
-    .banner_image{
-        margin: 4.82205vw -0.8296vw 0vw 0vw;
-        width: 52vw;
+    .banner_txt_bt{
+        align-items: center;
     }
 
     .banner_text{
-        font-size: 2.074vw;
-        line-height: 2.9036vw;
-        width: 15.29575vw;
-        height: 5.8072vw;
+        font-size: 5vw;
+        margin-top: 7vw;
+        width: 100%;
     }
 
+    .home_main_spacer{
+        display:none;
+    }
+
+
     .home_main_sec1 > .home_container{
-        width: 62.5vw;
-        padding: 6.875vw 0;
-        padding-right: 10.5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        width: 100%;
+        padding: 24px;
     }
 
     .home_main_sec2 > .home_container{
-        width: 62.5vw;
-        padding: 6.875vw 0;
-        padding-left: 10.6vw;
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        padding: 24px;
     }
 
     .home_main_sec3 > .home_container{
-        width: 62.5vw;
-        padding: 6.875vw 0;
-        padding-right: -1vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        width: 100%;
+        padding: 24px;
     }
 
     .home_main_sec3 > .home_container > .sec_img{
-        width: 33vw;
-        height: 23vw;
+        width: 100%;
+        height: 100%;
     }
+    
     .sec_img{
-        width: 33vw;
-        height: 23vw;
+        width: 100%;
+        height: 100%;
+        padding: 0;
     }
     
     .home_main_sec1 .sec_txt{
-        margin-left: 3.2vw;
-        width: 18.65vw;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
         height: 23vw;
-        gap: 1.5vw;
+        gap: 3vw;
+        margin-bottom: 1.2vw;
+    }
+
+    .sec_title_br{
+        display: none;
     }
 
     .home_main_sec2 .sec_txt{
-        margin-right: 3.2vw;
-        width: 18.65vw;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
         height: 23vw;
-        gap: 1.5vw;
+        gap: 3vw;
     }
 
     .home_main_sec3 .sec_txt{
-        margin-left: 3.2vw;
-        width: 18.65vw;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
         height: 23vw;
-        gap: 1.5vw;
+        gap: 3vw;
+        margin-bottom: 24px;
     }
 
     .sec_txt_tag{
-        font-size: 0.9vw;
+        font-size: 2vw;
         line-height: 1.205vw;
     }
 
     .sec_txt_title{
-        font-size: 2.1vw;
+        font-size: 4.1vw;
         letter-spacing: 0.02vw;
-        width: 18vw;
-        height: 5.5vw;
-        line-height: 2.8vw;
+        width: 100%;
+        height: 3.5vw;
+        line-height: 3.8vw;
     }
     
 
     .sec_txt_content{
-        font-size: 1.2vw;
-        line-height: 1.44vw;
+        font-size: 2.5vw;
+        line-height: 3vw;
         letter-spacing: 0.004vw;
-        width: 18vw;
+        width: 100%;
         height: 2.9vw;
     }
 
+    .bottom_banner{
+        overflow: hidden;
+    }
+
+
+    .bottom_banner .home_container{
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 111vw;
+    }
+
     .bottom_banner_txt{
-        height: 5.6vw;
-        width: 14.8vw;
-        font-family: Pretendard;
-        font-size: 2vw;
+        padding-top: 20vw;
+        width: 100%;
+        font-size: 5vw;
         font-weight: 700;
-        line-height: 2.8vw;
+        line-height: 7vw;
         letter-spacing: 0.001vw;
-        text-align: left;
+        text-align: center;
         color: #374151;
     }
 
     .bottom_banner_img{
-        width: 48vw;
-        height: 27vw;;
+        width: 120%;
+        height: 50%;
     }
 
-    .codeit-2024{
-        font-size: 0.8vw;
-        line-height: 0.95vw;
-    }
-
-    .privacy_policy_and_faq{
-        line-height: 0.9vw;
-        font-size: 0.8vw
-    }
-    
     footer{
         display:flex;
         justify-content: center;
@@ -527,19 +557,18 @@ a{
     }
 
     .sns_links{
-        width: 5.8vw;
+        gap: 1vw;
     }
 
     .footer_menu{
         padding-top: 2vw;
         display: flex;
-        width: 76vw;
+        width: 66vw;
         justify-content: space-between;
+
     }
 
     .facebook_bt{
-        width: 1vw;
-        height: 1vw;
         background-color: #111827;
         background-position: center;
         background-size: cover;
@@ -547,8 +576,6 @@ a{
     }
     
     .twitter_bt{
-        width: 1vw;
-        height: 1vw;
         background-color: #111827;
         background-position: center;
         background-size: cover;
@@ -556,8 +583,6 @@ a{
     }
     
     .youtube_bt{
-        width: 1vw;
-        height: 1vw;
         background-color: #111827;
         background-position: center;
         background-size: cover;
@@ -565,11 +590,55 @@ a{
     }
     
     .instagram_bt{
-        width: 1vw;
-        height: 1vw;
         background-color: #111827;
         background-position: center;
         background-size: cover;
         border: none;
+    }
+}
+
+@media screen and (max-width: 767px){
+    header {
+        padding-left: 16px;
+        padding-right: 16px;
+        max-width: none;
+    }
+
+    .banner_text{
+        padding-top: 2vw;
+        width: 65%;
+        text-align: center;
+        line-height: 7vw;
+    }
+
+    .banner_bt{
+        width: 40%;
+        height: 8vw;
+        font-size: 2.4vw;
+    }
+
+    .home_main_sec1 > .home_container{
+        margin: 10vw 0 0;
+        padding: 16px;
+    }
+
+    .home_main_sec2 > .home_container{
+        margin: 10vw 0 0;
+        padding: 16px;
+    }
+
+    .home_main_sec3 > .home_container{
+        margin: 10vw 0 0;
+        padding: 16px;
+    }
+
+    footer{
+        position: relative;
+        height: 160px;
+    }
+    
+    .codeit-2024{
+        position: absolute;
+        bottom: 24px;
     }
 }

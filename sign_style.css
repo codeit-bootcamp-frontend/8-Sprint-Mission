@@ -12,6 +12,11 @@
 
 }
 
+*{
+    box-sizing: border-box;
+    font-family: Pretendard;
+}
+
 body{
     box-sizing: border-box;
     display: flex;
@@ -35,14 +40,17 @@ input:focus{
     outline: none;
 }
 
+
+
 .text_logo_bt{
     width: 266px;
-    height: 90px;
+    height: 60px;
     border:none;
     background-image: url("text_logo_big.png");
     background-color: #FFFFFF;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }
 
 button:hover{
@@ -113,7 +121,6 @@ button:hover{
 }
 
 .email_txt{
-    font-family: Pretendard;
     font-size: 18px;
     font-weight: 700;
     line-height: 21.48px;
@@ -121,7 +128,6 @@ button:hover{
 }
 
 .nickname_txt{
-    font-family: Pretendard;
     font-size: 18px;
     font-weight: 700;
     line-height: 21.48px;
@@ -129,7 +135,6 @@ button:hover{
 }
 
 .pw_txt{
-    font-family: Pretendard;
     font-size: 18px;
     font-weight: 700;
     line-height: 21.48px;
@@ -137,7 +142,6 @@ button:hover{
 }
 
 .pw_check_txt{
-    font-family: Pretendard;
     font-size: 18px;
     font-weight: 700;
     line-height: 21.48px;
@@ -149,7 +153,6 @@ button:hover{
     background-color: var(--gray100);
     padding: 12px 24px;
     border-radius: 12px;
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -161,7 +164,6 @@ button:hover{
     background-color: var(--gray100);
     padding: 12px 24px;
     border-radius: 12px;
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -169,12 +171,11 @@ button:hover{
 }
 
 .pw_input{
-    width: 592px;
+    width: 100%;
     border: none; 
     background-color:var(--gray100);
     padding: 12px 24px;
     border-radius: 12px;
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -182,40 +183,43 @@ button:hover{
 }
 
 .pw_check_input{
-    width: 592px;
+    width: 100%;
     border: none; 
     background-color:var(--gray100);
     padding: 12px 24px;
     border-radius: 12px;
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
     text-align: left;
 }
 
-.pw_eye{
+.err_msg{
+    color: red;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 17.9px;
+    text-align: left;
+    padding-left: 16px;
+}
+
+.bt_toggle_pw{
     position: absolute;
     right: 24px;
-    top: 12px;
+    top: 13px;
+    cursor: pointer;
 }
 
 .pw_input_box{
     position:relative;
 }
 
-.pw_check_eye{
-    position: absolute;
-    right: 24px;
-    top: 12px;
-}
 
 .pw_check_input_box{
     position:relative;
 }
 
 .login_bt{
-    font-family: Pretendard;
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
@@ -227,7 +231,6 @@ button:hover{
 }
 
 .sign_up_bt{
-    font-family: Pretendard;
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
@@ -239,7 +242,6 @@ button:hover{
 }
 
 .easy_login_txt{
-    font-family: Pretendard;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -266,7 +268,6 @@ button:hover{
 }
 
 .new_visitor_chk{
-    font-family: Pretendard;
     font-size: 15px;
     font-weight: 500;
     line-height: 17.9px;
@@ -275,4 +276,43 @@ button:hover{
 
 button.enabled {
     background-color: var(--blue);
+}
+
+.input_error{
+    border: 1px red solid;
+}
+
+
+.err_msg[data-type = "pw_check_err"],
+.err_msg[data-type = "pw_err"]{
+    display: inline-block;
+    margin-top : 16px
+}
+@media screen and (max-width: 767px){
+
+    body{
+        margin: 0 16px;
+    }
+
+    .logo_block .image_logo{
+        width: 13vw;
+    }
+
+    .logo_block .text_logo_bt{
+        width: 35vw;
+        height: 8vw;
+    }
+
+    .logo_block{
+        margin-top: 9vw;
+        height: 6.6vw;
+    }
+
+    .login_block{
+        max-width: 400px;
+        width: 100%;
+        height: 100%;
+        gap: 24px;
+    }
+
 }
