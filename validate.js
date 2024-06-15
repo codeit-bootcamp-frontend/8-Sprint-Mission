@@ -57,8 +57,9 @@ function validatePw() {
   } else if (password.value.length < 8) {
     showErrorMessage(password, "비밀번호를 8자 이상 입력해주세요.", 'pwErrorShort');
   }
-  validatePwConfirm()
   activateButton()
+  validatePwConfirm()
+  
 }
 
 function validatePwConfirm() {
