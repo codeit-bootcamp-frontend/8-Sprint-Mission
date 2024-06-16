@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓 회원가입</title>
-    <link rel="icon" href="..\assets\common\판다 얼굴.png" type="image/png" />
-    <link rel="stylesheet" href="..\css\common.css" />
-    <link rel="stylesheet" href="..\css\login.css" />
+    <link rel="icon" href="../assets/common/판다 얼굴.png" type="image/png" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/login.css" />
   </head>
   <body>
     <header>
-      <a href="..\html\index.html">
-        <img class="logo" src="..\assets\common\logo.svg" />
+      <a href="../html/index.html">
+        <img class="logo" src="../assets/common/logo.svg" />
       </a>
     </header>
 
@@ -24,6 +24,7 @@
             id="email"
             name="email"
             class="form-input"
+            data-input="이메일"
             placeholder="이메일을 입력해주세요"
             required
           />
@@ -35,6 +36,7 @@
             id="nickname"
             name="nickname"
             class="form-input"
+            data-input="닉네임"
             placeholder="닉네임을 입력해주세요"
             required
           />
@@ -46,6 +48,7 @@
             id="password"
             name="password"
             class="form-input"
+            data-input="비밀번호"
             placeholder="비밀번호를 입력해주세요"
             required
           />
@@ -58,14 +61,20 @@
             id="password-check"
             name="password-check"
             class="form-input"
+            data-input="비밀번호 확인"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
             required
           />
           <a class="password-inv" href="#"></a>
         </div>
         <div class="form-group">
-          <button class="button btn-large login-button" type="submit">
-            로그인
+          <button
+            class="button btn-large submit-button"
+            type="submit"
+            href="../html/signin.html"
+            disabled
+          >
+            회원가입
           </button>
         </div>
       </form>
@@ -86,8 +95,9 @@
 
       <div>
         이미 회원이신가요?
-        <a class="bottom-link" href="..\html\login.html">로그인</a>
+        <a class="bottom-link" href="../html/login.html">로그인</a>
       </div>
     </main>
+    <script src="../JS/auth.js"></script>
   </body>
 </html>
