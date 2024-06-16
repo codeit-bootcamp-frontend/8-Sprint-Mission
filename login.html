@@ -10,8 +10,9 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <link rel="stylesheet" href="global.css" />
-    <link rel="stylesheet" href="login-signup.css" />
+    <link rel="stylesheet" href="CSS/reset.css" />
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/login-signup.css" />
   </head>
   <body>
     <div class="logo">
@@ -27,6 +28,8 @@
         type="email"
         placeholder="이메일을 입력해주세요"
       />
+      <div class="email-none hide">이메일을 입력해주세요.</div>
+      <div class="email-fail hide">잘못된 이메일 형식입니다.</div>
       <label for="password">비밀번호</label>
       <div class="input-wrapper">
         <input
@@ -35,13 +38,11 @@
           type="password"
           placeholder="비밀번호를 입력해주세요"
         />
-        <img
-          src="image/eye-off.svg"
-          alt="비밀번호 숨김"
-          class="toggle-password"
-        />
+        <img class="eye-off" src="image/eye-off.svg" alt="비밀번호 숨김" />
       </div>
-      <button>로그인</button>
+      <div class="password-none hide">비밀번호 입력해주세요.</div>
+      <div class="password-fail hide">비밀번호를 8자 이상 입력해주세요.</div>
+      <button type="button">로그인</button>
       <div class="easylogin">
         <p class="easylogin-text">간편 로그인하기</p>
         <div class="easylogin-logo">
@@ -68,5 +69,6 @@
         <a class="signup" href="/signup.html">회원가입</a>
       </p>
     </form>
+    <script type="module" src="JS/login.js"></script>
   </body>
 </html>

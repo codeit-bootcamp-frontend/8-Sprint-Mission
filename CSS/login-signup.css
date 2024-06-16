@@ -1,9 +1,11 @@
+@import "reset.css";
+
 body {
   width: 640px;
   margin: 60px auto;
 }
 
-.logo {
+.logo img {
   margin: 40px 122px;
 }
 
@@ -21,8 +23,8 @@ label {
 input {
   display: block;
   border: none;
+
   background: var(--color-coolgray100);
-  margin: 16px 0 24px;
   height: 56px;
   padding: 16px 24px;
   border-radius: 12px;
@@ -40,15 +42,21 @@ input {
   align-items: center;
 }
 
-.toggle-password {
+.eye-off,
+.repeat-eye-off {
   position: absolute;
   right: 24px;
   cursor: pointer;
 }
 
+input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 input:focus {
-  outline: none;
-  border-color: var(--color-blue);
+  outline-color: var(--color-blue);
 }
 
 button {
@@ -58,6 +66,7 @@ button {
   padding: 16px 124px;
   border-radius: 40px;
   border: none;
+  margin-top: 24px;
 
   color: var(--color-white);
   font-size: 20px;
@@ -116,6 +125,33 @@ button:hover {
   text-align: left;
 }
 
+.email-none,
+.email-fail,
+.password-none,
+.password-fail,
+.nickname-none,
+.pwrepeat-none {
+  color: var(--color-red);
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 17.9px;
+  text-align: left;
+  margin: 8px 16px 24px;
+}
+
+.pwrepeat-none {
+  margin: 8px 16px 0;
+}
+
+.hide {
+  display: none;
+}
+
+.outline {
+  outline-color: var(--color-red);
+}
+
 /* Tablet */
 @media (max-width: 1199px) {
   body {
@@ -145,19 +181,36 @@ button:hover {
   .logo img {
     width: 60%;
     height: 60%;
+    margin: 24px auto;
   }
 
   label {
-    margin: 24px 0 8px;
+    margin: 16px 0 8px;
     font-size: 14px;
     line-height: 17px;
   }
 
   input {
-    margin: 8px 0 16px;
     height: 56px;
     padding: 16px 24px;
     border-radius: 12px;
     width: 100%;
+  }
+
+  button {
+    margin-top: 16px;
+  }
+
+  .email-none,
+  .email-fail,
+  .password-none,
+  .password-fail,
+  .nickname-none,
+  .pwrepeat-none {
+    margin: 8px 16px 16px;
+  }
+
+  .pwrepeat-none {
+    margin: 8px 16px 0;
   }
 }
