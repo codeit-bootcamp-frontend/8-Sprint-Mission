@@ -1,18 +1,20 @@
 /* 홈 페이지 상 하단 브랜드 소개 공동 스타일*/
 .home-brand {
+  display: flex;
+  justify-content: center;
   height: 54rem;
-  width: 100%;
   background-color: var(--pale-blue);
 
   & .container {
     height: 100%;
     width: 120rem;
-    margin: 0 auto;
     position: relative;
     display: flex;
     align-items: center;
 
     & h1 {
+      width: 29.5rem;
+      min-width: 23.6rem;
       font-size: 4rem;
       font-weight: 700;
       line-height: 5.6rem;
@@ -46,8 +48,6 @@
 
 /* 홈 페이지 하단 브랜드 소개 */
 .container.home-brand-bottom {
-  margin-top: 13.8rem;
-
   & img.brand-image {
     width: 99.6rem;
     height: 54rem;

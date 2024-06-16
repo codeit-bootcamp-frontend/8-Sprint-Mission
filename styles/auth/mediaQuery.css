@@ -1,0 +1,8 @@
+/* Mobile : 767px 이하*/
+@media all and (max-width: 767px) {
+  .auth-container {
+    box-sizing: content-box;
+    padding: 0 16px;
+    max-width: 400px;
+  }
+}

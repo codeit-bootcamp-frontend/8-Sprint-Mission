@@ -10,16 +10,10 @@
       rel="stylesheet"
       as="style"
       crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
 
     <title>판다마켓 | Login</title>
-
-    <!-- script -->
-    <script
-      type="text/javascript"
-      src="../../javascript/util/location.js"
-    ></script>
   </head>
   <body>
     <!-- 로그인 화면과 회원가입 화면에서 동일한 스타일이 적용되기 때문에
@@ -27,7 +21,7 @@
       로그인 & 회원가입 화면에 공통적인 스타일로 적용시킬 예정 -->
 
     <!-- 메인 페이지로 이동하는 기능을 가진 로고 -->
-    <article class="auth-logo" onclick="moveLocation('/')">
+    <article class="auth-logo move-to-home">
       <img
         src="../../assets/images/auth/auth-logo.png"
         alt="판다마켓 로고와 타이포"
@@ -37,37 +31,42 @@
     <main class="auth-container">
       <!-- 로그인 정보를 서버로 보낼 form, 비밀번호가 url에 표시되지 않도록 하기위해 post 액션으로 전송 -->
       <!-- 사용자 편의를 위해  autocomplete 속성 on, required 속성 추가-->
-      <form class="auth-form" autocomplete="on" action="post">
+      <form class="auth-form" autocomplete="on" method="post">
         <!-- auth-form 걸려있는 gap의 영향을 받지 않고 auth-label과 input 사이의 간격을 조정하기 위한 div -->
-        <div>
-          <div class="auth-label">이메일</div>
+        <div class="auth-input-wrapper">
+          <label for="login-email" class="auth-label">이메일</label>
           <input
+            id="login-email"
+            class="auth-email"
             type="email"
             name="email"
             placeholder="이메일을 입력해주세요"
             required
           />
+          <small>Error Message</small>
         </div>
 
-        <div>
-          <div class="auth-label">비밀번호</div>
+        <div class="auth-input-wrapper">
+          <label for="login-password" class="auth-label">비밀번호</label>
           <!-- visibility-icon을 absolute 속성을 주기 위해
             password-wrapper는 relative로 감싸주어
             input 영역 내에서 아이콘 위치를 조정할 수 있도록 하기 위함 -->
           <div class="password-wrapper">
             <!-- 비밀번호는 자동완성되지 않도록 autocomplete off -->
             <input
+              id="login-password"
+              class="auth-password"
               type="password"
               name="password"
               autocomplete="off"
               placeholder="비밀번호를 입력해주세요"
               required
             />
-            <!-- 향후 sprint에서 visibility-on or off 기능 추가 예정이라 함 -->
             <i class="password-visibility-icon"
               ><img src="../../assets/images/auth/visibility-off.png"
             /></i>
           </div>
+          <small>Error Message</small>
         </div>
 
         <button class="auth-submit-button">로그인</button>
@@ -102,5 +101,13 @@
         <a href="../signup">회원가입</a>
       </section>
     </main>
+
+    <!-- script -->
+    <script type="module" src="../../javascript/router/router.js"></script>
+    <script type="text/javascript" src="../../javascript/auth/form.js"></script>
+    <script
+      type="text/javascript"
+      src="../../javascript/auth/password.js"
+    ></script>
   </body>
 </html>

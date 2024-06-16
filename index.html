@@ -3,18 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="판다마켓" />
+    <meta
+      property="og:description"
+      content="일상의 모든 물건을 거래해 보세요"
+    />
+    <meta
+      property="og:image"
+      content="https://panda-market-itscold96.netlify.app/assets/images/meta/ogImage.png"
+    />
+    <meta
+      property="og:url"
+      content="https://panda-market-itscold96.netlify.app"
+    />
 
     <!-- link -->
     <link rel="stylesheet" href="style.css" />
+    <!-- as는 브라우저에게 가져올 리소스의 유형을 명시적으로 지정할 때 사용한다고 하고,
+      crossorigin은 CORS 정책 적용을 위해 쓰인다고 함.
+      위 두 프로퍼티가 없어도 문제없이 Pretandard 폰트가 적용이 되지만,
+      Pretandard 웹 폰트의 공식적인 사용법을 https://github.com/orioncactus/pretendard에서
+      권장하고 있기 때문에 해당 내용을 그대로 둠 -->
     <link
       rel="stylesheet"
       as="style"
       crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-
-    <!-- script -->
-    <script type="text/javascript" src="./javascript/util/location.js"></script>
 
     <title>판다마켓</title>
   </head>
@@ -32,20 +47,15 @@
             alt="앱 로고와 이름 이미지"
           />
         </a>
-        <button class="header-login" onclick="moveLocation('./pages/login')">
-          로그인
-        </button>
+        <button class="header-login move-to-login">로그인</button>
       </div>
     </header>
 
     <article class="home-brand">
       <div class="container home-brand-top">
-        <div>
-          <h1>
-            일상의 모든 물건을<br />
-            거래해 보세요
-          </h1>
-          <button onclick="moveLocation('/items')">구경하러 가기</button>
+        <div class="home-brand-wrapper">
+          <h1>일상의 모든 물건을 거래해 보세요</h1>
+          <button class="move-to-items">구경하러 가기</button>
         </div>
         <img
           class="brand-image"
@@ -113,10 +123,12 @@
 
     <article class="home-brand">
       <div class="container home-brand-bottom">
-        <h1>
-          일상의 모든 물건을<br />
-          거래해 보세요
-        </h1>
+        <div class="home-brand-wrapper">
+          <h1>
+            믿을 수 있는<br />
+            판다마켓 중고 거래
+          </h1>
+        </div>
         <img
           class="brand-image"
           src="./assets/images/home/home_bottom.png"
@@ -149,5 +161,8 @@
         </a>
       </div>
     </footer>
+
+    <!-- script -->
+    <script type="module" src="../../javascript/router/router.js"></script>
   </body>
 </html>

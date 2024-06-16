@@ -1,6 +1,6 @@
 /* 홈페이지 앱 메인 기능 소개 */
 .home-feat-items {
-  width: 120rem;
+  max-width: 120rem;
   margin: 0 auto;
 }
 
