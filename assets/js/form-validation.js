@@ -1,137 +1,138 @@
-export let form = document.querySelector('.form');
-export let email = document.querySelector('#email');
-export let password = document.querySelector('#password');
-export let confirmPassword = document.querySelector('#confirmPassword');
-export let nickName = document.querySelector('#nickname');
-export let submitBtn = document.querySelector('#submitBtn');
-
+export const form = document.querySelector('.form');
+export const inputList = form.querySelectorAll("input");
+export const submitBtn = document.querySelector('#submitBtn');
+export const VALIDATE_LIST = Object.freeze({
+  EMAIL: 'val-email',
+  NICKNAME: 'val-nickname',
+  PASSWORD: 'val-password',
+  CONFIRM_PASSWORD: 'val-confirm-password',
+})
+// 유효값에 대한 정의
 export const validate = {
   errorPlacement: function (e, message) {
-    let errorDiv = e.nextElementSibling;
-    if (errorDiv && errorDiv.classList.contains('error-message')) {
-      errorDiv.innerHTML = message;
-    } else {
+    const inputFormDiv = e.parentNode;
+    let errorDiv = inputFormDiv.querySelector('.error-message');
+    if (!errorDiv) {
       errorDiv = document.createElement('div');
       errorDiv.classList.add('error-message');
-      errorDiv.innerHTML = message;
-      e.parentNode.insertBefore(errorDiv, e.nextSibling);
     }
+    errorDiv.innerHTML = message;
+    inputFormDiv.appendChild(errorDiv);
+
   },
   showError: function (e, message) {
-    e.parentNode.classList.remove('valid')
+    const inputFormDiv = e.parentNode;
+    inputFormDiv.classList.remove('valid');
     e.classList.add('error-border');
     e.dataset.valid = 'false';
     this.errorPlacement(e, message);
   },
   success: function (e) {
+    const inputFormDiv = e.parentNode;
+    let errorDiv = inputFormDiv.querySelector('.error-message');
     e.classList.remove('error-border');
-    e.parentNode.classList.add('valid');
-    e.dataset.valid = 'true';
-    let errorDiv = e.nextElementSibling;
-    if (errorDiv && errorDiv.classList.contains('error-message')) {
-      errorDiv.innerHTML = '';
+    if (errorDiv) {
+      errorDiv.remove();
     }
+    inputFormDiv.classList.add('valid');
+    e.dataset.valid = 'true';
   },
   messages: {
-    'val-email': {
+    [VALIDATE_LIST.EMAIL]: {
       required: '이메일을 입력해주세요.',
-      minlength: '잘못된 이메일 형식입니다.',
+      pattern: '잘못된 이메일형식입니다.',
     },
-    'val-nickname': '닉네임을 입력해주세요.',
-    'val-password': {
+    [VALIDATE_LIST.NICKNAME]: '닉네임을 입력해주세요.',
+    [VALIDATE_LIST.PASSWORD]: {
       required: '비밀번호를 입력해주세요.',
       minlength: '비밀번호를 8자 이상 입력해주세요.',
     },
-    'val-confirm-password': {
+    [VALIDATE_LIST.CONFIRM_PASSWORD]: {
       required: '비밀번호를 입력해주세요.',
       minlength: '비밀번호를 8자 이상 입력해주세요.',
       equalTo: '비밀번호가 일치하지 않습니다.',
     }
   },
   rules: {
-    'val-email': {
+    [VALIDATE_LIST.EMAIL]: {
       required: true,
-      email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+      pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
     },
-    'val-nickname': {
+    [VALIDATE_LIST.NICKNAME]: {
       required: true,
     },
-    'val-password': {
+    [VALIDATE_LIST.PASSWORD]: {
       required: true,
       minlength: 8,
     },
-    'val-confirm-password': {
+    [VALIDATE_LIST.CONFIRM_PASSWORD]: {
       required: true,
       minlength: 8,
       equalTo: '#password',
     }
-  },
+  }
 }
 
-export function validateEmail() {
-  let value = email.value.trim();
-  let rules = validate.rules['val-email'];
-  if (rules.required && !value) {
-    validate.showError(email, validate.messages['val-email'].required);
-    return false;
+// input 유효값 check
+export function checkInputs(input) {
+  const inputType = input.name;
+  const inputValName = `val-${inputType}`;
+  const value = input.value.trim();
+  const rules = validate.rules[inputValName];
+  const message = validate.messages[inputValName];
+
+  // Specific validation checks 
+  if (inputType === 'email') {
+    if (rules.required && !value) {
+      validate.showError(input, message.required);
+      return false;
+    }
+    if (value && !rules.pattern.test(value)) {
+      validate.showError(input, message.pattern);
+      return false;
+    }
+    validate.success(input);
+    return true;
+  } else if (inputType === 'nickname') {
+    if (rules && !value) {
+      validate.showError(input, message);
+      return false;
+    }
+    validate.success(input);
+    return true;
+  } else if (inputType === 'password') {
+    if (rules.required && !value) {
+      validate.showError(input, message.required);
+      return false;
+    }
+    if (value && value.length < rules.minlength) {
+      validate.showError(input, message.minlength);
+      return false;
+    }
+    validate.success(input);
+
+  } else if (inputType === 'confirm-password') {
+    if (rules.required && !value) {
+      validate.showError(input, message.required);
+      return false;
+    }
+    if (value && value.length < rules.minlength) {
+      validate.showError(input, message.minlength);
+      return false;
+    }
+    if (value && value !== document.querySelector('#password').value) {
+      validate.showError(input, message.equalTo);
+      return false;
+    }
+    validate.success(input);
+    return true;
   }
-  if (value && !rules.email.test(value)) {
-    validate.showError(email, validate.messages['val-email'].minlength);
-    return false;
-  }
-  validate.success(email);
-  return true;
 }
 
-export function validateNickname() {
-  let value = nickName.value.trim();
-  let rules = validate.rules['val-nickname'];
-  if (rules && !value) {
-    validate.showError(nickName, validate.messages['val-nickname']);
-    return false;
-  }
-  validate.success(nickName);
-  return true;
-}
-
-export function validatePassword() {
-  let value = password.value.trim();
-  let rules = validate.rules['val-password'];
-  if (rules.required && !value) {
-    validate.showError(password, validate.messages['val-password'].required);
-    return false;
-  }
-  if (value && value.length < rules.minlength) {
-    validate.showError(password, validate.messages['val-password'].minlength);
-    return false;
-  }
-  validate.success(password);
-  return true;
-}
-
-export function validateConfirmPassword() {
-  let value = confirmPassword.value.trim();
-  let passwordValue = password.value;
-  let rules = validate.rules['val-confirm-password'];
-  if (rules.required && !value) {
-    validate.showError(confirmPassword, validate.messages['val-confirm-password'].required);
-    return false;
-  }
-  if (value && value.length < rules.minlength) {
-    validate.showError(confirmPassword, validate.messages['val-confirm-password'].minlength);
-    return false;
-  }
-  if (value && value !== passwordValue) {
-    validate.showError(confirmPassword, validate.messages['val-confirm-password'].equalTo);
-    return false;
-  }
-  validate.success(confirmPassword);
-  return true;
-}
-
-
-export function checkFormValidity() {
+// form 전체에 대한 검증
+export function checkAllInput() {
   let formSubmitDone = [...form.querySelectorAll('input')].every(input => input.dataset.valid === 'true');
   submitBtn.disabled = !formSubmitDone;
+  return formSubmitDone;
 }
 
