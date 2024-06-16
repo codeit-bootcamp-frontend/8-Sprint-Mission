@@ -29,29 +29,47 @@
           <div class="form-content">
             <label for="email">이메일</label>
             <input
+              id="input-email"
               type="email"
               name="email"
               placeholder="이메일을 입력해주세요"
+              autofocus
             />
+            <div class="error-message email">이메일을 입력해주세요.</div>
           </div>
+
           <div class="form-content">
             <label for="password">비밀번호</label>
             <div class="password">
               <input
+                id="input-password"
                 type="password"
                 name="password"
                 placeholder="비밀번호를 입력해주세요"
               />
-              <img
-                class="password-show-icon"
-                src="../asset/icon/ic_password_disable.png"
-                alt="비밀번호를 보여주는 눈 모양 아이콘"
-                width="24px"
-                height="24px"
-              />
+              <button
+                class="password-show-btn"
+                type="button"
+                value="비밀번호 보이거나 가리기"
+              >
+                <img
+                  class="password-show-icon"
+                  src="../asset/icon/btn_visibility_off.png"
+                  alt="비밀번호를 보여주는 눈 모양 아이콘"
+                  width="24px"
+                  height="24px"
+                />
+              </button>
             </div>
+            <div class="error-message password">비밀번호를 입력해주세요.</div>
           </div>
-          <button class="form-login-btn" type="button" value="로그인">
+
+          <button
+            class="form-login-btn"
+            type="button"
+            value="로그인"
+            disabled="true"
+          >
             로그인
           </button>
         </form>
@@ -82,5 +100,7 @@
         <a class="signup-link" href="/signup/">회원가입</a>
       </div>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>

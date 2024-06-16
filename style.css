@@ -1,30 +1,3 @@
-@font-face {
-  font-family: "Pretendard";
-  src: url("./asset/font/pretendard/woff/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Pretendard";
-  src: url("./asset/font/pretendard/woff/Pretendard-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Pretendard";
-  src: url("./asset/font/pretendard/woff/Pretendard-SemiBold.woff")
-    format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Pretendard";
-  src: url("./asset/font/pretendard/woff/Pretendard-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -403,5 +376,18 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* 요소들이 영역을 벗어난 경우의 개행 여부를 설정해줌 */
+    height: 100%;
+  }
+
+  /* .footer-wrapper 내에서 보여질 순서 */
+  .footer-copyright {
+    order: 3;
+  }
+  .footer-menu {
+    order: 1;
+  }
+  .footer-sns {
+    order: 2;
   }
 }
