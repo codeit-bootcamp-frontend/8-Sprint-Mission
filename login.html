@@ -20,14 +20,16 @@
           </div>
 
           <form class="login-form">
+            <div class="input-div">
               <label for="e-mail">이메일</label>
-              <input id="e-mail" name="e-mail" placeholder="이메일을 입력해주세요">
-              <div class="eye-icon-parents">
+              <input id="e-mail" name="e-mail" type="email" autocomplete="e-mail" placeholder="이메일을 입력해주세요" required>
+            </div>
+              <div class="input-div eye-icon-parents">
               <label for="password">비밀번호</label>
               <img rel="비밀번호 가림 온 오프 아이콘" src="/icon/ic_password_eye.png">
-              <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
+              <input id="password" name="password" type="password" autocomplete="password" placeholder="비밀번호를 입력해주세요" required minlength="8">
               </div>
-              <button class="login-button">로그인</button> 
+              <button class="login-button" onclick="location.href='/items';" disabled >로그인</button> 
           </form>
 
           <div class="easy-login">
@@ -49,6 +51,6 @@
       </div>
       <div class="empty-space"></div>
   </div>
-  <script src="/script/script.js"></script>
+  <script type="module" src="/script/author.js"></script>
 </body>
 </html>

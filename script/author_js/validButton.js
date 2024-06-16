@@ -1,8 +1,4 @@
-const loginForm = document.querySelector('.login-form');
-const inputs = document.querySelectorAll(`.login-form input`);
-const button = document.querySelector('.login-form button');
-
-function checkInput() {
+export function validButton(button, inputs) {
 
   console.log('이벤트핸들러 진입');
 
@@ -10,7 +6,7 @@ function checkInput() {
 
   for(let input of inputs){
     console.log('포문진입');
-    if(input.value !== '' ){
+    if(input.checkValidity()){
       console.log('넘버 +1');
       number++
     }
@@ -18,12 +14,11 @@ function checkInput() {
 
   if(number === inputs.length){
     button.classList.add('enabled')
+    button.disabled = true;
+    console.log(button.disabled);
   }else{
     button.classList.remove('enabled')
+    button.disabled = false;
+    console.log(button.disabled);
   }
- 
- 
 }
-
-loginForm.addEventListener('input', checkInput);
-

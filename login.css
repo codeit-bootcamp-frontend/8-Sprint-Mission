@@ -39,6 +39,10 @@ form input {
   border-radius: 12px;
   color: var(--gray800);
   background-color: var(--gray100);
+  margin: 0 0 8px;
+}
+
+.input-div {
   margin: 0 0 24px;
 }
 
@@ -124,6 +128,15 @@ form button {
 
 button.enabled {
   background-color: var(--blue);
+}
+
+.wrong-value {
+  border: 1px solid var(--red);
+}
+
+p.error-message {
+  color: var(--red);
+  font-size: 15px;
 }
 
 /* @media screen and (min-width:1199px) and (max-width:1920px) {
@@ -222,7 +235,7 @@ button.enabled {
     border-radius: 12px;
     color: var(--gray800);
     background-color: var(--gray100);
-    margin: 0 0 24px;
+    margin: 0 0 8px;
   }
   
   form input:placeholder {
@@ -305,6 +318,16 @@ button.enabled {
   button.enabled {
     background-color: var(--blue);
   }
+
+  p.error-message {
+    color: var(--red);
+    font-size: 15px;
+  }
+
+  .input-div {
+    margin: 0 0 24px;
+  }
+
 }
 
 @media screen and (min-width: 300px) and (max-width: 767px) {
@@ -336,7 +359,7 @@ button.enabled {
     border-radius: 12px;
     color: var(--gray800);
     background-color: var(--gray100);
-    margin: 0 0 16px;
+    margin: 0 0 8px;
   }
   
   form input:placeholder {
@@ -420,5 +443,14 @@ button.enabled {
   
   button.enabled {
     background-color: var(--blue);
+  }
+
+  p.error-message {
+    color: var(--red);
+    font-size: 15px;
+  }
+
+  .input-div {
+    margin:0 0 16px;
   }
 }
