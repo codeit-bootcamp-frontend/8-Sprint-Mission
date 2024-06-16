@@ -1,48 +1,51 @@
 import {
   form,
-  email,
-  password,
-  validateEmail,
-  validatePassword,
-  checkFormValidity,
-  submitBtn
+  inputList,
+  checkInputs,
+  checkAllInput,
 } from './form-validation.js';
-import { passwordToggleBtns, passwordToggle } from './password-toggle.js';
 
-submitBtn.disabled = true;
-
-email.addEventListener('blur', function () {
-  this.parentNode.classList.add('is-valid');
-  if (!validateEmail) { this.parentNode.classList.remove('is-valid'); }
-});
-password.addEventListener('blur', function () {
-  this.parentNode.classList.add('is-valid');
-  validatePassword();
-});
-
-email.addEventListener('keyup', function () {
-  if (this.parentNode.classList.contains('is-valid')) {
-  }
-  validateEmail();
-  checkFormValidity();
-});
-password.addEventListener('keyup', function () {
-  if (this.parentNode.classList.contains('is-valid')) {
-  }
-  validatePassword();
-  checkFormValidity();
+inputList.forEach((input) => {
+  input.addEventListener('blur', function () {
+    this.parentNode.classList.add('is-error');
+    checkInputs(input);
+  });
+  input.addEventListener('keyup', () => {
+    checkInputs(input);
+    checkAllInput();
+  })
 });
 
+// form 제출
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-  if (validateEmail() && validatePassword()) {
+  if (checkAllInput) {
     alert('로그인성공');
     window.location.href = '/items.html';
   }
 });
 
-
 // 패스워드 보기
+function passwordToggle(e) {
+  let button = e.currentTarget;
+  let passwordInput = button.parentElement.querySelector('input');
+  let toggleIcon = document.createElement('i');
+  toggleIcon.classList.add('icon');
+
+  const shouldShowPassword = passwordInput.type === 'password';
+  passwordInput.type = shouldShowPassword ? 'text' : 'password';
+
+  toggleIcon.classList.toggle('ic_visible_on', !shouldShowPassword);
+  toggleIcon.classList.toggle('ic_visible_off', shouldShowPassword);
+
+  const ariaLabel = shouldShowPassword ? '비밀번호 숨기기' : '비밀번호 보기';
+  this.setAttribute("aria-label", ariaLabel);
+
+  button.innerHTML = '';
+  button.appendChild(toggleIcon);
+}
+
+const passwordToggleBtns = document.querySelectorAll('.password-toggle-button');
 passwordToggleBtns.forEach(btn => {
   btn.addEventListener('click', passwordToggle);
 });
