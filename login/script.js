@@ -1,58 +1,58 @@
-const inputEmail = document.getElementById("input-email");
-const errorMsgEmail = document.querySelector(".error-message.email");
+const emailInput = document.getElementById("input-email");
+const emailErrorMessage = document.querySelector(".error-message.email");
 let flagEmail = 0;
-inputEmail.addEventListener("focusout", ({ target }) => {
-  const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+const VALID_EMAIL_PATTERN = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+emailInput.addEventListener("focusout", ({ target }) => {
   if (target.value === "") {
     target.classList.add("error");
-    errorMsgEmail.style.display = "block";
+    emailErrorMessage.style.display = "block";
     flagEmail = 0;
-  } else if (!pattern.test(target.value)) {
+  } else if (!VALID_EMAIL_PATTERN.test(target.value)) {
     target.classList.add("error");
-    errorMsgEmail.style.display = "block";
-    errorMsgEmail.textContent = "잘못된 이메일 형식입니다.";
+    emailErrorMessage.style.display = "block";
+    emailErrorMessage.textContent = "잘못된 이메일 형식입니다.";
     flagEmail = 0;
   } else {
     target.classList.remove("error");
-    errorMsgEmail.style.display = "none";
+    emailErrorMessage.style.display = "none";
     flagEmail = 1;
   }
   checkInputs();
 });
 
-const inputPassword = document.getElementById("input-password");
-const errorMsgPassword = document.querySelector(".error-message.password");
+const passwordInput = document.getElementById("input-password");
+const passwordErrorMessage = document.querySelector(".error-message.password");
 let flagPassword = 0;
-inputPassword.addEventListener("focusout", ({ target }) => {
+passwordInput.addEventListener("focusout", ({ target }) => {
   if (target.value === "") {
     target.classList.add("error");
-    errorMsgPassword.style.display = "block";
+    passwordErrorMessage.style.display = "block";
     flagPassword = 0;
   } else if (target.value.length < 8) {
     target.classList.add("error");
-    errorMsgPassword.style.display = "block";
-    errorMsgPassword.textContent = "비밀번호를 8자 이상 입력해주세요.";
+    passwordErrorMessage.style.display = "block";
+    passwordErrorMessage.textContent = "비밀번호를 8자 이상 입력해주세요.";
     flagPassword = 0;
   } else {
     target.classList.remove("error");
-    errorMsgPassword.style.display = "none";
+    passwordErrorMessage.style.display = "none";
     flagPassword = 1;
   }
   checkInputs();
 });
 
 // 버튼 활성화를 위한 input 유효성 검사
-const loginBtn = document.querySelector(".form-login-btn");
+const loginButton = document.querySelector(".form-login-btn");
 function checkInputs() {
   if (flagEmail && flagPassword) {
-    loginBtn.disabled = false;
-    loginBtn.classList.add("enabled");
-    loginBtn.addEventListener("click", () => {
+    loginButton.disabled = false;
+    loginButton.classList.add("enabled");
+    loginButton.addEventListener("click", () => {
       window.location.href = "../items/index.html";
     });
   } else {
-    loginBtn.disabled = true;
-    loginBtn.classList.remove("enabled");
+    loginButton.disabled = true;
+    loginButton.classList.remove("enabled");
   }
 }
 
@@ -61,12 +61,12 @@ let flagVisibility = 0; // 0 = 비밀번호 가리기, 1 = 비밀번호 보이�
 const pwVisibilityIcon = document.querySelector(".password-show-btn");
 pwVisibilityIcon.addEventListener("click", () => {
   if (!flagVisibility) {
-    inputPassword.type = "text";
+    passwordInput.type = "text";
     document.querySelector(".password-show-icon").src =
       "../asset/icon/btn_visibility_on.png";
     flagVisibility = 1;
   } else {
-    inputPassword.type = "password";
+    passwordInput.type = "password";
     document.querySelector(".password-show-icon").src =
       "../asset/icon/btn_visibility_off.png";
     flagVisibility = 0;
