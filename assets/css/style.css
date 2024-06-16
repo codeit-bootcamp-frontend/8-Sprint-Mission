@@ -177,7 +177,7 @@ header {
 .logo {
   display: block;
   background: url("../img/logo.svg") no-repeat;
-  width: 200px;
+  width: 153px;
   height: 48px;
   background-size: contain;
 }
@@ -395,17 +395,26 @@ footer {
   }
 }
 
+.input-group {
+  position: relative;
+  margin-bottom: 24px;
+}
 .input-group input {
   width: 100%;
   font-size: 16px;
   background: var(--gray100);
   border-radius: 12px;
-  margin-bottom: 24px;
   padding: 1em 1.5em;
   height: 56px;
 }
+.input-group.is-valid .error-border, .input-group.is-valid .error-border:focus {
+  outline: 2px solid var(--error);
+}
+.input-group.is-valid.valid .error-message {
+  display: none;
+}
 @media (max-width: 767px) {
-  .input-group input {
+  .input-group {
     margin-bottom: 16px;
   }
 }
@@ -421,8 +430,13 @@ footer {
   height: 24px;
   position: absolute;
   right: 24px;
-  top: 16px;
+  top: 52px;
   background-color: transparent;
+}
+@media (max-width: 767px) {
+  .password-toggle-button {
+    top: 40px;
+  }
 }
 
 .input-group input:focus {
@@ -434,8 +448,18 @@ footer {
   font-weight: 500;
 }
 
-.login-box .btn-lg,
-.signup-box .btn-lg {
+.error-message {
+  display: none;
+  font-size: 15px;
+  padding: 8px 16px;
+  color: var(--error);
+}
+
+.is-valid .error-message {
+  display: block;
+}
+
+.form .btn-lg {
   font-size: 20px;
   height: 56px;
 }
@@ -541,6 +565,22 @@ footer {
   background-image: url("../img/ic_kakao.svg");
 }
 
+.ic_visible_on {
+  background-image: url("../img/btn_visibility_on.svg");
+}
+
+.ic_visible_off {
+  background-image: url("../img/btn_visibility_off.svg");
+}
+
+i.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 /* ==== responsive ==== */
 @media (max-width: 1199px) {
   header {
@@ -615,6 +655,11 @@ footer {
   header {
     padding: 0 16px;
   }
+  .logo {
+    background: url("../img/m-logo.svg") no-repeat;
+    width: 103px;
+    height: 51px;
+  }
   .main-banner {
     height: 540px;
     align-items: unset;
@@ -662,7 +707,7 @@ footer {
   }
   .sub-banner .banner-background {
     background-position: bottom center;
-    background-size: 105%;
+    background-size: min(105%, 630px);
   }
   .sub-banner .banner-text {
     width: 100%;

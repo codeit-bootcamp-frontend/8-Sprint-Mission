@@ -23,3 +23,19 @@
 .ic_kakao {
   background-image: url('../img/ic_kakao.svg');
 }
+
+.ic_visible_on {
+  background-image: url('../img/btn_visibility_on.svg');
+}
+
+.ic_visible_off {
+  background-image: url('../img/btn_visibility_off.svg');
+}
+
+i.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
