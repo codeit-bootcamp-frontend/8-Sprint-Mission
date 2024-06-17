@@ -31,6 +31,9 @@
   line-height: 1.3rem;
   color: var(--gray-800);
 }
+.auth-input-box span {
+  display: none;
+}
 
 input {
   width: 100%;
@@ -51,6 +54,14 @@ input:focus {
 
 ::placeholder {
   color: var(--gray-400);
+}
+.input-error {
+  color: var(--error-red);
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.1rem;
 }
 
 .auth-submit-btn {
@@ -110,6 +121,9 @@ input:focus {
   right: 1rem;
   border: none;
   background-color: transparent;
+}
+.password-visible-toggle-btn img {
+  width: 1.5rem;
 }
 
 .auth-password-box {

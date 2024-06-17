@@ -30,7 +30,15 @@
                 id="auth-email"
                 type="email"
                 placeholder="이메일을 입력해주세요"
+                autocomplete="off"
+                required
               />
+              <span id="email-empty" class="input-error"
+                >잘못된 이메일입니다.</span
+              >
+              <span id="email-error" class="input-error"
+                >잘못된 이메일 형식입니다.</span
+              >
             </div>
             <div class="auth-input-box">
               <label for="auth-name">닉네임</label>
@@ -38,7 +46,12 @@
                 id="auth-name"
                 type="text"
                 placeholder="닉네임을 입력해주세요"
+                autocomplete="off"
+                required
               />
+              <span id="name-empty" class="input-error"
+                >닉네임을 입력해주세요.</span
+              >
             </div>
             <div class="auth-input-box">
               <label for="auth-password">비밀번호</label>
@@ -46,8 +59,9 @@
                 <input
                   id="auth-password"
                   type="password"
-                  autocomplete="on"
+                  autocomplete="off"
                   placeholder="비밀번호를 입력해주세요"
+                  required
                 />
                 <button type="button" class="password-visible-toggle-btn">
                   <img
@@ -56,15 +70,22 @@
                   />
                 </button>
               </div>
+              <span id="password-empty" class="input-error"
+                >비밀번호를 입력해주세요.</span
+              >
+              <span id="password-error" class="input-error"
+                >비밀번호를 8자 이상 입력해주세요.</span
+              >
             </div>
             <div class="auth-input-box">
-              <label for="auth-password-confirm">비밀번호</label>
+              <label for="auth-password-confirm">비밀번호 확인</label>
               <div class="auth-password-box">
                 <input
                   id="auth-password-confirm"
                   type="password"
-                  autocomplete="on"
+                  autocomplete="off"
                   placeholder="비밀번호를 다시 한 번 입력해주세요"
+                  required
                 />
                 <button type="button" class="password-visible-toggle-btn">
                   <img
@@ -73,9 +94,14 @@
                   />
                 </button>
               </div>
+              <span id="password-confirm-error" class="input-error"
+                >비밀번호가 일치하지 않습니다.</span
+              >
             </div>
 
-            <button type="submit" class="auth-submit-btn">회원가입</button>
+            <button type="submit" class="auth-submit-btn" disabled>
+              회원가입
+            </button>
           </form>
           <div class="easy-login">
             <span>간편 로그인하기</span>
@@ -103,6 +129,6 @@
         </div>
       </div>
     </div>
-    <script src="/javascript/auth.js"></script>
+    <script type="module" src="/javascript/auth.js"></script>
   </body>
 </html>
