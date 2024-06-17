@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/login_signup.css" />
   </head>
   <body>
-    <div id="width-alert">
+    <div class="width-alert">
       <span
         >지원하지 않는<br />
         해상도 입니다</span
@@ -29,6 +29,7 @@
             name="user-email"
             id="user-email"
             placeholder="이메일을 입력해주세요"
+            class="user-input"
           />
           <label for="nickname">닉네임</label>
           <input
@@ -36,28 +37,40 @@
             name="nickname"
             id="nickname"
             placeholder="닉네임을 입력해주세요"
+            class="user-input"
           />
           <label for="user-password">비밀번호</label>
+          <div class="toggle-eye-container">
+            <button class="toggle-eye" type="button"></button>
+          </div>
           <input
             type="password"
             name="user-password"
             id="user-password"
             placeholder="비밀번호를 입력해주세요"
+            class="user-input"
           />
-          <div class="toggle-eye-container no-toggle-eye">
+
+          <label for="confirm-user-password">비밀번호 확인</label>
+          <div class="toggle-eye-container">
             <button class="toggle-eye" type="button"></button>
           </div>
-          <label for="confirm-user-password">비밀번호 확인</label>
           <input
             type="password"
             name="confirm-user-password"
             id="confirm-user-password"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
+            class="user-input"
           />
-          <div class="toggle-eye-container">
-            <button class="toggle-eye" type="button"></button>
-          </div>
-          <button class="btn-status login-page-btn" disabled>회원가입</button>
+
+          <button
+            class="btn-status login-page-btn"
+            type="button"
+            onclick="location.href='signup.html'"
+            disabled
+          >
+            회원가입
+          </button>
         </form>
         <div class="other-login-section">
           <p>간편 로그인하기</p>
@@ -73,5 +86,6 @@
         <p>이미 회원이신가요? <a href="login.html">로그인</a></p>
       </div>
     </div>
+    <script src="./js/login_signup.js"></script>
   </body>
 </html>

@@ -46,8 +46,24 @@
 .form-section > form > input:focus {
   outline: 2px solid var(--btn-color);
 }
+
 .form-section > form > div > input {
   border: none;
+}
+.input-focus-out {
+  outline: 2px solid var(--error-color);
+}
+
+.input-focus-out.caution-margin {
+  margin-bottom: 0;
+}
+
+.caution {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 0 24px 16px;
+  color: var(--error-color);
 }
 
 .login-page-btn {
@@ -70,8 +86,8 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 24px;
-  bottom: 36px;
+  right: 20px;
+  bottom: -38px;
   border: none;
   background-color: transparent;
   width: 24px;
@@ -81,6 +97,9 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 24px 24px;
+}
+.toggle-eye-open {
+  background-image: url(../icon/visible_on.png);
 }
 
 .other-login-section {
@@ -127,8 +146,5 @@
   .form-section {
     flex-basis: 400px;
     margin: 0 16px;
-  }
-  .no-toggle-eye {
-    display: none;
   }
 }
