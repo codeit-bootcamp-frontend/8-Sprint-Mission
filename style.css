@@ -311,7 +311,7 @@ a {
   }
   .main-top {
     height: clamp(540px, 1vw, 700px);
-    background-size: 120%;
+    background-size: calc(100% + (767px - 100vw));
   }
   .top-inner {
     text-align: center;
@@ -346,11 +346,11 @@ a {
     font-size: clamp(16px, 2vw, 18px);
   }
   .main-bottom {
-    background-size: 100%;
+    background-size: 120%;
     height: 540px;
   }
   .bottom-inner {
-    padding-top: 121px;
+    padding-top: calc(10px + (767px - 100vw) * 0.3);
   }
   .footer-left {
     order: 1;
