@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 0 12.5rem;
+  padding: 0 20rem;
   z-index: 999;
   background: #fff;
   border-bottom: 1px solid #dfdfdf;
@@ -26,6 +26,7 @@
   display: inline-block;
   width: 42px;
   padding: 14.5px 43px;
+  font-size: 1.6rem;
   font-weight: 600;
   box-sizing: content-box;
   color: #ffffff;
@@ -62,7 +63,7 @@ main {
   overflow: hidden;
   background: url(../images/banner.png), #cfe5ff;
   background-repeat: no-repeat;
-  background-position: right calc(45% - 220px) bottom 0px;
+  background-position: right calc(48% - 220px) bottom 0px;
   height: 540px;
 }
 
@@ -149,7 +150,7 @@ main {
   overflow: hidden;
   background: url(../images/comment.png), #cfe5ff;
   background-repeat: no-repeat;
-  background-position: right calc(45% - 220px) bottom 0px;
+  background-position: right calc(48% - 220px) bottom 0px;
   height: 540px;
 }
 .comment {
@@ -165,7 +166,7 @@ main {
   z-index: 2;
 }
 .comment-title > .title {
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: 700;
   line-height: 56px;
   color: var(--color-gray700);
@@ -182,18 +183,20 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 12.5rem;
+  padding: 0 20rem;
   color: #9ca3af;
   font-weight: 400;
 }
-
+.copyright > p {
+  font-size: 1.6rem;
+}
 .policy-list {
   display: flex;
   gap: 30px;
 }
 
 .policy-list > li > a {
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 400;
   color: #e5e7eb;
 }

@@ -3,10 +3,10 @@
 @media (max-width: 1199px) {
   /* 메인 페이지 */
   #header {
-    padding: 0 1.5rem;
+    padding: 0 2.4rem;
   }
   .wrapper {
-    padding: 0 1.5rem;
+    padding: 0 2.4rem;
     margin-bottom: 4rem;
   }
   #banner {
@@ -20,7 +20,7 @@
     align-items: center;
   }
   .banner-title > .title {
-    font-size: 2.5rem;
+    font-size: 4rem;
     text-align: center;
     padding-bottom: 24px;
     line-height: 44.8px;
@@ -35,7 +35,7 @@
     right: 0;
   }
   #contents {
-    margin: 1.5rem 0 0 0;
+    margin: 2.4rem 0 0 0;
   }
   .item-list {
     flex-direction: column;
@@ -53,18 +53,18 @@
     padding: 0;
   }
   .info > .info-title {
-    font-size: 2rem;
+    font-size: 3.2rem;
     line-height: 44.8px;
   }
   .info > .info-title > br {
     display: none;
   }
   .top-line {
-    padding-bottom: 0.75rem;
+    padding-bottom: 1.2rem;
   }
   .bottom-line {
-    font-size: 1.25rem;
-    padding-top: 1.25rem;
+    font-size: 2rem;
+    padding-top: 2rem;
     line-height: 21.6px;
   }
   #comment {
@@ -89,22 +89,22 @@
     display: block;
   }
   .copyright {
-    padding: 0 6.5rem;
+    padding: 0 10.4rem;
   }
 
   /* 로그인 회원가입 페이지 */
   #register-header {
-    margin-top: 3rem;
+    margin-top: 4.8rem;
   }
 }
 
 @media (max-width: 768px) {
   /* 메인 페이지 */
   #header {
-    padding: 0 1rem;
+    padding: 0 1.6rem;
   }
   .wrapper {
-    padding: 0 1rem;
+    padding: 0 1.6rem;
   }
   .logo {
     display: none;
@@ -126,16 +126,16 @@
     display: block;
   }
   .banner-title > .title {
-    font-size: 2rem;
-    padding-bottom: 1.125rem;
+    font-size: 3.2rem;
+    padding-bottom: 1.8rem;
   }
   .banner-title > .visit-btn {
     padding: 13.5px 33.5px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
   #contents {
-    margin: 3.125rem 0 0 0;
+    margin: 5rem 0 0 0;
   }
   .item-list {
     flex-direction: column;
@@ -153,19 +153,19 @@
     padding: 0;
   }
   .info > .info-title {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     line-height: 33.6px;
   }
   .info > .info-title > br {
     display: none;
   }
   .top-line {
-    font-size: 1rem;
+    font-size: 1.6rem;
     padding-bottom: 0.5rem;
   }
   .bottom-line {
-    font-size: 1rem;
-    padding-top: 1.25rem;
+    font-size: 1.6rem;
+    padding-top: 2rem;
     line-height: 19.2px;
   }
   #comment {
@@ -173,17 +173,17 @@
     height: 540px;
   }
   .comment-title {
-    padding-top: 7.5rem;
+    padding-top: 12rem;
   }
   .comment-title > .title {
-    font-size: 2rem;
+    font-size: 3.2rem;
     line-height: 44.8px;
   }
   .copyright {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    padding: 0 2rem;
-    gap: 3.75rem 0;
+    padding: 0 3.2rem;
+    gap: 6rem 0;
   }
   .copyright > p {
     grid-row: 2;
@@ -195,17 +195,17 @@
     grid-row: 1;
   }
   .footer {
-    padding: 2rem 0;
+    padding: 3.2rem 0;
   }
 
   /* 로그인, 회원가입 페이지 */
   #register-container {
-    max-width: 27rem;
-    padding: 0 1rem;
+    max-width: 43.2rem;
+    padding: 0 1.6rem;
   }
   #register-header {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 2.4rem;
+    margin-bottom: 2.4em;
   }
   .register-logo {
     max-width: 262px;
