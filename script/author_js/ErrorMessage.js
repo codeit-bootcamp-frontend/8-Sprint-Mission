@@ -1,22 +1,10 @@
 export function deleteErrorMessage(target){
+
   const hasErrorMessage = target.parentElement.querySelector('.error-message');
   
   if(hasErrorMessage){
     hasErrorMessage.remove();
   }
-
-}
-
-export function createErrorMessage(target){
-
-  const errorMessage = document.createElement('p');
-  errorMessage.classList.add('error-message');
-  if(!target.value){
-      noValue(target, errorMessage);
-  }else if(!target.checkValidity()){
-      notValidity(target, errorMessage);
-  }
-
 }
 
 function noValue(target, errorMessage){
@@ -45,6 +33,21 @@ function notValidity(target, errorMessage){
       errorMessage.innerText = '비밀번호가 일치하지 않습니다..';
   }
   target.parentElement.appendChild(errorMessage);
+}
+
+export function createErrorMessage(target, valid){
+
+  deleteErrorMessage(target)
+
+  const errorMessage = document.createElement('p');
+  errorMessage.classList.add('error-message');
+
+  if(!target.value){
+      noValue(target, errorMessage);
+  }
+  else if(!valid){
+      notValidity(target, errorMessage);
+  }
 }
 
 

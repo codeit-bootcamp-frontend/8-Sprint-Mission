@@ -1,9 +1,10 @@
-const mainBtn = document.querySelector('.login-form button');
-const pwHideBtn1 = document.querySelector('.password-hide-toggle-btn');
+// import openEyeIcon from '../icon/ic_password-eye.svg'
+// import hideEyeIcon from '../icon/ic_password-hide-eye.svg'
+const loginForm = document.querySelector('.login-form');
 
 function buttonManager(e){
   const target = e.target;
-
+  
   if(target.classList.contains('login-btn')){
     console.log('로그인 버튼 클릭');
     window.location.href = '/item.html';
@@ -15,9 +16,19 @@ function buttonManager(e){
   }
 
   if(target.classList.contains('password-hide-toggle-btn')){
-    console.log('eye 버튼 클릭');
-  }
+    
+      const passwordInput = target.nextElementSibling;
+
+      if(passwordInput.type === 'password'){
+        passwordInput.type ='text';
+        target.setAttribute('src', '../icon/ic_password-eye.svg');
+      }
+      else if(passwordInput.type === 'text') {
+        passwordInput.type ='password';
+        target.setAttribute('src', '../icon/ic_password-hide-eye.svg');
+      }
+
+    }
 }
 
-mainBtn.addEventListener('click', buttonManager);
-pwHideBtn1.addEventListener('click', buttonManager);
+loginForm.addEventListener('click', buttonManager);

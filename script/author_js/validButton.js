@@ -1,15 +1,10 @@
-import { checkValid } from "./checkValid";
+import { checkValid } from "./checkValid.js";
 
 export function validButton(button, inputs) {
 
-  let number = 0;
-
-  for(let input of inputs){
-    if(checkValid(valid)){
-      number++;
-    }
-  }
-  if(number === inputs.length){
+  const isAllInputValid = [...input].every(input => checkValid(input));
+  
+  if(isAllInputValid){
     button.classList.add('enabled')
     button.disabled = false;
     console.log(button.disabled);
