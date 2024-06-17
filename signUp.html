@@ -11,30 +11,36 @@
       <div class="login-logo">
         <a href="/"><img src="img/logo-login.png" alt="로그인로고"></a>
       </div>   
-      <form> 
+      <form id="sign-form"> 
         <div class="login-form">
           <label for="email">이메일</label>
           <input id="email" type="email" name="userName" placeholder="이메일을 입력해주세요">
+          <p class = "email-error">이메일을 입력해주세요.</p>
+          <p class = "email-error2">잘못된 이메일 형식입니다.</p>          
         </div>
         <div class="login-form">
           <label for="nickname">닉네임</label>
           <input id="nickname" type="text" name="userName" placeholder="닉네임을 입력해주세요">
+          <p class="nickname-error">닉네임을 입력해주세요</p>
         </div>      
         <div class="pw-form">
           <label for="password">비밀번호</label>
           <div class="pw-box">
-            <input id="password" type="password" name="password" placeholder="비밀번호를 입력해주세요">
-            <img src="img/btn_visibility_off_24px.png" alt="login-visibility">
+            <input id="password" type="password" name="password" placeholder="비밀번호를 입력해주세요" minlength="8">
+            <img src="img/btn_visibility_off_24px.png" alt="login-visibility" >
           </div>
+          <p class="pw-error">비밀번호를 입력해주세요.</p>
+          <p class="pw-error2">비밀번호를 8자 이상 입력해주세요.</p>                    
         </div> 
         <div class="pw-form">
           <label for="password-check">비밀번호 확인</label>
           <div class="pw-box">
             <input id="password-check" type="password" name="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
             <img src="img/btn_visibility_off_24px.png" alt="login-visibility">
+            <p class="pwChecker-error">비밀번호가 일치하지 않습니다.</p>
           </div>
         </div>       
-        <button>회원가입</button> 
+        <button class="btn" type="button">회원가입</button> 
         <div class="log-information">간편로그인 하기 
           <div class="messenger">
             <div class="log-google"><a href="https://www.google.com/" target="_blank" rel="noreferrer noopener"><img src="img/google.png" alt="구글"></a></div>
@@ -44,6 +50,6 @@
         <div class="first"><p>이미 회원이신가요?<a href="login.html">로그인</a></p></div>
     </form>
   </div>
-</body>
+  <script src="index.js"></script>
 </body>
 </html>
