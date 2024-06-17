@@ -9,8 +9,8 @@
 	<meta property="og:image" content="images/thumbnail.png">
 	<meta property="og:url" content="https://sprint-8-yeomjeonghug.netlify.app/">
 	<title>판다마켓</title>
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="wrap">
@@ -26,17 +26,36 @@
 				<form>
 					<div class="input-box">
 						<label for="user-email">이메일</label>
-						<input id="user-email" type="email" placeholder="이메일을 입력해주세요">
-					</div>
-					<div class="input-box">
-						<label for="user-password">비밀번호</label>
-						<div class="password-box">
-							<input id="user-password" type="password" placeholder="비밀번호를 입력해주세요">
-							<button type="button"><img src="images/i-password-off.png" alt="비밀번호 오프 아이콘"></button>
+						<div class="input-position">
+							<input id="user-email" type="email" placeholder="이메일을 입력해주세요">
+							<span class="fail-txt"></span>
 						</div>
 					</div>
 					<div class="input-box">
-						<button type="button" class="submit-btn">로그인</button>
+						<label for="user-name">닉네임</label>
+						<div class="input-position">
+							<input id="user-name" type="text" placeholder="닉네임을 입력해주세요">
+							<span class="fail-txt"></span>
+						</div>
+					</div>
+					<div class="input-box">
+						<label for="user-password">비밀번호</label>
+						<div class="input-position">
+							<input id="user-password" type="password" placeholder="비밀번호를 입력해주세요">
+							<span class="fail-txt"></span>
+							<button type="button" id="password-btn"><img src="images/i-password-off.png" alt="비밀번호 오프 아이콘"></button>
+						</div>
+					</div>
+					<div class="input-box">
+						<label for="user-password-chk">비밀번호 확인</label>
+						<div class="input-position">
+							<input id="user-password-chk" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+							<span class="fail-txt"></span>
+							<button type="button" id="password-btn-chk"><img src="images/i-password-off.png" alt="비밀번호 오프 아이콘"></button>
+						</div>
+					</div>
+					<div class="input-box">
+						<button type="button" id="signup-btn" class="submit-btn">회원가입</button>
 					</div>
 				</form>
 				<div class="easy-login-wrap">
@@ -55,10 +74,11 @@
 							</li>
 						</ul>
 					</div>
-					<p>판다마켓이 처음이신가요?<a href="./signup.html">회원가입</a></p>
+					<p>이미 회원이신가요?<a href="./login.html">로그인</a></p>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="js/signupScript.js"></script>
 </body>
 </html>
