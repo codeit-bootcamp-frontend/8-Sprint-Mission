@@ -70,10 +70,6 @@ body {
   gap: 16px;
 }
 
-input:focus {
-  outline: 1px solid var(--brand);
-}
-
 .login label {
   color: var(--coolgray-800);
   font-weight: bold;
@@ -93,13 +89,15 @@ input:focus {
   position: relative;
 }
 
-.btn-off {
+.pw-visible,
+.pw-confirm-visible {
   position: absolute;
   right: 20px;
   top: 52px;
   width: 24px;
   height: 24px;
 }
+
 
 .login-messenger {
   background-color: #E6F2FF;
@@ -137,11 +135,10 @@ input:focus {
 }
 
 /* button controler */
-.button {
+.submit-btn {
   display: flex;
   flex: 1;
   justify-content: center;
-  background: var(--blue);
   color: var(--fff);
   border-radius: 40px;
   border: none;
@@ -150,11 +147,19 @@ input:focus {
   font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
 }
 
-.button:visited {
+.inactive-btn {
+  background: var(--coolgray-400);
+}
+
+.active-btn {
+  background: var(--click);
+}
+
+.submit-btn:visited {
   background-color: var(--coolgray-400);
 }
 
-.button:active {
+.submit-btn:active {
   background: var(--click);
 }
 
@@ -200,4 +205,25 @@ input:focus {
     margin: 0 16px;
     font-size: 0.875rem;
   }
+}
+
+/* loginForm controler */
+input:focus {
+  outline: 1px solid var(--brand);
+}
+
+input.errorOutline:focus {
+  outline: 1px solid var(--error);
+}
+
+.errorOutline {
+  outline: 1px solid var(--error);
+}
+
+.errorColor {
+  color: var(--error);
+}
+
+.hidden {
+  display: none;
 }
