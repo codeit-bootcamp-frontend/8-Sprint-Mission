@@ -5,36 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓 로그인</title>
     <link rel="stylesheet" href="join.css" />
-    <script>
-      (function (d) {
-        var config = {
-            kitId: 'sjs5cbs',
-            scriptTimeout: 3000,
-            async: true,
-          },
-          h = d.documentElement,
-          t = setTimeout(function () {
-            h.className = h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive';
-          }, config.scriptTimeout),
-          tk = d.createElement('script'),
-          f = false,
-          s = d.getElementsByTagName('script')[0],
-          a;
-        h.className += ' wf-loading';
-        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-        tk.async = true;
-        tk.onload = tk.onreadystatechange = function () {
-          a = this.readyState;
-          if (f || (a && a != 'complete' && a != 'loaded')) return;
-          f = true;
-          clearTimeout(t);
-          try {
-            Typekit.load(config);
-          } catch (e) {}
-        };
-        s.parentNode.insertBefore(tk, s);
-      })(document);
-    </script>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
   </head>
   <body>
     <header>
@@ -45,16 +21,31 @@
       </div>
     </header>
     <main>
-      <form>
+      <form class="login" id="loginForm">
         <div class="input-container">
           <div class="input-box">
             <label>이메일</label>
-            <input type="email" placeholder="이메일을 입력해주세요" class="input" />
+            <input type="email" placeholder="이메일을 입력해주세요" class="input" id="email" />
+            <div class="error-message">이메일을 입력해주세요</div>
+            <div class="condition-message">잘못된 이메일 형식입니다.</div>
           </div>
           <div class="input-box">
             <label>비밀번호</label>
-            <input type="password" placeholder="비밀번호를 입력해주세요" class="input" />
-            <img src="image/icon/btn_icon/visibilty_off.png" width="24px" height="24px" class="visibilty" />
+            <input
+              type="password"
+              placeholder="비밀번호를 입력해주세요"
+              class="input"
+              id="password"
+            />
+            <div class="error-message">비밀번호를 입력해주세요</div>
+            <div class="condition-message">비밀번호를 8자 이상 입력해주세요.</div>
+            <img
+              src="image/icon/btn_icon/visibilty_off.png"
+              width="24px"
+              height="24px"
+              class="visibilty"
+              id="passwordEye"
+            />
           </div>
         </div>
         <button class="login-btn">로그인</button>
@@ -74,7 +65,10 @@
       </form>
     </main>
     <footer>
-      <div class="sign-up-text"><span>판다마켓이 처음이신가요?</span> <a href="./signup.html">회원가입</a></div>
+      <div class="sign-up-text">
+        <span>판다마켓이 처음이신가요?</span> <a href="./signup.html">회원가입</a>
+      </div>
     </footer>
+    <script src="login-signup.js"></script>
   </body>
 </html>

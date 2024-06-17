@@ -22,6 +22,10 @@
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic',
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -89,6 +93,7 @@ input {
   font-weight: 400;
   text-indent: 20px;
 }
+
 .logo {
   margin-top: 60px;
 }
@@ -150,9 +155,6 @@ input {
   font-weight: 600;
   cursor: pointer;
   display: block;
-}
-.login-btn:hover {
-  background-color: var(--blue);
 }
 
 .easy-login-background {
@@ -237,4 +239,39 @@ input {
   .sign-up-text {
     margin-bottom: 185px;
   }
+}
+/* 아래로는 로그인, 회원가입 페이지 에러 핸들링용 클래스입니다. */
+.error {
+  outline: 2px solid var(--red);
+}
+
+.error2 {
+  outline: 2px solid var(--red);
+}
+.error-message {
+  font-size: 15px;
+  position: absolute;
+  opacity: 0;
+  top: calc(100% + 4px);
+  left: 16px;
+}
+
+.condition-message {
+  font-size: 15px;
+  position: absolute;
+  opacity: 0;
+  top: calc(100% + 4px);
+  left: 16px;
+}
+
+.waring {
+  color: var(--red);
+  opacity: 100;
+}
+.waring2 {
+  color: var(--red);
+  opacity: 100;
+}
+.accept {
+  background-color: var(--blue);
 }
