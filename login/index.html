@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link rel="stylesheet" href="style.css" />
+
 </head>
 
 <body class="loginPage">
@@ -19,13 +20,13 @@
     <main>
         <form class="login">
             <div class="login-input">
-                <label for="email">이메일</label>
-                <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요" />
+                <label class="label" for="email">이메일</label>
+                <input class="input" id="email" name="email" type="email" placeholder="이메일을 입력해주세요" />
             </div>
 
             <div class="login-input">
-                <label for="password">비밀번호</label>
-                <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" />
+                <label class="label" for="password">비밀번호</label>
+                <input class="input" id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" />
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-eye-slash" viewBox="0 0 16 16">
@@ -39,7 +40,7 @@
 
             </div>
 
-            <button type="submit" class="login-button">로그인</button>
+            <button type="button" class="login-button" onclick="location.href='../items'">로그인</button>
 
             <div class="easy-login">
                 <div>간편로그인하기</div>
@@ -60,6 +61,7 @@
         </form>
     </main>
 
+    <script src="../JS-MODULES/loginInput.js"></script>
 </body>
 
 </html>
