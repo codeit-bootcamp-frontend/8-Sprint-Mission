@@ -10,23 +10,26 @@ export function checkValid(target) {
   
   const type = target.name;
   const value = target.value;
+
   if(type == 'email'){
-    emailValid(value);
+    return emailValid(value);
   }
   if(type == 'password'){
-    passwordValid(value);
+    return passwordValid(value);
   }
   if(type == 'password-repeat'){
-    passwordRepeatValid(value);
+    return passwordRepeatValid(value);
   }
   if(type == 'nickname'){
-    nicknameValid(value);
+    return nicknameValid(value);
   }
+
 }
 
 function emailValid(value){
   //이메일 정규 표현식이 맞으면 ture
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  emailRegex.test(value);
   return emailRegex.test(value);
 }
 function passwordValid(value){
@@ -42,6 +45,6 @@ function passwordRepeatValid(value){
 }
 function nicknameValid(value){
 // 값이 있으면
-  return value == true;
+  return value !== '';
 
 }
