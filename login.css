@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    word-break: keep-all;
 }
 
 .logo {
@@ -55,9 +56,26 @@ button:focus {
     background-color: #3692FF;
 }
 
+.error {
+    color: red;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.hide {
+    display: none;
+}
+
 #signup-pw,
 #signup-pwcheck {
     background: url('images/non_visibility.png') no-repeat 5px center;
+    background-position : 97%;
+    background-size: 27px;
+    background-color: #F3F4F6;
+}
+
+.visibility {
+    background: url('images/visibility.png') no-repeat 5px center;
     background-position : 97%;
     background-size: 27px;
     background-color: #F3F4F6;
