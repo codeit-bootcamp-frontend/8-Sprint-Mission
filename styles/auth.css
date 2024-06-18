@@ -45,13 +45,27 @@
   line-height: 24px;
 }
 
+.input-info input:focus {
+  outline-color: var(--blue);
+}
+
 .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.toggle-password {
+.error-message {
+  color: #f74747;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  margin-top: 8px;
+  display: none;
+  padding-left: 16px;
+}
+
+.password-toggle-button {
   position: absolute;
   right: 24px;
 }
@@ -66,7 +80,7 @@
   margin: 24px 0;
 }
 
-.social-login h3 {
+.social-login h2 {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
@@ -89,7 +103,6 @@
   text-underline-offset: 2px;
 }
 
-
 @media (min-width: 768px) {
   .auth-container {
     max-width: 640px;
@@ -107,5 +120,11 @@
   .input-info label {
     font-size: 18px;
     margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .auth-container {
+    padding: 60px 0;
   }
 }

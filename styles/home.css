@@ -1,3 +1,12 @@
+.banner {
+  background-color: #cfe5ff;
+  height: 60vh;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100%;
+}
+
 .login.button {
   font-size: 16px;
   font-weight: 600;
@@ -13,11 +22,7 @@
   background-image: url("../images/home/bottom.png");
 }
 
-.banner .pill.button {
-  margin-top: 32px;
-}
-
-.banner h1 {
+.banner h2 {
   font-weight: 700;
   font-size: 32px;
   line-height: 44.8px;
@@ -25,13 +30,13 @@
   padding-bottom: 18px;
 }
 
+.features.wrapper {
+  padding-bottom: 138px;
+}
+
 .feature img {
   width: 100%;
   margin-bottom: 20px;
-}
-
-.features.wrapper {
-  padding-bottom: 138px;
 }
 
 .feature-content {
@@ -42,7 +47,7 @@
   text-align: right;
 }
 
-.feature-content h2 {
+.feature-content h3 {
   color: var(--blue);
   font-size: 16px;
   line-height: 22.4px;
@@ -50,7 +55,7 @@
   margin-bottom: 8px;
 }
 
-.feature-content h1 {
+.feature-content h2 {
   font-weight: 700;
   font-size: 24px;
   line-height: 33.6px;
@@ -64,28 +69,13 @@
   margin-top: 20px;
 }
 
-.feature-tag {
-  color: #3692ff;
-  font-size: 18px;
-  line-height: 25px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.feature-description {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 30px;
-  margin-top: 24px;
-}
-
-.footerMenu {
+.footer-menu {
   display: flex;
   gap: 30px;
   color: #e5e7eb;
 }
 
-.socialMedia {
+.social-media {
   display: flex;
   gap: 12px;
 }
@@ -96,25 +86,25 @@
     background-size: 120%;
   }
 
-  .banner h1 {
+  .banner h2 {
     font-size: 40px;
     line-height: 56px;
     padding-top: 84px;
     padding-bottom: 24px;
   }
 
-  #features {
+  .features {
     padding-top: 24px;
     padding-bottom: 16px;
   }
 
-  .feature-content h2 {
+  .feature-content h3 {
     font-size: 18px;
     line-height: 25.2px;
     margin-bottom: 12px;
   }
 
-  .feature-content h1 {
+  .feature-content h2 {
     font-size: 32px;
     line-height: 44.8px;
   }
@@ -135,12 +125,12 @@
     background-size: 55%;
   }
 
-  .banner h1 {
+  .banner h2 {
     padding-top: 0;
     padding-bottom: 32px;
   }
 
-  #features {
+  .features {
     padding: 138px 0;
   }
 
@@ -160,7 +150,7 @@
     margin-bottom: 0;
   }
 
-  .feature-content h1 {
+  .feature-content h2 {
     font-size: 40px;
     line-height: 56px;
   }
