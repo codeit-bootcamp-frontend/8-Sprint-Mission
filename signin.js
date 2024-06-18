@@ -43,7 +43,7 @@ inputPassword.addEventListener("focusout", () => {
   } else if (inputPassword.value.length < 8) {
     inputPassword.classList.add("error");
     errorMsgPassword.style.display = "block";
-    errorMsgPassword.innerHTML = "비밀번호를 8자 이상 입력해주세요.";
+    errorMsgPassword.inner = "비밀번호를 8자 이상 입력해주세요.";
     flagPassword = 0;
   } else {
     inputPassword.classList.remove("error");
