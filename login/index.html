@@ -35,7 +35,7 @@
               placeholder="이메일을 입력해주세요"
               autofocus
             />
-            <div class="error-message email">이메일을 입력해주세요.</div>
+            <div class="error-message email"></div>
           </div>
 
           <div class="form-content">
@@ -58,17 +58,18 @@
                   alt="비밀번호를 보여주는 눈 모양 아이콘"
                   width="24px"
                   height="24px"
+                  data-valid="false"
                 />
               </button>
             </div>
-            <div class="error-message password">비밀번호를 입력해주세요.</div>
+            <div class="error-message password"></div>
           </div>
 
           <button
             class="form-login-btn"
             type="button"
             value="로그인"
-            disabled="true"
+            onclick="window.location.href = '../items/index.html'"
           >
             로그인
           </button>
@@ -101,6 +102,6 @@
       </div>
     </main>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
