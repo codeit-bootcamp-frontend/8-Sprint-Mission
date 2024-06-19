@@ -1,36 +1,22 @@
 import {
   email,
-  input,
-  emailCheck,
+  checkIsEmailValid,
   password,
-  passwordCheck,
-  eyeOff,
-  eye,
+  checkIsPasswordValid,
+  passwordIcon,
   btn,
+  togglePassword,
+  validateEmailInputValue,
+  validatePasswordValue,
 } from "./common.js";
 
-email.addEventListener("focusout", emailCheck);
+email.addEventListener("focusout", checkIsEmailValid);
 
-password.addEventListener("focusout", passwordCheck);
+password.addEventListener("focusout", checkIsPasswordValid);
 
-eyeOff.addEventListener("click", eye);
+passwordIcon.addEventListener("click", togglePassword);
 
-//버튼 활성화/비활성화
-
-const VALID_EMAIL_PATTERN =
-  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-
-//email 값 검사
-const validateEmailInputValue = (inputValue) => {
-  if (inputValue === "") return false;
-  if (!VALID_EMAIL_PATTERN.test(inputValue)) return false;
-
-  return true;
-};
-
-const validatePasswordValue = (inputValue) => {
-  return inputValue.length >= 8;
-};
+//로그인 버튼 유효성 검사
 
 const activateLoginButtonByValidation = () => {
   const isEmailInputValid = validateEmailInputValue(email.value);

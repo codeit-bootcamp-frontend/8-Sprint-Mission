@@ -1,87 +1,108 @@
 import {
   email,
-  input,
-  emailCheck,
+  checkIsEmailValid,
   password,
-  passwordCheck,
-  eyeOff,
-  eye,
+  checkIsPasswordValid,
+  passwordIcon,
+  togglePasswordVisibility,
   btn,
+  togglePassword,
+  validateEmailInputValue,
+  validatePasswordValue,
 } from "./common.js";
 
-email.addEventListener("focusout", emailCheck);
+email.addEventListener("focusout", checkIsEmailValid);
 
-password.addEventListener("focusout", passwordCheck);
-
-eyeOff.addEventListener("click", eye);
+password.addEventListener("focusout", checkIsPasswordValid);
 
 //비밀번호 가리기/보이기
-const repeatEyeoff = document.querySelector(".repeat-eye-off");
+const passwordRepeatIcon = document.querySelector(".repeat-eye-off");
 
-function pwrepeatEye() {
-  if (passwordRepeat.type === "password") {
-    repeatEyeoff.setAttribute("src", "/image/eye.svg");
-    passwordRepeat.setAttribute("type", "text");
-  } else {
-    repeatEyeoff.setAttribute("src", "/image/eye-off.svg");
-    passwordRepeat.setAttribute("type", "password");
-  }
-}
+const togglePasswordRepeat = () => {
+  togglePasswordVisibility(passwordRepeat, passwordRepeatIcon);
+};
 
-repeatEyeoff.addEventListener("click", pwrepeatEye);
+passwordIcon.addEventListener("click", togglePassword);
+
+passwordRepeatIcon.addEventListener("click", togglePasswordRepeat);
+
+//닉네임 검사
+const validateNicknameValue = (inputValue) => {
+  if (inputValue === "") return false;
+
+  return true;
+};
 
 //닉네임 체크
 const nickname = document.querySelector("#nickname");
 
-function nicknameCheck() {
-  const nicknameNone = document.querySelector(".nickname-none");
+const checkIsNicknameValid = () => {
+  const emptyNicknameMessage = document.querySelector(".nickname-none");
 
-  if (nickname.value === "") {
-    nicknameNone.classList.remove("hide");
-    nickname.style.border = "0.1rem solid red";
-  } else {
-    nicknameNone.classList.add("hide");
+  //닉네임 유효성 확인
+  const isNicknameValueValid = validateNicknameValue(nickname.value);
+
+  if (isNicknameValueValid) {
+    emptyNicknameMessage.classList.add("hide");
     nickname.style.border = "none";
+    return;
   }
-}
+  emptyNicknameMessage.classList.remove("hide");
+  nickname.style.border = "0.1rem solid red";
+};
 
-nickname.addEventListener("focusout", nicknameCheck);
+nickname.addEventListener("focusout", checkIsNicknameValid);
+
+//비밀번호 확인 검사
+const validatePwRepeatValue = (inputValue) => {
+  if (inputValue !== password.value) return false;
+
+  return true;
+};
 
 //비밀번호 확인 체크
 const passwordRepeat = document.querySelector("#password-repeat");
 
-function pwrepeatCheck() {
-  const pwrepeatNone = document.querySelector(".pwrepeat-none");
+const checkIsPwRepeatValid = () => {
+  const emptyPwRepeatMessage = document.querySelector(".pwrepeat-none");
 
-  if (passwordRepeat.value !== password.value) {
-    pwrepeatNone.classList.remove("hide");
-    passwordRepeat.style.border = "0.1rem solid red";
-  } else {
-    pwrepeatNone.classList.add("hide");
+  //비밀번호 확인 유효성 확인
+  const isPwRepeatValueValid = validatePwRepeatValue(passwordRepeat.value);
+
+  if (isPwRepeatValueValid) {
+    emptyPwRepeatMessage.classList.add("hide");
     passwordRepeat.style.border = "none";
+    return;
   }
-}
+  emptyPwRepeatMessage.classList.remove("hide");
+  passwordRepeat.style.border = "0.1rem solid red";
+};
 
-passwordRepeat.addEventListener("input", pwrepeatCheck);
+passwordRepeat.addEventListener("input", checkIsPwRepeatValid);
 
-//버튼 활성화/비활성화
+//회원가입 버튼 활성화/비활성화
+const activateSignupButtonByValidation = () => {
+  const isEmailInputValid = validateEmailInputValue(email.value);
+  const isPasswordInputValid = validatePasswordValue(password.value);
+  const isNicknameInputValid = validateNicknameValue(nickname.value);
+  const isPwRepeatInputValid = validatePwRepeatValue(passwordRepeat.value);
 
-function valid() {
   if (
-    input.value !== "" &&
-    /\S+@\S+\.\S+/.test(email.value) === true &&
-    password.value.length >= 8 &&
-    nickname.value !== "" &&
-    passwordRepeat.value === password.value
+    isEmailInputValid &&
+    isPasswordInputValid &&
+    isNicknameInputValid &&
+    isPwRepeatInputValid
   ) {
     btn.disabled = false;
     btn.style.backgroundColor = "#3692ff";
     btn.addEventListener("click", () => {
       window.location.href = "/signin.html";
     });
-  } else {
-    btn.disabled = true;
-  }
-}
 
-btn.addEventListener("click", valid);
+    return;
+  }
+
+  btn.disabled = true;
+};
+
+btn.addEventListener("click", activateSignupButtonByValidation);
