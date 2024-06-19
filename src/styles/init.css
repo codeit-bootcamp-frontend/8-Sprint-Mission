@@ -1,4 +1,5 @@
 :root {
+  /* palette */
   --cool-gray: #374151;
   --brand-gray: #676767;
   --white: #ffffff;
@@ -10,4 +11,7 @@
   --cool-gray-200: #e5e7eb;
   --cool-gray-400: #9ca3af;
   --error-red: #f74747;
+
+  /* padding */
+  --padding-001: 0 20rem;
 }

@@ -7,7 +7,6 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:import/recommended",
-    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
@@ -22,6 +21,7 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
     "no-unused-vars": "warn",
-    "no-undef": "error"
+    "no-undef": "error",
+    "import/no-named-as-default": "off"
   }
 }
