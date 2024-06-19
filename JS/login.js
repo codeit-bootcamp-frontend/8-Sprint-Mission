@@ -7,7 +7,7 @@ import {
   eyeOff,
   eye,
   btn,
-} from "./signup.js";
+} from "./common.js";
 
 email.addEventListener("focusout", emailCheck);
 
@@ -33,4 +33,4 @@ function loginValid() {
   }
 }
 
-loginBtn.addEventListener("click", loginValid);
+btn.addEventListener("click", loginValid);
