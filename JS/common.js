@@ -13,7 +13,11 @@ function emailCheck() {
     emailNone.classList.remove("hide");
     emailFail.classList.add("hide");
     email.style.border = "0.1rem solid red";
-  } else if (/\S+@\S+\.\S+/.test(email.value) == false) {
+  } else if (
+    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
+      email.value
+    ) == false
+  ) {
     emailFail.classList.remove("hide");
     emailNone.classList.add("hide");
     email.style.border = "0.1rem solid red";
