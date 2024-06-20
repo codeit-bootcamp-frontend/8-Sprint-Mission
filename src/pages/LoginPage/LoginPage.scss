@@ -11,7 +11,7 @@ header {
   margin: 60px 24px 24px 24px;
 }
 
-.logo {
+.loginLogo {
   width: 396px;
 }
 
@@ -33,7 +33,7 @@ form {
 form label {
   display: inline-block;
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 1.8rem; // 18px
 }
 
 .form-input {
@@ -44,15 +44,14 @@ form label {
   border: 1px solid transparent;
   color: var(--gray800);
   background-color: var(--gray100);
-}
-.form-input:focus {
-  outline: 1px solid var(--brand-blue);
-}
-.form-input::-moz-placeholder {
-  color: var(--gray400);
-}
-.form-input::placeholder {
-  color: var(--gray400);
+
+  &:focus {
+    outline: 1px solid var(--brand-blue);
+  }
+
+  &::placeholder {
+    color: var(--gray400);
+  }
 }
 
 .form-input-errmsg {
@@ -68,10 +67,12 @@ a.password-inv {
   position: absolute;
   top: 52px;
   right: 24px;
+
   display: inline-block;
   width: 24px;
   height: 24px;
-  background-image: url("../assets/login/btn_visibility_off_24px.svg");
+
+  background-image: url("../../assets/LoginPage/btn_visibility_off_24px.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -85,6 +86,7 @@ a.password-inv {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width: 640px;
   height: 74px;
   border-radius: 8px;
@@ -108,14 +110,14 @@ a.password-inv {
 .google-social-login {
   border: 1px solid #f9fafb;
   background-color: #ffffff;
-  background-image: url("../assets/login/Google-icon.svg");
+  background-image: url("../../assets/LoginPage/Google-icon.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .kakao-social-login {
   background-color: #f5e14b;
-  background-image: url("../assets/login/kakao-icon.svg");
+  background-image: url("../../assets/LoginPage/Kakao-icon.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -127,41 +129,51 @@ a.password-inv {
 /* =============================== */
 /* ========= Mobile Size ========= */
 /* =============================== */
+
 @media (max-width: 767px) {
   body {
     padding: 0 24px;
   }
+
   main {
     width: 100%;
     max-width: 400px;
   }
+
   header {
     margin: 47px 24px 24px 24px;
   }
+
   .logo {
     width: 198px;
   }
+
   /* Form */
   form {
     width: 100%;
     max-width: 400px;
   }
+
   .form-group {
     gap: 12px;
   }
+
   form label {
-    font-size: 1.4rem;
+    font-size: 1.4rem; // 14px
   }
+
   .password-inv {
     top: 44px;
     right: 24px;
   }
+
   .button.btn-large.submit-button {
     width: 100%;
-    font-size: 1.6rem;
+    font-size: 1.6rem; // 16px
   }
+
   /* Social Login */
   .social-login-div {
     width: 100%;
   }
-}/*# sourceMappingURL=login.css.map */
+}
