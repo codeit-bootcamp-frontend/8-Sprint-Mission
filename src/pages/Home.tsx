@@ -1,6 +1,7 @@
 import Header from 'components/@shared/Header';
 import BrandBottom from 'components/home/BrandBottom';
 import BrandTop from 'components/home/BrandTop';
+import FeatList from 'components/home/FeatList';
 import styled from 'styled-components';
 
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
     <StyledHome>
       <Header />
       <BrandTop />
+      <FeatList />
       <BrandBottom />
     </StyledHome>
   );
