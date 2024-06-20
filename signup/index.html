@@ -37,7 +37,7 @@
               placeholder="이메일을 입력해주세요"
               autofocus
             />
-            <div class="error-message email">이메일을 입력해주세요.</div>
+            <div class="error-message email"></div>
           </div>
 
           <div class="form-content">
@@ -48,7 +48,7 @@
               name="nickname"
               placeholder="닉네임을 입력해주세요"
             />
-            <div class="error-message nickname">닉네임을 입력해주세요.</div>
+            <div class="error-message nickname"></div>
           </div>
 
           <div class="form-content">
@@ -71,10 +71,11 @@
                   alt="비밀번호를 보여주는 눈 모양 아이콘"
                   width="24px"
                   height="24px"
+                  data-valid="false"
                 />
               </button>
             </div>
-            <div class="error-message password">비밀번호를 입력해주세요.</div>
+            <div class="error-message password"></div>
           </div>
 
           <div class="form-content">
@@ -97,15 +98,19 @@
                   alt="비밀번호를 보여주는 눈 모양 아이콘"
                   width="24px"
                   height="24px"
+                  data-valid="false"
                 />
               </button>
             </div>
-            <div class="error-message password-check">
-              비밀번호가 일치하지 않습니다.
-            </div>
+            <div class="error-message password-check"></div>
           </div>
 
-          <button class="form-signup-btn" type="button" value="회원가입">
+          <button
+            class="form-signup-btn"
+            type="button"
+            value="회원가입"
+            onclick="window.location.href = '../signup/index.html'"
+          >
             회원가입
           </button>
         </form>
@@ -137,6 +142,6 @@
       </div>
     </main>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
