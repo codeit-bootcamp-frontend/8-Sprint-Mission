@@ -1,4 +1,4 @@
-import "./nav.css";
+import "./tablist.css";
 
 const TabList = ({ onClick }) => {
   return (

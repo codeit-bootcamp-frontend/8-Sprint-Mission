@@ -1,4 +1,4 @@
-import Nav from "../components/nav/Nav";
+import Nav from "./nav/Nav";
 
 const App = () => {
   return <Nav />;
