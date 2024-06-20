@@ -32,4 +32,15 @@ const StyledBrandTop = styled.div`
     padding: 8.4rem 0 10rem;
     align-items: center;
   }
+
+  @media all and (max-width: 767px) {
+    button {
+      width: 15.4rem;
+      height: 4.8rem;
+
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.909rem;
+    }
+  }
 `;
