@@ -1,0 +1,50 @@
+/* ==== header ==== */
+
+header {
+  width: 100%;
+
+  &.fixed {
+    max-width: 100%;
+    position: fixed;
+    top: 0;
+    background: var(--white);
+    border-bottom: 1px solid #dfdfdf;
+    z-index: 100;
+  }
+
+  .header-wrap {
+    display: flex;
+    width: 100%;
+    max-width: calc(1920px - 400px);
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .nav {
+    display: flex;
+    margin-right: auto;
+    margin-left: 10px;
+
+    li {
+      padding: 0 20px;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--gray600);
+
+      a.active {
+        color: var(--primary);
+      }
+    }
+  }
+}
+
+.logo {
+  display: block;
+  background: url('../img/logo.svg') no-repeat;
+  width: 153px;
+  height: 48px;
+  background-size: contain;
+}

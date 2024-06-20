@@ -1,0 +1,60 @@
+/* ==== icon ==== */
+i.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+i.icon-sm {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.ic_instagram {
+  background-image: url('../img/ic_instagram.svg');
+}
+
+.ic_twitter {
+  background-image: url('../img/ic_twitter.svg');
+}
+
+.ic_facebook {
+  background-image: url('../img/ic_facebook.svg');
+}
+
+.ic_youtube {
+  background-image: url('../img/ic_youtube.svg');
+}
+
+.ic_google {
+  background-image: url('../img/ic_google.svg');
+}
+
+.ic_kakao {
+  background-image: url('../img/ic_kakao.svg');
+}
+
+.ic_visible_on {
+  background-image: url('../img/btn_visibility_on.svg');
+}
+
+.ic_visible_off {
+  background-image: url('../img/btn_visibility_off.svg');
+}
+
+.ic_search {
+  background-image: url('../img/ic_search.svg');
+}
+
+.ic_arrow_down {
+  background-image: url('../img/ic_arrow_down.svg');
+}
+
+.ic_heart {
+  background-image: url('../img/ic_heart.svg');
+}
