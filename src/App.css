@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+.header {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 70px;
+	padding: 10px 200px 9px;
+	background-color: #ffffff;
+	border: 0px 0px 1px 0px;
+	border-bottom: 1px solid #DFDFDF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header__desktop-img {
+	width: 153px;
+	height: 51px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header__mobile-img {
+	display: none;
+	width: 103px;
+	height: 35px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header__login {
+	border-radius: 8px;
+	padding: 14.5px 43px;
+	text-decoration: none;
+	background-color: var(--brand-blue);
+	font-size: 16px;
+	font-weight: 600;
+	color: #ffffff;
+	cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.footer {
+	display: grid;
+	grid-template-areas:
+		"copyright etc messenger";
+	justify-content: space-between;
+	background: var(--gray-900);
+	color: white;
+	padding: 32px 200px 108px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer a {
+	text-decoration: none;
+}
+
+.footer__copyright {
+	grid-area: copyright;
+	color: #676767;
+}
+
+.footer__etc {
+	grid-area: etc;
+	display: flex;
+	gap: 20px;
+}
+
+.footer__etc a {
+	color: #CFCFCF;
+}
+
+.footer__messenger {
+	grid-area: messenger;
+	display: flex;
+	gap: 12px;
+}
+
+.footer>div {
+	justify-content: space-between;
+}
+
+@media (max-width: 1199px) {
+	.header {
+		padding: 10px 24px 9px;
+	}
+
+	.footer {
+		padding: 32px 104px 108px;
+	}
+
+
+}
+
+@media (max-width: 767px) {
+	.footer {
+		grid-template-areas:
+			"etc messenger"
+			"copyright .";
+		gap: 60px;
+		padding: 32px;
+	}
+
+	.header__desktop-img {
+		display: none;
+	}
+
+	.header__mobile-img {
+		display: block;
+	}
+
+
 }
