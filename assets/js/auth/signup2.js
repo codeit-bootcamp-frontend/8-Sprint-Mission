@@ -2,8 +2,6 @@ const form = document.querySelector("form");
 const inputList = form.querySelectorAll("input");
 const submitBtn = form.querySelector("#submitBtn");
 
-submitBtn.disabled = true;
-
 inputList.forEach((input) => {
   input.addEventListener("keyup", function () {
     checkInputs(input);
@@ -98,31 +96,8 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-
-
 // 패스워드 토글기능
-let passwordToggleBtns = document.querySelectorAll('.password-toggle-button');
-
-function passwordToggle(e) {
-  let button = e.currentTarget;
-  let passwordInput = button.parentElement.querySelector('input');
-  let toggleIcon = document.createElement('i');
-  toggleIcon.classList.add('icon');
-  if (passwordInput.type == "password") {
-    passwordInput.type = "text";
-    toggleIcon.classList.remove('ic_visible_on');
-    toggleIcon.classList.add('ic_visible_off')
-    this.setAttribute("aria-label", "비밀번호 숨기기");
-  } else {
-    passwordInput.type = "password";
-    toggleIcon.classList.remove('ic_visible_off');
-    toggleIcon.classList.add('ic_visible_on');
-    this.setAttribute("aria-label", "비밀번호 보기");
-  }
-  button.innerHTML = '';
-  button.appendChild(toggleIcon);
-}
-
+const passwordToggleBtns = document.querySelectorAll('.password-toggle-button');
 passwordToggleBtns.forEach(btn => {
   btn.addEventListener('click', passwordToggle);
 });

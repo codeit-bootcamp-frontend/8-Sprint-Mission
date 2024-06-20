@@ -59,12 +59,12 @@
 
   }
 
-  &.is-valid .error-border,
-  &.is-valid .error-border:focus {
+  &.is-error .error-border,
+  &.is-error .error-border:focus {
     outline: 2px solid var(--error);
   }
 
-  &.is-valid.valid .error-message {
+  &.is-error.valid .error-message {
     display: none;
   }
 
@@ -109,7 +109,7 @@
   color: var(--error);
 }
 
-.is-valid .error-message {
+.is-error .error-message {
   display: block;
 }
 

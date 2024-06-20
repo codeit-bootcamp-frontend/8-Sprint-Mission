@@ -34,31 +34,25 @@
         </div>
         <div class="input-group">
           <label for="confirmPassword">비밀번호 확인</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="비밀번호를 다시 한 번 입력해주세요"
+          <input type="password" id="confirmPassword" name="confirm-password" placeholder="비밀번호를 다시 한 번 입력해주세요"
             minlength="8" required>
           <button type="button" class="password-toggle-button" aria-label="비밀번호 보기">
-            <img class="icon" src="./assets/img/btn_visibility_on.svg" alt="비밀번호 숨김 상태 아이콘">
+            <i class="icon ic_visible_on"></i>
           </button>
         </div>
         <button id="submitBtn" type="submit" class="btn-lg btn-primary" disabled>회원가입</button>
-
       </fieldset>
     </form>
-
     <div class="sns-box">
       <h3>간편 로그인하기</h3>
       <div class="sns-wrap">
         <a class="icon ic_google" href="https://www.google.com" title="구글 로그인"></a>
         <a class="icon ic_kakao" href="https://www.kakaocorp.com/page/" title="카카오톡 로그인"></a>
       </div>
-
     </div>
     <div class="auth-switch">이미 회원이신가요? <a class="underline" href="/login.html">로그인</a></div>
   </div>
-
-
   <script src="./assets/js/signup.js" type="module"></script>
-  <!-- <script src="./assets/js/signup2.js" type="module"></script> -->
 </body>
 
 </html>
