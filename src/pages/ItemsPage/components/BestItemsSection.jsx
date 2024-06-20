@@ -8,4 +8,4 @@ function BestItemsSection() {
   );
 }
 
-export default ItemsPage;
+export default BestItemsSection;
