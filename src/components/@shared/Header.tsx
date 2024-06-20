@@ -1,6 +1,7 @@
 import logoImg from 'assets/images/home/logoAndTypo.png';
 import useNavigateTo from 'hooks/useNavigateTo';
 import styled from 'styled-components';
+import Button from './Button';
 
 function Header() {
   const { navigateTo } = useNavigateTo();
@@ -8,7 +9,9 @@ function Header() {
   return (
     <StyledHeader>
       <img src={logoImg} alt={'앱 로고와 이름 이미지'} onClick={() => navigateTo('/')} />
-      <button onClick={() => navigateTo('/login')}>로그인</button>
+      <Button width={'12.8rem'} height={'4.8rem'} onClick={() => navigateTo('/login')}>
+        로그인
+      </Button>
     </StyledHeader>
   );
 }
@@ -37,18 +40,6 @@ const StyledHeader = styled.header`
     &:hover {
       cursor: pointer;
     }
-  }
-
-  & button {
-    width: 12.8rem;
-    height: 4.8rem;
-    border-radius: 0.8rem;
-    color: var(--white);
-    background-color: var(--brand-blue);
-
-    font-size: 1.6rem;
-    font-weight: 600;
-    line-height: 1.909rem;
   }
 
   @media all and (min-width: 768px) and (max-width: 1199px) {
