@@ -11,6 +11,11 @@ const GlobalStyle = createGlobalStyle`
     font-size: 62.5%;
   }
 
+  body{
+    height: 100vh;
+    width: 100vw;
+  }
+
   button {
     border: none;
     cursor: pointer;

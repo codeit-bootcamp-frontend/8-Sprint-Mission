@@ -1,7 +1,7 @@
-import 'styles/init.css';
+import 'styles/@shared/global/init.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from 'pages/Home';
-import GlobalStyle from 'styles/GlobalStyle';
+import GlobalStyle from 'styles/@shared/global/GlobalStyle';
 import Login from 'pages/Login';
 
 function App() {

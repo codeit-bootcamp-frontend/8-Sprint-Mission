@@ -14,4 +14,7 @@
 
   /* padding */
   --padding-001: 0 20rem;
+
+  /* height, width */
+  --header-heigt: 7rem;
 }

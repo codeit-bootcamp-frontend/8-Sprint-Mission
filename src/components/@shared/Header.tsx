@@ -26,7 +26,7 @@ const StyledHeader = styled.header`
   align-items: center;
 
   width: 100%;
-  height: 7rem;
+  height: var(--header-heigt);
   padding: var(--padding-001);
 
   background-color: var(--white);
