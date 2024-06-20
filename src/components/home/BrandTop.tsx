@@ -4,6 +4,7 @@ import brandTopImg from 'assets/images/home/home_top.png';
 import styled from 'styled-components';
 import useNavigateTo from 'hooks/useNavigateTo';
 import Image from 'components/@shared/Image';
+import { PATH_ITEMS } from ' constants/paths';
 
 function BrandTop() {
   const { navigateTo } = useNavigateTo();
@@ -11,7 +12,7 @@ function BrandTop() {
     <BrandContainer>
       <StyledBrandTop className={'top'}>
         <h1>{'일상의 모든 물건을\n거래해 보세요'}</h1>
-        <Button width={'35.7rem'} height={'5.6rem'} type={'large'} onClick={() => navigateTo('/items')}>
+        <Button width={'35.7rem'} height={'5.6rem'} type={'large'} onClick={() => navigateTo(PATH_ITEMS)}>
           구경하러 가기
         </Button>
       </StyledBrandTop>

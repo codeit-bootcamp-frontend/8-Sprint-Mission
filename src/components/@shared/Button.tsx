@@ -33,9 +33,9 @@ const buttonStyles: ButtonStylesType = {
   },
 };
 
-function Button({ children, type = 'medium', width, height }: ButtonProps) {
+function Button({ children, type = 'medium', width, height, onClick }: ButtonProps) {
   return (
-    <StyledButton styles={buttonStyles} type={type} width={width} height={height}>
+    <StyledButton styles={buttonStyles} type={type} width={width} height={height} onClick={onClick}>
       {children}
     </StyledButton>
   );

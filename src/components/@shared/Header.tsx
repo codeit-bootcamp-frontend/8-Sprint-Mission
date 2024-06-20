@@ -2,14 +2,15 @@ import logoImg from 'assets/images/home/logoAndTypo.png';
 import useNavigateTo from 'hooks/useNavigateTo';
 import styled from 'styled-components';
 import Button from './Button';
+import { PATH_HOME, PATH_LOGIN } from ' constants/paths';
 
 function Header() {
   const { navigateTo } = useNavigateTo();
 
   return (
     <StyledHeader>
-      <img src={logoImg} alt={'앱 로고와 이름 이미지'} onClick={() => navigateTo('/')} />
-      <Button width={'12.8rem'} height={'4.8rem'} onClick={() => navigateTo('/login')}>
+      <img src={logoImg} alt={'앱 로고와 이름 이미지'} onClick={() => navigateTo(PATH_HOME)} />
+      <Button width={'12.8rem'} height={'4.8rem'} onClick={() => navigateTo(PATH_LOGIN)}>
         로그인
       </Button>
     </StyledHeader>
