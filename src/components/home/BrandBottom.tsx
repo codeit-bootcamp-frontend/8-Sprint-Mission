@@ -6,12 +6,10 @@ import styled from 'styled-components';
 function BrandBottom() {
   return (
     <BrandContainer>
-      <div className={'container'}>
-        <StyledBrandBottom className={'bottom'}>
-          <h1>{'믿을 수 있는\n판다마켓 중고 거래'}</h1>
-        </StyledBrandBottom>
-        <Image height={'54rem'} width={'99.6rem'} src={brandBottomImg} alt="웃으며 헤어지는 판다 2마리 이미지" />
-      </div>
+      <StyledBrandBottom className={'bottom'}>
+        <h1>{'믿을 수 있는\n판다마켓 중고 거래'}</h1>
+      </StyledBrandBottom>
+      <Image height={'54rem'} width={'99.6rem'} src={brandBottomImg} alt="웃으며 헤어지는 판다 2마리 이미지" />
     </BrandContainer>
   );
 }
