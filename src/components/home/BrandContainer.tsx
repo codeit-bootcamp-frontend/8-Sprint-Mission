@@ -43,6 +43,7 @@ const StyledBrandContainer = styled.article`
       line-height: 5.6rem;
       text-align: left;
       color: var(--cool-gray);
+      white-space: pre-line;
 
       @media all and (max-width: 1199px) {
         text-align: center;
@@ -50,6 +51,13 @@ const StyledBrandContainer = styled.article`
 
       @media all and (min-width: 768px) and (max-width: 1199px) {
         width: 100%;
+        white-space: normal;
+      }
+
+      @media all and (min-width: 375px) and (max-width: 767px) {
+        font-size: 3.2rem;
+
+        line-height: 4.48rem;
       }
     }
 
