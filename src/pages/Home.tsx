@@ -1,3 +1,4 @@
+import Footer from 'components/@shared/Footer';
 import Header from 'components/@shared/Header';
 import BrandBottom from 'components/home/BrandBottom';
 import BrandTop from 'components/home/BrandTop';
@@ -11,6 +12,7 @@ function Home() {
       <BrandTop />
       <FeatList />
       <BrandBottom />
+      <Footer />
     </StyledHome>
   );
 }

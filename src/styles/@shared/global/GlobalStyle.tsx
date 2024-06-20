@@ -25,6 +25,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Pretendard Variable', Pretendard, sans-serif;
     box-sizing: border-box;
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 export default GlobalStyle;

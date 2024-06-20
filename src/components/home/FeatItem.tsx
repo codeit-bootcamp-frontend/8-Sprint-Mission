@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { IItemInfo } from './FeatList';
 import Image from 'components/@shared/Image';
+import { IItemInfo } from ' constants/infomations/featItemList';
 
 function FeatItem({ src, alt, title, description, detail }: Omit<IItemInfo, 'id'>) {
   return (
