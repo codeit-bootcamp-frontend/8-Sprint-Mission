@@ -1,13 +1,13 @@
-
-:root{
-  --main-blue-color: #3692FF;
-  --hover-blue-color: #1967D6;
-  --imgBg-blue-color: #CFE5FF;
+:root {
+  --main-blue-color: #3692ff;
+  --hover-blue-color: #1967d6;
+  --imgBg-blue-color: #cfe5ff;
   --mainText-blue-color: #374151;
-  --subText-blue-color: #1F2937;
+  --subText-blue-color: #1f2937;
+  --error-line-color: #f74747;
 }
 
-a{
+a {
   cursor: pointer;
 }
 
@@ -70,11 +70,11 @@ nav .login {
   font-weight: 600;
 }
 
-a.login:hover{
+a.login:hover {
   background-color: var(--hover-blue-color);
 }
 
-.main_img{
+.main_img {
   background-color: var(--imgBg-blue-color);
   background-image: url(img/Img_home_top.png);
   background-repeat: no-repeat;
@@ -108,7 +108,7 @@ a.login:hover{
   display: inline-block;
 }
 
-.main_img .header_typo a:hover{
+.main_img .header_typo a:hover {
   background: var(--hover-blue-color);
 }
 
@@ -121,17 +121,16 @@ a.login:hover{
 }
 
 .cards.right_side {
-  justify-content: center;
+  flex-direction: row-reverse;
 }
 
-.cards .card .item_icon{
+.cards .card .item_icon {
   color: var(--main-blue-color);
   font-weight: 700;
   font-size: 18px;
 }
 
-
-.cards .card h3{
+.cards .card h3 {
   color: var(--mainText-blue-color);
   font-size: 40px;
   font-weight: 700;
@@ -142,8 +141,7 @@ a.login:hover{
   width: 300px;
 }
 
-
-.cards .card p{
+.cards .card p {
   color: var(--mainText-blue-color);
   font-size: 24px;
   font-weight: 500;
@@ -152,10 +150,9 @@ a.login:hover{
   text-align: left;
 }
 
-
-.footer_img{
+.footer_img {
   background: var(--imgBg-blue-color);
-  background-image:url(img/Img_home_bottom.png);
+  background-image: url(img/Img_home_bottom.png);
   background-repeat: no-repeat;
   background-position: right 223px bottom;
   width: 100%;
@@ -197,8 +194,7 @@ footer .quest a {
 }
 
 footer .sns {
-grid-area: sns;
-
+  grid-area: sns;
 }
 
 footer .sns ul {
@@ -235,7 +231,7 @@ form {
   height: 132px;
 }
 
-label{
+label {
   color: var(--subText-blue-color);
   font-family: Pretendard;
   font-size: 18px;
@@ -253,8 +249,7 @@ input {
   outline: none;
 }
 
-
-input:focus{
+input:focus {
   outline: 1px solid var(--main-blue-color);
 }
 
@@ -282,8 +277,14 @@ button {
   cursor: pointer;
 }
 
+.btn-a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  width: 100%;
+}
 
-button:hover{
+button:hover {
   background: var(--main-blue-color);
 }
 
@@ -470,44 +471,65 @@ button:hover{
   div.cards:last-child {
     padding-bottom: 0px;
   }
-  .container .footer_typo{
+  .container .footer_typo {
     font-size: 32px;
     font-weight: 700;
   }
 
-  footer{
+  footer {
     padding: 32px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-    "qst sns"
-    "cp ."
-    ;
+    grid-template-areas:
+      "qst sns"
+      "cp .";
     gap: 60px 32px;
   }
   /** 로그인 */
-  .login-logo{
+  .login-logo {
     max-width: 400px;
   }
 
-  .login-logo img{
+  .login-logo img {
     width: 100%;
   }
-  #log-wrap{
+  #log-wrap {
     width: 100%;
     max-width: 400px;
     padding: 16px;
     margin: 0 auto;
   }
   .login-form,
-  .pw-form{
+  .pw-form {
     width: 100%;
     max-width: 400px;
   }
-  input{
+  input {
     width: 100%;
   }
+}
 
+/* js */
+.error2 {
+  outline: 1px solid var(--error-line-color);
+}
 
+.error {
+  outline: 1px solid var(--error-line-color);
+}
+
+.email-error,
+.email-error2,
+.pw-error,
+.pw-error2,
+.nickname-error,
+.pwChecker-error {
+  display: none;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--error-line-color);
+  padding-left: 16px;
+  padding-top: 8px;
 }
