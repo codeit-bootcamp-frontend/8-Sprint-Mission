@@ -3,6 +3,7 @@ import PageNavBar from "./PageNavBar";
 import Items from "../pages/Items/Items";
 import "./Main.css";
 import "./Header.css";
+import "../styles/mediaquery.css";
 
 function Main() {
   return (

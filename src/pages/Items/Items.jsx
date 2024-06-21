@@ -1,12 +1,12 @@
 import React from "react";
-import BestItems from "./components/BestItems";
-import AllItems from "./components/AllItems";
+import BestItemsContainer from "./components/BestItemsContainer";
+import AllItemsContainer from "./components/AllItemsContainer";
 
 function Items() {
   return (
     <>
-      <BestItems />
-      <AllItems />
+      <BestItemsContainer />
+      <AllItemsContainer />
     </>
   );
 }

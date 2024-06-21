@@ -16,6 +16,7 @@
 }
 
 ul,
+li,
 ol {
   list-style-type: none;
 }
@@ -31,7 +32,7 @@ html {
   --click: #1251aa;
   --brand: #3692ff;
   --banner: #cfe5ff;
-  --coolgray-100: #e8ebed;
+  --coolgray-100: #f3f4f6;
   --coolgray-200: #e5e7eb;
   --coolgray-400: #9ca3af;
   --coolgray-500: #6b7280;
@@ -48,4 +49,13 @@ html {
 
 .hidden {
   display: none;
+}
+
+input:focus {
+  outline: 0px;
+}
+
+button {
+  border: 0px;
+  background-color: var(--fff);
 }

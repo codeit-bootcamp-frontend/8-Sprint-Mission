@@ -1,8 +1,12 @@
 .main {
-  margin: 94px 360px;
+  max-width: 1200px;
+  margin: 94px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-/* header */
+/* section header */
 .section-title {
   color: var(--coolgray-900);
   font-size: 1.2rem;
@@ -17,12 +21,75 @@
 }
 
 .menu-wrap {
+  position: relative;
+  border-radius: 16px;
   display: flex;
+  gap: 10px;
 }
 
-/* drop down list */
+.ic-search {
+  position: absolute;
+  left: 18px;
+  bottom: 15px;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  background-image: url("/src/assets/images/ic_search.png");
+}
 
-/* content */
+.search {
+  color: var(--coolgray-400);
+  background-color: var(--coolgray-100);
+  border-radius: 12px;
+  padding: 9px 20px 9px 52px;
+  width: 294px;
+  height: 42px;
+  border: 0px;
+}
+
+.dropdown-container,
+.dropdown-ul {
+  position: relative;
+  color: var(--coolgray-800);
+  background-color: var(---fff);
+  border: 1px solid var(--coolgray-200);
+  border-radius: 12px;
+  width: 130px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.dropdown-container {
+  position: relative;
+  text-align: left;
+  padding: 12px 20px;
+}
+
+.dropdown-ul {
+  position: absolute;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.dropdown-ul:first-child {
+  border-bottom: 1px solid var(--coolgray-200);
+}
+
+.dropdown-li {
+  padding: 12px;
+}
+
+.ic-arrow-down {
+  position: absolute;
+  background-image: url("/src/assets/images/ic_arrow_down.png");
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+  right: 25px;
+}
+
+/* section content */
 .best-items-list,
 .all-items-list {
   display: grid;
@@ -35,6 +102,48 @@
 
 .all-items-list {
   grid-template-columns: repeat(5, 1fr);
+}
+
+.all-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.item-img {
+  width: 270px;
+  height: 270px;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.item-content-sub {
+  font-size: 0.8rem;
+  color: var(--coolgray-800);
+}
+
+.item-favorite {
+  display: flex;
+  text-align: center;
+  color: var(--coolgray-200);
+  font-size: 0.8rem;
+}
+
+.favorite-count-btn {
+  background-image: url("/src/assets/images/ic_heart.png");
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
 }
 
 /* page navigation bar */
