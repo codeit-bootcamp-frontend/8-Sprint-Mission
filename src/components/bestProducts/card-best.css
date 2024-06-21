@@ -1,5 +1,6 @@
 .best-product-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   overflow-x: scroll;
 }
@@ -12,8 +13,9 @@
 }
 
 .card-best-img {
-  width: 282px;
-  height: 282px;
+  display: inline-block;
+  width: 300px;
+  height: 300px;
 }
 
 .card-description {
@@ -26,6 +28,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 16.71px;
+  margin-bottom: 10px;
 }
 
 .product-price {
