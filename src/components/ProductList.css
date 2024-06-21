@@ -1,0 +1,24 @@
+.ProductListItem-img {
+  width: 221px;
+  height: 221px;
+  border-radius: 16px;
+}
+
+.ProductList {
+  width: 1201px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.ProductListItem {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+}
+
+.ProductListItem p,
+.ProductListItem h3 {
+  margin: 5px 0;
+  padding: 0;
+}
