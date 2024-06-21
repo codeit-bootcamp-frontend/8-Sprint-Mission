@@ -2,6 +2,7 @@
   width: 325px;
   height: 42px;
   position: relative;
+  grid-area: search;
 }
 
 .search-img {

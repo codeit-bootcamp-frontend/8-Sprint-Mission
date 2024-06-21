@@ -1,5 +1,6 @@
 .dropdown-container {
   position: relative;
+  grid-area: drop;
 }
 
 .dropdown-btn {
@@ -44,4 +45,19 @@
 
   border: 1px solid #e5e7eb;
   border-radius: 0 0 12px 12px;
+}
+
+@media (375px <= width < 768px) {
+  .dropdown-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 42px;
+    height: 42px;
+  }
+
+  .dropdown-menu {
+    right: 0%;
+  }
 }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import SalesProductCardList from "../../components/salesProducts/SalesProductCardList";
+import { Link } from "react-router-dom";
+import useResize from "../../lib/hooks/useResize";
 
+import SalesProductCardList from "../../components/salesProducts/SalesProductCardList";
 import Title from "../../core/titles/Title";
 import fetchProduct from "../../lib/api/product";
 
@@ -10,8 +12,6 @@ import Dropdown from "../../core/dropdown/Dropdown";
 import BtnSmall from "../../core/buttons/BtnSmall";
 import PagiNation from "../../components/salesProducts/PagiNation";
 
-const PAGE_SIZE = 10;
-
 const SalesProducts = () => {
   const [salesProducts, setSalesProducts] = useState([]);
   const [order, setOrder] = useState("recent");
@@ -19,6 +19,17 @@ const SalesProducts = () => {
   const [totalPage, setTotalPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+
+  const getSalesPageSize = (width) => {
+    if (1200 <= width) {
+      return 10;
+    }
+    if (768 <= width) {
+      return 6;
+    }
+    return 4;
+  };
+  const size = useResize({ getPageSize: getSalesPageSize });
 
   const handleSalesProducts = async (options) => {
     let result;
@@ -33,9 +44,8 @@ const SalesProducts = () => {
       setIsLoading(false);
     }
     const { list, totalCount } = result;
-    console.log(list);
     setSalesProducts(list);
-    const newTotalPage = Math.ceil(totalCount / PAGE_SIZE);
+    const newTotalPage = Math.ceil(totalCount / size);
     setTotalPage(newTotalPage);
   };
 
@@ -50,41 +60,43 @@ const SalesProducts = () => {
     }
     setOrder(newOrder);
     handleSalesProducts({
-      currnetPage: 1,
-      pageSize: PAGE_SIZE,
+      currentPage: 1,
+      pageSize: size,
       orderBy: newOrder,
       searchKeyword: "",
     });
+    setCurrentPage(1);
   };
 
   const handleSearch = (e) => {
     handleSalesProducts({
-      currnetPage: 1,
-      pageSize: PAGE_SIZE,
+      currentPage: 1,
+      pageSize: size,
       orderBy: order,
       searchKeyword: e.target.value,
     });
+    setCurrentPage(1);
   };
 
   const handleCurrentPage = (e) => {
     const newCurrentPage = Number(e.target.innerText);
+    setCurrentPage(newCurrentPage);
     handleSalesProducts({
-      currnetPage: newCurrentPage,
-      pageSize: PAGE_SIZE,
+      currentPage: newCurrentPage,
+      pageSize: size,
       orderBy: order,
       searchKeyword: "",
     });
-    setCurrentPage(newCurrentPage);
   };
 
   useEffect(() => {
     handleSalesProducts({
-      currnetPage: 1,
-      pageSize: PAGE_SIZE,
+      currentPage: 1,
+      pageSize: size,
       orderBy: "recent",
       searchKeyword: "",
     });
-  }, []);
+  }, [size]);
 
   return (
     <section className="sales-product-container">
@@ -92,7 +104,9 @@ const SalesProducts = () => {
         <Title>판매 중인 상품</Title>
         <div className="sales-options-container">
           <SearchInput handleSearch={handleSearch} />
-          <BtnSmall>상품 등록하기</BtnSmall>
+          <Link to="/addItem">
+            <BtnSmall>상품 등록하기</BtnSmall>
+          </Link>
           <Dropdown
             isLoading={isLoading}
             order={order}

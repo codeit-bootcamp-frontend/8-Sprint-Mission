@@ -7,6 +7,7 @@
 }
 
 .sales-header-container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,15 +31,13 @@
 
 .card {
   color: #1f2937;
-  display: flex;
-  flex-direction: column;
   gap: 16px;
 }
 
 .card-sales-img {
   display: inline-block;
-  width: 221px;
-  height: 221px;
+  width: 100%;
+  min-height: 221px;
   border-radius: 16px;
 }
 
@@ -79,4 +78,16 @@
 .pagination-container {
   display: flex;
   gap: 4px;
+}
+
+@media (768px <= width < 1200px) {
+  .sales-product-list {
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  }
+}
+
+@media (375px <= width < 768px) {
+  .sales-product-list {
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  }
 }
