@@ -1,0 +1,228 @@
+:root {
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+
+  --blue: #3692ff;
+  --blue2: #1967d6;
+  --blue3: #1251aa;
+  --red: #f74747;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'pretendard', sans-serif;
+  margin: 0;
+}
+
+input::placeholder {
+  color: var(--gray400);
+}
+
+label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray800);
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray800);
+  font-size: 16px;
+  font-weight: 400;
+  text-indent: 20px;
+}
+
+.logo {
+  margin-top: 60px;
+}
+
+.input-container {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 10px;
+  width: 90vw;
+  height: 93px;
+  max-width: 640px;
+  margin-top: 24px;
+}
+
+.input-text {
+  background-color: var(--gray100);
+  border-radius: 12px;
+  border: none;
+  height: 56px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+.input:focus {
+  outline: 2px solid var(--blue);
+}
+
+.visibilty {
+  position: absolute;
+  top: 50px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.login-btn {
+  width: 90vw;
+  max-width: 640px;
+  border: 0;
+  padding: 0;
+  margin: 24px auto 24px;
+  height: 56px;
+  border-radius: 40px;
+  background-color: var(--gray400);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+}
+
+.easy-login-background {
+  background-color: #e6f2ff;
+  width: 90vw;
+  max-width: 640px;
+  height: 74px;
+  border-radius: 8px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.easy-login-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray800);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.easy-login-container {
+  width: 92%;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+}
+
+.easy-login-link-box {
+  width: 100px;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-link {
+  width: 42px;
+  height: 42px;
+}
+
+.mini-image {
+  width: 100%;
+  height: 100%;
+}
+
+.sign-up-text {
+  margin-top: 24px;
+  margin-bottom: 184px;
+}
+
+@media screen and (max-width: 767px) {
+  form {
+    padding: 0px 16px;
+  }
+  label {
+    font-size: 14px;
+    line-height: 16.71px;
+  }
+  .logo {
+    margin-top: 24px;
+  }
+  .logo > a > img {
+    width: 198px;
+    height: 66px;
+  }
+  .easy-login-background,
+  .login-btn,
+  .input-box {
+    max-width: 400px;
+    width: 90vw;
+  }
+
+  .input-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .easy-login-container {
+    padding: 0px 24px;
+  }
+  .sign-up-text {
+    margin-bottom: 185px;
+  }
+}
+/* 아래로는 로그인, 회원가입 페이지 에러 핸들링용 클래스입니다. */
+.error {
+  outline: 2px solid var(--red);
+}
+
+.error2 {
+  outline: 2px solid var(--red);
+}
+.error-message {
+  font-size: 15px;
+  position: absolute;
+  opacity: 0;
+  top: calc(100% + 4px);
+  left: 16px;
+}
+
+.condition-message {
+  font-size: 15px;
+  position: absolute;
+  opacity: 0;
+  top: calc(100% + 4px);
+  left: 16px;
+}
+
+.waring {
+  color: var(--red);
+  opacity: 100;
+}
+.waring2 {
+  color: var(--red);
+  opacity: 100;
+}
+.accept {
+  background-color: var(--blue);
+  outline: none;
+}

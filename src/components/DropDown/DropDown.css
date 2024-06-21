@@ -1,0 +1,95 @@
+.select-options {
+  background-image: url('../../assets/images/icon/btn_icon/ic_arrow.png');
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  appearance: none;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 9px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 42px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid var(--gray200);
+  position: relative;
+  cursor: pointer;
+}
+
+.select-options:focus {
+  outline: none;
+}
+
+.select-text {
+  position: relative;
+  left: -20px;
+}
+
+.select-options-box {
+  z-index: 1;
+  position: absolute;
+  top: 46px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray800);
+  width: 130px;
+}
+
+.select-options-recent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  border: 1px solid var(--gray200);
+  border-radius: 12px 12px 0px 0px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray800);
+  background-color: #ffffff;
+}
+
+.select-options-favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  border: 1px solid var(--gray200);
+  border-radius: 0px 0px 12px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray800);
+  background-color: #ffffff;
+}
+
+@media screen and (max-width: 767px) {
+  .select-options {
+    background-image: url('../../assets/images/icon/btn_icon/ic_mini_arrow.png');
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    appearance: none;
+    width: 42px;
+    height: 42px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--gray200);
+    position: relative;
+    cursor: pointer;
+  }
+  .select-text {
+    display: none;
+  }
+  .select-options-box {
+    z-index: 1;
+    position: absolute;
+    right: 0px;
+    top: 46px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gray800);
+    width: 130px;
+  }
+}

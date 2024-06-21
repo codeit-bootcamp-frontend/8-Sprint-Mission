@@ -1,0 +1,62 @@
+.pagiation-bar {
+  gap: 4px;
+  margin: 40px 0px 113px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagiation-arrow {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray500);
+  border: 1px solid var(--gray200);
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.pagiation-arrow:hover {
+  background-color: var(--blue);
+}
+.pagiation-arrow:hover > img {
+  filter: invert(100%) brightness(200%);
+}
+
+.pagiation-num {
+  display: flex;
+  gap: 4px;
+}
+.pagiation-num > li {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray500);
+  border: 1px solid var(--gray200);
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pagiation-num .pagiation-target {
+  background-color: var(--blue);
+  color: #ffffff;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .pagiation-bar {
+    margin: 40px 0px 59px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .pagiation-bar {
+    margin: 40px 0px 82px;
+  }
+}
