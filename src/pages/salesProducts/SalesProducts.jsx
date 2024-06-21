@@ -8,13 +8,14 @@ import "./sales-products.css";
 import SearchInput from "../../core/search/SearchInput";
 import Dropdown from "../../core/dropdown/Dropdown";
 import BtnSmall from "../../core/buttons/BtnSmall";
+import PagiNation from "../../components/salesProducts/PagiNation";
 
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 10;
 
 const SalesProducts = () => {
   const [salesProducts, setSalesProducts] = useState([]);
   const [order, setOrder] = useState("recent");
-  const [currnetPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -32,6 +33,7 @@ const SalesProducts = () => {
       setIsLoading(false);
     }
     const { list, totalCount } = result;
+    console.log(list);
     setSalesProducts(list);
     const newTotalPage = Math.ceil(totalCount / PAGE_SIZE);
     setTotalPage(newTotalPage);
@@ -60,8 +62,19 @@ const SalesProducts = () => {
       currnetPage: 1,
       pageSize: PAGE_SIZE,
       orderBy: order,
-      searchKeyword: e.target.value.replace(" ", ""),
+      searchKeyword: e.target.value,
     });
+  };
+
+  const handleCurrentPage = (e) => {
+    const newCurrentPage = Number(e.target.innerText);
+    handleSalesProducts({
+      currnetPage: newCurrentPage,
+      pageSize: PAGE_SIZE,
+      orderBy: order,
+      searchKeyword: "",
+    });
+    setCurrentPage(newCurrentPage);
   };
 
   useEffect(() => {
@@ -88,7 +101,14 @@ const SalesProducts = () => {
         </div>
       </div>
       {!errorMessage ? (
-        <SalesProductCardList salesProducts={salesProducts} />
+        <div className="products-container">
+          <SalesProductCardList salesProducts={salesProducts} />
+          <PagiNation
+            currentPage={currentPage}
+            handleCurrentPage={handleCurrentPage}
+            totalPage={totalPage}
+          />
+        </div>
       ) : (
         <p>{errorMessage.message}</p>
       )}
