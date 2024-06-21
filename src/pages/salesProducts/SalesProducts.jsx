@@ -18,6 +18,7 @@ const SalesProducts = () => {
   const [totalPage, setTotalPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+
   const getSalesPageSize = (width) => {
     if (1200 <= width) {
       return 10;
@@ -28,7 +29,6 @@ const SalesProducts = () => {
     return 4;
   };
   const size = useResize({ getPageSize: getSalesPageSize });
-  //   const [pageSize, setPageSize] = useState(getSalesPageSize(window.innerWidth));
 
   const handleSalesProducts = async (options) => {
     let result;
@@ -64,6 +64,7 @@ const SalesProducts = () => {
       orderBy: newOrder,
       searchKeyword: "",
     });
+    setCurrentPage(1);
   };
 
   const handleSearch = (e) => {
@@ -73,6 +74,7 @@ const SalesProducts = () => {
       orderBy: order,
       searchKeyword: e.target.value,
     });
+    setCurrentPage(1);
   };
 
   const handleCurrentPage = (e) => {
