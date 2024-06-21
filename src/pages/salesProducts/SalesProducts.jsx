@@ -9,8 +9,7 @@ import SearchInput from "../../core/search/SearchInput";
 import Dropdown from "../../core/dropdown/Dropdown";
 import BtnSmall from "../../core/buttons/BtnSmall";
 import PagiNation from "../../components/salesProducts/PagiNation";
-
-const PAGE_SIZE = 10;
+import useResize from "../../lib/hooks/useResize";
 
 const SalesProducts = () => {
   const [salesProducts, setSalesProducts] = useState([]);
@@ -19,6 +18,17 @@ const SalesProducts = () => {
   const [totalPage, setTotalPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  const getSalesPageSize = (width) => {
+    if (1200 <= width) {
+      return 10;
+    }
+    if (768 <= width) {
+      return 6;
+    }
+    return 4;
+  };
+  const size = useResize({ getPageSize: getSalesPageSize });
+  //   const [pageSize, setPageSize] = useState(getSalesPageSize(window.innerWidth));
 
   const handleSalesProducts = async (options) => {
     let result;
@@ -34,7 +44,7 @@ const SalesProducts = () => {
     }
     const { list, totalCount } = result;
     setSalesProducts(list);
-    const newTotalPage = Math.ceil(totalCount / PAGE_SIZE);
+    const newTotalPage = Math.ceil(totalCount / size);
     setTotalPage(newTotalPage);
   };
 
@@ -50,7 +60,7 @@ const SalesProducts = () => {
     setOrder(newOrder);
     handleSalesProducts({
       currentPage: 1,
-      pageSize: PAGE_SIZE,
+      pageSize: size,
       orderBy: newOrder,
       searchKeyword: "",
     });
@@ -59,7 +69,7 @@ const SalesProducts = () => {
   const handleSearch = (e) => {
     handleSalesProducts({
       currentPage: 1,
-      pageSize: PAGE_SIZE,
+      pageSize: size,
       orderBy: order,
       searchKeyword: e.target.value,
     });
@@ -70,20 +80,31 @@ const SalesProducts = () => {
     setCurrentPage(newCurrentPage);
     handleSalesProducts({
       currentPage: newCurrentPage,
-      pageSize: PAGE_SIZE,
+      pageSize: size,
       orderBy: order,
       searchKeyword: "",
     });
   };
 
   useEffect(() => {
+    // const handleResize = () => {
+    //   const newWindowSize = getSalesPageSize(window.innerWidth);
+    //   console.log(newWindowSize);
+    //   if (newWindowSize !== pageSize) {
+    //     setPageSize(newWindowSize);
+    //   }
+    // };
+    console.log(size);
     handleSalesProducts({
       currentPage: 1,
-      pageSize: PAGE_SIZE,
+      pageSize: size,
       orderBy: "recent",
       searchKeyword: "",
     });
-  }, []);
+    // window.addEventListener("resize", handleResize);
+    // handleResize();
+    // return () => window.removeEventListener("resize", handleResize);
+  }, [size]);
 
   return (
     <section className="sales-product-container">
