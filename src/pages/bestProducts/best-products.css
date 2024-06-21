@@ -1,0 +1,16 @@
+.best-product-container {
+  max-width: 1200px;
+  margin: 94px 360px 0px;
+}
+
+@media (768px <= width < 1200px) {
+  .best-product-container {
+    margin: 94px 24px 0px;
+  }
+}
+
+@media (375px <= width < 768px) {
+  .best-product-container {
+    margin: 94px 16px 0px;
+  }
+}
