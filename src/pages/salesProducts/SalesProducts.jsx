@@ -5,28 +5,59 @@ import Title from "../../core/titles/Title";
 import fetchProduct from "../../lib/api/product";
 
 import "./sales-products.css";
+import SearchInput from "../../core/search/SearchInput";
+import Dropdown from "../../core/dropdown/Dropdown";
+
+const PAGE_SIZE = 12;
 
 const SalesProducts = () => {
   const [salesProducts, setSalesProducts] = useState([]);
+  const [order, setOrder] = useState("recent");
+  const [currnetPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const handleSalesProducts = async (options) => {
     let result;
     try {
+      setIsLoading(true);
       setErrorMessage(null);
       result = await fetchProduct(options);
     } catch (error) {
       setErrorMessage(error);
       return;
+    } finally {
+      setIsLoading(false);
     }
-    const { list } = result;
+    const { list, totalCount } = result;
     setSalesProducts(list);
+    const newTotalPage = Math.ceil(totalCount / PAGE_SIZE);
+    setTotalPage(newTotalPage);
+  };
+
+  const handleListClick = (e) => {
+    if (isLoading) {
+      return;
+    }
+    const newOrder = e.target.innerText === "최신순" ? "recent" : "favorite";
+
+    if (newOrder === order) {
+      return;
+    }
+    setOrder(newOrder);
+    handleSalesProducts({
+      currnetPage: 1,
+      pageSize: PAGE_SIZE,
+      orderBy: newOrder,
+      searchKeyword: "",
+    });
   };
 
   useEffect(() => {
     handleSalesProducts({
       currnetPage: 1,
-      pageSize: 12,
+      pageSize: PAGE_SIZE,
       orderBy: "recent",
       searchKeyword: "",
     });
@@ -34,7 +65,15 @@ const SalesProducts = () => {
 
   return (
     <section className="sales-product-container">
-      <Title>판매 중인 상품</Title>
+      <div className="sales-header-container">
+        <Title>판매 중인 상품</Title>
+        <SearchInput />
+        <Dropdown
+          isLoading={isLoading}
+          order={order}
+          handleListClick={handleListClick}
+        />
+      </div>
       {!errorMessage ? (
         <SalesProductCardList salesProducts={salesProducts} />
       ) : (

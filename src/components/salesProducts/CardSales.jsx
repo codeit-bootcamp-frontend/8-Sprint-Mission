@@ -5,7 +5,7 @@ const CardSales = ({ imgSrc, imgAlt, description, price, favoriteCount }) => {
   return (
     <div className="card">
       <div className="img-wrap">
-        <img src={imgSrc} className="card-best-img" alt={imgAlt} />
+        <img src={imgSrc} className="card-sales-img" alt={imgAlt} />
       </div>
       <div className="card-description">
         <div className="description-wrap">
