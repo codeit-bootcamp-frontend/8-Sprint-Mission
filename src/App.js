@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
+import Nav from "./components/Nav";
+import AllProductList from "./components/AllProductList";
+
+async function getData() {
+  const url = "https://panda-market-api.vercel.app/products";
+  const response = await fetch(url);
+  const result = await response.json();
+
+  const data = result.list.map((items) => ({
+    id: items.id,
+    title: items.name,
+    description: items.description,
+    price: items.price,
+    image: items.images,
+    favoriteCount: items.favoriteCount,
+    createAt: items.createAt,
+  }));
+
+  return data;
+}
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getData();
+      setItems(data);
+    }
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+      <div className="product-lists">
+        <AllProductList className="all-product-list" items={items} />
+      </div>
+      ;
+    </>
   );
 }
 
