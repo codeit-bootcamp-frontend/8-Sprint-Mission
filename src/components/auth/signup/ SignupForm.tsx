@@ -3,34 +3,20 @@ import PasswordInput from '../PasswordInput';
 import React, { useState } from 'react';
 import useNavigateTo from 'hooks/useNavigateTo';
 import { StyledAuthForm, StyledAuthLabel, StyledInputSection, StyledVaildResultText } from '../login/LoginForm';
+import useValidForm from 'hooks/useValidForm';
 
 function SignupForm() {
   const { navigateTo } = useNavigateTo();
-  const [email, setEmail] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [password, setPassword] = useState('');
-  const [verifyPassword, setVerifyPassword] = useState('');
+  const [form, setForm] = useState({
+    email: '',
+    nickname: '',
+    password: '',
+    verifyPassword: '',
+  });
+  const { isValid, validText } = useValidForm(form);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    switch (event.target.type) {
-      case 'email': {
-        setEmail(event.target.value);
-        break;
-      }
-      case 'nickname': {
-        setNickname(event.target.value);
-        break;
-      }
-      case 'password': {
-        setPassword(event.target.value);
-        break;
-      }
-      case 'verify-Password': {
-        setVerifyPassword(event.target.value);
-        break;
-      }
-    }
-  };
+  console.log(isValid);
+  console.log(validText);
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -40,56 +26,56 @@ function SignupForm() {
 
   return (
     <StyledAuthForm autoComplete="on" method="post" onSubmit={handleSubmitClick}>
-      <StyledInputSection>
+      <StyledInputSection $isValid={isValid.email}>
         <StyledAuthLabel htmlFor={'email'}>이메일</StyledAuthLabel>
         <input
           id="email"
           type="email"
           name="email"
-          value={email}
-          onChange={handleInputChange}
+          value={form.email}
+          onChange={e => setForm({ ...form, email: e.target.value })}
           placeholder="이메일을 입력해주세요"
         />
-        <StyledVaildResultText>이메일를 입력해주세요</StyledVaildResultText>
+        <StyledVaildResultText $isValid={isValid.email}>이메일를 입력해주세요</StyledVaildResultText>
       </StyledInputSection>
 
-      <StyledInputSection>
+      <StyledInputSection $isValid={isValid.nickname}>
         <StyledAuthLabel htmlFor={'nickname'}>닉네임</StyledAuthLabel>
         <input
           id="nickname"
           type="nickname"
           name="nickname"
-          value={nickname}
-          onChange={handleInputChange}
+          value={form.nickname}
+          onChange={e => setForm({ ...form, nickname: e.target.value })}
           placeholder="이메일을 입력해주세요"
         />
-        <StyledVaildResultText>닉네임을 입력해주세요</StyledVaildResultText>
+        <StyledVaildResultText $isValid={isValid.nickname}>닉네임을 입력해주세요</StyledVaildResultText>
       </StyledInputSection>
 
-      <StyledInputSection>
+      <StyledInputSection $isValid={isValid.password}>
         <StyledAuthLabel htmlFor={'password'}>비밀번호</StyledAuthLabel>
         <PasswordInput
           id="password"
           name="password"
-          value={password}
-          onChange={handleInputChange}
+          value={form.password}
+          onChange={e => setForm({ ...form, password: e.target.value })}
           autoComplete="off"
           placeholder="비밀번호를 입력해주세요"
         />
-        <StyledVaildResultText>비밀번호를 입력해주세요</StyledVaildResultText>
+        <StyledVaildResultText $isValid={isValid.password}>{validText.password}</StyledVaildResultText>
       </StyledInputSection>
 
-      <StyledInputSection>
+      <StyledInputSection $isValid={isValid.verifyPassword}>
         <StyledAuthLabel htmlFor={'verify-password'}>비밀번호 확인</StyledAuthLabel>
         <PasswordInput
           id="verify-password"
           name="password"
-          value={verifyPassword}
-          onChange={handleInputChange}
+          value={form.verifyPassword}
+          onChange={e => setForm({ ...form, verifyPassword: e.target.value })}
           autoComplete="off"
           placeholder="비밀번호를 다시 한 번 입력해주세요"
         />
-        <StyledVaildResultText>비밀번호를 다시 한 번 입력해주세요</StyledVaildResultText>
+        <StyledVaildResultText $isValid={isValid.verifyPassword}>{validText.verifyPassword}</StyledVaildResultText>
       </StyledInputSection>
 
       <Button $category={'large'} height={'5.6rem'} width={'100%'}>
