@@ -4,7 +4,7 @@ import { Fragment } from "react";
 const App = () => {
   return (
     <Fragment>
-      <h1>ㅋㅋ</h1>
+      <h1>test</h1>
     </Fragment>
   );
 };
