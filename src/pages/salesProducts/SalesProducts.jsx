@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import SalesProductCardList from "../../components/salesProducts/SalesProductCardList";
+import { Link } from "react-router-dom";
+import useResize from "../../lib/hooks/useResize";
 
+import SalesProductCardList from "../../components/salesProducts/SalesProductCardList";
 import Title from "../../core/titles/Title";
 import fetchProduct from "../../lib/api/product";
 
@@ -9,7 +11,6 @@ import SearchInput from "../../core/search/SearchInput";
 import Dropdown from "../../core/dropdown/Dropdown";
 import BtnSmall from "../../core/buttons/BtnSmall";
 import PagiNation from "../../components/salesProducts/PagiNation";
-import useResize from "../../lib/hooks/useResize";
 
 const SalesProducts = () => {
   const [salesProducts, setSalesProducts] = useState([]);
@@ -103,7 +104,9 @@ const SalesProducts = () => {
         <Title>판매 중인 상품</Title>
         <div className="sales-options-container">
           <SearchInput handleSearch={handleSearch} />
-          <BtnSmall>상품 등록하기</BtnSmall>
+          <Link to="/addItem">
+            <BtnSmall>상품 등록하기</BtnSmall>
+          </Link>
           <Dropdown
             isLoading={isLoading}
             order={order}
