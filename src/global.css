@@ -1,0 +1,53 @@
+@import "./variable.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Pretendard", sans-serif;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  header {
+    padding: 0 16px;
+  }
+  .product-img {
+    width: 70%;
+  }
+  .salesProducts-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  header {
+    padding: 0 24px;
+  }
+  .salesProducts-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* PC */
+@media screen and (min-width: 1200px) {
+  .salesProducts-box {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
