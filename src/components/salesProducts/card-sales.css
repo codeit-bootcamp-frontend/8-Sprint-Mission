@@ -11,6 +11,13 @@
   justify-content: space-between;
 }
 
+.sales-options-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 12px;
+}
+
 .sales-product {
   width: 282px;
 }
