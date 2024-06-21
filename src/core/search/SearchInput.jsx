@@ -9,7 +9,7 @@ const SearchInput = ({ handleSearch }) => {
   };
 
   const handleSubmit = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.nativeEvent.isComposing === false) {
       handleSearch(e);
       setValue("");
     }
