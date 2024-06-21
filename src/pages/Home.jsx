@@ -10,7 +10,6 @@ import Footer from "../components/Footer";
 function Home() {
   return (
     <>
-      <Header />
       <main className="main-container">
         <article className="banner">
           <div className="banner-container">
@@ -76,7 +75,6 @@ function Home() {
           </div>
         </article>
       </main>
-      <Footer />
     </>
   );
 }

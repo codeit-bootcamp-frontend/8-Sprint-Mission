@@ -18,12 +18,14 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	font-family: 'Pretendard Variable';
 }
 
 html,
 body {
 	padding: 0;
 	height: 100%;
+
 }
 
 body {
@@ -56,6 +58,14 @@ body {
 	width: 100%;
 }
 
+.bland-blue {
+	color: var(--brand-blue);
+}
+
 .hidden {
-	display: none;
+	display: none !important;
+}
+
+li {
+	list-style: none;
 }
