@@ -11,6 +11,11 @@ const GlobalStyle = createGlobalStyle`
     font-size: 62.5%;
   }
 
+  * {
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+    box-sizing: border-box;
+  }
+
   body{
     height: 100vh;
     width: 100vw;
@@ -19,16 +24,18 @@ const GlobalStyle = createGlobalStyle`
   button {
     border: none;
     cursor: pointer;
+    background-color: transparent;
+    padding: 0;
   }
   
-  * {
-    font-family: 'Pretendard Variable', Pretendard, sans-serif;
-    box-sizing: border-box;
-  }
-
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  input {
+    outline: none;
+    border: none;
   }
 `;
 

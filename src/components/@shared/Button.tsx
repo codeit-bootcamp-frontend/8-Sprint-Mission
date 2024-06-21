@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 type ButtonStylesType = Record<string, Record<string, string>>;
 type ButtonType = 'medium' | 'large';
+
 interface ButtonProps {
   children: ReactNode;
   type?: ButtonType;
