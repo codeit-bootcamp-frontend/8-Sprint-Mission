@@ -85,13 +85,11 @@
 @media (768px <= width < 1200px) {
   .sales-product-list {
     grid-template: repeat(2, 1fr) / repeat(3, 1fr);
-    gap: 40px;
   }
 }
 
 @media (375px <= width < 768px) {
   .sales-product-list {
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-    gap: 40px;
   }
 }
