@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0e58374e.css",
+    "main.js": "/static/js/main.07038e4e.js",
+    "static/media/logo_with_typo.png": "/static/media/logo_with_typo.3a8ee6e8a55ab6341a7b.png",
+    "index.html": "/index.html",
+    "main.0e58374e.css.map": "/static/css/main.0e58374e.css.map",
+    "main.07038e4e.js.map": "/static/js/main.07038e4e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e58374e.css",
+    "static/js/main.07038e4e.js"
+  ]
+}
