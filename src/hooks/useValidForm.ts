@@ -39,7 +39,6 @@ const useValidForm = (form: IValidForm): { validText: IValidForm; isValid: IIsVa
       setValidText({ ...validText, email: '잘못된 이메일 형식입니다' });
       setIsValid({ ...isValid, email: 'unvalid' });
     } else {
-      setValidText({ ...validText, email: '' });
       setIsValid({ ...isValid, email: 'valid' });
     }
   }, [form.email]);
@@ -52,7 +51,6 @@ const useValidForm = (form: IValidForm): { validText: IValidForm; isValid: IIsVa
       setValidText({ ...validText, password: '비밀번호를 8자 이상 입력해주세요' });
       setIsValid({ ...isValid, password: 'unvalid' });
     } else {
-      setValidText({ ...validText, password: '' });
       setIsValid({ ...isValid, password: 'valid' });
     }
   }, [form.password]);
@@ -62,7 +60,6 @@ const useValidForm = (form: IValidForm): { validText: IValidForm; isValid: IIsVa
       setValidText({ ...validText, nickname: '닉네임을 입력해주세요' });
       setIsValid({ ...isValid, nickname: 'unvalid' });
     } else {
-      setValidText({ ...validText, nickname: '' });
       setIsValid({ ...isValid, nickname: 'valid' });
     }
   }, [form.nickname]);
@@ -72,7 +69,6 @@ const useValidForm = (form: IValidForm): { validText: IValidForm; isValid: IIsVa
       setValidText({ ...validText, verifyPassword: '비밀번호가 일치하지 않습니다' });
       setIsValid({ ...isValid, verifyPassword: 'unvalid' });
     } else {
-      setValidText({ ...validText, verifyPassword: '' });
       setIsValid({ ...isValid, verifyPassword: 'valid' });
     }
   }, [form.verifyPassword]);
