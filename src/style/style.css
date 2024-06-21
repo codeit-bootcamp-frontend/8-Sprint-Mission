@@ -76,7 +76,7 @@ a.login:hover {
 
 .main_img {
   background-color: var(--imgBg-blue-color);
-  background-image: url(img/Img_home_top.png);
+  background-image: url(../../img/Img_home_top.png);
   background-repeat: no-repeat;
   background-position: right 223px bottom;
   width: 100%;
@@ -152,7 +152,7 @@ a.login:hover {
 
 .footer_img {
   background: var(--imgBg-blue-color);
-  background-image: url(img/Img_home_bottom.png);
+  background-image: url(../../img/Img_home_bottom.png);
   background-repeat: no-repeat;
   background-position: right 223px bottom;
   width: 100%;
@@ -200,9 +200,6 @@ footer .sns {
 footer .sns ul {
   display: flex;
   gap: 12px;
-}
-
-footer .sns ul li {
 }
 
 /* 로그인, 회원가입 */
@@ -390,9 +387,6 @@ button:hover {
 
   .cards img {
     width: 100%;
-  }
-
-  .cards.right_side {
   }
 
   .cards.right_side .card {
