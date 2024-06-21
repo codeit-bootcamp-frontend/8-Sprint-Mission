@@ -1,0 +1,44 @@
+.card {
+  /* width: 282px; */
+  color: #1f2937;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-best-img {
+  width: 100%;
+}
+
+.card-description {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.product-description {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.71px;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.09px;
+}
+
+.favorite-count {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.32px;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+}
+
+.heartIcon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}

@@ -1,0 +1,9 @@
+.best-product-list {
+  display: flex;
+  gap: 24px;
+  overflow-x: scroll;
+}
+
+.best-product {
+  width: 282px;
+}

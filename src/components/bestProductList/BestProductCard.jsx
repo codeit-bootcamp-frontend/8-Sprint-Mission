@@ -1,8 +1,8 @@
-import Card from "../../core/cards/Card";
+import CardBest from "./CardBest";
 import DefaultImg from "../../core/assets/images/img_default.png";
 
 const BestProductCard = ({ product }) => {
-  const { images, name, description, price, favoriteCount } = product;
+  const { images, name, price, favoriteCount } = product;
   const getImageSource = () => {
     let imgSrc;
     if (images.length) {
@@ -14,11 +14,11 @@ const BestProductCard = ({ product }) => {
   };
   return (
     <div>
-      <Card
+      <CardBest
         imgSrc={getImageSource()}
         imgAlt={name ?? ""}
-        description={description ?? ""}
-        price={price ?? 0}
+        description={name ?? ""}
+        price={price?.toLocaleString("ko-KR") ?? 0}
         favoriteCount={favoriteCount ?? 0}
       />
     </div>
