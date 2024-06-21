@@ -87,23 +87,12 @@ const SalesProducts = () => {
   };
 
   useEffect(() => {
-    // const handleResize = () => {
-    //   const newWindowSize = getSalesPageSize(window.innerWidth);
-    //   console.log(newWindowSize);
-    //   if (newWindowSize !== pageSize) {
-    //     setPageSize(newWindowSize);
-    //   }
-    // };
-    console.log(size);
     handleSalesProducts({
       currentPage: 1,
       pageSize: size,
       orderBy: "recent",
       searchKeyword: "",
     });
-    // window.addEventListener("resize", handleResize);
-    // handleResize();
-    // return () => window.removeEventListener("resize", handleResize);
   }, [size]);
 
   return (

@@ -14,8 +14,7 @@
 
 .card-best-img {
   display: inline-block;
-  width: 282px;
-  height: 282px;
+  width: 100%;
   border-radius: 16px;
 }
 
@@ -51,4 +50,16 @@
   display: inline-block;
   width: 16px;
   height: 16px;
+}
+
+@media (768px <= width < 1200px) {
+  .best-product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (375px <= width < 768px) {
+  .best-product-list {
+    grid-template-columns: 1fr;
+  }
 }

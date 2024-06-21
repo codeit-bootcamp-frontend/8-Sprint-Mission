@@ -31,15 +31,14 @@
 
 .card {
   color: #1f2937;
-  display: flex;
-  flex-direction: column;
+
   gap: 16px;
 }
 
 .card-sales-img {
   display: inline-block;
-  width: 221px;
-  height: 221px;
+  width: 100%;
+  min-height: 221px;
   border-radius: 16px;
 }
 
