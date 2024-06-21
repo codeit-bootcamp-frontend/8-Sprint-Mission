@@ -1,0 +1,9 @@
+.best-products {
+  display: flex;
+  gap: 1.5rem;
+}
+.best-products-title {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+}
