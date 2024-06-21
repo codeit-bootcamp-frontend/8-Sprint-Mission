@@ -1,0 +1,31 @@
+.products-container {
+  width: 75rem;
+  height: 22.625em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.product-cards-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--cool-gray-800);
+  margin-bottom: 16px;
+}
+
+.favorite-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 24px;
+}
+
+.onsales-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 40px;
+}
