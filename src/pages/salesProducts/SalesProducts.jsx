@@ -33,7 +33,6 @@ const SalesProducts = () => {
       setIsLoading(false);
     }
     const { list, totalCount } = result;
-    console.log(list);
     setSalesProducts(list);
     const newTotalPage = Math.ceil(totalCount / PAGE_SIZE);
     setTotalPage(newTotalPage);
@@ -50,7 +49,7 @@ const SalesProducts = () => {
     }
     setOrder(newOrder);
     handleSalesProducts({
-      currnetPage: 1,
+      currentPage: 1,
       pageSize: PAGE_SIZE,
       orderBy: newOrder,
       searchKeyword: "",
@@ -59,7 +58,7 @@ const SalesProducts = () => {
 
   const handleSearch = (e) => {
     handleSalesProducts({
-      currnetPage: 1,
+      currentPage: 1,
       pageSize: PAGE_SIZE,
       orderBy: order,
       searchKeyword: e.target.value,
@@ -68,18 +67,18 @@ const SalesProducts = () => {
 
   const handleCurrentPage = (e) => {
     const newCurrentPage = Number(e.target.innerText);
+    setCurrentPage(newCurrentPage);
     handleSalesProducts({
-      currnetPage: newCurrentPage,
+      currentPage: newCurrentPage,
       pageSize: PAGE_SIZE,
       orderBy: order,
       searchKeyword: "",
     });
-    setCurrentPage(newCurrentPage);
   };
 
   useEffect(() => {
     handleSalesProducts({
-      currnetPage: 1,
+      currentPage: 1,
       pageSize: PAGE_SIZE,
       orderBy: "recent",
       searchKeyword: "",

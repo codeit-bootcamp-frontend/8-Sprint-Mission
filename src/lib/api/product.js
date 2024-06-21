@@ -2,7 +2,7 @@ const BASE_URL = "https://panda-market-api.vercel.app/";
 
 const fetchProduct = async ({
   currentPage = 1,
-  pageSize = 12,
+  pageSize = 10,
   orderBy = "recent",
   searchKeyword = "",
 }) => {
