@@ -1,15 +1,12 @@
 import Image from 'components/@shared/Image';
-import styled from 'styled-components';
 import eyeOffImg from 'assets/images/auth/visibility-off.png';
 import AuthInput from '../AuthInput';
-import Button from 'components/@shared/Button';
-import useNavigateTo from 'hooks/useNavigateTo';
+import AuthForm from '../AuthForm';
+import styled from 'styled-components';
 
 function LoginForm() {
-  const { navigateTo } = useNavigateTo();
-
   return (
-    <_AuthForm autoComplete="on" method="post">
+    <AuthForm buttonText={'로그인'}>
       <AuthInput htmlFor={'login-email'} label={'이메일'} validText={'이메일을 입력해주세요'}>
         <input id="login-email" type="email" name="email" placeholder="이메일을 입력해주세요" />
       </AuthInput>
@@ -28,21 +25,11 @@ function LoginForm() {
           </i>
         </_PasswordWrapper>
       </AuthInput>
-
-      <Button type={'large'} height={'5.6rem'} width={'100%'} onClick={() => navigateTo('/')}>
-        로그인
-      </Button>
-    </_AuthForm>
+    </AuthForm>
   );
 }
 
 export default LoginForm;
-
-const _AuthForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-`;
 
 const _PasswordWrapper = styled.div`
   position: relative;

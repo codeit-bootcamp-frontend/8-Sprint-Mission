@@ -3,20 +3,21 @@ import styled from 'styled-components';
 import authLogoImg from 'assets/images/auth/auth-logo.png';
 import AuthMain from 'components/auth/AuthMain';
 import { ReactNode } from 'react';
-import { PATH_SIGNUP } from ' constants/paths';
-
 interface AuthContainerProps {
   children: ReactNode;
+  memberCheckText: string;
+  linkTo: string;
+  linkText: string;
 }
 
-function AuthContainer({ children }: AuthContainerProps) {
+function AuthContainer({ children, memberCheckText, linkTo, linkText }: AuthContainerProps) {
   return (
     <_AuthContainer>
       <_AuthLogo>
         <Image src={authLogoImg} alt={'판다마켓 로고와 타이포'} height={'100%'} width={'100%'} />
       </_AuthLogo>
 
-      <AuthMain memberCheckText={'판다마켓이 처음이신가요?'} linkTo={PATH_SIGNUP} linkText={'회원가입'}>
+      <AuthMain memberCheckText={memberCheckText} linkTo={linkTo} linkText={linkText}>
         {children}
       </AuthMain>
     </_AuthContainer>
