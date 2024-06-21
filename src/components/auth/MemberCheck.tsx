@@ -1,17 +1,24 @@
-import { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface MemberCheckProps {
-  children: ReactNode;
+  memberCheckText: string;
+  linkTo: string;
+  linkText: string;
 }
 
-function MemberCheck({ children }: MemberCheckProps) {
-  return <_MemberCheckSection>{children}</_MemberCheckSection>;
+function MemberCheck({ memberCheckText, linkTo, linkText }: MemberCheckProps) {
+  return (
+    <StyledMemberCheckSection>
+      <span>{memberCheckText}</span>
+      <Link to={linkTo}>{linkText}</Link>
+    </StyledMemberCheckSection>
+  );
 }
 
 export default MemberCheck;
 
-const _MemberCheckSection = styled.section`
+const StyledMemberCheckSection = styled.section`
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.79rem;

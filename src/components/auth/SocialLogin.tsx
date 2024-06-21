@@ -1,22 +1,29 @@
 import styled from 'styled-components';
-import { ReactNode } from 'react';
+import { PATH_GOOGLE, PATH_KAKAO } from ' constants/paths';
+import { Link } from 'react-router-dom';
+import Image from 'components/@shared/Image';
+import googleImg from 'assets/images/auth/social-login-google.png';
+import kakaoImg from 'assets/images/auth/social-login-kakao.png';
 
-interface SocialLoginProps {
-  children: ReactNode;
-}
-
-function SocialLogin({ children }: SocialLoginProps) {
+function SocialLogin() {
   return (
-    <_SocialLoginSection>
+    <StyledSocialLoginSection>
       <span>간편 로그인하기</span>
-      <_SocialLoginButtonsWrapper>{children}</_SocialLoginButtonsWrapper>
-    </_SocialLoginSection>
+      <StyledSocialLoginButtonsWrapper>
+        <Link to={PATH_GOOGLE}>
+          <Image src={googleImg} alt={'구글 소셜 로그인 이미지'} height={'100%'} width={'100%'} />
+        </Link>
+        <Link to={PATH_KAKAO}>
+          <Image src={kakaoImg} alt={'카카오 소셜 로그인 이미지'} height={'100%'} width={'100%'} />
+        </Link>
+      </StyledSocialLoginButtonsWrapper>
+    </StyledSocialLoginSection>
   );
 }
 
 export default SocialLogin;
 
-const _SocialLoginSection = styled.section`
+const StyledSocialLoginSection = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,7 +42,7 @@ const _SocialLoginSection = styled.section`
   }
 `;
 
-const _SocialLoginButtonsWrapper = styled.div`
+const StyledSocialLoginButtonsWrapper = styled.div`
   display: flex;
   gap: 1.6rem;
   height: 4.2rem;

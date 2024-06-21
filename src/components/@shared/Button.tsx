@@ -1,42 +1,50 @@
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-
-type ButtonStylesType = Record<string, Record<string, string>>;
-type ButtonType = 'medium' | 'large';
+type ButtonCategoryType = 'medium' | 'large';
 
 interface ButtonProps {
   children: ReactNode;
   width: string;
   height: string;
-  onClick: () => void;
-  type?: ButtonType;
+  onClick?: () => void;
+  disabled?: boolean;
+  $category?: ButtonCategoryType; // Styled-component 에서만 사용될 prop은 $를 붙여주지 않으면 콘솔창에 경고가 발생
+  type?: 'submit' | 'button' | 'reset';
 }
 
-const buttonStyles: ButtonStylesType = {
-  medium: {
-    borderRadius: '0.8rem',
-    color: 'var(--white)',
-    backgroundColor: 'var(--brand-blue)',
+const buttonStyles = {
+  medium: css`
+    border-radius: 0.8rem;
+    color: var(--white);
+    background-color: var(--brand-blue);
 
-    fontSize: '1.6rem',
-    fontWeight: '600',
-    lineHeight: '1.9rem',
-  },
-  large: {
-    borderRadius: '4rem',
-    color: 'var(--white)',
-    backgroundColor: 'var(--brand-blue)',
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.9rem;
+  `,
+  large: css`
+    border-radius: 4rem;
+    color: var(--white);
+    background-color: var(--brand-blue);
 
-    fontSize: '2rem',
-    fontWeight: '600',
-    lineHeight: '2.4rem',
-    textAlign: 'center',
-  },
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+    text-align: center;
+  `,
 };
 
-function Button({ children, type = 'medium', width, height, onClick }: ButtonProps) {
+function Button({
+  children,
+  $category = 'medium',
+  width,
+  height,
+  onClick,
+  type = 'button',
+  disabled = false,
+}: ButtonProps) {
   return (
-    <StyledButton styles={buttonStyles} type={type} width={width} height={height} onClick={onClick}>
+    <StyledButton type={type} $category={$category} width={width} height={height} onClick={onClick} disabled={disabled}>
       {children}
     </StyledButton>
   );
@@ -44,8 +52,12 @@ function Button({ children, type = 'medium', width, height, onClick }: ButtonPro
 
 export default Button;
 
-const StyledButton = styled.button<{ styles: ButtonStylesType; type: ButtonType; width: string; height: string }>`
-  ${({ styles, type }) => css(styles[type])};
+const StyledButton = styled.button<{
+  $category: ButtonCategoryType;
+  width: string;
+  height: string;
+}>`
+  ${({ $category }) => buttonStyles[$category]};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
 `;

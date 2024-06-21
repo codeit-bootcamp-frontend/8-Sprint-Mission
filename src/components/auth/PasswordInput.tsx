@@ -22,7 +22,7 @@ function PasswordInput({ id, name, value, onChange, autoComplete = 'on', placeho
   };
 
   return (
-    <_PasswordWrapper>
+    <StyledPasswordWrapper>
       <input
         id={id}
         type={isVisible ? 'text' : 'password'}
@@ -39,13 +39,13 @@ function PasswordInput({ id, name, value, onChange, autoComplete = 'on', placeho
           <Image src={eyeCloseImg} alt={'눈 가림 이미지'} height={'100%'} width={'100%'} />
         )}
       </i>
-    </_PasswordWrapper>
+    </StyledPasswordWrapper>
   );
 }
 
 export default PasswordInput;
 
-const _PasswordWrapper = styled.div`
+const StyledPasswordWrapper = styled.div`
   position: relative;
 
   & i {
