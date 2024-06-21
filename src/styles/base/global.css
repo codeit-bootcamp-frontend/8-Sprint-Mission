@@ -20,6 +20,7 @@
 
   /* arbitrarily named color value */
   --gray-00: #ffffff;
+  --header-underline-color: #dfdfdf;
   --simple-login-color: #e6f2ff;
   --main-background-color: #cfe5ff;
 }

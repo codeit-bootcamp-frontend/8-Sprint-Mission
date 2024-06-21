@@ -1,7 +1,6 @@
 .products-container {
-  width: 75rem;
-  height: 22.625em;
-  margin: 0 auto;
+  width: 1200px;
+  margin: 20px auto 40px;
   display: flex;
   flex-direction: column;
   gap: 40px;

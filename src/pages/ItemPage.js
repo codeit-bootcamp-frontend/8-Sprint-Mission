@@ -1,11 +1,10 @@
-import headerLogoUrl from "../assets/logo_with_typo.png";
-
 import "../styles/ItemPage.css";
 
 import { getProducts } from "../api/api.js";
 import { useState, useEffect } from "react";
 
 import ProductCard from "../components/ProductCard";
+import Header from "../components/Header.js";
 
 function ItemPage() {
   const [favoriteProducts, setFavoriteProducts] = useState([]);
@@ -49,14 +48,7 @@ function ItemPage() {
 
   return (
     <>
-      <header>
-        <div>
-          <img src={headerLogoUrl} alt="판다마켓 로고" />
-          <div>자유게시판</div>
-          <div>중고마켓</div>
-        </div>
-        <button>로그인</button>
-      </header>
+      <Header pageType="item" />
       <div className="products-container">
         <div className="favorite-container">
           <h2 className="product-cards-title">베스트 상품</h2>
