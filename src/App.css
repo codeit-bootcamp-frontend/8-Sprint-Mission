@@ -1,3 +1,8 @@
-.App {
-  text-align: center;
+.product-lists {
+  width: 1200px;
+  margin: 70px auto 0;
+}
+
+.all-product-list {
+  padding-top: 40px;
 }

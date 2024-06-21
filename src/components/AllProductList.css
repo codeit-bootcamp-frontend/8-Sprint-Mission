@@ -1,0 +1,56 @@
+.label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.label-title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 2%;
+  color: var(--gray800);
+}
+
+.search-input {
+  width: 325px;
+  height: 42px;
+  margin-right: 12px;
+  padding-left: 16px;
+  border: 0px;
+  border-radius: 12px;
+  background-color: var(--gray100);
+}
+.search-input::placeholder {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--gray400);
+}
+
+.product-add-button {
+  width: 133px;
+  height: 42px;
+  margin-right: 12px;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--blue);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.order-dropdown {
+  width: 130px;
+  height: 42px;
+  border: solid 1px var(--gray200);
+  border-radius: 12px;
+}
+
+.items {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+}

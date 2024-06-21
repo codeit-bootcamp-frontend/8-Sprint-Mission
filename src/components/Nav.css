@@ -41,12 +41,6 @@ nav {
   height: auto;
 }
 
-.menu-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: start;
-}
-
 .login-link {
   flex-grow: 0;
   flex-shrink: 0;
