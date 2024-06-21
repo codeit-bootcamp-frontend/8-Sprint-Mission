@@ -90,4 +90,10 @@
   .sales-product-list {
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   }
+
+  .sales-options-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 }
