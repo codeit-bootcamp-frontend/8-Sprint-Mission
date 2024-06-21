@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import BestProductCardList from "../../components/bestProductList/BestProductCardList";
+import BestProductCardList from "../../components/bestProducts/BestProductCardList";
 
 import Title from "../../core/titles/Title";
 import fetchProduct from "../../lib/api/product";
 
-import "./best-product-list.css";
+import "./best-products.css";
 
-const BestProductList = () => {
+const BestProducts = () => {
   const [bestProducts, setBestProducts] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -44,4 +44,4 @@ const BestProductList = () => {
   );
 };
 
-export default BestProductList;
+export default BestProducts;

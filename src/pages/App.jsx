@@ -1,11 +1,11 @@
-import BestProductList from "./bestProductList/BestProductList";
+import BestProducts from "./bestProducts/BestProducts";
 import Nav from "./nav/Nav";
 
 const App = () => {
   return (
     <div>
       <Nav />
-      <BestProductList />
+      <BestProducts />
     </div>
   );
 };
