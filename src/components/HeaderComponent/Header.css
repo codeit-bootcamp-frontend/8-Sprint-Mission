@@ -1,0 +1,43 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.5rem;
+  padding: 0 11rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dfdfdf;
+  position: sticky;
+  top: 0;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.3rem;
+  background-color: var(--brand-blue);
+  color: #ffffff;
+}
+.header-logo-link {
+  margin-right: 2rem;
+}
+.header-logo {
+  width: 8.5rem;
+}
+.header-link-box {
+  display: flex;
+  align-items: center;
+}
+.header-link-box ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3rem;
+  color: #4b5563;
+}
