@@ -7,6 +7,7 @@ import fetchProduct from "../../lib/api/product";
 import "./sales-products.css";
 import SearchInput from "../../core/search/SearchInput";
 import Dropdown from "../../core/dropdown/Dropdown";
+import BtnSmall from "../../core/buttons/BtnSmall";
 
 const PAGE_SIZE = 12;
 
@@ -54,6 +55,15 @@ const SalesProducts = () => {
     });
   };
 
+  const handleSearch = (e) => {
+    handleSalesProducts({
+      currnetPage: 1,
+      pageSize: PAGE_SIZE,
+      orderBy: order,
+      searchKeyword: e.target.value.replace(" ", ""),
+    });
+  };
+
   useEffect(() => {
     handleSalesProducts({
       currnetPage: 1,
@@ -67,12 +77,15 @@ const SalesProducts = () => {
     <section className="sales-product-container">
       <div className="sales-header-container">
         <Title>판매 중인 상품</Title>
-        <SearchInput />
-        <Dropdown
-          isLoading={isLoading}
-          order={order}
-          handleListClick={handleListClick}
-        />
+        <div className="sales-options-container">
+          <SearchInput handleSearch={handleSearch} />
+          <BtnSmall>상품 등록하기</BtnSmall>
+          <Dropdown
+            isLoading={isLoading}
+            order={order}
+            handleListClick={handleListClick}
+          />
+        </div>
       </div>
       {!errorMessage ? (
         <SalesProductCardList salesProducts={salesProducts} />
