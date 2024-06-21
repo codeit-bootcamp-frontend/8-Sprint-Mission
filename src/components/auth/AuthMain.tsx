@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import LoginForm from './login/LoginForm';
 import SocialLogin from './SocialLogin';
 import MemberCheck from './MemberCheck';
 import Image from 'components/@shared/Image';
@@ -7,12 +6,19 @@ import googleImg from 'assets/images/auth/social-login-google.png';
 import kakaoImg from 'assets/images/auth/social-login-kakao.png';
 import { Link } from 'react-router-dom';
 import { PATH_GOOGLE, PATH_KAKAO } from ' constants/paths';
-import { PATH_SIGNUP } from ' constants/paths';
+import { ReactNode } from 'react';
 
-function AuthMain() {
+interface AuthMainProps {
+  children: ReactNode;
+  memberCheckText: string;
+  linkTo: string;
+  linkText: string;
+}
+
+function AuthMain({ children, memberCheckText, linkTo, linkText }: AuthMainProps) {
   return (
     <_AuthMain>
-      <LoginForm />
+      {children}
 
       <SocialLogin>
         <Link to={PATH_GOOGLE}>
@@ -24,8 +30,8 @@ function AuthMain() {
       </SocialLogin>
 
       <MemberCheck>
-        <span>판다마켓이 처음이신가요?</span>
-        <Link to={PATH_SIGNUP}>회원가입</Link>
+        <span>{memberCheckText}</span>
+        <Link to={linkTo}>{linkText}</Link>
       </MemberCheck>
     </_AuthMain>
   );

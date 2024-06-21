@@ -23,7 +23,7 @@ function LoginForm() {
             autoComplete="off"
             placeholder="비밀번호를 입력해주세요"
           />
-          <i className="password-visibility-icon">
+          <i>
             <Image src={eyeOffImg} alt={'눈 가림 이미지'} height={'100%'} width={'100%'} />
           </i>
         </_PasswordWrapper>
@@ -47,7 +47,7 @@ const _AuthForm = styled.form`
 const _PasswordWrapper = styled.div`
   position: relative;
 
-  & .password-visibility-icon {
+  & i {
     position: absolute;
     right: 1.6rem;
     top: 0;
