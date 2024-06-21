@@ -6,10 +6,10 @@ type ButtonType = 'medium' | 'large';
 
 interface ButtonProps {
   children: ReactNode;
-  type?: ButtonType;
   width: string;
   height: string;
   onClick: () => void;
+  type?: ButtonType;
 }
 
 const buttonStyles: ButtonStylesType = {
