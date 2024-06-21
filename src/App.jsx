@@ -6,11 +6,13 @@ import Faq from './pages/faq/Faq';
 import Privacy from './pages/privacy/Privacy';
 import Items from './pages/items/Items';
 import AddItems from './pages/addItems/AddItems';
+import NavigationBar from './components/navigationBar/NavigationBar';
 import './styles/global.css';
 
 function App() {
   return (
     <BrowserRouter>
+      <NavigationBar />
       <Routes>
         <Route index element={<Home />} />
         {/* <Route path="/signin" element={<Signin />} />

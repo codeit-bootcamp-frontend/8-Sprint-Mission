@@ -11,14 +11,14 @@ import imgInstagramLogo from '../../assets/images/social/instagram-logo.svg';
 function Home() {
   return (
     <>
-      <header>
+      {/* <header>
         <a href="/">
           <img src={imgPandaMarketLogo} alt="판다마켓 홈" width="153" />
         </a>
         <a href="/signin" id="login-link-button" className="button">
           로그인
         </a>
-      </header>
+      </header> */}
       <main>
         <section id="hero" className="banner">
           <div className="wrapper">

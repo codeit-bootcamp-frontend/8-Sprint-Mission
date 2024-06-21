@@ -23,12 +23,12 @@
   background-image: url('../../assets/images/home/bottom-banner-image.png');
 }
 
-#login-link-button {
+/* #login-link-button {
   font-size: 16px;
   font-weight: 600;
   border-radius: 8px;
   padding: 14.5px 43px;
-}
+} */
 
 #features {
   padding-top: 51px;
