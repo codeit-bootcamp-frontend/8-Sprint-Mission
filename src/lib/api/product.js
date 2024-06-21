@@ -18,7 +18,7 @@ const fetchProduct = async ({
   if (!response.ok) {
     throw new Error("데이터를 로드하는데 실패하였습니다.");
   }
-  const body = response.json();
+  const body = await response.json();
   return body;
 };
 
