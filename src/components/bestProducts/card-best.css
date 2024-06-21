@@ -14,8 +14,9 @@
 
 .card-best-img {
   display: inline-block;
-  width: 300px;
-  height: 300px;
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
 }
 
 .card-description {

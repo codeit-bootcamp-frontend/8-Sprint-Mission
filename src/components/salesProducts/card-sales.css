@@ -3,6 +3,7 @@
   grid-template: repeat(2, 1fr) / repeat(5, 1fr);
   gap: 40px;
   overflow-x: scroll;
+  margin: 32px 0;
 }
 
 .sales-header-container {
@@ -14,12 +15,17 @@
 .sales-options-container {
   display: flex;
   align-items: center;
-  justify-content: end;
   gap: 12px;
 }
 
+.products-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .sales-product {
-  width: 282px;
+  width: 221px;
 }
 
 .card {
@@ -31,8 +37,9 @@
 
 .card-sales-img {
   display: inline-block;
-  width: 282px;
-  height: 282px;
+  width: 221px;
+  height: 221px;
+  border-radius: 16px;
 }
 
 .card-description {
@@ -67,4 +74,9 @@
   display: inline-block;
   width: 16px;
   height: 16px;
+}
+
+.pagination-container {
+  display: flex;
+  gap: 4px;
 }
