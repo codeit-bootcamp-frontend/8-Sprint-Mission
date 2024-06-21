@@ -1,7 +1,7 @@
 import Image from 'components/@shared/Image';
 import styled from 'styled-components';
 import eyeOffImg from 'assets/images/auth/visibility-off.png';
-import AuthInput from './AuthInput';
+import AuthInput from '../AuthInput';
 import Button from 'components/@shared/Button';
 import useNavigateTo from 'hooks/useNavigateTo';
 
