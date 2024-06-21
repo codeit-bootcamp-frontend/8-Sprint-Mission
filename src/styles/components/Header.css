@@ -1,5 +1,6 @@
+/*================header================*/
 header {
-  background-color: var(--gray--00);
+  background-color: var(--gray-00);
   display: flex;
   padding: 10px 200px;
   justify-content: space-between;
@@ -10,6 +11,7 @@ header {
   border-bottom: 1px solid var(--header-underline-color);
 }
 
+/*================header-left================*/
 .header-left-menu {
   display: flex;
   gap: 32px;
@@ -23,6 +25,7 @@ header {
   cursor: pointer;
 }
 
+/*================header-left-nav================*/
 .item-page-header-nav {
   display: flex;
   height: 70px;
@@ -37,8 +40,17 @@ header {
 .item-page-header-nav > div {
   width: 109px;
   padding-top: 24px;
+  cursor: pointer;
 }
 
 .item-page-header-nav > div.active {
   color: var(--brand-blue);
+}
+
+/*================button================*/
+.login-button {
+  border-radius: 8px;
+  font-size: 16px;
+  width: 128px;
+  height: 48px;
 }

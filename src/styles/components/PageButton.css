@@ -1,0 +1,22 @@
+.page-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--cool-gray-200);
+  border-radius: 999px;
+  color: var(--cool-gray-500);
+  background-color: var(--gray-00);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.page-arrow-img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 0 auto;
+}
+
+.page-button.active {
+  background-color: var(--brand-blue);
+  color: var(--gray-00);
+}

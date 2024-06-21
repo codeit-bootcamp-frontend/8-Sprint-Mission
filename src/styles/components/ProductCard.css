@@ -4,20 +4,19 @@
   gap: 16px;
 }
 
-.favorite-cards-container .product-img {
-  border-radius: 19px;
+.product-img {
   width: 100%;
   aspect-ratio: 1 / 1;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.favorite-cards-container .product-img {
+  border-radius: 19px;
+}
+
 .onsales-cards-container .product-img {
   border-radius: 16px;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .product-info {
