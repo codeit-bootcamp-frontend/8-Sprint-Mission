@@ -1,0 +1,5 @@
+header .nav {
+    display: flex;
+    padding: 0 2.5rem;
+    flex-grow: 1;
+}

@@ -1,0 +1,32 @@
+main .card.item-image {
+    max-width: 100%; 
+    border-radius: 16px;
+    margin-bottom: 0.75rem;
+}
+
+main .card {
+    width: 100%;
+    padding: 0.15rem 0;
+    letter-spacing: 0.04rem;
+}
+
+main .card.item-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray800);
+}
+
+main .card.item-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray800);
+}
+
+main .card.item-favorite {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gray600);
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}

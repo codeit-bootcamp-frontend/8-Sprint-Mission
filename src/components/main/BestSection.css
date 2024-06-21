@@ -1,0 +1,15 @@
+main .best-list {
+    display: flex;
+    gap: 1.5rem;
+}
+
+main .best-card {
+    width: 17.625rem;
+    height: 22.625rem;
+    display: flex;
+    flex-direction: column;
+}
+
+main .best-card .item-image {
+    height: 17.625rem;
+}
