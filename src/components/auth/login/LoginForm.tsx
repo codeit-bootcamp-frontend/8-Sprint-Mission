@@ -17,11 +17,12 @@ function LoginForm() {
     email: '',
     password: '',
   });
-  const { validMessages, validationResult } = useValidForm(form);
+  const { validMessages, validationResult, isFormValid, validateForm } = useValidForm(form);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
     setForm({ ...form, [name]: value });
+    validateForm();
   };
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
@@ -58,7 +59,7 @@ function LoginForm() {
         <StyledVaildResultText $isValid={validationResult.password}>{validMessages.password}</StyledVaildResultText>
       </StyledInputSection>
 
-      <Button type={'submit'} $category={'large'} height={'5.6rem'} width={'100%'}>
+      <Button disabled={isFormValid} type={'submit'} $category={'large'} height={'5.6rem'} width={'100%'}>
         로그인
       </Button>
     </StyledAuthForm>

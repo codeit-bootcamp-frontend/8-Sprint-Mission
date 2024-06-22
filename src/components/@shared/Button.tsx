@@ -43,7 +43,6 @@ function Button({
   type = 'button',
   disabled = false,
 }: ButtonProps) {
-  console.log('disabled');
   return (
     <StyledButton type={type} $category={$category} width={width} height={height} onClick={onClick} disabled={disabled}>
       {children}
@@ -57,8 +56,10 @@ const StyledButton = styled.button<{
   $category: ButtonCategoryType;
   width: string;
   height: string;
+  disabled: boolean;
 }>`
   ${({ $category }) => buttonStyles[$category]};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
+  background-color: ${({ disabled }) => disabled && '#9ca3af'};
 `;

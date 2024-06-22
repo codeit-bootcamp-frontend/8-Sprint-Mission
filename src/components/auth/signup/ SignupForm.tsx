@@ -2,7 +2,7 @@ import Button from 'components/@shared/Button';
 import PasswordInput from '../PasswordInput';
 import React, { useState } from 'react';
 import useNavigateTo from 'hooks/useNavigateTo';
-import useValidForm, { IValidForm } from 'hooks/useValidForm';
+import useValidForm, { IAuthForm } from 'hooks/useValidForm';
 import {
   StyledAuthForm,
   StyledAuthLabel,
@@ -12,17 +12,18 @@ import {
 
 function SignupForm() {
   const { navigateTo } = useNavigateTo();
-  const [form, setForm] = useState<IValidForm>({
+  const [form, setForm] = useState<IAuthForm>({
     email: '',
     nickname: '',
     password: '',
     verifyPassword: '',
   });
-  const { validMessages, validationResult } = useValidForm(form);
+  const { validMessages, validationResult, isFormValid, validateForm } = useValidForm(form);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
     setForm({ ...form, [name]: value });
+    validateForm();
   };
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
@@ -54,7 +55,7 @@ function SignupForm() {
           name="nickname"
           value={form.nickname}
           onChange={handleInputChange}
-          placeholder="이메일을 입력해주세요"
+          placeholder="닉네임을 입력해주세요"
         />
         <StyledVaildResultText $isValid={validationResult.nickname}>{validMessages.nickname}</StyledVaildResultText>
       </StyledInputSection>
@@ -73,10 +74,10 @@ function SignupForm() {
       </StyledInputSection>
 
       <StyledInputSection $isValid={validationResult.verifyPassword}>
-        <StyledAuthLabel htmlFor={'verify-password'}>비밀번호 확인</StyledAuthLabel>
+        <StyledAuthLabel htmlFor={'verifyPassword'}>비밀번호 확인</StyledAuthLabel>
         <PasswordInput
-          id="verify-password"
-          name="password"
+          id="verifyPassword"
+          name="verifyPassword"
           value={form.verifyPassword}
           onChange={handleInputChange}
           autoComplete="off"
@@ -87,7 +88,7 @@ function SignupForm() {
         </StyledVaildResultText>
       </StyledInputSection>
 
-      <Button $category={'large'} height={'5.6rem'} width={'100%'}>
+      <Button disabled={isFormValid} $category={'large'} height={'5.6rem'} width={'100%'}>
         회원가입
       </Button>
     </StyledAuthForm>
