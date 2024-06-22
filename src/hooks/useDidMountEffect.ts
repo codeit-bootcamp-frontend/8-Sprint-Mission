@@ -8,8 +8,6 @@ import { useEffect, useRef } from 'react';
 const useDidMountEffect = (callback: () => void, dependencyArr: unknown[]) => {
   const didMount = useRef(false);
 
-  console.log('didMount:', didMount);
-
   useEffect(() => {
     if (didMount.current) callback();
     else didMount.current = true;

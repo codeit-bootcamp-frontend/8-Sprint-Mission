@@ -40,6 +40,16 @@ export const StyledInputSection = styled.section<{ $isValid: validType | undefin
             : '1px solid var(--error-red)'};
     }
   }
+
+  & small {
+    display: ${({ $isValid }) => ($isValid === 'unvalid' ? 'block' : 'none')};
+    color: var(--error-red);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.79rem;
+    padding-left: 1.6rem;
+    padding-top: 0.8rem;
+  }
 `;
 
 export const StyledAuthLabel = styled.label`
@@ -48,14 +58,4 @@ export const StyledAuthLabel = styled.label`
   font-weight: 700;
   line-height: 2.148rem;
   margin-bottom: 1.6rem;
-`;
-
-export const StyledVaildResultText = styled.small<{ $isValid: validType | undefined }>`
-  display: ${({ $isValid }) => ($isValid === 'unvalid' ? 'block' : 'none')};
-  color: var(--error-red);
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.79rem;
-  padding-left: 1.6rem;
-  padding-top: 0.8rem;
 `;

@@ -17,7 +17,6 @@ function PasswordInput({ id, name, value, onChange, autoComplete = 'on', placeho
   const [isVisible, setIsVisible] = useState(false);
 
   const handleEyeClick = () => {
-    console.log(isVisible);
     setIsVisible(prevState => !prevState);
   };
 

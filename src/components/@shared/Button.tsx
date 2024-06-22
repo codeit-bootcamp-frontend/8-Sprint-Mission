@@ -34,15 +34,7 @@ const buttonStyles = {
   `,
 };
 
-function Button({
-  children,
-  $category = 'medium',
-  width,
-  height,
-  onClick,
-  type = 'button',
-  disabled = false,
-}: ButtonProps) {
+function Button({ children, $category = 'medium', width, height, onClick, type, disabled = false }: ButtonProps) {
   return (
     <StyledButton type={type} $category={$category} width={width} height={height} onClick={onClick} disabled={disabled}>
       {children}
@@ -62,4 +54,5 @@ const StyledButton = styled.button<{
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   background-color: ${({ disabled }) => disabled && '#9ca3af'};
+  cursor: ${({ disabled }) => disabled && 'not-allowed'};
 `;

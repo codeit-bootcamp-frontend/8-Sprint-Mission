@@ -55,8 +55,6 @@ const useValidForm = (
     }
   };
 
-  console.log(validationResult);
-
   useDidMountEffect(() => {
     const regex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
     if (form.email === '') {
@@ -92,7 +90,7 @@ const useValidForm = (
     } else {
       setValidationResult(prevState => ({ ...prevState, password: 'valid' }));
     }
-
+    validateForm();
     // 로그인 페이지에서는 verifyPassword input이 없기 때문
     if (!Object.keys(form).includes('verifyPassword')) return;
 
