@@ -3,13 +3,20 @@ import useNavigateTo from 'hooks/useNavigateTo';
 import styled from 'styled-components';
 import Button from './Button';
 import { PATH_HOME, PATH_LOGIN } from ' constants/paths';
+import Image from './Image';
 
 function Header() {
   const { navigateTo } = useNavigateTo();
 
   return (
     <StyledHeader>
-      <img src={logoImg} alt={'앱 로고와 이름 이미지'} onClick={() => navigateTo(PATH_HOME)} />
+      <Image
+        src={logoImg}
+        alt={'앱 로고와 이름 이미지'}
+        height={'5.1rem'}
+        width={'15.3rem'}
+        onClick={() => navigateTo(PATH_HOME)}
+      />
       <Button width={'12.8rem'} height={'4.8rem'} onClick={() => navigateTo(PATH_LOGIN)}>
         로그인
       </Button>
@@ -35,12 +42,8 @@ const StyledHeader = styled.header`
 
   background-color: var(--white);
 
-  & img {
-    width: 15.3rem;
-    height: 5.1rem;
-    &:hover {
-      cursor: pointer;
-    }
+  & img:hover {
+    cursor: pointer;
   }
 
   @media all and (min-width: 768px) and (max-width: 1199px) {
