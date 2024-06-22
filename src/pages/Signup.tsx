@@ -1,9 +1,9 @@
 import { PATH_LOGIN } from ' constants/paths';
 import SignupForm from 'components/auth/signup/ SignupForm';
-import { StyledAuthContainer, StyledAuthMain } from './Login';
 import AuthLogo from 'components/auth/AuthLogo';
 import SocialLogin from 'components/auth/SocialLogin';
 import MemberCheck from 'components/auth/MemberCheck';
+import { StyledAuthContainer, StyledAuthMain } from 'styles/@shared/auth/containerStyles';
 
 function Signup() {
   return (

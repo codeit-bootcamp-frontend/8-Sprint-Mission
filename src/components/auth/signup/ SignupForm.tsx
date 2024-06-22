@@ -2,8 +2,13 @@ import Button from 'components/@shared/Button';
 import PasswordInput from '../PasswordInput';
 import React, { useState } from 'react';
 import useNavigateTo from 'hooks/useNavigateTo';
-import { StyledAuthForm, StyledAuthLabel, StyledInputSection, StyledVaildResultText } from '../login/LoginForm';
 import useValidForm, { IValidForm } from 'hooks/useValidForm';
+import {
+  StyledAuthForm,
+  StyledAuthLabel,
+  StyledInputSection,
+  StyledVaildResultText,
+} from 'styles/@shared/auth/formStyles';
 
 function SignupForm() {
   const { navigateTo } = useNavigateTo();
