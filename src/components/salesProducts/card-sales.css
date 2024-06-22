@@ -1,10 +1,12 @@
 .sales-product-list {
-  width: 100%;
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(5, 1fr);
-  gap: 40px;
+  justify-items: center;
+  align-content: center;
+  gap: 20px;
   overflow-x: scroll;
-  margin: 32px 0;
+  margin: 32px auto;
+  max-width: 1200px;
 }
 
 .sales-header-container {
@@ -83,12 +85,14 @@
 
 @media (768px <= width < 1200px) {
   .sales-product-list {
+    width: 100%;
     grid-template: repeat(2, 1fr) / repeat(3, 1fr);
   }
 }
 
 @media (375px <= width < 768px) {
   .sales-product-list {
+    width: 100%;
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   }
 }

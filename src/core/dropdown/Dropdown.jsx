@@ -29,10 +29,10 @@ const Dropdown = ({ isLoading, order, handleListClick }) => {
         {size ? (
           <img src={DropdownIcon} alt="드랍다운 아이콘" />
         ) : (
-          <div>
+          <>
             <span>{order === "recent" ? "최신순" : "좋아요순"}</span>
             <img src={ArrowDown} alt="드랍다운 아이콘" />
-          </div>
+          </>
         )}
       </button>
       {isDrop && (
