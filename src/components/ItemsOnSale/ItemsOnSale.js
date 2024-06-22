@@ -19,7 +19,7 @@ function BestItems({ item }) {
   );
 }
 
-function ItemsOnSale({ items }) {
+function ItemsOnSale({ items, orderBy, handleOrderChange }) {
   // 반응형에 따라 몇 개의 데이터를 표시할 건지 후에 수정해야 함.
   const cutItems = [...items.list].slice(0, 10);
   return (
@@ -40,7 +40,11 @@ function ItemsOnSale({ items }) {
           <a className="add-item-btn" href="additem">
             상품 등록하기
           </a>
-          <DropDown className="drop-down-btn" />
+          <DropDown
+            className="drop-down-btn"
+            orderBy={orderBy}
+            handleOrderChange={handleOrderChange}
+          />
         </div>
       </div>
       <ul className="sale-item-container">

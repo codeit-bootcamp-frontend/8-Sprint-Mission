@@ -164,7 +164,6 @@
   }
   .mini-nav-bar-tools {
     display: flex;
-    flex-wrap: wrap;
     position: relative;
   }
   .search-box {
