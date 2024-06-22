@@ -7,6 +7,12 @@ export const StyledAuthContainer = styled.div`
 
   width: 64rem;
   margin: 6rem auto 0;
+
+  @media all and (max-width: 767px) {
+    box-sizing: content-box;
+    padding: 0 16px;
+    max-width: 400px;
+  }
 `;
 
 export const StyledAuthMain = styled.main`
