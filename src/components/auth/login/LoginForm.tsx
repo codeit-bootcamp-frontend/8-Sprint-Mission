@@ -12,7 +12,12 @@ function LoginForm() {
     email: '',
     password: '',
   });
-  const { isValid, validText } = useValidForm(form);
+  const { validMessages, validationResult } = useValidForm(form);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = event.target;
+    setForm({ ...form, [name]: value });
+  };
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,30 +27,30 @@ function LoginForm() {
 
   return (
     <StyledAuthForm autoComplete="on" method="post" onSubmit={handleSubmitClick}>
-      <StyledInputSection $isValid={isValid.email}>
+      <StyledInputSection $isValid={validationResult.email}>
         <StyledAuthLabel htmlFor={'email'}>이메일</StyledAuthLabel>
         <input
           id="email"
           type="email"
           name="email"
           value={form.email}
-          onChange={e => setForm({ ...form, email: e.target.value })}
+          onChange={handleInputChange}
           placeholder="이메일을 입력해주세요"
         />
-        <StyledVaildResultText $isValid={isValid.email}>{validText.email}</StyledVaildResultText>
+        <StyledVaildResultText $isValid={validationResult.email}>{validMessages.email}</StyledVaildResultText>
       </StyledInputSection>
 
-      <StyledInputSection $isValid={isValid.password}>
+      <StyledInputSection $isValid={validationResult.password}>
         <StyledAuthLabel htmlFor={'password'}>비밀번호</StyledAuthLabel>
         <PasswordInput
           id="password"
           name="password"
           value={form.password}
-          onChange={e => setForm({ ...form, password: e.target.value })}
+          onChange={handleInputChange}
           autoComplete="off"
           placeholder="비밀번호를 입력해주세요"
         />
-        <StyledVaildResultText $isValid={isValid.password}>{validText.password}</StyledVaildResultText>
+        <StyledVaildResultText $isValid={validationResult.password}>{validMessages.password}</StyledVaildResultText>
       </StyledInputSection>
 
       <Button type={'submit'} $category={'large'} height={'5.6rem'} width={'100%'}>

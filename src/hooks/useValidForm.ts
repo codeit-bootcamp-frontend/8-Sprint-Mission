@@ -1,29 +1,36 @@
 import { useEffect, useState } from 'react';
 
 export type validType = 'default' | 'valid' | 'unvalid';
-
-interface IValidForm {
+export interface IValidForm {
   email: string;
   password: string;
   nickname?: string;
   verifyPassword?: string;
 }
 
-interface IIsValid {
+// 서로 목적이 다른 타입이지만 내용이 같기 때문에 아래와 같이 처리
+type IValidMessages = IValidForm;
+
+export interface IValidationResult {
   email: validType;
   password: validType;
   nickname?: validType;
   verifyPassword?: validType;
 }
 
-const useValidForm = (form: IValidForm): { validText: IValidForm; isValid: IIsValid } => {
-  const [validText, setValidText] = useState<IValidForm>({
+const useValidForm = (
+  form: IValidForm,
+): {
+  validMessages: IValidMessages;
+  validationResult: IValidationResult;
+} => {
+  const [validMessages, setValidMessages] = useState<IValidMessages>({
     email: '',
     nickname: '',
     password: '',
     verifyPassword: '',
   });
-  const [isValid, setIsValid] = useState<IIsValid>({
+  const [validationResult, setValidationResult] = useState<IValidationResult>({
     email: 'default',
     nickname: 'default',
     password: 'default',
@@ -33,47 +40,47 @@ const useValidForm = (form: IValidForm): { validText: IValidForm; isValid: IIsVa
   useEffect(() => {
     const regex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
     if (form.email === '') {
-      setValidText({ ...validText, email: '이메일을 입력해주세요' });
-      setIsValid({ ...isValid, email: 'unvalid' });
+      setValidMessages({ ...validMessages, email: '이메일을 입력해주세요' });
+      setValidationResult({ ...validationResult, email: 'unvalid' });
     } else if (!regex.test(form.email)) {
-      setValidText({ ...validText, email: '잘못된 이메일 형식입니다' });
-      setIsValid({ ...isValid, email: 'unvalid' });
+      setValidMessages({ ...validMessages, email: '잘못된 이메일 형식입니다' });
+      setValidationResult({ ...validationResult, email: 'unvalid' });
     } else {
-      setIsValid({ ...isValid, email: 'valid' });
+      setValidationResult({ ...validationResult, email: 'valid' });
     }
   }, [form.email]);
 
   useEffect(() => {
     if (form.password === '') {
-      setValidText({ ...validText, password: '비밀번호를 입력해주세요' });
-      setIsValid({ ...isValid, password: 'unvalid' });
+      setValidMessages({ ...validMessages, password: '비밀번호를 입력해주세요' });
+      setValidationResult({ ...validationResult, password: 'unvalid' });
     } else if (form.password.length < 8) {
-      setValidText({ ...validText, password: '비밀번호를 8자 이상 입력해주세요' });
-      setIsValid({ ...isValid, password: 'unvalid' });
+      setValidMessages({ ...validMessages, password: '비밀번호를 8자 이상 입력해주세요' });
+      setValidationResult({ ...validationResult, password: 'unvalid' });
     } else {
-      setIsValid({ ...isValid, password: 'valid' });
+      setValidationResult({ ...validationResult, password: 'valid' });
     }
   }, [form.password]);
 
   useEffect(() => {
     if (form.nickname === '') {
-      setValidText({ ...validText, nickname: '닉네임을 입력해주세요' });
-      setIsValid({ ...isValid, nickname: 'unvalid' });
+      setValidMessages({ ...validMessages, nickname: '닉네임을 입력해주세요' });
+      setValidationResult({ ...validationResult, nickname: 'unvalid' });
     } else {
-      setIsValid({ ...isValid, nickname: 'valid' });
+      setValidationResult({ ...validationResult, nickname: 'valid' });
     }
   }, [form.nickname]);
 
   useEffect(() => {
     if (form.password !== form.verifyPassword) {
-      setValidText({ ...validText, verifyPassword: '비밀번호가 일치하지 않습니다' });
-      setIsValid({ ...isValid, verifyPassword: 'unvalid' });
+      setValidMessages({ ...validMessages, verifyPassword: '비밀번호가 일치하지 않습니다' });
+      setValidationResult({ ...validationResult, verifyPassword: 'unvalid' });
     } else {
-      setIsValid({ ...isValid, verifyPassword: 'valid' });
+      setValidationResult({ ...validationResult, verifyPassword: 'valid' });
     }
   }, [form.verifyPassword]);
 
-  return { validText, isValid };
+  return { validMessages, validationResult };
 };
 
 export default useValidForm;

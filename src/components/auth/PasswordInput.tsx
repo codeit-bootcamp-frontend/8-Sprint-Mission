@@ -7,7 +7,7 @@ import styled from 'styled-components';
 interface PasswordInputProps {
   id: string;
   name: string;
-  value: string;
+  value: string | undefined;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   autoComplete?: 'on' | 'off';
   placeholder?: string;
