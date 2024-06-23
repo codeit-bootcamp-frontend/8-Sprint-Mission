@@ -1,0 +1,83 @@
+@import "/src/assets/css/variables";
+@import "/src/assets/css/styles";
+
+.section {
+  width: 100%;
+  height: 100%;
+  padding-top: 35px;
+}
+
+.list {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.item {
+  display: grid;
+  grid-template-rows: min-content min-content;
+  justify-content: center;
+  row-gap: 20px;
+}
+
+.img {
+  width: 344px;
+  height: 260px;
+}
+
+.title {
+  @include text-style($fs-400, $fw-700, $clr-primary);
+}
+
+.description {
+  @include text-style($fs-700, $fw-700, $clr-black);
+}
+
+.instructions {
+  @include text-style($fs-400, $fw-500, $clr-black);
+  margin-bottom: 64px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .img {
+    width: 696px;
+    height: 525.55px;
+  }
+
+  .rtl {
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .item {
+    all: unset;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    justify-content: center;
+    column-gap: 64px;
+    margin-top: 136px;
+    margin-bottom: 136px;
+  }
+
+  .item:nth-of-type(2) {
+    direction: rtl;
+  }
+
+  .item > :nth-child(1) {
+    justify-self: flex-end;
+  }
+
+  .item > :nth-child(2) {
+    align-self: center;
+  }
+
+  .img {
+    width: 588px;
+    height: 444px;
+  }
+}

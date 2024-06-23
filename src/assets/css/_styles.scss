@@ -1,0 +1,13 @@
+@import "./variables";
+
+@mixin wrap-style($width, $padding) {
+  width: min($width + 2rem - ($padding * 2), 100%);
+  height: 100%;
+  margin-inline: auto;
+}
+
+@mixin text-style($fontSize, $fontWeight, $color) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  color: $color;
+}
