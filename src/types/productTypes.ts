@@ -11,6 +11,6 @@ export interface IProduct {
 }
 
 export interface IProductResponse {
-  totalCount: number | null;
+  totalCount: number;
   list: IProduct[];
 }

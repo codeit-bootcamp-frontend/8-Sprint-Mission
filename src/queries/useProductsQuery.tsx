@@ -10,16 +10,18 @@ const fetcher = async (page: string, order: string, size: string, keyword: strin
     );
 
     const { list, totalCount } = data;
+
     return { list, totalCount };
   } catch (error) {
     console.log(error);
-    return { list: [], totalCount: null };
+    return { list: [], totalCount: 0 };
   }
 };
 
+//TODO: size 상수화
 const useProductsQuery = ({ page = '1', order = 'recent', size = '10', keyword = '' }) => {
   return useSuspenseQuery({
-    queryKey: [PRODUCTS_QUERY_KEY, order],
+    queryKey: [PRODUCTS_QUERY_KEY, order, page, keyword],
     queryFn: () => fetcher(page, order, size, keyword),
   });
 };
