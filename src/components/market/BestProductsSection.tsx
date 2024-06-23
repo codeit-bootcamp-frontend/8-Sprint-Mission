@@ -4,12 +4,12 @@ import { StyledProductCategoryText } from 'styles/market/textStyle';
 
 function BsetProductsSection() {
   return (
-    <div>
+    <section>
       <StyledProductCategoryText>베스트 상품</StyledProductCategoryText>
       <Suspense fallback={<div>Loding...</div>}>
         <BestProductList />
       </Suspense>
-    </div>
+    </section>
   );
 }
 

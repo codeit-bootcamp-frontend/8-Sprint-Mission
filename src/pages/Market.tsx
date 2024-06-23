@@ -17,8 +17,12 @@ function Market() {
 export default Market;
 
 const MarketContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
   width: 120rem;
   height: 100%;
   margin: 0 auto;
-  padding-top: var(--header-heigt);
+  padding-top: calc(var(--header-heigt) + 2.4rem);
 `;

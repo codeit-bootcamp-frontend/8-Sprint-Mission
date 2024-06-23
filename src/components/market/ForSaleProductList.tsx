@@ -22,11 +22,11 @@ const StyledForSaleProductsSection = styled.section`
   display: grid;
   grid-template-columns: repeat(5, auto);
   justify-items: flex-end;
-  gap: 2.4rem;
+  column-gap: 2.4rem;
+  row-gap: 4rem;
 
-  // 너비는 grid-template-columns이 자동으로 맞춰주지만,
-  // 이미지 높이는 베스트 상품 목록과 판매중인 상품 목록이 서로 다르기 때문.
   & .product-image-wrapper {
     height: 22.1rem;
+    width: 22.1rem;
   }
 `;

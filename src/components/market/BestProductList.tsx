@@ -27,5 +27,6 @@ const StyledBestProductsSection = styled.section`
   // 이미지 높이는 베스트 상품 목록과 판매중인 상품 목록이 서로 다르기 때문.
   & .product-image-wrapper {
     height: 28.2rem;
+    width: 28.2rem;
   }
 `;

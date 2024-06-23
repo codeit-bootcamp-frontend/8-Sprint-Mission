@@ -38,6 +38,7 @@ const StyledProductInfoWrapper = styled.div`
 
   gap: 0.6rem;
   margin-top: 1.6rem;
+  text-align: left;
 
   & h4 {
     font-size: 1.4rem;
@@ -52,6 +53,7 @@ const StyledProductInfoWrapper = styled.div`
   & small {
     display: flex;
     align-items: center;
+    gap: 0.4rem;
 
     font-size: 1.2rem;
     font-weight: 500;
