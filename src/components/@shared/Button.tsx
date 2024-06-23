@@ -54,5 +54,4 @@ const StyledButton = styled.button<{
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   background-color: ${({ disabled }) => disabled && '#9ca3af'};
-  cursor: ${({ disabled }) => disabled && 'not-allowed'};
 `;
