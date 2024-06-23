@@ -1,8 +1,6 @@
 import Header from 'components/@shared/Header';
-import BestProductList from 'components/market/BestProductList';
-
-import { Suspense } from 'react';
-
+import BsetProductsSection from 'components/market/BestProductsSection';
+import ForSaleProductsSection from 'components/market/ForSaleProductSection';
 import styled from 'styled-components';
 
 function Market() {
@@ -10,16 +8,8 @@ function Market() {
     <div>
       <Header />
       <MarketContainer>
-        <div>
-          베스트 상품
-          <Suspense fallback={<div>Loding...</div>}>
-            <BestProductList />
-          </Suspense>
-        </div>
-        <div>
-          판매 중인 상품
-          <Suspense fallback={<div>Loding...</div>}></Suspense>
-        </div>
+        <BsetProductsSection />
+        <ForSaleProductsSection />
       </MarketContainer>
     </div>
   );

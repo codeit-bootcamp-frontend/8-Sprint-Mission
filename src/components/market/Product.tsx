@@ -10,10 +10,12 @@ function Product({
   favoriteCount,
 }: Pick<IProduct, 'name' | 'price' | 'images' | 'favoriteCount'>) {
   return (
-    <StyledProductArticle>
-      {images.map(image => (
-        <Image key={image} src={image} alt={'상품 이미지'} height={'28.2rem'} width={'28.2rem'} radius={'1.6rem'} />
-      ))}
+    <article>
+      <div className={'product-image-wrapper'}>
+        {images.map(image => (
+          <Image key={image} src={image} alt={'상품 이미지'} height={'100%'} width={'100%'} radius={'1.6rem'} />
+        ))}
+      </div>
       <StyledProductInfoWrapper>
         <h4>{name}</h4>
         <h5>{price}원</h5>
@@ -24,16 +26,12 @@ function Product({
           {favoriteCount}
         </small>
       </StyledProductInfoWrapper>
-    </StyledProductArticle>
+    </article>
   );
 }
 
 export default Product;
 
-const StyledProductArticle = styled.article`
-  height: 36.2rem;
-  width: 28.2rem;
-`;
 const StyledProductInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;

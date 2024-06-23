@@ -29,4 +29,5 @@ const StyledImage = styled.img<{ width: string; height: string; radius?: string 
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   border-radius: ${({ radius }) => radius || ''};
+  object-fit: cover;
 `;
