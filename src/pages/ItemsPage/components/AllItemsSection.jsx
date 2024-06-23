@@ -4,7 +4,8 @@
  * @todo 검색 콤포넌트 UI 구현
  */
 
-import React, { useState, useEffect, Link } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ItemCard from "./ItemCard";
 import { getProducts as getAllItems } from "../../../js/itemApi";
 
