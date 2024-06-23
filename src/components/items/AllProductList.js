@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./AllProductList.css";
 import ProductListItem from "./ProductListItem";
 
@@ -7,6 +6,7 @@ function AllProductList({ products }) {
   // const sortedProducts = products.sort((a, b) => b[order] - a[order]);
   // const handleNewestClick = () => setOrder("createdAt");
   // const handleLikeClick = () => setOrder("rating");
+  const showedProducts = products.slice(0, 10);
 
   return (
     <div className="all-product-list">
@@ -35,10 +35,13 @@ function AllProductList({ products }) {
 
       <ul className="products">
         {/* products -> sortedProducts로 바꾸기 */}
-        {products.map((product) => {
+        {showedProducts.map((showedProduct) => {
           return (
-            <li key={product.id}>
-              <ProductListItem item={product} />
+            <li key={showedProduct.id}>
+              <ProductListItem
+                item={showedProduct}
+                className="all-product-list-item"
+              />
             </li>
           );
         })}

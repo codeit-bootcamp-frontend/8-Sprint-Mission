@@ -19,7 +19,7 @@ function Main() {
   return (
     <>
       <div className="product-lists">
-        {/* <BestProductList products={products} /> */}
+        <BestProductList className="best-product-list" products={products} />
         <AllProductList className="all-product-list" products={products} />
       </div>
     </>
