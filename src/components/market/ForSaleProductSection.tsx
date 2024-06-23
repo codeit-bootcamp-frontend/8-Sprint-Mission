@@ -6,8 +6,11 @@ import Button from 'components/@shared/Button';
 import searchIcon from 'assets/images/market/search-icon.png';
 import dropDownIcon from 'assets/images/market/order-dropdown.png';
 import Image from 'components/@shared/Image';
+import useNavigateTo from 'hooks/useNavigateTo';
+import { PATH_ADD_ITEM } from ' constants/paths/paths';
 
 function ForSaleProductsSection() {
+  const { navigateTo } = useNavigateTo();
   const [searchValue, setSearchValue] = useState('');
   const [orderBy, setOrderBy] = useState('recent');
   const [isOpenDropdown, setIsOpenDropDown] = useState(false);
@@ -42,7 +45,7 @@ function ForSaleProductsSection() {
             <input name={'search'} placeholder={'검색할 상품을 입력해주세요'} />
           </StyledSearchInputForm>
 
-          <Button height={'4.2rem'} width={'13.3rem'}>
+          <Button height={'4.2rem'} width={'13.3rem'} onClick={() => navigateTo(PATH_ADD_ITEM)}>
             상품 등록하기
           </Button>
 
