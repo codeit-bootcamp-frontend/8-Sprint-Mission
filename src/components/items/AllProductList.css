@@ -47,7 +47,7 @@
   border-radius: 12px;
 }
 
-.items {
+.products {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(5, 1fr);

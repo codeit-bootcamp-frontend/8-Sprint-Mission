@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./AllProductList.css";
 import ProductListItem from "./ProductListItem";
 
-function AllProductList({ items }) {
+function AllProductList({ products }) {
   // const [order, setOrder] = useState("createdAt");
-  // const sortedItems = items.sort((a, b) => b[order] - a[order]);
+  // const sortedProducts = products.sort((a, b) => b[order] - a[order]);
   // const handleNewestClick = () => setOrder("createdAt");
   // const handleLikeClick = () => setOrder("rating");
 
@@ -18,7 +18,12 @@ function AllProductList({ items }) {
             type="text"
             placeholder="검색할 상품을 입력해주세요"
           ></input>
-          <button className="product-add-button">상품 등록하기</button>
+          <button
+            className="product-add-button"
+            onClick="location.href='/additem'"
+          >
+            상품 등록하기
+          </button>
           <select className="order-dropdown" name="order" id="order">
             <option value="createAt" selected>
               최신순
@@ -27,12 +32,13 @@ function AllProductList({ items }) {
           </select>
         </div>
       </div>
-      <ul className="items">
-        {/* items -> sortedItems로 바꾸기 */}
-        {items.map((item) => {
+
+      <ul className="products">
+        {/* products -> sortedProducts로 바꾸기 */}
+        {products.map((product) => {
           return (
-            <li key={items.id}>
-              <ProductListItem item={item} />
+            <li key={product.id}>
+              <ProductListItem item={product} />
             </li>
           );
         })}

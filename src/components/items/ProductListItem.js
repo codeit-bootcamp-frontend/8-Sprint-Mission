@@ -1,5 +1,5 @@
 import "./ProductListItem.css";
-import likeIcon from "../assets/images/ic_heart_empty.png";
+import likeIcon from "../../assets/images/ic_heart_empty.png";
 
 function ProductListItem({ item }) {
   const { title, price, image, favoriteCount } = item;

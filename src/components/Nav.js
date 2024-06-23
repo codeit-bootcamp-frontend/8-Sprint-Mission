@@ -3,7 +3,7 @@ import Menu from "./Menu";
 import logoIcon from "../assets/images/Img_logo_icon.png";
 import logoText from "../assets/images/Img_logo_text.png";
 
-function Nav() {
+function Nav({ currentMenu, handleMenuClick }) {
   return (
     <nav>
       <div className="logo-Menu-wrapper">
@@ -19,9 +19,21 @@ function Nav() {
             alt="판다마켓 로고 중 텍스트"
           />
         </a>
-        <Menu className="forum" name="자유게시판" href="#" />
-        <Menu className="used-market" name="중고마켓" href="/items" />
+
+        <Menu
+          href="#"
+          className={`forum ${currentMenu === "#" ? "active" : ""}`}
+          name="자유게시판"
+          onClick={handleMenuClick("#")}
+        />
+        <Menu
+          href="/items"
+          className={`used-market ${currentMenu === "/items" ? "active" : ""}`}
+          name="중고마켓"
+          onClick={handleMenuClick("/items")}
+        />
       </div>
+
       <a className="login-link" href="/login">
         로그인
       </a>
