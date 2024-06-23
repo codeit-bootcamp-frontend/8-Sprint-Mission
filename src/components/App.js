@@ -9,16 +9,16 @@ import { getProducts } from '../api';
 
 function App() {
 
-  const [order, setOrder] = useState('favoriteCount');
+  const [order, setOrder] = useState('recent');
   const [items, setItems] = useState([]);
 
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
 
-  const BestItems = items.sort((a, b) => b['favoriteCount'] - a['favoriteCount']);
+  const BestItems = items.sort((a, b) => b['favorite'] - a['favorite']);
 
-  const handleFavorite = () => setOrder('favoriteCount');
+  const handleFavorite = () => setOrder('favorite');
 
-  const handleBestClick = () => setOrder('createAt');
+  const handleRecent = () => setOrder('recent');
 
 
 
@@ -31,6 +31,8 @@ function App() {
   useEffect(() => {
     handleLoad(order);
   }, [order])
+
+
   return (
 
     <div>
@@ -46,8 +48,8 @@ function App() {
             <Button>상품 등록하기</Button>
 
             <select>
-              <option value="Recent">최신순</option>
-              <option value="favorite">좋아요순</option>
+              <option onClick={handleRecent} value="Recent">최신순</option>
+              <option onClick={handleFavorite} value="favorite">좋아요순</option>
             </select>
           </div>
         </div>

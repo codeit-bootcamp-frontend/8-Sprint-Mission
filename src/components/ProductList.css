@@ -22,3 +22,12 @@
   margin: 5px 0;
   padding: 0;
 }
+
+@media (max-width: 744px) {
+  .ProductList {
+    width: 696px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
