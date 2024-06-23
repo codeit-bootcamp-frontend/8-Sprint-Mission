@@ -4,12 +4,17 @@ import useProductsQuery from 'queries/useProductsQuery';
 import { useState } from 'react';
 import Pagination from 'components/@shared/Pagination';
 
+interface ForSaleProductListProps {
+  order: string;
+  keyword: string;
+}
+
 export const PAGE_SIZE = '10'; // 한 페이지당 보여줄 상품 수
 
-function ForSaleProductList() {
+function ForSaleProductList({ order, keyword }: ForSaleProductListProps) {
   const [currentPageCount, setCurrentPageCount] = useState('1'); // 현재 페이지 번호
-  const { data } = useProductsQuery({ size: PAGE_SIZE, page: currentPageCount });
-  const { list: productList = [], totalCount = 0 } = data || {}; // 상품 목록과 총 상품 수
+  const { data } = useProductsQuery({ size: PAGE_SIZE, page: currentPageCount, order, keyword });
+  const { list: productList, totalCount } = data; // 상품 목록과 총 상품 수
 
   return (
     <StyledForSaleProductContainer>
@@ -38,7 +43,7 @@ const StyledForSaleProductContainer = styled.main`
 const StyledForSaleProductsSection = styled.section`
   display: grid;
   grid-template-columns: repeat(5, auto);
-  justify-items: flex-end;
+  justify-items: start;
   column-gap: 2.4rem;
   row-gap: 4rem;
 
