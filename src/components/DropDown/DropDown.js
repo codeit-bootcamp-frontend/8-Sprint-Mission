@@ -5,7 +5,7 @@ export default function DropDown(props) {
   console.log(props.orderBy);
   const nowType = props.orderBy;
   const [isOpen, setIsOpen] = useState(false);
-  const [select, setSelect] = useState(`${nowType}`);
+  const [select, setSelect] = useState(nowType);
   const toggle = () => setIsOpen(!isOpen);
   const optionClick = (option) => {
     setSelect(option);
@@ -22,7 +22,7 @@ export default function DropDown(props) {
 
   return (
     <div className="select-options" onClick={toggle}>
-      <div className="select-text">{nowType === 'recent' ? '최신순' : '좋아요순'}</div>
+      <div className="select-text">{select === 'recent' ? '최신순' : '좋아요순'}</div>
       {isOpen && (
         <ul className="select-options-box">
           <li
