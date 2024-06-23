@@ -34,6 +34,7 @@ const StyledHeader = styled.header`
   padding: var(--padding-001);
 
   background-color: var(--white);
+  border-bottom: 1px solid var(--border-gray);
 
   @media all and (min-width: 768px) and (max-width: 1199px) {
     padding: 0 2.4rem;
