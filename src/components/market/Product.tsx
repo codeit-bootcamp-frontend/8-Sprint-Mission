@@ -1,27 +1,27 @@
 import styled from 'styled-components';
 import Image from 'components/@shared/Image';
 import likeIcon from 'assets/images/market/like-icon.png';
+import { IProduct } from 'types/productTypes';
 
-function Product() {
+function Product({
+  name,
+  price,
+  images,
+  favoriteCount,
+}: Pick<IProduct, 'name' | 'price' | 'images' | 'favoriteCount'>) {
   return (
     <StyledProductArticle>
-      <Image
-        src={
-          'https://mblogthumb-phinf.pstatic.net/MjAyNDAxMDJfMTMy/MDAxNzA0MTg1OTA2MDEz.Zs4YT9ywyEAZMKW4kJQa48ZyEgvmMXF3c19jkAmZE50g.eek_4eu_3L6jblWE9Z71TEwedVQSBC9HyVgVBCWtwm0g.JPEG.infinity0219/output_755709828.jpg?type=w800'
-        }
-        alt={'상품 이미지'}
-        height={'28.2rem'}
-        width={'28.2rem'}
-        radius={'1.6rem'}
-      />
+      {images.map(image => (
+        <Image key={image} src={image} alt={'상품 이미지'} height={'28.2rem'} width={'28.2rem'} radius={'1.6rem'} />
+      ))}
       <StyledProductInfoWrapper>
-        <h4>아이패드 미니 팝니다</h4>
-        <h5>500,000원</h5>
+        <h4>{name}</h4>
+        <h5>{price}원</h5>
         <small>
           <i>
             <Image src={likeIcon} alt={'좋아요 아이콘'} height={'1.165rem'} width={'1.34rem'} />
           </i>
-          800
+          {favoriteCount}
         </small>
       </StyledProductInfoWrapper>
     </StyledProductArticle>
