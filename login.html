@@ -16,12 +16,14 @@
             <div class="email_input_block">
                 <span class="email_txt">이메일</span>
                 <input type="email" id="email" placeholder="이메일을 입력해주세요" class="email_input" required>
+                <span class="err_msg" data-type="email_err"></span>
             </div>
             <div class="pw_input_block">
                 <span class="pw_txt">비밀번호</span>
                 <div class="pw_input_box">
                     <input type="password" id="password" placeholder="비밀번호를 입력해주세요" class="pw_input" required>
-                    <img class="pw_eye" src="ic_eye.png">
+                    <span class="err_msg" data-type="pw_err"></span>
+                    <img class="bt_toggle_pw" src="ic_eye_off.png">
                 </div>
             </div>
             <button type="submit" class="login_bt" disabled>로그인</button>
@@ -36,6 +38,6 @@
                 판다마켓이 처음이신가요?<a href="signup.html">회원가입</a>
             </div>
         </div>
-         <script src="script.js"></script>
+         <script src="listeners.js"></script>
     </body>
 </html>
