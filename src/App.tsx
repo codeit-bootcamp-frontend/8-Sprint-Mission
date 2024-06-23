@@ -4,6 +4,7 @@ import Home from 'pages/Home';
 import GlobalStyle from 'styles/@shared/global/GlobalStyle';
 import Login from 'pages/Login';
 import Signup from 'pages/Signup';
+import Market from 'pages/Market';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/items" element={<Market />} />
         <Route path="*" element={<div>해당 페이지는 없는 페이지입니다.</div>} />
       </Routes>
     </BrowserRouter>
