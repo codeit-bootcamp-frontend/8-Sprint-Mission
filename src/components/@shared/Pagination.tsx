@@ -27,8 +27,10 @@ function Pagination({ totalCount, currentPageCount, setCurrentPageCount }: Pagin
     (parseInt(startPageCount) + i).toString(),
   );
 
-  const handlePageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const { value } = event.currentTarget;
+  const handlePageButtonClick = (event: React.MouseEvent<HTMLElement>) => {
+    const { value } = (event.target as HTMLElement).dataset;
+    if (value === undefined) return;
+
     if (value === 'prevPage') {
       // 이전 페이지로 이동할 경우, 이전 페이지 그룹으로 넘어가야 하는 지 확인
       if (parseInt(currentPageCount) - 1 < parseInt(startPageCount)) {
@@ -56,23 +58,16 @@ function Pagination({ totalCount, currentPageCount, setCurrentPageCount }: Pagin
   // console.log('전체 아이템 개수: ', totalCount);
 
   return (
-    <StyledPagenationSection>
-      <StyledPageButton value={'prevPage'} onClick={handlePageButtonClick} disabled={currentPageCount === '1'}>
+    <StyledPagenationSection onClick={handlePageButtonClick}>
+      <StyledPageButton data-value={'prevPage'} onClick={handlePageButtonClick} disabled={currentPageCount === '1'}>
         {'<'}
       </StyledPageButton>
       {pageCountList.map(count => (
-        <StyledPageButton
-          key={count}
-          value={count}
-          onClick={handlePageButtonClick}
-          $isCurrentPageCount={currentPageCount === count}>
+        <StyledPageButton key={count} data-value={count} $isCurrentPageCount={currentPageCount === count}>
           {count}
         </StyledPageButton>
       ))}
-      <StyledPageButton
-        value={'nextPage'}
-        onClick={handlePageButtonClick}
-        disabled={currentPageCount === lastPageCount}>
+      <StyledPageButton data-value={'nextPage'} disabled={currentPageCount === lastPageCount}>
         {'>'}
       </StyledPageButton>
     </StyledPagenationSection>
