@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import '../DropDown/DropDown.css';
 
-export default function DropDown(props) {
-  console.log(props.orderBy);
-  const nowType = props.orderBy;
+export default function DropDown({ orderBy, handleOrderChange }) {
+  const nowType = orderBy;
   const [isOpen, setIsOpen] = useState(false);
   const [select, setSelect] = useState(nowType);
   const toggle = () => setIsOpen(!isOpen);
@@ -13,11 +12,11 @@ export default function DropDown(props) {
   };
 
   const getApiRecent = () => {
-    props.handleOrderChange('recent');
+    handleOrderChange('recent');
   };
 
   const getApiFavorite = () => {
-    props.handleOrderChange('favorite');
+    handleOrderChange('favorite');
   };
 
   return (

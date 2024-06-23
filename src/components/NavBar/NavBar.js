@@ -2,8 +2,8 @@ import '../NavBar/NavBar.css';
 import logoLarge from '../../assets/images/logo/logo.png';
 import logoSmall from '../../assets/images/logo/mini_logo.png';
 
-function NavBar(props) {
-  const pageType = props.page;
+function NavBar({ page }) {
+  const pageType = page;
   return (
     <header>
       <div className="header-nav">
