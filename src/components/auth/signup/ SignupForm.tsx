@@ -3,7 +3,7 @@ import PasswordInput from '../PasswordInput';
 import React, { useEffect, useState } from 'react';
 import useNavigateTo from 'hooks/useNavigateTo';
 import useValidForm, { IAuthForm } from 'hooks/useValidForm';
-import { StyledAuthForm, StyledAuthLabel, StyledInputSection } from 'styles/@shared/auth/formStyles';
+import { StyledAuthForm, StyledAuthLabel, StyledInputSection } from 'styles/auth/formStyles';
 
 function SignupForm() {
   const { navigateTo } = useNavigateTo();

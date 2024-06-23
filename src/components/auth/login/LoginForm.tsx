@@ -4,7 +4,7 @@ import Button from 'components/@shared/Button';
 import useNavigateTo from 'hooks/useNavigateTo';
 import { PATH_ITEMS } from ' constants/paths/paths';
 import useValidForm from 'hooks/useValidForm';
-import { StyledAuthForm, StyledAuthLabel, StyledInputSection } from 'styles/@shared/auth/formStyles';
+import { StyledAuthForm, StyledAuthLabel, StyledInputSection } from 'styles/auth/formStyles';
 
 function LoginForm() {
   const { navigateTo } = useNavigateTo();
