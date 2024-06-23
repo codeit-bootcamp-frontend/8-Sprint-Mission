@@ -1,0 +1,158 @@
+/* ==== form ==== */
+.logo-center {
+  display: block;
+  background: url('../img/logo.svg') no-repeat;
+  width: 396px;
+  height: 132px;
+  background-size: contain;
+  margin: 0 auto 20px;
+
+  @media (max-width:767px) {
+    width: 198px;
+    height: 66px;
+  }
+}
+
+.login-wrap,
+.signup-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: calc(100% - 102px);
+  max-width: 640px;
+  margin: 60px auto;
+
+  @media (max-width:767px) {
+    width: calc(100% - 32px);
+    max-width: 400px;
+    margin: 24px auto;
+
+  }
+}
+
+.input-group label {
+  display: block;
+  font-size: 18px;
+  color: var(--gray800);
+  margin-bottom: 16px;
+  font-weight: 700;
+
+  @media (max-width:767px) {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 24px;
+
+
+  input {
+    width: 100%;
+    font-size: 16px;
+    background: var(--gray100);
+    border-radius: 12px;
+
+    padding: 0 1em;
+    height: 56px;
+
+  }
+
+  &.is-error .error-border,
+  &.is-error .error-border:focus {
+    outline: 2px solid var(--error);
+  }
+
+  &.is-error.valid .error-message {
+    display: none;
+  }
+
+  @media (max-width:767px) {
+    margin-bottom: 16px;
+  }
+}
+
+.input-group .password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle-button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 24px;
+  top: 52px;
+  background-color: transparent;
+
+  @media (max-width:767px) {
+    top: 40px;
+  }
+}
+
+
+.input-group input:focus {
+  outline: 2px solid var(--primary);
+}
+
+.input-group input::placeholder {
+  color: var(--gray400);
+  font-weight: 500;
+}
+
+.error-message {
+  display: none;
+  font-size: 15px;
+  padding: 8px 16px;
+  color: var(--error);
+}
+
+.is-error .error-message {
+  display: block;
+}
+
+.form .btn-lg {
+  font-size: 20px;
+  height: 56px;
+}
+
+
+
+.sns-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #E6F2FF;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+}
+
+.sns-box h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sns-wrap {
+  display: flex;
+  gap: 16px;
+}
+
+.sns-wrap .icon {
+  display: block;
+  width: 42px;
+  height: 42px;
+  background-size: contain;
+}
+
+.auth-switch {
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+}
+
+.underline {
+  color: var(--primary);
+  text-decoration: underline;
+}

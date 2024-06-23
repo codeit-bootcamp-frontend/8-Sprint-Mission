@@ -1,0 +1,146 @@
+.product-wrap {
+
+  margin: 25px auto 40px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    height: 42px;
+    gap: 12px;
+
+    .title {
+      grid-area: title;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gray900);
+    }
+
+
+    .search {
+      grid-area: search;
+      width: 250px;
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--gray400);
+      padding: 0 1em 0 2.8em;
+      height: 42px;
+      margin-left: auto;
+      border-radius: 12px;
+      background: url('./../img/ic_search.svg') no-repeat center left 1em;
+      background-color: var(--gray100);
+
+      @media (max-width:767px) {
+        width: 100%;
+      }
+    }
+
+    .btn-add {
+      grid-area: btn-add;
+      height: 42px;
+
+      @media (max-width:767px) {
+        width: 100%;
+      }
+    }
+
+    .dropdown {
+      grid-area: dropdown;
+      height: 42px;
+    }
+
+    @media (max-width:767px) {
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr 80px 42px;
+      grid-template-areas: "title btn-add btn-add"
+        "search search dropdown"
+    }
+  }
+
+  &.best .product-list {
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width:1199px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width:767px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &.sale .product-list {
+    grid-template-columns: repeat(5, 1fr);
+
+    @media (max-width:1199px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width:767px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .list-none {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .product-list {
+    display: grid;
+    flex-wrap: wrap;
+    gap: 24px;
+
+
+    .product-card {
+      cursor: pointer;
+      flex: 0 0 auto;
+
+      .card-thumb-wrap{
+        overflow: hidden;
+        border-radius: 16px;
+      }
+      .card-thumb {
+        width: 100%;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        object-fit: cover;
+        transition: 0.2s ease;
+        &:hover{
+          transform: scale(1.2);
+        }
+      }
+
+      .card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-top: 16px;
+
+        .card-title {
+          font-size: 14px;
+          color: var(--gray800);
+
+        }
+
+        .price {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--gray800);
+        }
+
+        .like {
+          display: flex;
+          gap: 4px;
+          align-items: center;
+          font-size: 12px;
+          color: var(--gray600);
+        }
+      }
+    }
+  }
+}
