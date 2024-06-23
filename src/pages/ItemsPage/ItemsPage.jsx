@@ -1,14 +1,14 @@
 import React from "react";
 import BestItemsSection from "./components/BestItemsSection";
-import SaleItemsSection from "./components/SaleItemsSection";
-import "./ItemsPages.scss";
+import AllItemsSection from "./components/AllItemsSection";
+import "./ItemsPage.scss";
 
 function ItemsPage() {
   return (
-    <>
+    <div className="itemsPage">
       <BestItemsSection />
-      <SaleItemsSection />
-    </>
+      <AllItemsSection />
+    </div>
   );
 }
 
