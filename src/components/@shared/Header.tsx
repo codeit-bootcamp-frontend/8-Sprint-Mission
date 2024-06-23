@@ -1,7 +1,7 @@
 import useNavigateTo from 'hooks/useNavigateTo';
 import styled from 'styled-components';
 import Button from './Button';
-import { PATH_LOGIN } from ' constants/paths';
+import { PATH_LOGIN } from ' constants/paths/paths';
 import HeaderLinkSection from './HeaderLinkSection';
 
 function Header() {

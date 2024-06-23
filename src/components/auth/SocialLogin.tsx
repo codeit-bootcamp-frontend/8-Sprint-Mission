@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PATH_GOOGLE, PATH_KAKAO } from ' constants/paths';
+import { PATH_GOOGLE, PATH_KAKAO } from ' constants/paths/paths';
 import { Link } from 'react-router-dom';
 import Image from 'components/@shared/Image';
 import googleImg from 'assets/images/auth/social-login-google.png';

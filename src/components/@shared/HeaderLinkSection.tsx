@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import logoImg from 'assets/images/home/logoAndTypo.png';
 import Image from './Image';
-import { PATH_HOME, PATH_BOARDS, PATH_ITEMS } from ' constants/paths';
+import { PATH_HOME, PATH_BOARDS, PATH_ITEMS } from ' constants/paths/paths';
 import styled from 'styled-components';
 import useNavigateTo from 'hooks/useNavigateTo';
 

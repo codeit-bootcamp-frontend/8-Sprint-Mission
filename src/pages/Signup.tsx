@@ -1,4 +1,4 @@
-import { PATH_LOGIN } from ' constants/paths';
+import { PATH_LOGIN } from ' constants/paths/paths';
 import SignupForm from 'components/auth/signup/ SignupForm';
 import AuthLogo from 'components/auth/AuthLogo';
 import SocialLogin from 'components/auth/SocialLogin';

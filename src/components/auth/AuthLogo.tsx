@@ -1,7 +1,7 @@
 import Image from 'components/@shared/Image';
 import styled from 'styled-components';
 import authLogoImg from 'assets/images/auth/auth-logo.png';
-import { PATH_HOME } from ' constants/paths';
+import { PATH_HOME } from ' constants/paths/paths';
 import useNavigateTo from 'hooks/useNavigateTo';
 
 function AuthLogo() {

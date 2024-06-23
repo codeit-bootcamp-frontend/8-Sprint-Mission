@@ -4,7 +4,7 @@ import brandTopImg from 'assets/images/home/home_top.png';
 import styled from 'styled-components';
 import useNavigateTo from 'hooks/useNavigateTo';
 import Image from 'components/@shared/Image';
-import { PATH_ITEMS } from ' constants/paths';
+import { PATH_ITEMS } from ' constants/paths/paths';
 
 function BrandTop() {
   const { navigateTo } = useNavigateTo();

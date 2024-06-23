@@ -1,5 +1,6 @@
 import Header from 'components/@shared/Header';
 import ProductList from 'components/market/ProductList';
+import { Suspense } from 'react';
 
 import styled from 'styled-components';
 
@@ -8,7 +9,9 @@ function Market() {
     <div>
       <Header />
       <MarketContainer>
-        <ProductList />
+        <Suspense fallback={<div>Loding...</div>}>
+          <ProductList />
+        </Suspense>
       </MarketContainer>
     </div>
   );
