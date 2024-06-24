@@ -15,6 +15,17 @@ const getPageSize = () => {
   }
 };
 
+const SORT_MENU_INFO = {
+  RECENT: {
+    label: '최신순',
+    orderLabel: 'recent',
+  },
+  FAVORITE: {
+    label: '좋아요순',
+    orderLabel: 'favorite',
+  },
+};
+
 function AllProductList() {
   const [orderBy, setOrderBy] = useState('recent');
   const [products, setProducts] = useState([]);
@@ -27,14 +38,9 @@ function AllProductList() {
     setMenuOpen(prevState => !prevState);
   };
 
-  const handleNewestClick = () => {
+  const handleSortMenuClick = sortMenu => {
     setMenuOpen(false);
-    setOrderBy('recent');
-  };
-
-  const handleFavoriteCountClick = () => {
-    setMenuOpen(false);
-    setOrderBy('favorite');
+    setOrderBy(sortMenu.orderLabel);
   };
 
   const handleLoad = async ({ orderBy, page, pageSize }) => {
@@ -50,7 +56,6 @@ function AllProductList() {
 
   const onPageChange = pageNumber => {
     if (!pageNumber || pageNumber > totalPageNum) return;
-    console.log(pageNumber);
     setPage(pageNumber);
   };
 
@@ -81,16 +86,15 @@ function AllProductList() {
             <span>{orderBy === 'recent' ? '최신순' : '좋아요순'}</span>
           </button>
           <ul className={`dropdown-menu ${menuOpen ? 'open' : ''}`}>
-            <li>
-              <button onClick={handleNewestClick} className="dropdown-item">
-                최신순
-              </button>
-            </li>
-            <li>
-              <button onClick={handleFavoriteCountClick} className="dropdown-item">
-                좋아요순
-              </button>
-            </li>
+            {Object.entries(SORT_MENU_INFO).map(([key, value]) => {
+              return (
+                <li key={key}>
+                  <button onClick={() => handleSortMenuClick(value)} className="dropdown-item">
+                    {value.label}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
