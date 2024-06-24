@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import NavigationBtn from '../Button/Button.jsx';
+import Button from '../Button/Button.jsx';
 import nav from '../../utils/nav.js';
 import styles from './Header.module.css';
 import logo from '../../assets/images/logo.png';
@@ -19,21 +19,21 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.main__header}>
-        <div className={styles.header__nav}>
-          <div className={styles.logo__box}>
+      <div className={styles.mainHeader}>
+        <div className={styles.headerNav}>
+          <div className={styles.logoBox}>
             <NavLink to="/" className={styles.logo}>
               <img src={logo} alt="판다마켓 로고" />
             </NavLink>
-            <NavLink to="/" className={styles.mobile__logo}>
+            <NavLink to="/" className={styles.mobileLogo}>
               <img src={mobileLogo} alt="판다마켓 모바일 로고" />
             </NavLink>
           </div>
-          <div className={styles.nav__list}>
+          <div className={styles.navList}>
             <ul>{navList}</ul>
           </div>
         </div>
-        <NavigationBtn path="/login" btnName="로그인" />
+        <Button path="/login" btnName="로그인" />
       </div>
     </header>
   );

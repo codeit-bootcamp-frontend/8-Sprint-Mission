@@ -8,38 +8,38 @@
   border-bottom: 1px solid #dfdfdf;
 }
 
-.main__header {
+.mainHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px;
 }
-.logo__box {
+.logoBox {
   margin-right: 32px;
 }
-.header__nav {
+.headerNav {
   display: flex;
   align-items: center;
 }
-.nav__list > ul {
+.navList > ul {
   display: flex;
   align-items: center;
   font-size: 1.8rem;
 }
-.nav__list > ul > li {
+.navList > ul > li {
   text-align: center;
   padding: 24px 15px;
 }
-.nav__list > ul > li > a {
+.navList > ul > li > a {
   display: inline-block;
   width: 78px;
   font-weight: 700;
 }
-.nav__list > ul > li > a.active {
+.navList > ul > li > a.active {
   color: var(--color-blue);
 }
 
-.mobile__logo {
+.mobileLogo {
   display: none;
 }
 /* header */
@@ -58,25 +58,25 @@
   .logo {
     display: none;
   }
-  .mobile__logo {
+  .mobileLogo {
     display: block;
   }
-  .mobile__logo > img {
+  .mobileLogo > img {
     width: 81px;
   }
-  .logo__box {
+  .logoBox {
     margin-right: 16px;
   }
-  .nav__list > ul {
+  .navList > ul {
     font-size: 1.6rem;
   }
-  .nav__list > ul > li {
+  .navList > ul > li {
     padding: 0 8px 0 0;
   }
-  .nav__list > ul > li:last-child {
+  .navList > ul > li:last-child {
     padding: 0;
   }
-  .nav__list > ul > li > a {
+  .navList > ul > li > a {
     width: 100%;
   }
 }
