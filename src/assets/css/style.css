@@ -533,7 +533,7 @@ footer {
 /* ==== button ==== */
 .btn-sm {
   display: flex;
-  width: 128px;
+  min-width: 88px;
   height: 48px;
   font-size: 16px;
   font-weight: 600;
@@ -989,14 +989,7 @@ i.icon-sm {
   gap: 4px;
   margin: 40px 0 80px;
 }
-.pagination li.prev {
-  background: url("./../img/arrow_right.svg") no-repeat center;
-  transform: rotate(180deg);
-}
-.pagination li.next {
-  background: url("./../img/arrow_right.svg") no-repeat center;
-}
-.pagination li a {
+.pagination li .page-link {
   width: 40px;
   height: 40px;
   font-weight: 600;
@@ -1006,18 +999,30 @@ i.icon-sm {
   border-radius: 50%;
   border: 1px solid var(--gray200);
   color: var(--gray500);
+  background-color: var(--white);
+  opacity: 1;
 }
-.pagination li a:hover {
+.pagination li .page-link:hover {
   opacity: 0.8;
 }
-.pagination li a:active {
+.pagination li .page-link:disabled {
+  opacity: 0.4;
+}
+.pagination li .page-link:active:not(:disabled) {
   border-color: var(--primary);
   color: var(--primary);
 }
-.pagination li a.on {
+.pagination li .page-link.on {
   border-color: var(--primary);
   background: var(--primary);
   color: var(--white);
+}
+.pagination li .page-link.prev {
+  background: url("./../img/arrow_right.svg") no-repeat center;
+  transform: rotate(180deg);
+}
+.pagination li .page-link.next {
+  background: url("./../img/arrow_right.svg") no-repeat center;
 }
 
 /*# sourceMappingURL=style.css.map */
