@@ -1,0 +1,90 @@
+@import url("./common.css");
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+}
+.header-nav {
+  display: flex;
+  padding: 0 200px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  box-shadow: 0 1px 1px 0 var(--gray-200);
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0 8.5px;
+}
+.header-logo img:first-child {
+  width: 40px;
+}
+.header-logo img:last-child {
+  width: 103px;
+}
+
+.nav-menus {
+  flex-grow: 2;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--gray-600);
+  padding-left: 10px;
+}
+
+.nav-menus span {
+  padding-left: 39px;
+}
+
+.header-login {
+  background-color: var(--blue);
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  width: 88px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-login:hover {
+  background-color: var(--gray-400);
+}
+
+@media (max-width: 1199px) {
+  .header-nav {
+    padding: 0 24px;
+  }
+}
+@media (max-width: 767px) {
+  .header-nav {
+    padding: 0 16px;
+  }
+  .header-logo img:first-child {
+    display: none;
+    padding: 0 16px;
+  }
+  .header-logo img:last-child {
+    width: 71px;
+  }
+  .nav-menus {
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 0;
+  }
+  .nav-menus .nav-forum {
+    padding-left: 0;
+  }
+  .nav-menus .nav-items {
+    padding-left: 0;
+  }
+}
