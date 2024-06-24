@@ -1,0 +1,168 @@
+/*
+Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
+https://github.com/orioncactus/pretendard
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+*/
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 900;
+  font-display: swap;
+  src: local("Pretendard Black"),
+    url(..font/woff2/Pretendard-Black.woff2) format("woff2"),
+    url(..font/woff/Pretendard-Black.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-display: swap;
+  src: local("Pretendard ExtraBold"),
+    url(..font/woff2/Pretendard-ExtraBold.woff2) format("woff2"),
+    url(..font/woff/Pretendard-ExtraBold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-display: swap;
+  src: local("Pretendard Bold"),
+    url(..font/woff2/Pretendard-Bold.woff2) format("woff2"),
+    url(..font/woff/Pretendard-Bold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-display: swap;
+  src: local("Pretendard SemiBold"),
+    url(..font/woff2/Pretendard-SemiBold.woff2) format("woff2"),
+    url(..font/woff/Pretendard-SemiBold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-display: swap;
+  src: local("Pretendard Medium"),
+    url(..font/woff2/Pretendard-Medium.woff2) format("woff2"),
+    url(..font/woff/Pretendard-Medium.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-display: swap;
+  src: local("Pretendard Regular"),
+    url(..font/woff2/Pretendard-Regular.woff2) format("woff2"),
+    url(..font/woff/Pretendard-Regular.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 300;
+  font-display: swap;
+  src: local("Pretendard Light"),
+    url(..font/woff2/Pretendard-Light.woff2) format("woff2"),
+    url(..font/woff/Pretendard-Light.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 200;
+  font-display: swap;
+  src: local("Pretendard ExtraLight"),
+    url(..font/woff2/Pretendard-ExtraLight.woff2) format("woff2"),
+    url(..font/woff/Pretendard-ExtraLight.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 100;
+  font-display: swap;
+  src: local("Pretendard Thin"),
+    url(..font/woff2/Pretendard-Thin.woff2) format("woff2"),
+    url(..font/woff/Pretendard-Thin.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Abel";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/abel/v18/MwQ5bhbm2POE2V9BPQ.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --main-bg-color: #cfe5ff;
+  --white: #ffffff;
+  --btn-color: #3692ff;
+  --btn-hover: #1967d6;
+  --btn-click: #1251aa;
+  --error-color: #f74747;
+  --gray50: #f9fafb;
+  --gray100: #f3f4f6;
+  --gray200: #e5e7eb;
+  --gray400: #9ca3af;
+  --gray500: #6b7280;
+  --gray600: #4b5563;
+  --gray700: #374151;
+  --gray800: #1f2937;
+  --gray900: #111827;
+} /* 색상을 css 변수로 사용*/
+
+* {
+  box-sizing: border-box;
+  font-family: "Pretendard", sans-serif;
+}
+
+.btn-status:hover {
+  background-color: var(--btn-hover);
+}
+.btn-status:active {
+  background-color: var(--btn-click);
+}
+.btn-status:disabled {
+  background-color: var(--gray400);
+  cursor: default;
+} /* 버튼 상태에 따른 색상 변화 */
+
+.width-alert {
+  display: none;
+}
+
+@media (max-width: 374px) {
+  .width-alert {
+    width: 100%;
+    height: 100%;
+    border: 10px solid var(--error-color);
+    background-color: var(--white);
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .width-alert > span {
+    display: block;
+    font-size: 20px;
+    color: var(--gray900);
+    font-family: Arial;
+  }
+  .width-alert > span > br {
+    display: none;
+  }
+}
+@media (max-width: 300px) {
+  .width-alert > span > br {
+    display: inherit;
+  }
+} /* 미지원 해상도 경고 */

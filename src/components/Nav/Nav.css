@@ -1,0 +1,39 @@
+.nav-section {
+  width: 100%;
+  border-bottom: 1px solid #dfdfdf;
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+}
+
+.nav {
+  margin: 0 auto;
+  max-width: 1920px;
+  display: flex;
+  padding: 0 200px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 51px;
+}
+
+.menu {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.current-menu {
+  color: var(--btn-color);
+}
+
+.login-btn {
+  flex-shrink: 0;
+  padding: 12px 23px;
+  color: var(--white);
+  background-color: var(--btn-color);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
