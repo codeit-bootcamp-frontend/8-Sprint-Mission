@@ -18,12 +18,7 @@ function ProductCard({ product }) {
   return (
     <div className="product-card">
       <div className="card-thumb-wrap">
-        <img
-          className="card-thumb"
-          src={images && images[0] ? images[0] : imgDefault}
-          alt={name}
-          onError={handleError}
-        />
+        <img className="card-thumb" src={images?.[0] ?? imgDefault} alt={name} onError={handleError} />
       </div>
       <div className="card-info">
         <h4 className="card-title">{name}</h4>
