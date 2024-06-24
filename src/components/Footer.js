@@ -44,7 +44,10 @@ function Footer() {
         </div>
         <div className="external-icons">
           {EXTERNAL_LINKS_DETAILS.map((externalLinkDetails) => (
-            <ExternalIcon externalLinkDetails={externalLinkDetails} />
+            <ExternalIcon
+              key={externalLinkDetails.alt}
+              externalLinkDetails={externalLinkDetails}
+            />
           ))}
         </div>
       </div>

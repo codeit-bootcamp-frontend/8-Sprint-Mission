@@ -21,6 +21,7 @@
 
 /*==========main-top-container==========*/
 .main-bottom-background {
+  margin-top: 138px;
   background-color: var(--main-background-color);
 }
 

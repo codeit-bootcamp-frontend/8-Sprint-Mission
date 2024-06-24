@@ -51,20 +51,17 @@ function Home() {
   return (
     <>
       <Header />
-      <section>
+      <section className="main-section-container">
         <MainTop mainTopDetails={MAIN_TOP_DETAILS} />
         {MAIN_CONTENTS_DETAILS.map((contentDetail) => (
-          <MainContent contentDetail={contentDetail} />
+          <MainContent
+            key={contentDetail.title}
+            contentDetail={contentDetail}
+          />
         ))}
         <MainBottom mainBottomDetails={MAIN_BOTTOM_DETAILS} />
       </section>
       <Footer />
-
-      <Link to="/login">Go login page</Link>
-      <div></div>
-      <Link to="/signin">Go signin page</Link>
-      <div></div>
-      <Link to="/items">Go item page</Link>
     </>
   );
 }
