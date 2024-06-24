@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import Button from '../Button/Button.jsx';
-import nav from '../../utils/nav.js';
+import NAVIGATION_LIST from '../../utils/NAVIGATION_LIST.js';
 import styles from './Header.module.css';
 import logo from '../../assets/images/logo.png';
 import mobileLogo from '../../assets/images/mobile_logo.png';
 
 export default function Header() {
-  const navList = nav.map(list => (
+  const navList = NAVIGATION_LIST.map(list => (
     <li key={list.name}>
       <NavLink
         to={list.path}
