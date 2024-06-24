@@ -5,6 +5,8 @@ import icTwitter from "../assets/ic_twitter.png";
 import icYoutube from "../assets/ic_youtube.png";
 import icInstagram from "../assets/ic_instagram.png";
 
+import { Link } from "react-router-dom";
+
 const EXTERNAL_LINKS_DETAILS = [
   {
     alt: "페이스북 링크",
@@ -23,9 +25,9 @@ const EXTERNAL_LINKS_DETAILS = [
 function ExternalIcon({ externalLinkDetails }) {
   const { alt, linkUrl, imgUrl } = externalLinkDetails;
   return (
-    <a className="external-link" href={linkUrl}>
+    <Link className="external-link" to={linkUrl}>
       <img src={imgUrl} alt={alt} />
-    </a>
+    </Link>
   );
 }
 
@@ -35,12 +37,12 @@ function Footer() {
       <div className="footer-bar">
         <div className="codeit-2024">@codeit - 2024</div>
         <div className="privacy-faq-link">
-          <a className="privacy-link" href="/pages/privacy">
+          <Link to="/privacy" className="privacy-link">
             Privacy Policy
-          </a>
-          <a className="faq-link" href="/pages/faq">
+          </Link>
+          <Link to="/faq" className="faq-link">
             FAQ
-          </a>
+          </Link>
         </div>
         <div className="external-icons">
           {EXTERNAL_LINKS_DETAILS.map((externalLinkDetails) => (
