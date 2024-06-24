@@ -1,0 +1,174 @@
+/* Items */
+.container-items {
+  max-width: 1200px;
+  margin: 94px auto;
+  padding: 0 16px;
+}
+
+/* Best Items */
+.container-best-items {
+  padding: 0 0 40px;
+}
+
+.title-best-items {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.list-best-items {
+}
+
+/* Sail Items */
+.container-sail-items {
+}
+
+.header-sail-items {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 24px;
+}
+
+.header-sail-items-left {
+}
+
+.title-sail-items {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header-sail-items-right {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-add-item {
+}
+
+.wrapper-input-search-item {
+  display: flex;
+  background-color: var(--gray-100);
+  border-radius: 12px;
+  font-size: 32px;
+  min-width: 250px;
+  margin: 0 0 0 8px;
+  padding: 9px 16px;
+  align-items: center;
+}
+
+.input-search-item {
+  border: none;
+  flex: 1;
+  background-color: inherit;
+  margin: 0 0 0 4px;
+}
+
+.input-search-item::placeholder {
+  color: var(--gray-400);
+  font-size: 16px;
+}
+
+.wrapper-sort-item {
+  position: relative;
+}
+
+.btn-sort-item {
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  margin: 0 0 0 8px;
+  padding: 12px 40px;
+  display: flex;
+}
+
+.dropdown-sort-item {
+  position: absolute;
+  background-color: white;
+  margin: 5px 0 0 8px;
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  z-index: 99;
+}
+
+.item-dropdown {
+  padding: 12px 44px;
+  border-bottom: 1px solid var(--gray-200);
+  font-size: 16px;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+.list-sail-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Item */
+.wrapper-item {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.item-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  margin: 0 0 16px;
+}
+
+.wrapper-item-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.item-name {
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.item-favorite-count {
+  display: flex;
+  align-items: center;
+  color: var(--gray-heart);
+}
+
+@media (min-width: 768px) {
+  /* Best Items */
+  .container-best-items {
+  }
+
+  .list-best-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Sail Items */
+  .list-sail-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  /* Best Items */
+  .list-best-items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Sail Items */
+  .list-sail-items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
