@@ -5,12 +5,12 @@
   margin-top: 40px;
   margin-bottom: 113px;
 }
-.pagination__list {
+.paginationList {
   display: flex;
   justify-content: center;
   gap: 4px;
 }
-.pagination__num {
+.paginationNum {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,14 +26,14 @@
   transition: 0.3s ease;
 }
 
-.pagination__num.active {
+.paginationNum.active {
   color: #fff;
   border: 0;
   background: var(--color-blue);
 }
 
-.btn_prev,
-.btn_next {
+.btnPrev,
+.btnNext {
   position: relative;
   width: 40px;
   height: 40px;
@@ -43,7 +43,7 @@
   border-radius: 40px;
   cursor: pointer;
 }
-.btn_prev::after {
+.btnPrev::after {
   position: absolute;
   content: '';
   top: 0;
@@ -52,7 +52,7 @@
   height: 38px;
   background: url(../../assets/images/arrow_left.png) no-repeat center;
 }
-.btn_next::after {
+.btnNext::after {
   position: absolute;
   content: '';
   top: 0;

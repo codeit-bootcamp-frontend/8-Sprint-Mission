@@ -4,14 +4,15 @@ export default function Pagination({ pageNum, currentPage, pageHandler }) {
   return (
     <div className={styles.pagination}>
       <button
-        className={styles.btn_prev}
+        disabled={currentPage === pageNum[0]}
+        className={styles.btnPrev}
         onClick={() => pageHandler(currentPage - 1)}
       />
-      <ul className={styles.pagination__list}>
+      <ul className={styles.paginationList}>
         {pageNum &&
           pageNum.map(i => (
             <li
-              className={`${styles.pagination__num} ${
+              className={`${styles.paginationNum} ${
                 currentPage === i ? styles.active : ''
               }`}
               key={`page${i}`}
@@ -22,7 +23,8 @@ export default function Pagination({ pageNum, currentPage, pageHandler }) {
           ))}
       </ul>
       <button
-        className={styles.btn_next}
+        disabled={currentPage === pageNum[pageNum.length - 1]}
+        className={styles.btnNext}
         onClick={() => pageHandler(currentPage + 1)}
       />
     </div>
