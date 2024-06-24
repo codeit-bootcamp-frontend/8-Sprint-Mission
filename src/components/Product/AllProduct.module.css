@@ -5,6 +5,7 @@
 }
 .productHeader {
   display: flex;
+  gap: 12px;
   justify-content: space-between;
   align-items: center;
 }
@@ -15,6 +16,9 @@
 .productTitle {
   font-weight: 700;
   font-size: 2rem;
+}
+.titleContainer {
+  flex: 3 0;
 }
 .listContainer {
   display: grid;
@@ -49,6 +53,10 @@
 .sortContainer {
   position: relative;
 }
+.form {
+  grid-row: 2;
+  grid-column: span 2;
+}
 @media (max-width: 1199px) {
   .listContainer {
     grid-template-columns: repeat(3, 1fr);
@@ -58,6 +66,15 @@
 }
 
 @media (max-width: 768px) {
+  .productHeader {
+    display: grid;
+    grid-template-columns: 1fr 79px 42px;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .addItem {
+    grid-row: 1;
+    grid-column: 2 / 4;
+  }
   .listContainer {
     margin-top: 1.6rem;
     grid-template-columns: repeat(2, 1fr);

@@ -8,18 +8,18 @@ export default function ItemList({ name, images, price, favoriteCount }) {
     e.target.src = errorImage;
   };
   return (
-    <div className={styles.product}>
-      <div className={styles.product__image}>
+    <article className={styles.product}>
+      <div className={styles.productImage}>
         <img src={images} onError={onErrorImg} alt={name} />
       </div>
-      <div className={styles.product__info}>
-        <p className={styles.product__name}>{name}</p>
-        <p className={styles.product__price}>{`${itemPrice}원`}</p>
-        <div className={styles.product__favorite}>
+      <div className={styles.productInfo}>
+        <h2 className={styles.productName}>{name}</h2>
+        <p className={styles.productPrice}>{`${itemPrice}원`}</p>
+        <div className={styles.productFavorite}>
           <img src={heartIcon} alt="좋아요" />
-          <p className={styles.favorite__count}>{favoriteCount}</p>
+          <p className={styles.favoriteCount}>{favoriteCount}</p>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
