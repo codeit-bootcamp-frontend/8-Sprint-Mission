@@ -1,0 +1,11 @@
+header .nav .tab {
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 700;
+    width: 6.875rem;
+    color: var(--gray600);
+}
+
+header .nav .tab.active {
+    color: var(--blue);
+}
