@@ -15,7 +15,7 @@ const getPageSize = () => {
 };
 
 function BestProductList() {
-  const [orderBy, setOrderBy] = useState('favorite');
+  const orderBy = 'favorite';
   const [products, setProducts] = useState([]);
   const [pageSize, setPageSize] = useState(getPageSize());
 
