@@ -8,7 +8,7 @@ const deviceSize = {
   mobile: 768,
   tablet: 1199,
 };
-const getResize = () => {
+const getResponseProducts = () => {
   let windowWidth = window.innerWidth;
 
   if (windowWidth < deviceSize.mobile) {
@@ -23,7 +23,7 @@ const getResize = () => {
 export default function BestProduct() {
   const [itemList, setItemList] = useState([]);
   const [error, setError] = useState('');
-  const [size, setSize] = useState(getResize());
+  const [size, setSize] = useState(getResponseProducts());
 
   const loadedItem = async () => {
     const query = {
@@ -32,16 +32,7 @@ export default function BestProduct() {
     try {
       const product = await getFavoriteProduct({ query });
       const { list } = product;
-      const loadedList = list.map(item => ({
-        id: item.id,
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        tags: item.tags,
-        images: item.images,
-        favoriteCount: item.favoriteCount,
-      }));
-      setItemList(loadedList);
+      setItemList(list);
     } catch (error) {
       setError(error.message);
     }
@@ -49,7 +40,7 @@ export default function BestProduct() {
 
   useEffect(() => {
     const handleResize = () => {
-      setSize(getResize());
+      setSize(getResponseProducts());
     };
     window.addEventListener('resize', handleResize);
     handleResize();
@@ -71,14 +62,7 @@ export default function BestProduct() {
       <h2 className={styles.title}>베스트 상품</h2>
       <div className={styles.list}>
         {itemList.map(list => (
-          <ItemList
-            key={list.id}
-            id={list.id}
-            name={list.name}
-            price={list.price}
-            images={list.images}
-            favoriteCount={list.favoriteCount}
-          />
+          <ItemList key={`best-products-${list.id}`} {...list} />
         ))}
       </div>
     </Section>

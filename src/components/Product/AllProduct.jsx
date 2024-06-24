@@ -13,7 +13,7 @@ const deviceSize = {
   tablet: 1199,
 };
 
-const getResize = () => {
+const getResponseProducts = () => {
   let windowWidth = window.innerWidth;
 
   if (windowWidth < deviceSize.mobile) {
@@ -29,10 +29,10 @@ export default function AllProduct() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [itemList, setItemList] = useState([]);
-  const [pageNum, setPageNum] = useState([]);
+  const [maxPage, setMaxPage] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [isSortOpen, setIsSortOpen] = useState(false);
-  const [size, setSize] = useState(getResize());
+  const [size, setSize] = useState(getResponseProducts());
   const [keyword, setKeyword] = useState('');
   const [order, setOrder] = useState('recent');
 
@@ -43,11 +43,7 @@ export default function AllProduct() {
   const sortHandler = e => {
     const sortType = e.currentTarget.dataset.type;
     setOrder(sortType);
-  };
-
-  const displayPagination = page => {
-    const pageArray = Array.from({ length: page }, (v, i) => i + 1);
-    setPageNum([...pageArray]);
+    setIsSortOpen(false);
   };
 
   const loadedItem = async () => {
@@ -61,19 +57,10 @@ export default function AllProduct() {
       setLoading(true);
       const product = await getAllProduct({ query });
       const { list, totalCount } = product;
-      const loadedList = list.map(item => ({
-        id: item.id,
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        tags: item.tags,
-        images: item.images,
-        favoriteCount: item.favoriteCount,
-      }));
       setLoading(false);
-      setItemList(loadedList);
+      setItemList(list);
       const maxPage = Math.ceil(totalCount / size);
-      displayPagination(maxPage);
+      setMaxPage(maxPage);
     } catch (error) {
       setError(error.message);
     }
@@ -86,7 +73,7 @@ export default function AllProduct() {
 
   useEffect(() => {
     const handleResize = () => {
-      setSize(getResize());
+      setSize(getResponseProducts());
     };
     window.addEventListener('resize', handleResize);
     handleResize();
@@ -134,19 +121,12 @@ export default function AllProduct() {
         ) : (
           <div className={styles.listContainer}>
             {itemList.map(list => (
-              <ItemList
-                key={list.id}
-                id={list.id}
-                name={list.name}
-                price={list.price}
-                images={list.images}
-                favoriteCount={list.favoriteCount}
-              />
+              <ItemList key={`product-${list.id}`} {...list} />
             ))}
           </div>
         )}
         <Pagination
-          pageNum={pageNum}
+          maxPage={maxPage}
           currentPage={currentPage}
           pageHandler={pageHandler}
         />
