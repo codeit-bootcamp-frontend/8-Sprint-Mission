@@ -1,0 +1,50 @@
+/*==========font==========*/
+.main-top-content {
+  white-space: pre-line; /* 줄바꿈 , 없애려면 nowrap*/
+
+  color: var(--cool-gray-700);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  margin-bottom: 32px;
+}
+
+/*==========img==========*/
+.main-top-img {
+  display: inline-block;
+  width: 996px;
+  height: 447px;
+  position: absolute;
+  bottom: 0;
+  right: -137px;
+}
+
+/*==========button==========*/
+.main-top-button {
+  border-radius: 999px;
+  font-size: 20px;
+  width: 357px;
+  height: 56px;
+  margin: 0 auto;
+  border: none;
+  background-color: var(--brand-blue);
+  color: var(--gray-00);
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/*==========main-top-container==========*/
+.main-top-background {
+  background-color: var(--main-background-color);
+}
+
+.main-top-content-container {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

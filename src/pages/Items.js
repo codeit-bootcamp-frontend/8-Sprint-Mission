@@ -1,5 +1,11 @@
+import Header from "../components/Header";
+
 function Items() {
-  return <h1>items page</h1>;
+  return (
+    <>
+      <Header pageType="item" />
+    </>
+  );
 }
 
 export default Items;

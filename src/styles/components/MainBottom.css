@@ -1,0 +1,35 @@
+/*==========font==========*/
+.main-bottom-content {
+  white-space: pre-line; /* 줄바꿈 , 없애려면 nowrap*/
+
+  color: var(--cool-gray-700);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  margin-bottom: 32px;
+}
+
+/*==========img==========*/
+.main-bottom-img {
+  display: inline-block;
+  width: 996px;
+  height: 540px;
+  position: absolute;
+  bottom: 0;
+  right: -137px;
+}
+
+/*==========main-top-container==========*/
+.main-bottom-background {
+  background-color: var(--main-background-color);
+}
+
+.main-bottom-content-container {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
