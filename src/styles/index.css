@@ -1,0 +1,271 @@
+.banner {
+	display: flex;
+	width: 100%;
+	height: 540px;
+	background: var(--background-blue);
+	background-image: url('../assets/Img_home_top@3x.png');
+	background-repeat: no-repeat;
+	background-size: 996px 447px;
+	background-position: bottom 0 right 20%;
+}
+
+.banner.bottom {
+	background-image: url('../assets/Img_home_bottom@3x.png');
+	background-size: 996px 540px;
+}
+
+.banner-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	gap: 32px;
+	margin: 0 auto;
+	width: 1200px;
+}
+
+.banner-container h1 {
+	color: var(--gray-700);
+	text-align: left;
+}
+
+.banner-container h1 span {
+	display: block;
+}
+
+.banner-container a {
+	display: flex;
+	justify-content: center;
+	padding: 16px 125px;
+	background: var(--brand-blue);
+	border-radius: 9999px;
+	font-size: 20px;
+	font-weight: 600;
+	color: #ffffff;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.content-container {
+	display: flex;
+	flex-direction: column;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	gap: 64px;
+	height: 720px;
+}
+
+.content.content-right {
+	justify-content: end;
+}
+
+.content.content-right img {
+	order: 1;
+}
+
+.content img {
+	width: 588px;
+	height: 444px;
+}
+
+.content-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 12px;
+}
+
+.content-right .content-text {
+	align-items: end;
+	text-align: end;
+}
+
+.content-text .badge {
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 25.2px;
+	color: var(--brand-blue);
+}
+
+.content-text h2 {
+	display: flex;
+	flex-direction: column;
+	letter-spacing: 0.02em;
+	color: var(--gray-700);
+}
+
+.content-text p {
+	display: flex;
+	flex-direction: column;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 28.8px;
+	letter-spacing: 0.08em;
+}
+
+
+
+@media (max-width: 1199px) {
+	.banner {
+		align-items: start;
+		height: 771px;
+		padding-top: 84px;
+		background-position: bottom 0 center;
+	}
+
+	.banner.bottom {
+		height: 927px;
+		padding-top: 201px;
+	}
+
+	.banner-container {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		align-items: center;
+		gap: 24px;
+	}
+
+	.banner-container h1 span {
+		display: inline;
+	}
+
+	.banner.bottom h1 {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.content-container {
+		display: flex;
+		flex-direction: column;
+		gap: 64px;
+		width: 696px;
+		padding: 24px 0 80px;
+	}
+
+	.content {
+		flex-direction: column;
+		align-items: start;
+		gap: 20px;
+		height: 100%;
+	}
+
+	.content img {
+		width: 696px;
+		height: 524px;
+	}
+
+	.content.content-right img {
+		order: 0;
+	}
+
+	.content.content-right .content-text {
+		align-self: end;
+	}
+
+	.content-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 12px;
+	}
+
+	.content-text .badge {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 25.2px;
+		color: var(--brand-blue);
+	}
+
+	.content-text h2 {
+		display: block;
+		font-family: "Pretendard Variable";
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 44.8px;
+		letter-spacing: 0.02em;
+
+	}
+
+	.content-text p {
+		display: flex;
+		flex-direction: column;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 25.2px;
+		letter-spacing: 0.08em;
+	}
+}
+
+@media (max-width: 767px) {
+	.banner {
+		height: 540px;
+		background-size: auto 281px;
+		padding-top: 48px;
+	}
+
+	.banner.bottom {
+		height: 540px;
+		background-size: auto 269px;
+		padding-top: 121px;
+	}
+
+	.banner-container h1 {
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 44.8px;
+		text-align: center;
+	}
+
+	.banner-container h1 span {
+		display: block;
+	}
+
+	.banner-container a {
+		padding: 16px 20px;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 19.09px;
+	}
+
+	.content-container {
+		/*width: 344px;*/
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: 51px 0 64px;
+	}
+
+	.content img {
+		width: 344px;
+		height: 259px;
+	}
+
+	.content .badge {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 22.4px;
+	}
+
+	.content h2 {
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 33.6px;
+		letter-spacing: 0.02em;
+	}
+
+	.content p {
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 19.2px;
+		letter-spacing: 0.08em;
+	}
+}
