@@ -1,0 +1,19 @@
+.tab-list {
+  display: flex;
+  align-items: center;
+  flex-grow: 2;
+  margin: 0 20px;
+}
+
+.tab-item {
+  width: 100px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 21.48px;
+  color: #4b5563;
+}
+
+.selected {
+  color: #3692ff;
+}

@@ -1,0 +1,19 @@
+.sales-product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 94px auto;
+}
+
+@media (768px <= width < 1200px) {
+  .sales-product-container {
+    margin: 94px 24px 0px;
+  }
+}
+
+@media (375px <= width < 768px) {
+  .sales-product-container {
+    margin: 94px 16px 0px;
+  }
+}
