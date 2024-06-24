@@ -1,16 +1,16 @@
-import { useRef } from "react";
-import styles from "./SearchForm.module.css";
+import { useRef } from 'react';
+import styles from './SearchForm.module.css';
 
-export default function SearchForm({ searchHandler }) {
+export default function SearchForm({ searchHandler, className }) {
   const inputValue = useRef();
 
-  const searchItemHandler = (e) => {
+  const searchItemHandler = e => {
     e.preventDefault();
     const enteredInputValue = inputValue.current.value;
     searchHandler(enteredInputValue);
   };
   return (
-    <div className={styles.searchContainer}>
+    <div className={`${styles.searchContainer} ${className}`}>
       <form className={styles.searchForm} onSubmit={searchItemHandler}>
         <div className={styles.inputWrapper}>
           <button />
