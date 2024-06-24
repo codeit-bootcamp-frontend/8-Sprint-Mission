@@ -4,14 +4,26 @@ import Section from '../../ui/Section/Section.jsx';
 import ItemList from './ItemList';
 import styles from './BestProduct.module.css';
 
+const deviceSize = {
+  mobile: 768,
+  tablet: 1199,
+};
+const getResize = () => {
+  let windowWidth = window.innerWidth;
+
+  if (windowWidth < deviceSize.mobile) {
+    return 1;
+  } else if (windowWidth < deviceSize.tablet) {
+    return 2;
+  } else {
+    return 4;
+  }
+};
+
 export default function BestProduct() {
   const [itemList, setItemList] = useState([]);
   const [error, setError] = useState('');
-  const [size, setSize] = useState(4);
-  const deviceSize = {
-    mobile: 768,
-    tablet: 1199,
-  };
+  const [size, setSize] = useState(getResize());
 
   const loadedItem = async () => {
     const query = {
@@ -37,22 +49,14 @@ export default function BestProduct() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < deviceSize.mobile) {
-        setSize(1);
-      } else if (window.innerWidth < deviceSize.tablet) {
-        setSize(2);
-      } else {
-        setSize(4);
-      }
+      setSize(getResize());
     };
-
     window.addEventListener('resize', handleResize);
-
     handleResize();
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [deviceSize]);
 
   useEffect(() => {
     loadedItem();
