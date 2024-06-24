@@ -1,0 +1,12 @@
+.section {
+  margin: 0 auto;
+  max-width: 1201px;
+}
+.title {
+  font-weight: 700;
+  font-size: 2rem;
+}
+.list {
+  display: flex;
+  gap: 24px;
+}
