@@ -1,5 +1,7 @@
+const BASE_URL = "https://panda-market-api.vercel.app";
+
 async function fetchProductData() {
-  const url = "https://panda-market-api.vercel.app/products";
+  const url = `${BASE_URL}/products`;
   const response = await fetch(url);
 
   if (!response || !response.ok) return [];
@@ -12,7 +14,7 @@ async function fetchProductData() {
     price: products.price,
     image: products.images,
     favoriteCount: products.favoriteCount,
-    createAt: products.createAt,
+    createdAt: products.createdAt,
   }));
 
   return data;
