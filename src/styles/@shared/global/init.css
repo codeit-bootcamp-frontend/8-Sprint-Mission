@@ -1,0 +1,23 @@
+:root {
+  /* palette */
+  --cool-gray: #374151;
+  --brand-gray: #676767;
+  --border-gray: #dfdfdf;
+  --white: #ffffff;
+  --brand-blue: #3692ff;
+  --pale-blue: #cfe5ff;
+  --cool-blue: #e6f2ff;
+  --hyper-blue: #3182f6;
+  --cool-gray-100: #f3f4f6;
+  --cool-gray-200: #e5e7eb;
+  --cool-gray-400: #9ca3af;
+  --cool-gray-600: #4b5563;
+  --cool-gray-900: #111827;
+  --error-red: #f74747;
+
+  /* padding */
+  --padding-001: 0 20rem;
+
+  /* height, width */
+  --header-heigt: 7rem;
+}
