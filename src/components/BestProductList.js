@@ -16,16 +16,16 @@ const getPageSize = () => {
 
 function BestProductList() {
   const [orderBy, setOrderBy] = useState('favorite');
-  const [items, setItems] = useState([]);
+  const [products, setProducts] = useState([]);
   const [pageSize, setPageSize] = useState(getPageSize());
 
   const handleLoad = async ({ orderBy, pageSize }) => {
     try {
       const products = await getProducts({ orderBy, pageSize });
-      setItems(products.list);
+      setProducts(products.list);
     } catch (error) {
       console.error('Failed to load products:', error);
-      setItems([]);
+      setProducts([]);
     }
   };
 
@@ -46,10 +46,10 @@ function BestProductList() {
         <h3 className="title">베스트 상품</h3>
       </div>
       <ul className="product-list">
-        {items.length > 0 ? (
-          items.map(item => (
-            <li key={item.id}>
-              <ProductCard item={item} />
+        {products.length > 0 ? (
+          products.map(product => (
+            <li key={product.id}>
+              <ProductCard product={product} />
             </li>
           ))
         ) : (

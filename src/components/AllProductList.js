@@ -17,7 +17,7 @@ const getPageSize = () => {
 
 function AllProductList() {
   const [orderBy, setOrderBy] = useState('recent');
-  const [items, setItems] = useState([]);
+  const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
   const [totalPageNum, setTotalPageNum] = useState(0);
@@ -44,11 +44,11 @@ function AllProductList() {
   const handleLoad = async ({ orderBy, page, pageSize }) => {
     try {
       const products = await getProducts({ orderBy, page, pageSize });
-      setItems(products.list);
+      setProducts(products.list);
       setTotalPageNum(Math.ceil(products.totalCount / pageSize));
     } catch (error) {
       console.error('Failed to load products:', error);
-      setItems([]);
+      setProducts([]);
     }
   };
 
@@ -97,10 +97,10 @@ function AllProductList() {
         </div>
       </div>
       <ul className="product-list">
-        {items.length > 0 ? (
-          items.map(item => (
-            <li key={item.id}>
-              <ProductCard item={item} />
+        {products.length > 0 ? (
+          products.map(product => (
+            <li key={product.id}>
+              <ProductCard product={product} />
             </li>
           ))
         ) : (
