@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './router/Root.jsx';
 import Product from './router/Product.jsx';
+import AddItem from './router/AddItem.jsx';
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
       {
         path: '/items',
         element: <Product />,
+      },
+      {
+        path: '/additem',
+        element: <AddItem />,
       },
     ],
   },
