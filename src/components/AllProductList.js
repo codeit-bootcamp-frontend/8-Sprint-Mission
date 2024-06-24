@@ -21,22 +21,18 @@ function AllProductList() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
   const [totalPageNum, setTotalPageNum] = useState(0);
-
   const [menuOpen, setMenuOpen] = useState(false);
-  const [menuLabel, setMenuLabel] = useState('최신순');
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
   };
 
   const handleNewestClick = () => {
-    setMenuLabel('최신순');
     setMenuOpen(false);
     setOrderBy('recent');
   };
 
   const handleFavoriteCountClick = () => {
-    setMenuLabel('좋아요순');
     setMenuOpen(false);
     setOrderBy('favorite');
   };
@@ -53,6 +49,8 @@ function AllProductList() {
   };
 
   const onPageChange = pageNumber => {
+    if (!pageNumber || pageNumber > totalPageNum) return;
+    console.log(pageNumber);
     setPage(pageNumber);
   };
 
@@ -80,7 +78,7 @@ function AllProductList() {
         </a>
         <div className="dropdown">
           <button onClick={toggleMenu} className="dropdown-toggle" type="button">
-            <span>{menuLabel}</span>
+            <span>{orderBy === 'recent' ? '최신순' : '좋아요순'}</span>
           </button>
           <ul className={`dropdown-menu ${menuOpen ? 'open' : ''}`}>
             <li>
