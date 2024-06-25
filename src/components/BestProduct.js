@@ -17,24 +17,25 @@ const responsivePageSize = () => {
 
 function BestProduct() {
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [order, setOrder] = useState("favorite");
 
   const handleLoad = async (options) => {
-    let { list } = await getProducts(options);
+    const { list } = await getProducts(options);
     setProducts(list);
-    // console.log(list);
+    console.log(list);
   };
 
   useEffect(() => {
-    handleLoad({ pageSize, order });
+    handleLoad({ page, pageSize, order });
 
     const handleResize = () => {
       setPageSize(responsivePageSize());
     };
 
     window.addEventListener("resize", handleResize);
-  }, [order, pageSize]);
+  }, [page, order, pageSize]);
 
   return (
     <>

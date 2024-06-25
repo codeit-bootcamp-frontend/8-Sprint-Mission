@@ -17,11 +17,13 @@ const responsivePageSize = () => {
 
 function AllProduct() {
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [order, setOrder] = useState("recent");
   const [dropArrow, setDropArrow] = useState("");
   const [dropDisplay, setDropDisplay] = useState("none");
   const [orderTxt, setOrderTxt] = useState("최신순");
+  const [pagesNum, setPagesNum] = useState([1, 2, 3, 4, 5]);
 
   const handleLoad = async (options) => {
     let { list } = await getProducts(options);
@@ -50,15 +52,19 @@ function AllProduct() {
     setOrder("favorite");
   };
 
+  const pageNumClick = (page) => {
+    setPage(page);
+  };
+
   useEffect(() => {
-    handleLoad({ pageSize, order });
+    handleLoad({ page, pageSize, order });
 
     const handleResize = () => {
       setPageSize(responsivePageSize());
     };
 
     window.addEventListener("resize", handleResize);
-  }, [order, pageSize]);
+  }, [page, order, pageSize]);
 
   return (
     <>
@@ -122,21 +128,20 @@ function AllProduct() {
                 <img src="/images/i-arrow-left.png" alt="왼쪽 화살표" />
               </button>
             </li>
-            <li className="on">
-              <button type="button">1</button>
-            </li>
-            <li>
-              <button type="button">2</button>
-            </li>
-            <li>
-              <button type="button">3</button>
-            </li>
-            <li>
-              <button type="button">4</button>
-            </li>
-            <li>
-              <button type="button">5</button>
-            </li>
+            {pagesNum.map((pageNum) => {
+              return (
+                <li key={pageNum} className={pageNum === page ? "on" : ""}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      pageNumClick(pageNum);
+                    }}
+                  >
+                    {pageNum}
+                  </button>
+                </li>
+              );
+            })}
             <li>
               <button type="button">
                 <img src="/images/i-arrow-right.png" alt="왼쪽 화살표" />
