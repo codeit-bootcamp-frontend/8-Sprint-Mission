@@ -1,0 +1,20 @@
+@import "/src/assets/css/variables";
+@import "/src/assets/css/mixin";
+
+.header {
+  width: 100%;
+  height: auto;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  margin: 24px 73px;
+
+  @include wrap-style(1920px, 762px);
+}
+
+.logo {
+  width: 198px;
+  height: 66px;
+}

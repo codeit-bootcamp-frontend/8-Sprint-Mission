@@ -1,0 +1,76 @@
+@import "/src/assets/css/variables";
+@import "/src/assets/css/mixin";
+
+.footer {
+  width: 100%;
+  height: $footer-h;
+  background: $clr-footer;
+}
+
+.wrap {
+  @include wrap-style(100%, 0px);
+  padding: 16px;
+}
+
+.list {
+  display: grid;
+  grid-template:
+    "info social" min-content
+    "codeit ." min-content
+    / auto;
+  align-content: space-between;
+  height: 100%;
+}
+
+.list > :nth-child(1) {
+  grid-area: codeit;
+}
+
+.list > :nth-child(2) {
+  grid-area: info;
+}
+
+.list > :nth-child(3) {
+  grid-area: social;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.codeit {
+  color: $codeit-clr;
+}
+
+.info {
+  display: flex;
+  column-gap: 32px;
+
+  a {
+    color: #cfcfcf;
+    text-decoration: none;
+  }
+}
+
+.social {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  column-gap: 13px;
+}
+
+@media screen and (min-width: 360px) {
+  .wrap {
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .list > :nth-child(3) {
+    align-items: start;
+  }
+}
