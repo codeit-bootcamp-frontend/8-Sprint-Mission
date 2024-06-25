@@ -3,17 +3,23 @@ import React, { useState } from "react";
 import sortItems from "../../assets/images/ic_sort.svg";
 import sortItemsMobile from "../../assets/images/ic_sortmobile.svg";
 
-function SortButton({ orderByHandle }) {
+function OrderByButton({ orderByHandle, orderBy }) {
   const [openSort, setOpenSort] = useState(false);
 
   const sortHandle = () => {
     setOpenSort(!openSort);
   };
+  const onClickOrder = (order) => {
+    orderByHandle(order);
+    sortHandle();
+  };
 
   return (
     <>
       <button className="items-order" onClick={sortHandle}>
-        <span className="sort-text">최신순</span>
+        <span className="sort-text">
+          {orderBy === "recent" ? "최신순" : "좋아요순"}
+        </span>
         <img className="sort-icon" src={sortItems} />
         <img className="sort-mobile" src={sortItemsMobile} />
       </button>
@@ -22,7 +28,7 @@ function SortButton({ orderByHandle }) {
           <button
             className="sort-recent"
             onClick={() => {
-              orderByHandle("recent");
+              onClickOrder("recent");
             }}
           >
             최신순
@@ -30,7 +36,7 @@ function SortButton({ orderByHandle }) {
           <button
             className="sort-favorite"
             onClick={() => {
-              orderByHandle("favorite");
+              onClickOrder("favorite");
             }}
           >
             좋아요순
@@ -41,4 +47,4 @@ function SortButton({ orderByHandle }) {
   );
 }
 
-export default SortButton;
+export default OrderByButton;

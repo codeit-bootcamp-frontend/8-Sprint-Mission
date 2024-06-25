@@ -6,35 +6,86 @@ import BestItems from "./BestItems";
 import SellingItems from "./SellingItems";
 import PageNavigation from "./PageNavigation";
 
-function ItemsMain() {
+function ItemsMain({ sizeName }) {
   const [bestItems, setBestItems] = useState([]);
   const [sellingItems, setSellingItems] = useState([]);
   const [orderBy, setOrderBy] = useState("recent");
-  const loadItems = async ({ pageSize, orderBy, bestLoad = false }) => {
-    const { list } = await getItems({ pageSize, orderBy });
+  const [pageNum, setPageNum] = useState(1);
+  const [pageCount, setPageCount] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
+  const [keyWord, setKeyWord] = useState("");
+  const [didMount, setDidMount] = useState(false);
+
+  const loadItems = async ({
+    page = pageNum,
+    pageSize = pageSize,
+    orderBy = orderBy,
+    keyword = keyWord,
+    bestLoad = false,
+  }) => {
+    const { list, totalCount } = await getItems({
+      page,
+      pageSize,
+      orderBy,
+      keyWord,
+    });
     if (bestLoad) {
       setBestItems(list);
     }
     if (!bestLoad) {
       setSellingItems(list);
+      setPageCount(Math.ceil(totalCount / pageSize));
     }
   };
-
-  const orderByHandle = (sort) => {
-    setOrderBy(sort);
+  const keyWordHandle = (keyword) => {
+    setKeyWord(keyword);
+  };
+  const orderByHandle = (order) => {
+    setOrderBy(order);
+  };
+  const pageNumHandle = (page) => {
+    setPageNum(page);
   };
   useEffect(() => {
-    loadItems({ pageSize: 4, orderBy: "favorite", bestLoad: true });
+    if (sizeName === "large") {
+      setPageSize(10);
+    } else if (sizeName === "medium") {
+      setPageSize(6);
+    } else {
+      setPageSize(4);
+    }
+  }, [sizeName]);
+  useEffect(() => {
+    loadItems({ page: 1, pageSize: 4, orderBy: "favorite", bestLoad: true });
   }, []);
   useEffect(() => {
-    loadItems({ pageSize: 10, orderBy });
-  }, [orderBy]);
+    loadItems({ page: pageNum, pageSize, orderBy, keyWord: keyWord });
+    setPageNum(1);
+    console.log("실행");
+  }, [orderBy, pageSize, keyWord]);
+  useEffect(() => {
+    if (!didMount) {
+      setDidMount(true);
+      return;
+    }
+    loadItems({ page: pageNum, pageSize, orderBy });
+  }, [pageNum]);
+
   return (
     <>
       <MainContainer>
         <BestItems items={bestItems} />
-        <SellingItems items={sellingItems} orderByHandle={orderByHandle} />
-        <PageNavigation />
+        <SellingItems
+          items={sellingItems}
+          orderByHandle={orderByHandle}
+          orderBy={orderBy}
+          keyWordHandle={keyWordHandle}
+        />
+        <PageNavigation
+          onClickNum={pageNumHandle}
+          pageNum={pageNum}
+          pageCount={pageCount}
+        />
       </MainContainer>
     </>
   );

@@ -24,14 +24,13 @@ function SellingItemList({ items }) {
 }
 
 const SellingUl = styled.ul`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  justify-items: center;
   padding-top: 16px;
-  justify-content: space-between;
-  flex-wrap: wrap;
 
   .items-container {
     padding-bottom: 40px;
-    display: inline-block;
     display: flex;
     flex-direction: column;
   }
@@ -46,20 +45,19 @@ const SellingUl = styled.ul`
     border-radius: 16px;
   }
   @media (max-width: 1199px) {
+    grid-template-columns: repeat(3, auto);
+
     li {
       width: 33%;
     }
-    li:nth-child(n + 7) {
-      display: none;
-    }
   }
   @media (max-width: 767px) {
+    grid-template-columns: repeat(2, auto);
+
     li {
       width: 50%;
     }
-    li:nth-child(n + 5) {
-      display: none;
-    }
+
     .item-img {
       width: 168px;
       height: 168px;

@@ -1,20 +1,32 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import glasses from "../../assets/images/ic_glasses.svg";
 
-import SortButton from "./SortButton";
-function SellingItemsSearch({ orderByHandle }) {
+import OrderByButton from "./OrderByButton";
+function SellingItemsSearch({ orderByHandle, orderBy, onChangeKeyWord }) {
+  const [searchValue, setSearchValue] = useState("");
+  const onChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+  useEffect(() => {
+    onChangeKeyWord(searchValue);
+  }, [searchValue]);
   return (
     <SearchContainer>
       <div className="input-container">
         <img src={glasses} />
-        <input placeholder="검색할 상품을 입력해주세요." />
+        <input
+          value={searchValue}
+          onChange={onChange}
+          placeholder="검색할 상품을 입력해주세요."
+        />
       </div>
       <Link to="/additem">
         <button className="item-add">상품 등록하기</button>
       </Link>
-      <SortButton orderByHandle={orderByHandle} />
+      <OrderByButton orderByHandle={orderByHandle} orderBy={orderBy} />
     </SearchContainer>
   );
 }
