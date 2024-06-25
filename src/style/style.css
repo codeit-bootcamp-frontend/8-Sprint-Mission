@@ -1,0 +1,306 @@
+:root {
+  --main-blue-color: #3692ff;
+  --hover-blue-color: #1967d6;
+  --imgBg-blue-color: #cfe5ff;
+  --mainText-blue-color: #374151;
+  --subText-blue-color: #1f2937;
+  --error-line-color: #f74747;
+}
+
+a {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+#wrap {
+  padding-top: 100px;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+nav {
+  padding: 10px 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  z-index: 1;
+}
+
+nav #logo {
+  height: 51px;
+}
+
+nav .login {
+  display: flex;
+  background-color: var(--main-blue-color);
+  width: 88px;
+  height: 42px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+a.login:hover {
+  background-color: var(--hover-blue-color);
+}
+
+.menuBar {
+  padding-left: 30px;
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 2;
+  gap: 20px;
+}
+
+.menuBar li {
+  font-size: 16px;
+  font-weight: 700;
+  width: 70px;
+  color: var(--mainText-blue-color);
+}
+
+.bestProduct {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.bestProduct .best-item-card {
+  width: 282px;
+}
+
+.best-productTitle {
+  font-size: 20px;
+  font-weight: 700;
+  width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+
+.bestProduct .best-item-card img {
+  width: 100%;
+  border-radius: 16px;
+  height: 282px;
+}
+
+.bestProduct .best-item-card .bestDescript,
+.sail-products-card .bestDescript {
+  font-size: 14px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  margin-top: 16px;
+}
+.bestProduct .best-item-card .bestPrice,
+.sail-products-card .bestPrice {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--subText-blue-color);
+  margin-top: 6px;
+}
+
+.bestProduct .best-item-card h3,
+.sail-products-card h3 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 6px;
+  color: var(--mainText-blue-color);
+  display: flex;
+  align-items: center;
+}
+
+.bestProduct .best-item-card h3 span,
+.sail-products-card h3 span {
+  font-size: 16px;
+  padding-right: 5px;
+}
+
+.menu-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+#site-search {
+  padding-left: 40px;
+  border-radius: 10px;
+  width: 325px;
+  height: 42px;
+  background: #f3f4f6;
+  border: 0px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.searchBox span {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  color: #9ca3af;
+}
+
+.menu-box #RegistButton {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--main-blue-color);
+  border-radius: 8px;
+  border: 0;
+  width: 133px;
+  height: 42px;
+}
+
+.sailing-productTitle {
+  font-size: 20px;
+  font-weight: 700;
+  width: 588px;
+}
+
+.menu-box #sortOptions {
+  width: 130px;
+  height: 42px;
+  padding: 12px 20px;
+  color: var(--subText-blue-color);
+  font-weight: 400;
+  font-size: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.menu-box .product-card {
+  display: flex;
+  gap: 12px;
+}
+/* 판매중인상품 */
+.sailing-card {
+  display: grid;
+  grid-template-columns: repeat(5, 220px);
+  gap: 40px 24px;
+  width: 1200px;
+  margin: 24px auto 40px auto;
+}
+
+.sail-products-card img {
+  width: 100%;
+  height: 221px;
+  border-radius: 16px;
+}
+.Pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 100px;
+}
+
+.Pagination li {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e5e7eb;
+  color: var(--mainText-blue-color);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Pagination button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e5e7eb;
+  color: var(--mainText-blue-color);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.Pagination li:hover {
+  background-color: var(--main-blue-color);
+  color: #fff;
+}
+
+/* 반응형 */
+@media (max-width: 1199px) {
+  nav {
+    width: 100%;
+    padding: 10px 24px;
+  }
+
+  h2.best-productTitle {
+    width: 100%;
+    padding: 0 16px;
+    margin: 0;
+  }
+
+  div.bestProduct {
+    padding: 40px 24px;
+    width: 100%;
+  }
+
+  .bestProduct .best-item-card {
+    width: 50%;
+  }
+
+  .bestProduct .best-item-card img {
+    width: 100%;
+    height: 332px;
+  }
+
+  .sailing-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 16px;
+    width: 100%;
+    padding: 40px 24px;
+  }
+
+  div.menu-box {
+    width: 100%;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+}
