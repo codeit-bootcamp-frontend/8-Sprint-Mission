@@ -1,9 +1,8 @@
 /* ==== button ==== */
 
-
 .btn-sm {
   display: flex;
-  width: 128px;
+  min-width: 88px;
   height: 48px;
   font-size: 16px;
   font-weight: 600;
@@ -11,7 +10,7 @@
   padding: 0 1em;
   justify-content: center;
   align-items: center;
-  transition: backgroud .2s ease;
+  transition: backgroud 0.2s ease;
 }
 
 .btn-lg {
@@ -22,7 +21,7 @@
   font-weight: 600;
   height: 56px;
   border-radius: 40px;
-  transition: backgroud .2s ease;
+  transition: backgroud 0.2s ease;
 }
 
 .btn-primary {
@@ -34,7 +33,6 @@
   background: var(--primary-hover);
   color: var(--white);
 }
-
 
 .btn-primary:disabled {
   background: var(--gray400);

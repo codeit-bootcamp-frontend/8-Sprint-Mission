@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function Pagination({ totalPageNum, activePageNum, onPageChange }) {
   const maxVisiblePages = 5;
@@ -13,30 +13,33 @@ function Pagination({ totalPageNum, activePageNum, onPageChange }) {
 
   const pages = Array.from(
     { length: Math.min(maxVisiblePages, totalPageNum - startPage + 1) },
-    (_, i) => startPage + i
+    (_, i) => startPage + i,
   );
   return (
     <ul className="pagination">
-      <li className="prev">
-        <a className="page-link"
+      <li>
+        <button
+          className="prev page-link"
           disabled={activePageNum === 1}
           onClick={() => onPageChange(activePageNum - 1)}
-          href="#none" title='이전'></a>
-      </li> 
-      {pages.map((page) => (
+          title="이전"></button>
+      </li>
+      {pages.map(page => (
         <li>
-          <a href="#none"
-          key={page}
-          className={`page-link ${
-            activePageNum === page ? "on" : ""
-          }`}
-          onClick={() => onPageChange(page)}
-          >{page}</a>
-        </li> 
+          <button
+            key={page}
+            className={`page-link ${activePageNum === page ? 'on' : ''}`}
+            onClick={() => onPageChange(page)}>
+            {page}
+          </button>
+        </li>
       ))}
-      <li className="next">
-        <a className="page-link" disabled={activePageNum === totalPageNum}
-        onClick={() => onPageChange(activePageNum + 1)} href="#none" title='다음'></a>
+      <li>
+        <button
+          className="page-link next"
+          disabled={activePageNum === totalPageNum}
+          onClick={() => onPageChange(activePageNum + 1)}
+          title="다음"></button>
       </li>
     </ul>
   );
