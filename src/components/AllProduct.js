@@ -23,7 +23,7 @@ function AllProduct() {
   const [dropArrow, setDropArrow] = useState("");
   const [dropDisplay, setDropDisplay] = useState("none");
   const [orderTxt, setOrderTxt] = useState("최신순");
-  const [pagesNum, setPagesNum] = useState([1, 2, 3, 4, 5]);
+  const [pagesNum, setPagesNum] = useState([1, 2]);
 
   const handleLoad = async (options) => {
     let { list } = await getProducts(options);
@@ -54,6 +54,18 @@ function AllProduct() {
 
   const pageNumClick = (page) => {
     setPage(page);
+  };
+
+  const prevPageBtn = () => {
+    if (page !== 1) {
+      setPage(page - 1);
+    }
+  };
+
+  const nextPageBtn = () => {
+    if (page !== pagesNum.length) {
+      setPage(page + 1);
+    }
   };
 
   useEffect(() => {
@@ -124,7 +136,7 @@ function AllProduct() {
         <div className="pageNav">
           <ul>
             <li>
-              <button type="button">
+              <button type="button" onClick={prevPageBtn}>
                 <img src="/images/i-arrow-left.png" alt="왼쪽 화살표" />
               </button>
             </li>
@@ -143,7 +155,7 @@ function AllProduct() {
               );
             })}
             <li>
-              <button type="button">
+              <button type="button" onClick={nextPageBtn}>
                 <img src="/images/i-arrow-right.png" alt="왼쪽 화살표" />
               </button>
             </li>
