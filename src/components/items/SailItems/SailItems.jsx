@@ -4,6 +4,7 @@ import { ReactComponent as IconSort } from '../../../assets/images/icons/ic_sort
 import { useEffect, useState } from 'react';
 import { getProducts } from '../../../pages/api/Items';
 import Item from '../Item/Item';
+import PaginationBar from '../PaginationBar/PaginationBar';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -26,7 +27,12 @@ function SailItems() {
   const [keyword, setKeyword] = useState('');
   // 검색
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  // 페이지네이션
+  const [totalPageNum, setTotalPageNum] = useState();
 
+  const handlePageChange = (pageNumber) => {
+    setPage(pageNumber);
+  };
   const handleClickDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
@@ -44,6 +50,7 @@ function SailItems() {
   const fetchItemList = async ({ order, page, pageSize, keyword }) => {
     let products = await getProducts({ order, page, pageSize, keyword });
     setItemList(products.list);
+    setTotalPageNum(Math.ceil(products.totalCount / pageSize));
   };
 
   useEffect(() => {
@@ -111,6 +118,13 @@ function SailItems() {
           {itemList?.map((item) => (
             <Item item={item} key={`sail-item-${item.id}`} />
           ))}
+        </div>
+        <div className="wrapper-pagination-bar">
+          <PaginationBar
+            totalPageNum={totalPageNum}
+            activePageNum={page}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
     </>

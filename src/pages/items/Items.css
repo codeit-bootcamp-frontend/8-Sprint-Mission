@@ -101,6 +101,10 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.wrapper-pagination-bar {
+  padding: 40px 0 80px;
+}
+
 /* Item */
 .wrapper-item {
   overflow: hidden;
