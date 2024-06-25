@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import Pagination from './Pagination';
+import Loadingbar from './Loadingbar';
 import { getProducts } from '../services/api';
 
 const getPageSize = () => {
@@ -33,6 +34,7 @@ function AllProductList() {
   const [pageSize, setPageSize] = useState(getPageSize());
   const [totalPageNum, setTotalPageNum] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
@@ -44,6 +46,7 @@ function AllProductList() {
   };
 
   const handleLoad = async ({ orderBy, page, pageSize }) => {
+    setLoading(true);
     try {
       const products = await getProducts({ orderBy, page, pageSize });
       setProducts(products.list);
@@ -51,6 +54,8 @@ function AllProductList() {
     } catch (error) {
       console.error('Failed to load products:', error);
       setProducts([]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -98,17 +103,19 @@ function AllProductList() {
           </ul>
         </div>
       </div>
-      <ul className="product-list">
-        {products.length > 0 ? (
-          products.map(product => (
+      {loading ? (
+        <Loadingbar />
+      ) : products.length > 0 ? (
+        <ul className="product-list">
+          {products.map(product => (
             <li key={product.id}>
               <ProductCard product={product} />
             </li>
-          ))
-        ) : (
-          <p className="list-none">상품이 없습니다.</p>
-        )}
-      </ul>
+          ))}
+        </ul>
+      ) : (
+        <p className="list-none">상품이 없습니다.</p>
+      )}
       {totalPageNum > 1 && <Pagination totalPageNum={totalPageNum} activePageNum={page} onPageChange={onPageChange} />}
     </>
   );
