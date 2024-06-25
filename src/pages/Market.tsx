@@ -21,7 +21,9 @@ const MarketContainer = styled.main`
   flex-direction: column;
   gap: 4rem;
 
-  width: 120rem;
+  width: 100%;
+  padding: 0 2.4rem;
+  max-width: 120rem;
   height: 100%;
   margin: 0 auto;
   padding-top: calc(var(--header-heigt) + 2.4rem);

@@ -3,18 +3,21 @@ import Product from './Product';
 import useProductsQuery from 'queries/useProductsQuery';
 import { useState } from 'react';
 import Pagination from 'components/@shared/Pagination';
+import usePageSize from 'hooks/usePageSize';
 
 interface ForSaleProductListProps {
   order: string;
   keyword: string;
 }
 
-export const PAGE_SIZE = '10'; // 한 페이지당 보여줄 상품 수
-
 function ForSaleProductList({ order, keyword }: ForSaleProductListProps) {
   const [currentPageCount, setCurrentPageCount] = useState('1'); // 현재 페이지 번호
-  const { data } = useProductsQuery({ size: PAGE_SIZE, page: currentPageCount, order, keyword });
-  const { list: productList, totalCount } = data; // 상품 목록과 총 상품 수
+  const pageSize = usePageSize('forSale');
+  const {
+    data: { list: productList, totalCount },
+  } = useProductsQuery({ size: pageSize, page: currentPageCount, order, keyword });
+
+  console.log();
 
   return (
     <StyledForSaleProductContainer>
@@ -42,13 +45,15 @@ const StyledForSaleProductContainer = styled.main`
 
 const StyledForSaleProductsSection = styled.section`
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(5, 1fr);
   justify-items: start;
   column-gap: 2.4rem;
   row-gap: 4rem;
 
-  & .product-image-wrapper {
-    height: 22.1rem;
-    width: 22.1rem;
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;

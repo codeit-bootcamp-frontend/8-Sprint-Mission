@@ -13,16 +13,22 @@ function Product({
     <article>
       <div className={'product-image-wrapper'}>
         {images.map(image => (
-          <Image key={image} src={image} alt={'상품 이미지'} height={'100%'} width={'100%'} radius={'1.6rem'} />
+          <Image
+            key={image}
+            src={image}
+            alt={'상품 이미지'}
+            height={'auto'}
+            width={'100%'}
+            radius={'1.6rem'}
+            aspectRatio={'1'}
+          />
         ))}
       </div>
       <StyledProductInfoWrapper>
         <h4>{name}</h4>
         <h5>{price}원</h5>
         <small>
-          <i>
-            <Image src={likeIcon} alt={'좋아요 아이콘'} height={'1.165rem'} width={'1.34rem'} />
-          </i>
+          <Image className={'like-icon'} src={likeIcon} alt={'좋아요 아이콘'} height={'1.165rem'} width={'1.34rem'} />
           {favoriteCount}
         </small>
       </StyledProductInfoWrapper>
@@ -59,7 +65,7 @@ const StyledProductInfoWrapper = styled.div`
     font-weight: 500;
     color: var(--cool-gray-600);
 
-    & i {
+    & .like-icon {
       margin-right: 0.133rem;
     }
   }

@@ -1,4 +1,4 @@
-import { PAGE_SIZE } from 'components/market/ForSaleProductList';
+import usePageSize from 'hooks/usePageSize';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -12,9 +12,12 @@ const MAX_PAGE_BUTTONS = '5'; // 화면에 최대 보여줄 페이지 버튼 수
 
 function Pagination({ totalCount, currentPageCount, setCurrentPageCount }: PaginationProps) {
   const [startPageCount, setStartPageCount] = useState('1'); // 현재 페이지 그룹의 시작 페이지 번호
+  const pageSize = usePageSize('forSale');
+
+  console.log('pageSize:', pageSize);
 
   // 총 페이지 수를 계산한 최종 페이지 번호
-  const lastPageCount = totalCount ? Math.ceil(totalCount / parseInt(PAGE_SIZE)).toString() : '1';
+  const lastPageCount = totalCount ? Math.ceil(totalCount / pageSize).toString() : '1';
 
   // 현재 페이지 그룹의 마지막 페이지 번호
   const endPageCount = Math.min(
@@ -51,11 +54,6 @@ function Pagination({ totalCount, currentPageCount, setCurrentPageCount }: Pagin
       setCurrentPageCount(value);
     }
   };
-
-  // console.log('현재 페이지: ', currentPageCount);
-  // console.log('화면에 보이는 마지막 페이지: ', endPageCount);
-  // console.log('최종 페이지: ', lastPageCount);
-  // console.log('전체 아이템 개수: ', totalCount);
 
   return (
     <StyledPagenationSection onClick={handlePageButtonClick}>

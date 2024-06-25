@@ -13,6 +13,7 @@ function ForSaleProductsSection() {
   const { navigateTo } = useNavigateTo();
   const [searchValue, setSearchValue] = useState('');
   const [orderBy, setOrderBy] = useState('recent');
+
   const [isOpenDropdown, setIsOpenDropDown] = useState(false);
 
   const handleOrderByClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -39,9 +40,7 @@ function ForSaleProductsSection() {
 
         <StyledProductManagementSection>
           <StyledSearchInputForm onSubmit={handleSearchSubmit}>
-            <i>
-              <Image src={searchIcon} alt={'검색 아이콘'} height={'2.4rem'} width={'2.4rem'} />
-            </i>
+            <Image src={searchIcon} alt={'검색 아이콘'} height={'2.4rem'} width={'2.4rem'} />
             <input name={'search'} placeholder={'검색할 상품을 입력해주세요'} />
           </StyledSearchInputForm>
 
