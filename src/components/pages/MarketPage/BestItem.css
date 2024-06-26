@@ -1,0 +1,6 @@
+.best-item-wrap {
+  display: flex;
+  max-width: 1200px;
+  gap: 24px;
+  flex-wrap: wrap;
+}

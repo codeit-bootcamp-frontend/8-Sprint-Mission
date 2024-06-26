@@ -1,4 +1,5 @@
 import HeartIcon from './HeartIcon';
+import './ItemCard.css';
 
 function ItemCard({ item }) {
   return (

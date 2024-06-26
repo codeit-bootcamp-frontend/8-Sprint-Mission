@@ -1,8 +1,28 @@
+import { useEffect, useState } from 'react';
+import ItemCard from './ItemCard';
+import { getProduct } from '../../../api';
+import './BestItem.css';
+
 function BestItem() {
+  const [items, setItems] = useState([]);
+
+  const handleLoad = async () => {
+    const { list } = await getProduct();
+    setItems(list);
+  };
+
+  useEffect(() => {
+    handleLoad();
+  }, []);
+
   return (
     <div>
       <h1>베스트 상품</h1>
-      <div>베스트 상품들</div>
+      <div className="best-item-wrap">
+        {items.map((item) => {
+          return <ItemCard item={item} key={item.id} />;
+        })}
+      </div>
     </div>
   );
 }
