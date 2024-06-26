@@ -12,33 +12,37 @@
   border-bottom: 1px solid #dfdfdf;
 }
 
-.navbarLeft {
+.navbar-left {
   display: flex;
   align-items: center;
 }
 
-.navbarHomeLogo {
+.navbar-home-logo {
   width: 153px;
 }
 
-.navbarMenu {
+.navbar-menu {
   margin: 0 15px;
   text-decoration: none;
 }
 
-.navbarMenu ol {
+.navbar-menu ol {
   list-style-type: none;
   padding-left: 0;
 }
 
-.navbarMenuItem {
+.navbar-menu-item {
   display: inline-block;
   margin: 10px;
   font-size: 18px;
   font-weight: bold;
 }
 
-.navbarMenuItem.active {
+.navbar-menu-item.active {
+  color: var(--blue);
+}
+
+.nav-bar-menu-link.active {
   color: var(--blue);
 }
 
