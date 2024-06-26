@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "ES5",
+    "module": "ES6",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "outDir": "./",
+    "lib": ["ES2015", "DOM", "DOM.Iterable"]
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
+}
