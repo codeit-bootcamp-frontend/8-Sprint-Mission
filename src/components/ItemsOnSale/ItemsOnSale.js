@@ -21,7 +21,8 @@ function BestItems({ item }) {
 
 function ItemsOnSale({ items, orderBy, handleOrderChange }) {
   // 반응형에 따라 몇 개의 데이터를 표시할 건지 후에 수정해야 함.
-  const cutItems = [...items.list].slice(0, 10);
+  // const cutItems = [...items.list].slice(0, 10);
+  const cutItems = [...items.list];
   return (
     <div className="sale-item">
       <div className="mini-nav-bar">
