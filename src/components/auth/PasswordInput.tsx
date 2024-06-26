@@ -1,8 +1,9 @@
 import Image from 'components/@shared/Image';
-import React, { useState } from 'react';
+import React from 'react';
 import eyeCloseImg from 'assets/images/auth/visibility-off.png';
 import eyeOpenImg from 'assets/images/auth/visibility-on.png';
 import styled from 'styled-components';
+import useToggle from 'hooks/useToggle';
 
 interface PasswordInputProps {
   id: string;
@@ -14,11 +15,7 @@ interface PasswordInputProps {
 }
 
 function PasswordInput({ id, name, value, onChange, autoComplete = 'on', placeholder = '' }: PasswordInputProps) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleEyeClick = () => {
-    setIsVisible(prevState => !prevState);
-  };
+  const [isVisible, toggleIsVisible] = useToggle();
 
   return (
     <StyledPasswordWrapper>
@@ -31,7 +28,7 @@ function PasswordInput({ id, name, value, onChange, autoComplete = 'on', placeho
         autoComplete={autoComplete}
         placeholder={placeholder}
       />
-      <i onClick={handleEyeClick}>
+      <i onClick={toggleIsVisible}>
         {isVisible ? (
           <Image src={eyeOpenImg} alt={'눈 보임 이미지'} height={'100%'} width={'100%'} />
         ) : (
