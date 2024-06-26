@@ -8,7 +8,7 @@ interface PaginationProps {
   setCurrentPageCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const MAX_PAGE_BUTTONS = 5; // 화면에 최대 보여줄 페이지 버튼 수
+const MAX_PAGE_BUTTONS = 3; // 화면에 최대 보여줄 페이지 버튼 수
 
 function Pagination({ totalCount, currentPage, setCurrentPageCount }: PaginationProps) {
   const pageSize = usePageSize('forSale');
@@ -48,7 +48,7 @@ function Pagination({ totalCount, currentPage, setCurrentPageCount }: Pagination
 
   return (
     <StyledPagenationSection onClick={handlePageButtonClick}>
-      <StyledPageButton data-value={'prevPage'} onClick={handlePageButtonClick} disabled={currentPage === 1}>
+      <StyledPageButton data-value={'prevPage'} disabled={currentPage === 1}>
         {'<'}
       </StyledPageButton>
       {pageCountList.map(count => (
