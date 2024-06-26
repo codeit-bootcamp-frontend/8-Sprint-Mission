@@ -23,7 +23,7 @@ const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   /* 다른 요소에 의해 가려지지 않도록 z-index 부여 */
-  z-index: 9999;
+  z-index: var(--z-index-header);
 
   display: flex;
   justify-content: space-between;

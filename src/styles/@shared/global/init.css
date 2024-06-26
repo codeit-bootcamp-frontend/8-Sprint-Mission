@@ -20,4 +20,7 @@
 
   /* height, width */
   --header-heigt: 7rem;
+
+  /* z-index */
+  --z-index-header: 2;
 }
