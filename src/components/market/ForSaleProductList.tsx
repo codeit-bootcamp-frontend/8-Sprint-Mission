@@ -11,13 +11,11 @@ interface ForSaleProductListProps {
 }
 
 function ForSaleProductList({ order, keyword }: ForSaleProductListProps) {
-  const [currentPageCount, setCurrentPageCount] = useState('1'); // 현재 페이지 번호
+  const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 번호
   const pageSize = usePageSize('forSale');
   const {
     data: { list: productList, totalCount },
-  } = useProductsQuery({ size: pageSize, page: currentPageCount, order, keyword });
-
-  console.log();
+  } = useProductsQuery({ size: pageSize, page: currentPage, order, keyword });
 
   return (
     <StyledForSaleProductContainer>
@@ -26,11 +24,7 @@ function ForSaleProductList({ order, keyword }: ForSaleProductListProps) {
           <Product key={id} name={name} images={images} price={price} favoriteCount={favoriteCount} />
         ))}
       </StyledForSaleProductsSection>
-      <Pagination
-        totalCount={totalCount}
-        currentPageCount={currentPageCount}
-        setCurrentPageCount={setCurrentPageCount}
-      />
+      <Pagination totalCount={totalCount} currentPage={currentPage} setCurrentPageCount={setCurrentPage} />
     </StyledForSaleProductContainer>
   );
 }

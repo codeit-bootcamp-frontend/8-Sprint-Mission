@@ -4,7 +4,7 @@ import { axiosInstance } from 'apis/setupAxios';
 import { IProductResponse } from 'types/productTypes';
 
 interface useProductsQueryFetcherProps {
-  page: string;
+  page: number;
   order: string;
   keyword: string;
   size: number;
@@ -26,7 +26,7 @@ const fetcher = async ({ page, order, size, keyword }: useProductsQueryFetcherPr
 };
 
 //TODO: size 상수화
-const useProductsQuery = ({ page = '1', order = 'recent', size = 10, keyword = '' }) => {
+const useProductsQuery = ({ page = 1, order = 'recent', size = 10, keyword = '' }) => {
   return useSuspenseQuery({
     queryKey: [PRODUCTS_QUERY_KEY, page, order, size, keyword],
     queryFn: () => fetcher({ page, order, size, keyword }),
