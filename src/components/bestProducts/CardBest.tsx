@@ -1,7 +1,21 @@
 import "./card-best.css";
 import HeartIcon from "../../core/assets/icons/heartIcon/inactive-small.svg";
 
-const CardBest = ({ imgSrc, imgAlt, description, price, favoriteCount }) => {
+interface CardBest {
+  imgSrc: string;
+  imgAlt: string;
+  description: string;
+  price: string;
+  favoriteCount: number;
+}
+
+const CardBest = ({
+  imgSrc,
+  imgAlt,
+  description,
+  price,
+  favoriteCount,
+}: CardBest) => {
   return (
     <div className="card">
       <div className="img-wrap">

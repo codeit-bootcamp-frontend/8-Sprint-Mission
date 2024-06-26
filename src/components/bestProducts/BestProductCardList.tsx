@@ -1,7 +1,12 @@
+import { ProductItem } from "core/Interface/Product";
 import BestProductCard from "./BestProductCard";
 import "./card-best.css";
 
-const BestProductCardList = ({ bestProducts }) => {
+interface BestProductCardListProps {
+  bestProducts: ProductItem[];
+}
+
+const BestProductCardList = ({ bestProducts }: BestProductCardListProps) => {
   return (
     <ul className="best-product-list">
       {bestProducts.map((product) => {

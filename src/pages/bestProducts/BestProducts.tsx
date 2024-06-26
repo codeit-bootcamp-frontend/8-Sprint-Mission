@@ -6,11 +6,12 @@ import fetchProduct from "../../lib/api/product";
 
 import "./best-products.css";
 import useResize from "../../lib/hooks/useResize";
+import { ProductItem, QueryOptions } from "core/Interface/Product";
 
 const BestProducts = () => {
-  const [bestProducts, setBestProducts] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const getBestPageSize = (width) => {
+  const [bestProducts, setBestProducts] = useState<ProductItem[]>([]);
+  const [errorMessage, setErrorMessage] = useState<Error>();
+  const getBestPageSize = (width: number) => {
     if (1200 <= width) {
       return 4;
     }
@@ -21,13 +22,15 @@ const BestProducts = () => {
   };
   const size = useResize({ getPageSize: getBestPageSize });
 
-  const handleBestProducts = async (options) => {
+  const handleBestProducts = async (options: QueryOptions) => {
     let result;
     try {
-      setErrorMessage(null);
+      setErrorMessage(undefined);
       result = await fetchProduct(options);
-    } catch (error) {
-      setErrorMessage(error);
+    } catch (error: unknown) {
+      const message = error as Error;
+      setErrorMessage(message);
+
       return;
     }
     const { list } = result;
@@ -36,7 +39,7 @@ const BestProducts = () => {
 
   useEffect(() => {
     handleBestProducts({
-      currnetPage: 1,
+      currentPage: 1,
       pageSize: size,
       orderBy: "favorite",
       searchKeyword: "",

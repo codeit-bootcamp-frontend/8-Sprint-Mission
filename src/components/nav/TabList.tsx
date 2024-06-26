@@ -1,6 +1,10 @@
 import "./tablist.css";
 
-const TabList = ({ onClick }) => {
+interface TabListProps {
+  onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+}
+
+const TabList = ({ onClick }: TabListProps) => {
   return (
     <ul onClick={onClick} className="tab-list">
       <li className="tab-item">자유게시판</li>

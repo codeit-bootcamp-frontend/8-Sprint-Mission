@@ -1,7 +1,12 @@
 import CardBest from "./CardBest";
 import DefaultImg from "../../core/assets/images/img_default.png";
+import { ProductItem } from "core/Interface/Product";
 
-const BestProductCard = ({ product }) => {
+interface BestProductCard {
+  product: ProductItem;
+}
+
+const BestProductCard = ({ product }: BestProductCard) => {
   const { images, name, price, favoriteCount } = product;
   const getImageSource = () => {
     let imgSrc;
@@ -13,15 +18,13 @@ const BestProductCard = ({ product }) => {
     return imgSrc;
   };
   return (
-    <div>
-      <CardBest
-        imgSrc={getImageSource()}
-        imgAlt={name ?? ""}
-        description={name ?? ""}
-        price={price?.toLocaleString("ko-KR") ?? 0}
-        favoriteCount={favoriteCount ?? 0}
-      />
-    </div>
+    <CardBest
+      imgSrc={getImageSource()}
+      imgAlt={name ?? ""}
+      description={name ?? ""}
+      price={price?.toLocaleString("ko-KR") ?? "0"}
+      favoriteCount={favoriteCount ?? 0}
+    />
   );
 };
 

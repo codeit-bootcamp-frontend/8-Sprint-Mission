@@ -11,6 +11,7 @@ import SearchInput from "../../core/search/SearchInput";
 import Dropdown from "../../core/dropdown/Dropdown";
 import BtnSmall from "../../core/buttons/BtnSmall";
 import PagiNation from "../../components/salesProducts/PagiNation";
+import { QueryOptions } from "core/Interface/Product";
 
 const SalesProducts = () => {
   const [salesProducts, setSalesProducts] = useState([]);
@@ -18,9 +19,9 @@ const SalesProducts = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState<Error>();
 
-  const getSalesPageSize = (width) => {
+  const getSalesPageSize = (width: number) => {
     if (1200 <= width) {
       return 10;
     }
@@ -31,14 +32,14 @@ const SalesProducts = () => {
   };
   const size = useResize({ getPageSize: getSalesPageSize });
 
-  const handleSalesProducts = async (options) => {
+  const handleSalesProducts = async (options: QueryOptions) => {
     let result;
     try {
       setIsLoading(true);
-      setErrorMessage(null);
+      setErrorMessage(undefined);
       result = await fetchProduct(options);
-    } catch (error) {
-      setErrorMessage(error);
+    } catch (error: unknown) {
+      setErrorMessage(error as Error);
       return;
     } finally {
       setIsLoading(false);
@@ -49,11 +50,12 @@ const SalesProducts = () => {
     setTotalPage(newTotalPage);
   };
 
-  const handleListClick = (e) => {
+  const handleListClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const eventTarget = e.target as HTMLElement;
     if (isLoading) {
       return;
     }
-    const newOrder = e.target.innerText === "최신순" ? "recent" : "favorite";
+    const newOrder = eventTarget.innerText === "최신순" ? "recent" : "favorite";
 
     if (newOrder === order) {
       return;
@@ -68,7 +70,7 @@ const SalesProducts = () => {
     setCurrentPage(1);
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     handleSalesProducts({
       currentPage: 1,
       pageSize: size,
@@ -78,8 +80,9 @@ const SalesProducts = () => {
     setCurrentPage(1);
   };
 
-  const handleCurrentPage = (e) => {
-    const newCurrentPage = Number(e.target.innerText);
+  const handleCurrentPage = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const eventTarget = e.target as HTMLElement;
+    const newCurrentPage = Number(eventTarget.innerText);
     setCurrentPage(newCurrentPage);
     handleSalesProducts({
       currentPage: newCurrentPage,
@@ -87,6 +90,10 @@ const SalesProducts = () => {
       orderBy: order,
       searchKeyword: "",
     });
+  };
+
+  const handleCreateClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    console.log(e.target);
   };
 
   useEffect(() => {
@@ -105,7 +112,9 @@ const SalesProducts = () => {
         <div className="sales-options-container">
           <SearchInput handleSearch={handleSearch} />
           <Link to="/addItem">
-            <BtnSmall>상품 등록하기</BtnSmall>
+            <BtnSmall onClick={handleCreateClick} disabled={true}>
+              상품 등록하기
+            </BtnSmall>
           </Link>
           <Dropdown
             isLoading={isLoading}

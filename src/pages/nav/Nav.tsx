@@ -8,8 +8,8 @@ const Nav = () => {
   return (
     <nav className="nav">
       <img src={LogoImage} className="logo-img" alt="로고" />
-      <TabList />
-      <LoginBtn>로그인</LoginBtn>
+      <TabList onClick={() => {}} />
+      <LoginBtn />
     </nav>
   );
 };

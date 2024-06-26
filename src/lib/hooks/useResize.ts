@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 
-const useResize = ({ getPageSize }) => {
+const useResize = ({
+  getPageSize,
+}: {
+  getPageSize: (width: number) => number | number;
+}) => {
   const [size, setSize] = useState(getPageSize(window.innerWidth));
 
   const handleResize = () => {
