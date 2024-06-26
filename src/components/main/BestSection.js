@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getProducts } from '../../api';
+import { getProducts } from '../../api/api';
 import Card from './Card';
 import './BestSection.css';
 

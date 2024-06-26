@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../api";
+import { getProducts } from "../../api/api";
 import Card from "./Card";
 import './ItemsSection.css';
 import { ReactComponent as DropdownArrow} from '../../assets/dropdown_arrow.svg';
 import { ReactComponent as SearchMark } from '../../assets/ic_search.svg';
+import { Link } from "react-router-dom";
 
 function ItemsSectionHeader({ orderBy, orderSetter, keywordSetter }) {
 
     const dropdown = document.querySelector(".orderBy-dropdown");
 
     const dropdownHandler = () => {dropdown.classList.toggle("hidden");}
-    const addItemOnClickHandler = () => {window.location.href = "/additem";}
     const searchSubmitHandler = (e) => {
         e.preventDefault();
         keywordSetter(e.target['search'].value);
@@ -23,7 +23,7 @@ function ItemsSectionHeader({ orderBy, orderSetter, keywordSetter }) {
                 <div className="search-icon"><SearchMark /></div>
                 <input className="search-input" name="search" placeholder="검색할 상품을 입력해주세요" />
             </form>
-            <button className="add-item-button" onClick={addItemOnClickHandler}>상품 등록하기</button>
+            <Link to="/additem"><button className="add-item-button">상품 등록하기</button></Link>
             <button className="sort-dropdown" onClick={dropdownHandler}>
                 {(orderBy==='recent') && <span className="dropdown-text">최신순</span>}
                 {(orderBy==='favorite') && <span className="dropdown-text">좋아요순</span>}
