@@ -26,10 +26,10 @@ function BestItemsSection() {
    * @param {string} orderBy 정렬기준
    * @param {number} 페이지 당 상품 수
    */
-  async function fetchData({ pageSize, orderBy }) {
+  const fetchData = async ({ pageSize, orderBy }) => {
     const bestItems = await getBestItems({ pageSize, orderBy });
     setItemList(bestItems.list);
-  }
+  };
 
   useEffect(() => {
     const handleResize = () => {
