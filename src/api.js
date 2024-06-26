@@ -1,4 +1,4 @@
-export async function getProduct(params = {}) {
+export async function getProducts(params = {}) {
   const query = new URLSearchParams(params).toString();
   try {
     const response = await fetch(

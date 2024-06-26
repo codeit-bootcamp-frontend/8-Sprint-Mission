@@ -1,0 +1,10 @@
+.on-sale-item-header {
+  display: flex;
+}
+
+.on-sale-item-wrap {
+  display: flex;
+  max-width: 1200px;
+  gap: 24px;
+  flex-wrap: wrap;
+}

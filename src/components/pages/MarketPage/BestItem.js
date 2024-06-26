@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import ItemCard from './ItemCard';
-import { getProduct } from '../../../api';
+import { getProducts } from '../../../api';
 import './BestItem.css';
 
 function BestItem() {
   const [items, setItems] = useState([]);
 
   const handleLoad = async () => {
-    const { list } = await getProduct();
+    const { list } = await getProducts();
     setItems(list);
   };
 
