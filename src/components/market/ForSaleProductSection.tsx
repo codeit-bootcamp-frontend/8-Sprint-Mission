@@ -34,7 +34,7 @@ function ForSaleProductsSection() {
   return (
     <StyledForSaleProductsSection>
       <StyledForSaleProductSubHeader>
-        <StyledProductCategoryText>판매 중인 상품</StyledProductCategoryText>
+        <StyledProductCategoryText className={'for-sale-text'}>판매 중인 상품</StyledProductCategoryText>
         <ProductManagement
           isOpenDropdown={isOpen}
           orderBy={orderBy}
@@ -62,4 +62,13 @@ const StyledForSaleProductsSection = styled.section`
 const StyledForSaleProductSubHeader = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    position: relative;
+
+    & .for-sale-text {
+      position: absolute;
+      top: 0.5rem;
+    }
+  }
 `;

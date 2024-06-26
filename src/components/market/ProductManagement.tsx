@@ -2,11 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/@shared/Button';
 import searchIcon from 'assets/images/market/search-icon.png';
+import sortIcon from 'assets/images/market/sort-icon.png';
 import dropDownIcon from 'assets/images/market/order-dropdown.png';
 import { PATH_ADD_ITEM } from ' constants/paths/paths';
 import Image from 'components/@shared/Image';
 import useNavigateTo from 'hooks/useNavigateTo';
 import { ProductOrderBy } from 'types/productTypes';
+import useWindowSize from 'hooks/useWindowSize';
+import { MOBILE_MAX_WIDTH } from ' constants/infomations/size';
 
 const orderByObject = {
   recent: '최신순',
@@ -29,6 +32,7 @@ function ProductManagement({
   handleIsOpenClick,
 }: ProductManagementProps) {
   const { navigateTo } = useNavigateTo();
+  const { innerWidth } = useWindowSize();
 
   return (
     <StyledProductManagementSection>
@@ -37,15 +41,24 @@ function ProductManagement({
         <input name={'search'} placeholder={'검색할 상품을 입력해주세요'} />
       </StyledSearchInputForm>
 
-      <Button height={'4.2rem'} width={'13.3rem'} onClick={() => navigateTo(PATH_ADD_ITEM)}>
+      <Button
+        className={'product-regist-btn'}
+        height={'4.2rem'}
+        width={'13.3rem'}
+        onClick={() => navigateTo(PATH_ADD_ITEM)}>
         상품 등록하기
       </Button>
 
       <StyledDropdownWrapper>
         <StyledDropdownTrigger>
-          <span>{orderByObject[orderBy]}</span>
+          {innerWidth > MOBILE_MAX_WIDTH && <span>{orderByObject[orderBy]}</span>}
           <button onClick={handleIsOpenClick}>
-            <Image src={dropDownIcon} alt={'드롭다운 열기 아이콘'} height={'2.4rem'} width={'2.4rem'} />
+            <Image
+              src={innerWidth > MOBILE_MAX_WIDTH ? dropDownIcon : sortIcon}
+              alt={'드롭다운 열기 아이콘'}
+              height={'2.4rem'}
+              width={'2.4rem'}
+            />
           </button>
         </StyledDropdownTrigger>
         {isOpenDropdown && (
@@ -65,6 +78,20 @@ const StyledProductManagementSection = styled.section`
   display: flex;
   gap: 1.2rem;
   align-items: center;
+
+  @media (max-width: 768px) {
+    height: 9.2rem;
+    width: 100%;
+    position: relative;
+    align-items: flex-end;
+    gap: 0.8rem;
+
+    & .product-regist-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 `;
 
 const StyledSearchInputForm = styled.form`
@@ -87,12 +114,20 @@ const StyledSearchInputForm = styled.form`
       line-height: 2.4rem;
     }
   }
+
+  @media (max-width: 1280px) {
+    width: 24.2rem;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const StyledDropdownWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 
   position: relative;
   height: 4.2rem;
@@ -106,11 +141,19 @@ const StyledDropdownWrapper = styled.div`
   color: var(--cool-gray-800);
   background-color: var(--white);
   border: 1px solid var(--cool-gray-200);
+
+  @media (max-width: 1280px) {
+    width: 12rem;
+  }
+  @media (max-width: 768px) {
+    width: 4.2rem;
+    border-radius: 1.2rem;
+  }
 `;
 
 const StyledDropdownTrigger = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 
   & span {
@@ -126,6 +169,7 @@ const StyledDropdown = styled.div`
   width: 13rem;
   height: 8.4rem;
   top: 4.6rem;
+  right: 0;
   border-radius: 1.2rem;
 
   background-color: var(--white);
