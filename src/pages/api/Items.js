@@ -1,3 +1,5 @@
+const BASE_URL = 'https://panda-market-api.vercel.app';
+
 /**
  * 상품 목록 조회
  * @param {string} order 정렬 기준: recent, favorite
@@ -30,9 +32,7 @@ export async function getProducts({
   keyword, // 검색 키워드
 }) {
   const query = `orderBy=${order}&page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
-  const response = await fetch(
-    `https://panda-market-api.vercel.app/products?${query}`
-  );
+  const response = await fetch(`${BASE_URL}/products?${query}`);
   if (!response.ok) {
     throw new Error('데이터를 불러오는데 실패했습니다');
   }

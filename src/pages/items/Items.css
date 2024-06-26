@@ -19,24 +19,24 @@
 }
 
 /* Sail Items */
-.container-sail-items {
+.container-selling-items {
 }
 
-.header-sail-items {
+.header-selling-items {
   display: flex;
   justify-content: space-between;
   padding: 0 0 24px;
 }
 
-.header-sail-items-left {
+.header-selling-items-left {
 }
 
-.title-sail-items {
+.title-selling-items {
   font-size: 20px;
   font-weight: bold;
 }
 
-.header-sail-items-right {
+.header-selling-items-right {
   display: flex;
   justify-content: space-between;
 }
@@ -96,9 +96,13 @@
   cursor: pointer;
 }
 
-.list-sail-items {
+.list-selling-items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.wrapper-pagination-bar {
+  padding: 40px 0 80px;
 }
 
 /* Item */
@@ -154,7 +158,7 @@
   }
 
   /* Sail Items */
-  .list-sail-items {
+  .list-selling-items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -167,7 +171,7 @@
   }
 
   /* Sail Items */
-  .list-sail-items {
+  .list-selling-items {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
   }
