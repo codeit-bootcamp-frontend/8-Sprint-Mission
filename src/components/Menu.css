@@ -16,6 +16,6 @@
   cursor: pointer;
 }
 
-a:active {
+.active {
   color: var(--blue);
 }

@@ -1,10 +1,11 @@
 import "./Menu.css";
 
-function Menu({ className, name, href }) {
+function Menu({ href, className, name, onClick }) {
   const classNames = `Menu ${className}`;
+
   return (
     <div className="Menu-wrapper">
-      <a className={classNames} href={href}>
+      <a className={classNames} href={href} onClick={onClick}>
         {name}
       </a>
     </div>

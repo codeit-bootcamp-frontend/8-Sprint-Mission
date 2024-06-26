@@ -1,0 +1,15 @@
+.label-title {
+  margin-bottom: 16px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 2%;
+  color: var(--gray800);
+}
+
+.best-product-list > .products {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}

@@ -1,10 +1,18 @@
 .image {
   display: block;
-  width: 221px;
-  height: 221px;
-  padding-bottom: 16px;
+  margin-bottom: 16px;
   object-fit: cover;
   border-radius: 16px;
+}
+
+.best-product-list-item {
+  width: 282px;
+  height: 282px;
+}
+
+.all-product-list-item {
+  width: 221px;
+  height: 221px;
 }
 
 .title {
