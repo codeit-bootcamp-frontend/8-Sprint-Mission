@@ -1,11 +1,11 @@
-import Header from './Header';
-import Items from './Items';
+import Header from './components/header/Header';
+import Market from './components/pages/MarketPage/Market';
 
 function App() {
   return (
     <div>
       <Header />
-      <Items />
+      <Market />
     </div>
   );
 }
