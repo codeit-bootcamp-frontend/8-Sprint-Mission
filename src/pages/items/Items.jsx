@@ -1,15 +1,15 @@
 import './Items.css';
 import BestItems from '../../components/items/BestItems/BestItems';
-import SailItems from '../../components/items/SailItems/SailItems';
+import SellingItems from '../../components/items/SellingItems/SellingItems';
 
 function Items() {
   return (
     <>
       <div className="container-items">
         {/* 베스트 상품 */}
-        <BestItems></BestItems>
+        <BestItems />
         {/* 판매 중인 상품 */}
-        <SailItems></SailItems>
+        <SellingItems />
       </div>
     </>
   );

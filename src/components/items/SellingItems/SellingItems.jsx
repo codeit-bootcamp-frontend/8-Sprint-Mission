@@ -1,10 +1,10 @@
-import './SailItems.css';
 import { ReactComponent as IconSearch } from '../../../assets/images/icons/ic_search.svg';
 import { ReactComponent as IconSort } from '../../../assets/images/icons/ic_sort.svg';
 import { useEffect, useState } from 'react';
 import { getProducts } from '../../../pages/api/Items';
 import Item from '../Item/Item';
 import PaginationBar from '../PaginationBar/PaginationBar';
+import './SellingItems.css';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -17,7 +17,7 @@ const getPageSize = () => {
   }
 };
 
-function SailItems() {
+function SellingItems() {
   // 상품
   const [itemList, setItemList] = useState([]);
   // 쿼리
@@ -29,6 +29,8 @@ function SailItems() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   // 페이지네이션
   const [totalPageNum, setTotalPageNum] = useState();
+  // 에러
+  const [fetchingError, setfetchingError] = useState(null);
 
   const handlePageChange = (pageNumber) => {
     setPage(pageNumber);
@@ -48,9 +50,16 @@ function SailItems() {
   };
 
   const fetchItemList = async ({ order, page, pageSize, keyword }) => {
-    let products = await getProducts({ order, page, pageSize, keyword });
-    setItemList(products.list);
-    setTotalPageNum(Math.ceil(products.totalCount / pageSize));
+    try {
+      setfetchingError(null);
+      const products = await getProducts({ order, page, pageSize, keyword });
+      setItemList(products.list);
+      setTotalPageNum(Math.ceil(products.totalCount / pageSize));
+    } catch (err) {
+      setItemList([]);
+      setTotalPageNum(0);
+      setfetchingError(err);
+    }
   };
 
   useEffect(() => {
@@ -67,13 +76,13 @@ function SailItems() {
 
   return (
     <>
-      <div className="container-sail-items">
+      <div className="container-selling-items">
         {/* 판매 중인 상품 헤더 */}
-        <div className="header-sail-items">
-          <div className="header-sail-items-left">
-            <div className="title-sail-items">판매 중인 상품</div>
+        <div className="header-selling-items">
+          <div className="header-selling-items-left">
+            <div className="title-selling-items">판매 중인 상품</div>
           </div>
-          <div className="header-sail-items-right">
+          <div className="header-selling-items-right">
             <a
               href="/additems"
               id="btn-add-item"
@@ -114,9 +123,14 @@ function SailItems() {
           </div>
         </div>
         {/* 판매 중인 상품 목록 */}
-        <div className="list-sail-items">
+        {fetchingError && (
+          <div className="list-selling-items-error">
+            {fetchingError.message}
+          </div>
+        )}
+        <div className="list-selling-items">
           {itemList?.map((item) => (
-            <Item item={item} key={`sail-item-${item.id}`} />
+            <Item item={item} key={`selling-item-${item.id}`} />
           ))}
         </div>
         <div className="wrapper-pagination-bar">
@@ -131,4 +145,4 @@ function SailItems() {
   );
 }
 
-export default SailItems;
+export default SellingItems;

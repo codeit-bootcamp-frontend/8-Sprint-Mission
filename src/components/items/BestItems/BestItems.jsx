@@ -22,17 +22,24 @@ function BestItems() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [keyword, setKeyword] = useState('');
+  // 에러
+  const [fetchingError, setfetchingError] = useState(null);
 
   const fetchItemList = async ({ order, page, pageSize, keyword }) => {
-    let products = await getProducts({ order, page, pageSize, keyword });
-    setItemList(products.list);
+    try {
+      setfetchingError(null);
+      const products = await getProducts({ order, page, pageSize, keyword });
+      setItemList(products.list);
+    } catch (err) {
+      setItemList([]);
+      setfetchingError(err);
+    }
+  };
+  const handleResize = () => {
+    setPageSize(getPageSize());
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      setPageSize(getPageSize());
-    };
-
     window.addEventListener('resize', handleResize);
     fetchItemList({ order, page, pageSize, keyword });
 
@@ -47,6 +54,7 @@ function BestItems() {
         <div className="title-best-items">베스트 상품</div>
 
         <div className="list-best-items">
+          {fetchingError && fetchingError.message}
           {itemList?.map((item) => (
             <Item item={item} key={`best-item-${item.id}`} />
           ))}
