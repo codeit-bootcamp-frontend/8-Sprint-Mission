@@ -24,7 +24,7 @@ function BestProducts() {
 
   useEffect(() => {
     fetchBestProducts(4, "favorite");
-    const handleResizeScreen = () => setPageSize(getHtmlSize);
+    const handleResizeScreen = () => setPageSize(getHtmlSize());
     window.addEventListener("resize", handleResizeScreen);
 
     return () => {

@@ -28,7 +28,7 @@ function SalesProducts() {
   };
   useEffect(() => {
     fetchSalesProducts(10, orderBy);
-    const handleResizeScreen = () => setPageSize(getHtmlSize);
+    const handleResizeScreen = () => setPageSize(getHtmlSize());
     window.addEventListener("resize", handleResizeScreen);
 
     return () => {
