@@ -1,9 +1,9 @@
 * {
-box-sizing: border-box;    
-word-break: keep-all;
+  box-sizing: border-box;
+  word-break: keep-all;
 }
 
-header{
+header {
   position: fixed;
   background-color: #ffffff;
   top: 0;
@@ -17,10 +17,9 @@ header{
   border-bottom: 1px solid #dfdfdf;
 }
 
-
 section.top-section {
-  background-color: #CFE5FF;
-  background-image: url(images/Img_home_top.png);
+  background-color: #cfe5ff;
+  background-image: url(../../images/Img_home_top.png);
   background-repeat: no-repeat;
   background-position: bottom;
   background-position-x: 70%;
@@ -28,7 +27,6 @@ section.top-section {
   display: flex;
   align-items: center;
 }
-
 
 .login-button {
   width: 128px;
@@ -38,7 +36,7 @@ section.top-section {
   border-radius: 8px;
   border: none;
   margin: 20px 0;
-  background-color: #3692FF;
+  background-color: #3692ff;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
@@ -53,7 +51,7 @@ section.top-section {
   border-radius: 40px;
   border: none;
   margin: 20px 0;
-  background-color: #3692FF;
+  background-color: #3692ff;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
@@ -81,11 +79,11 @@ section.top-section {
   width: 1200px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr); 
-  grid-template-areas: 
-  "img1 text1"
-  "text2 img2"
-  "img3 text3";
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "img1 text1"
+    "text2 img2"
+    "img3 text3";
   gap: 50px;
 }
 
@@ -113,13 +111,11 @@ section.top-section {
   grid-area: text3;
 }
 
-
 .main-section > .text {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 
 .search.text {
   text-align: right;
@@ -134,8 +130,8 @@ section.top-section {
 }
 
 section.bottom-section {
-  background-color: #CFE5FF;
-  background-image: url(images/Img_home_bottom.png);
+  background-color: #cfe5ff;
+  background-image: url(../../images/Img_home_bottom.png);
   background-repeat: no-repeat;
   background-position: bottom;
   background-position-x: 70%;
@@ -152,7 +148,6 @@ section.bottom-section {
   line-height: 56px;
 }
 
-
 footer {
   background-color: black;
 }
@@ -161,7 +156,7 @@ footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  color:aliceblue;
+  color: aliceblue;
   align-items: center;
   padding: 32px 200px 108px 200px;
   margin: 0 auto;
@@ -169,7 +164,7 @@ footer {
 
 .help {
   text-decoration: none;
-  color:aliceblue;
+  color: aliceblue;
   margin-left: 10px;
 }
 
@@ -180,13 +175,11 @@ footer {
 /* text decoration */
 
 .title {
-  color: #3692FF;
+  color: #3692ff;
   font-size: 18px;
   font-weight: 700;
   line-height: 25.2px;
 }
-
-
 
 .main-section .ment-doit {
   color: #000000;
@@ -205,5 +198,3 @@ footer {
   line-height: 28.8px;
   color: #374151;
 }
-
-

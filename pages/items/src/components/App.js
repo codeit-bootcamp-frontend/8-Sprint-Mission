@@ -1,34 +1,28 @@
+import { useEffect, useState } from "react";
 import { getProducts } from "../api.js";
 import "./App.css";
 import ProductList from "./ProductList.js";
-import { useState, useEffect } from "react";
-
-const LIMIT = 6;
+import BestList from "./BestList.js";
 
 function App() {
   const [items, setItems] = useState([]);
-  const [order, setOrder] = useState("createdAt");
-  const [loadingError, setLoadingError] = useState(null);
 
-  const sortedItems = items.sort((a, b) => b[order] - a[order]);
+  // useEffect(async () => {
+  //   const items = await getProducts();
+  //   setItems(items);
+  // }, []);
 
-  const handleNewestClick = () => setOrder("createdAt");
-  const handleBestClick = () => setOrder("favoriteCount");
-
-  const handleLoad = async (options) => {
-    let result;
+  async function handleLoad() {
     try {
-      setLoadingError(null);
-      result = await getProducts(options);
+      const items = await getProducts();
+      setItems(items);
     } catch (error) {
-      setLoadingError(error);
-      return;
+      console.error("Error fetching products:", error);
     }
-  };
-
+  }
   useEffect(() => {
-    handleLoad({ order, offset: 0, limit: LIMIT });
-  }, [order]);
+    handleLoad();
+  }, []);
 
   return (
     <div>
@@ -39,16 +33,17 @@ function App() {
       <div>
         <div>
           <h1>베스트 상품</h1>
-          <p>베스트 상품 섹션 만들어서 넣을거임</p>
+          <BestList items={items} />
         </div>
-        <h1>판매중인 상품</h1>
-        <input placeholder="검색할 상품을 입력하세요"></input>
-        <button>상품 등록하기</button>
-        <button onClick={handleNewestClick}>최신순</button>
-        <button onClick={handleBestClick}>좋아요순</button>
+        <div>
+          <h1>판매중인 상품</h1>
+          <input placeholder="검색할 상품을 입력하세요"></input>
+          <button>상품 등록하기</button>
+          <button>최신순</button>
+          <button>좋아요순</button>
+        </div>
       </div>
-      <ProductList items={sortedItems} />
-      {loadingError?.message && <span>{loadingError?.message}</span>}
+      <ProductList items={items} />
     </div>
   );
 }
