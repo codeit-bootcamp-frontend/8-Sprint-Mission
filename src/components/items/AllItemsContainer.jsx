@@ -56,17 +56,15 @@ function AllItemsContainer() {
     <section className="all-items-container">
       <div className="all-items-header">
         <h1 className="section-title">판매 중인 상품</h1>
-        <div className="menu-wrap">
-          <div className="ic-search"></div>
-          <input className="search" placeholder="검색어를 입력하세요"></input>
-          <Link to="/AddItem" className="login-btn">
-            상품 등록하기
-          </Link>
-          <DropDownList
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
-        </div>
+        <div className="ic-search"></div>
+        <input className="search" placeholder="검색어를 입력하세요"></input>
+        <Link to="/AddItem" className="login-btn">
+          상품 등록하기
+        </Link>
+        <DropDownList
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
       </div>
       <div className="all-items-list">
         {items.map((item) => (

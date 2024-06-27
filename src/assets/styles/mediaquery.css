@@ -5,13 +5,70 @@
     padding: 0 16px;
   }
 
+  .logo-link {
+    font-size: 0;
+  }
+
+  .logo {
+    content: url(../images/logo_pandamarket_name.png);
+    width: 81px;
+    height: 27px;
+    margin: 0;
+  }
+
   /* main */
-  .main {
+  main.main {
     margin: 94px 16px;
   }
 
-  .best-items-list {
+  .best-items-container > .best-items-list {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .all-items-container > .all-items-header {
+    display: grid;
+    grid-template-columns: 1fr 91px 42px;
+    grid-template-rows: 42px;
+    grid-template-areas:
+      "section-title login-btn login-btn"
+      "search search dropdown-orderby";
+    gap: 8px;
+    height: auto;
+  }
+
+  h1.section-title {
+    grid-area: section-title;
+  }
+
+  .all-items-header > a.login-btn {
+    grid-area: login-btn;
+    margin-right: 0;
+  }
+
+  input.search {
+    grid-area: search;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  div.ic-search {
+    bottom: 37px;
+    left: 19px;
+  }
+
+  div.dropdown-orderby {
+    grid-area: dropdown-orderby;
+  }
+
+  .dropdown-orderby > .dropdown-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 0;
+    background: url(../images/ic_sort.png) no-repeat 50%;
+  }
+
+  div.ic-arrow-down {
+    display: none;
   }
 
   .all-items-container > .all-items-list {
@@ -21,18 +78,18 @@
 }
 
 /* tablet */
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 769px) and (max-width: 1199px) {
   /* header */
   .header {
     padding: 0 24px;
   }
 
   /* main */
-  .main {
+  main.main {
     margin: 94px 24px;
   }
 
-  .best-items-list {
+  .best-items-container > .best-items-list {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }

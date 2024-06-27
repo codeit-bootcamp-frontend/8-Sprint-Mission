@@ -8,7 +8,7 @@ function Header() {
   return (
     <header className="header">
       <div className="gnb-wrap">
-        <Link to="/">
+        <Link to="/" className="logo-link">
           <img src={logo} className="logo" />
         </Link>
         <ul className="gnb">

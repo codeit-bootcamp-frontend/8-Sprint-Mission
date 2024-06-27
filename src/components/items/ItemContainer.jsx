@@ -1,5 +1,4 @@
 import React from "react";
-import AllItemsContainer from "./AllItemsContainer";
 
 function ItemContainer({ item }) {
   return (
