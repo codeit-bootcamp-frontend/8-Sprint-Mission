@@ -21,7 +21,7 @@ function Signup() {
 
   return (
     <main>
-      <Auth link="/login" submit="items" isValid={isValid}>
+      <Auth link="/login" submit="/items" isValid={isValid}>
         <Auth.Email
           value={email}
           message={emailMessage}
