@@ -34,20 +34,23 @@ const SalesProducts = () => {
 
   const { size } = useResize({ pcSize: 10, tabletSize: 6, mobileSize: 4 });
 
-  const handleSalesProducts = async (options: QueryOptions) => {
-    try {
-      setIsLoading(true);
-      setErrorMessage(undefined);
-      const { list, totalCount } = await fetchProduct(options);
-      setSalesProducts(list);
-      const newTotalPage = Math.ceil(totalCount / size);
-      setProductQuery((prev) => ({ ...prev, totalPage: newTotalPage }));
-    } catch (error) {
-      setErrorMessage(error as Error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const handleSalesProducts = useCallback(
+    async (options: QueryOptions) => {
+      try {
+        setIsLoading(true);
+        setErrorMessage(undefined);
+        const { list, totalCount } = await fetchProduct(options);
+        setSalesProducts(list);
+        const newTotalPage = Math.ceil(totalCount / size);
+        setProductQuery((prev) => ({ ...prev, totalPage: newTotalPage }));
+      } catch (error) {
+        setErrorMessage(error as Error);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [size]
+  );
 
   const handleListClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const eventTarget = e.target as HTMLElement;
@@ -102,7 +105,7 @@ const SalesProducts = () => {
       orderBy: "recent",
       searchKeyword: "",
     });
-  }, [size]);
+  }, [size, handleSalesProducts]);
 
   return (
     <section className="sales-product-container">

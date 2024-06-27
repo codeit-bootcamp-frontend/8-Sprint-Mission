@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import useResize from "../../lib/hooks/useResize";
 
 import ArrowDown from "../assets/icons/dropdown/arrow_down.svg";
@@ -13,7 +13,11 @@ interface DropdownProps {
 }
 
 const Dropdown = ({ isLoading, order, handleListClick }: DropdownProps) => {
-  const { size } = useResize({ pcSize: 0, tabletSize: 0, mobileSize: 1 });
+  const { size } = useResize({
+    pcSize: 0,
+    tabletSize: 0,
+    mobileSize: 1,
+  });
   const [isDrop, setIsDrop] = useState<boolean>(false);
   const handleDropdown = () => {
     setIsDrop(!isDrop);

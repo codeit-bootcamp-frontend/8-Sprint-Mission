@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <nav className="nav">
       <img src={LogoImage} className="logo-img" alt="로고" />
-      <TabList onClick={() => {}} />
+      <TabList />
       <LoginBtn />
     </nav>
   );

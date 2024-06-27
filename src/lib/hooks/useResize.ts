@@ -7,15 +7,18 @@ interface useResizeProps {
 }
 
 const useResize = ({ pcSize, tabletSize, mobileSize }: useResizeProps) => {
-  const getPageSize = useCallback((width: number) => {
-    if (1200 <= width) {
-      return pcSize;
-    }
-    if (768 <= width) {
-      return tabletSize;
-    }
-    return mobileSize;
-  }, []);
+  const getPageSize = useCallback(
+    (width: number) => {
+      if (1200 <= width) {
+        return pcSize;
+      }
+      if (768 <= width) {
+        return tabletSize;
+      }
+      return mobileSize;
+    },
+    [pcSize, tabletSize, mobileSize]
+  );
 
   const [size, setSize] = useState(getPageSize(window.innerWidth));
 

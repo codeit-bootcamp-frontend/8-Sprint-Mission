@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import BtnCircle from "../../core/buttons/BtnCircle";
 
 import LeftArrowIcon from "../../core/assets/icons/pagination/leftArrowIcon.svg";
@@ -19,16 +19,16 @@ const PagiNation = ({
 }: PagiNationProps) => {
   const [pages, setPages] = useState([1]);
 
-  const handlePages = () => {
+  const handlePages = useCallback(() => {
     const newPages = Array(totalPage)
       .fill(0)
       .map((_, i) => i + 1);
     setPages(newPages);
-  };
+  }, [totalPage]);
 
   useEffect(() => {
     handlePages();
-  }, [totalPage]);
+  }, [handlePages]);
 
   return (
     <ul className="pagination-container" onClick={handleCurrentPage}>

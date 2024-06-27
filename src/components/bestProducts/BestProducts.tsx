@@ -13,7 +13,7 @@ const BestProducts = () => {
   const [errorMessage, setErrorMessage] = useState<Error>();
   const { size } = useResize({ pcSize: 4, tabletSize: 2, mobileSize: 1 });
 
-  const handleBestProducts = async (options: QueryOptions) => {
+  const handleBestProducts = useCallback(async (options: QueryOptions) => {
     try {
       setErrorMessage(undefined);
       const { list } = await fetchProduct(options);
@@ -22,7 +22,7 @@ const BestProducts = () => {
       const message = error as Error;
       setErrorMessage(message);
     }
-  };
+  }, []);
 
   useEffect(() => {
     handleBestProducts({

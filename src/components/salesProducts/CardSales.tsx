@@ -27,7 +27,7 @@ const CardSales = ({
           <p className="product-price">{price}원</p>
         </div>
         <div className="favorite-count">
-          <img src={HeartIcon} className="heartIcon" />
+          <img src={HeartIcon} className="heartIcon" alt={imgAlt} />
           {favoriteCount}
         </div>
       </div>
