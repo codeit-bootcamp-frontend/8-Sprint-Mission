@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 /**
  * pageType에 따라서 알맞는 header element를 return
- * @param {string} pageType - main, item 등에 따라서 header 결정
+ * @param {string} pageType - main, item
  * @returns {element} - header element
  */
 function Header({ pageType = "main" }) {

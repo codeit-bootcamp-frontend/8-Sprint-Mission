@@ -12,8 +12,6 @@ import MainContent from "../components/MainContent";
 import MainBottom from "../components/MainBottom";
 import Footer from "../components/Footer";
 
-import { Link } from "react-router-dom";
-
 const MAIN_TOP_DETAILS = {
   imgUrl: mainTopImgUrl,
   mainTopContent: "일상의 모든 물건을\n거래해 보세요",
@@ -51,7 +49,7 @@ function Home() {
   return (
     <>
       <Header />
-      <section className="main-section-container">
+      <main className="main-section-container">
         <MainTop mainTopDetails={MAIN_TOP_DETAILS} />
         {MAIN_CONTENTS_DETAILS.map((contentDetail) => (
           <MainContent
@@ -60,7 +58,7 @@ function Home() {
           />
         ))}
         <MainBottom mainBottomDetails={MAIN_BOTTOM_DETAILS} />
-      </section>
+      </main>
       <Footer />
     </>
   );

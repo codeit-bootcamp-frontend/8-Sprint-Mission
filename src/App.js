@@ -9,6 +9,7 @@ import Signin from "./pages/Signin";
 import Items from "./pages/Items";
 import Faq from "./pages/Faq";
 import Privacy from "./pages/Privacy";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/items" element={<Items />} />
       <Route exact path="/privacy" element={<Privacy />} />
       <Route exact path="/faq" element={<Faq />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

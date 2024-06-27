@@ -10,7 +10,7 @@ function MainContent({ contentDetail }) {
   } = contentDetail;
 
   return (
-    <div className={"main-content-container " + align}>
+    <section className={"main-content-container " + align}>
       <img
         className="main-content-img"
         src={imgUrl}
@@ -18,10 +18,10 @@ function MainContent({ contentDetail }) {
       />
       <div className={"main-content-details-container " + align}>
         <h2 className="content-title">{title}</h2>
-        <div className="main-content">{mainContent}</div>
-        <div className="sub-content">{subContent}</div>
+        <p className="main-content">{mainContent}</p>
+        <p className="sub-content">{subContent}</p>
       </div>
-    </div>
+    </section>
   );
 }
 

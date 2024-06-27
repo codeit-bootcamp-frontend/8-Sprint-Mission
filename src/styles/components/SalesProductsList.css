@@ -1,0 +1,27 @@
+.sales-products-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--cool-gray-800);
+  margin-bottom: 16px;
+}
+
+.sales-products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 40px;
+  column-gap: 24px;
+}
+
+@media screen and (max-width: 1199px) {
+  .sales-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sales-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

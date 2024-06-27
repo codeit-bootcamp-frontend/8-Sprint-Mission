@@ -4,16 +4,16 @@ function MainBottom({ mainBottomDetails }) {
   const { imgUrl, mainBottomContent } = mainBottomDetails;
 
   return (
-    <div className="main-bottom-background">
+    <section className="main-bottom-background">
       <div className="main-bottom-content-container">
-        <div className="main-bottom-content">{mainBottomContent}</div>
+        <p className="main-bottom-content">{mainBottomContent}</p>
         <img
           className="main-bottom-img"
           src={imgUrl}
           alt="홈페이지 하단 이미지"
         />
       </div>
-    </div>
+    </section>
   );
 }
 

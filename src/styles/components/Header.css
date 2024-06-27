@@ -46,6 +46,7 @@ header {
   width: 109px;
   margin: auto;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .item-page-header-nav > div.active {
