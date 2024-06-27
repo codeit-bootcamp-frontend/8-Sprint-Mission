@@ -4,26 +4,86 @@ import styled from 'styled-components';
 import { inputStyle, placeholderStyle } from 'styles/auth/formStyles';
 import { StyledTitleText } from 'styles/market/textStyle';
 import plusIcon from 'assets/images/addItem/plus-icon.png';
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+interface ITag {
+  id: string;
+  content: string;
+}
+
+interface IPreview {
+  id: string;
+  url: string;
+}
+
+interface IFormValue {
+  imgfiles: File[];
+  title: string;
+  introduction: string;
+  price: string;
+  tags: ITag[];
+}
 
 function AddItem() {
+  const [formValue, setFormValue] = useState<IFormValue>({
+    imgfiles: [],
+    title: '',
+    introduction: '',
+    price: '',
+    tags: [],
+  });
+  const [previews, setPreviews] = useState<IPreview[]>([]);
+
+  const handleChangeInput = (event: React.MouseEvent<HTMLInputElement>) => {
+    const { value, name, files } = event.target as HTMLInputElement;
+
+    if (name === 'image') {
+      if (files && files[0]) {
+        // 상위 if와 합치지 않은 이유는 image input 과정에서 잘못된 값이 들어올 수도 있을 거라 생각함
+        const file = files[0];
+        setFormValue(prevState => ({ ...prevState, [name]: [...prevState.imgfiles, file] }));
+        const imageUrl = URL.createObjectURL(file);
+        setPreviews(prevState => [...prevState, { id: uuidv4(), url: imageUrl }]);
+      }
+    } else {
+      setFormValue(prevState => ({ ...prevState, [name]: value }));
+    }
+  };
+
+  const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
+    // formValue 가공해서 서버로 전송하면 됨
+    event.preventDefault();
+  };
+
   return (
-    <StyledAddItemForm>
+    <StyledAddItemForm onSubmit={handleSubmitForm}>
       <StyledAddItemHeader>
         <StyledAddItemTitle>상품 등록하기</StyledAddItemTitle>
         <Button type={'submit'} $category={'medium'} disabled={true} height={'4.2rem'} width={'8.8rem'}>
           등록
         </Button>
       </StyledAddItemHeader>
-      <StyledAddItemInputSection>
+      <StyledAddItemInputSection onChange={handleChangeInput}>
         <fieldset>
           <StyledAddItemSubTitle>상품 이미지</StyledAddItemSubTitle>
           <StyledItemRegistSection>
-            <label htmlFor={'input-image-regist'}>
+            <label>
               <Image src={plusIcon} alt={'이미지 추가하기 아이콘'} height={'4.8rem'} width={'4.8rem'} />
               <div>이미지 등록하기</div>
+              {/* input 자체는 display:none 처리, label에 연동하여 label을 디자인된 인풋 트리거를 만듦(웹 접근성 유지 가능) */}
+              <input id={'input-image-regist'} name={'image'} type={'file'} placeholder={'이미지 등록'} />
             </label>
-            {/* input 자체는 display:none 처리, label에 연동하여 label을 디자인된 인풋 트리거를 만듦(웹 접근성 유지 가능) */}
-            <input id={'input-image-regist'} name={'image'} type={'file'} placeholder={'이미지 등록'} />
+            {previews.map(preview => (
+              <Image
+                key={preview.id}
+                src={preview.url}
+                alt={'등록된 이미지'}
+                height={'28.2rem'}
+                width={'28.2rem'}
+                radius={'1.2rem'}
+              />
+            ))}
           </StyledItemRegistSection>
         </fieldset>
         <fieldset>
@@ -99,11 +159,13 @@ const StyledItemRegistSection = styled.section`
 
     height: 28.2rem;
     width: 28.2rem;
-  }
 
-  #input-image-regist {
-    /* input 자체는 숨기고, label에 연동하여 디자인된 인풋 트리거를 만듦 */
-    display: none;
+    cursor: pointer;
+
+    & #input-image-regist {
+      /* input 자체는 숨기고, label에 연동하여 디자인된 인풋 트리거를 만듦 */
+      display: none;
+    }
   }
 `;
 
