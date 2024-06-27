@@ -1,5 +1,5 @@
 /**
- * @todo 최신순/좋아요순 리스트 콤포넌트 구현 및 적용
+ * @todo 드랍다운 컴포넌트 모바일 환경 구현
  * @todo 검색 콤포넌트 UI 구현
  * @todo 페이지네이션 구현 및 Page State로 적용
  */
@@ -71,7 +71,11 @@ function AllItemsSection() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [pageSize, orderBy]);
+  }, [pageSize]);
+
+  useEffect(() => {
+    fetchData({ page, pageSize, orderBy });
+  }, [orderBy]);
 
   return (
     <section className="itemsPage__allItemsSection allItemsSection">
@@ -79,11 +83,16 @@ function AllItemsSection() {
         <div className="allItemsSection__title">
           <h2 className="allItemsSection__title">판매중인 상품</h2>
         </div>
-        <SearchBar />
-        <Link to="/additem" className="button btn-small" type="button">
+        <SearchBar className="allItemsSection__searchBar" />
+        <Link
+          to="/additem"
+          className="allItemsSection__btn commonBtn commonBtn--small"
+          type="button"
+        >
           상품 등록하기
         </Link>
         <DropDownList
+          className="allItemsSection__dropDownList"
           dropDownItems={dropDownItems}
           currentItem={orderBy}
           onSelection={handleSortSelection}

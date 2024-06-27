@@ -3,7 +3,8 @@
 
   &__triggerButton {
     width: 130px;
-    height: 48px;
+    height: 100%;
+    max-height: 48px;
     padding: 13px 20px 13px 20px;
     gap: 10px;
     border-radius: 12px;
@@ -12,7 +13,6 @@
     color: var(--gray800);
     font-size: 1.6rem;
     font-weight: 400;
-    margin-left: 10px;
 
     @media (max-width: 1199px) {
       width: 120px;
@@ -20,6 +20,13 @@
     }
 
     @media (max-width: 767px) {
+      height: 100%;
+      width: 48px;
+      aspect-ratio: 1;
+      background-image: url("../../../assets/icons/ic_sort.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: cover;
     }
   }
 
@@ -51,7 +58,7 @@
 
     @media (max-width: 1199px) {
       width: 120px;
-      height: 48px;
+      height: 42px;
     }
 
     @media (max-width: 767px) {
@@ -65,9 +72,9 @@
     border-radius: 0 0 12px 12px;
   }
   &__item:nth-child(2) {
-    top: 107px;
+    top: 100px;
   }
   &__item:nth-child(3) {
-    top: 154px;
+    top: 140px;
   }
 }

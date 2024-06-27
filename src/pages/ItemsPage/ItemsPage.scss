@@ -17,6 +17,7 @@
   }
 }
 
+// 베스트 상품
 .bestItemsSection {
   display: flex;
   justify-content: center;
@@ -64,6 +65,7 @@
   }
 }
 
+// 판매중인 상품
 .allItemsSection {
   display: flex;
   justify-content: center;
@@ -74,22 +76,53 @@
   width: 100%;
 
   &__header {
+    display: grid;
     width: 100%;
-    height: 42px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
+    height: 48px;
+    grid-template-columns: 7fr 10fr 2fr 2fr;
+    gap: 10px;
+
+    @media (max-width: 767px) {
+      height: 106px;
+      grid-template-columns: 999fr 1fr;
+      grid-template-rows: 48px 48px;
+      grid-template-areas:
+        "t t"
+        "s d";
+    }
   }
 
   &__title {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     flex-grow: 1;
     color: var(--gray900);
     font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.02rem;
     overflow: hidden;
+    @media (max-width: 767px) {
+      grid-area: t;
+    }
+  }
+
+  &__btn {
+    @media (max-width: 767px) {
+      position: absolute;
+      right: 16px;
+    }
+  }
+
+  &__searchBar {
+    @media (max-width: 767px) {
+      grid-area: s;
+    }
+  }
+
+  &__dropDownList {
+    @media (max-width: 767px) {
+      grid-area: d;
+    }
   }
 
   &__itemList {

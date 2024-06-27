@@ -3,11 +3,18 @@ import dropDownIcon from "../../../assets/icons/ic_arrow_down.svg";
 import { useEffect } from "react";
 import "../scss/DropDownList.scss";
 
+function getPageSize() {
+  const width = window.innerWidth;
+  if (width < 768) {
+    return false; // 모바일
+  } else if (width < 1200) {
+    return true; // 태블릿
+  } else {
+    return true; // PC
+  }
+}
+
 /**
- * @todo PC/태블릿/모바일 다른 스타일 구현
- * @todo 클릭 시, 아래에 드랍다운 리스트로 최신순/좋아요순 출력
- * -> 최신순/좋아요순을 배열로 받아옴
- *
  * @param {Array} dropDownList - 드랍 다운 아이템 배열 [name: 정렬명, value: query]
  * @param {String} currentItem - 버튼 초기 표기명
  * @param {Function} onSelection - 선택 시 호출되는 함수
@@ -15,6 +22,7 @@ import "../scss/DropDownList.scss";
 function DropDownList({ dropDownItems, currentItem, onSelection }) {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [current, setCurrent] = useState();
+  const [pageSize, setPageSize] = useState(getPageSize()); // boolean
 
   const handleItems = () => {
     setIsDropdownVisible(!isDropdownVisible);
@@ -35,20 +43,37 @@ function DropDownList({ dropDownItems, currentItem, onSelection }) {
   )?.name;
 
   useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+    };
+
+    // 화면 크기 변경 시, pageSize 재계산
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup Function
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [pageSize]);
+
+  useEffect(() => {
     setCurrent(currentItemName);
   }, []);
 
   return (
     <div className="dropDownList">
       <div className="dropDownList__triggerButton" onClick={handleItems}>
-        {current}
+        {pageSize && current}
       </div>
-      <img
-        className="dropDownList__dropDownArrow"
-        src={dropDownIcon}
-        alt="▼"
-        onClick={handleItems}
-      />
+      {pageSize && (
+        <img
+          className="dropDownList__dropDownArrow"
+          src={dropDownIcon}
+          alt="▼"
+          onClick={handleItems}
+        />
+      )}
+
       <div>
         {isDropdownVisible &&
           dropDownItems?.map((item) => (

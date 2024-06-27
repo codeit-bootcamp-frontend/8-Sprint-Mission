@@ -1,0 +1,25 @@
+.searchBar {
+  display: flex;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 9px 16px;
+  height: 100%;
+  max-height: 48px;
+  flex: 1;
+  align-items: center;
+
+  &__input {
+    border: none;
+    flex: 1;
+    background-color: inherit;
+    margin-left: 4px;
+
+    &::placeholder {
+      color: #9ca3af;
+      font-size: 16px;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
