@@ -1,7 +1,8 @@
-import React from "react";
+import AddItemForm from "./components/AddItemForm";
+import "./AddItemPage.css";
 
 function AddItemPage() {
-  return <div>AddItemPage</div>;
+  return <AddItemForm />;
 }
 
 export default AddItemPage;
