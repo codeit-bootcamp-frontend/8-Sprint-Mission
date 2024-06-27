@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ItemContainer from "./ItemContainer";
-import { getItems } from "../../../api";
+import { getItems } from "../../core/api";
 
 // count items according to pageSize
 const countPageItems = () => {

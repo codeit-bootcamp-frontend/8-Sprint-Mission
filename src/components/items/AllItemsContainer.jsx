@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ItemContainer from "./ItemContainer";
 import DropDownList from "./DropDownList";
-import { getItems } from "../../../api";
+import { getItems } from "../../core/api";
 
 // count items according to pageSize
 const countPageItems = () => {
@@ -65,7 +65,7 @@ function AllItemsContainer() {
           <DropDownList
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
-          ></DropDownList>
+          />
         </div>
       </div>
       <div className="all-items-list">

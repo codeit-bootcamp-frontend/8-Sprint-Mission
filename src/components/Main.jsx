@@ -1,9 +1,9 @@
 import React from "react";
-import PageNavBar from "./PageNavBar";
-import Items from "../pages/Items/Items";
+import PageNavBar from "./items/PageNavBar";
+import Items from "../pages/Items";
 import "./Main.css";
-import "./Header.css";
-import "../styles/mediaquery.css";
+import "./common/Header.css";
+import "../assets/styles/mediaquery.css";
 
 function Main() {
   return (

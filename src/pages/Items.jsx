@@ -1,6 +1,6 @@
 import React from "react";
-import BestItemsContainer from "./components/BestItemsContainer";
-import AllItemsContainer from "./components/AllItemsContainer";
+import BestItemsContainer from "../components/items/BestItemsContainer";
+import AllItemsContainer from "../components/items/AllItemsContainer";
 
 function Items() {
   return (
