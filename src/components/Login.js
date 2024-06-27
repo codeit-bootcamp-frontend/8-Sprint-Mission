@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Login() {
   return (
     <>
@@ -72,7 +74,7 @@ function Login() {
               </ul>
             </div>
             <p>
-              판다마켓이 처음이신가요?<a href="./signup.html">회원가입</a>
+              판다마켓이 처음이신가요?<Link to="/Signup">회원가입</Link>
             </p>
           </div>
         </div>
