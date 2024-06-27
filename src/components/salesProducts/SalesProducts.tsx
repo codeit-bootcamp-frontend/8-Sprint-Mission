@@ -92,7 +92,7 @@ const SalesProducts = () => {
     });
   };
 
-  const handleCreateClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+  const handleAddClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     console.log(e.target);
   };
 
@@ -112,7 +112,7 @@ const SalesProducts = () => {
         <div className="sales-options-container">
           <SearchInput handleSearch={handleSearch} />
           <Link to="/addItem">
-            <BtnSmall onClick={handleCreateClick} disabled={true}>
+            <BtnSmall onClick={handleAddClick} disabled={true}>
               상품 등록하기
             </BtnSmall>
           </Link>
