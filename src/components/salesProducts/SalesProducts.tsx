@@ -13,11 +13,22 @@ import BtnSmall from "../../core/buttons/BtnSmall";
 import PagiNation from "../../components/salesProducts/PagiNation";
 import { QueryOptions } from "core/Interface/Product";
 
+const INITIAL_PRODUCTQUERY = {
+  order: "recent",
+  currentPage: 1,
+  totalPage: 0,
+};
+
+interface ProductQuery {
+  order: string;
+  currentPage: number;
+  totalPage: number;
+}
+
 const SalesProducts = () => {
   const [salesProducts, setSalesProducts] = useState([]);
-  const [order, setOrder] = useState("recent");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPage, setTotalPage] = useState(0);
+  const [productQuery, setProductQuery] =
+    useState<ProductQuery>(INITIAL_PRODUCTQUERY);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<Error>();
 
@@ -30,7 +41,7 @@ const SalesProducts = () => {
       const { list, totalCount } = await fetchProduct(options);
       setSalesProducts(list);
       const newTotalPage = Math.ceil(totalCount / size);
-      setTotalPage(newTotalPage);
+      setProductQuery((prev) => ({ ...prev, totalPage: newTotalPage }));
     } catch (error) {
       setErrorMessage(error as Error);
     } finally {
@@ -45,37 +56,37 @@ const SalesProducts = () => {
     }
     const newOrder = eventTarget.innerText === "최신순" ? "recent" : "favorite";
 
-    if (newOrder === order) {
+    if (newOrder === productQuery.order) {
       return;
     }
-    setOrder(newOrder);
+
     handleSalesProducts({
       currentPage: 1,
       pageSize: size,
       orderBy: newOrder,
       searchKeyword: "",
     });
-    setCurrentPage(1);
+    setProductQuery((prev) => ({ ...prev, order: newOrder, currentPage: 1 }));
   };
 
   const handleSearch = (keyword: string) => {
     handleSalesProducts({
       currentPage: 1,
       pageSize: size,
-      orderBy: order,
+      orderBy: productQuery.order,
       searchKeyword: keyword,
     });
-    setCurrentPage(1);
+    setProductQuery((prev) => ({ ...prev, currentPage: 1 }));
   };
 
   const handleCurrentPage = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const eventTarget = e.target as HTMLElement;
     const newCurrentPage = Number(eventTarget.innerText);
-    setCurrentPage(newCurrentPage);
+    setProductQuery((prev) => ({ ...prev, currentPage: newCurrentPage }));
     handleSalesProducts({
       currentPage: newCurrentPage,
       pageSize: size,
-      orderBy: order,
+      orderBy: productQuery.order,
       searchKeyword: "",
     });
   };
@@ -106,7 +117,7 @@ const SalesProducts = () => {
           </Link>
           <Dropdown
             isLoading={isLoading}
-            order={order}
+            order={productQuery.order}
             handleListClick={handleListClick}
           />
         </div>
@@ -115,9 +126,9 @@ const SalesProducts = () => {
         <div className="products-container">
           <SalesProductCardList salesProducts={salesProducts} />
           <PagiNation
-            currentPage={currentPage}
+            currentPage={productQuery.currentPage}
             handleCurrentPage={handleCurrentPage}
-            totalPage={totalPage}
+            totalPage={productQuery.totalPage}
           />
         </div>
       ) : (
