@@ -2,15 +2,14 @@ import "../styles/components/BestProductsList.css";
 
 import ProductCard from "./ProductCard";
 
-function BestProductsList() {
+function BestProductsList({ bestProducts }) {
   return (
     <section className="best-products-section">
       <h2 className="best-products-title">베스트 상품</h2>
       <ol className="best-products-grid">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {bestProducts.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </ol>
     </section>
   );

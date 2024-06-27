@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signin from "./pages/Signin";
 import Items from "./pages/Items";
+import AddItem from "./pages/AddItem";
 import Faq from "./pages/Faq";
 import Privacy from "./pages/Privacy";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -18,6 +19,7 @@ function App() {
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/signin" element={<Signin />} />
       <Route exact path="/items" element={<Items />} />
+      <Route exact path="/additem" element={<AddItem />} />
       <Route exact path="/privacy" element={<Privacy />} />
       <Route exact path="/faq" element={<Faq />} />
       <Route path="*" element={<NotFoundPage />} />

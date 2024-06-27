@@ -5,9 +5,10 @@
 }
 
 .product-img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
   border-radius: 16px;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .product-details {
@@ -32,6 +33,7 @@
 
 .favorite-count-container {
   display: flex;
+  align-items: center;
   gap: 4px;
 }
 

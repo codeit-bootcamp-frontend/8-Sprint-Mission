@@ -1,6 +1,6 @@
 const BASE_URL = "https://panda-market-api.vercel.app";
 
-export async function getProducts(orderBy, page = "1", pageSize = "10") {
+export async function getProducts({ orderBy, page, pageSize }) {
   const query = `orderBy=${orderBy}&page=${page}&pageSize=${pageSize}`;
   const url = `${BASE_URL}/products?${query}`;
 
