@@ -15,11 +15,14 @@ const responsivePageSize = () => {
   }
 };
 
+const recent = "recent";
+const favorite = "favorite";
+
 function AllProduct() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [order, setOrder] = useState("recent");
+  const [order, setOrder] = useState(recent);
   const [dropArrow, setDropArrow] = useState("");
   const [dropDisplay, setDropDisplay] = useState("none");
   const [orderTxt, setOrderTxt] = useState("최신순");
@@ -28,12 +31,11 @@ function AllProduct() {
   const handleLoad = async (options) => {
     let { list } = await getProducts(options);
     setProducts(list);
-    // console.log(list);
   };
 
   const handleDropClick = () => {
-    dropArrow === "" ? setDropArrow("on") : setDropArrow("");
-    dropDisplay === "none" ? setDropDisplay("block") : setDropDisplay("none");
+    setDropArrow(dropArrow === "" ? "on" : "");
+    setDropDisplay(dropDisplay === "none" ? "block" : "none");
   };
 
   const handleNewsOrder = (e) => {
@@ -41,7 +43,7 @@ function AllProduct() {
     setOrderTxt(menuTxt);
     setDropArrow("");
     setDropDisplay("none");
-    setOrder("recent");
+    setOrder(recent);
   };
 
   const handleBestOrder = (e) => {
@@ -49,7 +51,7 @@ function AllProduct() {
     setOrderTxt(menuTxt);
     setDropArrow("");
     setDropDisplay("none");
-    setOrder("favorite");
+    setOrder(favorite);
   };
 
   const pageNumClick = (page) => {
