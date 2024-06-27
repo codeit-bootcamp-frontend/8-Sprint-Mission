@@ -1,17 +1,3 @@
-@font-face {
-	font-family: ROKAF;
-	font-style: normal;
-	font-weight: 400;
-	src: url("./fonts/ROKAF-Sans-Medium.otf") format("opentype");
-}
-
-@font-face {
-	font-family: ROKAFBold;
-	font-style: normal;
-	font-weight: 700;
-	src: url("./fonts/ROKAF-Sans-Bold.otf") format("opentype");
-}
-
 :root {
 	--brand-blue: #3692ff;
 	--error-red: #f74747;
@@ -32,12 +18,14 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	font-family: 'Pretendard Variable';
 }
 
 html,
 body {
 	padding: 0;
 	height: 100%;
+
 }
 
 body {
@@ -70,4 +58,14 @@ body {
 	width: 100%;
 }
 
-.login-container {}
+.bland-blue {
+	color: var(--brand-blue);
+}
+
+.hidden {
+	display: none !important;
+}
+
+li {
+	list-style: none;
+}

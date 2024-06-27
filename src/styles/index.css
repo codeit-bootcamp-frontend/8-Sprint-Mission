@@ -1,55 +1,16 @@
-.header-container {
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	right: 0;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	height: 70px;
-	padding: 10px 200px 9px;
-	background-color: #ffffff;
-	border: 0px 0px 1px 0px;
-	border-bottom: 1px solid #DFDFDF;
-}
-
-header .desktop-img {
-	width: 153px;
-	height: 51px;
-}
-
-header .mobile-img {
-	display: none;
-	width: 103px;
-	height: 35px;
-}
-
-header .login-link {
-	border-radius: 8px;
-	padding: 14.5px 43px;
-	text-decoration: none;
-	background-color: var(--brand-blue);
-	font-size: 16px;
-	font-weight: 600;
-	color: #ffffff;
-	cursor: pointer;
-}
-
 .banner {
 	display: flex;
 	width: 100%;
 	height: 540px;
 	background: var(--background-blue);
-	background-image: url('/images/Img_home_top@3x.png');
+	background-image: url('../assets/Img_home_top@3x.png');
 	background-repeat: no-repeat;
 	background-size: 996px 447px;
 	background-position: bottom 0 right 20%;
 }
 
 .banner.bottom {
-	background-image: url('/images/Img_home_bottom@3x.png');
+	background-image: url('../assets/Img_home_bottom@3x.png');
 	background-size: 996px 540px;
 }
 
@@ -147,167 +108,9 @@ header .login-link {
 	letter-spacing: 0.08em;
 }
 
-.footer-container {
-	display: grid;
-	grid-template-areas:
-		"copyright etc messenger";
-	justify-content: space-between;
-	background: var(--gray-900);
-	color: white;
-	padding: 32px 200px 108px;
-}
 
-.footer-container a {
-	text-decoration: none;
-}
-
-.footer-container .copyright {
-	grid-area: copyright;
-	color: #676767;
-}
-
-.footer-container .etc {
-	grid-area: etc;
-	display: flex;
-	gap: 20px;
-}
-
-.footer-container .etc a {
-	color: #CFCFCF;
-}
-
-.footer-container .messenger {
-	grid-area: messenger;
-	display: flex;
-	gap: 12px;
-}
-
-.footer-container>div {
-	justify-content: space-between;
-}
-
-.auth_form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 24px;
-	width: 640px;
-	margin: 60px auto 0;
-	color: var(--gray-800);
-}
-
-.auth_form form {
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
-	width: 100%;
-}
-
-.auth_form-el {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-}
-
-.auth_form-el .view-password {
-	position: absolute;
-	/*bottom: 16px;*/
-	top: 52px;
-	right: 24px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: 0;
-	background-color: transparent;
-}
-
-.auth_form-el .view-password .hidden {
-	display: none;
-}
-
-label {
-	font-size: 18px;
-	font-weight: 700;
-	line-height: 21.48px;
-	text-align: left;
-}
-
-.auth_input {
-	width: 100%;
-	margin-top: 16px;
-	padding: 16px 24px;
-	border: 0;
-	border-radius: 12px;
-	background: var(--gray-100);
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 24px;
-	color: var(--gray-800);
-}
-
-.input-invalid {
-	border: 1px solid var(--error-red);
-}
-
-.auth_input:focus {
-	outline: 1px solid var(--brand-blue);
-}
-
-.auth_input::placeholder {
-	color: var(--gray-400);
-}
-
-.auth_form .submit-button {
-	padding: 16px 124px;
-	background: var(--brand-blue-inactive);
-	border: 0;
-	border-radius: 40px;
-	font-size: 20px;
-	font-weight: 600;
-	line-height: 24px;
-	color: #ffffff;
-	text-align: center;
-	pointer-events: none;
-}
-
-.auth_form .submit-button.active {
-	background: var(--brand-blue-active);
-	pointer-events: auto;
-}
-
-.login-easy {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	height: 74px;
-	padding: 16px 23px;
-	background: #E6F2FF;
-	border-radius: 8px;
-}
-
-.login-easy div {
-	display: flex;
-	gap: 16px;
-}
-
-.question {
-	text-align: center;
-}
-
-.question a {
-	color: #3182f6;
-}
 
 @media (max-width: 1199px) {
-	.header-container {
-		padding: 10px 24px 9px;
-	}
-
-	.footer-container {
-		padding: 32px 104px 108px;
-	}
-
 	.banner {
 		align-items: start;
 		height: 771px;
@@ -401,26 +204,6 @@ label {
 }
 
 @media (max-width: 767px) {
-	.header-container .logo-text {
-		display: block;
-	}
-
-	.footer-container {
-		grid-template-areas:
-			"etc messenger"
-			"copyright .";
-		gap: 60px;
-		padding: 32px;
-	}
-
-	.logo-link .desktop-img {
-		display: none;
-	}
-
-	.logo-link .mobile-img {
-		display: block;
-	}
-
 	.banner {
 		height: 540px;
 		background-size: auto 281px;
@@ -484,21 +267,5 @@ label {
 		font-weight: 500;
 		line-height: 19.2px;
 		letter-spacing: 0.08em;
-	}
-
-	.auth_form {
-		max-width: 400px;
-		width: auto;
-	}
-
-	.auth_form .logo {
-		width: 198px;
-		height: 66px;
-	}
-
-	label {
-		font-size: 14px;
-		font-weight: 700;
-		line-height: 16.71px;
 	}
 }
