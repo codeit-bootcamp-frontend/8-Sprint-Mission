@@ -57,7 +57,10 @@ function AllItemsContainer() {
       <div className="all-items-header">
         <h1 className="section-title">판매 중인 상품</h1>
         <div className="ic-search"></div>
-        <input className="search" placeholder="검색어를 입력하세요"></input>
+        <input
+          className="search"
+          placeholder="검색할 상품을 입력해주세요"
+        ></input>
         <Link to="/AddItem" className="login-btn">
           상품 등록하기
         </Link>

@@ -15,6 +15,11 @@
   flex-shrink: 0;
 }
 
+input,
+button {
+  font-family: "Pretendard Variable";
+}
+
 ul,
 li,
 ol {
