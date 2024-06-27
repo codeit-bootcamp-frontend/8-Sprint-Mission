@@ -6,8 +6,9 @@ import { StyledTitleText } from 'styles/market/textStyle';
 import plusIcon from 'assets/images/addItem/plus-icon.png';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import useAllFieldFilled, { ObjectType } from 'hooks/useAllFieldFilled';
 
-interface ITag {
+export interface ITag {
   id: string;
   content: string;
 }
@@ -17,12 +18,12 @@ interface IPreview {
   url: string;
 }
 
-interface IFormValue {
+interface IFormValue extends Record<string, ObjectType> {
   imgfiles: File[];
   title: string;
   introduction: string;
   price: string;
-  tags: ITag[];
+  tag: string;
 }
 
 function AddItem() {
@@ -31,11 +32,15 @@ function AddItem() {
     title: '',
     introduction: '',
     price: '',
-    tags: [],
+    tag: '',
   });
+  const [tagList, setTagList] = useState<ITag[]>([]);
+
+  const needToFilledFields = { title: formValue.title, introduction: formValue.introduction, price: formValue.price };
+  const isSubmitActive = useAllFieldFilled(needToFilledFields) && tagList.length > 0;
   const [previews, setPreviews] = useState<IPreview[]>([]);
 
-  const handleChangeInput = (event: React.MouseEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLElement>) => {
     const { value, name, files } = event.target as HTMLInputElement;
 
     if (name === 'image') {
@@ -56,15 +61,23 @@ function AddItem() {
     event.preventDefault();
   };
 
+  const handleReturnKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      const newTage: ITag = { id: uuidv4(), content: formValue.tag };
+      setTagList(prevState => [...prevState, newTage]);
+      setFormValue(prevState => ({ ...prevState, ['tag']: '' }));
+    }
+  };
+
   return (
     <StyledAddItemForm onSubmit={handleSubmitForm}>
       <StyledAddItemHeader>
         <StyledAddItemTitle>상품 등록하기</StyledAddItemTitle>
-        <Button type={'submit'} $category={'medium'} disabled={true} height={'4.2rem'} width={'8.8rem'}>
+        <Button type={'submit'} $category={'medium'} disabled={!isSubmitActive} height={'4.2rem'} width={'8.8rem'}>
           등록
         </Button>
       </StyledAddItemHeader>
-      <StyledAddItemInputSection onChange={handleChangeInput}>
+      <StyledAddItemInputSection>
         <fieldset>
           <StyledAddItemSubTitle>상품 이미지</StyledAddItemSubTitle>
           <StyledItemRegistSection>
@@ -88,19 +101,45 @@ function AddItem() {
         </fieldset>
         <fieldset>
           <StyledAddItemSubTitle>상품명</StyledAddItemSubTitle>
-          <input name={'title'} placeholder={'상품명을 입력해주세요'} />
+          <input
+            name={'title'}
+            value={formValue.title}
+            onChange={handleInputChange}
+            placeholder={'상품명을 입력해주세요'}
+          />
         </fieldset>
         <fieldset>
           <StyledAddItemSubTitle>상품 소개</StyledAddItemSubTitle>
-          <textarea name={'introduction'} placeholder={'상품 소개를 입력해주세요'} />
+          <textarea
+            name={'introduction'}
+            value={formValue.introduction}
+            onChange={handleInputChange}
+            placeholder={'상품 소개를 입력해주세요'}
+          />
         </fieldset>
         <fieldset>
           <StyledAddItemSubTitle>판매 가격</StyledAddItemSubTitle>
-          <input name={'price'} placeholder={'판매 가격을 입력해주세요'} />
+          <input
+            name={'price'}
+            value={formValue.price}
+            onChange={handleInputChange}
+            placeholder={'판매 가격을 입력해주세요'}
+          />
         </fieldset>
         <fieldset>
           <StyledAddItemSubTitle>태그</StyledAddItemSubTitle>
-          <input name={'tag'} placeholder={'태그를 입력해주세요'} />
+          <input
+            name={'tag'}
+            value={formValue.tag}
+            onChange={handleInputChange}
+            placeholder={'태그를 입력해주세요'}
+            onKeyDown={handleReturnKeyDown}
+          />
+          <StyledTagList>
+            {tagList.map(tag => (
+              <StyledTagItem key={tag.id}>{tag.content}</StyledTagItem>
+            ))}
+          </StyledTagList>
         </fieldset>
       </StyledAddItemInputSection>
     </StyledAddItemForm>
@@ -181,4 +220,19 @@ const StyledAddItemSubTitle = styled.legend`
   font-size: 1.8rem;
   line-height: 2.148rem;
   margin-bottom: 1.2rem;
+`;
+
+const StyledTagList = styled.ul`
+  overflow-x: auto; // 태그가 많아지면 좌우 스크롤이 되도록 지정
+  width: var(--container-width);
+
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.2rem;
+`;
+
+const StyledTagItem = styled.li`
+  padding: 1.2rem;
+  border-radius: 2.6rem;
+  background-color: var(--cool-gray-50);
 `;
