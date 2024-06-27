@@ -30,7 +30,7 @@ const SalesProducts = () => {
     }
     return 4;
   };
-  const size = useResize({ getPageSize: getSalesPageSize });
+  const { size } = useResize({ getPageSize: getSalesPageSize });
 
   const handleSalesProducts = async (options: QueryOptions) => {
     let result;
@@ -70,12 +70,12 @@ const SalesProducts = () => {
     setCurrentPage(1);
   };
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (keyword: string) => {
     handleSalesProducts({
       currentPage: 1,
       pageSize: size,
       orderBy: order,
-      searchKeyword: e.target.value,
+      searchKeyword: keyword,
     });
     setCurrentPage(1);
   };

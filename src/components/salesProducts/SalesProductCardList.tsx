@@ -1,7 +1,12 @@
 import SalesProductCard from "./SalesProductCard";
 import "./card-sales.css";
+import { ProductItem } from "core/Interface/Product";
 
-const SalesProductCardList = ({ salesProducts }) => {
+interface SalesProductCardListProps {
+  salesProducts: ProductItem[];
+}
+
+const SalesProductCardList = ({ salesProducts }: SalesProductCardListProps) => {
   return (
     <ul className="sales-product-list">
       {salesProducts.map((product) => {

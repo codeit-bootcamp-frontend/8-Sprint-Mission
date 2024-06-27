@@ -2,7 +2,7 @@ import "./buttons.css";
 
 interface BtnSmallProps {
   onClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
-  children: React.ReactNode;
+  children: string | React.ReactNode;
   disabled: boolean;
 }
 

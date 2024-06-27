@@ -6,12 +6,22 @@ import LeftArrowDisableIcon from "../../core/assets/icons/pagination/leftArrowDi
 import RightArrowIcon from "../../core/assets/icons/pagination/rightArrowIcon.svg";
 import RightArrowDisableIcon from "../../core/assets/icons/pagination/rightArrowDisableIcon.svg";
 
-const PagiNation = ({ currentPage, handleCurrentPage, totalPage }) => {
+interface PagiNationProps {
+  currentPage: number;
+  handleCurrentPage: () => {};
+  totalPage: number;
+}
+
+const PagiNation = ({
+  currentPage,
+  handleCurrentPage,
+  totalPage,
+}: PagiNationProps) => {
   const [pages, setPages] = useState([1]);
 
   const handlePages = () => {
     const newPages = Array(totalPage)
-      .fill()
+      .fill(0)
       .map((_, i) => i + 1);
     setPages(newPages);
   };

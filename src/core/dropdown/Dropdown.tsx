@@ -6,20 +6,26 @@ import DropdownIcon from "../assets/icons/dropdown/down-icon.svg";
 
 import DropdownMenu from "./DropdownMenu";
 
-const Dropdown = ({ isLoading, order, handleListClick }) => {
-  const getPageSize = (width) => {
+interface DropdownProps {
+  isLoading: boolean;
+  order: string;
+  handleListClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+}
+
+const Dropdown = ({ isLoading, order, handleListClick }: DropdownProps) => {
+  const getPageSize = (width: number) => {
     if (width < 768) {
       return 1;
     }
     return 0;
   };
-  const size = useResize({ getPageSize });
-  const [isDrop, setIsDrop] = useState(false);
+  const { size } = useResize({ getPageSize });
+  const [isDrop, setIsDrop] = useState<boolean>(false);
   const handleDropdown = () => {
     setIsDrop(!isDrop);
   };
 
-  const handleOrderClick = (e) => {
+  const handleOrderClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     handleListClick(e);
     setIsDrop(!isDrop);
   };

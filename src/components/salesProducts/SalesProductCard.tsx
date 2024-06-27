@@ -1,7 +1,12 @@
 import CardSales from "./CardSales";
 import DefaultImg from "../../core/assets/images/img_default.png";
+import { ProductItem } from "core/Interface/Product";
 
-const SalesProductCard = ({ product }) => {
+interface SalesProductCardProps {
+  product: ProductItem;
+}
+
+const SalesProductCard = ({ product }: SalesProductCardProps) => {
   const { images, name, price, favoriteCount } = product;
   const getImageSource = () => {
     let imgSrc;

@@ -20,7 +20,7 @@ const BestProducts = () => {
     }
     return 1;
   };
-  const size = useResize({ getPageSize: getBestPageSize });
+  const { size } = useResize({ getPageSize: getBestPageSize });
 
   const handleBestProducts = async (options: QueryOptions) => {
     let result;

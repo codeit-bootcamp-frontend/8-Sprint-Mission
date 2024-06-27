@@ -1,6 +1,10 @@
 import "./title.css";
 
-const Title = ({ children }: { children: React.ReactNode }) => {
+interface TitleProps {
+  children: string | React.ReactNode;
+}
+
+const Title = ({ children }: TitleProps) => {
   return <h1 className="title">{children}</h1>;
 };
 

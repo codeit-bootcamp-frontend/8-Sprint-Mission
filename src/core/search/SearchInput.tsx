@@ -2,15 +2,20 @@ import { useState } from "react";
 import SearchIcon from "../assets/icons/search/search-icon.svg";
 import "./search-input.css";
 
-const SearchInput = ({ handleSearch }) => {
+interface SearchInputProps {
+  handleSearch: (keyword: string) => void;
+}
+
+const SearchInput = ({ handleSearch }: SearchInputProps) => {
   const [value, setValue] = useState("");
-  const handleChangeValue = (e) => {
+  const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.key === "Enter" && e.nativeEvent.isComposing === false) {
-      handleSearch(e);
+      const eventTarget = e.target as HTMLInputElement;
+      handleSearch(eventTarget.value);
       setValue("");
     }
   };
