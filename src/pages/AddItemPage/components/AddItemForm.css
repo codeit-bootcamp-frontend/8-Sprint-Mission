@@ -1,0 +1,97 @@
+.ItemForm {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ItemForm-rows {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.ItemForm-error-buttons {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.ItemForm-error-buttons .ItemForm-error {
+  flex: 1 1;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ItemForm-error-buttons .ItemForm-buttons {
+  flex: none;
+}
+
+.ItemForm-error {
+  color: #ff0023;
+  font-size: 14px;
+}
+
+.ItemForm-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ItemForm-button h1 {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.ItemForm-submit-button {
+  padding: 11.5px 30px;
+  border: none;
+  color: #fff;
+  font-weight: 600px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #9ca3af;
+}
+
+.ItemForm-rows h2 {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.ItemForm-preview {
+  width: 282px;
+  height: 282px;
+  border: none;
+  margin-top: 12px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+}
+
+.ItemForm-title,
+.ItemForm-price,
+.ItemForm-tag {
+  height: 56px;
+  border: none;
+  margin-top: 12px;
+  margin-bottom: 24px;
+  padding-left: 24px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+}
+
+.ItemForm-introduction {
+  height: 200px;
+  border: none;
+  margin-top: 12px;
+  margin-bottom: 24px;
+  padding-top: 16px;
+  padding-left: 24px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+}
