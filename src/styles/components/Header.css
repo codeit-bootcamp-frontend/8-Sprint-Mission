@@ -28,6 +28,9 @@ header {
 
 .header-typo-img {
   display: none;
+  width: 103px;
+  height: 51px;
+  cursor: pointer;
 }
 
 /*================header-left-nav================*/
@@ -75,4 +78,37 @@ header {
   font-size: 16px;
   width: 88px;
   height: 42px;
+}
+
+/*==========Tablet==========*/
+@media screen and (max-width: 1199px) {
+  /*==========header-left==========*/
+  header {
+    padding: 10px 24px 10px 24px;
+  }
+}
+
+/*==========Mobile==========*/
+@media screen and (max-width: 767px) {
+  /*==========header-left==========*/
+  header {
+    padding: 10px 16px;
+  }
+
+  .header-logo-img {
+    display: none;
+  }
+
+  .header-typo-img {
+    display: inline-block;
+  }
+
+  /*==========header-left-nav==========*/
+  .item-page-header-nav {
+    gap: 8px;
+  }
+
+  .item-page-header-nav > div {
+    width: auto;
+  }
 }
