@@ -24,21 +24,18 @@ const SalesProducts = () => {
   const { size } = useResize({ pcSize: 10, tabletSize: 6, mobileSize: 4 });
 
   const handleSalesProducts = async (options: QueryOptions) => {
-    let result;
     try {
       setIsLoading(true);
       setErrorMessage(undefined);
-      result = await fetchProduct(options);
-    } catch (error: unknown) {
+      const { list, totalCount } = await fetchProduct(options);
+      setSalesProducts(list);
+      const newTotalPage = Math.ceil(totalCount / size);
+      setTotalPage(newTotalPage);
+    } catch (error) {
       setErrorMessage(error as Error);
-      return;
     } finally {
       setIsLoading(false);
     }
-    const { list, totalCount } = result;
-    setSalesProducts(list);
-    const newTotalPage = Math.ceil(totalCount / size);
-    setTotalPage(newTotalPage);
   };
 
   const handleListClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {

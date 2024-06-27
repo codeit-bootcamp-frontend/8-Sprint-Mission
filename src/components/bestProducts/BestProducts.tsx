@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import BestProductCardList from "./BestProductCardList";
-
 import Title from "../../core/titles/Title";
-import fetchProduct from "../../lib/api/product";
 
-import "./best-products.css";
+import fetchProduct from "../../lib/api/product";
 import useResize from "../../lib/hooks/useResize";
 import { ProductItem, QueryOptions } from "core/Interface/Product";
+
+import "./best-products.css";
 
 const BestProducts = () => {
   const [bestProducts, setBestProducts] = useState<ProductItem[]>([]);
@@ -14,18 +14,14 @@ const BestProducts = () => {
   const { size } = useResize({ pcSize: 4, tabletSize: 2, mobileSize: 1 });
 
   const handleBestProducts = async (options: QueryOptions) => {
-    let result;
     try {
       setErrorMessage(undefined);
-      result = await fetchProduct(options);
-    } catch (error: unknown) {
+      const { list } = await fetchProduct(options);
+      setBestProducts(list);
+    } catch (error) {
       const message = error as Error;
       setErrorMessage(message);
-
-      return;
     }
-    const { list } = result;
-    setBestProducts(list);
   };
 
   useEffect(() => {
