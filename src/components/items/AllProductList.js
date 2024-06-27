@@ -45,7 +45,9 @@ function AllProductList({ products }) {
           </div>
           <button
             className="product-add-button"
-            onClick={() => (window.location.href = "/additem")}
+            onClick={() =>
+              (window.location.href = "../../src/pages/AddItemPage.js")
+            }
           >
             상품 등록하기
           </button>

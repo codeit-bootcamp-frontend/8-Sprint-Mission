@@ -1,13 +1,14 @@
+import { Link, NavLink } from "react-router-dom";
+
 import "./Nav.css";
-import Menu from "./Menu";
 import logoIcon from "../assets/images/Img_logo_icon.png";
 import logoText from "../assets/images/Img_logo_text.png";
 
-function Nav({ currentMenu, handleMenuClick }) {
+function Nav() {
   return (
     <nav>
-      <div className="logo-Menu-wrapper">
-        <a className="logo-wrapper" href="/">
+      <div className="logo-menu-wrapper">
+        <Link className="logo-wrapper" to="/">
           <img
             className="logo-icon"
             src={logoIcon}
@@ -18,25 +19,27 @@ function Nav({ currentMenu, handleMenuClick }) {
             src={logoText}
             alt="판다마켓 로고 중 텍스트"
           />
-        </a>
+        </Link>
 
-        <Menu
-          href="#"
-          className={`forum ${currentMenu === "#" ? "active" : ""}`}
-          name="자유게시판"
-          onClick={handleMenuClick("#")}
-        />
-        <Menu
-          href="/items"
-          className={`used-market ${currentMenu === "/items" ? "active" : ""}`}
-          name="중고마켓"
-          onClick={handleMenuClick("/items")}
-        />
+        <div className="menu-wrapper">
+          <NavLink
+            className={({ isActive }) => (isActive ? "menu active" : "menu")}
+            to="/forum"
+          >
+            자유게시판
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "menu active" : "menu")}
+            to="/items"
+          >
+            중고마켓
+          </NavLink>
+        </div>
       </div>
 
-      <a className="login-link" href="/login">
+      <Link className="login-link" to="/login">
         로그인
-      </a>
+      </Link>
     </nav>
   );
 }

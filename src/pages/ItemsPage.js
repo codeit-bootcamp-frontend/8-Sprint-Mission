@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import "./Items.css";
-import fetchProductData from "../api";
-import BestProductList from "./BestProductList";
-import AllProductList from "./AllProductList";
 
-function Main() {
+import "./ItemsPage.css";
+import fetchProductData from "../components/api";
+import BestProductList from "../components/items/BestProductList";
+import AllProductList from "../components/items/AllProductList";
+
+function ItemsPage() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -26,4 +27,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default ItemsPage;
