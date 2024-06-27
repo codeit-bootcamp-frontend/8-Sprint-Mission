@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import BestProductCardList from "../../components/bestProducts/BestProductCardList";
+import { useCallback, useEffect, useState } from "react";
+import BestProductCardList from "./BestProductCardList";
 
 import Title from "../../core/titles/Title";
 import fetchProduct from "../../lib/api/product";
@@ -11,16 +11,7 @@ import { ProductItem, QueryOptions } from "core/Interface/Product";
 const BestProducts = () => {
   const [bestProducts, setBestProducts] = useState<ProductItem[]>([]);
   const [errorMessage, setErrorMessage] = useState<Error>();
-  const getBestPageSize = (width: number) => {
-    if (1200 <= width) {
-      return 4;
-    }
-    if (768 <= width) {
-      return 2;
-    }
-    return 1;
-  };
-  const { size } = useResize({ getPageSize: getBestPageSize });
+  const { size } = useResize({ pcSize: 4, tabletSize: 2, mobileSize: 1 });
 
   const handleBestProducts = async (options: QueryOptions) => {
     let result;
@@ -44,7 +35,7 @@ const BestProducts = () => {
       orderBy: "favorite",
       searchKeyword: "",
     });
-  }, [size]);
+  }, [size, handleBestProducts]);
 
   return (
     <section className="best-product-container">

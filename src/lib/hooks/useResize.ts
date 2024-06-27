@@ -1,22 +1,34 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const useResize = ({
-  getPageSize,
-}: {
-  getPageSize: (width: number) => number | number;
-}) => {
+interface useResizeProps {
+  pcSize: number;
+  tabletSize: number;
+  mobileSize: number;
+}
+
+const useResize = ({ pcSize, tabletSize, mobileSize }: useResizeProps) => {
+  const getPageSize = useCallback((width: number) => {
+    if (1200 <= width) {
+      return pcSize;
+    }
+    if (768 <= width) {
+      return tabletSize;
+    }
+    return mobileSize;
+  }, []);
+
   const [size, setSize] = useState(getPageSize(window.innerWidth));
 
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     const newWindowSize = getPageSize(window.innerWidth);
     setSize(newWindowSize);
-  };
+  }, [getPageSize]);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [handleResize]);
   return { size };
 };
 

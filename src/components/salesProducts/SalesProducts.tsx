@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useResize from "../../lib/hooks/useResize";
 
@@ -21,16 +21,7 @@ const SalesProducts = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<Error>();
 
-  const getSalesPageSize = (width: number) => {
-    if (1200 <= width) {
-      return 10;
-    }
-    if (768 <= width) {
-      return 6;
-    }
-    return 4;
-  };
-  const { size } = useResize({ getPageSize: getSalesPageSize });
+  const { size } = useResize({ pcSize: 10, tabletSize: 6, mobileSize: 4 });
 
   const handleSalesProducts = async (options: QueryOptions) => {
     let result;
