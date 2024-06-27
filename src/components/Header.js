@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
+  const location = useLocation();
   return (
     <>
       <header>
@@ -20,7 +21,10 @@ function Header() {
                   <Link to="#">자유게시판</Link>
                 </li>
                 <li>
-                  <Link to="/Items" className="on">
+                  <Link
+                    to="/Items"
+                    className={location.pathname === "/Items" ? "on" : ""}
+                  >
                     중고마켓
                   </Link>
                 </li>
