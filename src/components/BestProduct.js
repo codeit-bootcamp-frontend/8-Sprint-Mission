@@ -24,7 +24,6 @@ function BestProduct() {
   const handleLoad = async (options) => {
     const { list } = await getProducts(options);
     setProducts(list);
-    console.log(list);
   };
 
   useEffect(() => {
