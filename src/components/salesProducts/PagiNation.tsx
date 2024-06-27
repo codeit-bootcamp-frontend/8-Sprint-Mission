@@ -8,7 +8,7 @@ import RightArrowDisableIcon from "../../core/assets/icons/pagination/rightArrow
 
 interface PagiNationProps {
   currentPage: number;
-  handleCurrentPage: () => {};
+  handleCurrentPage: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   totalPage: number;
 }
 
