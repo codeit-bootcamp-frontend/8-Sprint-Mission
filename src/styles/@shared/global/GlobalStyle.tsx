@@ -9,10 +9,10 @@ const GlobalStyle = createGlobalStyle`
     /* 브라우저의 기본 폰트사이즈는 16px, 10px로 만들어 직관적인 rem 사용을 위해 이를 62.5%만큼 축소 */
     /* 10px = 1.0rem */
     font-size: 62.5%;
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
   }
 
   * {
-    font-family: 'Pretendard Variable', Pretendard, sans-serif;
     box-sizing: border-box;
   }
 

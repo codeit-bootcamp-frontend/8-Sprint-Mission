@@ -20,6 +20,7 @@
 
   /* height, width */
   --header-heigt: 7rem;
+  --container-width: 120rem;
 
   /* z-index */
   --z-index-header: 2;
