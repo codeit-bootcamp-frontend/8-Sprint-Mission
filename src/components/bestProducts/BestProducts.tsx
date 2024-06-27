@@ -39,7 +39,7 @@ const BestProducts = () => {
       {!errorMessage ? (
         <BestProductCardList bestProducts={bestProducts} />
       ) : (
-        <p>{errorMessage.message}</p>
+        <p>상품 불러오기에 실패했습니다. 새로고침을 눌러주세요 😁</p>
       )}
     </section>
   );

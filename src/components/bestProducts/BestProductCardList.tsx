@@ -9,13 +9,17 @@ interface BestProductCardListProps {
 const BestProductCardList = ({ bestProducts }: BestProductCardListProps) => {
   return (
     <ul className="best-product-list">
-      {bestProducts.map((product) => {
-        return (
-          <li key={product.id} className="best-product">
-            <BestProductCard product={product} />
-          </li>
-        );
-      })}
+      {bestProducts.length > 0 ? (
+        bestProducts.map((product) => {
+          return (
+            <li key={product.id} className="best-product">
+              <BestProductCard product={product} />
+            </li>
+          );
+        })
+      ) : (
+        <p>베스트 상품이 없습니다.</p>
+      )}
     </ul>
   );
 };

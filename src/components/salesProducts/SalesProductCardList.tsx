@@ -9,13 +9,17 @@ interface SalesProductCardListProps {
 const SalesProductCardList = ({ salesProducts }: SalesProductCardListProps) => {
   return (
     <ul className="sales-product-list">
-      {salesProducts.map((product) => {
-        return (
-          <li key={product.id} className="sales-product">
-            <SalesProductCard product={product} />
-          </li>
-        );
-      })}
+      {salesProducts.length > 0 ? (
+        salesProducts.map((product) => {
+          return (
+            <li key={product.id} className="sales-product">
+              <SalesProductCard product={product} />
+            </li>
+          );
+        })
+      ) : (
+        <p>판매 중인 상품이 없습니다.</p>
+      )}
     </ul>
   );
 };
