@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { StyledTitleText } from 'styles/market/textStyle';
+import { StyledTitleText } from 'styles/market/textStyles';
 
 export const StyledAddItemSubTitle = styled.label`
   ${StyledTitleText};

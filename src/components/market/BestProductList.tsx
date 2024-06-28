@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Product from './Product';
 import useProductsQuery from 'queries/useProductsQuery';
 import usePageSize from 'hooks/usePageSize';
+import { IProduct } from 'types/@shared/marketTypes';
 
 function BestProductList() {
   const pageSize = usePageSize('best');
@@ -11,7 +12,7 @@ function BestProductList() {
 
   return (
     <StyledBestProductsSection>
-      {productList.map(({ id, name, price, images, favoriteCount }) => (
+      {productList.map(({ id, name, price, images, favoriteCount }: IProduct) => (
         <Product key={id} name={name} images={images} price={price} favoriteCount={favoriteCount} />
       ))}
     </StyledBestProductsSection>

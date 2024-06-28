@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import BestProductList from './BestProductList';
-import { StyledProductCategoryText } from 'styles/market/textStyle';
+import { StyledProductCategoryText } from 'styles/market/textStyles';
 
 function BsetProductsSection() {
   return (

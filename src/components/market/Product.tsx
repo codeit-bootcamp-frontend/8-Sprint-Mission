@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'components/@shared/Image';
 import likeIcon from 'assets/images/market/like-icon.png';
-import { IProduct } from 'types/productTypes';
+import { IProduct } from 'types/@shared/marketTypes';
 
 function Product({
   name,

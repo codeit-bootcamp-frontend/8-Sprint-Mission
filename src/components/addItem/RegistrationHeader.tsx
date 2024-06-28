@@ -1,6 +1,6 @@
 import Button from 'components/@shared/Button';
 import styled from 'styled-components';
-import { StyledTitleText } from 'styles/market/textStyle';
+import { StyledTitleText } from 'styles/market/textStyles';
 
 interface RegistraionHeaderProps {
   isSubmitActive: boolean;

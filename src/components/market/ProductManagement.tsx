@@ -7,9 +7,9 @@ import dropDownIcon from 'assets/images/market/order-dropdown.png';
 import { PATH_ADD_ITEM } from ' constants/paths/paths';
 import Image from 'components/@shared/Image';
 import useNavigateTo from 'hooks/useNavigateTo';
-import { ProductOrderBy } from 'types/productTypes';
 import useWindowSize from 'hooks/useWindowSize';
 import { MOBILE_MAX_WIDTH } from ' constants/infomations/size';
+import { ProductOrderBy } from 'types/@shared/marketTypes';
 
 const orderByObject = {
   recent: '최신순',

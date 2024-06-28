@@ -1,4 +1,4 @@
-import { IAddItemFeildset } from 'types/addItemFeildsetTypes';
+import { IAddItemFeildset } from 'types/@shared/addItemTypes';
 
 export const ADDITEM_FEIELDSET_LIST: IAddItemFeildset[] = [
   {

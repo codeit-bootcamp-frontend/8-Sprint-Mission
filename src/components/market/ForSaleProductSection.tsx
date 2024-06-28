@@ -1,10 +1,11 @@
 import React, { Suspense, useState } from 'react';
 import ForSaleProductList from './ForSaleProductList';
-import { StyledProductCategoryText } from 'styles/market/textStyle';
+import { StyledProductCategoryText } from 'styles/market/textStyles';
 import styled from 'styled-components';
 import ProductManagement from './ProductManagement';
-import { ProductOrderBy } from 'types/productTypes';
+
 import useToggle from 'hooks/useToggle';
+import { ProductOrderBy } from 'types/@shared/marketTypes';
 
 function ForSaleProductsSection() {
   const [searchValue, setSearchValue] = useState('');

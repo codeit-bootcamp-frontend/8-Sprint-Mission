@@ -3,10 +3,10 @@ import { inputStyle, placeholderStyle } from 'styles/auth/formStyles';
 import plusIcon from 'assets/images/addItem/plus-icon.png';
 import { ALLOW_FILE_EXTENSION } from ' constants/infomations/fileExtension';
 import { StyledAddItemSubTitle } from 'styles/addItem/textStyles';
-import { IPreview } from 'types/addItemPreviewTypes';
 import React from 'react';
 import Image from 'components/@shared/Image';
 import PreviewList from './PreviewList';
+import { IPreview } from 'types/@shared/addItemTypes';
 
 interface ImageRegistrationProps {
   previewList: IPreview[];

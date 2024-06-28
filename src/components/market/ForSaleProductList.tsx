@@ -4,6 +4,7 @@ import useProductsQuery from 'queries/useProductsQuery';
 import { useState } from 'react';
 import Pagination from 'components/@shared/Pagination';
 import usePageSize from 'hooks/usePageSize';
+import { IProduct } from 'types/@shared/marketTypes';
 
 interface ForSaleProductListProps {
   order: string;
@@ -20,7 +21,7 @@ function ForSaleProductList({ order, keyword }: ForSaleProductListProps) {
   return (
     <StyledForSaleProductContainer>
       <StyledForSaleProductsSection>
-        {productList.map(({ id, name, price, images, favoriteCount }) => (
+        {productList.map(({ id, name, price, images, favoriteCount }: IProduct) => (
           <Product key={id} name={name} images={images} price={price} favoriteCount={favoriteCount} />
         ))}
       </StyledForSaleProductsSection>

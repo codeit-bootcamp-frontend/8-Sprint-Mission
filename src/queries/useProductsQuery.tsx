@@ -1,7 +1,7 @@
 import { PRODUCTS_QUERY_KEY } from ' constants/queryKeys/queryKeys';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { axiosInstance } from 'apis/setupAxios';
-import { IProductResponse } from 'types/productTypes';
+import { IProductResponse } from 'types/@shared/marketTypes';
 
 interface useProductsQueryFetcherProps {
   page: number;

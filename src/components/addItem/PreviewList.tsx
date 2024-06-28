@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { IPreview } from 'types/addItemPreviewTypes';
+
 import React from 'react';
 import { StyledRemoveButton } from 'styles/addItem/buttonStyles';
 import Image from 'components/@shared/Image';
+import { IPreview } from 'types/@shared/addItemTypes';
 
 interface PreviewListProps {
   previewList: IPreview[];

@@ -1,7 +1,7 @@
 import feautureImg1 from 'assets/images/home/home_feat1.png';
 import feautureImg2 from 'assets/images/home/home_feat2.png';
 import feautureImg3 from 'assets/images/home/home_feat3.png';
-import { IBrandFeatureItem } from 'types/brandFeatureItemTypes';
+import { IBrandFeatureItem } from 'types/@shared/homeTypes';
 
 export const BRAND_FEATURE_ITEM_LIST: IBrandFeatureItem[] = [
   {

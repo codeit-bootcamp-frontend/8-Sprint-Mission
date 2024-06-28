@@ -4,9 +4,8 @@ import { Fragment } from 'react/jsx-runtime';
 import styled from 'styled-components';
 import { StyledAddItemSubTitle, smallTextStyle } from 'styles/addItem/textStyles';
 import { inputStyle, placeholderStyle } from 'styles/auth/formStyles';
-import { IFormValue } from 'types/addItemFormValueTypes';
-import { ITag } from 'types/addItemTagTypes';
 import TagList from './TagList';
+import { IFormValue, ITag } from 'types/@shared/addItemTypes';
 
 interface InputSectionProps {
   formValue: IFormValue;

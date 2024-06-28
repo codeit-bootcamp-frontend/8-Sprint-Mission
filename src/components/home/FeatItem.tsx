@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Image from 'components/@shared/Image';
-import { IBrandFeatureItem } from 'types/brandFeatureItemTypes';
+import { IBrandFeatureItem } from 'types/@shared/homeTypes';
 
 function FeatItem({ src, alt, title, description, detail }: Omit<IBrandFeatureItem, 'id'>) {
   return (

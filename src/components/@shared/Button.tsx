@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
+
 type ButtonCategoryType = 'medium' | 'large';
 
 interface ButtonProps {

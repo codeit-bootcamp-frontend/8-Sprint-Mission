@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import useAllFieldFilled from 'hooks/useAllFieldFilled';
-import { IFormValue } from 'types/addItemFormValueTypes';
-import { IPreview } from 'types/addItemPreviewTypes';
+
 import ImageRegistration from 'components/addItem/ImageRegistration';
 import InputSection from 'components/addItem/InputSection';
-import { ITag } from 'types/addItemTagTypes';
+
 import RegistraionHeader from 'components/addItem/RegistrationHeader';
+import { IFormValue, IPreview, ITag } from 'types/@shared/addItemTypes';
 
 function AddItem() {
   const [formValue, setFormValue] = useState<IFormValue>({
