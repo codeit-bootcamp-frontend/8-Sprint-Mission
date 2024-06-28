@@ -1,11 +1,13 @@
+import { Outlet } from "react-router-dom";
+
 import "./App.css";
 import Nav from "./components/Nav";
 
-function App({ children }) {
+function App() {
   return (
     <>
       <Nav />
-      <div>{children}</div>
+      <Outlet />
     </>
   );
 }

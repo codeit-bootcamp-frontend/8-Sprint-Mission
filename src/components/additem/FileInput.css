@@ -1,0 +1,43 @@
+.file-add-label {
+  display: inline-block;
+  position: relative;
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  background-color: var(--gray100);
+  cursor: pointer;
+}
+
+.file-add-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.file-add-icon {
+  margin-bottom: 12px;
+}
+
+.file-add-text {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 24px;
+  color: var(--gray400);
+}
+
+.file-select-button {
+  display: none;
+}
+
+.preview-img {
+  width: 282px;
+  height: 282px;
+  margin-left: 24px;
+  border-radius: 12px;
+  object-fit: cover;
+}

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 import "./AllProductList.css";
 import ProductListItem from "./ProductListItem";
 import searchIcon from "../../assets/images/ic_search.png";
@@ -8,9 +10,6 @@ function AllProductList({ products }) {
   const [order, setOrder] = useState("createdAt");
 
   useEffect(() => {
-    console.log("products: ", products);
-    console.log("order: ", order);
-
     const sortedProducts = [...products].sort((a, b) => {
       if (order === "createdAt") {
         return new Date(b.createdAt) - new Date(a.createdAt);
@@ -43,14 +42,9 @@ function AllProductList({ products }) {
               placeholder="검색할 상품을 입력해주세요"
             ></input>
           </div>
-          <button
-            className="product-add-button"
-            onClick={() =>
-              (window.location.href = "../../src/pages/AddItemPage.js")
-            }
-          >
+          <Link className="product-add-link" to="/items/additem">
             상품 등록하기
-          </button>
+          </Link>
           <select
             className="order-dropdown"
             name="order"
