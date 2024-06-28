@@ -45,8 +45,8 @@ function AddProductPage(props) {
   };
 
   useEffect(() => {
-    console.log(productValues);
-  }, [productValues]);
+    console.log(products);
+  }, [products]);
 
   return (
     <div className="add-product-container">
