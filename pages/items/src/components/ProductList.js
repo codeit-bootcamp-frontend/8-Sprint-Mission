@@ -1,10 +1,11 @@
 import ProductListItem from "./ProductListItem";
+import "./ProductList.css";
 
 function ProductList({ items }) {
   return (
-    <ul>
+    <ul className="list-container">
       {items.map((item) => (
-        <li key={item.id}>
+        <li className="list" key={item.id}>
           <ProductListItem item={item} />
         </li>
       ))}
