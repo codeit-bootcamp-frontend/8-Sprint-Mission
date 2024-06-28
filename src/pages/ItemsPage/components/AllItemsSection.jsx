@@ -1,6 +1,4 @@
 /**
- * @todo 드랍다운 컴포넌트 모바일 환경 구현
- * @todo 검색 콤포넌트 UI 구현
  * @todo 페이지네이션 구현 및 Page State로 적용
  */
 
@@ -47,7 +45,7 @@ function AllItemsSection() {
     setOrderBy(sortOption);
   };
 
-  const dropDownItems = [
+  const orderByItems = [
     {
       name: "최신순",
       value: "recent",
@@ -93,7 +91,7 @@ function AllItemsSection() {
         </Link>
         <DropDownList
           className="allItemsSection__dropDownList"
-          dropDownItems={dropDownItems}
+          dropDownItems={orderByItems}
           currentItem={orderBy}
           onSelection={handleSortSelection}
         />
