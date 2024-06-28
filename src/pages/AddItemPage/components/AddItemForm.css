@@ -1,7 +1,24 @@
+/* PC size */
 .ItemForm {
   display: flex;
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
+}
+
+/* Tablet size */
+@media (max-width: 1199px) {
+  .ItemForm {
+    width: auto;
+    margin: 0 24px;
+  }
+}
+
+/* Mobile size */
+@media (max-width: 743px) {
+  .ItemForm {
+    min-width: auto;
+    margin: 0 15px;
+  }
 }
 
 .ItemForm-rows {
@@ -47,10 +64,11 @@
 }
 
 .ItemForm-submit-button {
-  padding: 11.5px 30px;
+  width: 88px;
+  height: 42px;
   border: none;
   color: #fff;
-  font-weight: 600px;
+  font-weight: 600;
   font-size: 16px;
   cursor: pointer;
   border-radius: 8px;
@@ -63,14 +81,21 @@
   font-size: 18px;
 }
 
-.ItemForm-preview {
-  width: 282px;
+.ItemForm input {
+  border: none;
+}
+
+.ItemForm input:focus,
+.ItemForm textarea:focus {
+  outline-color: #3692ff;
+}
+
+.ItemForm-img {
+  width: 588px;
   height: 282px;
   border: none;
   margin-top: 12px;
   margin-bottom: 24px;
-  border-radius: 12px;
-  background-color: #f3f4f6;
 }
 
 .ItemForm-title,

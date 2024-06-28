@@ -70,7 +70,7 @@ function AddItemForm({
         </div>
         <h2>상품 이미지</h2>
         <FileInput
-          className="ItemForm-preview"
+          className="ItemForm-img"
           name="imgFile"
           value={value.imgFile}
           initialPreview={initialPreview}
@@ -98,7 +98,7 @@ function AddItemForm({
           name="price"
           value={value.price}
           placeholder={"판매 가격을 입력해주세요"}
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
         <h2>태그</h2>
         <input
@@ -106,7 +106,7 @@ function AddItemForm({
           name="tag"
           value={value.tag}
           placeholder={"태그를 입력해주세요"}
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
       </div>
     </form>
