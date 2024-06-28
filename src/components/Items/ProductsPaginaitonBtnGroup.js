@@ -1,7 +1,7 @@
-import "../styles/components/ProductsPaginaitonBtns.css";
+import "../../styles/components/Items/ProductsPaginaitonBtns.css";
 
-import pageArrowLeft from "../assets/arrow_left_dark.png";
-import pageArrowRight from "../assets/arrow_right_dark.png";
+import pageArrowLeft from "../../assets/arrow_left_dark.png";
+import pageArrowRight from "../../assets/arrow_right_dark.png";
 import { useEffect } from "react";
 
 function ProductsPaginaitonBtns({

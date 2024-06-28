@@ -1,6 +1,4 @@
-import "../styles/components/SalesProductsList.css";
-
-import sortImg from "../assets/ic_sort.png";
+import "../../styles/components/Items/SalesProductsList.css";
 
 import { Link } from "react-router-dom";
 
@@ -31,7 +29,11 @@ function SalesProductsList({ salesProducts, order, onChangeOrder }) {
       <div className="sales-products-header">
         <h2 className="sales-products-title">판매 중인 상품</h2>
         <div className="sales-products-menu-group">
-          <input className="sales-search-bar" type="search" />
+          <input
+            className="sales-search-bar"
+            type="search"
+            placeholder="검색할 상품을 입력해주세요"
+          />
           <Link to="/additem">
             <button className="register-item-button">상품 등록하기</button>
           </Link>
@@ -58,7 +60,11 @@ function SalesProductsList({ salesProducts, order, onChangeOrder }) {
         <Link to="/additem">
           <button className="register-item-button">상품 등록하기</button>
         </Link>
-        <input className="sales-search-bar" type="search" />
+        <input
+          className="sales-search-bar"
+          type="search"
+          placeholder="검색할 상품을 입력해주세요"
+        />
         <div
           className="product-selected-order-value-minimize"
           onClick={handleSelctOptionsDisplay}

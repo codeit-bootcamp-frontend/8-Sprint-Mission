@@ -1,4 +1,4 @@
-import "../styles/components/BestProductsList.css";
+import "../../styles/components/Items/BestProductsList.css";
 
 import ProductCard from "./ProductCard";
 

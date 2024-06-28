@@ -56,6 +56,13 @@ header {
   color: var(--brand-blue);
 }
 
+/*================pfp-image================*/
+.user-pfp-img {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
 /*================button================*/
 .blue-button {
   border: none;

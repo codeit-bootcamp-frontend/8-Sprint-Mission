@@ -1,9 +1,9 @@
-import "../styles/components/Footer.css";
+import "../../styles/components/Home/Footer.css";
 
-import icFacebook from "../assets/ic_facebook.png";
-import icTwitter from "../assets/ic_twitter.png";
-import icYoutube from "../assets/ic_youtube.png";
-import icInstagram from "../assets/ic_instagram.png";
+import icFacebook from "../../assets/ic_facebook.png";
+import icTwitter from "../../assets/ic_twitter.png";
+import icYoutube from "../../assets/ic_youtube.png";
+import icInstagram from "../../assets/ic_instagram.png";
 
 import { Link } from "react-router-dom";
 
