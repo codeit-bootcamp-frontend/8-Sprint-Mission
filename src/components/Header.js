@@ -23,7 +23,12 @@ function Header() {
                 <li>
                   <Link
                     to="/Items"
-                    className={location.pathname === "/Items" ? "on" : ""}
+                    className={
+                      location.pathname === "/Items" ||
+                      location.pathname === "/AddItem"
+                        ? "on"
+                        : ""
+                    }
                   >
                     중고마켓
                   </Link>
@@ -32,9 +37,15 @@ function Header() {
             </nav>
           </div>
           <div className="header-button">
-            <Link to="/Login" className="login-btn">
-              로그인
-            </Link>
+            {location.pathname === "/AddItem" ? (
+              <button type="button" className="profile-btn">
+                <img src="/images/i-profile.png" alt="프로필 이미지" />
+              </button>
+            ) : (
+              <Link to="/Login" className="login-btn">
+                로그인
+              </Link>
+            )}
           </div>
         </div>
       </header>

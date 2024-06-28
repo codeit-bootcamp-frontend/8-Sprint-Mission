@@ -4,6 +4,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
 import Items from "./Items";
+import AddItem from "./AddItem";
 import "../css/reset.css";
 import "../css/style.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -20,6 +21,7 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Items" element={<Items />} />
+            <Route path="/AddItem" element={<AddItem />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

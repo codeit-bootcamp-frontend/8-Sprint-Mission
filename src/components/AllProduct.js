@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { getProducts } from "../api.js";
 import { useEffect, useState } from "react";
 
@@ -87,7 +88,9 @@ function AllProduct() {
           <h2>판매중인 상품</h2>
           <div className="product-info-menu">
             <input type="search" placeholder="검색할 상품을 입력해주세요." />
-            <button type="button">상품 등록하기</button>
+            <Link to="/AddItem" className="item-add-btn">
+              상품 등록하기
+            </Link>
             <div className="drop-menu">
               <p className={dropArrow} onClick={handleDropClick}>
                 {orderTxt}
