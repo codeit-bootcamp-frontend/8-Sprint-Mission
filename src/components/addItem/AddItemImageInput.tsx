@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { styled } from "styled-components";
+
 import PlusIcon from "core/assets/icons/plusIcon/plus.svg";
 import BlueX from "core/assets/icons/xIcon/blue_X.svg";
-import { styled } from "styled-components";
 
 const ImageInputWrap = styled.section`
   display: flex;
@@ -17,16 +18,25 @@ const ImageInputBtn = styled.button`
   cursor: pointer;
 `;
 
-const ImageBtnIcon = styled.img`
+const ImageAddBtnIcon = styled.img`
   width: 48px;
   height: 48px;
 `;
 
-const ImageBtnIconTitle = styled.p`
+const ImageAddBtnIconTitle = styled.p`
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: #9ca3af;
+`;
+
+const ImageInput = styled.input`
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
 `;
 
 const PreviewWrap = styled.div`
@@ -38,17 +48,9 @@ const PreviewWrap = styled.div`
 
 const PreviewImage = styled.img`
   width: 100%;
+  height: 100%;
   border: none;
   border-radius: 12px;
-`;
-
-const ImageInput = styled.input`
-  position: absolute;
-  width: 0;
-  height: 0;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
 `;
 
 const PreviewDeleteBtn = styled.button`
@@ -106,8 +108,8 @@ const AddItemImageInput = ({
   return (
     <ImageInputWrap>
       <ImageInputBtn type="button" onClick={handleClick}>
-        <ImageBtnIcon src={PlusIcon} alt="이미지 추가 아이콘" />
-        <ImageBtnIconTitle>이미지 등록</ImageBtnIconTitle>
+        <ImageAddBtnIcon src={PlusIcon} alt="이미지 추가 아이콘" />
+        <ImageAddBtnIconTitle>이미지 등록</ImageAddBtnIconTitle>
       </ImageInputBtn>
 
       <ImageInput

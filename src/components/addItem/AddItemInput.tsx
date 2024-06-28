@@ -8,6 +8,7 @@ interface AddItemInputProps {
 }
 
 const Input = styled.input`
+  display: inline-box;
   width: 100%;
   height: 56px;
   border: none;

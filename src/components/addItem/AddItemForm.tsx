@@ -10,8 +10,14 @@ import AddItemTextArea from "./AddItemTextArea";
 
 const Form = styled.form`
   max-width: 1200px;
-  height: 56px;
-  margin: 24px auto;
+  margin: 100px auto;
+
+  @media (width < 1200px) {
+    margin: 100px 24px;
+  }
+  @media (width < 768px) {
+    margin: 100px 16px;
+  }
 `;
 
 const AddItemTitle = styled.h1`
@@ -26,6 +32,14 @@ const TitleWrapper = styled.div`
   display: flex;
   align-item: center;
   justify-content: space-between;
+`;
+
+const InputWrap = styled.section`
+  display: flex;
+  flex-direction: column;
+
+  margin: 24px 0;
+  gap: 12px;
 `;
 
 interface AddItems {
@@ -89,51 +103,57 @@ const AddItemForm = () => {
   }, [isValidate]);
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <TitleWrapper>
         <AddItemTitle>상품 등록하기</AddItemTitle>
-        <AddItemBtn onClick={handleSubmit} disabled={isButtonOff} />
+        <AddItemBtn disabled={isButtonOff} />
       </TitleWrapper>
 
-      <AddItemLabel htmlFor="images">상품 이미지</AddItemLabel>
-      <AddItemImageInput
-        name="images"
-        value={addItems.images}
-        onChange={handleChange}
-      />
-
-      <AddItemLabel htmlFor="name">상품명</AddItemLabel>
-      <AddItemInput
-        type="text"
-        name="name"
-        value={addItems.name}
-        onChange={handleChange}
-        placeholder="상품명을 입력해주세요"
-      />
-
-      <AddItemLabel htmlFor="description">상품 소개</AddItemLabel>
-      <AddItemTextArea
-        name="description"
-        value={addItems.description}
-        onChange={handleChange}
-        placeholder="상품 소개를 입력해주세요"
-      />
-
-      <AddItemLabel htmlFor="price">판매가격</AddItemLabel>
-      <AddItemInput
-        type="number"
-        name="price"
-        value={addItems.price}
-        onChange={handleChange}
-        placeholder="판매 가격을 입력해주세요"
-      />
-
-      <AddItemLabel htmlFor="tags">태그</AddItemLabel>
-      <AddItemTagInput
-        tagList={addItems.tags}
-        onAdd={onAddTag}
-        onDelete={onDeleteTag}
-      />
+      <InputWrap>
+        <AddItemLabel htmlFor="images">상품 이미지</AddItemLabel>
+        <AddItemImageInput
+          name="images"
+          value={addItems.images}
+          onChange={handleChange}
+        />
+      </InputWrap>
+      <InputWrap>
+        <AddItemLabel htmlFor="name">상품명</AddItemLabel>
+        <AddItemInput
+          type="text"
+          name="name"
+          value={addItems.name}
+          onChange={handleChange}
+          placeholder="상품명을 입력해주세요"
+        />
+      </InputWrap>
+      <InputWrap>
+        <AddItemLabel htmlFor="description">상품 소개</AddItemLabel>
+        <AddItemTextArea
+          name="description"
+          value={addItems.description}
+          onChange={handleChange}
+          placeholder="상품 소개를 입력해주세요"
+        />
+      </InputWrap>
+      <InputWrap>
+        <AddItemLabel htmlFor="price">판매가격</AddItemLabel>
+        <AddItemInput
+          type="number"
+          name="price"
+          value={addItems.price}
+          onChange={handleChange}
+          placeholder="판매 가격을 입력해주세요"
+        />
+      </InputWrap>
+      <InputWrap>
+        <AddItemLabel htmlFor="tags">태그</AddItemLabel>
+        <AddItemTagInput
+          tagList={addItems.tags}
+          onAdd={onAddTag}
+          onDelete={onDeleteTag}
+        />
+      </InputWrap>
     </Form>
   );
 };

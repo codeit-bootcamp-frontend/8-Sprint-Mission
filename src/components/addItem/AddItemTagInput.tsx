@@ -41,6 +41,7 @@ const AddItemTagInput = ({
 
   const handleSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && tagText !== "" && !e.nativeEvent.isComposing) {
+      e.preventDefault();
       onAdd(tagText);
       setTagText("");
     }
