@@ -11,6 +11,12 @@
 
   --blue: #3692ff;
 
+  --white: #fff;
+
+  --hover: #1967d6;
+  --focus: #1251aa;
+  --disabled: #9ca3af;
+
   --header-height: 70px;
 }
 
@@ -67,7 +73,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-bottom: 1px solid #dfdfdf;
 }
 
@@ -111,24 +117,24 @@ h2 {
   line-height: 56px;
 }
 
-.button {
+button {
   background-color: var(--blue);
-  color: #ffffff;
+  color: var(--white);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.button:hover {
-  background-color: #1967d6;
+button:hover {
+  background-color: var(--hover);
 }
 
-.button:focus {
-  background-color: #1251aa;
+button:focus {
+  background-color: var(--focus);
 }
 
-.button:disabled {
-  background-color: #9ca3af;
+button:disabled {
+  background-color: var(--disabled);
   cursor: default;
   pointer-events: none;
 }

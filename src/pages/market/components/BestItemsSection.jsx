@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ItemCard from './ItemCard';
-import { getProducts } from '../../../api/itemApi';
+import { getProducts } from '../../../API/itemApi';
 
 const getPageSize = () => {
   const width = window.innerWidth;
-  if (width < 768) {
-    // Mobile viewport
-    return 1;
-  } else if (width < 1280) {
-    // Tablet viewport
-    return 2;
-  } else {
-    // Desktop viewport
-    return 4;
-  }
+  return width < 768 ? 1 : width < 1280 ? 2 : 4;
 };
 
 function BestItemsSection() {
@@ -44,7 +35,7 @@ function BestItemsSection() {
 
       <div className='bestItemsCardSection'>
         {itemList?.map((item) => (
-          <ItemCard item={item} key={`best-item-${item.id}`} />
+          <ItemCard item={item} key={item.id} />
         ))}
       </div>
     </div>

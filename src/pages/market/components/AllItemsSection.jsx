@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { getProducts } from '../../../api/itemApi';
+import { useEffect, useState } from 'react';
+import { getProducts } from '../../../API/itemApi';
 import ItemCard from './ItemCard';
 import { ReactComponent as SortIcon } from '../../../images/icons/ic_sort.svg';
 import { ReactComponent as SearchIcon } from '../../../images/icons/ic_search.svg';
@@ -8,16 +8,7 @@ import PaginationBar from '../ui/PaginationBar';
 
 const getPageSize = () => {
   const width = window.innerWidth;
-  if (width < 768) {
-    // Mobile viewport
-    return 4;
-  } else if (width < 1280) {
-    // Tablet viewport
-    return 6;
-  } else {
-    // Desktop viewport
-    return 10;
-  }
+  return width < 768 ? 4 : width < 1280 ? 6 : 10;
 };
 
 function AllItemsSection() {
@@ -28,8 +19,8 @@ function AllItemsSection() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [totalPageNum, setTotalPageNum] = useState();
 
-  const fetchSortedData = async ({ orderBy, page, pageSize }) => {
-    const products = await getProducts({ orderBy, page, pageSize });
+  const fetchSortedData = async ({ orderBy, page, pageSize, keyword = 0 }) => {
+    const products = await getProducts({ orderBy, page, pageSize, keyword });
     setItemList(products.list);
     setTotalPageNum(Math.ceil(products.totalCount / pageSize));
   };
@@ -81,7 +72,7 @@ function AllItemsSection() {
 
       <div className='allItemsCardSection'>
         {itemList?.map((item) => (
-          <ItemCard item={item} key={`market-item-${item.id}`} />
+          <ItemCard item={item} key={item.id} />
         ))}
       </div>
 

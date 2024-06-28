@@ -1,0 +1,27 @@
+.tagSection {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--gray50);
+  color: var(--gray800);
+  padding: 12px 12px 12px 16px;
+  border-radius: 26px;
+  min-width: 100px;
+}
+
+.tagText {
+  font-size: 16px;
+  line-height: 24px;
+  margin-right: 8px;
+  max-width: calc(100% - 28px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
