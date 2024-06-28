@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { smallTextStyle } from 'styles/addItem/textStyles';
 import { ITag } from 'types/addItemTagTypes';
-import TagItem from './TagItem';
+import { StyledRemoveButton } from 'styles/addItem/buttonStyles';
 
 interface TagListProps {
   tagList: ITag[];
@@ -13,7 +13,10 @@ function TagList({ tagList, handleRemoveClick }: TagListProps) {
   return (
     <StyledTagList onClick={handleRemoveClick}>
       {tagList.map(tag => (
-        <TagItem key={tag.id} tag={tag} />
+        <StyledTagItem key={tag.id}>
+          {tag.content}
+          <StyledRemoveButton className={'tag-remove-btn'} data-category={'tag'} data-id={tag.id} />
+        </StyledTagItem>
       ))}
     </StyledTagList>
   );
@@ -30,4 +33,17 @@ const StyledTagList = styled.ul`
   margin-top: 1.2rem;
 
   ${smallTextStyle};
+`;
+
+const StyledTagItem = styled.li`
+  position: relative; // 버튼 위치 조정
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+
+  height: 4.8rem;
+  padding: 0 1.2rem;
+  border-radius: 2.6rem;
+  background-color: var(--cool-gray-50);
 `;
