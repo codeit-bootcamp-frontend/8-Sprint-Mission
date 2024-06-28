@@ -1,4 +1,4 @@
-import "../styles/components/MainBottom.css";
+import "../../styles/components/Home/MainBottom.css";
 
 function MainBottom({ mainBottomDetails }) {
   const { imgUrl, mainBottomContent } = mainBottomDetails;

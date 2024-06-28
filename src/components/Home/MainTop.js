@@ -1,4 +1,4 @@
-import "../styles/components/MainTop.css";
+import "../../styles/components/Home/MainTop.css";
 
 import { Link } from "react-router-dom";
 

@@ -3,6 +3,8 @@ import "../styles/components/Header.css";
 import logoWithTypoImgUrl from "../assets/logo_with_typo.png";
 import onlyTypoImgUrl from "../assets/logo_typo.png";
 
+import userPfpImgUrl from "../assets/basic_user_pfp_img.png";
+
 import { Link } from "react-router-dom";
 
 /**
@@ -10,7 +12,7 @@ import { Link } from "react-router-dom";
  * @param {string} pageType - main, item
  * @returns {element} - header element
  */
-function Header({ pageType = "main" }) {
+function Header({ pageType = "main", isLogin = false }) {
   const buttonClassName = `blue-button login-link-button ${pageType}`;
   return (
     <header>
@@ -34,9 +36,17 @@ function Header({ pageType = "main" }) {
           </div>
         )}
       </div>
-      <Link to="/login">
-        <button className={buttonClassName}>로그인</button>
-      </Link>
+      {isLogin ? (
+        <img
+          className="user-pfp-img"
+          src={userPfpImgUrl}
+          alt="유저 프로필 이미지"
+        />
+      ) : (
+        <Link to="/login">
+          <button className={buttonClassName}>로그인</button>
+        </Link>
+      )}
     </header>
   );
 }

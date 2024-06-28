@@ -1,9 +1,9 @@
 import "../styles/Items.css";
 
 import Header from "../components/Header";
-import BestProductsList from "../components/BestProductsList";
-import SalesProductsList from "../components/SalesProductsList";
-import ProductsPaginaitonBtns from "../components/ProductsPaginaitonBtnGroup";
+import BestProductsList from "../components/Items/BestProductsList";
+import SalesProductsList from "../components/Items/SalesProductsList";
+import ProductsPaginaitonBtns from "../components/Items/ProductsPaginaitonBtnGroup";
 
 import { getProducts } from "../api/api";
 import { useState, useEffect } from "react";
@@ -50,42 +50,41 @@ function Items() {
     return { list, totalCount };
   };
 
+  /**
+   * 현재 width에 따라서 알맞는 pageSize를 리턴하는 함수
+   * @param {number} pcPageSize
+   * @param {number} tabletPageSize
+   * @param {number} mobilePageSize
+   * @returns - 파라미터로 넣은 값 중 현재 화면에 알맞는 pageSize 리턴
+   */
+  const getProductsPageSize = (pcPageSize, tabletPageSize, mobilePageSize) => {
+    if (isPc) return pcPageSize;
+    else if (isTablet) return tabletPageSize;
+    else if (isMobile) return mobilePageSize;
+    else return;
+  };
+
   // 베스트 상품 초기 로드 및 미디어 쿼리 따라서 로드
   // 개선필요 : dependency로 모두 등록하면 한번 바뀌는데 get request가 2번 넘어감
-  // favoriteProduct는 처음에 pagesize 4로 받아오고
-  // session storage? 사용해서 get request 안보내는 방향으로 개선 가능할듯
+  // favoriteProduct는 처음에 pagesize 4로 받아오고 저장했다가 다시 사용하는 방법으로 바꾸기
   useEffect(() => {
     if (isMediaQueryInValid) return;
 
-    let pageSize;
-    if (isPc) {
-      pageSize = 4;
-    } else if (isTablet) {
-      pageSize = 2;
-    } else if (isMobile) {
-      pageSize = 1;
-    } else return;
+    const pageSize = getProductsPageSize(4, 2, 1);
 
     handleProductLoad({
       listType: "bestProducts",
       orderBy: "favorite",
       pageSize,
     });
-  }, [isPc, isTablet, isMobile]);
+  }, [isMediaQueryInValid, isPc, isTablet, isMobile]);
 
   // 판매 중인 상품 초기 로드 및 미디어 쿼리 따라서 로드
   // 개선필요 : totalPageCount dependency로 인해 get request가 두번 실행됨
   useEffect(() => {
     if (isMediaQueryInValid) return;
 
-    let pageSize;
-    if (isPc) {
-      pageSize = 10;
-    } else if (isTablet) {
-      pageSize = 6;
-    } else if (isMobile) {
-      pageSize = 4;
-    } else return;
+    const pageSize = getProductsPageSize(10, 6, 4);
 
     const { totalCount } = handleProductLoad({
       listType: "salesProducts",
@@ -102,20 +101,20 @@ function Items() {
       pageNumList.push(null);
     }
     setPageBtnNumList(pageNumList);
-  }, [totalPageCount, salesProductsOrder, isPc, isTablet, isMobile]);
+  }, [
+    totalPageCount,
+    salesProductsOrder,
+    isMediaQueryInValid,
+    isPc,
+    isTablet,
+    isMobile,
+  ]);
 
   // currentPage 값이 변경될 때 마다 판매 중인 상품 목록 페이지에 알맞은 목록으로 변경
   useEffect(() => {
     if (isMediaQueryInValid) return;
 
-    let pageSize;
-    if (isPc) {
-      pageSize = 10;
-    } else if (isTablet) {
-      pageSize = 6;
-    } else if (isMobile) {
-      pageSize = 4;
-    } else return;
+    const pageSize = getProductsPageSize(10, 6, 4);
 
     handleProductLoad({
       listType: "salesProducts",

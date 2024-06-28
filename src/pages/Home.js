@@ -7,10 +7,10 @@ import itemsImgUrl from "../assets/img_home_items.png";
 import mainBottomImgUrl from "../assets/img_home_bottom.png";
 
 import Header from "../components/Header";
-import MainTop from "../components/MainTop";
-import MainContent from "../components/MainContent";
-import MainBottom from "../components/MainBottom";
-import Footer from "../components/Footer";
+import MainTop from "../components/Home/MainTop";
+import MainContent from "../components/Home/MainContent";
+import MainBottom from "../components/Home/MainBottom";
+import Footer from "../components/Home/Footer";
 
 const MAIN_TOP_DETAILS = {
   imgUrl: mainTopImgUrl,
