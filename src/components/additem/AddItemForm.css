@@ -28,3 +28,15 @@
   color: var(--white);
   cursor: pointer;
 }
+
+/* .add-item-button-active {
+  width: 88px;
+  height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--blue);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+} */
