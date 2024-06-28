@@ -32,5 +32,6 @@ const StyledImage = styled.img<{ width: string; height: string; radius?: string;
   height: ${({ height }) => height};
   border-radius: ${({ radius }) => radius || ''};
   object-fit: cover;
+  object-position: center;
   aspect-ratio: ${({ $aspectRatio }) => $aspectRatio || ''};
 `;

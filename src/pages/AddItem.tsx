@@ -88,10 +88,18 @@ function AddItem() {
 export default AddItem;
 
 const StyledAddItemForm = styled.form`
-  margin: 2.4rem auto auto auto;
+  margin: 0 auto;
+  padding-top: 2.4rem;
   max-width: var(--container-width);
 
   & fieldset {
     margin-bottom: 2.4rem;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 2.4rem 2.6rem 0 2.6rem;
+  }
+  @media (max-width: 768px) {
+    padding: 2.4rem 2.6rem 0 2.6rem;
   }
 `;

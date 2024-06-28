@@ -17,9 +17,10 @@ function PreviewList({ previewList, handleRemoveClick }: PreviewListProps) {
           <Image
             src={preview.url}
             alt={'등록한 상품 이미지 미리보기'}
-            height={'28.2rem'}
-            width={'28.2rem'}
+            height={'100%'}
+            width={'auto'}
             radius={'1.2rem'}
+            aspectRatio={'1'}
           />
           <StyledRemoveButton
             className={'preview-remove-btn'}

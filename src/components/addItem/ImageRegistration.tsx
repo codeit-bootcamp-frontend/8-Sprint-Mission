@@ -48,6 +48,16 @@ const StyledItemRegistSection = styled.section`
   width: var(--container-width);
   height: 28.2rem;
 
+  @media (max-width: 1200px) {
+    height: 16.2rem;
+    max-width: calc(100vw - 5.2rem);
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+  @media (max-width: 768px) {
+    max-width: calc(100vw - 3.2rem);
+  }
+
   & label {
     ${inputStyle};
     ${placeholderStyle};
@@ -62,6 +72,10 @@ const StyledItemRegistSection = styled.section`
     width: 28.2rem;
 
     cursor: pointer;
+
+    @media (max-width: 1200px) {
+      width: 16.2rem;
+    }
   }
 
   & #file-input-display-none {

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { smallTextStyle } from 'styles/addItem/textStyles';
 import { ITag } from 'types/addItemTagTypes';
+
 import { StyledRemoveButton } from 'styles/addItem/buttonStyles';
 
 interface TagListProps {
@@ -26,13 +27,21 @@ export default TagList;
 
 const StyledTagList = styled.ul`
   overflow-x: auto; // 태그가 많아지면 좌우 스크롤이 되도록 지정
-  width: var(--container-width);
 
   display: flex;
+  flex-grow: 0;
   gap: 1rem;
   margin-top: 1.2rem;
+  max-width: var(--container-width);
 
   ${smallTextStyle};
+
+  @media (max-width: 1200px) {
+    max-width: calc(100vw - 5.2rem);
+  }
+  @media (max-width: 768px) {
+    max-width: calc(100vw - 3.2rem);
+  }
 `;
 
 const StyledTagItem = styled.li`

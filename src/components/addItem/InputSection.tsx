@@ -29,14 +29,24 @@ function InputSection({
         <Fragment key={fieldset.name}>
           <fieldset>
             <StyledAddItemSubTitle htmlFor={fieldset.name}>{fieldset.subTitle}</StyledAddItemSubTitle>
-            <input
-              id={fieldset.name}
-              name={fieldset.name}
-              value={formValue[fieldset.name]}
-              onChange={handleInputChange}
-              placeholder={fieldset.placeholder}
-              onKeyDown={fieldset.name === 'tag' ? handleReturnKeyDown : undefined}
-            />
+            {fieldset.name === 'description' ? (
+              <textarea
+                id={fieldset.name}
+                name={fieldset.name}
+                value={formValue[fieldset.name]}
+                onChange={handleInputChange}
+                placeholder={fieldset.placeholder}
+              />
+            ) : (
+              <input
+                id={fieldset.name}
+                name={fieldset.name}
+                value={formValue[fieldset.name]}
+                onChange={handleInputChange}
+                placeholder={fieldset.placeholder}
+                onKeyDown={fieldset.name === 'tag' ? handleReturnKeyDown : undefined}
+              />
+            )}
             {fieldset.name === 'tag' && <TagList tagList={tagList} handleRemoveClick={handleRemoveClick} />}
           </fieldset>
         </Fragment>
@@ -60,6 +70,6 @@ const StyledAddItemInputSection = styled.section`
     height: 20rem;
     resize: none;
     border: none;
-    padding-top: 1.6rem;
+    padding-top: 1.6rem; // 다른 input들과 같은 윗패딩을 주기 위함
   }
 `;
