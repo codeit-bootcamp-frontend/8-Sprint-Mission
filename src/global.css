@@ -13,6 +13,11 @@ a {
   cursor: pointer;
   color: inherit;
 }
+input,
+textarea {
+  border: none;
+  outline: none;
+}
 
 button {
   background: none;
@@ -32,6 +37,23 @@ button {
   }
   .salesProducts-box {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .salesProducts-sort-select-list {
+    width: 7rem;
+  }
+  .Product-registration-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .salesProducts-header {
+    position: relative;
+    flex-direction: column;
+    align-items: normal;
+    gap: 2rem;
+  }
+  .salesProducts-header-right-box {
+    justify-content: flex-end;
   }
 }
 
