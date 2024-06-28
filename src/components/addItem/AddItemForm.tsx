@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { styled } from "styled-components";
 import AddItemBtn from "./AddItemBtn";
 import AddItemImageInput from "./AddItemImageInput";
 
 import AddItemInput from "./AddItemInput";
 import AddItemLabel from "./AddItemLabel";
+import AddItemTagInput from "./AddItemTagInput";
 import AddItemTextArea from "./AddItemTextArea";
 
 const Form = styled.form`
@@ -20,7 +21,7 @@ const AddItemTitle = styled.h1`
   color: #1f2937;
 `;
 
-const Wrapper = styled.div`
+const TitleWrapper = styled.div`
   max-width: 1200px;
   display: flex;
   align-item: center;
@@ -28,7 +29,7 @@ const Wrapper = styled.div`
 `;
 
 interface AddItems {
-  images: string[];
+  images: File[] | null;
   name: string;
   description: string;
   price: string;
@@ -36,7 +37,7 @@ interface AddItems {
 }
 
 const INITIAL_ITEMS = {
-  images: [],
+  images: null,
   name: "",
   description: "",
   price: "",
@@ -47,7 +48,7 @@ const AddItemForm = () => {
   const [addItems, setAddItems] = useState<AddItems>(INITIAL_ITEMS);
   const [isButtonOff, setIsButtonOff] = useState<boolean>(true);
 
-  const isValidate = () => {
+  const isValidate = useCallback(() => {
     if (
       addItems.name !== "" &&
       addItems.description !== "" &&
@@ -58,26 +59,24 @@ const AddItemForm = () => {
     } else {
       setIsButtonOff(true);
     }
+  }, [addItems]);
+
+  const handleChange = (name: string, value: string | File[] | null) => {
+    setAddItems((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    e.stopPropagation();
-    const { name, value } = e.target;
-    if (name === "images") {
-      setAddItems((prev) => ({
-        ...prev,
-        [name]: [value],
-      }));
-    } else {
-      setAddItems((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    }
-    console.log(addItems);
-    isValidate();
+  const onDeleteTag = (item: string) => {
+    const newTags = addItems.tags.filter((value) => value !== item);
+    setAddItems((prev) => ({ ...prev, tags: newTags }));
+  };
+
+  const onAddTag = (newTag: string) => {
+    const newTags = [...addItems.tags];
+    newTags.push(newTag);
+    setAddItems((prev) => ({ ...prev, tags: newTags }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
@@ -85,15 +84,23 @@ const AddItemForm = () => {
     setAddItems(INITIAL_ITEMS);
   };
 
+  useEffect(() => {
+    isValidate();
+  }, [isValidate]);
+
   return (
     <Form>
-      <Wrapper>
+      <TitleWrapper>
         <AddItemTitle>상품 등록하기</AddItemTitle>
         <AddItemBtn onClick={handleSubmit} disabled={isButtonOff} />
-      </Wrapper>
+      </TitleWrapper>
 
       <AddItemLabel htmlFor="images">상품 이미지</AddItemLabel>
-      <AddItemImageInput />
+      <AddItemImageInput
+        name="images"
+        value={addItems.images}
+        onChange={handleChange}
+      />
 
       <AddItemLabel htmlFor="name">상품명</AddItemLabel>
       <AddItemInput
@@ -122,12 +129,10 @@ const AddItemForm = () => {
       />
 
       <AddItemLabel htmlFor="tags">태그</AddItemLabel>
-      <AddItemInput
-        type="text"
-        name="tags"
-        value={addItems.tags}
-        onChange={handleChange}
-        placeholder="태그를 입력해주세요"
+      <AddItemTagInput
+        tagList={addItems.tags}
+        onAdd={onAddTag}
+        onDelete={onDeleteTag}
       />
     </Form>
   );
