@@ -23,25 +23,21 @@ function BestProducts() {
   };
 
   useEffect(() => {
-    fetchBestProducts(4, "favorite");
+    fetchBestProducts(pageSize, "favorite");
     const handleResizeScreen = () => setPageSize(getHtmlSize());
     window.addEventListener("resize", handleResizeScreen);
 
     return () => {
       window.removeEventListener("resize", handleResizeScreen);
     };
-  }, []);
+  }, [pageSize]);
 
   return (
     <div className="best-Products-box">
       <h1 className="best-products-title">베스트 상품</h1>
       <div className="best-products">
         {products?.map((product, idx) => {
-          return idx <= pageSize - 1 ? (
-            <Product key={product.id} product={product} />
-          ) : (
-            ""
-          );
+          return <Product key={product.id} product={product} />;
         })}
       </div>
     </div>

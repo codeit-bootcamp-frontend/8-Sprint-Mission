@@ -27,14 +27,14 @@ function SalesProducts() {
     }
   };
   useEffect(() => {
-    fetchSalesProducts(10, orderBy);
+    fetchSalesProducts(pageSize, orderBy);
     const handleResizeScreen = () => setPageSize(getHtmlSize());
     window.addEventListener("resize", handleResizeScreen);
 
     return () => {
       window.removeEventListener("resize", handleResizeScreen);
     };
-  }, [orderBy]);
+  }, [orderBy, pageSize]);
 
   const sortSelectListVisibleToggle = () => {
     setIsSelectVisibleList(!isSelectVisibleList);
@@ -57,7 +57,7 @@ function SalesProducts() {
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
-          <Link to="/addItem" className="Product-registration-button">
+          <Link to="addItem" className="Product-registration-button">
             상품 등록하기
           </Link>
           <div className="salesProducts-sort-select-container">
@@ -79,11 +79,7 @@ function SalesProducts() {
       </div>
       <div className="salesProducts-box">
         {products.map((product, idx) => {
-          return idx <= pageSize - 1 ? (
-            <Product key={product.id} product={product} />
-          ) : (
-            ""
-          );
+          return <Product key={product.id} product={product} />;
         })}
       </div>
     </div>
