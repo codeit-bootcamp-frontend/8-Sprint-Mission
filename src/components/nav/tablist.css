@@ -12,9 +12,12 @@
   text-align: center;
   line-height: 21.48px;
   color: #4b5563;
-  text-underline-offset: none;
 }
 
 .selected {
   color: #3692ff;
+}
+
+a {
+  text-decoration: none;
 }
