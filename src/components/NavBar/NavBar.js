@@ -1,7 +1,7 @@
 import '../NavBar/NavBar.css';
 import logoLarge from '../../assets/images/logo/logo.png';
 import logoSmall from '../../assets/images/logo/mini_logo.png';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 function getLinkStyle({ isActive }) {
   return {
@@ -10,6 +10,9 @@ function getLinkStyle({ isActive }) {
 }
 
 function NavBar() {
+  const location = useLocation();
+  const matchLocation = location.pathname === '/additem';
+
   return (
     <header>
       <div className="header-nav">
@@ -24,7 +27,11 @@ function NavBar() {
             <NavLink to="/boards" className="nav-link" style={getLinkStyle}>
               자유게시판
             </NavLink>
-            <NavLink to="/items" className="nav-link" style={getLinkStyle}>
+            <NavLink
+              to={matchLocation ? '/additem' : '/items'}
+              className="nav-link"
+              style={getLinkStyle}
+            >
               중고마켓
             </NavLink>
           </div>

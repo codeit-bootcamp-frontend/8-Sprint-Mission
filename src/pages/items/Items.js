@@ -12,6 +12,7 @@ function Items() {
   const [Bestitems, setBestItems] = useState([]);
   const [items, setItems] = useState([]);
   const [orderBy, setOrderBy] = useState('recent');
+  const [pageBy, setPageBy] = useState('1');
 
   // 베스트 상품 가져오기
   const bestfetchData = async (upperSize) => {
@@ -74,7 +75,17 @@ function Items() {
     }
   };
 
-  // 리사이징 동작 시 쓰로틀링을 이용하여 페이지의 width 값을 state에 저장
+  const handlePaginationChange = async (page) => {
+    try {
+      setPageBy(page);
+      fetchDataOnResize(page);
+    } catch (error) {
+      console.error(error);
+    } finally {
+    }
+  };
+
+  // 리사이징 동작 시 디바운싱 이용하여 페이지의 width 값을 state에 저장
   useEffect(() => {
     let timer = null;
     const getResize = () => {
@@ -89,6 +100,7 @@ function Items() {
       window.removeEventListener('resize', getResize);
     };
   }, []);
+
   // 첫 렌더링 시 fetch 함수 동작
   useEffect(() => {
     fetchDataOnResize();
@@ -106,7 +118,7 @@ function Items() {
         <ItemsOnSale items={items} orderBy={orderBy} handleOrderChange={handleOrderChange} />
       </main>
       <footer className="footer-box">
-        <PaginationBar />
+        <PaginationBar pageBy={pageBy} handlePaginationChange={handlePaginationChange} />
       </footer>
     </>
   );
