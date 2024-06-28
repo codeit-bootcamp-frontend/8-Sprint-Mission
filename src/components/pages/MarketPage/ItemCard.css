@@ -3,4 +3,11 @@
   flex-direction: column;
   width: 282px;
   height: 362px;
+  color: #1f2937;
+}
+
+.img-wrap {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
 }

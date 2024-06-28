@@ -4,12 +4,16 @@ import { getProducts } from '../../../api';
 import './BestItem.css';
 
 function BestItem() {
-  const [items, setItems] = useState([]);
+  const [itemList, setItemList] = useState([]);
 
   const handleLoad = async () => {
     const { list } = await getProducts();
-    setItems(list);
+    setItemList(list);
   };
+
+  const bestItemList = itemList
+    .sort((a, b) => b.favoriteCount - a.favoriteCount)
+    .slice(0, 4);
 
   useEffect(() => {
     handleLoad();
@@ -17,9 +21,9 @@ function BestItem() {
 
   return (
     <div>
-      <h1>베스트 상품</h1>
+      <h1 className="section-title">베스트 상품</h1>
       <div className="best-item-wrap">
-        {items.map((item) => {
+        {bestItemList.map((item) => {
           return <ItemCard item={item} key={item.id} />;
         })}
       </div>
