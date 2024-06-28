@@ -1,12 +1,19 @@
-const BASE_URL = "https://panda-market-api.vercel.app/";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+const productUrl = BASE_URL + "products";
 
-const fetchProduct = async ({
+interface GetProductArgs {
+  currentPage?: number;
+  pageSize?: number;
+  orderBy?: string;
+  searchKeyword?: string;
+}
+
+export const fetchGetProduct = async ({
   currentPage = 1,
   pageSize = 10,
   orderBy = "recent",
   searchKeyword = "",
-}) => {
-  const productUrl = BASE_URL + "products";
+}: GetProductArgs) => {
   const requestUrl = `${productUrl}?page=${currentPage}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${searchKeyword}`;
 
   const response = await fetch(requestUrl, {
@@ -22,4 +29,23 @@ const fetchProduct = async ({
   return body;
 };
 
-export default fetchProduct;
+interface PostProductParams {
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+}
+
+export const fetchPostProduct = async (params: PostProductParams) => {
+  const response = await fetch(productUrl, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(params),
+  });
+  if (!response.ok) {
+    throw new Error("데이터를 업로드하는데 실패하였습니다.");
+  }
+};

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import BestProductCardList from "./BestProductCardList";
 import Title from "../../core/titles/Title";
 
-import fetchProduct from "../../lib/api/product";
+import { fetchGetProduct } from "../../lib/api/product";
 import useResize from "../../lib/hooks/useResize";
 import { ProductItem, QueryOptions } from "core/Interface/Product";
 
@@ -16,7 +16,7 @@ const BestProducts = () => {
   const handleBestProducts = useCallback(async (options: QueryOptions) => {
     try {
       setErrorMessage(undefined);
-      const { list } = await fetchProduct(options);
+      const { list } = await fetchGetProduct(options);
       setBestProducts(list);
     } catch (error) {
       const message = error as Error;

@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 import useResize from "../../lib/hooks/useResize";
+import { fetchGetProduct } from "../../lib/api/product";
 
 import SalesProductCardList from "../../components/salesProducts/SalesProductCardList";
 import Title from "../../core/titles/Title";
-import fetchProduct from "../../lib/api/product";
-
-import "./sales-products.css";
 import SearchInput from "../../core/search/SearchInput";
 import Dropdown from "../../core/dropdown/Dropdown";
-import BtnSmall from "../../core/buttons/BtnSmall";
 import PagiNation from "../../components/salesProducts/PagiNation";
 import { QueryOptions } from "core/Interface/Product";
+import AddItemMoveBtn from "./AddItemMoveBtn";
+
+import "./sales-products.css";
 
 const INITIAL_PRODUCTQUERY = {
   order: "recent",
@@ -31,7 +31,6 @@ const SalesProducts = () => {
     useState<ProductQuery>(INITIAL_PRODUCTQUERY);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<Error>();
-
   const { size } = useResize({ pcSize: 10, tabletSize: 6, mobileSize: 4 });
 
   const handleSalesProducts = useCallback(
@@ -39,7 +38,7 @@ const SalesProducts = () => {
       try {
         setIsLoading(true);
         setErrorMessage(undefined);
-        const { list, totalCount } = await fetchProduct(options);
+        const { list, totalCount } = await fetchGetProduct(options);
         setSalesProducts(list);
         const newTotalPage = Math.ceil(totalCount / size);
         setProductQuery((prev) => ({ ...prev, totalPage: newTotalPage }));
@@ -94,10 +93,6 @@ const SalesProducts = () => {
     });
   };
 
-  const handleAddClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    console.log(e.target);
-  };
-
   useEffect(() => {
     handleSalesProducts({
       currentPage: 1,
@@ -113,11 +108,7 @@ const SalesProducts = () => {
         <Title>판매 중인 상품</Title>
         <div className="sales-options-container">
           <SearchInput handleSearch={handleSearch} />
-          <Link to="/addItem">
-            <BtnSmall onClick={handleAddClick} disabled={true}>
-              상품 등록하기
-            </BtnSmall>
-          </Link>
+          <AddItemMoveBtn />
           <Dropdown
             isLoading={isLoading}
             order={productQuery.order}
