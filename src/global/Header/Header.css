@@ -1,0 +1,66 @@
+a {
+  text-decoration: none;
+}
+
+.btn {
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3692ff;
+  padding: 11.5px 23px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dfdfdf;
+  z-index: 999;
+}
+
+.HeaderContainer {
+  display: flex;
+  border-bottom: 1px solid #dfdfdf;
+  justify-content: space-between;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+}
+
+.Logo {
+  margin-right: 16px;
+}
+
+.HeaderNav {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #4b5563;
+}
+
+.HeaderNav li {
+  text-decoration: none;
+}
+
+.HeaderNav li a:hover {
+  color: "#3692ff";
+}
+
+.login {
+  font-size: 16px;
+
+  font-weight: 600;
+  border-radius: 8px;
+}
