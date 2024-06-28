@@ -5,10 +5,10 @@ import "./MarketPage.css";
 
 function MarketPage(props) {
   return (
-    <div className="market-container">
+    <main className="market-container">
       <BestProducts />
       <SalesProducts />
-    </div>
+    </main>
   );
 }
 
