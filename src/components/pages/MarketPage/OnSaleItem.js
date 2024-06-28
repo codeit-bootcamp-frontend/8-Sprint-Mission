@@ -18,7 +18,7 @@ function OnSaleItem() {
   return (
     <div>
       <div className="on-sale-item-header">
-        <h1>판매 중인 상품</h1>
+        <h1 className="section-title">판매 중인 상품</h1>
         <input />
         <button>상품 등록하기</button>
         <select>

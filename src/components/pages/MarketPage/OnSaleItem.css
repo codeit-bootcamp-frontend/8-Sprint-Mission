@@ -3,8 +3,17 @@
 }
 
 .on-sale-item-wrap {
-  display: flex;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 1201px;
+  height: 642px;
   gap: 24px;
-  flex-wrap: wrap;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #111827;
+  margin-bottom: 20px;
 }

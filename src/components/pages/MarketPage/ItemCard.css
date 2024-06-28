@@ -1,4 +1,4 @@
-.card-wrap {
+.best-item-wrap .card-wrap {
   display: flex;
   flex-direction: column;
   width: 282px;
@@ -6,8 +6,22 @@
   color: #1f2937;
 }
 
-.img-wrap {
+.best-item-wrap .img-wrap {
   width: 282px;
   height: 282px;
+  border-radius: 16px;
+}
+
+.on-sale-item-wrap .card-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 221px;
+  height: 301px;
+  color: #1f2937;
+}
+
+.on-sale-item-wrap .img-wrap {
+  width: 221px;
+  height: 221px;
   border-radius: 16px;
 }
