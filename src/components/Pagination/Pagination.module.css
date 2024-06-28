@@ -62,8 +62,8 @@
   background: url(../../assets/images/btn_arrow.png) no-repeat center;
   transform: rotate(180deg);
 }
-
-button:disabled {
+.btnPrev:disabled,
+.btnNext:disabled {
   cursor: default;
   opacity: 0.5;
 }

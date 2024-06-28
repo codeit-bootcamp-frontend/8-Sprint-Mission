@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './router/Root.jsx';
-import Product from './router/Product.jsx';
-import AddItem from './router/AddItem.jsx';
+import ProductsPage from './router/ProductsPage.jsx';
+import AddItemPage from './router/AddItemPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -9,12 +9,12 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: '/items',
-        element: <Product />,
+        path: 'items',
+        element: <ProductsPage />,
       },
       {
-        path: '/additem',
-        element: <AddItem />,
+        path: 'additem',
+        element: <AddItemPage />,
       },
     ],
   },

@@ -1,11 +1,12 @@
-import { NavLink } from 'react-router-dom';
-import styles from './Button.module.css';
+import styles from "./Button.module.css";
 
-export default function Button({ path, btnName, className }) {
+export default function Button({ type, btnName, className, isActive }) {
   return (
     <>
       <div className={`${styles.btnContainer} ${className}`}>
-        <NavLink to={path}>{btnName}</NavLink>
+        <button disabled={isActive} type={type}>
+          {btnName}
+        </button>
       </div>
     </>
   );

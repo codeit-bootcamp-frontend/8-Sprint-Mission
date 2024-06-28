@@ -1,16 +1,40 @@
-import { NavLink } from 'react-router-dom';
-import Button from '../Button/Button.jsx';
-import NAVIGATION_LIST from '../../utils/NAVIGATION_LIST.js';
-import styles from './Header.module.css';
-import logo from '../../assets/images/logo.png';
-import mobileLogo from '../../assets/images/mobile_logo.png';
+import { useState, useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import Button from "../Button/LinkButton.jsx";
+import NAVIGATION_LIST from "../../utils/NAVIGATION_LIST.js";
+import styles from "./Header.module.css";
+import logo from "../../assets/images/logo.png";
+import mobileLogo from "../../assets/images/mobile_logo.png";
+import profileImg from "../../assets/images/profile@2.png";
 
 export default function Header() {
-  const navList = NAVIGATION_LIST.map(list => (
+  const location = useLocation();
+  const [tempLogin, setTempLogin] = useState(false);
+
+  const getLocationActive = ({ isActive, to }) => {
+    if (
+      (location.pathname === "/items" || location.pathname === "/additem") &&
+      (to === "items" || to === "additem")
+    ) {
+      return styles.active;
+    }
+    return isActive ? styles.active : undefined;
+  };
+
+  useEffect(() => {
+    if (location.pathname === "/additem") {
+      setTempLogin(true);
+    } else setTempLogin(false);
+  }, [location]);
+
+  const navList = NAVIGATION_LIST.map((list) => (
     <li key={list.name}>
       <NavLink
         to={list.path}
-        className={({ isActive }) => (isActive ? styles.active : undefined)}
+        className={({ isActive }) =>
+          getLocationActive({ isActive, to: list.path })
+        }
+        end={list.path === "items" || list.path === "additem"}
       >
         {list.name}
       </NavLink>
@@ -33,7 +57,17 @@ export default function Header() {
             <ul>{navList}</ul>
           </div>
         </div>
-        <Button path="/login" btnName="로그인" />
+        {tempLogin ? (
+          <Link to="/">
+            <img
+              className={styles.profile}
+              src={profileImg}
+              alt="사용자 프로필"
+            ></img>
+          </Link>
+        ) : (
+          <Button path="/login" btnName="로그인" />
+        )}
       </div>
     </header>
   );
