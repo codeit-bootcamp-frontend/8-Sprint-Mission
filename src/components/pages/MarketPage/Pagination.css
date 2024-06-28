@@ -1,0 +1,17 @@
+.pagination-wrap {
+  margin-top: 40px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pagination-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid #e5e7eb;
+  padding: 13px;
+  color: #6b7280;
+}

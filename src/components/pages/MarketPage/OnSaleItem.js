@@ -4,11 +4,11 @@ import ItemCard from './ItemCard';
 import './OnSaleItem.css';
 
 function OnSaleItem() {
-  const [items, setItems] = useState([]);
+  const [itemList, setItemList] = useState([]);
 
   const handleLoad = async () => {
     const { list } = await getProducts();
-    setItems(list);
+    setItemList(list);
   };
 
   useEffect(() => {
@@ -18,16 +18,19 @@ function OnSaleItem() {
   return (
     <div>
       <div className="on-sale-item-header">
-        <h1 className="section-title">판매 중인 상품</h1>
-        <input />
-        <button>상품 등록하기</button>
-        <select>
+        <h1 className="on-sale-section-title">판매 중인 상품</h1>
+        <input
+          className="on-sale-input"
+          placeholder="검색할 상품을 입력해주세요"
+        />
+        <button className="on-sale-button">상품 등록하기</button>
+        <select className="on-sale-dropdown">
           <option>최신순</option>
           <option>좋아요순</option>
         </select>
       </div>
       <div className="on-sale-item-wrap">
-        {items.map((item) => {
+        {itemList.map((item) => {
           return <ItemCard item={item} key={item.id} />;
         })}
       </div>

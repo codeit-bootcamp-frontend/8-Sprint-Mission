@@ -21,7 +21,7 @@ function BestItem() {
 
   return (
     <div>
-      <h1 className="section-title">베스트 상품</h1>
+      <h1 className="best-section-title">베스트 상품</h1>
       <div className="best-item-wrap">
         {bestItemList.map((item) => {
           return <ItemCard item={item} key={item.id} />;
