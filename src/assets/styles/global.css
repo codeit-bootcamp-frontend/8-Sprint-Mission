@@ -7,36 +7,13 @@
     format("woff2-variations");
 }
 
-* {
-  text-decoration: none;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-input,
-button {
-  font-family: "Pretendard Variable";
-}
-
-ul,
-li,
-ol {
-  list-style-type: none;
-}
-
-html {
-  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
-  font-size: 16px;
-}
-
 :root {
   --fff: #fff;
   --000: #000;
   --click: #1251aa;
   --brand: #3692ff;
   --banner: #cfe5ff;
+  --coolgray-50: #f9fafb;
   --coolgray-100: #f3f4f6;
   --coolgray-200: #e5e7eb;
   --coolgray-400: #9ca3af;
@@ -48,12 +25,93 @@ html {
   --error: #f74747;
 }
 
+* {
+  text-decoration: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.section-title {
+  color: var(--coolgray-900);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.page-title {
+  color: var(--coolgray-800);
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 33px;
+}
+
 .active {
   background-color: var(--brand);
 }
 
+input,
+button,
+textarea {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+}
+
+textarea {
+  outline: 0;
+  resize: none;
+}
+
+html {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+  font-size: 16px;
+}
+
 .hidden {
   display: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 input:focus {
