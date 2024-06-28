@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
 import "./AddProductPage.css";
 import FileInput from "./components/FileInput/FileInput";
+import TagInput from "./components/TagInput/TagInput";
 
 function AddProductPage(props) {
+  //submit한 products 임시보관 state
   const [products, setProducts] = useState([]);
-  const [productValues, setProductValues] = useState({
+  const INITIAL_VALUES = {
     name: "",
     introduction: "",
     price: "",
-    tag: "",
+    tag: [],
     imgFile: null,
-  });
+  };
+  const [productValues, setProductValues] = useState(INITIAL_VALUES);
   const [isDisableBtn, setIsDisableBtn] = useState(true);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     handleChange(name, value);
+  };
+  const handleTagInputChange = (value) => {
+    handleChange("tag", value);
   };
 
   const handleChange = (name, value) => {
@@ -24,7 +30,7 @@ function AddProductPage(props) {
       [name]: value,
     }));
     const { name: productName, introduction, price, tag } = productValues;
-    if (productName && introduction && price && tag) {
+    if (productName && introduction && price && tag.length > 0) {
       setIsDisableBtn(false);
     } else {
       setIsDisableBtn(true);
@@ -34,26 +40,28 @@ function AddProductPage(props) {
   const handleProductSubmit = (e) => {
     e.preventDefault();
     setProducts((product) => [...product, productValues]);
-    setProductValues(() => ({
-      name: "",
-      introduction: "",
-      price: "",
-      tag: "",
-      imgFile: null,
-    }));
+    setProductValues(() => INITIAL_VALUES);
     setIsDisableBtn(true);
   };
 
   useEffect(() => {
-    console.log(products);
-  }, [products]);
+    console.log(productValues);
+  }, [productValues]);
 
   return (
     <div className="add-product-container">
       <form onSubmit={handleProductSubmit}>
         <div className="add-product-title-section">
           <h1>상품 등록하기</h1>
-          <button type="submit" disabled={isDisableBtn}>
+          <button
+            type="submit"
+            disabled={isDisableBtn}
+            style={
+              isDisableBtn
+                ? { backgroundColor: "var(--gray-400)" }
+                : { backgroundColor: "var(--brand-blue)" }
+            }
+          >
             등록
           </button>
         </div>
@@ -96,17 +104,10 @@ function AddProductPage(props) {
             onChange={handleInputChange}
           />
         </div>
-        <div className="add-product-section">
-          <label htmlFor="product-tag">태그</label>
-          <input
-            id="product-tag"
-            type="text"
-            name="tag"
-            placeholder="태그를 입력해주세요"
-            value={productValues.tag}
-            onChange={handleInputChange}
-          />
-        </div>
+        <TagInput
+          handleTagInputChange={handleTagInputChange}
+          productValues={productValues}
+        />
       </form>
     </div>
   );
