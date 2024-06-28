@@ -40,7 +40,7 @@ body {
 }
 
 /* Buttons */
-.commonBtn {
+.globalBtn {
   display: inline-block;
   background-color: var(--brand-blue);
   color: #ffffff;
@@ -79,6 +79,6 @@ body {
     border-radius: 40px;
     padding: 16px 114px;
     line-height: 24px;
-    font-size: 2rem; // 20px;
+    font-size: 2rem;
   }
 }

@@ -84,7 +84,7 @@ function AllItemsSection() {
         <SearchBar className="allItemsSection__searchBar" />
         <Link
           to="/additem"
-          className="allItemsSection__btn commonBtn commonBtn--small"
+          className="allItemsSection__btn globalBtn globalBtn--small"
           type="button"
         >
           상품 등록하기

@@ -3,6 +3,10 @@ import dropDownIcon from "../../../assets/icons/ic_arrow_down.svg";
 import { useEffect } from "react";
 import "../scss/DropDownList.scss";
 
+/**
+ * 페이지 사이즈에 따라, 다르게 보여야 하는 State를 바꾸는 함수
+ * @returns {boolean} 모바일=false, 태블릿/PC=true
+ */
 function getPageSize() {
   const width = window.innerWidth;
   if (width < 768) {

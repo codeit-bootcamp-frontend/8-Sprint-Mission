@@ -5,12 +5,10 @@ import "./ItemsPage.scss";
 
 function ItemsPage() {
   return (
-    // 헤더
-    <div className="itemsPage">
+    <main className="itemsPage">
       <BestItemsSection />
       <AllItemsSection />
-    </div>
-    // 푸터
+    </main>
   );
 }
 
