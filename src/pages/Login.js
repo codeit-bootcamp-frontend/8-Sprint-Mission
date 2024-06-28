@@ -1,6 +1,7 @@
+import './Login.scss';
+
 function Login() {
-  return (<>
-  </>);
+  return <></>;
 }
 
 export default Login;

@@ -1,6 +1,7 @@
+import './Signup.scss';
+
 function Signup() {
-  return (<>
-  </>);
+  return <></>;
 }
 
 export default Signup;

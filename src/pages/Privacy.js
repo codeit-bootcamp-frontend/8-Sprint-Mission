@@ -1,6 +1,7 @@
+import './Privacy.scss';
+
 function Privacy() {
-  return (<>
-  </>);
+  return <></>;
 }
 
 export default Privacy;
