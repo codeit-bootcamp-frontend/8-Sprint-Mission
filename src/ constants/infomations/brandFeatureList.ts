@@ -1,17 +1,9 @@
 import feautureImg1 from 'assets/images/home/home_feat1.png';
 import feautureImg2 from 'assets/images/home/home_feat2.png';
 import feautureImg3 from 'assets/images/home/home_feat3.png';
+import { IBrandFeatureItem } from 'types/brandFeatureItemTypes';
 
-export interface IItemInfo {
-  id: number;
-  src: string;
-  alt: string;
-  title: string;
-  description: string;
-  detail: string;
-}
-
-export const FEAT_ITEM_LIST: IItemInfo[] = [
+export const BRAND_FEATURE_ITEM_LIST: IBrandFeatureItem[] = [
   {
     id: 1,
     src: feautureImg1,
