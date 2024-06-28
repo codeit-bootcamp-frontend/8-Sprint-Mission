@@ -48,7 +48,8 @@ function AddItem() {
   };
 
   const handleReturnKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && !event.nativeEvent.isComposing) {
+      // 한글 입력 시 2번 입력되는 것을 막기위함
       const newTage: ITag = { id: uuidv4(), content: formValue.tag };
       setTagList(prevState => [...prevState, newTage]);
       setFormValue(prevState => ({ ...prevState, ['tag']: '' }));
@@ -89,7 +90,7 @@ export default AddItem;
 
 const StyledAddItemForm = styled.form`
   margin: 0 auto;
-  padding-top: 2.4rem;
+  padding: 2.4rem 0;
   max-width: var(--container-width);
 
   & fieldset {
