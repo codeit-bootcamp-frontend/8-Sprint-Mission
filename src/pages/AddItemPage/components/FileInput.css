@@ -1,43 +1,45 @@
 .FileInput {
   position: relative;
-  width: 282px;
-  height: 282px;
-  border-radius: 0 15px 0 15px;
+  display: flex;
+  gap: 24px;
   overflow: hidden;
 }
 
-.FileInput-preview {
-  display: block;
-  position: absolute;
-  top: 99px;
-  left: 104px;
-  width: 74px;
-  height: 84px;
-}
-
-.FileInput-preview.selected {
-  opacity: 0.48;
+.FileInput-input-wrapper {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
 }
 
 .FileInput-hidden-overlay {
   opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
 
+.FileInput-register-icon {
+  display: inline;
+  position: absolute;
+  top: 99px;
+  left: 104px;
+}
+
+.FileInput-preview-wrapper {
+  width: 282px;
+  height: 282px;
+}
+
+.FileInput-preview {
+  display: block;
+}
+
 .FileInput-clear-button {
   position: absolute;
-  top: 9px;
-  right: 9px;
-  width: 26px;
-  height: 26px;
-  padding: 7px;
-  border: none;
-  border-radius: 10px;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.4);
 }
