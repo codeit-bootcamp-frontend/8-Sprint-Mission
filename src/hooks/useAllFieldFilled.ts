@@ -1,7 +1,5 @@
-import { ITag } from 'pages/AddItem';
 import { useEffect, useState } from 'react';
-
-export type ObjectType = string | File[] | ITag[];
+import { ObjectType } from 'types/addItemFormValueTypes';
 
 const useAllFieldFilled = <T extends Record<string, ObjectType>>(object: T): boolean => {
   const [isAllFieldFilled, setIsAllFieldFilled] = useState(false);

@@ -4,9 +4,11 @@ import styled from 'styled-components';
 import { inputStyle, placeholderStyle } from 'styles/auth/formStyles';
 import { StyledTitleText } from 'styles/market/textStyle';
 import plusIcon from 'assets/images/addItem/plus-icon.png';
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import useAllFieldFilled, { ObjectType } from 'hooks/useAllFieldFilled';
+import useAllFieldFilled from 'hooks/useAllFieldFilled';
+import { IFormValue } from 'types/addItemFormValueTypes';
+import { ADDITEM_FEIELDSET_LIST } from ' constants/infomations/addItemList';
 
 export interface ITag {
   id: string;
@@ -18,25 +20,17 @@ interface IPreview {
   url: string;
 }
 
-interface IFormValue extends Record<string, ObjectType> {
-  imgfiles: File[];
-  title: string;
-  introduction: string;
-  price: string;
-  tag: string;
-}
-
 function AddItem() {
   const [formValue, setFormValue] = useState<IFormValue>({
     imgfiles: [],
     title: '',
-    introduction: '',
+    description: '',
     price: '',
     tag: '',
   });
   const [tagList, setTagList] = useState<ITag[]>([]);
 
-  const needToFilledFields = { title: formValue.title, introduction: formValue.introduction, price: formValue.price };
+  const needToFilledFields = { title: formValue.title, description: formValue.description, price: formValue.price };
   const isSubmitActive = useAllFieldFilled(needToFilledFields) && tagList.length > 0;
   const [previews, setPreviews] = useState<IPreview[]>([]);
 
@@ -81,12 +75,12 @@ function AddItem() {
         <fieldset>
           <StyledAddItemSubTitle>상품 이미지</StyledAddItemSubTitle>
           <StyledItemRegistSection>
-            <label>
+            <label htmlFor={'image-input-display-none'}>
               <Image src={plusIcon} alt={'이미지 추가하기 아이콘'} height={'4.8rem'} width={'4.8rem'} />
               <div>이미지 등록하기</div>
-              {/* input 자체는 display:none 처리, label에 연동하여 label을 디자인된 인풋 트리거를 만듦(웹 접근성 유지 가능) */}
-              <input id={'input-image-regist'} name={'image'} type={'file'} placeholder={'이미지 등록'} />
             </label>
+            {/* input 자체는 display:none 처리, label에 연동하여 label을 디자인된 인풋 트리거를 만듦(웹 접근성 유지 가능) */}
+            <input id={'image-input-display-none'} name={'image'} type={'file'} placeholder={'이미지 등록'} />
             {previews.map(preview => (
               <Image
                 key={preview.id}
@@ -99,48 +93,28 @@ function AddItem() {
             ))}
           </StyledItemRegistSection>
         </fieldset>
-        <fieldset>
-          <StyledAddItemSubTitle>상품명</StyledAddItemSubTitle>
-          <input
-            name={'title'}
-            value={formValue.title}
-            onChange={handleInputChange}
-            placeholder={'상품명을 입력해주세요'}
-          />
-        </fieldset>
-        <fieldset>
-          <StyledAddItemSubTitle>상품 소개</StyledAddItemSubTitle>
-          <textarea
-            name={'introduction'}
-            value={formValue.introduction}
-            onChange={handleInputChange}
-            placeholder={'상품 소개를 입력해주세요'}
-          />
-        </fieldset>
-        <fieldset>
-          <StyledAddItemSubTitle>판매 가격</StyledAddItemSubTitle>
-          <input
-            name={'price'}
-            value={formValue.price}
-            onChange={handleInputChange}
-            placeholder={'판매 가격을 입력해주세요'}
-          />
-        </fieldset>
-        <fieldset>
-          <StyledAddItemSubTitle>태그</StyledAddItemSubTitle>
-          <input
-            name={'tag'}
-            value={formValue.tag}
-            onChange={handleInputChange}
-            placeholder={'태그를 입력해주세요'}
-            onKeyDown={handleReturnKeyDown}
-          />
-          <StyledTagList>
-            {tagList.map(tag => (
-              <StyledTagItem key={tag.id}>{tag.content}</StyledTagItem>
-            ))}
-          </StyledTagList>
-        </fieldset>
+        {ADDITEM_FEIELDSET_LIST.map(fieldset => (
+          <Fragment key={fieldset.name}>
+            <fieldset>
+              <StyledAddItemSubTitle htmlFor={fieldset.name}>{fieldset.subTitle}</StyledAddItemSubTitle>
+              <input
+                id={fieldset.name}
+                name={fieldset.name}
+                value={formValue[fieldset.name]}
+                onChange={handleInputChange}
+                placeholder={fieldset.placeholder}
+                onKeyDown={fieldset.name === 'tag' ? handleReturnKeyDown : undefined}
+              />
+            </fieldset>
+            {fieldset.name === 'tag' && (
+              <StyledTagList>
+                {tagList.map(tag => (
+                  <StyledTagItem key={tag.id}>{tag.content}</StyledTagItem>
+                ))}
+              </StyledTagList>
+            )}
+          </Fragment>
+        ))}
       </StyledAddItemInputSection>
     </StyledAddItemForm>
   );
@@ -200,23 +174,25 @@ const StyledItemRegistSection = styled.section`
     width: 28.2rem;
 
     cursor: pointer;
+  }
 
-    & #input-image-regist {
-      /* input 자체는 숨기고, label에 연동하여 디자인된 인풋 트리거를 만듦 */
-      display: none;
-    }
+  & #image-input-display-none {
+    /* input 자체는 숨기고, label에 연동하여 디자인된 인풋 트리거를 만듦 */
+    display: none;
   }
 `;
 
-const StyledAddItemTitle = styled.legend`
+const StyledAddItemTitle = styled.p`
   ${StyledTitleText};
   font-size: 2.8rem;
   line-height: 3.341rem;
   margin-bottom: 2.4rem;
 `;
 
-const StyledAddItemSubTitle = styled.legend`
+const StyledAddItemSubTitle = styled.label`
   ${StyledTitleText};
+  /* margin-bottom 처리하기 위한 block 변환 */
+  display: inline-block;
   font-size: 1.8rem;
   line-height: 2.148rem;
   margin-bottom: 1.2rem;
