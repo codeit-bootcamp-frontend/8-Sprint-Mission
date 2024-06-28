@@ -6,7 +6,6 @@ export const theme = {
     brandBlueHover: "#1967D6",
     branBlueClick: "#1251aa",
     brandBlueInActive: "#9ca3af",
-    backgroundBlue: "#cfe5ff",
     gray50: "#F9FAFB",
     gray100: "#f3f4f6",
     gray200: "#e5e7eb",
@@ -14,6 +13,9 @@ export const theme = {
     gray700: "#374151",
     gray800: "#1f2937",
     gray900: "#111827",
+  },
+  bgColors: {
+    blue: "#cfe5ff",
   },
   //fontWeight: {
   //  normal: 400,

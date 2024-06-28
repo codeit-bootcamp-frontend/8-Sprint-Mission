@@ -1,24 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
-import PlusIcon from "../assets/ic_plus@3x.png";
-import { Flex } from "../components/styled";
+import React, { useState } from "react";
+import { Flex } from "../styles/styled";
 import "../App.css";
 import {
-  Button,
-  FileLabel,
   Label,
-  Section,
   Input,
   Title,
   TextArea,
-  FileImage,
-  FileInput,
-  FileWrap,
   Submit,
   Form,
   Tag,
-} from "../components/styled/Additem";
-import { Container } from "../components/styled";
-import HomeIcon from "../assets/Img_home_01@3x.png";
+} from "../styles/styled/Additem";
 import ItemFileInput from "../components/ItemFileInput";
 import CancelLogo from "../assets/ic_X@3x.png";
 import styled from "styled-components";
@@ -70,7 +61,6 @@ function AddItem() {
   };
 
   const onCancel = (value) => {
-    console.log(value);
     setTags((prevTags) => {
       const nextTags = prevTags.filter((tag) => tag !== value);
       return nextTags;

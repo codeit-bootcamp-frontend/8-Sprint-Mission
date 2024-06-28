@@ -42,10 +42,6 @@ a {
 	cursor: pointer;
 }
 
-.mt-70 {
-	margin-top: 70px;
-}
-
 body {
 	display: flex;
 	flex-direction: column;

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Flex } from "./styled";
+import { Flex } from "../styles/styled";
 import {
   FileImage,
   FileInput,
   FileLabel,
   FileWrap,
   Label,
-} from "./styled/Additem";
+} from "../styles/styled/Additem";
 import PlusIcon from "../assets/ic_plus@3x.png";
 import CancelBlueLogo from "../assets/ic_blue_X@3x.png";
 import styled from "styled-components";
@@ -34,7 +34,6 @@ function ItemFileInput({ value, name, onChange }) {
   };
 
   const onCancel = (value) => {
-    console.log(value);
     onChange(name, null);
   };
 

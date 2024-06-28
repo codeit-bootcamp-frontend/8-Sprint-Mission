@@ -4,6 +4,33 @@ import logoText from "../assets/logo_text@2x.png";
 import "../index.css";
 import { useLocation } from "react-router-dom";
 import KaKaoLogo from "../assets/kakao_logo@3x.png";
+import useMediaQuery from "../utils/useQueryMedia";
+
+function HeaderLogo() {
+  const isNotMobile = useMediaQuery("(min-width: 767px)");
+
+  return (
+    <>
+      {isNotMobile ? (
+        <img
+          className="header__desktop-img"
+          src={logoImg}
+          alt="logo"
+          width="153"
+          height="51"
+        />
+      ) : (
+        <img
+          className="header__mobile-img"
+          src={logoText}
+          alt="logo"
+          width="103"
+          height="35"
+        />
+      )}
+    </>
+  );
+}
 
 function Header() {
   const { pathname } = useLocation();
@@ -16,20 +43,7 @@ function Header() {
     <>
       <header className="header">
         <a className="header__logo" href="/">
-          <img
-            className="header__desktop-img"
-            src={logoImg}
-            alt="logo"
-            width="153"
-            height="51"
-          />
-          <img
-            className="header__mobile-img"
-            src={logoText}
-            alt="logo"
-            width="103"
-            height="35"
-          />
+          <HeaderLogo />
         </a>
         {pathname !== "/" && (
           <nav className="nav-bar">
@@ -38,7 +52,7 @@ function Header() {
           </nav>
         )}
         {authUser ? (
-          <img width="40" height="40" src={KaKaoLogo} />
+          <img width="40" height="40" src={KaKaoLogo} alt="user icon" />
         ) : (
           <a className="header__login" href="/login">
             로그인
