@@ -5,6 +5,7 @@ import Product from "../Product/Product";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { FaSortAmountDown } from "react-icons/fa";
 
 function SalesProducts() {
   const [products, setProducts] = useState([]);
@@ -61,13 +62,22 @@ function SalesProducts() {
             상품 등록하기
           </Link>
           <div className="salesProducts-sort-select-container">
-            <div
-              className="salesProducts-sort-select-box"
-              onClick={sortSelectListVisibleToggle}
-            >
-              {orderBy === "favorite" ? "좋아요순" : "최신순"}
-              <IoMdArrowDropdown className="salesProducts-sort-select-icon" />
-            </div>
+            {getHtmlSize() !== 4 ? (
+              <div
+                className="salesProducts-sort-select-box"
+                onClick={sortSelectListVisibleToggle}
+              >
+                {orderBy === "favorite" ? "좋아요순" : "최신순"}
+                <IoMdArrowDropdown className="salesProducts-sort-select-icon" />
+              </div>
+            ) : (
+              <div
+                className="salesProducts-sort-select-box"
+                onClick={sortSelectListVisibleToggle}
+              >
+                <FaSortAmountDown />
+              </div>
+            )}
             {isSelectVisibleList && (
               <div className="salesProducts-sort-select-list">
                 <div onClick={onClickSortSelect}>최신순</div>
