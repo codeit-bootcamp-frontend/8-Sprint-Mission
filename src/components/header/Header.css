@@ -3,13 +3,30 @@ header {
     height: 4.375rem;
     background-color: #ffffff;
     border-bottom: 1px solid #dfdfdf;
-    padding: 0 200px;
+    padding: 0 12.5rem;
     position: fixed;
     top: 0px;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 body {
     padding-top: 4.375rem;
+}
+
+@media (width <= 1199px) {
+
+    header {
+        padding: 0 2rem;
+    }
+
+}
+
+@media (width <= 767px) {
+
+    header {
+        padding: 0 1rem;
+    }
+
 }

@@ -13,3 +13,10 @@
 .login-button:hover {
     cursor: pointer;
 }
+
+@media (width <= 1199px) {
+    .login-button {
+        width: 5.5rem;
+        font-size: 1rem;
+    }
+}

@@ -1,13 +1,13 @@
 import './NavTab.css'
 
-function NavTab({ text = "DUMB", active = "deactive", className = "", link = "/"}) {
+function NavTab({ text = "DUMB", active = "deactive"}) {
     
-    const classNames = `${active} tab ${className}`;
+    const classNames = `${active} tab`;
     
     return (
-        <a className={classNames} href={link}>
+        <div className={classNames}>
             {text}
-        </a>
+        </div>
     )
 }
 
