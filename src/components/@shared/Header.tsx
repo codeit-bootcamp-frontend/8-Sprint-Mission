@@ -48,5 +48,8 @@ const StyledHeader = styled.header`
   }
   @media all and (max-width: 767px) {
     padding: 0 1.6rem;
+    & button {
+      width: 6rem;
+    }
   }
 `;
