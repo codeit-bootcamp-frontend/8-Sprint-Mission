@@ -32,9 +32,10 @@
   color: var(--gray-400);
   font-weight: 400;
   gap: 0.5rem;
+  width: 20rem;
 }
 .salesProducts-input {
-  width: 20rem;
+  width: 100%;
   border: none;
   background-color: var(--gray-100);
   font-size: 1rem;
@@ -74,6 +75,7 @@
 .salesProducts-sort-select-list {
   position: absolute;
   top: 110%;
+  right: 0;
   width: 100%;
   border: 1px solid var(--gray-200);
   background-color: white;
