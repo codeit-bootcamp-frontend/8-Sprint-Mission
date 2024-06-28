@@ -1,7 +1,7 @@
 import "./card-best.css";
 import HeartIcon from "../../core/assets/icons/heartIcon/inactive-small.svg";
 
-interface CardBest {
+interface CardBestProps {
   imgSrc: string;
   imgAlt: string;
   description: string;
@@ -15,7 +15,7 @@ const CardBest = ({
   description,
   price,
   favoriteCount,
-}: CardBest) => {
+}: CardBestProps) => {
   return (
     <div className="card">
       <div className="img-wrap">
@@ -27,7 +27,7 @@ const CardBest = ({
           <p className="product-price">{price}원</p>
         </div>
         <div className="favorite-count">
-          <img src={HeartIcon} className="heartIcon" />
+          <img src={HeartIcon} className="heartIcon" alt="좋아요 아이콘" />
           {favoriteCount}
         </div>
       </div>

@@ -2,11 +2,11 @@ import CardBest from "./CardBest";
 import DefaultImg from "../../core/assets/images/img_default.png";
 import { ProductItem } from "core/Interface/Product";
 
-interface BestProductCard {
+interface BestProductCardProps {
   product: ProductItem;
 }
 
-const BestProductCard = ({ product }: BestProductCard) => {
+const BestProductCard = ({ product }: BestProductCardProps) => {
   const { images, name, price, favoriteCount } = product;
   const getImageSource = () => {
     let imgSrc;
