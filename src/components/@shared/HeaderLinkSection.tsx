@@ -1,14 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 import logoImg from 'assets/images/home/logoAndTypo.png';
 import Image from './Image';
-import { PATH_HOME, PATH_BOARDS, PATH_ITEMS } from ' constants/paths/paths';
+import { PATH_HOME, PATH_BOARDS, PATH_ITEMS, PATH_ADD_ITEM } from ' constants/paths/paths';
 import styled from 'styled-components';
 import useNavigateTo from 'hooks/useNavigateTo';
 
 function HeaderLinkSection() {
   const { navigateTo } = useNavigateTo();
   const { pathname } = useLocation();
-  const needLinkHeaderPaths = [PATH_BOARDS, PATH_ITEMS];
+  const needLinkHeaderPaths = [PATH_BOARDS, PATH_ITEMS, PATH_ADD_ITEM];
 
   return (
     <StyledLinkSection>
@@ -25,7 +25,7 @@ function HeaderLinkSection() {
           <StyledLink to={PATH_BOARDS} $isPageMatch={PATH_BOARDS === pathname}>
             자유게시판
           </StyledLink>
-          <StyledLink to={PATH_ITEMS} $isPageMatch={PATH_ITEMS === pathname}>
+          <StyledLink to={PATH_ITEMS} $isPageMatch={[PATH_ITEMS, PATH_ADD_ITEM].includes(pathname)}>
             중고마켓
           </StyledLink>
         </section>

@@ -27,7 +27,7 @@ const MarketContainer = styled.main`
   margin: 0 auto;
 
   padding: 0 2.4rem;
-  padding-top: calc(var(--header-heigt) + 2.4rem);
+  padding-top: 2.4rem;
   @media (max-width: 768px) {
     padding: 0 1.6rem;
   }
