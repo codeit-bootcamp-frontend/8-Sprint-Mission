@@ -12,25 +12,48 @@ function Items() {
       ? "medium"
       : "small"
   );
-  const location = useLocation();
-  const path = location.pathname;
-
   const sizeNaming = () => {
-    if (window.innerWidth === 1200) {
+    if (window.innerWidth >= 1200) {
       setSizeName("large");
-    } else if (window.innerWidth === 1199 || window.innerWidth === 765) {
+    } else if (window.innerWidth < 1200 && window.innerWidth >= 765) {
       setSizeName("medium");
-    } else if (window.innerWidth === 764) {
+    } else if (window.innerWidth < 765) {
       setSizeName("small");
     }
   };
-  useEffect(() => {
-    window.addEventListener("resize", sizeNaming);
-  }, []);
+  console.log(sizeName);
 
+  // let timer;
+  // const onResize = () => {
+  //   if (timer) {
+  //     clearTimeout(timer);
+  //   }
+
+  //   timer = setTimeout(() => {
+  //     sizeNaming();
+  //   }, 200);
+  // };
+
+  let timer = false;
+  const onResize = () => {
+    if (!timer) {
+      timer = true;
+      sizeNaming();
+      setTimeout(() => {
+        timer = false;
+      }, 100);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
   return (
     <>
-      <HeaderNav path={path} />
+      <HeaderNav nowPath="items" />
       <ItemsMain sizeName={sizeName} />
     </>
   );

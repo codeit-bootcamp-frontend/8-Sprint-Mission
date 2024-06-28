@@ -7,7 +7,7 @@
   top: 0;
   width: 100%;
   background-color: #fff;
-  z-index: 1;
+  z-index: 2;
 }
 .header-nav {
   display: flex;
@@ -38,10 +38,6 @@
   font-size: 1.8rem;
   color: var(--gray-600);
   padding-left: 10px;
-}
-
-.nav-menus span {
-  padding-left: 39px;
 }
 
 .header-login {

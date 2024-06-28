@@ -61,7 +61,6 @@ function ItemsMain({ sizeName }) {
   useEffect(() => {
     loadItems({ page: pageNum, pageSize, orderBy, keyWord: keyWord });
     setPageNum(1);
-    console.log("실행");
   }, [orderBy, pageSize, keyWord]);
   useEffect(() => {
     if (!didMount) {

@@ -5,7 +5,7 @@ import logoTxt from "../../assets/images/logo-txt.svg";
 import "../../assets/styles/header-nav.css";
 import NavButton from "./NavButton";
 
-function HeaderNav({ path }) {
+function HeaderNav({ nowPath }) {
   return (
     <header className="header-container">
       <div className="header-nav">
@@ -13,14 +13,17 @@ function HeaderNav({ path }) {
           <img src={logoImg} />
           <img src={logoTxt} />
         </Link>
-        {path === "/items" && (
-          <div className="nav-menus">
-            <NavButton className="nav-forum">자유게시판</NavButton>
-            <NavButton path={path} className="nav-items">
+
+        <div className="nav-menus">
+          <NavButton thisPath="forum" nowPath={nowPath} className="nav-forum">
+            자유게시판
+          </NavButton>
+          <Link to="/items">
+            <NavButton thisPath="items" nowPath={nowPath} className="nav-items">
               중고마켓
             </NavButton>
-          </div>
-        )}
+          </Link>
+        </div>
         <Link to="/auth" state={{ isLogin: true }}>
           <span className="header-login">로그인</span>
         </Link>

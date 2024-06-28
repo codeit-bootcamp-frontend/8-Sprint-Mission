@@ -1,13 +1,13 @@
+const BASE_URL = "https://panda-market-api.vercel.app";
 const getItems = async ({
   page = 1,
   pageSize = 10,
   orderBy = "recent",
   keyWord = "",
 }) => {
-  console.log(keyWord);
   try {
     const response = await fetch(
-      `https://panda-market-api.vercel.app/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}${
+      `${BASE_URL}/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}${
         keyWord ? `&keyword=${keyWord}` : ""
       }`
     );
