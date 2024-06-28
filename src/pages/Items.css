@@ -123,6 +123,7 @@
 }
 
 .item-content {
+  color: var(--coolgray-800);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -130,12 +131,15 @@
 
 .item-content-sub {
   font-size: 0.8rem;
-  color: var(--coolgray-800);
+}
+
+.item-price {
+  font-size: 1rem;
 }
 
 .item-favorite {
   display: flex;
-  text-align: center;
+  align-items: center;
   color: var(--coolgray-200);
   font-size: 0.8rem;
 }

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo_pandamarket.png";
 import "./Header.css";
-import "../../assets/styles/mediaquery.css";
 
 function Header() {
   return (

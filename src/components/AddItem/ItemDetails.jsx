@@ -1,7 +1,7 @@
 import React from "react";
 import ItemTags from "./ItemTags";
 
-function ItemDetails({ details, onChange, onTagsChange }) {
+function ItemDetails({ details, onDetailsChange, onTagsChange }) {
   return (
     <section className="item-details">
       <div className="item-detail-container">
@@ -13,7 +13,7 @@ function ItemDetails({ details, onChange, onTagsChange }) {
           name="itemName"
           placeholder="상품명을 입력해주세요"
           value={details.itemName}
-          onChange={onChange}
+          onChange={onDetailsChange}
         />
       </div>
 
@@ -25,7 +25,7 @@ function ItemDetails({ details, onChange, onTagsChange }) {
           name="itemDescription"
           placeholder="상품 소개를 입력해주세요"
           value={details.itemDescription}
-          onChange={onChange}
+          onChange={onDetailsChange}
         />
       </div>
 
@@ -38,7 +38,7 @@ function ItemDetails({ details, onChange, onTagsChange }) {
           name="itemPrice"
           placeholder="판매 가격을 입력해주세요"
           value={details.itemPrice}
-          onChange={onChange}
+          onChange={onDetailsChange}
         />
       </div>
 

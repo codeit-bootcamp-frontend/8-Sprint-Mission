@@ -29,12 +29,12 @@ function BestItemsContainer() {
     }
   };
 
-  // get paperSize
-  useEffect(() => {
-    const measurePageSize = (e) => {
-      setPageSize(countPageItems());
-    };
+  const measurePageSize = (e) => {
+    setPageSize(countPageItems());
+  };
 
+  // get pageSize
+  useEffect(() => {
     window.addEventListener("resize", measurePageSize);
 
     fetchItemData({ page, pageSize, orderBy: "favorite" });

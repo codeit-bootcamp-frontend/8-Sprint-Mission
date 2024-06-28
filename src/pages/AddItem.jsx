@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./AddItem.css";
-import ItemImageUpload from "../components/AddItem/ItemImgUpload";
+import ItemImageUpload from "../components/AddItem/ItemImageUpload";
 import ItemDetails from "../components/AddItem/ItemDetails";
 
 function AddItem() {
@@ -60,7 +60,7 @@ function AddItem() {
         />
         <ItemDetails
           details={itemDetails}
-          onChange={handleDetailsChange}
+          onDetailsChange={handleDetailsChange}
           onTagsChange={handleTagsChange}
         />
       </form>
