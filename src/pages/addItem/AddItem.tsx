@@ -1,5 +1,7 @@
+import AddItemForm from "components/addItem/AddItemForm";
+
 const AddItem = () => {
-  return <div>addItem 페이지</div>;
+  return <AddItemForm />;
 };
 
 export default AddItem;
