@@ -14,6 +14,7 @@ function AddItem() {
   const [tagInput, setTagInput] = useState('');
   const [pass, setPass] = useState(false);
   console.log(pass);
+  console.log(values);
 
   // 이미지 삭제
   const onClickImageDelete = () => {
@@ -95,6 +96,7 @@ function AddItem() {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [tagInput, values.tags]);
+
   // 입력값 감지 후 조건 충족 시 등록 버튼 활성화
   useEffect(() => {
     function validation({ tags, price, description, name } = values) {
