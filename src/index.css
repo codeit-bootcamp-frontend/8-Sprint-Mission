@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,31 +7,4 @@
 html {
   font-family: "pretendard";
   word-break: keep-all;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  }
-
-.Allcard-container {
-  width: 221px;
-  height: 301px;
-  border: 1px solid red;
-}
-
-.Allcard-container img {
-  width: 100%;
-}
-
-.card-container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-}
-
-.MarketPage{
-  width: 1201px;
-  margin: 0 auto;
 }

@@ -1,0 +1,12 @@
+.register a {
+  text-decoration: none;
+  padding: 12px 23px 12px 23px;
+  border-radius: 8px;
+  width: 133px;
+  height: 42px;
+  background-color: #3692ff;
+  color: #ffffff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 600;
+}

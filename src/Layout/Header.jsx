@@ -1,30 +1,41 @@
 import React from "react";
 import Logo from "../images/logo/logo.svg";
-import './Header.css';
+import "./Header.css";
+import { NavLink, useLocation } from "react-router-dom";
+
+export function getLinkStyle({ isActive }) {
+  return {
+    color: isActive ? "#3692ff" : "",
+    textDecoration: isActive ? "none" : "",
+  };
+}
 
 function Header() {
-  return(
+  const location = useLocation();
+
+  return (
     <header className="mainHeader">
       <div className="leftHeader">
-      <img src={Logo} alt="판다마켓로고" />
-      <nav>
-        <ul>
-          <li>
-
-          자유게시판
-
-          </li>
-          <li>
-            <div className="usedmarket">
-          중고마켓
-          </div>
-          </li>
-        </ul>
-      </nav>
+        <img className="headerLogo" src={Logo} alt="판다마켓로고" />
+        <nav>
+          <ul className="headusedmarket">
+            <li className="usedmarket">자유게시판</li>
+            <li className="usedmarket">
+              <NavLink
+                to="/items"
+                style={({ isActive }) =>
+                  location.pathname === "/additem" || isActive
+                    ? { color: "#3692ff", textDecoration: "none" }
+                    : {}
+                }
+              >
+                중고마켓
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div className="loginButton">
-      로그인
-      </div>
+      <div className="loginbutton">로그인</div>
     </header>
   );
 }
