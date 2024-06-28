@@ -16,14 +16,13 @@ const countPageItems = () => {
 function BestItemsContainer() {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(4);
 
   // get api data
   const fetchItemData = async ({ page, pageSize, orderBy }) => {
     try {
       const item = await getItems({ page, pageSize, orderBy });
       setItems(item.list);
-      console.log("데이터 가져오기 성공:", item);
     } catch (error) {
       console.error("데이터 가져오기 실패:", error);
       setItems([]);

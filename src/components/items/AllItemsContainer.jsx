@@ -26,19 +26,19 @@ function AllItemsContainer() {
     try {
       const item = await getItems({ page, pageSize, orderBy });
       setItems(item.list);
-      console.log("데이터 가져오기 성공:", item);
     } catch (error) {
       console.error("데이터 가져오기 실패:", error);
       setItems([]);
     }
   };
 
-  // get pageSize and change orderBy according to selectedCategory
-  useEffect(() => {
-    const measurePageSize = () => {
-      setPageSize(countPageItems());
-    };
+  //get pageSize
+  const measurePageSize = () => {
+    setPageSize(countPageItems());
+  };
 
+  //change orderBy according to selectedCategory
+  useEffect(() => {
     window.addEventListener("resize", measurePageSize);
 
     fetchItemData({
