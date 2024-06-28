@@ -34,6 +34,7 @@ function NavigationBar() {
               </a> */}
               <NavLink
                 to={'/items'}
+								
                 className={({ isActive }) =>
                   `nav-bar-menu-link ${isActive ? 'active' : ''}`
                 }

@@ -1,0 +1,39 @@
+.wrapper-input-tags {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+}
+
+.wrapper-list-tag-input-tag {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0;
+}
+
+.tag-input-tag {
+  display: flex;
+  align-items: center;
+  margin: 12px 12px 0 0;
+  padding: 12px 12px 12px 16px;
+  border-radius: 26px;
+  background-color: var(--gray-100);
+}
+
+.tag-input-tag:last-child {
+  margin: 12px 0 0;
+}
+
+.btn-delete-tag {
+  color: white;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0 5px;
+  background-color: var(--gray-500);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 400;
+}

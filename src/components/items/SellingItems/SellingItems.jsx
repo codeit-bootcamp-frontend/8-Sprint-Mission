@@ -84,7 +84,7 @@ function SellingItems() {
           </div>
           <div className="header-selling-items-right">
             <a
-              href="/additems"
+              href="/items/additems"
               id="btn-add-item"
               className="button btn-add-item"
             >
