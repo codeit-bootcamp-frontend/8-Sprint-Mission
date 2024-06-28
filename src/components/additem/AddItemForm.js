@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import "./AddItemForm.css";
 import FileInput from "./FileInput";
+import TextInput from "./TextInput";
 
 function AddItemForm() {
   const [values, setValues] = useState({
@@ -11,6 +12,13 @@ function AddItemForm() {
     price: 0,
     tag: [],
   });
+
+  const INPUT_CONTENTS = [
+    { label: "상품명", placeholder: "상품명을 입력해주세요" },
+    { label: "상품 소개", placeholder: "상품 소개를 입력해주세요" },
+    { label: "판매 가격", placeholder: "판매 가격을 입력해주세요" },
+    { label: "태그", placeholder: "태그를 입력해주세요" },
+  ];
 
   const handleChange = (name, value) => {
     setValues((prevValues) => ({
@@ -32,12 +40,19 @@ function AddItemForm() {
       </div>
 
       <div className="add-item-input-wrapper">
-        <div className="label">상품 이미지</div>
         <FileInput
           name="imgFile"
           value={values.imgFile}
           onChange={handleChange}
         />
+        {INPUT_CONTENTS.map((content) => {
+          return (
+            <TextInput
+              label={content.label}
+              placeholder={content.placeholder}
+            />
+          );
+        })}
       </div>
     </form>
   );

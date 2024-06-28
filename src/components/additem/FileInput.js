@@ -19,7 +19,8 @@ function FileInput({ name, value, onChange }) {
   }, [value]);
 
   return (
-    <div>
+    <div className="file-input-wrapper">
+      <div className="input-label">상품 이미지</div>
       <label className="file-add-label" htmlFor="file">
         <div className="file-add-wrapper">
           <img
@@ -32,6 +33,7 @@ function FileInput({ name, value, onChange }) {
           <div className="file-add-text">이미지 등록</div>
         </div>
       </label>
+
       <input
         className="file-select-button"
         id="file"
@@ -39,6 +41,7 @@ function FileInput({ name, value, onChange }) {
         name="file"
         onChange={handleChange}
       />
+
       {value && (
         <img
           className="preview-img"

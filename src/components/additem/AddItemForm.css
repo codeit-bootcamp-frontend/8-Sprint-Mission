@@ -28,10 +28,3 @@
   color: var(--white);
   cursor: pointer;
 }
-
-.add-item-input-wrapper .label {
-  margin-bottom: 12px;
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--gray800);
-}
