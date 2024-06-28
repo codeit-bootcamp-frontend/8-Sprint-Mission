@@ -1,13 +1,12 @@
 import BtnSmall from "core/buttons/BtnSmall";
 
 interface AddItemBtnProps {
-  onClick: (e: React.FormEvent<HTMLElement>) => void;
   disabled: boolean;
 }
 
-const AddItemBtn = ({ onClick, disabled }: AddItemBtnProps) => {
+const AddItemBtn = ({ disabled }: AddItemBtnProps) => {
   return (
-    <BtnSmall onClick={onClick} disabled={disabled}>
+    <BtnSmall onClick={() => {}} disabled={disabled}>
       등록
     </BtnSmall>
   );
