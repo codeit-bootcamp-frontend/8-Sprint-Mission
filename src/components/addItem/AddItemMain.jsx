@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AddItemForm from "./AddItemForm";
 import AddItemSubmitButton from "./AddItemSubmitButton";
+
+const INIT_VALUSE = {
+  images: [],
+  tags: [],
+  price: "",
+  description: "",
+  name: "",
+};
 
 function AddItemMain() {
   const [tagValue, setTagValue] = useState("");
@@ -12,6 +20,12 @@ function AddItemMain() {
     description: "",
     name: "",
   });
+  const [isValuesFill, setIsValuesFill] = useState(false);
+
+  const valuesChecker = () => {
+    const { tags, price, description, name } = values;
+    setIsValuesFill(tags.length && price && description && name ? true : false);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +36,6 @@ function AddItemMain() {
       case "price":
         const priceValue = parseInt(value.replace(/[^0-9]/g, ""));
         const renderPrice = priceValue.toLocaleString();
-        console.log(renderPrice);
         setValues((prevValues) => {
           if (parseInt(renderPrice)) {
             return {
@@ -57,7 +70,6 @@ function AddItemMain() {
 
   const handleKeydownTag = (e) => {
     e.preventDefault();
-    console.log(e.target);
     if (e.key === "Enter") {
       setValues((prevValues) => ({
         ...prevValues,
@@ -78,7 +90,6 @@ function AddItemMain() {
     });
   };
   const handleDeleteTag = (i) => {
-    console.log("클릭");
     setValues((prevValues) => {
       const nextTag = prevValues.tags.filter((e, index) => {
         return i !== index;
@@ -88,13 +99,19 @@ function AddItemMain() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("실행");
   };
+
+  useEffect(() => {
+    valuesChecker();
+  }, [values]);
   return (
     <MainContainer>
       <div className="additem-main-top">
         <div className="additem-txt">상품 등록하기</div>
-        <AddItemSubmitButton onSubmit={handleSubmit} />
+        <AddItemSubmitButton
+          onSubmit={handleSubmit}
+          isValuesFill={isValuesFill}
+        />
       </div>
       <AddItemForm
         values={values}

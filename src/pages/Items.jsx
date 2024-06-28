@@ -21,9 +21,8 @@ function Items() {
       setSizeName("small");
     }
   };
-  console.log(sizeName);
 
-  // let timer;
+  // let timer
   // const onResize = () => {
   //   if (timer) {
   //     clearTimeout(timer);
@@ -33,6 +32,7 @@ function Items() {
   //     sizeNaming();
   //   }, 200);
   // };
+  // 디바운싱
 
   let timer = false;
   const onResize = () => {

@@ -1,20 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 
-function AddItemSubmitButton({ onSubmit }) {
+function AddItemSubmitButton({ onSubmit, isValuesFill }) {
   return (
-    <Button type="button" form="add-submit" onSubmit={onSubmit}>
+    <StyledButton
+      type="button"
+      form="add-submit"
+      onSubmit={onSubmit}
+      $valueCheck={isValuesFill}
+    >
       등록
-    </Button>
+    </StyledButton>
   );
 }
 
 export default AddItemSubmitButton;
 
-const Button = styled.button`
+const StyledButton = styled.button`
   font-size: 16px;
   font-weight: 600;
-  background-color: var(--gray-400);
+  background-color: ${({ $valueCheck }) =>
+    $valueCheck ? `var(--blue)` : `var(--gray-400)`};
   color: #fff;
   width: 88px;
   height: 42px;
