@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../../api.js";
+import { Link } from "react-router-dom";
+import ProductList from "./ProductList.js";
+import "./itemList.css";
+
+const LIMIT = 10;
 
 function ItemList() {
   const [items, setItems] = useState([]);
@@ -30,7 +35,9 @@ function ItemList() {
       <div>
         <h1>판매중인 상품</h1>
         <input placeholder="검색할 상품을 입력하세요"></input>
-        <button>상품 등록하기</button>
+        <Link to="/additem">
+          <button>상품 등록하기</button>
+        </Link>
         <button onClick={handleNewestClick}>최신순</button>
         <button onClick={handleBestClick}>좋아요순</button>
       </div>

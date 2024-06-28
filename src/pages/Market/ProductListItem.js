@@ -1,4 +1,4 @@
-import likeIcon from "../images/heart_inactive.png";
+import likeIcon from "../../images/heart_inactive.png";
 import "./ProductListItem.css";
 
 function ProductListItem({ item }) {

@@ -1,9 +1,6 @@
-import "./itemListPage.css";
-import ProductList from "./ProductList.js";
+import ItemList from "./ItemList.js";
 import BestList from "./BestList.js";
 import Nav from "../../components/Nav.js";
-
-const LIMIT = 10;
 
 function MarketPage() {
   return (
@@ -11,8 +8,8 @@ function MarketPage() {
       <Nav />
       <div className="main">
         <div>
-          <BestList items={sortedItems} />
-          <ProductList items={sortedItems} />
+          <BestList />
+          <ItemList />
         </div>
       </div>
     </div>

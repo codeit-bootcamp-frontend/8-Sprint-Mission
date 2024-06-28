@@ -9,5 +9,5 @@
 .list-container {
   display: grid;
   gap: 10px;
-  grid-template: repeat(2, 320px) / repeat(5, 230px);
+  grid-template-columns: repeat(5, 230px);
 }

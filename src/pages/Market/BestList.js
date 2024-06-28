@@ -1,15 +1,7 @@
 import ProductListItem from "./ProductListItem";
 
 function BestList({ items }) {
-  return (
-    <ul className="list-container">
-      {items.map((item) => (
-        <li className="list" key={item.id}>
-          <ProductListItem item={item} />
-        </li>
-      ))}
-    </ul>
-  );
+  return <div>베스트 상품</div>;
 }
 
 export default BestList;
