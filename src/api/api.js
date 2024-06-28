@@ -1,5 +1,5 @@
 export async function getProducts(
-  pageSize = 10,
+  pageSize = 0,
   orderBy = "favorite",
   page = 1,
   keyword = ""
