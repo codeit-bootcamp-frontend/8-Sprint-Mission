@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import PlusIcon from "core/assets/icons/plusIcon/plus.svg";
+import BlueX from "core/assets/icons/xIcon/blue_X.svg";
 import { styled } from "styled-components";
 
 const ImageInputWrap = styled.section`
@@ -28,9 +29,15 @@ const ImageBtnIconTitle = styled.p`
   color: #9ca3af;
 `;
 
-const PreviewImage = styled.img`
+const PreviewWrap = styled.div`
+  position: relative;
   width: 282px;
   height: 282px;
+  border-radius: 12px;
+`;
+
+const PreviewImage = styled.img`
+  width: 100%;
   border: none;
   border-radius: 12px;
 `;
@@ -42,6 +49,16 @@ const ImageInput = styled.input`
   padding: 0;
   overflow: hidden;
   border: 0;
+`;
+
+const PreviewDeleteBtn = styled.button`
+  background: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
 
 interface AddItemImageInputProps {
@@ -69,6 +86,13 @@ const AddItemImageInput = ({
     onChange(name, [nextValue]);
   };
 
+  const handleClearPreview = () => {
+    const inputNode = inputRef.current;
+    if (!inputNode) return;
+    inputNode.value = "";
+    setPreview(null);
+  };
+
   useEffect(() => {
     if (!value || value.length <= 0) return;
     const nextPreview = URL.createObjectURL(value[0]);
@@ -93,7 +117,12 @@ const AddItemImageInput = ({
         accept="image/png, image/jpg, image/jpeg"
       />
       {preview && (
-        <PreviewImage src={preview ?? undefined} alt="이미지 미리보기" />
+        <PreviewWrap>
+          <PreviewImage src={preview ?? undefined} alt="이미지 미리보기" />
+          <PreviewDeleteBtn onClick={handleClearPreview}>
+            <img src={BlueX} alt="이미지 삭제 버튼" />
+          </PreviewDeleteBtn>
+        </PreviewWrap>
       )}
     </ImageInputWrap>
   );
