@@ -3,27 +3,30 @@ interface AddItemInputProps {
   type: string;
   name: string;
   value: string | string[] | number;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (name: string, value: string) => void;
   placeholder: string;
 }
 
 const Input = styled.input`
-    width: 100%;
-    border-radius: 12px
-    background-color: #f3f4f6
-    border: none;
-    color: 1f2937;
-    & placeholder {
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 24px;
-        color: #9ca3af;
-    }
-    &::-webkit-inner-spin-button {
-      appearance: none;
-      -moz-appearance: none;
-      -webkit-appearance: none;
-    }
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  padding-left: 16px;
+  background-color: #f3f4f6;
+  color: #1f2937;
+
+  & placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #9ca3af;
+  }
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
 `;
 
 const AddItemInput = ({
@@ -33,12 +36,16 @@ const AddItemInput = ({
   onChange,
   placeholder,
 }: AddItemInputProps) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    onChange(name, value);
+  };
   return (
     <Input
       type={type}
       name={name}
       value={value}
-      onChange={onChange}
+      onChange={handleChange}
       placeholder={placeholder}
     />
   );
