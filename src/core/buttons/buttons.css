@@ -1,7 +1,6 @@
-.btn-small {
-  height: 42px;
+/* .btn-small {
   border-radius: 8px;
-  padding: 12px 23px;
+  padding: 12px 20px;
   background-color: #3692ff;
   color: white;
   font-size: 16px;
@@ -9,7 +8,7 @@
   line-height: 19.09px;
   border: solid;
   grid-area: smallBtn;
-}
+} */
 
 .btn-circle {
   width: 40px;

@@ -27,6 +27,11 @@
   cursor: pointer;
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 .recent-order {
   width: 130px;
   height: 42px;
