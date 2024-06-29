@@ -1,12 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MarketPage from "./pages/MarketPage";
+import MarketPage from "./pages/Market.js";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MarketPage />} />
-      </Routes>
+      <Navbar />
+      <div className="withHeader">
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="items" element={<MarketPage />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

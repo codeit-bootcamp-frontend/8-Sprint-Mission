@@ -15,7 +15,7 @@ function ItemList({ product }) {
       <img className="productImage" src={images[0]} alt={name} />
       <div className="productText">
         <h2 className="productName">{name}</h2>
-        <p className="productPrice">{price}원</p>
+        <p className="productPrice">{price.toLocaleString()}원</p>
         <div className="favoriteCount">
           <HeartIcon />
           {favoriteCount}

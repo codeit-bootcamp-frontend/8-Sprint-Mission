@@ -13,7 +13,7 @@ function getLinkStyle({ isActive }) {
 function Navbar() {
   return (
     <header>
-      <Link to="/items">
+      <Link to="/">
         <img className="logo" src={logoImg} alt="logo" />
       </Link>
       <div className="menu">
