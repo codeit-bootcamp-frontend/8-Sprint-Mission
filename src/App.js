@@ -1,21 +1,12 @@
-import { useState } from "react";
-import "./App.css";
+import { Outlet } from "react-router-dom";
+
 import Nav from "./components/Nav";
-import Items from "./components/items/Items";
 
 function App() {
-  const [currentMenu, setCurrentMenu] = useState("/items");
-
-  const handleMenuClick = (menu) => (e) => {
-    e.preventDefault();
-    setCurrentMenu(menu);
-  };
-
   return (
     <>
-      <Nav currentMenu={currentMenu} handleMenuClick={handleMenuClick} />
-      {currentMenu === "#" /* && < /> */}
-      {currentMenu === "/items" && <Items />}
+      <Nav />
+      <Outlet />
     </>
   );
 }

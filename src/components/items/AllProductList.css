@@ -1,4 +1,4 @@
-.label {
+.all-product-list .label {
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
@@ -49,16 +49,20 @@
   color: var(--gray400);
 }
 
-.product-add-button {
+.product-add-link {
   width: 133px;
   height: 42px;
   margin-right: 12px;
+  padding: auto;
   border: 0;
   border-radius: 8px;
   background-color: var(--blue);
   font-weight: 600;
   font-size: 16px;
+  text-align: center;
+  line-height: 42px;
   color: var(--white);
+  text-decoration: none;
   cursor: pointer;
 }
 

@@ -14,7 +14,7 @@ nav {
   z-index: 1;
 }
 
-.logo-Menu-wrapper {
+.logo-menu-wrapper {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -39,6 +39,28 @@ nav {
 .logo-text {
   width: 103px;
   height: auto;
+}
+
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 109px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  color: var(--gray600);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.active {
+  color: var(--blue);
 }
 
 .login-link {

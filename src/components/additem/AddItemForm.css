@@ -1,0 +1,42 @@
+.add-item-form {
+  width: 1200px;
+  padding: 24px;
+  margin: 70px auto 0;
+}
+
+.add-item-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-item-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--gray800);
+}
+
+.add-item-button {
+  width: 88px;
+  height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--gray400);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* .add-item-button-active {
+  width: 88px;
+  height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--blue);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+} */
