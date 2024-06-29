@@ -48,11 +48,7 @@ export default function ProductForm() {
   }, [formValues]);
 
   return (
-    <Form
-      method="post"
-      onSubmit={handleSubmitProduct}
-      className={styles.formContainer}
-    >
+    <Form method="post" className={styles.formContainer}>
       <div className={styles.titleContainer}>
         <h2 className={styles.title}>상품 등록하기</h2>
         <Button isActive={!isActive} btnName="등록" />
