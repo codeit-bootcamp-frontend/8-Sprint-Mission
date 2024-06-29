@@ -11,7 +11,7 @@ main .items-section .section-header {
 
 .items-section .section-header .add-item-button {
     background-color: var(--blue);
-    height: 100%;
+    height: 2.625rem;
     width: 8.125rem;
     border: none;
     border-radius: 8px;
@@ -75,6 +75,9 @@ main .items-section .section-header {
     top: 3rem;
     display: flex;
     flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .items-section .section-header .orderBy-dropdown.hidden {
@@ -89,6 +92,13 @@ main .items-section .section-header {
     width: 100%;
     border: none;
     color: var(--gray800);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.items-section .section-header .dropdown-button:hover {
+    cursor: pointer;
 }
 
 .items-section .section-header .orderBy-recent {

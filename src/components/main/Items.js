@@ -1,8 +1,8 @@
-import './Main.css';
+import './Items.css';
 import BestSection from './BestSection';
 import ItemsSection from './ItemsSection';
 
-function Main() {
+function Items() {
     return (
         <main>
             <div className='container'>
@@ -13,4 +13,4 @@ function Main() {
     );
 }
 
-export default Main;
+export default Items;
