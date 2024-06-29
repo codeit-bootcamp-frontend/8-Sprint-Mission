@@ -29,10 +29,16 @@ export default function TagInput({
     const tagsValue = InputRef.current;
     if (e.key === 'Enter' && tagsValue.value !== '') {
       setTags(prevTags => {
-        if (!prevTags.some(tag => tag === tagsValue.value)) {
-          const newTag = [...prevTags, tagsValue.value];
-          insertTags('tag', newTag);
-          return newTag;
+        if (!prevTags.some(tag => tag.name === tagsValue.value)) {
+          const newTag = {
+            id: `${tagsValue.value}-${Math.random()
+              .toString(36)
+              .substring(2, 9)}`,
+            name: tagsValue.value,
+          };
+          const newTags = [...prevTags, newTag];
+          insertTags('tag', newTags);
+          return newTags;
         }
         return prevTags;
       });
@@ -54,11 +60,11 @@ export default function TagInput({
       <div className={styles.tagContainer}>
         <ul className={styles.tagList}>
           {tags &&
-            tags.map((list, index) => (
-              <li key={`tag-${list}-${index}`} id={`tags-id-${list}-${index}`}>
-                <span className={styles.tagTitle}>{list}</span>
+            tags.map(tag => (
+              <li key={tag.id} id={tag.id}>
+                <span className={styles.tagTitle}>{tag.name}</span>
                 <i
-                  onClick={() => handleClearBtn(list)}
+                  onClick={() => handleClearBtn(tag)}
                   className={styles.tagRemoveBtn}
                 ></i>
               </li>
