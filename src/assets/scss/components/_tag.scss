@@ -1,0 +1,38 @@
+.tag-list-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 26px;
+    color: var(--gray800);
+    background-color: var(--gray100);
+    padding: 12px 16px;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--gray200);
+    }
+    .ic_remove {
+      cursor: pointer;
+      &:hover {
+        background-image: url('../img/ic_X_blue.svg');
+      }
+    }
+  }
+}
+.tag-list {
+  display: flex;
+  gap: 12px;
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 26px;
+    color: var(--gray800);
+    background-color: var(--gray100);
+    padding: 0.5em 1em;
+  }
+}

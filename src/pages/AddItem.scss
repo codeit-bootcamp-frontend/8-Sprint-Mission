@@ -1,0 +1,19 @@
+.product-register-wrap {
+  margin: 25px auto 140px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    h2.title {
+      font-size: 28px;
+      font-weight: 600;
+      flex: 1 1;
+    }
+    .btn-sm {
+      width: 88px;
+    }
+  }
+}

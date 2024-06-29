@@ -1,6 +1,7 @@
+import './Faq.scss';
+
 function Faq() {
-  return (<>
-  </>);
+  return <></>;
 }
 
 export default Faq;
