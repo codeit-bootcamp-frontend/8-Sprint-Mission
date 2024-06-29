@@ -10,11 +10,11 @@ function DropDownList({ selectedCategory, setSelectedCategory }) {
   };
 
   return (
-    <div>
-      <button className="dropdown-container" onClick={(e) => setView(!view)}>
+    <div className="dropdown-orderby">
+      <button className="dropdown-btn" onClick={(e) => setView(!view)}>
         {selectedCategory}
+        <div className="ic-arrow-down" />
       </button>
-      <div className="ic-arrow-down"></div>
       {view && (
         <ul className="dropdown-ul">
           {categories.map((category) => (

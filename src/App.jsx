@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Home from "./pages/Home/Home";
-import SignIn from "./pages/SignIn/SignIn";
-import Items from "./pages/Items/Items";
-import AddItem from "./pages/AddItem/AddItem";
-import Community from "./pages/Community/Community";
+import Header from "./components/common/Header";
+import Main from "./components/common/Main";
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
+import Items from "./pages/Items";
+import AddItem from "./pages/AddItem";
+import Community from "./pages/Community";
 
 function App() {
   return (

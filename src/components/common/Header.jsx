@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/logo_pandamarket.png";
+import logo from "../../assets/images/logo_pandamarket.png";
 import "./Header.css";
-import "../styles/mediaquery.css";
 
 function Header() {
   return (
     <header className="header">
       <div className="gnb-wrap">
-        <Link to="/">
+        <Link to="/" className="logo-link">
           <img src={logo} className="logo" />
         </Link>
         <ul className="gnb">

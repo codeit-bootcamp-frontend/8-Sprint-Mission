@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ItemContainer from "./ItemContainer";
 import DropDownList from "./DropDownList";
-import { getItems } from "../../../api";
+import { getItems } from "../../core/api";
 
 // count items according to pageSize
 const countPageItems = () => {
@@ -26,19 +26,19 @@ function AllItemsContainer() {
     try {
       const item = await getItems({ page, pageSize, orderBy });
       setItems(item.list);
-      console.log("데이터 가져오기 성공:", item);
     } catch (error) {
       console.error("데이터 가져오기 실패:", error);
       setItems([]);
     }
   };
 
-  // get pageSize and change orderBy according to selectedCategory
-  useEffect(() => {
-    const measurePageSize = () => {
-      setPageSize(countPageItems());
-    };
+  //get pageSize
+  const measurePageSize = () => {
+    setPageSize(countPageItems());
+  };
 
+  //change orderBy according to selectedCategory
+  useEffect(() => {
     window.addEventListener("resize", measurePageSize);
 
     fetchItemData({
@@ -56,17 +56,18 @@ function AllItemsContainer() {
     <section className="all-items-container">
       <div className="all-items-header">
         <h1 className="section-title">판매 중인 상품</h1>
-        <div className="menu-wrap">
-          <div className="ic-search"></div>
-          <input className="search" placeholder="검색어를 입력하세요"></input>
-          <Link to="/AddItem" className="login-btn">
-            상품 등록하기
-          </Link>
-          <DropDownList
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          ></DropDownList>
-        </div>
+        <div className="ic-search"></div>
+        <input
+          className="search"
+          placeholder="검색할 상품을 입력해주세요"
+        ></input>
+        <Link to="/AddItem" className="login-btn">
+          상품 등록하기
+        </Link>
+        <DropDownList
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
       </div>
       <div className="all-items-list">
         {items.map((item) => (
