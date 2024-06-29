@@ -19,7 +19,7 @@ export default function TagInput({
 
   const handleClearBtn = list => {
     setTags(prevItem => {
-      const updateTag = prevItem.filter(item => item !== list);
+      const updateTag = prevItem.filter(item => item.id !== list.id);
       insertTags('tag', updateTag);
       return updateTag;
     });
@@ -29,9 +29,12 @@ export default function TagInput({
     const tagsValue = InputRef.current;
     if (e.key === 'Enter' && tagsValue.value !== '') {
       setTags(prevTags => {
-        const newTag = [...prevTags, tagsValue.value];
-        insertTags('tag', newTag);
-        return newTag;
+        if (!prevTags.some(tag => tag === tagsValue.value)) {
+          const newTag = [...prevTags, tagsValue.value];
+          insertTags('tag', newTag);
+          return newTag;
+        }
+        return prevTags;
       });
       changeValue('');
     }
@@ -52,7 +55,7 @@ export default function TagInput({
         <ul className={styles.tagList}>
           {tags &&
             tags.map((list, index) => (
-              <li key={`tag-${index}`} id={`tags-id-${list}`}>
+              <li key={`tag-${list}-${index}`} id={`tags-id-${list}-${index}`}>
                 <span className={styles.tagTitle}>{list}</span>
                 <i
                   onClick={() => handleClearBtn(list)}

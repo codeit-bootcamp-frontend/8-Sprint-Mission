@@ -22,6 +22,8 @@
 }
 .tagList {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-top: 1.2rem;
 }
 .tagList > li {
@@ -52,7 +54,7 @@
 .tagRemoveBtn::before,
 .tagRemoveBtn::after {
   position: absolute;
-  content: "";
+  content: '';
   width: 2px;
   height: 11.31px;
   background: #fff;
