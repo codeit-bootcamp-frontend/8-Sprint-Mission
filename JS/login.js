@@ -1,36 +1,38 @@
 import {
   email,
-  input,
-  emailCheck,
+  checkIsEmailValid,
   password,
-  passwordCheck,
-  eyeOff,
-  eye,
+  checkIsPasswordValid,
+  passwordIcon,
   btn,
-} from "./signup.js";
+  togglePassword,
+  validateEmailInputValue,
+  validatePasswordValue,
+} from "./common.js";
 
-email.addEventListener("focusout", emailCheck);
+email.addEventListener("focusout", checkIsEmailValid);
 
-password.addEventListener("focusout", passwordCheck);
+password.addEventListener("focusout", checkIsPasswordValid);
 
-eyeOff.addEventListener("click", eye);
+passwordIcon.addEventListener("click", togglePassword);
 
-//버튼 활성화/비활성화
+//로그인 버튼 유효성 검사
 
-function loginValid() {
-  if (
-    input.value !== "" &&
-    /\S+@\S+\.\S+/.test(email.value) === true &&
-    password.value.length >= 8
-  ) {
+const activateLoginButtonByValidation = () => {
+  const isEmailInputValid = validateEmailInputValue(email.value);
+  const isPasswordInputValid = validatePasswordValue(password.value);
+
+  if (isEmailInputValid && isPasswordInputValid) {
     btn.disabled = false;
     btn.style.backgroundColor = "#3692ff";
     btn.addEventListener("click", () => {
       window.location.href = "/items.html";
     });
-  } else {
-    btn.disabled = true;
-  }
-}
 
-loginBtn.addEventListener("click", loginValid);
+    return;
+  }
+
+  btn.disabled = true;
+};
+
+btn.addEventListener("click", activateLoginButtonByValidation);

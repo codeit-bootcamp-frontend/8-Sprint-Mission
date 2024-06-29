@@ -1,136 +1,108 @@
-export { email, input, emailCheck, password, passwordCheck, eyeOff, eye, btn };
+import {
+  email,
+  checkIsEmailValid,
+  password,
+  checkIsPasswordValid,
+  passwordIcon,
+  togglePasswordVisibility,
+  btn,
+  togglePassword,
+  validateEmailInputValue,
+  validatePasswordValue,
+} from "./common.js";
 
-const email = document.querySelector("#email");
-const input = document.querySelector("input");
+email.addEventListener("focusout", checkIsEmailValid);
 
-//이메일 체크
-function emailCheck() {
-  const emailNone = document.querySelector(".email-none");
-  const emailFail = document.querySelector(".email-fail");
-
-  if (email.value === "") {
-    emailNone.classList.remove("hide");
-    emailFail.classList.add("hide");
-    email.style.border = "0.1rem solid red";
-  } else if (/\S+@\S+\.\S+/.test(email.value) == false) {
-    emailFail.classList.remove("hide");
-    emailNone.classList.add("hide");
-    email.style.border = "0.1rem solid red";
-  } else {
-    emailNone.classList.add("hide");
-    emailFail.classList.add("hide");
-    email.style.border = "none";
-  }
-}
-
-email.addEventListener("focusout", emailCheck);
-
-//비밀번호 체크
-const password = document.querySelector("#password");
-
-function passwordCheck() {
-  const passwordNone = document.querySelector(".password-none");
-  const passwordFail = document.querySelector(".password-fail");
-
-  if (password.value === "") {
-    passwordNone.classList.remove("hide");
-    passwordFail.classList.add("hide");
-    password.style.border = "0.1rem solid red";
-  } else if (password.value.length < 8) {
-    passwordFail.classList.remove("hide");
-    passwordNone.classList.add("hide");
-    password.style.border = "0.1rem solid red";
-  } else {
-    passwordFail.classList.add("hide");
-    passwordNone.classList.add("hide");
-    password.style.border = "none";
-  }
-}
-
-password.addEventListener("focusout", passwordCheck);
+password.addEventListener("focusout", checkIsPasswordValid);
 
 //비밀번호 가리기/보이기
-const eyeOff = document.querySelector(".eye-off");
+const passwordRepeatIcon = document.querySelector(".repeat-eye-off");
 
-function eye() {
-  if (password.type === "password") {
-    eyeOff.setAttribute("src", "/image/eye.svg");
-    password.setAttribute("type", "text");
-  } else {
-    eyeOff.setAttribute("src", "/image/eye-off.svg");
-    password.setAttribute("type", "password");
-  }
-}
+const togglePasswordRepeat = () => {
+  togglePasswordVisibility(passwordRepeat, passwordRepeatIcon);
+};
 
-eyeOff.addEventListener("click", eye);
+passwordIcon.addEventListener("click", togglePassword);
 
-const repeatEyeoff = document.querySelector(".repeat-eye-off");
+passwordRepeatIcon.addEventListener("click", togglePasswordRepeat);
 
-function pwrepeatEye() {
-  if (passwordRepeat.type === "password") {
-    repeatEyeoff.setAttribute("src", "/image/eye.svg");
-    passwordRepeat.setAttribute("type", "text");
-  } else {
-    repeatEyeoff.setAttribute("src", "/image/eye-off.svg");
-    passwordRepeat.setAttribute("type", "password");
-  }
-}
+//닉네임 검사
+const validateNicknameValue = (inputValue) => {
+  if (inputValue === "") return false;
 
-repeatEyeoff.addEventListener("click", pwrepeatEye);
+  return true;
+};
 
 //닉네임 체크
 const nickname = document.querySelector("#nickname");
 
-function nicknameCheck() {
-  const nicknameNone = document.querySelector(".nickname-none");
+const checkIsNicknameValid = () => {
+  const emptyNicknameMessage = document.querySelector(".nickname-none");
 
-  if (nickname.value === "") {
-    nicknameNone.classList.remove("hide");
-    nickname.style.border = "0.1rem solid red";
-  } else {
-    nicknameNone.classList.add("hide");
+  //닉네임 유효성 확인
+  const isNicknameValueValid = validateNicknameValue(nickname.value);
+
+  if (isNicknameValueValid) {
+    emptyNicknameMessage.classList.add("hide");
     nickname.style.border = "none";
+    return;
   }
-}
+  emptyNicknameMessage.classList.remove("hide");
+  nickname.style.border = "0.1rem solid red";
+};
 
-nickname.addEventListener("focusout", nicknameCheck);
+nickname.addEventListener("focusout", checkIsNicknameValid);
+
+//비밀번호 확인 검사
+const validatePwRepeatValue = (inputValue) => {
+  if (inputValue !== password.value) return false;
+
+  return true;
+};
 
 //비밀번호 확인 체크
 const passwordRepeat = document.querySelector("#password-repeat");
 
-function pwrepeatCheck() {
-  const pwrepeatNone = document.querySelector(".pwrepeat-none");
+const checkIsPwRepeatValid = () => {
+  const emptyPwRepeatMessage = document.querySelector(".pwrepeat-none");
 
-  if (passwordRepeat.value !== password.value) {
-    pwrepeatNone.classList.remove("hide");
-    passwordRepeat.style.border = "0.1rem solid red";
-  } else {
-    pwrepeatNone.classList.add("hide");
+  //비밀번호 확인 유효성 확인
+  const isPwRepeatValueValid = validatePwRepeatValue(passwordRepeat.value);
+
+  if (isPwRepeatValueValid) {
+    emptyPwRepeatMessage.classList.add("hide");
     passwordRepeat.style.border = "none";
+    return;
   }
-}
+  emptyPwRepeatMessage.classList.remove("hide");
+  passwordRepeat.style.border = "0.1rem solid red";
+};
 
-passwordRepeat.addEventListener("input", pwrepeatCheck);
+passwordRepeat.addEventListener("input", checkIsPwRepeatValid);
 
-//버튼 활성화/비활성화
-const btn = document.querySelector("button");
+//회원가입 버튼 활성화/비활성화
+const activateSignupButtonByValidation = () => {
+  const isEmailInputValid = validateEmailInputValue(email.value);
+  const isPasswordInputValid = validatePasswordValue(password.value);
+  const isNicknameInputValid = validateNicknameValue(nickname.value);
+  const isPwRepeatInputValid = validatePwRepeatValue(passwordRepeat.value);
 
-function valid() {
   if (
-    input.value !== "" &&
-    /\S+@\S+\.\S+/.test(email.value) === true &&
-    password.value.length >= 8 &&
-    nickname.value !== "" &&
-    passwordRepeat.value === password.value
+    isEmailInputValid &&
+    isPasswordInputValid &&
+    isNicknameInputValid &&
+    isPwRepeatInputValid
   ) {
     btn.disabled = false;
     btn.style.backgroundColor = "#3692ff";
     btn.addEventListener("click", () => {
       window.location.href = "/signin.html";
     });
-  } else {
-    btn.disabled = true;
-  }
-}
 
-btn.addEventListener("click", valid);
+    return;
+  }
+
+  btn.disabled = true;
+};
+
+btn.addEventListener("click", activateSignupButtonByValidation);
