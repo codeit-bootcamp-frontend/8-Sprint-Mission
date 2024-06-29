@@ -1,3 +1,5 @@
+const BASE_URL = "https://panda-market-api.vercel.app";
+
 /** 상품 정보를 읽는 함수
  * @param {number} [params.page] - 페이지 번호 (선택)
  * @param {number} [params.pageSize] - 페이지 당 상품 수 (선택)
@@ -11,9 +13,7 @@ export async function getProducts(params = {}) {
   const query = new URLSearchParams(params).toString();
 
   try {
-    const response = await fetch(
-      `https://panda-market-api.vercel.app/products?${query}`
-    );
+    const response = await fetch(`${BASE_URL}/products?${query}`);
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }

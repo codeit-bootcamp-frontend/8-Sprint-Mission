@@ -1,13 +1,23 @@
 import React from "react";
 import { ReactComponent as HeartIcon } from "../../../assets/ItemsPage/ic_heart.svg";
+import default_image from "../../../assets/ItemsPage/alt_image.png";
 
 function ItemCard({ item }) {
   const { images, name, price, favoriteCount } = item;
 
+  const onErrorImg = (e) => {
+    e.target.src = default_image;
+  };
+
   return (
     <div className="itemCard">
       <a className="itemCard__imgBox" href="/" target="_blank">
-        <img className="itemCard__img" src={images} alt={name} />
+        <img
+          className="itemCard__img"
+          src={images[0]}
+          alt={name}
+          onError={onErrorImg}
+        />
       </a>
       <div className="itemCard__infoArea">
         <a className="itemCard__name" href="/">

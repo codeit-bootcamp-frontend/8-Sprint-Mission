@@ -163,15 +163,11 @@
       text-align: right;
       flex-direction: row-reverse;
       justify-content: flex-end;
-
-      &.homeMain__serviceContainer {
-        align-items: flex-end;
+      @media (max-width: 1199px) {
+        flex-direction: column;
       }
-
-      &.homeMain__content {
-        @media (max-width: 1199px) {
-          flex-direction: column;
-        }
+      & .homeMain__serviceContainer {
+        align-items: flex-end;
       }
     }
 
