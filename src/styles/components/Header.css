@@ -48,8 +48,8 @@ header {
 .item-page-header-nav > div {
   width: 109px;
   margin: auto;
-  cursor: pointer;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .item-page-header-nav > div.active {
@@ -61,6 +61,7 @@ header {
   display: inline-block;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
 /*================button================*/

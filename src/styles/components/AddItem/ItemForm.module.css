@@ -61,6 +61,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--cool-gray-100);
+  cursor: pointer;
 }
 
 .register-img-icon {
@@ -76,10 +77,13 @@
 .imgfile-preview {
   display: none;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .imgfile-delete-btn {
-  display: none;
+  display: block;
   position: absolute;
   top: 8px;
   right: 8px;

@@ -11,6 +11,8 @@ function ProductsPaginaitonBtns({
   setCurrentPage,
   totalPageCount,
 }) {
+  // pageBtnNumList는 state선언 내부에서 가능할듯
+
   // page가 5페이지가 넘어가면 현재 페이지를 가운데로 옮겨줌
   // 사이트가 초기화 되거나 목록이 바뀌면 1페이지로 넘어가는거 어떻게?
   // -> query가 cursor값으로 되어있으면 편하게 가능할듯

@@ -63,6 +63,7 @@ function Items() {
     else if (isMobile) return mobilePageSize;
     else return;
   };
+  // 재사용 함수 useCallback 사용하기
 
   // 베스트 상품 초기 로드 및 미디어 쿼리 따라서 로드
   // 개선필요 : dependency로 모두 등록하면 한번 바뀌는데 get request가 2번 넘어감
