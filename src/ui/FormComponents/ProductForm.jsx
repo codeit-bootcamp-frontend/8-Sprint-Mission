@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Form, redirect } from 'react-router-dom';
+import { Form } from 'react-router-dom';
 import FileInput from './FileInput';
 import TagInput from './TagInput';
 import Input from './Input';
