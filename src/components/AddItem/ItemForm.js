@@ -14,34 +14,40 @@ const INITIAL_VALUES = {
 
 function ImgFileInput() {
   // INITIAL_VALUES.images 사용?
+  // postImg => file 객체 , previewImg => url 객체
   const [postImg, setPostImg] = useState(null);
   const [previewImg, setPreviewImg] = useState(null);
-  const [isFileDeleteAble, setIsFileDeleteAble] = useState(false);
+  const [isFileSelected, setIsFileSelected] = useState(false);
 
+  /**
+   * 파일 선택시에 file 객체를 저장 및 파일이 선택된 상태 true
+   */
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (!file) {
       return;
     }
     setPostImg(file);
-    setIsFileDeleteAble(true);
+    setIsFileSelected(true);
   };
 
+  /**
+   * 삭제 버튼 클릭 시 동작 : file객체, 프리뷰이미지 초기화 및 파일 선택 상태 false
+   */
   const handleFileDelete = () => {
     setPostImg(null);
     setPreviewImg(null);
-    setIsFileDeleteAble(false);
+    setIsFileSelected(false);
   };
 
+  // 파일이 선택되면 프리뷰 이미지 URL 생성
   useEffect(() => {
     if (!postImg) return;
 
     const previewImgUrl = URL.createObjectURL(postImg);
     setPreviewImg(previewImgUrl);
 
-    return () => {
-      URL.revokeObjectURL(previewImgUrl);
-    };
+    return () => URL.revokeObjectURL(previewImgUrl);
   }, [postImg]);
 
   return (
@@ -66,7 +72,7 @@ function ImgFileInput() {
           className={styles["imgfile-preview"]}
           style={{
             backgroundImage: `url(${previewImg})`,
-            display: isFileDeleteAble ? "block" : "none",
+            display: isFileSelected ? "block" : "none",
           }}
         >
           <div
@@ -82,11 +88,31 @@ function ImgFileInput() {
 function ItemInfoInput() {
   const [tags, setTags] = useState([]);
 
-  const handleKeyDown = (event) => {
-    const tag = event.target.value;
-    if (!tag) {
+  /**
+   * 엔터 키 입력 시 tag 리스트에 해당 tag 추가
+   */
+  const handleEnterKeyDown = (event) => {
+    if (event.key !== "Enter") return;
+
+    const target = event.target;
+    const tag = target.value;
+    if (!tag || tags.indexOf(tag) !== -1) {
+      target.value = "";
       return;
     }
+
+    setTags((tags) => [...tags, tag]);
+    target.value = "";
+  };
+
+  /**
+   * 태그 삭제 버튼 클릭 시 해당 태그 삭제
+   */
+  const handleTagDelete = (event) => {
+    const registerdTag = event.target.previousElementSibling.textContent;
+
+    const nextTags = tags.filter((tag) => tag !== registerdTag);
+    setTags(nextTags);
   };
 
   return (
@@ -118,28 +144,28 @@ function ItemInfoInput() {
         className={styles["tag-input"]}
         placeholder="태그를 입력해주세요"
         name="tags"
+        onKeyDown={handleEnterKeyDown}
       ></input>
-      <div className={styles["tags-container"]}>
-        <div className={styles["tag"]}>
-          <div className={styles["tag-name"]}>태그</div>
-          <div className={styles["tag-delete-btn"]} />
-        </div>
-        <div className={styles["tag"]}>
-          <div className={styles["tag-name"]}>미리보기</div>
-          <div className={styles["tag-delete-btn"]} />
-        </div>
-        <div className={styles["tag"]}>
-          <div className={styles["tag-name"]}>테스트</div>
-          <div className={styles["tag-delete-btn"]} />
-        </div>
-      </div>
+      <ol className={styles["tags-container"]}>
+        {tags &&
+          tags.map((tag) => (
+            <li key={tag} className={styles["tag"]}>
+              <div className={styles["tag-name"]}>{tag}</div>
+              <div
+                className={styles["tag-delete-btn"]}
+                onClick={handleTagDelete}
+              />
+            </li>
+          ))}
+      </ol>
     </>
   );
 }
 
 function ItemForm({ className = "" }) {
-  // api로 보내줄 state -> 상위로 뺄 수도 있음
+  const [isInputValid, setIsInputValid] = useState(false);
   const [values, setValues] = useState(INITIAL_VALUES);
+  // api로 보낼 정보 정리
 
   const handleInputSubmit = (event) => {
     event.preventDefault();
@@ -149,7 +175,11 @@ function ItemForm({ className = "" }) {
     <form className={className} onSubmit={handleInputSubmit}>
       <div className={styles["main-header"]}>
         <h2 className={styles["main-title"]}>상품 등록하기</h2>
-        <button className={styles["submit-btn"]} type="submit" disabled={false}>
+        <button
+          className={styles["submit-btn"]}
+          type="submit"
+          disabled={isInputValid}
+        >
           등록
         </button>
       </div>
