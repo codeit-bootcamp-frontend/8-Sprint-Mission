@@ -1,53 +1,62 @@
 import React, { useEffect, useState } from "react";
 import "../styles/signup.css";
 import Auth from "../components/Auth";
+import {
+  validEmail,
+  validNickname,
+  validPassword,
+  validPasswordConfirm,
+} from "../utils/valid";
 
 function Signup() {
-  const [email, setEmail] = useState("");
-  const [emailValid, setEmailValid] = useState(false);
-  const [nickname, setNickname] = useState("");
-  const [nicknameValid, setNicknameValid] = useState(false);
-  const [password, setPassword] = useState("");
-  const [passwordValid, setPasswordValid] = useState(false);
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [confirmPasswordValid, setConfirmPasswordValid] = useState(false);
-  const [isValid, setIsValid] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    nickname: "",
+    password: "",
+    passwordConfirm: "",
+  });
+  const { email, nickname, password, passwordConfirm } = userInfo;
 
-  useEffect(() => {
-    setConfirmPasswordValid(password === confirmPassword);
-  }, [password, confirmPassword]);
+  const getUserInfo = ({ target }) => {
+    const { name, value } = target;
+    setUserInfo((prev) => ({ ...prev, [name]: value }));
+  };
 
-  useEffect(() => {
-    setIsValid(
-      emailValid && nicknameValid && passwordValid && confirmPasswordValid
-    );
-  }, [emailValid, nicknameValid, passwordValid, confirmPasswordValid]);
+  const emailMessage = validEmail(email);
+  const nicknameMessage = validNickname(nickname);
+  const passwordMessage = validPassword(password);
+  const passwordConfirmMessage = validPasswordConfirm(
+    password,
+    passwordConfirm
+  );
+  const isValid =
+    emailMessage === "" &&
+    nicknameMessage === "" &&
+    passwordMessage === "" &&
+    passwordConfirmMessage === "";
 
   return (
     <main>
       <Auth link="/login" submit="items" isValid={isValid}>
         <Auth.Email
           value={email}
-          setValue={setEmail}
-          isValid={emailValid}
-          setIsValid={setEmailValid}
+          message={emailMessage}
+          getUserInfo={getUserInfo}
         />
         <Auth.NickName
           value={nickname}
-          setValue={setNickname}
-          isValid={nicknameValid}
-          setIsValid={setNicknameValid}
+          message={nicknameMessage}
+          getUserInfo={getUserInfo}
         />
         <Auth.Password
           value={password}
-          setValue={setPassword}
-          isValid={passwordValid}
-          setIsValid={setPasswordValid}
+          message={passwordMessage}
+          getUserInfo={getUserInfo}
         />
-        <Auth.ConfirmPassword
-          value={confirmPassword}
-          setValue={setConfirmPassword}
-          isValid={confirmPasswordValid}
+        <Auth.PasswordConfirm
+          value={passwordConfirm}
+          message={passwordConfirmMessage}
+          getUserInfo={getUserInfo}
         />
         <Auth.Submit isValid={isValid}>회원가입</Auth.Submit>
       </Auth>

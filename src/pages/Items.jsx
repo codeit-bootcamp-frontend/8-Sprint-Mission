@@ -6,7 +6,7 @@ import ItemTop from "../components/ItemTop";
 import Pagnation from "../components/Pagination";
 import useMediaQuery from "../utils/useQueryMedia";
 
-const filterName = {
+const FILTER_NAME = {
   recent: "최신순",
   favorite: "좋아요순",
 };
@@ -16,6 +16,12 @@ const getItems = ({ page, pageSize, orderBy, keyword }) => {
     `https://panda-market-api.vercel.app/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`
   ).then((response) => response.json());
 };
+
+export function displayDefault(isMobile, isTablet) {
+  if (isMobile) return 4;
+  if (isTablet) return 6;
+  return 10;
+}
 
 function Items() {
   const isMobile = useMediaQuery("(max-width: 767px)");
@@ -32,7 +38,7 @@ function Items() {
         page: 1,
         pageSize: 4,
         orderBy: "favorite",
-        keyword: 0,
+        keyword: "0",
       });
       setBests(data.list);
     }
@@ -43,9 +49,9 @@ function Items() {
     async function getRecentProducts() {
       const data = await getItems({
         page: page,
-        pageSize: isMobile ? 4 : isTablet ? 6 : 10,
+        pageSize: displayDefault(isMobile, isTablet),
         orderBy: filter,
-        keyword: 0,
+        keyword: "0",
       });
       setSells(data.list);
       setTotal(data.totalCount);
@@ -58,26 +64,26 @@ function Items() {
       <main className="main-container">
         <div className="items">
           <ItemTop>
-            <ItemTop.H1>베스트 상품</ItemTop.H1>
+            <ItemTop.Title>베스트 상품</ItemTop.Title>
           </ItemTop>
           <ul className="best__item-list">
-            {bests.map((item, i) => (
-              <li className="best__item" key={item.id}>
-                <img className="best__img" src={item.images[0]} alt="best" />
+            {bests.map(({ id, images, description, price, favoriteCount }) => (
+              <li className="best__item" key={id}>
+                <img className="best__img" src={images[0]} alt="best" />
                 <div className="item__text">
                   <p>
-                    {item.description.length > 10
-                      ? item.description.slice(0, 10) + "..."
-                      : item.description}
+                    {description.length > 10
+                      ? description.slice(0, 10) + "..."
+                      : description}
                   </p>
-                  <strong>{`${item.price}원`}</strong>
+                  <strong>{`${price}원`}</strong>
                   <div className="favorite">
                     <img
                       className="favorite__icon"
                       src={heartIcon}
                       alt="favorite"
                     />
-                    <p>{item.favoriteCount}</p>
+                    <p>{favoriteCount}</p>
                   </div>
                 </div>
               </li>
@@ -86,33 +92,33 @@ function Items() {
         </div>
         <div className="items">
           <ItemTop>
-            <ItemTop.H1>판매 중인 상품</ItemTop.H1>
+            <ItemTop.Title>판매 중인 상품</ItemTop.Title>
             <ItemTop.Search />
             <ItemTop.LinkBtn to="/addItem">상품 둘러보기</ItemTop.LinkBtn>
             <ItemTop.DropDown
-              filterName={filterName}
+              filterName={FILTER_NAME}
               filter={filter}
               setFilter={setFilter}
             />
           </ItemTop>
           <ul className="sell__item-list">
-            {sells.map((item) => (
-              <li className="sell__item" key={item.id}>
-                <img className="sell__img" src={item.images[0]} alt="item" />
+            {sells.map(({ id, images, description, price, favoriteCount }) => (
+              <li className="sell__item" key={id}>
+                <img className="sell__img" src={images[0]} alt="item" />
                 <div className="item__text">
                   <p>
-                    {item.description.length > 10
-                      ? item.description.slice(0, 10) + "..."
-                      : item.description}
+                    {description.length > 10
+                      ? description.slice(0, 10) + "..."
+                      : description}
                   </p>
-                  <strong>{`${item.price}원`}</strong>
+                  <strong>{`${price}원`}</strong>
                   <div className="favorite">
                     <img
                       className="favorite__icon"
                       src={heartIcon}
                       alt="favorite"
                     />
-                    <p>{item.favoriteCount}</p>
+                    <p>{favoriteCount}</p>
                   </div>
                 </div>
               </li>
@@ -122,13 +128,7 @@ function Items() {
         <Pagnation
           page={page}
           setPage={setPage}
-          pageCount={
-            isMobile
-              ? Math.ceil(total / 4)
-              : isTablet
-              ? Math.ceil(total / 6)
-              : Math.ceil(total / 10)
-          }
+          pageCount={Math.ceil(total / displayDefault(isMobile, isTablet))}
         />
       </main>
     </>

@@ -6,15 +6,13 @@ import btnOnImg from "../assets/btn_visibility_on_24px.png";
 import googleLogoImg from "../assets/google_logo.png";
 import kakaoLogoImg from "../assets/kakao_logo.png";
 import Logo from "./Logo";
-import { validEmail, validNickname, validPassword } from "../utils/valid";
 import { useNavigate } from "react-router-dom";
 
-const Email = ({ value, setValue, isValid, setIsValid }) => {
-  const [message, setMessage] = useState("");
+const Email = ({ value, message, getUserInfo }) => {
+  const [isMessageVisible, setIsMessageVisible] = useState(false);
 
-  const focusoutAuthInput = ({ target }) => {
-    setMessage(validEmail(target));
-    setIsValid(validEmail(target) === "" && value !== "");
+  const focusoutAuthInput = () => {
+    setIsMessageVisible(message !== "");
   };
 
   return (
@@ -23,37 +21,26 @@ const Email = ({ value, setValue, isValid, setIsValid }) => {
         이메일
       </label>
       <input
-        className={`auth__input ${
-          !isValid && message !== "" ? "auth__invalid" : ""
-        }`}
+        className={`auth__input ${isMessageVisible ? "auth__invalid" : ""}`}
         type="email"
+        name="email"
         id="email"
         placeholder="이메일을 입력해주세요"
         required
         value={value}
         onBlur={focusoutAuthInput}
-        onChange={({ target }) => setValue(target.value)}
+        onChange={getUserInfo}
       />
-      <span
-        className={isValid ? "hidden" : ""}
-        style={{
-          padding: "8px 16px 0px",
-          color: "#f74747",
-        }}
-      >
-        {message}
-      </span>
+      {isMessageVisible && <span className="auth__message">{message}</span>}
     </div>
   );
 };
 
-const NickName = ({ isValid, setIsValid }) => {
-  const [value, setValue] = useState("");
-  const [message, setMessage] = useState("");
+const NickName = ({ value, message, getUserInfo }) => {
+  const [isMessageVisible, setIsMessageVisible] = useState(false);
 
-  const focusoutAuthInput = ({ target }) => {
-    setMessage(validNickname(target));
-    setIsValid(validNickname(target) === "" && value !== "");
+  const focusoutAuthInput = () => {
+    setIsMessageVisible(message !== "");
   };
 
   return (
@@ -62,125 +49,126 @@ const NickName = ({ isValid, setIsValid }) => {
         닉네임
       </label>
       <input
-        className={`auth__input ${
-          !isValid && message !== "" ? "auth__invalid" : ""
-        }`}
-        type="text"
+        className={`auth__input ${isMessageVisible ? "auth__invalid" : ""}`}
+        type="nickname"
+        name="nickname"
         id="nickname"
         placeholder="닉네임을 입력해주세요"
         required
         value={value}
         onBlur={focusoutAuthInput}
-        onChange={({ target }) => setValue(target.value)}
+        onChange={getUserInfo}
       />
-      <span
-        className={isValid ? "hidden" : ""}
-        style={{
-          padding: "8px 16px 0px",
-          color: "#f74747",
-        }}
-      >
-        {message}
-      </span>
+      {isMessageVisible && <span className="auth__message">{message}</span>}
     </div>
   );
 };
 
-const Password = ({ isValid, setIsValid }) => {
-  const [value, setValue] = useState("");
-  const [message, setMessage] = useState("");
+const Password = ({ value, message, getUserInfo }) => {
+  const [isMessageVisible, setIsMessageVisible] = useState(false);
+  const [type, setType] = useState("password");
 
-  const focusoutAuthInput = ({ target }) => {
-    setMessage(validPassword(target));
-    setIsValid(validPassword(target) === "" && value !== "");
+  const focusoutAuthInput = () => {
+    setIsMessageVisible(message !== "");
   };
 
-  const keyupCheckPasswordSame = ({ target }) => {};
+  const handleValueVisible = () => {
+    setType((prev) => {
+      if (prev === "password") return "text";
+      return "password";
+    });
+  };
 
   return (
     <div className="auth__el">
-      <button className="auth__toggle-btn" type="button">
-        <img src={btnOffImg} alt="visibility off" width="24" height="24" />
-      </button>
-      <button
-        className="auth__toggle-btn auth__toggle-btn--visible"
-        type="button"
-      >
-        <img src={btnOnImg} alt="visibility on" width="24" height="24" />
-      </button>
+      {type === "password" && (
+        <button
+          className="auth__toggle-btn"
+          type="button"
+          onClick={handleValueVisible}
+        >
+          <img src={btnOffImg} alt="visibility off" width="24" height="24" />
+        </button>
+      )}
+      {type === "text" && (
+        <button
+          className="auth__toggle-btn"
+          type="button"
+          onClick={handleValueVisible}
+        >
+          <img src={btnOnImg} alt="visibility on" width="24" height="24" />
+        </button>
+      )}
       <label className="auth__label" htmlFor="password">
         비밀번호
       </label>
       <input
-        className={`auth__input ${
-          !isValid && message !== "" ? "auth__invalid" : ""
-        }`}
+        className={`auth__input ${isMessageVisible ? "auth__invalid" : ""}`}
+        type={type}
+        name="password"
         id="password"
-        type="password"
         minLength="8"
         placeholder="비밀번호를 입력해주세요"
         required
         value={value}
         onBlur={focusoutAuthInput}
-        onChange={({ target }) => setValue(target.value)}
-        onKeyUp={keyupCheckPasswordSame}
+        onChange={getUserInfo}
       />
-      <span
-        className={isValid ? "hidden" : ""}
-        style={{
-          padding: "8px 16px 0px",
-          color: "#f74747",
-        }}
-      >
-        {message}
-      </span>
+      {isMessageVisible && <span className="auth__message">{message}</span>}
     </div>
   );
 };
 
-const ConfirmPassword = ({ isValid }) => {
-  const [value, setValue] = useState("");
-  const [message, setMessage] = useState("");
+const PasswordConfirm = ({ value, message, getUserInfo }) => {
+  const [isMessageVisible, setIsMessageVisible] = useState(false);
+  const [type, setType] = useState("password");
 
-  useEffect(() => {
-    setMessage(isValid ? "" : "비밀번호가 일치하지 않습니다..");
-  }, [isValid]);
+  const focusoutAuthInput = () => {
+    setIsMessageVisible(message !== "");
+  };
+
+  const handleValueVisible = () => {
+    setType((prev) => {
+      if (prev === "password") return "text";
+      return "password";
+    });
+  };
 
   return (
     <div className="auth__el">
-      <button className="auth__toggle-btn" type="button">
-        <img src={btnOffImg} alt="visibility off" width="24" height="24" />
-      </button>
-      <button
-        className="auth__toggle-btn auth__toggle-btn--visible"
-        type="button"
-      >
-        <img src={btnOnImg} alt="visibility on" width="24" height="24" />
-      </button>
-      <label className="auth__label" htmlFor="login-confirm_password">
+      {type === "password" && (
+        <button
+          className="auth__toggle-btn"
+          type="button"
+          onClick={handleValueVisible}
+        >
+          <img src={btnOffImg} alt="visibility off" width="24" height="24" />
+        </button>
+      )}
+      {type === "text" && (
+        <button
+          className="auth__toggle-btn"
+          type="button"
+          onClick={handleValueVisible}
+        >
+          <img src={btnOnImg} alt="visibility on" width="24" height="24" />
+        </button>
+      )}
+      <label className="auth__label" htmlFor="confirm_password">
         비밀번호 확인
       </label>
       <input
-        className={`auth__input ${
-          !isValid && message !== "" ? "auth__invalid" : ""
-        }`}
+        className={`auth__input ${isMessageVisible ? "auth__invalid" : ""}`}
         id="confirm-password"
-        type="password"
-        minLength="8"
+        name="passwordConfirm"
+        type={type}
         placeholder="비밀번호를 다시 입력해주세요"
         required
         value={value}
-        onChange={({ target }) => setValue(target.value)}
+        onBlur={focusoutAuthInput}
+        onChange={getUserInfo}
       />
-      <span
-        className={isValid ? "hidden" : ""}
-        style={{
-          padding: "8px 16px 0px",
-          color: "#f74747",
-        }}
-      >
-        {message}
-      </span>
+      {isMessageVisible && <span className="auth__message">{message}</span>}
     </div>
   );
 };
@@ -238,6 +226,6 @@ function Auth({ children, link, submit, isValid }) {
 Auth.Email = Email;
 Auth.NickName = NickName;
 Auth.Password = Password;
-Auth.ConfirmPassword = ConfirmPassword;
+Auth.PasswordConfirm = PasswordConfirm;
 Auth.Submit = Submit;
 export default Auth;

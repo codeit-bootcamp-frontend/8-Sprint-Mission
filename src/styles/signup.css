@@ -56,6 +56,11 @@
 	color: var(--gray-800);
 }
 
+.auth__message {
+	padding: 8px 16px 0px;
+	color: #f74747;
+}
+
 .auth__invalid {
 	border: 1px solid var(--error-red);
 }

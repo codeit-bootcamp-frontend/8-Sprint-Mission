@@ -1,46 +1,43 @@
 import React, { useEffect, useState } from "react";
-import "../styles/login.css";
+import "../styles/signup.css";
 import Auth from "../components/Auth";
+import { validEmail, validPassword } from "../utils/valid";
 
-//function toggleButtonState() {
-//  const spanEl = document.querySelectorAll(".auth__invalid");
-//  const hasNotInvalid = [...authInputs].every((input) => input.checkValidity());
+function Signup() {
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    password: "",
+  });
+  const { email, password } = userInfo;
 
-//  if (spanEl.length === 0 && hasNotInvalid)
-//    submitButton.classList.add("auth__submit-btn--active");
-//  else submitButton.classList.remove("auth__submit-btn--active");
-//}
+  const getUserInfo = ({ target }) => {
+    const { name, value } = target;
+    setUserInfo((prev) => ({ ...prev, [name]: value }));
+  };
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [emailValid, setEmailValid] = useState(false);
-  const [password, setPassword] = useState("");
-  const [passwordValid, setPasswordValid] = useState(false);
-  const [isValid, setIsValid] = useState(false);
-
-  useEffect(() => {
-    setIsValid(emailValid && passwordValid);
-  }, [emailValid, passwordValid]);
+  const emailMessage = validEmail(email);
+  const passwordMessage = validPassword(password);
+  const isValid = emailMessage === "" && passwordMessage === "";
 
   return (
     <main>
-      <Auth link="/signup" submit="/items" isValid={isValid}>
+      <Auth link="/login" submit="/items" isValid={isValid}>
         <Auth.Email
           value={email}
-          setValue={setEmail}
-          isValid={emailValid}
-          setIsValid={setEmailValid}
+          message={emailMessage}
+          getUserInfo={getUserInfo}
         />
+
         <Auth.Password
           value={password}
-          setValue={setPassword}
-          isValid={passwordValid}
-          setIsValid={setPasswordValid}
+          message={passwordMessage}
+          getUserInfo={getUserInfo}
         />
-        <Auth.Submit isValid={isValid}>로그인</Auth.Submit>
+
+        <Auth.Submit isValid={isValid}>회원가입</Auth.Submit>
       </Auth>
     </main>
   );
 }
 
-export default Login;
+export default Signup;

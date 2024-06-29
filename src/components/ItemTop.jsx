@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import searchIcon from "../assets/ic_search@3x.png";
-import dropdownIconPC from "../assets/ic_dropdown@3x.png";
-import dropdownIconMobile from "../assets/ic_dropdown_mobile@3x.png";
+import isDropdownIconPC from "../assets/ic_dropdown@3x.png";
+import isDropdownIconMobile from "../assets/ic_dropdown_mobile@3x.png";
 import "../styles/items.css";
 
 const H1 = ({ children }) => {
@@ -32,49 +32,47 @@ const LinkBtn = ({ children, to }) => {
 };
 
 const DropDown = ({ filterName, filter, setFilter }) => {
-  const [dropdown, setDropdown] = useState(false);
+  const [isDropdown, setIsDropdown] = useState(false);
+
+  const submitFilter = (name) => {
+    setFilter(name);
+    setIsDropdown(false);
+  };
 
   return (
-    <div className="dropdown">
+    <div className="isDropdown">
       <button
         className="filter__button button--pc"
         onClick={() => {
-          setDropdown((v) => !v);
+          setIsDropdown((prev) => !prev);
         }}
       >
         <span>{filterName[filter]}</span>
-        <img src={dropdownIconPC} alt="dropdown" width="16px" height="8px" />
+        <img
+          src={isDropdownIconPC}
+          alt="isDropdown"
+          width="16px"
+          height="8px"
+        />
       </button>
       <button
         className="filter__button button--mobile"
         onClick={() => {
-          setDropdown((v) => !v);
+          setIsDropdown((prev) => !prev);
         }}
       >
         <img
-          src={dropdownIconMobile}
-          alt="dropdown"
+          src={isDropdownIconMobile}
+          alt="isDropdown"
           width="40px"
           height="40px"
         />
       </button>
-      <ul className={`items__filter ${dropdown ? "" : "hidden"}`}>
-        <li
-          className="filter"
-          onClick={() => {
-            setFilter("recent");
-            setDropdown(false);
-          }}
-        >
+      <ul className={`items__filter ${isDropdown ? "" : "hidden"}`}>
+        <li className="filter" onClick={() => submitFilter("recent")}>
           최신순
         </li>
-        <li
-          className="filter"
-          onClick={() => {
-            setFilter("favorite");
-            setDropdown(false);
-          }}
-        >
+        <li className="filter" onClick={() => submitFilter("favorite")}>
           좋아요순
         </li>
       </ul>
@@ -86,7 +84,7 @@ function ItemTop({ children }) {
   return <div className="items__top">{children}</div>;
 }
 
-ItemTop.H1 = H1;
+ItemTop.Title = H1;
 ItemTop.Search = Search;
 ItemTop.LinkBtn = LinkBtn;
 ItemTop.DropDown = DropDown;
