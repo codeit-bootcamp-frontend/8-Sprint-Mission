@@ -17,7 +17,7 @@ export default function TagInput({
     changeValue(tagsValue);
   };
 
-  const handleClearBtn = list => {
+  const handleClearTag = list => {
     setTags(prevItem => {
       const updateTag = prevItem.filter(item => item.id !== list.id);
       insertTags('tag', updateTag);
@@ -64,7 +64,7 @@ export default function TagInput({
               <li key={tag.id} id={tag.id}>
                 <span className={styles.tagTitle}>{tag.name}</span>
                 <i
-                  onClick={() => handleClearBtn(tag)}
+                  onClick={() => handleClearTag(tag)}
                   className={styles.tagRemoveBtn}
                 ></i>
               </li>
