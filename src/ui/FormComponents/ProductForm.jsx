@@ -17,22 +17,17 @@ const INITIAL_VALUES = {
 
 export default function ProductForm() {
   const [formValues, setFormValues] = useState(INITIAL_VALUES);
-  const [tagValues, setTagValues] = useState('');
   const [isActive, setIsActive] = useState(false);
 
-  const handleChange = (name, value) => {
+  const handleChangeValue = (name, value) => {
     setFormValues(prevValue => ({
       ...prevValue,
       [name]: value,
     }));
   };
 
-  const handleTagChange = value => {
-    setTagValues(value);
-  };
-
   const handleChangeInput = (name, value) => {
-    handleChange(name, value);
+    handleChangeValue(name, value);
   };
 
   useEffect(() => {
@@ -61,7 +56,7 @@ export default function ProductForm() {
           type="file"
           accept="image/png, image/jpeg"
           value={formValues.imgFile}
-          changeValue={handleChange}
+          changeValue={handleChangeValue}
         />
       </div>
       <Input
@@ -99,10 +94,9 @@ export default function ProductForm() {
         label="태그"
         type="text"
         name="tag"
-        value={tagValues}
+        tags={formValues.tag}
         placeholder="태그를 입력해주세요"
-        insertTags={handleChangeInput}
-        changeValue={handleTagChange}
+        changeValue={handleChangeInput}
       />
     </Form>
   );
