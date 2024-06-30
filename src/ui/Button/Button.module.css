@@ -11,3 +11,19 @@
   box-sizing: content-box;
   color: #ffffff;
 }
+
+.btnContainer > button {
+  display: inline-block;
+  padding: 11.5px 30px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  box-sizing: content-box;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btnContainer > button:disabled {
+  cursor: default;
+  border-radius: 8px;
+  background-color: var(--color-gray400);
+}

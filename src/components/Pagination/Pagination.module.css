@@ -50,7 +50,7 @@
   left: 0;
   width: 38px;
   height: 38px;
-  background: url(../../assets/images/arrow_left.png) no-repeat center;
+  background: url(../../assets/images/btn_arrow.png) no-repeat center;
 }
 .btnNext::after {
   position: absolute;
@@ -59,5 +59,11 @@
   left: 0;
   width: 38px;
   height: 38px;
-  background: url(../../assets/images/arrow_right.png) no-repeat center;
+  background: url(../../assets/images/btn_arrow.png) no-repeat center;
+  transform: rotate(180deg);
+}
+.btnPrev:disabled,
+.btnNext:disabled {
+  cursor: default;
+  opacity: 0.5;
 }

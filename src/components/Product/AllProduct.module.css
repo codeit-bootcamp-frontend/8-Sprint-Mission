@@ -20,6 +20,13 @@
 .titleContainer {
   flex: 3 0;
 }
+.productList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 708px;
+}
 .listContainer {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -56,6 +63,10 @@
 .form {
   grid-row: 2;
   grid-column: span 2;
+}
+
+.loading {
+  height: 100%;
 }
 @media (max-width: 1199px) {
   .listContainer {

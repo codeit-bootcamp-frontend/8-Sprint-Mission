@@ -1,6 +1,18 @@
+import { useState, useEffect } from 'react';
 import styles from './Pagination.module.css';
 
-export default function Pagination({ pageNum, currentPage, pageHandler }) {
+export default function Pagination({ maxPage, currentPage, pageHandler }) {
+  const [pageNum, setPageNum] = useState([]);
+
+  const displayPagination = page => {
+    const pageArray = Array.from({ length: page }, (v, i) => i + 1);
+    setPageNum([...pageArray]);
+  };
+
+  useEffect(() => {
+    displayPagination(maxPage);
+  }, [maxPage]);
+
   return (
     <div className={styles.pagination}>
       <button
