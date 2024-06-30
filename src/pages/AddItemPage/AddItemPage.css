@@ -1,0 +1,108 @@
+* {
+  font-family: "Pretendard";
+}
+
+.content {
+  width: 1200px;
+  align-items: center;
+  margin: 0px auto;
+  padding-top: 24px;
+}
+
+h2 {
+  color: #1f2937;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.submitbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px auto 16px;
+}
+
+.sumbitButton {
+  width: 88px;
+  height: 42px;
+  padding: 12px, 20px;
+  background-color: #9ca3af;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inputboxs {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputbox,
+.inputcontentbox {
+  width: 1200px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+}
+
+input::placeholder {
+  color: #9ca3af;
+  padding: 16px 0px 0px 24px;
+}
+
+textarea::placeholder {
+  color: #9ca3af;
+  padding: 16px 0px 0px 24px;
+}
+
+.inputbox {
+  height: 56px;
+}
+
+.inputcontentbox {
+  height: 200px;
+}
+
+.inputFile input[type="file"] {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.inputFile {
+  display: flex;
+  gap: 24px;
+}
+
+.inputFile label {
+  display: inline-block;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  width: 282px;
+  height: 282px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+  line-height: 350px;
+  text-align: center;
+  cursor: pointer;
+  background-image: url(../../images/icons/ic_plus.svg);
+  background-repeat: no-repeat;
+  background-position: 117px 99px;
+}

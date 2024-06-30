@@ -1,0 +1,13 @@
+.card-container {
+  width: 362px;
+  height: 282px;
+  list-style: none;
+  display: flex;
+  gap: 200px;
+}
+
+.CardImg {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}

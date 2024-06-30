@@ -1,0 +1,18 @@
+.fileInput-container {
+  position: relative;
+}
+
+.button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  left: 240px;
+  top: 8px;
+  cursor: pointer;
+}
+
+.inputImage {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+}
