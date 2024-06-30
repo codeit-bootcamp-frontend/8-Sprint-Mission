@@ -41,3 +41,24 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
+
+/*==========Tablet==========*/
+@media screen and (max-width: 1199px) {
+  footer {
+    padding: 32px 104px;
+  }
+}
+
+/*==========Mobile==========*/
+@media screen and (max-width: 767px) {
+  footer {
+    padding: 32px;
+    position: relative;
+  }
+
+  .codeit-2024 {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+  }
+}

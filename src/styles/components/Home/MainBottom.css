@@ -1,14 +1,3 @@
-/*==========font==========*/
-.main-bottom-content {
-  white-space: pre-line; /* 줄바꿈 , 없애려면 nowrap*/
-
-  color: var(--cool-gray-700);
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 56px;
-  margin-bottom: 32px;
-}
-
 /*==========img==========*/
 .main-bottom-img {
   display: inline-block;
@@ -33,4 +22,72 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.main-bottom-content {
+  white-space: pre-line;
+
+  color: var(--cool-gray-700);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+/*==========Tablet==========*/
+@media screen and (max-width: 1199px) {
+  /*==========img==========*/
+  .main-bottom-img {
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  /*==========main-top-container==========*/
+  .main-bottom-background {
+    margin-top: 80px;
+  }
+
+  .main-bottom-content-container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 927px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 201px;
+  }
+
+  .main-bottom-content {
+    margin-bottom: 32px;
+    text-align: center;
+  }
+}
+
+/*==========Mobile==========*/
+@media screen and (max-width: 767px) {
+  /*==========img==========*/
+  .main-bottom-img {
+    width: 498px;
+    height: 270px;
+  }
+
+  /*==========main-top-container==========*/
+  .main-bottom-background {
+    margin-top: 64px;
+  }
+
+  .main-bottom-content-container {
+    height: 540px;
+    padding-top: 121px;
+  }
+
+  .main-bottom-content {
+    white-space: pre-line;
+
+    color: var(--cool-gray-700);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 56px;
+  }
 }

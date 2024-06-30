@@ -86,7 +86,7 @@ function ImgFileInput() {
 }
 
 function ItemInfoInput() {
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState(INITIAL_VALUES.tags);
 
   /**
    * 엔터 키 입력 시 tag 리스트에 해당 tag 추가
