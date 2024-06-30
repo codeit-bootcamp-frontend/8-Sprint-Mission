@@ -1,0 +1,42 @@
+.button {
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 88px;
+  height: 42px;
+  text-decoration: none;
+  border: none;
+}
+
+.disabledButton {
+  background-color: #9ca2af;
+}
+
+.enabledButton {
+  background-color: #3692ff;
+}
+
+.productTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productInput {
+  width: 1200px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  border: none;
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 9px 20px 9px 16px;
+  outline: none;
+}
+
+.productTextArea {
+  height: 200px;
+}

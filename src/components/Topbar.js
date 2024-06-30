@@ -1,7 +1,7 @@
 import pandaLogo from '../img/logo.png';
 import './Topbar.css';
 import Button from './Button'
-
+import { Link } from 'react-router-dom';
 
 function Topbar() {
 
@@ -11,8 +11,8 @@ function Topbar() {
                 <a href="/" className="logo">
                     <img src={pandaLogo} />
                 </a>
-                <Button select='off'>자유게시판</Button>
-                <Button select='on'>중고마켓</Button>
+                <Link><Button select='off'>자유게시판</Button></Link>
+                <Link><Button select='on'>중고마켓</Button></Link>
             </div>
             <Button>로그인</Button>
 
