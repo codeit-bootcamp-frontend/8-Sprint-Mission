@@ -1,0 +1,56 @@
+.add-product-container {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.add-product-title-section {
+  display: flex;
+  justify-content: space-between;
+}
+.add-product-title-section label {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+.add-product-title-section button {
+  background-color: var(--gray-400);
+  font-size: 1rme;
+  font-weight: 600;
+  line-height: 1.2rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  color: #ffffff;
+}
+.add-product-section {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+.add-product-section label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3rem;
+}
+.add-product-section input,
+textarea {
+  margin: 0.5rem 0;
+  background-color: var(--gray-100);
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.8rem;
+  resize: none;
+}
+.add-product-section input::placeholder {
+  font-size: 1rem;
+  color: var(--gray-400);
+}
+.add-product-section textarea::placeholder {
+  color: var(--gray-400);
+  font-size: 1rem;
+}
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}

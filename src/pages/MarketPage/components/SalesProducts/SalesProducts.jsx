@@ -5,6 +5,7 @@ import Product from "../Product/Product";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { FaSortAmountDown } from "react-icons/fa";
 
 function SalesProducts() {
   const [products, setProducts] = useState([]);
@@ -27,14 +28,14 @@ function SalesProducts() {
     }
   };
   useEffect(() => {
-    fetchSalesProducts(10, orderBy);
-    const handleResizeScreen = () => setPageSize(getHtmlSize);
+    fetchSalesProducts(pageSize, orderBy);
+    const handleResizeScreen = () => setPageSize(getHtmlSize());
     window.addEventListener("resize", handleResizeScreen);
 
     return () => {
       window.removeEventListener("resize", handleResizeScreen);
     };
-  }, [orderBy]);
+  }, [orderBy, pageSize]);
 
   const sortSelectListVisibleToggle = () => {
     setIsSelectVisibleList(!isSelectVisibleList);
@@ -57,17 +58,26 @@ function SalesProducts() {
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
-          <Link to="/addItem" className="Product-registration-button">
+          <Link to="addItem" className="Product-registration-button">
             상품 등록하기
           </Link>
           <div className="salesProducts-sort-select-container">
-            <div
-              className="salesProducts-sort-select-box"
-              onClick={sortSelectListVisibleToggle}
-            >
-              {orderBy === "favorite" ? "좋아요순" : "최신순"}
-              <IoMdArrowDropdown className="salesProducts-sort-select-icon" />
-            </div>
+            {getHtmlSize() !== 4 ? (
+              <div
+                className="salesProducts-sort-select-box"
+                onClick={sortSelectListVisibleToggle}
+              >
+                {orderBy === "favorite" ? "좋아요순" : "최신순"}
+                <IoMdArrowDropdown className="salesProducts-sort-select-icon" />
+              </div>
+            ) : (
+              <div
+                className="salesProducts-sort-select-box"
+                onClick={sortSelectListVisibleToggle}
+              >
+                <FaSortAmountDown />
+              </div>
+            )}
             {isSelectVisibleList && (
               <div className="salesProducts-sort-select-list">
                 <div onClick={onClickSortSelect}>최신순</div>
@@ -79,11 +89,7 @@ function SalesProducts() {
       </div>
       <div className="salesProducts-box">
         {products.map((product, idx) => {
-          return idx <= pageSize - 1 ? (
-            <Product key={product.id} product={product} />
-          ) : (
-            ""
-          );
+          return <Product key={product.id} product={product} />;
         })}
       </div>
     </div>
