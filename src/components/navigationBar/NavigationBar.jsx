@@ -1,29 +1,46 @@
-import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import imgPandaMarketLogo from '../../assets/images/logo/panda-market-logo.png';
 import './NavigationBar.css';
 
 function NavigationBar() {
   return (
     <header className="navbar">
-      <div className="navbarLeft">
+      <div className="navbar-left">
         <a href="/">
           <img
-            className="navbarHomeLogo"
+            className="navbar-home-logo"
             src={imgPandaMarketLogo}
             alt="판다마켓 홈"
           />
         </a>
-        <nav className="navbarMenu">
+        <nav className="navbar-menu">
           <ol>
-            <li className="navbarMenuItem navbar-menu-board">
-              <a href="/board" value="board">
+            <li className="navbar-menu-item navbar-menu-board">
+              {/* <a href="/board" value="board">
                 자유게시판
-              </a>
+              </a> */}
+              <NavLink
+                to={'/community'}
+                className={({ isActive }) =>
+                  `nav-bar-menu-link ${isActive ? 'active' : ''}`
+                }
+              >
+                자유게시판
+              </NavLink>
             </li>
-            <li className="navbarMenuItem navbar-menu-items">
-              <a href="/items" value="items">
+            <li className="navbar-menu-item navbar-menu-items">
+              {/* <a href="/items" value="items">
                 중고마켓
-              </a>
+              </a> */}
+              <NavLink
+                to={'/items'}
+								
+                className={({ isActive }) =>
+                  `nav-bar-menu-link ${isActive ? 'active' : ''}`
+                }
+              >
+                중고마켓
+              </NavLink>
             </li>
           </ol>
         </nav>
