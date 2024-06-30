@@ -18,7 +18,7 @@ export default function FileInput({
     changeValue(name, imgValue);
   };
 
-  const handleRevmoeImage = e => {
+  const handleRemoveImage = e => {
     e.preventDefault();
     const imgInputNode = imgInputRef.current;
     if (!imgInputNode) return;
@@ -52,7 +52,7 @@ export default function FileInput({
       {preview && (
         <div className={styles.previewImg}>
           <img src={preview} alt="이미지 미리보기" />
-          <button className={styles.imgRemoveBtn} onClick={handleRevmoeImage} />
+          <button className={styles.imgRemoveBtn} onClick={handleRemoveImage} />
         </div>
       )}
     </div>
