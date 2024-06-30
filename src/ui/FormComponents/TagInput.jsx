@@ -1,49 +1,43 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import styles from './TagInput.module.css';
 
 export default function TagInput({
   label,
   id,
+  name,
   className,
-  insertTags,
+  tags,
+  handleChange,
   changeValue,
   ...props
 }) {
-  const [tags, setTags] = useState([]);
-  const InputRef = useRef(null);
+  const [tagValue, setTagValue] = useState('');
 
   const handleChangeInput = e => {
-    const tagsValue = InputRef.current.value;
-    changeValue(tagsValue);
-  };
-
-  const handleClearTag = list => {
-    setTags(prevItem => {
-      const updateTag = prevItem.filter(item => item.id !== list.id);
-      insertTags('tag', updateTag);
-      return updateTag;
-    });
+    let { value } = e.target;
+    setTagValue(value);
   };
 
   const handleAddTags = e => {
-    const tagsValue = InputRef.current;
-    if (e.key === 'Enter' && tagsValue.value !== '') {
-      setTags(prevTags => {
-        if (!prevTags.some(tag => tag.name === tagsValue.value)) {
-          const newTag = {
-            id: `${tagsValue.value}-${Math.random()
-              .toString(36)
-              .substring(2, 9)}`,
-            name: tagsValue.value,
-          };
-          const newTags = [...prevTags, newTag];
-          insertTags('tag', newTags);
-          return newTags;
-        }
-        return prevTags;
-      });
-      changeValue('');
+    let { value } = e.target;
+    if (e.key === 'Enter' && tagValue !== '') {
+      const existingTag =
+        tags && tags.some(tag => tag.name === tagValue.trim());
+      if (!existingTag) {
+        const newTag = {
+          id: `${value}-${Math.random().toString(36).substring(2, 9)}`,
+          name: tagValue.trim(),
+        };
+        const newTags = [...tags, newTag];
+        changeValue(name, newTags);
+      }
+      setTagValue('');
     }
+  };
+
+  const handleRemoveTag = list => {
+    const updateTag = tags.filter(item => item.id !== list.id);
+    changeValue(name, updateTag);
   };
 
   return (
@@ -53,7 +47,7 @@ export default function TagInput({
         className={`${className ? className : ''}`}
         id={id}
         {...props}
-        ref={InputRef}
+        value={tagValue}
         onChange={handleChangeInput}
         onKeyDown={handleAddTags}
       />
@@ -64,7 +58,7 @@ export default function TagInput({
               <li key={tag.id} id={tag.id}>
                 <span className={styles.tagTitle}>{tag.name}</span>
                 <i
-                  onClick={() => handleClearTag(tag)}
+                  onClick={() => handleRemoveTag(tag)}
                   className={styles.tagRemoveBtn}
                 ></i>
               </li>
