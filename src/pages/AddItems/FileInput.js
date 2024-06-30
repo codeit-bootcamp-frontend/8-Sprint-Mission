@@ -4,3 +4,5 @@ function FlieInput() {
   };
   return <input type="file" onChange={handleChange} />;
 }
+
+export default FlieInput;

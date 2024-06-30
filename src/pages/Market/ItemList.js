@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { getProducts } from "../../api.js";
 import { Link } from "react-router-dom";
 import ProductList from "./ProductList.js";
@@ -14,12 +14,25 @@ function ItemList() {
   const handleNewestClick = () => setOrder("createdAt");
   const handleBestClick = () => setOrder("favoriteCount");
 
+  /*
   async function handleLoad({ order, limit: LIMIT }) {
     let result = await getProducts({ order, offset, limit: LIMIT });
     const product = result.list;
     setItems(product);
     setOffset(offset + LIMIT);
   }
+*/
+
+  const handleLoad = useCallback(
+    async ({ order, limit: LIMIT }) => {
+      let result = await getProducts({ order, offset, limit: LIMIT });
+      const product = result.list;
+      setItems(product);
+      setOffset((prevOffset) => prevOffset + LIMIT);
+    },
+    [offset]
+  );
+
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
 
   const handleLoadMore = () => {
@@ -28,7 +41,7 @@ function ItemList() {
 
   useEffect(() => {
     handleLoad({ order, offset, limit: LIMIT });
-  }, [order]);
+  }, [order, handleLoad, offset]);
 
   return (
     <div>
