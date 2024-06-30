@@ -1,8 +1,8 @@
-import './MarketPage.css';
+import './Market.css';
 import BestItemsSection from './components/BestItemsSection';
 import AllItemsSection from './components/AllItemsSection';
 
-function MarketPage() {
+function Market() {
   return (
     <div className='wrapper'>
       <BestItemsSection />
@@ -11,4 +11,4 @@ function MarketPage() {
   );
 }
 
-export default MarketPage;
+export default Market;
