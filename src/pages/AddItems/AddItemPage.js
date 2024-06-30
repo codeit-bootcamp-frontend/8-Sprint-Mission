@@ -40,14 +40,23 @@ function AddItem() {
   return (
     <div>
       <form className="form-container" onSubmit={handleSubmit}>
-        <h1>상품 등록하기</h1>
-        <button disabled={!checkAllInputsFilled(values)}>등록</button>
+        <div className="top-section-submit">
+          <h1>상품 등록하기</h1>
+          <button
+            className="add-item-button"
+            disabled={!checkAllInputsFilled(values)}
+          >
+            등록
+          </button>
+        </div>
         <FlieInput
           name="imgFile"
           value={values.imgFile}
           onChange={handleChange}
         />
-        <label htmlFor="item-name">상품명</label>
+        <label className="lable" htmlFor="item-name">
+          상품명
+        </label>
         <input
           id="item-name"
           name="name"
@@ -55,7 +64,9 @@ function AddItem() {
           onChange={handleInputChange}
           placeholder="상품명을 입력해주세요"
         ></input>
-        <label htmlFor="item-detail">상품 소개</label>
+        <label className="lable" htmlFor="item-detail">
+          상품 소개
+        </label>
         <textarea
           id="item-detail"
           name="detail"
@@ -63,7 +74,9 @@ function AddItem() {
           onChange={handleInputChange}
           placeholder="상품 소개를 입력해주세요"
         ></textarea>
-        <label htmlFor="item-price">판매가격</label>
+        <label className="lable" htmlFor="item-price">
+          판매가격
+        </label>
         <input
           id="item-price"
           name="price"
@@ -72,7 +85,9 @@ function AddItem() {
           type="number"
           placeholder="판매 가격을 입력해주세요"
         ></input>
-        <label htmlFor="tag">태그</label>
+        <label className="lable" htmlFor="tag">
+          태그
+        </label>
         <input
           id="tag"
           name="tag"
