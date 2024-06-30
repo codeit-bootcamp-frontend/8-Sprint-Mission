@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './Layout/Header';
 import Market from './pages/market/Market';
-import HomePage from './pages/home/HomePage.jsx';
+import HomePage from './Home/HomePage';
 import AddItemPage from './pages/AddItem/AddItemPage.jsx';
 
 function App() {

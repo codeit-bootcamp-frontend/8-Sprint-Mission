@@ -1,3 +1,4 @@
+import './TagInput.css';
 import { useState } from 'react';
 import InputItem from './InputItem';
 import DeleteButton from './DeleteButton';

@@ -25,9 +25,9 @@ function AddItemPage() {
   return (
     <div className='container'>
       <form>
-        <div className='TitleSection'>
+        <div className='titleSection'>
           <h1>상품 등록하기</h1>
-          <button type='submit' disabled={submitDisabled}>
+          <button className='registerButton' type='submit' disabled={submitDisabled}>
             등록
           </button>
         </div>

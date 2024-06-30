@@ -1,3 +1,17 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: var(--white);
+  border-bottom: 1px solid #dfdfdf;
+}
+
 .navLeft {
   display: flex;
   align-items: center;
