@@ -24,7 +24,9 @@ a {
 
 .nav-box {
   display: flex;
+  flex-direction: row;
   width: 100%;
+  list-style-type: none;
 }
 
 .nav-item {

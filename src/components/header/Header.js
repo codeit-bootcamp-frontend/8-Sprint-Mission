@@ -1,23 +1,28 @@
 import './Header.css';
 import logo from '../../images/logo1.png';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header>
-      <a href="/" className="home-button">
+      <Link to="/" className="home-button">
         <img src={logo} alt="로고" />
-      </a>
-      <div className="nav-box">
-        <a href="/#" className="nav-item">
-          자유게시판
-        </a>
-        <a href="/items" className="nav-item">
-          중고마켓
-        </a>
-      </div>
-      <a href="/login" className="login-button">
+      </Link>
+      <ul className="nav-box">
+        <li>
+          <Link to="" className="nav-item">
+            자유게시판
+          </Link>
+        </li>
+        <li>
+          <Link to="/items" className="nav-item">
+            중고마켓
+          </Link>
+        </li>
+      </ul>
+      <Link to="/login" className="login-button">
         로그인
-      </a>
+      </Link>
     </header>
   );
 }

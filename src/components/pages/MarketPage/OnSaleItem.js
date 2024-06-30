@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getProducts } from '../../../api';
 import ItemCard from './ItemCard';
 import './OnSaleItem.css';
+import { Link } from 'react-router-dom';
 
 function OnSaleItem() {
   const [itemList, setItemList] = useState([]);
@@ -23,7 +24,9 @@ function OnSaleItem() {
           className="on-sale-input"
           placeholder="검색할 상품을 입력해주세요"
         />
-        <button className="on-sale-button">상품 등록하기</button>
+        <Link to="/additem" className="on-sale-button">
+          상품 등록하기
+        </Link>
         <select className="on-sale-dropdown">
           <option>최신순</option>
           <option>좋아요순</option>
