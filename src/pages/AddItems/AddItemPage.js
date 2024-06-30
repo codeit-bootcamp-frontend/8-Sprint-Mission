@@ -17,6 +17,7 @@ function AddItem() {
       [name]: value,
     }));
   };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     handleChange(name, value);
@@ -27,28 +28,29 @@ function AddItem() {
     console.log(values);
   };
 
+  const checkAllInputsFilled = (values) => {
+    return (
+      values.name.length > 0 &&
+      values.detail.length > 0 &&
+      values.price.length > 0 &&
+      values.tag.length > 0
+    );
+  };
+
   return (
     <div>
       <form className="form-container" onSubmit={handleSubmit}>
         <h1>상품 등록하기</h1>
-        <button>등록</button>
+        <button disabled={!checkAllInputsFilled(values)}>등록</button>
         <FlieInput
           name="imgFile"
           value={values.imgFile}
           onChange={handleChange}
         />
-        <label htmlFor="add-img">상품 이미지</label>
-        <input
-          id="add-img"
-          name="img-preview"
-          type="image"
-          placeholder="이미지 등록"
-          alt="상품 미리보기 이미지"
-        ></input>
         <label htmlFor="item-name">상품명</label>
         <input
           id="item-name"
-          name="item-name"
+          name="name"
           value={values.name}
           onChange={handleInputChange}
           placeholder="상품명을 입력해주세요"
@@ -56,7 +58,7 @@ function AddItem() {
         <label htmlFor="item-detail">상품 소개</label>
         <textarea
           id="item-detail"
-          name="item-detail"
+          name="detail"
           value={values.detail}
           onChange={handleInputChange}
           placeholder="상품 소개를 입력해주세요"
@@ -64,7 +66,7 @@ function AddItem() {
         <label htmlFor="item-price">판매가격</label>
         <input
           id="item-price"
-          name="item-price"
+          name="price"
           value={values.price}
           onChange={handleInputChange}
           type="number"
