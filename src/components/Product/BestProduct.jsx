@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getFavoriteProduct } from '../../utils/http.js';
+import Loading from '../../ui/Loading/Loading.jsx';
 import Section from '../../ui/Section/Section.jsx';
 import ItemList from './ItemList';
 import styles from './BestProduct.module.css';
@@ -22,21 +23,24 @@ const getResponseProducts = () => {
 
 export default function BestProduct() {
   const [itemList, setItemList] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [size, setSize] = useState(getResponseProducts());
 
-  const loadedItem = async () => {
+  const loadedItem = useCallback(async () => {
     const query = {
       size,
     };
+    setLoading(true);
     try {
       const product = await getFavoriteProduct({ query });
       const { list } = product;
       setItemList(list);
+      setLoading(false);
     } catch (error) {
       setError(error.message);
     }
-  };
+  }, [size]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,11 +51,11 @@ export default function BestProduct() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [deviceSize]);
+  }, []);
 
   useEffect(() => {
     loadedItem();
-  }, [size]);
+  }, [loadedItem]);
 
   if (error) {
     return <p>{error}</p>;
@@ -60,11 +64,15 @@ export default function BestProduct() {
   return (
     <Section>
       <h2 className={styles.title}>베스트 상품</h2>
-      <div className={styles.list}>
-        {itemList.map(list => (
-          <ItemList key={`best-products-${list.id}`} {...list} />
-        ))}
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className={styles.list}>
+          {itemList.map(list => (
+            <ItemList key={`best-products-${list.id}`} {...list} />
+          ))}
+        </div>
+      )}
     </Section>
   );
 }
