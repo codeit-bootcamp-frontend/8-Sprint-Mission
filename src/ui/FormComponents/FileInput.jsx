@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import styles from "./FileInput.module.css";
+import { useState, useEffect, useRef } from 'react';
+import styles from './FileInput.module.css';
 
 export default function FileInput({
   id,
@@ -13,17 +13,17 @@ export default function FileInput({
   const [preview, setPreview] = useState(null);
   const imgInputRef = useRef(null);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const imgValue = e.target.files[0];
     changeValue(name, imgValue);
   };
 
-  const handleClearBtn = (e) => {
+  const handleRevmoeImage = e => {
     e.preventDefault();
     const imgInputNode = imgInputRef.current;
     if (!imgInputNode) return;
 
-    imgInputNode.value = "";
+    imgInputNode.value = '';
     changeValue(name, null);
   };
 
@@ -52,7 +52,7 @@ export default function FileInput({
       {preview && (
         <div className={styles.previewImg}>
           <img src={preview} alt="이미지 미리보기" />
-          <button className={styles.imgRemoveBtn} onClick={handleClearBtn} />
+          <button className={styles.imgRemoveBtn} onClick={handleRevmoeImage} />
         </div>
       )}
     </div>
