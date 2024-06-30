@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Signup() {
   return (
     <>
@@ -110,7 +112,7 @@ function Signup() {
               </ul>
             </div>
             <p>
-              이미 회원이신가요?<a href="./login.html">로그인</a>
+              이미 회원이신가요?<Link to="/Login">로그인</Link>
             </p>
           </div>
         </div>

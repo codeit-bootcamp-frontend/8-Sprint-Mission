@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Home() {
   return (
     <>
@@ -10,9 +12,9 @@ function Home() {
                 <br />
                 거래해 보세요
               </h2>
-              <a href="/items.html" className="item-btn">
+              <Link to="Items" className="item-btn">
                 구경하러 가기
-              </a>
+              </Link>
             </div>
           </div>
         </section>

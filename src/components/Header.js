@@ -1,34 +1,51 @@
+import { Link, useLocation } from "react-router-dom";
+
 function Header() {
+  const location = useLocation();
   return (
     <>
       <header>
         <div className="header-wrap">
           <div className="header-left">
             <h1>
-              <a href="/" className="pc-tab-logo">
+              <Link to="/" className="pc-tab-logo">
                 <img src="/images/logo-small.png" alt="판다마켓 로고" />
-              </a>
-              <a href="/" className="mo-logo">
+              </Link>
+              <Link to="/" className="mo-logo">
                 <img src="/images/logo-txt.png" alt="판다마켓 로고" />
-              </a>
+              </Link>
             </h1>
             <nav className="gnb">
               <ul>
                 <li>
-                  <a href="#n">자유게시판</a>
+                  <Link to="#">자유게시판</Link>
                 </li>
                 <li>
-                  <a href="#n" className="on">
+                  <Link
+                    to="/Items"
+                    className={
+                      location.pathname === "/Items" ||
+                      location.pathname === "/AddItem"
+                        ? "on"
+                        : ""
+                    }
+                  >
                     중고마켓
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
           </div>
           <div className="header-button">
-            <a href="./login.html" className="login-btn">
-              로그인
-            </a>
+            {location.pathname === "/AddItem" ? (
+              <button type="button" className="profile-btn">
+                <img src="/images/i-profile.png" alt="프로필 이미지" />
+              </button>
+            ) : (
+              <Link to="/Login" className="login-btn">
+                로그인
+              </Link>
+            )}
           </div>
         </div>
       </header>

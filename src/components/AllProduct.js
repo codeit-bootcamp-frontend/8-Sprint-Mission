@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { getProducts } from "../api.js";
 import { useEffect, useState } from "react";
 
@@ -15,23 +16,27 @@ const responsivePageSize = () => {
   }
 };
 
+const recent = "recent";
+const favorite = "favorite";
+
 function AllProduct() {
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [order, setOrder] = useState("recent");
+  const [order, setOrder] = useState(recent);
   const [dropArrow, setDropArrow] = useState("");
   const [dropDisplay, setDropDisplay] = useState("none");
   const [orderTxt, setOrderTxt] = useState("최신순");
+  const [pagesNum, setPagesNum] = useState([1, 2]);
 
   const handleLoad = async (options) => {
     let { list } = await getProducts(options);
     setProducts(list);
-    // console.log(list);
   };
 
   const handleDropClick = () => {
-    dropArrow === "" ? setDropArrow("on") : setDropArrow("");
-    dropDisplay === "none" ? setDropDisplay("block") : setDropDisplay("none");
+    setDropArrow(dropArrow === "" ? "on" : "");
+    setDropDisplay(dropDisplay === "none" ? "block" : "none");
   };
 
   const handleNewsOrder = (e) => {
@@ -39,7 +44,7 @@ function AllProduct() {
     setOrderTxt(menuTxt);
     setDropArrow("");
     setDropDisplay("none");
-    setOrder("recent");
+    setOrder(recent);
   };
 
   const handleBestOrder = (e) => {
@@ -47,18 +52,34 @@ function AllProduct() {
     setOrderTxt(menuTxt);
     setDropArrow("");
     setDropDisplay("none");
-    setOrder("favorite");
+    setOrder(favorite);
+  };
+
+  const pageNumClick = (page) => {
+    setPage(page);
+  };
+
+  const prevPageBtn = () => {
+    if (page !== 1) {
+      setPage(page - 1);
+    }
+  };
+
+  const nextPageBtn = () => {
+    if (page !== pagesNum.length) {
+      setPage(page + 1);
+    }
   };
 
   useEffect(() => {
-    handleLoad({ pageSize, order });
+    handleLoad({ page, pageSize, order });
 
     const handleResize = () => {
       setPageSize(responsivePageSize());
     };
 
     window.addEventListener("resize", handleResize);
-  }, [order, pageSize]);
+  }, [page, order, pageSize]);
 
   return (
     <>
@@ -67,7 +88,9 @@ function AllProduct() {
           <h2>판매중인 상품</h2>
           <div className="product-info-menu">
             <input type="search" placeholder="검색할 상품을 입력해주세요." />
-            <button type="button">상품 등록하기</button>
+            <Link to="/AddItem" className="item-add-btn">
+              상품 등록하기
+            </Link>
             <div className="drop-menu">
               <p className={dropArrow} onClick={handleDropClick}>
                 {orderTxt}
@@ -118,27 +141,26 @@ function AllProduct() {
         <div className="pageNav">
           <ul>
             <li>
-              <button type="button">
+              <button type="button" onClick={prevPageBtn}>
                 <img src="/images/i-arrow-left.png" alt="왼쪽 화살표" />
               </button>
             </li>
-            <li className="on">
-              <button type="button">1</button>
-            </li>
+            {pagesNum.map((pageNum) => {
+              return (
+                <li key={pageNum} className={pageNum === page ? "on" : ""}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      pageNumClick(pageNum);
+                    }}
+                  >
+                    {pageNum}
+                  </button>
+                </li>
+              );
+            })}
             <li>
-              <button type="button">2</button>
-            </li>
-            <li>
-              <button type="button">3</button>
-            </li>
-            <li>
-              <button type="button">4</button>
-            </li>
-            <li>
-              <button type="button">5</button>
-            </li>
-            <li>
-              <button type="button">
+              <button type="button" onClick={nextPageBtn}>
                 <img src="/images/i-arrow-right.png" alt="왼쪽 화살표" />
               </button>
             </li>
