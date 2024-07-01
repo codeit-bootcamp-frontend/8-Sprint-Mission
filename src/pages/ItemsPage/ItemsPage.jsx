@@ -5,10 +5,10 @@ import "./ItemsPage.scss";
 
 function ItemsPage() {
   return (
-    <div className="itemsPage">
+    <main className="itemsMain">
       <BestItemsSection />
       <AllItemsSection />
-    </div>
+    </main>
   );
 }
 
