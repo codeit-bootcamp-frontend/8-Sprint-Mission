@@ -8,8 +8,7 @@ import AuthContainer from "../components/auth/AuthContainer";
 import AuthHeader from "../components/auth/AuthHeader";
 
 function Auth() {
-  const { state } = useLocation();
-  const [isLogin, setIsLogin] = useState(state.isLogin);
+  const [isLogin, setIsLogin] = useState(true);
 
   const authPageHandle = () => {
     setIsLogin(!isLogin);

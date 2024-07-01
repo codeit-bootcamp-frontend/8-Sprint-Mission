@@ -65,5 +65,6 @@ export const InputContainer = styled.div`
   textarea {
     height: 200px;
     border: none;
+    resize: none;
   }
 `;

@@ -23,12 +23,15 @@ function Tagbox({ tags, onClick }) {
 const TagsWrapper = styled.div`
   display: flex;
   gap: 12px;
+  font-size: 16px;
+  font-weight: 400;
   span {
     background-color: var(--gray-50);
     padding: 12px 12px 12px 16px;
     align-items: center;
     height: 48px;
     display: flex;
+    border-radius: 26px;
   }
   button {
     display: inline-block;
