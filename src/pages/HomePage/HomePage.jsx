@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./HomePage.scss";
-import "../../styles/global.scss";
+import "@pages/HomePage/HomePage.scss";
+import "@styles/global.scss";
 
-import homeImg1 from "../../assets/HomePage/Img_home_01.png";
-import homeImg2 from "../../assets/HomePage/Img_home_02.png";
-import homeImg3 from "../../assets/HomePage/Img_home_03.png";
+import homeImg1 from "@assets/HomePage/Img_home_01.png";
+import homeImg2 from "@assets/HomePage/Img_home_02.png";
+import homeImg3 from "@assets/HomePage/Img_home_03.png";
 
 function HomePage() {
   return (

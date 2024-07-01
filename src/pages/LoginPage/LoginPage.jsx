@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./LoginPage.scss";
+import "@pages/LoginPage/LoginPage.scss";
 
-import loginLogo from "../../assets/common/logo.svg";
+import loginLogo from "@assets/common/logo.svg";
 
 function LoginPage() {
   <body>

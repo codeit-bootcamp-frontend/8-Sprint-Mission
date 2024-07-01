@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import "../scss/Header.scss";
+import "@components/Layout/scss/Header.scss";
 
-import logo from "../../../assets/common/logo.svg";
-import logoMobile from "../../../assets/common/logo-mobile.svg";
+import logo from "@assets/common/logo.svg";
+import logoMobile from "@assets/common/logo-mobile.svg";
 
 function getLinkStyle({ isActive }) {
   return {

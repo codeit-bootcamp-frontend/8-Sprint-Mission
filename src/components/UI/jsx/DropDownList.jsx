@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import dropDownIcon from "../../../assets/icons/ic_arrow_down.svg";
 import { useEffect } from "react";
-import "../scss/DropDownList.scss";
+import "@components/UI/scss/DropDownList.scss";
 
 /**
  * 페이지 사이즈에 따라, 다르게 보여야 하는 State를 바꾸는 함수

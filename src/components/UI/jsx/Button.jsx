@@ -1,5 +1,5 @@
 import React from "react";
-import "../scss/Button.scss";
+import "@components/UI/scss/Button.scss";
 
 function Button({ size, width = "42" }) {
   return (

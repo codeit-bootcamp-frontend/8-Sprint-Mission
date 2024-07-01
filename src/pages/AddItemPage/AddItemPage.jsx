@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./AddItemPage.scss";
-import Input from "../../components/UI/jsx/Input";
+import "@pages/AddItemPage/AddItemPage.scss";
+import Input from "@components/UI/jsx/Input";
+import TextArea from "@components/UI/jsx/TextArea";
 
 /** 상품 등록 페이지
  *
@@ -14,7 +15,7 @@ function AddItemPage() {
     name: "",
     description: "",
     price: "",
-    tags: "",
+    tags: [],
     images: null,
   });
   const [isFormComplete, setIsFormComplete] = useState(false);
@@ -29,6 +30,7 @@ function AddItemPage() {
     });
   };
 
+  // 이미지 삭제 버튼 클릭 시,
   const handleImageDelete = (e) => {
     setFormData({
       ...formData,
@@ -37,11 +39,22 @@ function AddItemPage() {
     setPreview(null);
   };
 
+  // 등록 버튼 클릭 시,
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  const handleAddTags = (e) => {};
+  // 태그 등록 시,
+  const handleAddTags = (e) => {
+    if (e.key === "Enter" && formData.tags.trim() !== "") {
+      e.preventDefault();
+      const { value } = e.target;
+      setFormData({
+        ...formData,
+        tags: [...formData.tags, value],
+      });
+    }
+  };
 
   // 이미지 file를 제외한 input 요소가 입력되었을 때 버튼 활성화
   useEffect(() => {
@@ -136,7 +149,7 @@ function AddItemPage() {
             <label className="addItemPage__inputTitle" htmlFor="description">
               상품 소개
             </label>
-            <Input
+            <TextArea
               className="addItemPage__description"
               type="textarea"
               id="description"
@@ -173,7 +186,6 @@ function AddItemPage() {
                 id="tags"
                 name="tags"
                 placeholder="태그를 입력하고 Enter를 누르세요."
-                onChange={handleChange}
                 onKeyDown={handleAddTags}
                 value={formData.tags}
               />

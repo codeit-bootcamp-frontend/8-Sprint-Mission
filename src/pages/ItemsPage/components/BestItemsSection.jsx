@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ItemCard from "./ItemCard";
-import { getProducts as getBestItems } from "../../../js/itemApi";
+import ItemCard from "@pages/ItemsPage/components/ItemCard";
+import { getProducts as getBestItems } from "@js/itemApi";
 
 /**
  * 페이지 사이즈에 따라, 불러와야하는 아이템 갯수를 리턴하는 함수

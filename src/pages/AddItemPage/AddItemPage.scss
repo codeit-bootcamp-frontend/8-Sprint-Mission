@@ -6,11 +6,11 @@
   padding: 100px 200px;
 
   @media (max-width: 1199px) {
-    padding: 100px 24px 100px 24px;
+    padding: 100px 24px;
   }
 
   @media (max-width: 767px) {
-    padding: 100px 24px 100px 24px;
+    padding: 100px 24px;
   }
 
   &__wrapper {
@@ -90,7 +90,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
-    background-image: url(../../assets/icons/ic_plus.svg);
+    background-image: url("~@assets/icons/ic_plus.svg");
   }
 
   &__imageContainer {
@@ -107,7 +107,7 @@
 
   &__icX {
     position: absolute;
-    background-image: url(../../assets/icons/ic_X.svg);
+    background-image: url("~@assets/icons/ic_X.svg");
     background-repeat: no-repeat;
     background-size: contain;
 
