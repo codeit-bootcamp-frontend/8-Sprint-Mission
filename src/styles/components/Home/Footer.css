@@ -1,0 +1,64 @@
+footer {
+  background-color: var(--cool-gray-900);
+  height: 160px;
+  padding: 32px 200px;
+}
+
+.codeit-2024 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--cool-gray-400);
+}
+
+.privacy-link,
+.faq-link {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--cool-gray-200);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.privacy-faq-link {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.external-icons {
+  display: flex;
+  gap: 13px;
+}
+
+.external-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.footer-bar {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*==========Tablet==========*/
+@media screen and (max-width: 1199px) {
+  footer {
+    padding: 32px 104px;
+  }
+}
+
+/*==========Mobile==========*/
+@media screen and (max-width: 767px) {
+  footer {
+    padding: 32px;
+    position: relative;
+  }
+
+  .codeit-2024 {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+  }
+}

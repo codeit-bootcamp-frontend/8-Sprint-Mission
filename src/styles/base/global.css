@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --brand-blue: #3692ff;
+  --cool-gray-900: #111827;
+  --cool-gray-800: #1f2937;
+  --cool-gray-700: #374151;
+  --cool-gray-600: #4b5563;
+  --cool-gray-500: #6b7280;
+  --cool-gray-400: #9ca3af;
+  --cool-gray-300: #d1d5db;
+  --cool-gray-200: #e5e7eb;
+  --cool-gray-100: #f3f4f6;
+  --cool-gray-50: #f9fafb;
+  --error-red: #f74747;
+
+  /* arbitrarily named color value */
+  --gray-00: #ffffff;
+  --header-underline-color: #dfdfdf;
+  --simple-login-color: #e6f2ff;
+  --main-background-color: #cfe5ff;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+html {
+  font-family: Pretendard, sans-serif;
+}
+
+button,
+input {
+  border: none;
+}
+
+button,
+a {
+  cursor: pointer;
+}
