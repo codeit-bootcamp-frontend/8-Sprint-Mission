@@ -1,0 +1,43 @@
+.best-item-wrap .card-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 282px;
+  height: 362px;
+  color: #1f2937;
+  gap: 10px;
+}
+
+.best-item-wrap .img-wrap {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}
+
+.on-sale-item-wrap .card-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 221px;
+  height: 301px;
+  color: #1f2937;
+  gap: 10px;
+}
+
+.on-sale-item-wrap .img-wrap {
+  width: 221px;
+  height: 221px;
+  border-radius: 16px;
+}
+
+.item-price {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1f2937;
+}
+
+.item-name {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1f2937;
+}

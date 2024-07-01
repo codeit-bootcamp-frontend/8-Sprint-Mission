@@ -1,0 +1,53 @@
+.on-sale-item-header {
+  display: flex;
+  margin: 40px 0;
+  align-items: center;
+}
+
+.on-sale-item-wrap {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 1201px;
+  height: 642px;
+  gap: 24px;
+}
+
+.on-sale-section-title {
+  width: 50%;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #111827;
+}
+
+.on-sale-input {
+  width: 325px;
+  height: 42px;
+  border-radius: 12px;
+  padding: 9px 20px 9px 16px;
+  background-color: #f3f4f6;
+  border: none;
+}
+
+.on-sale-button {
+  width: 133px;
+  height: 42px;
+  border-radius: 8px;
+  padding: 12px 23px;
+  background-color: #3692ff;
+  color: #fff;
+  font-weight: 600;
+  line-height: 19px;
+  border: none;
+}
+
+.on-sale-dropdown {
+  width: 130px;
+  height: 42px;
+  border-radius: 12px;
+  padding: 12px 20px;
+  border: 1px solid #e5e7eb;
+  font-weight: 400;
+  line-height: 24px;
+  color: #1f2937;
+}
