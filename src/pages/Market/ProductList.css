@@ -1,0 +1,13 @@
+* {
+  word-break: keep-all;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.list-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, 230px);
+}
