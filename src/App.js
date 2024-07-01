@@ -8,10 +8,6 @@ import AddItemPage from "./pages/AddItemPage/AddItemPage";
 import Header from "./components/Layout/jsx/Header";
 import Footer from "./components/Layout/jsx/Footer";
 
-// function manageHeader() {
-//   return (path === ("/login" || "/signup")) ? true : false;
-// }
-
 function App() {
   return (
     <Router>

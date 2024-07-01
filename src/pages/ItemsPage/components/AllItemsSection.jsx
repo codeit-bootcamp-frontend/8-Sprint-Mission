@@ -76,7 +76,7 @@ function AllItemsSection() {
   }, [orderBy]);
 
   return (
-    <section className="itemsPage__allItemsSection allItemsSection">
+    <section className="itemsMain__allItemsSection allItemsSection">
       <div className="allItemsSection__header">
         <div className="allItemsSection__title">
           <h2 className="allItemsSection__title">판매중인 상품</h2>

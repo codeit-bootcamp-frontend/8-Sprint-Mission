@@ -1,4 +1,4 @@
-.homeMain {
+.homePage {
   &__banner {
     position: relative;
     display: flex;
@@ -13,7 +13,7 @@
       background-position: center bottom;
     }
 
-    &.homeMain__top {
+    &.homePage__top {
       background-image: url("../../assets/HomePage/Img_home_top.png");
       margin-top: 70px;
       padding: 0 200px;
@@ -30,7 +30,7 @@
       }
     }
 
-    &.homeMain__bottom {
+    &.homePage__bottom {
       background-image: url("../../assets/HomePage/Img_home_bottom.png");
       padding: 0 200px;
 
@@ -42,7 +42,7 @@
         height: 540px;
         background-size: auto 50%;
 
-        & .homeMain__desc {
+        & .homePage__desc {
           padding-top: 84px;
         }
       }
@@ -166,7 +166,7 @@
       @media (max-width: 1199px) {
         flex-direction: column;
       }
-      & .homeMain__serviceContainer {
+      & .homePage__serviceContainer {
         align-items: flex-end;
       }
     }

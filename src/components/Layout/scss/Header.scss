@@ -18,9 +18,9 @@
     padding: 10px 24px;
   }
 
-  &__nav {
+  &__gnb {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
   }
@@ -41,5 +41,28 @@
     @media (max-width: 767px) {
       display: none;
     }
+  }
+
+  &__nav {
+    margin-left: 20px;
+    flex-grow: 1;
+  }
+
+  &__navLink {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 109px;
+    height: 69px;
+
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--gray600);
+
+    padding: 0 12px;
   }
 }

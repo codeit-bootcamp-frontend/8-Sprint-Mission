@@ -1,4 +1,4 @@
-.itemsPage {
+.itemsMain {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   gap: 40px;
   margin-top: 24px;
   margin: 24px auto 0 auto;
-  padding: 70px 16px; // 헤더로 인한 위/아래 padding
+  padding: 70px 16px; // 헤더 및 푸터로 인한 위/아래 padding
 
   &__bestItemsSection {
     width: 100%;
@@ -145,6 +145,7 @@
   }
 }
 
+// 아이템 카드
 .itemCard {
   display: flex;
   gap: 16px;

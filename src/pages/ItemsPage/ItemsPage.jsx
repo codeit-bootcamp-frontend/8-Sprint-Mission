@@ -5,7 +5,7 @@ import "./ItemsPage.scss";
 
 function ItemsPage() {
   return (
-    <main className="itemsPage">
+    <main className="itemsMain">
       <BestItemsSection />
       <AllItemsSection />
     </main>

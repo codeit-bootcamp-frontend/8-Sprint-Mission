@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as HeartIcon } from "../../../assets/ItemsPage/ic_heart.svg";
+import { ReactComponent as HeartIcon } from "../../../assets/icons/ic_heart.svg";
 import default_image from "../../../assets/ItemsPage/alt_image.png";
 
 function ItemCard({ item }) {

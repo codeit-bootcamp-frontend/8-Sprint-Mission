@@ -1,0 +1,122 @@
+.addItemPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 100px 200px;
+
+  @media (max-width: 1199px) {
+    padding: 100px 24px 100px 24px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 100px 24px 100px 24px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    gap: 14px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__sectionTitle {
+    font-weight: 700;
+    font-size: 2.8rem;
+    line-height: 3.5rem;
+    color: var(--gray800);
+  }
+
+  &__inputContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__inputTitle {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    color: var(--gray800);
+    margin-bottom: 12px;
+  }
+
+  &__images {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 282px;
+  }
+
+  &__uploadFile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+
+    width: 282px;
+    height: 282px;
+
+    font-size: 1.6rem;
+    color: var(--gray400);
+    background-color: var(--gray100);
+    border: 1px solid var(--gray50);
+    border-radius: 12px;
+
+    margin: 0;
+    cursor: pointer;
+
+    & span {
+      color: var(--gray400);
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  }
+
+  &__srOnly {
+    display: none;
+  }
+
+  &__icPlus {
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    background-image: url(../../assets/icons/ic_plus.svg);
+  }
+
+  &__imageContainer {
+    position: relative;
+  }
+
+  &__image {
+    width: 282px;
+    height: 282px;
+
+    border: 1px solid var(--gray50);
+    border-radius: 12px;
+  }
+
+  &__icX {
+    position: absolute;
+    background-image: url(../../assets/icons/ic_X.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 24px;
+    height: 24px;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+
+    cursor: pointer;
+  }
+}

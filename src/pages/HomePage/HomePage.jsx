@@ -9,11 +9,11 @@ import homeImg3 from "../../assets/HomePage/Img_home_03.png";
 
 function HomePage() {
   return (
-    <main className="homeMain">
+    <main className="homePage">
       {/* Banner: Top */}
-      <section className="homeMain__top homeMain__banner">
-        <div className="homeMain__desc">
-          <h1 className="homeMain__title--h1">
+      <section className="homePage__top homePage__banner">
+        <div className="homePage__desc">
+          <h1 className="homePage__title--h1">
             일상의 모든 물건을 거래해 보세요
           </h1>
           <Link to="/items" className="globalBtn globalBtn--large">
@@ -22,13 +22,13 @@ function HomePage() {
         </div>
       </section>
       {/* Main-Content */}
-      <section className="homeMain__section">
-        <div className="homeMain__content">
+      <section className="homePage__section">
+        <div className="homePage__content">
           <img src={homeImg1} alt="홈 이미지 1" />
-          <div className="homeMain__serviceContainer">
-            <p className="homeMain__serviceTitle">Hot Item</p>
-            <h2 className="homeMain__title--h2">인기 상품을 확인해 보세요</h2>
-            <p className="homeMain__serviceDesc">
+          <div className="homePage__serviceContainer">
+            <p className="homePage__serviceTitle">Hot Item</p>
+            <h2 className="homePage__title--h2">인기 상품을 확인해 보세요</h2>
+            <p className="homePage__serviceDesc">
               가장 HOT한 중고거래 물품을
               <br />
               판다 마켓에서 확인해 보세요
@@ -36,15 +36,15 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="homeMain__section">
-        <div className="homeMain__content homeMain__content--reverse">
+      <section className="homePage__section">
+        <div className="homePage__content homePage__content--reverse">
           <img src={homeImg2} alt="홈 이미지 2" />
-          <div className="homeMain__serviceContainer">
-            <p className="homeMain__serviceTitle">Search</p>
-            <h2 className="homeMain__title--h2">
+          <div className="homePage__serviceContainer">
+            <p className="homePage__serviceTitle">Search</p>
+            <h2 className="homePage__title--h2">
               구매를 원하는 상품을 검색하세요
             </h2>
-            <p className="homeMain__serviceDesc">
+            <p className="homePage__serviceDesc">
               구매하고 싶은 물품은 검색해서
               <br />
               쉽게 찾아보세요
@@ -52,15 +52,15 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="homeMain__section">
-        <div className="homeMain__content">
+      <section className="homePage__section">
+        <div className="homePage__content">
           <img src={homeImg3} alt="홈 이미지 3" />
-          <div className="homeMain__serviceContainer">
-            <p className="homeMain__serviceTitle">Register</p>
-            <h2 className="homeMain__title--h2">
+          <div className="homePage__serviceContainer">
+            <p className="homePage__serviceTitle">Register</p>
+            <h2 className="homePage__title--h2">
               판매를 원하는 상품을 등록하세요
             </h2>
-            <p className="homeMain__serviceDesc">
+            <p className="homePage__serviceDesc">
               어떤 물건이든 판매하고 싶은 상품을
               <br />
               쉽게 등록하세요
@@ -69,9 +69,9 @@ function HomePage() {
         </div>
       </section>
       {/* Banner: Bottom */}
-      <section className="homeMain__bottom homeMain__banner">
-        <div className="homeMain__desc">
-          <h1 className="homeMain__title--h1">
+      <section className="homePage__bottom homePage__banner">
+        <div className="homePage__desc">
+          <h1 className="homePage__title--h1">
             믿을 수 있는
             <br />
             판다마켓 중고거래

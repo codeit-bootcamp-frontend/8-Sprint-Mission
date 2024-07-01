@@ -46,7 +46,7 @@ function BestItemsSection() {
   }, [pageSize]);
 
   return (
-    <section className="itemsPage__bestItemsSection bestItemsSection">
+    <section className="itemsMain__bestItemsSection bestItemsSection">
       <div className="bestItemsSection__header">
         <h2 className="bestItemsSection__title">베스트 상품</h2>
       </div>
