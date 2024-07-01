@@ -23,7 +23,7 @@
   padding: 0;
 }
 
-@media (max-width: 744px) {
+@media (max-width: 1000px) {
   .ProductList {
     width: 696px;
     display: grid;
