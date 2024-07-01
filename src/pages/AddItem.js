@@ -30,6 +30,7 @@ function AddItem() {
             ...prevValues,
             [name]: value,
         }));
+        console.log(name, value);
     }
 
     const handleInputChange = (e) => {
