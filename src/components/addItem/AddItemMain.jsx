@@ -69,16 +69,26 @@ function AddItemMain() {
   };
 
   const handleKeydownTag = (e) => {
-    e.preventDefault();
-    if (e.key === "Enter") {
-      setValues((prevValues) => ({
-        ...prevValues,
-        tags: [...prevValues.tags, tagValue],
-      }));
-      setTagValue("");
-    } else {
+    if (e.key !== "Enter") {
       return;
     }
+    if (!tagValue.trim("")) {
+      setTagValue("");
+      return;
+    }
+    if (values.tags.length > 5) {
+      setValues((prevValues) => ({
+        ...prevValues,
+        tags: [...prevValues.tags.slice(1, prevValues.tags.length), tagValue],
+      }));
+      setTagValue("");
+      return;
+    }
+    setValues((prevValues) => ({
+      ...prevValues,
+      tags: [...prevValues.tags, tagValue],
+    }));
+    setTagValue("");
   };
 
   const handleDeleteImg = (i) => {

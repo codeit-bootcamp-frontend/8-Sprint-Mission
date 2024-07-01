@@ -1,22 +1,25 @@
 import styled from "styled-components";
 import icHeart from "../../assets/images/ic_heart.svg";
+import { Link } from "react-router-dom";
 
 function SellingItemList({ items }) {
   return (
     <SellingUl>
       {items.map((item) => {
         return (
-          <li key={item.id}>
-            <div className="items-container">
-              <img className="item-img" src={item.images} />
-              <p className="item-name">{item.name} 팝니다</p>
-              <span className="item-price">{item.price}원</span>
-              <span className="item-favorite">
-                <img className="heart-img" src={icHeart} />
-                {item.favoriteCount}
-              </span>
-            </div>
-          </li>
+          <Link to={`${item.id}`} key={item.id}>
+            <li>
+              <div className="items-container">
+                <img className="item-img" src={item.images} />
+                <p className="item-name">{item.name} 팝니다</p>
+                <span className="item-price">{item.price}원</span>
+                <span className="item-favorite">
+                  <img className="heart-img" src={icHeart} />
+                  {item.favoriteCount}
+                </span>
+              </div>
+            </li>
+          </Link>
         );
       })}
     </SellingUl>

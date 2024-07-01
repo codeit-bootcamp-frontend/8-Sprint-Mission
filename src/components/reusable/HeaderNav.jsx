@@ -1,28 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import logoImg from "../../assets/images/logo.svg";
 import logoTxt from "../../assets/images/logo-txt.svg";
 import "../../assets/styles/header-nav.css";
-import NavButton from "./NavButton";
+import styled from "styled-components";
 
-function HeaderNav({ nowPath }) {
+function HeaderNav() {
   return (
     <header className="header-container">
       <div className="header-nav">
-        <Link to="/" className="header-logo">
+        <NavLink to="/" className="header-logo">
           <img src={logoImg} />
           <img src={logoTxt} />
-        </Link>
+        </NavLink>
 
         <div className="nav-menus">
-          <NavButton thisPath="forum" nowPath={nowPath} className="nav-forum">
-            자유게시판
-          </NavButton>
-          <Link to="/items">
-            <NavButton thisPath="items" nowPath={nowPath} className="nav-items">
-              중고마켓
-            </NavButton>
-          </Link>
+          <NavLinkButton to="/forum">자유게시판</NavLinkButton>
+
+          <NavLinkButton to="/items">중고마켓</NavLinkButton>
         </div>
         <Link to="/auth" state={{ isLogin: true }}>
           <span className="header-login">로그인</span>
@@ -33,3 +28,17 @@ function HeaderNav({ nowPath }) {
 }
 
 export default HeaderNav;
+
+const NavLinkButton = styled(NavLink)`
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  padding-left: 39px;
+  &.active {
+    color: var(--blue);
+  }
+  @media (max-width: 764px) {
+    padding: 0;
+    font-size: 16px;
+  }
+`;
