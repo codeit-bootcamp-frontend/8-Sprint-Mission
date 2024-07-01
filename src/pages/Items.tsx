@@ -1,8 +1,9 @@
 import React from "react";
 
-import { Header, Main, Footer } from "./items/home";
+import { Header } from "./items/home";
+import { Main } from "./items/old";
 
-const Home: React.FC = () => {
+const Items: React.FC = () => {
   return (
     <div
       style={{
@@ -11,9 +12,8 @@ const Home: React.FC = () => {
     >
       <Header />
       <Main />
-      <Footer />
     </div>
   );
 };
 
-export default Home;
+export default Items;
