@@ -42,7 +42,7 @@ function FlieInput({ name, value, onChange }) {
         onChange={handleChange}
         ref={inputRef}
       />
-      {value && <button onClick={handleClearClick}>X</button>}
+      {value ? <button onClick={handleClearClick}>X</button> : null}{" "}
       <img className="preview-img" src={preview} alt="이미지 미리보기" />
     </div>
   );

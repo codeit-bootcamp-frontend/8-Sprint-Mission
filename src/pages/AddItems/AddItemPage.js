@@ -1,5 +1,5 @@
 import "./AddItemPage.css";
-import FlieInput from "./FileInput";
+import FileInput from "./FileInput";
 import { useState } from "react";
 
 function AddItem() {
@@ -28,6 +28,7 @@ function AddItem() {
     console.log(values);
   };
 
+  /*
   const checkAllInputsFilled = (values) => {
     return (
       values.name.length > 0 &&
@@ -35,6 +36,11 @@ function AddItem() {
       values.price.length > 0 &&
       values.tag.length > 0
     );
+  };
+  */
+
+  const checkAllInputsFilled = () => {
+    return Object.values(values).every((value) => value !== "");
   };
 
   return (
@@ -49,7 +55,7 @@ function AddItem() {
             등록
           </button>
         </div>
-        <FlieInput
+        <FileInput
           name="imgFile"
           value={values.imgFile}
           onChange={handleChange}
