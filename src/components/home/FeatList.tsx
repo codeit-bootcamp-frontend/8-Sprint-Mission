@@ -1,11 +1,11 @@
-import { FEAT_ITEM_LIST } from ' constants/infomations/featItemList';
+import { BRAND_FEATURE_ITEM_LIST } from ' constants/infomations/brandFeatureList';
 import FeatItem from './FeatItem';
 import styled from 'styled-components';
 
 function FeatList() {
   return (
     <StyledFeatList>
-      {FEAT_ITEM_LIST.map(item => (
+      {BRAND_FEATURE_ITEM_LIST.map(item => (
         <FeatItem
           key={item.id}
           src={item.src}

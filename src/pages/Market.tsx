@@ -21,8 +21,14 @@ const MarketContainer = styled.main`
   flex-direction: column;
   gap: 4rem;
 
-  width: 120rem;
   height: 100%;
+  width: 100%;
+  max-width: 120rem;
   margin: 0 auto;
-  padding-top: calc(var(--header-heigt) + 2.4rem);
+
+  padding: 0 2.4rem;
+  padding-top: 2.4rem;
+  @media (max-width: 768px) {
+    padding: 0 1.6rem;
+  }
 `;

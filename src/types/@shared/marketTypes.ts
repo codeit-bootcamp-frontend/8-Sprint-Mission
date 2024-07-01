@@ -14,3 +14,5 @@ export interface IProductResponse {
   totalCount: number;
   list: IProduct[];
 }
+
+export type ProductOrderBy = 'recent' | 'favorite';

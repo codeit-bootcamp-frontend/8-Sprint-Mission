@@ -1,73 +1,62 @@
-import { PAGE_SIZE } from 'components/market/ForSaleProductList';
+import usePageSize from 'hooks/usePageSize';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
 interface PaginationProps {
   totalCount: number;
-  currentPageCount: string;
-  setCurrentPageCount: React.Dispatch<React.SetStateAction<string>>;
+  currentPage: number;
+  setCurrentPageCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const MAX_PAGE_BUTTONS = '5'; // 화면에 최대 보여줄 페이지 버튼 수
+const MAX_PAGE_BUTTONS = 3; // 화면에 최대 보여줄 페이지 버튼 수
 
-function Pagination({ totalCount, currentPageCount, setCurrentPageCount }: PaginationProps) {
-  const [startPageCount, setStartPageCount] = useState('1'); // 현재 페이지 그룹의 시작 페이지 번호
+function Pagination({ totalCount, currentPage, setCurrentPageCount }: PaginationProps) {
+  const pageSize = usePageSize('forSale');
+
+  // 현재 페이지 그룹의 시작 페이지 번호
+  const [startPage, setStartPage] = useState(1);
 
   // 총 페이지 수를 계산한 최종 페이지 번호
-  const lastPageCount = totalCount ? Math.ceil(totalCount / parseInt(PAGE_SIZE)).toString() : '1';
+  const lastPage = totalCount ? Math.ceil(totalCount / pageSize) : 1;
 
   // 현재 페이지 그룹의 마지막 페이지 번호
-  const endPageCount = Math.min(
-    parseInt(startPageCount) + parseInt(MAX_PAGE_BUTTONS) - 1,
-    parseInt(lastPageCount),
-  ).toString();
+  const endPage = Math.min(startPage + MAX_PAGE_BUTTONS - 1, lastPage);
 
   // 현재 페이지 그룹에 보여줄 페이지 번호 리스트 생성
-  const pageCountList = Array.from({ length: parseInt(endPageCount) - parseInt(startPageCount) + 1 }, (_, i) =>
-    (parseInt(startPageCount) + i).toString(),
-  );
+  const pageCountList = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
 
   const handlePageButtonClick = (event: React.MouseEvent<HTMLElement>) => {
     const { value } = (event.target as HTMLElement).dataset;
     if (value === undefined) return;
 
     if (value === 'prevPage') {
-      // 이전 페이지로 이동할 경우, 이전 페이지 그룹으로 넘어가야 하는 지 확인
-      if (parseInt(currentPageCount) - 1 < parseInt(startPageCount)) {
-        setStartPageCount((parseInt(startPageCount) - parseInt(MAX_PAGE_BUTTONS)).toString());
+      if (currentPage - 1 < startPage) {
+        // 이전 페이지로 이동할 경우, 이전 페이지 그룹으로 넘어가야 하는 지 확인
+        setStartPage(startPage - MAX_PAGE_BUTTONS);
       }
-
-      // 이전 페이지로 이동
-      setCurrentPageCount(prevState => (parseInt(prevState) - 1).toString());
+      setCurrentPageCount(prevState => Math.max(prevState - 1, 1)); // 이전 페이지로 이동
     } else if (value === 'nextPage') {
-      // 다음 페이지로 이동할 경우, 다음 페이지 그룹으로 넘어가야 하는 지 확인
-      if (parseInt(endPageCount) < parseInt(currentPageCount) + 1) {
-        setStartPageCount((parseInt(endPageCount) + 1).toString());
+      if (endPage < currentPage + 1) {
+        // 다음 페이지로 이동할 경우, 다음 페이지 그룹으로 넘어가야 하는 지 확인
+        setStartPage(endPage + 1);
       }
-      // 다음 페이지로 이동
-      setCurrentPageCount(prevState => (parseInt(prevState) + 1).toString());
+      setCurrentPageCount(prevState => Math.min(prevState + 1, lastPage)); // 다음 페이지로 이동
     } else {
-      // 선택한 페이지로 이동
-      setCurrentPageCount(value);
+      setCurrentPageCount(parseInt(value)); // 선택한 페이지로 이동
     }
   };
 
-  // console.log('현재 페이지: ', currentPageCount);
-  // console.log('화면에 보이는 마지막 페이지: ', endPageCount);
-  // console.log('최종 페이지: ', lastPageCount);
-  // console.log('전체 아이템 개수: ', totalCount);
-
   return (
     <StyledPagenationSection onClick={handlePageButtonClick}>
-      <StyledPageButton data-value={'prevPage'} onClick={handlePageButtonClick} disabled={currentPageCount === '1'}>
+      <StyledPageButton data-value={'prevPage'} disabled={currentPage === 1}>
         {'<'}
       </StyledPageButton>
       {pageCountList.map(count => (
-        <StyledPageButton key={count} data-value={count} $isCurrentPageCount={currentPageCount === count}>
+        <StyledPageButton key={count} data-value={count} $isCurrentPageCount={currentPage === count}>
           {count}
         </StyledPageButton>
       ))}
-      <StyledPageButton data-value={'nextPage'} disabled={currentPageCount === lastPageCount}>
+      <StyledPageButton data-value={'nextPage'} disabled={currentPage === lastPage}>
         {'>'}
       </StyledPageButton>
     </StyledPagenationSection>

@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
+
 type ButtonCategoryType = 'medium' | 'large';
 
 interface ButtonProps {
@@ -9,6 +10,7 @@ interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   $category?: ButtonCategoryType; // Styled-component 에서만 사용될 prop은 $를 붙여주지 않으면 콘솔창에 경고가 발생
+  className?: string;
   type?: 'submit' | 'button' | 'reset';
 }
 
@@ -34,9 +36,25 @@ const buttonStyles = {
   `,
 };
 
-function Button({ children, $category = 'medium', width, height, onClick, type, disabled = false }: ButtonProps) {
+function Button({
+  children,
+  $category = 'medium',
+  width,
+  height,
+  onClick,
+  type,
+  className,
+  disabled = false,
+}: ButtonProps) {
   return (
-    <StyledButton type={type} $category={$category} width={width} height={height} onClick={onClick} disabled={disabled}>
+    <StyledButton
+      className={className}
+      type={type}
+      $category={$category}
+      width={width}
+      height={height}
+      onClick={onClick}
+      disabled={disabled}>
       {children}
     </StyledButton>
   );

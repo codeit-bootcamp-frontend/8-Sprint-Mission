@@ -1,5 +1,5 @@
 import { validType } from 'hooks/useValidForm';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledAuthForm = styled.form`
   display: flex;
@@ -7,26 +7,33 @@ export const StyledAuthForm = styled.form`
   gap: 2.4rem;
 `;
 
+export const inputStyle = css`
+  width: 100%;
+  height: 5.6rem;
+  border-radius: 1.2rem;
+  background-color: var(--cool-gray-100);
+  padding: 0 2.4rem;
+`;
+
+export const placeholderStyle = css`
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: var(--cool-gray-400);
+`;
+
 export const StyledInputSection = styled.section<{ $isValid: validType | undefined }>`
   & input {
-    width: 100%;
-    height: 5.6rem;
-    border-radius: 1.2rem;
-    background-color: var(--cool-gray-100);
-    padding: 0 2.4rem;
+    ${inputStyle};
+    &::placeholder {
+      ${placeholderStyle};
+    }
     outline: ${({ $isValid }) =>
       $isValid === 'default'
         ? 'none'
         : $isValid === 'valid'
           ? '1px solid var(--brand-blue)'
           : '1px solid var(--error-red)'};
-
-    &::placeholder {
-      font-size: 1.6rem;
-      font-weight: 400;
-      line-height: 2.4rem;
-      color: var(--cool-gray-400);
-    }
 
     &:focus {
       /* 기존에 borderd없이 focus 상태에만 border를 사용하면

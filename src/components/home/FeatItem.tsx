@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Image from 'components/@shared/Image';
-import { IItemInfo } from ' constants/infomations/featItemList';
+import { IBrandFeatureItem } from 'types/@shared/homeTypes';
 
-function FeatItem({ src, alt, title, description, detail }: Omit<IItemInfo, 'id'>) {
+function FeatItem({ src, alt, title, description, detail }: Omit<IBrandFeatureItem, 'id'>) {
   return (
     <StyledFeatItemContainer>
       <Image src={src} alt={alt} height={'44.4rem'} width={'58.8rem'} radius={'1.2rem'} />
