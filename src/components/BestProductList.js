@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react';
+import { getProducts } from '../api';
 import './BestProductList.css';
 
 function BestProductListItem({ item }) {
+
 
     return (
         <div className='BestProductListItem'>
@@ -13,7 +16,23 @@ function BestProductListItem({ item }) {
 
 }
 
-function BestProductList({ items }) {
+function BestProductList() {
+
+
+    const [items, setItems] = useState([]);
+
+
+
+
+    const handleLoad = async () => {
+        const { list } = await getProducts({ order: 'favorite', page: 1, pageSize: 10 });
+        setItems(list);
+    }
+
+
+    useEffect(() => {
+        handleLoad();
+    }, []);
 
     const displayedItems = items.slice(0, 4);
     return (
