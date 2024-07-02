@@ -6,7 +6,13 @@ i.icon {
   background-size: contain;
   background-repeat: no-repeat;
 }
-
+i.icon-lg {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 i.icon-sm {
   display: inline-block;
   width: 16px;
@@ -57,4 +63,14 @@ i.icon-sm {
 
 .ic_heart {
   background-image: url('../img/ic_heart.svg');
+}
+
+.ic_plus {
+  background-image: url('../img/ic_plus.svg');
+}
+.ic_remove {
+  background-image: url('../img/ic_X.svg');
+}
+.ic_back {
+  background-image: url('../img/ic_back.svg');
 }
