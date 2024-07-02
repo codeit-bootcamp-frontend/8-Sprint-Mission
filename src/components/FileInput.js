@@ -38,6 +38,7 @@ function FileInput({ name, value, onChange }) {
       setPreview(inputImg);
       setIsBoxVisible(false);
     }
+
   }, [value]);
 
   const handleImageError = () => {
