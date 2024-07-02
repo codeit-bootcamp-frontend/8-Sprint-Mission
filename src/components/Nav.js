@@ -4,6 +4,8 @@ import "./Nav.css";
 import logoIcon from "../assets/images/Img_logo_icon.png";
 import logoText from "../assets/images/Img_logo_text.png";
 
+const getNavLinkClassName = (isActive) => (isActive ? "menu active" : "menu");
+
 function Nav() {
   return (
     <nav>
@@ -23,13 +25,13 @@ function Nav() {
 
         <div className="menu-wrapper">
           <NavLink
-            className={({ isActive }) => (isActive ? "menu active" : "menu")}
+            className={({ isActive }) => getNavLinkClassName(isActive)}
             to="/forum"
           >
             자유게시판
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? "menu active" : "menu")}
+            className={({ isActive }) => getNavLinkClassName(isActive)}
             to="/items"
           >
             중고마켓

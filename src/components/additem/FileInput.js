@@ -1,27 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "./FileInput.css";
 import imageAddIcon from "../../assets/images/ic_plus.png";
 
-function FileInput({ name, value, onChange }) {
-  const [preview, setPreview] = useState();
+function FileInput({ name, onChange }) {
+  const [preview, setPreview] = useState("");
 
-  const handleChange = (e) => {
+  const handleFileInputChange = (e) => {
     const selectedImg = e.target.files[0];
+    const previewImg = URL.createObjectURL(selectedImg);
+
     onChange(name, selectedImg);
+    setPreview(previewImg);
   };
-
-  useEffect(() => {
-    if (!value) return;
-
-    const imgPreview = URL.createObjectURL(value);
-    setPreview(imgPreview);
-  }, [value]);
 
   return (
     <div className="file-input-wrapper">
       <div className="input-label">상품 이미지</div>
-      <label className="file-add-label" htmlFor="file">
+      <label className="file-add-label" htmlFor={name}>
         <div className="file-add-wrapper">
           <img
             className="file-add-icon"
@@ -36,17 +32,20 @@ function FileInput({ name, value, onChange }) {
 
       <input
         className="file-select-button"
-        id="file"
+        id={name}
+        name={name}
         type="file"
-        name="file"
-        onChange={handleChange}
+        onChange={handleFileInputChange}
       />
 
-      {value && (
+      {preview && (
         <img
           className="preview-img"
           src={preview}
+          // src={previewImgFile}
           alt="업로드한 이미지 미리보기"
+          width="282px"
+          height="282px"
         ></img>
       )}
     </div>

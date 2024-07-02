@@ -50,5 +50,5 @@
   height: 282px;
   margin-left: 24px;
   border-radius: 12px;
-  object-fit: cover;
+  object-fit: contain;
 }
