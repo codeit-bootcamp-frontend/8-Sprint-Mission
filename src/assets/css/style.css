@@ -445,7 +445,11 @@ footer {
   }
 }
 @media (max-width: 767px) {
-  header .nav li {
+  header .header-wrap {
+    padding: 0 16px;
+  }
+  header .header-wrap .nav li {
+    font-size: 16px;
     padding: 0 8px;
   }
   .logo {
@@ -528,6 +532,13 @@ footer {
   }
   .footer-wrap .sns {
     grid-area: sns;
+  }
+}
+@media (max-width: 400px) {
+  .logo {
+    background: url("../img/sm-logo.svg") no-repeat;
+    width: 40px;
+    height: 40px;
   }
 }
 /* ==== button ==== */
@@ -1173,6 +1184,12 @@ i.icon-sm {
   overflow: hidden;
   border-radius: 12px;
 }
+.image-add-wrap .image-add-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .image-add-wrap .image-add-box .ic_remove {
   position: absolute;
   right: 10px;

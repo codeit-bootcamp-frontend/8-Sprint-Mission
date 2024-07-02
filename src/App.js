@@ -12,8 +12,11 @@ function App() {
       <Routes>
         {/* 일시적 확인용 메인으로 addItems 세팅 */}
         <Route path="/" element={<AddItem />} />
+        <Route path="/items" element={<Items />}>
+          <Route index element={<Items />} />
+          {/* <Route path=":postId" element={<ItemsPage />} /> */}
+        </Route>
         <Route path="/addItem" element={<AddItem />} />
-        <Route path="/items" element={<Items />} />
         <Route path="/boards" element={<Board />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Notfound />} />

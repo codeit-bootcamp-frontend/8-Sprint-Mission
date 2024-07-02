@@ -4,38 +4,41 @@ import inputImg from '../assets/img/product/sample2.png';
 function FileInput({ name, value, onChange }) {
   const [preview, setPreview] = useState(value || inputImg);
   const inputRef = useRef();
-
-  const [isBoxVisible, setIsBoxVisible] = useState(false);
+  const [isBoxVisible, setIsBoxVisible] = useState(null);
 
   const handleChange = e => {
-    const nextValue = e.target.files[0];
-    onChange(name, nextValue);
+    const file = e.target.files[0];
 
-    if (nextValue) {
+    if (file) {
+      onChange(name, file);
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result);
-        setIsBoxVisible(true); // 이미지가 선택되면 박스를 보이게 설정
+        setIsBoxVisible(true);
       };
-      reader.readAsDataURL(nextValue);
+      reader.readAsDataURL(file);
     } else {
-      setPreview(inputImg); // 파일 선택이 취소될 경우 기본 이미지로 초기화
-      setIsBoxVisible(false); // 이미지 박스 숨기기
+      onChange(name, null);
+      setPreview(inputImg);
+      setIsBoxVisible(false);
     }
   };
 
   const handleRemove = () => {
-    const inputNode = inputRef.current;
-    if (!inputNode) return;
-    onChange(name, null); // Remove the image
-    setPreview(inputImg); // Reset preview to default image
-    setIsBoxVisible(false); // Hide image box
+    onChange(name, null);
+    setPreview(inputImg);
+    setIsBoxVisible(false);
   };
 
   useEffect(() => {
-    if (!value) return;
-    const nextPreview = URL.createObjectURL(value);
-    setPreview(nextPreview);
+    if (value) {
+      setPreview(URL.createObjectURL(value));
+      setIsBoxVisible(true);
+    } else {
+      setPreview(inputImg);
+      setIsBoxVisible(false);
+    }
+
   }, [value]);
 
   const handleImageError = () => {

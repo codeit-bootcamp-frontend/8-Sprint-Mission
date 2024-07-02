@@ -1,45 +1,54 @@
-import React, { useState, useEffect } from 'react';
 
-function TagInput({ onTagListChange, reset }) {
-  const [tagInput, setTagInput] = useState('');
+import React, { useState, useEffect, useCallback } from 'react';
+
+const TagInput = ({ onTagListChange, reset }) => {
+  const [tagInputValue, setTagInputValue] = useState('');
   const [tagList, setTagList] = useState([]);
-  const [showTagList, setShowTagList] = useState(false);
 
-  const handleKeyPress = e => {
-    if (e.key === 'Enter' && tagInput.trim() !== '') {
-      e.preventDefault();
-      const newTagList = [...tagList, tagInput.trim()];
-      setTagList(newTagList);
-      setTagInput('');
-      setShowTagList(true);
-      onTagListChange(newTagList);
-    }
-  };
+  const handleKeyPress = useCallback(
+    e => {
+      if (e.key === 'Enter' && tagInputValue.trim()) {
+        e.preventDefault();
 
-  const handleTagRemove = tagToRemove => {
-    const updatedList = tagList.filter(tag => tag !== tagToRemove);
-    setTagList(updatedList);
-    onTagListChange(updatedList);
-  };
+        const newTagList = [...tagList, tagInputValue.trim()];
+        setTagList(newTagList);
+        setTagInputValue('');
+        onTagListChange(newTagList);
+      }
+    },
+    [tagInputValue, tagList, onTagListChange],
+  );
+
+  const handleTagRemove = useCallback(
+    tagToRemove => {
+      const updatedList = tagList.filter(tag => tag !== tagToRemove);
+      setTagList(updatedList);
+      onTagListChange(updatedList);
+    },
+    [tagList, onTagListChange],
+  );
+
 
   useEffect(() => {
     if (reset) {
       setTagList([]);
-      setShowTagList(false);
-      onTagListChange([]); // 부모 컴포넌트에 빈 태그 목록 전달
+      onTagListChange([]);
     }
-  }, [reset]);
+  }, [reset, onTagListChange]);
+
+
   return (
     <div className="tag-input-container">
       <input
         type="text"
         name="tag"
         placeholder="태그를 입력 후 Enter를 눌러 추가하세요"
-        value={tagInput}
-        onChange={e => setTagInput(e.target.value)}
-        onKeyPress={handleKeyPress}
+
+        value={tagInputValue}
+        onChange={e => setTagInputValue(e.target.value)}
+        onKeyUp={handleKeyPress}
       />
-      {showTagList && (
+      {tagList.length > 0 && (
         <div className="tag-list-input">
           {tagList.map((tag, index) => (
             <span key={index}>
@@ -50,6 +59,6 @@ function TagInput({ onTagListChange, reset }) {
       )}
     </div>
   );
-}
+};
 
 export default TagInput;

@@ -1,8 +1,10 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 function getLinkStyle({ isActive }) {
   return isActive ? 'nav-link active' : 'nav-link';
 }
+
 function Nav() {
   return (
     <ul className="nav">
