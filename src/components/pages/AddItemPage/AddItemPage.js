@@ -19,8 +19,8 @@ const Container = styled.div`
     height: 42px;
     border-radius: 8px;
     padding: 12px 20px;
-    background-color: #9ca3af;
-    color: #ffffff;
+    background-color: var(--gray400);
+    color: var(--white);
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
@@ -31,14 +31,14 @@ const Container = styled.div`
     font-weight: 700;
     font-size: 28px;
     line-height: 33px;
-    color: #1f2937;
+    color: var(--gray800);
   }
 
   & label {
     font-weight: 700;
     font-size: 18px;
     line-height: 21px;
-    color: #1f2937;
+    color: var(--gray800);
     margin-bottom: 12px;
     margin-top: 24px;
   }
@@ -46,14 +46,14 @@ const Container = styled.div`
   & input {
     height: 56px;
     border-radius: 12px;
-    background-color: #f3f4f6;
+    background-color: var(--gray100);
     border: none;
   }
 
   & textarea {
     height: 200px;
     border-radius: 12px;
-    background-color: #f3f4f6;
+    background-color: var(--gray100);
     border: none;
   }
 

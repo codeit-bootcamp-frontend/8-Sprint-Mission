@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 282px;
   height: 362px;
-  color: #1f2937;
+  color: var(--gray800);
   gap: 10px;
 }
 
@@ -18,7 +18,7 @@
   flex-direction: column;
   width: 221px;
   height: 301px;
-  color: #1f2937;
+  color: var(--gray800);
   gap: 10px;
 }
 
@@ -32,12 +32,12 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: #1f2937;
+  color: var(--gray800);
 }
 
 .item-name {
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #1f2937;
+  color: var(--gray800);
 }
