@@ -7,6 +7,7 @@
   top: 0;
   width: 100%;
   background-color: #fff;
+  z-index: 2;
 }
 .header-nav {
   display: flex;
@@ -17,7 +18,6 @@
   height: 70px;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
   box-shadow: 0 1px 1px 0 var(--gray-200);
 }
 .header-logo {
@@ -38,10 +38,6 @@
   font-size: 1.8rem;
   color: var(--gray-600);
   padding-left: 10px;
-}
-
-.nav-menus span {
-  padding-left: 39px;
 }
 
 .header-login {
@@ -68,6 +64,7 @@
 @media (max-width: 767px) {
   .header-nav {
     padding: 0 16px;
+    min-width: 375px;
   }
   .header-logo img:first-child {
     display: none;

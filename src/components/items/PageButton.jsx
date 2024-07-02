@@ -1,24 +1,40 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
-function PageButton() {
-  const [pageButtons, setPageButtons] = useState(5);
+function PageButton({ onClickNum, pageNum, pageCount }) {
   const [pageArr, setPageArr] = useState([]);
 
   useEffect(() => {
     const newPageArr = [];
-    for (let i = 0; i < pageButtons; i++) {
+    for (let i = 0; i < pageCount; i++) {
       newPageArr.push(i + 1);
     }
     setPageArr(newPageArr);
-  }, [pageButtons]);
+  }, [pageCount]);
 
   return (
     <>
-      {pageArr.map((ele, i) => (
-        <button key={ele}>{ele}</button>
+      {pageArr.map((num) => (
+        <NumberButton
+          key={num}
+          onClick={() => {
+            onClickNum(num);
+          }}
+          $pageNum={pageNum}
+          $buttonNum={num}
+        >
+          {num}
+        </NumberButton>
       ))}
     </>
   );
 }
+
+const NumberButton = styled.button`
+  background-color: ${({ $buttonNum, $pageNum }) =>
+    $pageNum === $buttonNum ? "var(--blue)" : "var(--gray-200)"};
+  color: ${({ $buttonNum, $pageNum }) =>
+    $pageNum === $buttonNum ? "#fff" : "var(--gray-500)"};
+`;
 
 export default PageButton;

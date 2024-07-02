@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 import ArrowLeft from "../../assets/images/arrow_left.svg";
@@ -6,12 +7,28 @@ import ArrowRight from "../../assets/images/arrow_right.svg";
 import PageArrowButton from "./PageArrowButton";
 import PageButton from "./PageButton";
 
-function PageNavigation(props) {
+function PageNavigation({ onClickNum, pageNum, pageCount }) {
   return (
     <PageNavs>
-      <PageArrowButton direction={ArrowLeft} />
-      <PageButton />
-      <PageArrowButton direction={ArrowRight} />
+      <PageArrowButton
+        imgSrc={ArrowLeft}
+        direction="left"
+        onClickNum={onClickNum}
+        pageNum={pageNum}
+        pageCount={pageCount}
+      />
+      <PageButton
+        onClickNum={onClickNum}
+        pageNum={pageNum}
+        pageCount={pageCount}
+      />
+      <PageArrowButton
+        imgSrc={ArrowRight}
+        direction="right"
+        onClickNum={onClickNum}
+        pageNum={pageNum}
+        pageCount={pageCount}
+      />
     </PageNavs>
   );
 }
@@ -32,6 +49,5 @@ const PageNavs = styled.div`
     align-items: center;
     font-size: 16px;
     font-weight: 600;
-    color: var(--gray-500);
   }
 `;

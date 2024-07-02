@@ -2,12 +2,16 @@ import styled from "styled-components";
 import SellingItemsList from "./SellingItemList";
 import SellingItemsSearch from "./SellingItemsSearch";
 
-function SellingItems({ items, orderByHandle }) {
+function SellingItems({ items, orderByHandle, orderBy, keyWordHandle }) {
   return (
     <SellingItemsContainer>
       <div className="selling-top-container">
         <span className="selling-item-txt">판매중인 상품</span>
-        <SellingItemsSearch orderByHandle={orderByHandle} />
+        <SellingItemsSearch
+          orderByHandle={orderByHandle}
+          orderBy={orderBy}
+          onChangeKeyWord={keyWordHandle}
+        />
       </div>
       <SellingItemsList items={items} />
     </SellingItemsContainer>

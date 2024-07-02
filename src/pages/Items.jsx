@@ -1,16 +1,47 @@
-import { useLocation } from "react-router";
-
-import HeaderNav from "../components/reusable/HeaderNav";
+import { useEffect, useState } from "react";
 import ItemsMain from "../components/items/ItemsMain";
+import { useParams } from "react-router-dom";
 
 function Items() {
-  const location = useLocation();
-  const path = location.pathname;
+  const itemId = useParams();
+  console.log(itemId);
+  const [sizeName, setSizeName] = useState(
+    window.innerWidth > 1200
+      ? "large"
+      : window.innerWidth > 765
+      ? "medium"
+      : "small"
+  );
+  const sizeNaming = () => {
+    if (window.innerWidth >= 1200) {
+      setSizeName("large");
+    } else if (window.innerWidth < 1200 && window.innerWidth >= 765) {
+      setSizeName("medium");
+    } else if (window.innerWidth < 765) {
+      setSizeName("small");
+    }
+  };
 
+  let timer = false;
+  const onResize = () => {
+    if (!timer) {
+      timer = true;
+      sizeNaming();
+      setTimeout(() => {
+        timer = false;
+      }, 100);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
   return (
     <>
-      <HeaderNav path={path} />
-      <ItemsMain />
+      <ItemsMain sizeName={sizeName} />
     </>
   );
 }
