@@ -64,6 +64,7 @@
 @media (max-width: 767px) {
   .header-nav {
     padding: 0 16px;
+    min-width: 375px;
   }
   .header-logo img:first-child {
     display: none;

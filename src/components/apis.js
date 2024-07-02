@@ -14,8 +14,18 @@ const getItems = async ({
     const items = await response.json();
     return items;
   } catch (err) {
-    console.log(err, "패치에러요");
+    console.log(err);
   }
 };
 
-export { getItems };
+const getItemInfo = async (id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/products/${id}`);
+    const itemInfo = await response.json();
+    return itemInfo;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { getItems, getItemInfo };

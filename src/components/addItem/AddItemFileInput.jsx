@@ -37,7 +37,7 @@ function AddItemFileInput({ onChange, images, onDelete }) {
                     onDelete(i);
                   }}
                 >
-                  <img src={xButton}></img>
+                  <img src={xButton} />
                 </button>
               </div>
             );

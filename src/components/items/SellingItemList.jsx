@@ -1,22 +1,25 @@
 import styled from "styled-components";
 import icHeart from "../../assets/images/ic_heart.svg";
+import { Link } from "react-router-dom";
 
 function SellingItemList({ items }) {
   return (
     <SellingUl>
       {items.map((item) => {
         return (
-          <li key={item.id}>
-            <div className="items-container">
-              <img className="item-img" src={item.images} />
-              <p className="item-name">{item.name} 팝니다</p>
-              <span className="item-price">{item.price}원</span>
-              <span className="item-favorite">
-                <img className="heart-img" src={icHeart} />
-                {item.favoriteCount}
-              </span>
-            </div>
-          </li>
+          <Link className="item" to={`${item.id}`} key={item.id}>
+            <li>
+              <div className="items-container">
+                <img className="item-img" src={item.images} />
+                <p className="item-name">{item.name} 팝니다</p>
+                <span className="item-price">{item.price}원</span>
+                <span className="item-favorite">
+                  <img className="heart-img" src={icHeart} />
+                  {item.favoriteCount}
+                </span>
+              </div>
+            </li>
+          </Link>
         );
       })}
     </SellingUl>
@@ -47,12 +50,18 @@ const SellingUl = styled.ul`
   @media (max-width: 1199px) {
     grid-template-columns: repeat(3, auto);
 
+    .item:nth-child(n + 7) {
+      display: none;
+    }
     li {
       width: 33%;
     }
   }
   @media (max-width: 767px) {
     grid-template-columns: repeat(2, auto);
+    .item:nth-child(n + 5) {
+      display: none;
+    }
 
     li {
       width: 50%;

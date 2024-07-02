@@ -1,22 +1,25 @@
 import styled from "styled-components";
 import icHeart from "../../assets/images/ic_heart.svg";
+import { Link } from "react-router-dom";
 
 function BestItemsList({ items }) {
   return (
     <BestUl>
       {items.map((item) => {
         return (
-          <li key={item.id}>
-            <div className="item-container">
-              <img className="item-img" src={item.images} />
-              <p className="item-name">{item.name} 팝니다</p>
-              <span className="item-price">{item.price}원</span>
-              <span className="item-favorite">
-                <img className="heart-img" src={icHeart} />
-                {item.favoriteCount}
-              </span>
-            </div>
-          </li>
+          <Link className="item" to={`${item.id}`} key={item.id}>
+            <li>
+              <div className="item-container">
+                <img className="item-img" src={item.images} />
+                <p className="item-name">{item.name} 팝니다</p>
+                <span className="item-price">{item.price}원</span>
+                <span className="item-favorite">
+                  <img className="heart-img" src={icHeart} />
+                  {item.favoriteCount}
+                </span>
+              </div>
+            </li>
+          </Link>
         );
       })}
     </BestUl>
@@ -42,19 +45,19 @@ const BestUl = styled.ul`
     border-radius: 16px;
   }
   @media (max-width: 1199px) {
-    li {
+    .item {
       width: 50%;
       align-items: center;
     }
-    li:nth-child(n + 3) {
+    .item:nth-child(n + 3) {
       display: none;
     }
   }
   @media (max-width: 767px) {
-    li {
+    .item {
       width: 100%;
     }
-    li:nth-child(n + 2) {
+    .item:nth-child(n + 2) {
       display: none;
     }
   }

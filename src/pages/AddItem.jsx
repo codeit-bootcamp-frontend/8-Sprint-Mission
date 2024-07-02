@@ -5,7 +5,6 @@ import AddItemMain from "../components/addItem/AddItemMain";
 function AddItem(props) {
   return (
     <>
-      <HeaderNav nowPath="items" />
       <AddItemMain />
     </>
   );
