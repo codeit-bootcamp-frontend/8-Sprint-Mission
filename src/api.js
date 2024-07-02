@@ -2,7 +2,7 @@ export async function getProducts(params = {}) {
   const query = new URLSearchParams(params).toString();
   try {
     const response = await fetch(
-      `https://panda-market-api.vercel.app/products?${query}`
+      `${process.env.REACT_APP_BASE_URL}/products?${query}`
     );
     const result = await response.json();
     return result;
