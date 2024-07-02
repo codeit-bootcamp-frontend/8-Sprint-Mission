@@ -1,6 +1,32 @@
 import styled from 'styled-components';
 import Header from '../../header/Header';
 
+function AddItem() {
+  return (
+    <>
+      <Header />
+      <Container>
+        <div className="add-item-top-bar">
+          <h1>상품 등록하기</h1>
+          <button className="add-item-button">등록</button>
+        </div>
+        <label>상품 이미지</label>
+        <input className="add-img" placeholder="이미지 등록" />
+        <label>상품명</label>
+        <input placeholder="상품명을 입력해주세요" />
+        <label>상품 소개</label>
+        <textarea placeholder="상품 소개를 입력해주세요" />
+        <label>판매가격</label>
+        <input placeholder="판매 가격을 입력해주세요" />
+        <label>태그</label>
+        <input placeholder="태그를 입력해주세요" />
+      </Container>
+    </>
+  );
+}
+
+export default AddItem;
+
 const Container = styled.div`
   margin: 70px auto;
   display: flex;
@@ -62,29 +88,3 @@ const Container = styled.div`
     height: 282px;
   }
 `;
-
-function AddItem() {
-  return (
-    <>
-      <Header />
-      <Container>
-        <div className="add-item-top-bar">
-          <h1>상품 등록하기</h1>
-          <button className="add-item-button">등록</button>
-        </div>
-        <label>상품 이미지</label>
-        <input className="add-img" placeholder="이미지 등록" />
-        <label>상품명</label>
-        <input placeholder="상품명을 입력해주세요" />
-        <label>상품 소개</label>
-        <textarea placeholder="상품 소개를 입력해주세요" />
-        <label>판매가격</label>
-        <input placeholder="판매 가격을 입력해주세요" />
-        <label>태그</label>
-        <input placeholder="태그를 입력해주세요" />
-      </Container>
-    </>
-  );
-}
-
-export default AddItem;
