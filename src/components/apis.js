@@ -1,3 +1,4 @@
+const BASE_URL = "https://panda-market-api.vercel.app";
 const getItems = async ({
   page = 1,
   pageSize = 10,
@@ -6,7 +7,7 @@ const getItems = async ({
 }) => {
   try {
     const response = await fetch(
-      `https://panda-market-api.vercel.app/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}${
+      `${BASE_URL}/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}${
         keyWord ? `&keyword=${keyWord}` : ""
       }`
     );
@@ -19,9 +20,7 @@ const getItems = async ({
 
 const getItemInfo = async (id) => {
   try {
-    const response = await fetch(
-      `https://panda-market-api.vercel.app/products/${id}`
-    );
+    const response = await fetch(`${BASE_URL}/products/${id}`);
     const itemInfo = await response.json();
     return itemInfo;
   } catch (err) {

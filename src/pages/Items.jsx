@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 function Items() {
   const itemId = useParams();
-  console.log(itemId);
   const [sizeName, setSizeName] = useState(
     window.innerWidth > 1200
       ? "large"
@@ -29,7 +28,7 @@ function Items() {
       sizeNaming();
       setTimeout(() => {
         timer = false;
-      }, 100);
+      }, 50);
     }
   };
 

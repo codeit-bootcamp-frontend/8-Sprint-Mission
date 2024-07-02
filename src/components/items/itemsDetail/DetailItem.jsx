@@ -19,7 +19,6 @@ function DetailItem() {
     getItem();
   }, []);
 
-  console.log();
   return (
     <DetailContainer>{itemInfo && <div>{itemInfo.name}</div>}</DetailContainer>
   );

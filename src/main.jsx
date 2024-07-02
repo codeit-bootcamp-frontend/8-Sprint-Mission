@@ -8,6 +8,7 @@ import Auth from "./pages/Auth";
 import Items from "./pages/Items";
 import AddItem from "./pages/AddItem";
 import DetailItem from "./components/items/itemsDetail/DetailItem.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </Route>
           <Route path="additem" element={<AddItem />} />
         </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -7,7 +7,7 @@ function SellingItemList({ items }) {
     <SellingUl>
       {items.map((item) => {
         return (
-          <Link to={`${item.id}`} key={item.id}>
+          <Link className="item" to={`${item.id}`} key={item.id}>
             <li>
               <div className="items-container">
                 <img className="item-img" src={item.images} />
@@ -50,12 +50,18 @@ const SellingUl = styled.ul`
   @media (max-width: 1199px) {
     grid-template-columns: repeat(3, auto);
 
+    .item:nth-child(n + 7) {
+      display: none;
+    }
     li {
       width: 33%;
     }
   }
   @media (max-width: 767px) {
     grid-template-columns: repeat(2, auto);
+    .item:nth-child(n + 5) {
+      display: none;
+    }
 
     li {
       width: 50%;
