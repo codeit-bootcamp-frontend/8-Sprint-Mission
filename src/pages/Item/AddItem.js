@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet';
 import { useState, useMemo, useCallback } from 'react';
 import './AddItem.scss';
-import Header from '../layout/Header';
-import FileInput from '../components/FileInput';
-import TagInput from '../components/TagInput';
+import Header from '../../layout/Header';
+import FileInput from '../../components/form/FileInput';
+import TagInput from '../../components/form/TagInput';
 
 const INITIAL_VALUES = {
   imgFile: null,

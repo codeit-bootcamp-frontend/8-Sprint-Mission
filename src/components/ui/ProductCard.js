@@ -1,5 +1,5 @@
 import React from 'react';
-import imgDefault from '../assets/img/img-default.png';
+import imgDefault from '../../assets/img/img-default.png';
 
 function formatDate(value) {
   const date = new Date(value);

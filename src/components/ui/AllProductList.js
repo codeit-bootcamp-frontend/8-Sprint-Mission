@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import Pagination from './Pagination';
 import Loadingbar from './Loadingbar';
 import Dropdown from './Dropdown';
-import { getProducts } from '../services/api';
+import { getProducts } from '../../services/api';
 
 const getPageSize = () => {
   const width = window.innerWidth;

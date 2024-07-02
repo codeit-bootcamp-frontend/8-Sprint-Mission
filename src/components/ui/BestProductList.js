@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
-import { getProducts } from '../services/api';
+import { getProducts } from '../../services/api';
 
 const getPageSize = () => {
   const width = window.innerWidth;

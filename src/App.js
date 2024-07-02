@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AddItem from './pages/AddItem';
-import Items from './pages/Items';
-import Board from './pages/Board';
-import Login from './pages/Login';
-import Notfound from './pages/Notfound';
+import AddItem from './pages/Item/AddItem';
+import Items from './pages/Item/Items';
+import Board from './pages/Board/Board';
+import Login from './pages/Auth/Login';
+import Notfound from './pages/Error/Notfound';
 import './assets/css/style.css';
 
 function App() {

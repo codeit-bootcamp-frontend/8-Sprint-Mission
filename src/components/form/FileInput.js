@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import inputImg from '../assets/img/product/sample2.png';
+import inputImg from '../../assets/img/product/sample2.png';
 
 function FileInput({ name, value, onChange }) {
   const [preview, setPreview] = useState(value || inputImg);
