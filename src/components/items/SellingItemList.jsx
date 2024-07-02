@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import icHeart from "../../assets/images/ic_heart.svg";
 import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SellingItemList({ items }) {
   return (
@@ -37,7 +38,7 @@ const SellingUl = styled.ul`
     display: flex;
     flex-direction: column;
   }
-  li {
+  .item {
     display: flex;
     justify-content: center;
   }
@@ -53,7 +54,7 @@ const SellingUl = styled.ul`
     .item:nth-child(n + 7) {
       display: none;
     }
-    li {
+    .item {
       width: 33%;
     }
   }
@@ -62,8 +63,11 @@ const SellingUl = styled.ul`
     .item:nth-child(n + 5) {
       display: none;
     }
+    .item:nth-child(n + 5) {
+      display: none;
+    }
 
-    li {
+    .item {
       width: 50%;
     }
 
