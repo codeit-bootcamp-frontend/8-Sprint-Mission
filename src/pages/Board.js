@@ -1,16 +1,16 @@
 import { Helmet } from 'react-helmet';
 import Header from '../layout/Header';
-import './Privacy.scss';
+import './Board.scss';
 
-function Privacy() {
+function Board() {
   return (
     <>
       <Helmet>
-        <title>판다마켓 - Privacy</title>
+        <title>판다마켓 - 자유게시판</title>
       </Helmet>
       <Header />;
     </>
   );
 }
 
-export default Privacy;
+export default Board;

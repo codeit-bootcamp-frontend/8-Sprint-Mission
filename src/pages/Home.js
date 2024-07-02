@@ -1,16 +1,18 @@
 import { Helmet } from 'react-helmet';
 import Header from '../layout/Header';
-import './Privacy.scss';
+import Footer from '../layout/Footer';
+import './Home.scss';
 
-function Privacy() {
+function Home() {
   return (
     <>
       <Helmet>
-        <title>판다마켓 - Privacy</title>
+        <title>판다마켓</title>
       </Helmet>
       <Header />;
+      <Footer />;
     </>
   );
 }
 
-export default Privacy;
+export default Home;
