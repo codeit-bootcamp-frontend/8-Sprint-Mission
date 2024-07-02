@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 
-/* .add-item-button-active {
+.add-item-button-active {
   width: 88px;
   height: 42px;
   border: 0;
@@ -39,4 +39,4 @@
   font-weight: 600;
   color: var(--white);
   cursor: pointer;
-} */
+}
