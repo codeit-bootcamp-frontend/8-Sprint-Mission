@@ -1,10 +1,10 @@
 function Loadingbar() {
   return (
-    <div class="load-wrapp">
-      <div class="load">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+    <div className="load-wrapp">
+      <div className="load">
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
       </div>
       <p>로딩 중..</p>
     </div>
