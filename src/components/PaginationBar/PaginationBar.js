@@ -3,7 +3,7 @@ import pageNationLeftIcon from '../../assets/images/icon/btn_icon/ic_page_left_a
 import pageNationRightIcon from '../../assets/images/icon/btn_icon/ic_page_right_arrow.png';
 import { useEffect, useRef, useState } from 'react';
 
-function PaginationBar() {
+function PaginationBar({ pageBy, handlePaginationChange }) {
   const firstTarget = useRef(null);
   const [navClick, setNavClick] = useState(null);
 

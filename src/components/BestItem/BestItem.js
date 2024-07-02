@@ -18,8 +18,7 @@ function BestItems({ item }) {
 }
 
 function BestItemList({ items }) {
-  // 반응형에 따라 몇 개의 데이터를 표시할 건지 후에 수정해야 함.
-  const cutItems = [...items.list].slice(0, 4);
+  const cutItems = [...items.list];
   return (
     <div className="best-item">
       <h2 className="best-title">베스트 상품</h2>

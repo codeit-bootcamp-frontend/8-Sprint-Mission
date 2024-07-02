@@ -18,7 +18,7 @@ export default function DropDown({ orderBy, handleOrderChange }) {
   const getApiFavorite = () => {
     handleOrderChange('favorite');
   };
-
+  console.log(select);
   return (
     <div className="select-options" onClick={toggle}>
       <div className="select-text">{select === 'recent' ? '최신순' : '좋아요순'}</div>
@@ -27,7 +27,7 @@ export default function DropDown({ orderBy, handleOrderChange }) {
           <li
             className="select-options-recent"
             onClick={() => {
-              optionClick('최신순');
+              optionClick('recent');
               getApiRecent();
             }}
           >
@@ -36,7 +36,7 @@ export default function DropDown({ orderBy, handleOrderChange }) {
           <li
             className="select-options-favorite"
             onClick={() => {
-              optionClick('좋아요순');
+              optionClick('favorite');
               getApiFavorite();
             }}
           >
