@@ -14,6 +14,15 @@ main .card.item-name {
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--gray800);
+    text-decoration: none;
+}
+
+main .card.item-name a {
+    color: var(--gray800);
+}
+
+main .card.item-name:visited {
+    color: var(--gray800);
 }
 
 main .card.item-price {
