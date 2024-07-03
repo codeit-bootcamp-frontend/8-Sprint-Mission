@@ -9,7 +9,12 @@ const TagInput = ({ onTagListChange, reset }) => {
       if (e.key === 'Enter' && tagInputValue.trim()) {
         e.preventDefault();
 
-        const newTagList = [...tagList, tagInputValue.trim()];
+        const newTag = {
+          id: Date.now(), // 고유 ID 생성 (현재 시간 기반)
+          name: tagInputValue.trim(),
+        };
+
+        const newTagList = [...tagList, newTag];
         setTagList(newTagList);
         setTagInputValue('');
         onTagListChange(newTagList);
@@ -17,10 +22,9 @@ const TagInput = ({ onTagListChange, reset }) => {
     },
     [tagInputValue, tagList, onTagListChange],
   );
-
   const handleTagRemove = useCallback(
-    tagToRemove => {
-      const updatedList = tagList.filter(tag => tag !== tagToRemove);
+    tagIdToRemove => {
+      const updatedList = tagList.filter(tag => tag.id !== tagIdToRemove);
       setTagList(updatedList);
       onTagListChange(updatedList);
     },
@@ -46,9 +50,9 @@ const TagInput = ({ onTagListChange, reset }) => {
       />
       {tagList.length > 0 && (
         <div className="tag-list-input">
-          {tagList.map((tag, index) => (
-            <span key={index}>
-              {tag} <i className="icon ic_remove" onClick={() => handleTagRemove(tag)}></i>
+          {tagList.map(tag => (
+            <span key={tag.id}>
+              {tag.name} <i className="icon ic_remove" onClick={() => handleTagRemove(tag.id)}></i>
             </span>
           ))}
         </div>
