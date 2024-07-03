@@ -4,6 +4,7 @@ import Pagination from './Pagination';
 import Loadingbar from './Loadingbar';
 import Dropdown from './Dropdown';
 import { getProducts } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -29,12 +30,17 @@ const SORT_MENU_INFO = {
 };
 
 function AllProductList() {
+  const navigate = useNavigate();
   const [orderBy, setOrderBy] = useState('recent');
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
   const [totalPageNum, setTotalPageNum] = useState(0);
   const [loading, setLoading] = useState(false);
+
+  const handleClickAddItemButton = () => {
+    navigate('/additem');
+  };
 
   const handleLoad = async ({ orderBy, page, pageSize }) => {
     setLoading(true);
@@ -87,9 +93,9 @@ function AllProductList() {
       <div className="section-header">
         <h3 className="title">판매 중인 상품</h3>
         <input type="text" className="search" placeholder="검색할 상품을 입력해주세요"></input>
-        <a href="./additem" className="btn-primary btn-sm btn-add" type="button">
+        <button onClick={handleClickAddItemButton} className="btn-primary btn-sm btn-add" type="button">
           상품 등록하기
-        </a>
+        </button>
         <Dropdown
           options={Object.values(SORT_MENU_INFO)}
           selectedOption={SORT_MENU_INFO[orderBy.toUpperCase()]}
