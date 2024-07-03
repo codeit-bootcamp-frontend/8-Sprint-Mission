@@ -4,10 +4,12 @@ import Products from "./products/Products";
 import AddItem from "./addItem/AddItem";
 import Board from "./board/Board";
 import Page404 from "./error/Page404";
+import { GlobalStyles } from "core/styles/GlobalStyles";
 
 const App = () => {
   return (
     <div>
+      <GlobalStyles />
       <Nav />
       <Routes>
         <Route path="/items" element={<Products />} />
