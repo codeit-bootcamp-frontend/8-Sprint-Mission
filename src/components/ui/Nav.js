@@ -1,11 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
-function getLinkStyle({ isActive }) {
-  return isActive ? 'nav-link active' : 'nav-link';
-}
+const getLinkStyle = (navProps, pathname) => {
+  const isAddItemPage = pathname === '/additem';
+  return navProps.isActive || isAddItemPage ? 'nav-link active' : 'nav-link';
+};
 
 function Nav() {
+  const location = useLocation();
+
   return (
     <ul className="nav">
       <li>
@@ -14,7 +17,7 @@ function Nav() {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/items" className={getLinkStyle}>
+        <NavLink to="/items" className={navProps => getLinkStyle(navProps, location.pathname)}>
           중고마켓
         </NavLink>
       </li>
