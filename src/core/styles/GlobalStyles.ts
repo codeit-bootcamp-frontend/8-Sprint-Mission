@@ -39,11 +39,6 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
     }
 
-    h3 {
-        text-decoration: none;
-        margin: 0;
-    }
-
     a {
         text-decoration: none;
         cursor: pointer;
