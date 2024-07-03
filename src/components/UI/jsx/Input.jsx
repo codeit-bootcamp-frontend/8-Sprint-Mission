@@ -9,6 +9,7 @@ function Input({
   placeholder = "",
   required = false,
   onChange,
+  onKeyDown,
 }) {
   return (
     <>
@@ -21,6 +22,7 @@ function Input({
         placeholder={placeholder}
         required={required}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
     </>
   );

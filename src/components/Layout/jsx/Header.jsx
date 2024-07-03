@@ -29,7 +29,7 @@ function Header() {
             />
           </Link>
           <div className="header__nav">
-            <NavLink to="/" className="header__navLink" style={getLinkStyle}>
+            <NavLink to="/404" className="header__navLink" style={getLinkStyle}>
               자유게시판
             </NavLink>
             <NavLink

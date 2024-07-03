@@ -31,7 +31,7 @@ function AddItemPage() {
   };
 
   // 이미지 삭제 버튼 클릭 시,
-  const handleImageDelete = (e) => {
+  const handleDeleteImage = (e) => {
     setFormData({
       ...formData,
       images: null,
@@ -45,15 +45,29 @@ function AddItemPage() {
   };
 
   // 태그 등록 시,
-  const handleAddTags = (e) => {
-    if (e.key === "Enter" && formData.tags.trim() !== "") {
+  const handleAddTag = (e) => {
+    if (e.key === "Enter" && e.target.value.trim() !== "") {
       e.preventDefault();
-      const { value } = e.target;
-      setFormData({
-        ...formData,
-        tags: [...formData.tags, value],
-      });
+      const tagValue = e.target.value.trim();
+
+      // 중복 태그가 있는지 확인
+      if (!formData.tags.includes(tagValue)) {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          tags: [...prevFormData.tags, tagValue],
+        }));
+      }
+      e.target.value = "";
     }
+  };
+
+  // 태그 삭제 버튼 클릭 시,
+  const handleDeleteTag = (tagToDelete) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      tags: prevFormData.tags.filter((tag) => tag !== tagToDelete),
+    }));
+    console.log(formData.tags);
   };
 
   // 이미지 file를 제외한 input 요소가 입력되었을 때 버튼 활성화
@@ -121,10 +135,10 @@ function AddItemPage() {
                     alt="이미지 미리보기"
                   />
                   <i
-                    class="addItemPage__icX"
+                    className="addItemPage__icX"
                     role="button"
                     aria-label="이미지 삭제 버튼"
-                    onClick={handleImageDelete}
+                    onClick={handleDeleteImage}
                   ></i>
                 </div>
               )}
@@ -179,16 +193,30 @@ function AddItemPage() {
             <label className="addItemPage__inputTitle" htmlFor="tags">
               태그
             </label>
-            <div className="addItemPage__tagsContainer">
-              <Input
-                className="addItemPage__tags"
-                type="text"
-                id="tags"
-                name="tags"
-                placeholder="태그를 입력하고 Enter를 누르세요."
-                onKeyDown={handleAddTags}
-                value={formData.tags}
-              />
+
+            <Input
+              className="addItemPage__tagInput"
+              type="text"
+              id="tags"
+              name="tags"
+              placeholder="태그를 입력하고 Enter를 누르세요."
+              onKeyDown={handleAddTag}
+            />
+            <div className="addItemPage__tagsList">
+              {formData.tags.map((tag, index) => (
+                <>
+                  <span key={`tag-${index}`} className="addItemPage__tag">
+                    {"#" + tag}
+                    <i
+                      className="addItemPage__icX addItemPage__icX--tag"
+                      key={`xBtn-${index}`}
+                      role="button"
+                      aria-label="태그 삭제 버튼"
+                      onClick={() => handleDeleteTag(tag)}
+                    ></i>
+                  </span>
+                </>
+              ))}
             </div>
           </div>
         </form>

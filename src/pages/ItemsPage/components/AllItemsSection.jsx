@@ -48,7 +48,7 @@ function AllItemsSection() {
     setOrderBy(sortOption);
   };
 
-  const orderByItems = [
+  const ORDER_BY_ITEMS = [
     {
       name: "최신순",
       value: ORDER_BY_RECENT,
@@ -94,7 +94,7 @@ function AllItemsSection() {
         </Link>
         <DropDownList
           className="allItemsSection__dropDownList"
-          dropDownItems={orderByItems}
+          dropDownItems={ORDER_BY_ITEMS}
           currentItem={orderBy}
           onSelection={handleSortSelection}
         />
