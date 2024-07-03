@@ -29,6 +29,22 @@ const FooterInfo = styled.div`
     gap: 12px;
     width: 116px;
   }
+
+  @media (width < 768px) {
+    padding: 3.2rem 3.2rem;
+    & .version {
+      grid-area: version;
+      align-self: end;
+    }
+
+    & .bottomNav {
+      grid-area: nav;
+    }
+
+    & .sns {
+      grid-area: sns;
+    }
+  }
 `;
 
 const FooterContent = styled.div`
@@ -39,6 +55,15 @@ const FooterContent = styled.div`
   font-weight: 400;
   line-height: 1.909rem;
   align-items: center;
+  @media (width < 768px) {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: repeat(2, 1fr) / 1fr 1fr 1fr;
+    grid-template-areas:
+      "nav nav sns"
+      "version . .";
+  }
 `;
 
 const Footer = () => {
@@ -48,8 +73,12 @@ const Footer = () => {
         <FooterContent>
           <div className="version">@codeit - 2024</div>
           <div className="bottomNav">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/faq">FAQ</a>
+            <a href="/privacy" className="privacy">
+              Privacy Policy
+            </a>
+            <a href="/faq" className="faq">
+              FAQ
+            </a>
           </div>
           <div className="sns">
             <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
@@ -72,37 +101,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-/*
-<footer>
-    <section class="bottom-info">
-        <div class="bottom-content">
-            <div class="version">
-                @codeit - 2024
-            </div>
-            <div class="bottom-nav">
-                <a href="/privacy">
-                    Privacy Policy
-                </a>
-                <a href="/faq">
-                    FAQ
-                </a>
-            </div>
-            <div class="sns">
-                <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
-                    <img src="source/icons/facebook/ic_facebook.svg" alt="facebook" />
-                </a>
-                <a href="https://x.com/?lang=ko" target="_blank">
-                    <img src="source/icons/twitter/ic_twitter.svg" alt="twitter" />
-                </a>
-                <a href="https://www.youtube.com/" target="_blank">
-                    <img src="source/icons/youtube/ic_youtube.svg" alt="youtube" /> 
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="source/icons/instagram/ic_instagram.svg" alt="instagram" />
-                </a>
-            </div>
-        </div>
-    </section>
-</footer>
-*/

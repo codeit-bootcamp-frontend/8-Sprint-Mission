@@ -5,30 +5,54 @@ import {
   ContainerDescription,
   ContainerTitle,
 } from "core/styles/Container";
-import { Section } from "core/styles/Section";
+import { MainSection } from "./MainSection";
 
 import { styled } from "styled-components";
 import SearchImg from "core/assets/images/main/search/searchImage.png";
 
-const SearchSection = styled(Section)`
+const SearchSection = styled(MainSection)`
   align-items: end;
 `;
 
 const SearchContainer = styled(Container)`
   flex-direction: row-reverse;
+
+  @media (width < 1200px) {
+    flex-direction: column;
+    align-items: end;
+  }
 `;
 
 const SearchContent = styled(ContainerContent)`
   max-width: 32rem;
   align-items: end;
   text-align: right;
+
+  @media (width < 1200px) {
+    max-width: 100%;
+  }
 `;
 
 const SearchCategory = styled(ContainerCategory)`
   justify-content: end;
+  @media (width < 768px) {
+    font-size: 1.6rem;
+    line-height: 2.24rem;
+  }
 `;
 
-const SearchTitle = styled(ContainerTitle)``;
+const SearchTitle = styled(ContainerTitle)`
+  @media (width < 1200px) {
+    max-width: 100%;
+    font-size: 3.2rem;
+    line-height: 4.48rem;
+    letter-spacing: 2%;
+  }
+  @media (width < 768px) {
+    font-size: 2.4rem;
+    line-height: 3.36rem;
+  }
+`;
 
 const SearchInfo = () => {
   return (

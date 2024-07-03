@@ -10,6 +10,10 @@ import { styled } from "styled-components";
 const HeadlineSection = styled(HeadFootLine)`
   margin: 7rem auto 0;
   padding: 0 10rem;
+  @media (width < 1200px) {
+    padding: 0;
+    overflow: hidden;
+  }
 `;
 
 const Headline = () => {
