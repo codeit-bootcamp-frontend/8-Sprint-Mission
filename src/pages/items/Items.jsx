@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import BestItem from '../../components/BestItem/BestItem.js';
-import ItemsOnSale from '../../components/ItemsOnSale/ItemsOnSale.js';
-import NavBar from '../../components/NavBar/NavBar.js';
+import BestItem from '../../components/BestItem/BestItem.jsx';
+import ItemsOnSale from '../../components/ItemsOnSale/ItemsOnSale.jsx';
+import NavBar from '../../components/NavBar/NavBar.jsx';
 import '../items/Items.css';
 import { getApi, getApiOrderBy } from '../../components/getApi.js';
-import PaginationBar from '../../components/PaginationBar/PaginationBar.js';
+import PaginationBar from '../../components/PaginationBar/PaginationBar.jsx';
 
 function Items() {
   const [pageWidth, setPageWidth] = useState(window.innerWidth);

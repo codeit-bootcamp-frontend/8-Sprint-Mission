@@ -1,9 +1,9 @@
 import './styles/reset.css';
-import Home from './pages/home/Home.js';
-import Items from './pages/items/Items.js';
-import Login from './pages/login/Login.js';
+import Home from './pages/home/Home.jsx';
+import Items from './pages/items/Items.jsx';
+import Login from './pages/login/Login.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AddItem from './pages/additem/AddItem.js';
+import AddItem from './pages/additem/AddItem.jsx';
 
 function App() {
   return (

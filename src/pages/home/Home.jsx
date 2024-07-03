@@ -1,4 +1,4 @@
-import NavBar from '../../components/NavBar/NavBar.js';
+import NavBar from '../../components/NavBar/NavBar.jsx';
 import '../home/Home.css';
 function Home() {
   return (
