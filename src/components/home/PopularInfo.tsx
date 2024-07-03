@@ -13,7 +13,7 @@ const PopularInfo = () => {
   return (
     <MainSection>
       <Container>
-        <img src={PopularImg} alt="Hot Item Image" />
+        <img src={PopularImg} alt="Hot Item" />
         <ContainerContent>
           <ContainerCategory>Hot item</ContainerCategory>
           <ContainerTitle>인기 상품을 확인해 보세요</ContainerTitle>

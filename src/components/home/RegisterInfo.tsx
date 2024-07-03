@@ -27,7 +27,7 @@ const RegisterInfo = () => {
   return (
     <MainSection>
       <Container>
-        <img src={registerImg} alt="Register Image" />
+        <img src={registerImg} alt="Register" />
         <ContainerContent>
           <ContainerCategory>Register</ContainerCategory>
           <ContainerTitle>판매를 원하는 상품을 등록하세요</ContainerTitle>

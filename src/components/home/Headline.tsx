@@ -24,7 +24,7 @@ const Headline = () => {
           <h3>일상의 모든 물건을 거래해 보세요</h3>
           <HeadlineBtn />
         </HeadFootLineTitle>
-        <img src={headlineImg} alt="headline image" />
+        <img src={headlineImg} alt="headline" />
       </HeadFootLineContent>
     </HeadlineSection>
   );

@@ -39,7 +39,7 @@ const Footline = () => {
         <FootlineTitle>
           <h3>믿을 수 있는 판다마켓 중고거래</h3>
         </FootlineTitle>
-        <img src={footlineImg} alt="headline image" />
+        <img src={footlineImg} alt="headline" />
       </FootlineContent>
     </HeadFootLine>
   );

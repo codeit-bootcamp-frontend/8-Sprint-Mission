@@ -58,7 +58,7 @@ const SearchInfo = () => {
   return (
     <SearchSection>
       <SearchContainer>
-        <img src={SearchImg} alt="Search Image" />
+        <img src={SearchImg} alt="Search" />
         <SearchContent>
           <SearchCategory>Search</SearchCategory>
           <SearchTitle>구매를 원하는 상품을 검색하세요</SearchTitle>
