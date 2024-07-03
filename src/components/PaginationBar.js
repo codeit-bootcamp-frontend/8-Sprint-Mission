@@ -1,18 +1,21 @@
 import React from "react";
-
+import { useMemo } from "react";
 import { ReactComponent as LeftArrow } from "../assets/btn_left.svg";
 import { ReactComponent as RightArrow } from "../assets/btn_right.svg";
 
-const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
-  const maxVisiblePages = 5;
-  let startPage;
+const MAX_VISIBLE_PAGE_COUNT = 5;
 
-  if (totalPageNum <= maxVisiblePages) {
-    startPage = 1;
-  } else {
-    startPage =
-      Math.floor(activePageNum / maxVisiblePages) * maxVisiblePages + 1;
-  }
+const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
+  const startPage = useMemo(() => {
+    if (totalPageNum <= MAX_VISIBLE_PAGE_COUNT) {
+      return 1;
+    }
+    return (
+      Math.floor(activePageNum / MAX_VISIBLE_PAGE_COUNT) *
+        MAX_VISIBLE_PAGE_COUNT +
+      1
+    );
+  }, [totalPageNum, activePageNum]);
 
   const pages = Array.from({ length: 5 }, (_, i) => startPage + i);
 

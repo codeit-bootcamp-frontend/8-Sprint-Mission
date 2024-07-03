@@ -1,33 +1,37 @@
 import { getProducts } from "../api.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import ItemList from "./ItemList.js";
 import "./AllItems.css";
 import "./global.css";
 
 const getPageSize = () => {
   const width = window.innerWidth;
-  if (width < 768) {
-    return 1;
+
+  switch (true) {
+    case width < 768:
+      return 1;
+
+    case width < 1280:
+      return 2;
+
+    default:
+      return 4;
   }
-  if (width < 1280) {
-    return 2;
-  }
-  return 4;
 };
 
 function BestItems() {
   const [products, setProducts] = useState([]);
   const [pageSize, setPageSize] = useState(getPageSize());
 
-  const sortedItems = (products) => {
-    return [...products].sort((a, b) => b.favoriteCount - a.favoriteCount);
-  };
+  const bestProducts = useMemo(() => {
+    const sortedItems = [...products].sort(
+      (a, b) => b.favoriteCount - a.favoriteCount
+    );
 
-  const showBestProducts = () => {
-    return sortedItems(products).slice(0, getPageSize());
-  };
+    return sortedItems.slice(0, getPageSize());
+  }, [products]);
 
-  const handleLoad = async (pageSize) => {
+  const handleLoadProducts = async (pageSize) => {
     try {
       const products = await getProducts(pageSize);
       setProducts(products.list);
@@ -41,7 +45,7 @@ function BestItems() {
       setPageSize(getPageSize());
     };
     window.addEventListener("resize", handleResize);
-    handleLoad(pageSize);
+    handleLoadProducts(pageSize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -52,7 +56,7 @@ function BestItems() {
     <>
       <div className="title">베스트 상품</div>
       <div className="bestItemsMenu">
-        {showBestProducts().map((product) => (
+        {bestProducts.map((product) => (
           <ItemList product={product} key={product.id} />
         ))}
       </div>

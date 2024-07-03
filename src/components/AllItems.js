@@ -1,5 +1,5 @@
 import { getProducts } from "../api.js";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import ItemList from "./ItemList.js";
 import searchIcon from "../assets/ic_search.svg";
 import Dropdown from "./Dropdown.js";
@@ -10,13 +10,17 @@ import PaginationBar from "./PaginationBar.js";
 
 const getPageSize = () => {
   const width = window.innerWidth;
-  if (width < 768) {
-    return 4;
+
+  switch (true) {
+    case width < 768:
+      return 4;
+
+    case width < 1280:
+      return 6;
+
+    default:
+      return 10;
   }
-  if (width < 1280) {
-    return 6;
-  }
-  return 10;
 };
 
 function AllItems() {
@@ -31,20 +35,20 @@ function AllItems() {
     { label: "좋아요순", value: "favoriteCount" },
   ];
 
-  const sortedItems = (products, order) => {
+  const sortedItems = useMemo(() => {
     return [...products].sort((a, b) => {
       if (order === "createdAt") {
         return new Date(b.createdAt) - new Date(a.createdAt);
       }
       return b.favoriteCount - a.favoriteCount;
     });
-  };
+  }, [products, order]);
 
-  const handleChange = (value) => {
+  const handleChangeOrder = (value) => {
     setOrder(value);
   };
 
-  const handleLoad = async ({ order, page, pageSize }) => {
+  const handleLoadProducts = async ({ order, page, pageSize }) => {
     try {
       const products = await getProducts({ order, page, pageSize });
       setProducts(products.list);
@@ -68,7 +72,7 @@ function AllItems() {
       setPageSize(getPageSize());
     };
     window.addEventListener("resize", handleResize);
-    handleLoad({ order, page, pageSize });
+    handleLoadProducts({ order, page, pageSize });
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -96,7 +100,7 @@ function AllItems() {
           <Dropdown
             options={options}
             selectedValue={order}
-            onSelect={handleChange}
+            onSelect={handleChangeOrder}
           />
         </div>
       </div>
@@ -104,7 +108,7 @@ function AllItems() {
         className="
     allItemsMenu"
       >
-        {sortedItems(products, order).map((product) => (
+        {sortedItems.map((product) => (
           <ItemList product={product} key={product.id} />
         ))}
       </div>
