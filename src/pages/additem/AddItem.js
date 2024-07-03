@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import styles from './AddItem.module.css';
 
@@ -108,6 +108,7 @@ function AddItem() {
     const isValid = validation();
     setPass(isValid);
   }, [values, tagInput, values.tags]);
+
   return (
     <div>
       <NavBar />

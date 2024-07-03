@@ -4,7 +4,7 @@ import searchIcon from '../../assets/images/icon/btn_icon/ic_search.png';
 import DropDown from '../DropDown/DropDown';
 
 function BestItems({ item }) {
-  const { createAt, favoriteCount, ownerId, images, tags, price, description, name, id } = item;
+  const { favoriteCount, images, price, name } = item;
   const won = price.toLocaleString('ko-KR');
   return (
     <div className="sale-item-box">

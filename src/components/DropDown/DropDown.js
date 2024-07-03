@@ -18,7 +18,7 @@ export default function DropDown({ orderBy, handleOrderChange }) {
   const getApiFavorite = () => {
     handleOrderChange('favorite');
   };
-  console.log(select);
+
   return (
     <div className="select-options" onClick={toggle}>
       <div className="select-text">{select === 'recent' ? '최신순' : '좋아요순'}</div>
