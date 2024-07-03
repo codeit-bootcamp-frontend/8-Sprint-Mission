@@ -5,12 +5,13 @@ import {
   ContainerDescription,
   ContainerTitle,
 } from "core/styles/Container";
-import { Section } from "core/styles/Section";
+
 import PopularImg from "core/assets/images/main/popular/popularImage.png";
+import { MainSection } from "./MainSection";
 
 const PopularInfo = () => {
   return (
-    <Section>
+    <MainSection>
       <Container>
         <img src={PopularImg} alt="Hot Item Image" />
         <ContainerContent>
@@ -21,7 +22,7 @@ const PopularInfo = () => {
           </ContainerDescription>
         </ContainerContent>
       </Container>
-    </Section>
+    </MainSection>
   );
 };
 

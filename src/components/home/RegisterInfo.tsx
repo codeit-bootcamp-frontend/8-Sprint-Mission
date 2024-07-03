@@ -5,9 +5,10 @@ import {
   ContainerDescription,
   ContainerTitle,
 } from "core/styles/Container";
-import { Section } from "core/styles/Section";
+
 import registerImg from "core/assets/images/main/register/registerImage.png";
 import { styled } from "styled-components";
+import { MainSection } from "./MainSection";
 
 const RegisterContent = styled(ContainerContent)`
   max-width: 32rem;
@@ -15,7 +16,7 @@ const RegisterContent = styled(ContainerContent)`
 
 const RegisterInfo = () => {
   return (
-    <Section>
+    <MainSection>
       <Container>
         <img src={registerImg} alt="Register Image" />
         <RegisterContent>
@@ -26,7 +27,7 @@ const RegisterInfo = () => {
           </ContainerDescription>
         </RegisterContent>
       </Container>
-    </Section>
+    </MainSection>
   );
 };
 
