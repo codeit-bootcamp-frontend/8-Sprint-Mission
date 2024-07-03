@@ -31,4 +31,14 @@ async function getProductById(id) {
     return result;
 }
 
-export  { getProducts, postProducts, getProductById };
+async function getComments({ productId, limit = 10, cursor = 0 }) {
+
+    const query = `/products/${productId}/comments?limit=${limit}&cursor=${cursor}`;
+    const response = await fetch(`${BASE_URL}${query}`);
+    if (!response.ok) throw new Error("데이터를 불러오는데 실패했습니다.");
+    const result = await response.json();
+
+    return result;
+}
+
+export  { getProducts, postProducts, getProductById, getComments };

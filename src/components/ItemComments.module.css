@@ -2,6 +2,10 @@
     width: 100%;
     padding: 1.5rem 0 2.5rem;
 
+    button:not(:disabled):hover {
+        cursor: pointer;
+    }
+
     .commentForm {
         display: flex;
         flex-direction: column;
@@ -58,5 +62,105 @@
                 background-color: var(--gray400);
             }
         }
+    }
+
+    .commentsList {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 0;
+        margin: 1.5rem 0 2.5rem;
+
+        .comment {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: solid 1px var(--gray200);
+
+            .commentContent {
+                font-size: 1rem;
+                font-weight: 400;
+                color: var(--gray800);
+            }
+
+            .commentInfo {
+                display: flex;
+                gap: 0.5rem;
+            }
+
+            .commentInfoImage {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .commentInfoTexts {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .commentInfoNickname {
+                font-size: 0.875rem;
+                font-weight: 400;
+                color: var(--gray600);
+            }
+
+            .commentInfoUpdatedAt {
+                font-size: 0.75rem;
+                font-weight: 400;
+                color: var(--gray400);
+            }
+        }
+    }
+
+    .loadMoreContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .loadMoreButton {
+        border: none;
+        background-color: transparent;
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--gray400);
+    }
+
+    .goBackButtonContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .goBackButton {
+        width: 15rem;
+        height: 3rem;
+        border: none;
+        border-radius: 2.5rem;
+        background-color: var(--blue);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.625rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .emptyCommentContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .emptyCommentMessage {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--gray400);
     }
 }

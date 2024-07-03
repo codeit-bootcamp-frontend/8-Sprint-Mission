@@ -41,7 +41,7 @@ function ItemPage() {
             <Header />
             <Container>
                 <ItemInfo item={item} />
-                <ItemComments />
+                <ItemComments itemId={itemId} />
             </Container>
         </>
     )

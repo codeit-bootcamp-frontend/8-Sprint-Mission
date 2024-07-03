@@ -7,12 +7,16 @@ function Card({item}) {
     const price = item.price.toLocaleString();
 
     return (
-        <>
-            <img src={item.images} className="card item-image" alt={item.name} />
-            <span className="card item-name"><Link to={`${item.id}`}>{item.name}</Link></span>
-            <span className="card item-price">{price}원</span>
-            <span className="card item-favorite"><HeartIcon />{item.favoriteCount}</span>
-        </>
+        <Link to={`${item.id}`}>
+            <div className="card-container">
+                <img src={item.images} className="card item-image" alt={item.name} />
+                <div className="card-info">
+                    <span className="card item-name">{item.name}</span>
+                    <span className="card item-price">{price}원</span>
+                    <span className="card item-favorite"><HeartIcon />{item.favoriteCount}</span>
+                </div>
+            </div>
+        </Link>
     )
 }
 
