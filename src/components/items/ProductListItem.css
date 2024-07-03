@@ -1,3 +1,7 @@
+.product-detail-link {
+  text-decoration: none;
+}
+
 .image {
   display: block;
   margin-bottom: 16px;

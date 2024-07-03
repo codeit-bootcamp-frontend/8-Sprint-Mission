@@ -9,7 +9,7 @@ async function fetchProductData() {
 
   const data = result.list.map((products) => ({
     id: products.id,
-    title: products.name,
+    name: products.name,
     description: products.description,
     price: products.price,
     image: products.images,
