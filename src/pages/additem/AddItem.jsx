@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import styles from './AddItem.module.css';
-
+import PlusBtnIc from '../../assets/images/icon/btn_icon/ic_plus.png';
+import DeleteBtnIc from '../../assets/images/icon/btn_icon/ic_delete_btn.png';
+import DeleteGrayBtnIc from '../../assets/images/icon/btn_icon/ic_delete_btn_gray.png';
 function AddItem() {
   const [values, setValues] = useState({
     images: null,
@@ -79,7 +81,6 @@ function AddItem() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key !== 'Enter') return;
-      e.preventDefault();
       const tag = tagInput.trim();
       if (tag && !values.tags.includes(tag)) {
         setValues((prevValues) => ({
@@ -99,7 +100,8 @@ function AddItem() {
 
   // 입력값 감지 후 조건 충족 시 등록 버튼 활성화
   useEffect(() => {
-    function validation({ tags, price, description, name } = values) {
+    function validation() {
+      const { tags, price, description, name } = values;
       const target = price && description && name !== '';
       const tagCheck = tags.length > 0;
 
@@ -126,7 +128,7 @@ function AddItem() {
               <div className={styles.imageUploadBox}>
                 <div className={styles.imageUpload}>
                   <img
-                    src={require('../../assets/images/icon/btn_icon/ic_plus.png')}
+                    src={PlusBtnIc}
                     accept="image/*"
                     alt="이미지 추가 버튼"
                     width="48px"
@@ -139,7 +141,7 @@ function AddItem() {
                     <img className={styles.imageUpload} alt="등록된 이미지" src={preview} />
                     <div className={styles.imageUploadDelete} onClick={onClickImageDelete}>
                       <img
-                        src={require('../../assets/images/icon/btn_icon/ic_delete_btn.png')}
+                        src={DeleteBtnIc}
                         alt="등록된 이미지 삭제 버튼"
                         width="20px"
                         height="20px"
@@ -209,7 +211,7 @@ function AddItem() {
                   <div className={styles.tagValue}>{tag}</div>
                   <img
                     onClick={() => onClickTagDelete(tag)}
-                    src={require('../../assets/images/icon/btn_icon/ic_delete_btn_gray.png')}
+                    src={DeleteGrayBtnIc}
                     alt="등록된 태그 삭제 버튼"
                     width="22px"
                     height="24px"

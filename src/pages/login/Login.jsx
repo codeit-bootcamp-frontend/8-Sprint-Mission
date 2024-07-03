@@ -1,3 +1,4 @@
+import VisibiltyOffIc from '../../assets/images/icon/btn_icon/ic_visibilty_off.png';
 function Login() {
   return (
     <>
@@ -43,7 +44,7 @@ function Login() {
               <div className="error-message">비밀번호를 입력해주세요</div>
               <div className="condition-message">비밀번호를 8자 이상 입력해주세요.</div>
               <img
-                src={require('../../assets/images/icon/btn_icon/ic_visibilty_off.png')}
+                src={VisibiltyOffIc}
                 alt="visibilty-on-off-icon"
                 width="24px"
                 height="24px"
@@ -61,7 +62,7 @@ function Login() {
               />
               <div className="condition-message">비밀번호가 일치하지 않습니다.</div>
               <img
-                src={require('../../assets/images/icon/btn_icon/ic_visibilty_off.png')}
+                src={VisibiltyOffIc}
                 alt="visibilty-on-off-icon"
                 width="24px"
                 height="24px"
