@@ -46,6 +46,12 @@ const AddItem = () => {
     [handleChange],
   );
 
+  const handleFormKeyDown = event => {
+    // textarea 안에서는 Enter 키를 허용
+    if (event.key === 'Enter' && event.target.tagName !== 'TEXTAREA') {
+      event.preventDefault();
+    }
+  };
   const handleSubmit = e => {
     e.preventDefault();
     e.stopPropagation();
@@ -62,7 +68,7 @@ const AddItem = () => {
       <Header />
       <main className="main-top">
         <section className="product-register-wrap">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} onKeyDown={handleFormKeyDown}>
             <div className="section-header">
               <h2 className="title">상품 등록하기</h2>
               <button className="btn-primary btn-sm" type="submit" disabled={!isFormValid}>
