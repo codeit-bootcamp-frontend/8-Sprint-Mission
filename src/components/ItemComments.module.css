@@ -1,0 +1,62 @@
+.itemComments {
+    width: 100%;
+    padding: 1.5rem 0 2.5rem;
+
+    .commentForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .commentFormLabel {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray900);
+        }
+
+        .commentFormInput {
+            width: 100%;
+            height: 6.5rem;
+            border: none;
+            border-radius: 0.75rem;
+            background-color: var(--gray100);
+            resize: none;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray800);
+            font-family: inherit;
+
+            &:focus{
+                outline: none;
+            }
+            
+            &::placeholder{
+                font-size: 1rem;
+                font-weight: 400;
+                color: var(--gray400);
+            }
+        }
+
+        .commentFormButtonContainer {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .commentFormButton {
+            width: 4.625rem;
+            height: 2.625rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: var(--blue);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+
+            &:disabled {
+                background-color: var(--gray400);
+            }
+        }
+    }
+}
