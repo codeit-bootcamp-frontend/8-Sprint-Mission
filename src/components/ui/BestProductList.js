@@ -22,12 +22,15 @@ function BestProductList() {
   const [loading, setLoading] = useState(false);
 
   const handleLoad = async ({ orderBy, pageSize }) => {
+    setLoading(true);
     try {
       const products = await getProducts({ orderBy, pageSize });
       setProducts(products.list);
     } catch (error) {
       console.error('Failed to load products:', error);
       setProducts([]);
+    } finally {
+      setLoading(false);
     }
   };
 
