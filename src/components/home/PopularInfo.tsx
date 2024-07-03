@@ -8,7 +8,7 @@ import {
 import { Section } from "core/styles/Section";
 import PopularImg from "core/assets/images/main/popular/popularImage.png";
 
-const Popular = () => {
+const PopularInfo = () => {
   return (
     <Section>
       <Container>
@@ -25,4 +25,4 @@ const Popular = () => {
   );
 };
 
-export default Popular;
+export default PopularInfo;

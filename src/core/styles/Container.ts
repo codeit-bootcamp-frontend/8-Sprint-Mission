@@ -16,6 +16,7 @@ export const ContainerContent = styled(Container)`
   display: flex;
   margin: auto 0;
   flex-direction: column;
+  word-break: keep-all;
   gap: 1.2rem;
 `;
 
@@ -23,7 +24,6 @@ export const ContainerTitle = styled(Container)`
   font-size: 4rem;
   font-weight: 700;
   line-height: 5.6rem;
-  word-break: keep-all;
   letter-spacing: 0.08rem;
 `;
 
