@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import { getProducts } from '../../services/api';
+import Loadingbar from './Loadingbar';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -18,6 +19,7 @@ function BestProductList() {
   const orderBy = 'favorite';
   const [products, setProducts] = useState([]);
   const [pageSize, setPageSize] = useState(getPageSize());
+  const [loading, setLoading] = useState(false);
 
   const handleLoad = async ({ orderBy, pageSize }) => {
     try {
@@ -39,23 +41,24 @@ function BestProductList() {
       window.removeEventListener('resize', handleResize);
     };
   }, [orderBy, pageSize]);
-
+  const ProductList =
+    products.length > 0 ? (
+      <ul className="product-list">
+        {products.map(product => (
+          <li key={product.id}>
+            <ProductCard product={product} />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p className="list-none">상품이 없습니다.</p>
+    );
   return (
     <>
       <div className="section-header">
         <h3 className="title">베스트 상품</h3>
       </div>
-      <ul className="product-list">
-        {products.length > 0 ? (
-          products.map(product => (
-            <li key={product.id}>
-              <ProductCard product={product} />
-            </li>
-          ))
-        ) : (
-          <p className="list-none">상품이 없습니다.</p>
-        )}
-      </ul>
+      {loading ? <Loadingbar /> : ProductList}
     </>
   );
 }
