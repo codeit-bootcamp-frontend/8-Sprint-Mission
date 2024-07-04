@@ -1,7 +1,14 @@
 import React from "react";
-import ItemTags from "./ItemTags";
 
-function ItemDetails({ details, onDetailsChange, onTagsChange }) {
+function ItemDetails({ details, setDetails }) {
+  const handleDetailsChange = (e) => {
+    const { name, value } = e.target;
+    setDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
+
   return (
     <section className="item-details">
       <div className="item-detail-container">
@@ -13,7 +20,7 @@ function ItemDetails({ details, onDetailsChange, onTagsChange }) {
           name="itemName"
           placeholder="상품명을 입력해주세요"
           value={details.itemName}
-          onChange={onDetailsChange}
+          onChange={handleDetailsChange}
         />
       </div>
 
@@ -25,7 +32,7 @@ function ItemDetails({ details, onDetailsChange, onTagsChange }) {
           name="itemDescription"
           placeholder="상품 소개를 입력해주세요"
           value={details.itemDescription}
-          onChange={onDetailsChange}
+          onChange={handleDetailsChange}
         />
       </div>
 
@@ -33,16 +40,14 @@ function ItemDetails({ details, onDetailsChange, onTagsChange }) {
         <label className="section-title">판매가격</label>
         <input
           className="item-detail-input"
-          type="number"
+          type="text"
           id="itemPrice"
           name="itemPrice"
           placeholder="판매 가격을 입력해주세요"
           value={details.itemPrice}
-          onChange={onDetailsChange}
+          onChange={handleDetailsChange}
         />
       </div>
-
-      <ItemTags tags={details.itemTags} onTagsChange={onTagsChange} />
     </section>
   );
 }

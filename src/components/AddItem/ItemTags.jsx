@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-function ItemTags({ tags, onTagsChange }) {
+function ItemTags({ initialTags }) {
+  const [tags, setTags] = useState(initialTags);
   const [tagInput, setTagInput] = useState("");
 
   const handleInputChange = (e) => {
@@ -10,13 +11,13 @@ function ItemTags({ tags, onTagsChange }) {
   const handleAddTag = (e) => {
     if (e.key === "Enter" && tagInput.trim()) {
       e.preventDefault();
-      onTagsChange([...tags, tagInput.trim()]);
+      setTags([...tags, tagInput.trim()]);
       setTagInput("");
     }
   };
 
   const handleRemoveTag = (index) => {
-    onTagsChange(tags.filter((element, i) => i !== index));
+    setTags(tags.filter((element, i) => i !== index));
   };
 
   return (

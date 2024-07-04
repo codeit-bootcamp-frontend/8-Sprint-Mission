@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./AddItem.css";
 import ItemImageUpload from "../components/AddItem/ItemImageUpload";
 import ItemDetails from "../components/AddItem/ItemDetails";
+import ItemTags from "../components/AddItem/ItemTags";
 
 function AddItem() {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -15,21 +16,6 @@ function AddItem() {
 
   const handleImageChange = (file) => {
     setUploadedImage(file);
-  };
-
-  const handleDetailsChange = (e) => {
-    const { name, value } = e.target;
-    setItemDetails((prevDetails) => ({
-      ...prevDetails,
-      [name]: value,
-    }));
-  };
-
-  const handleTagsChange = (newTags) => {
-    setItemDetails((prevDetails) => ({
-      ...prevDetails,
-      itemTags: newTags,
-    }));
   };
 
   const handleSubmit = (e) => {
@@ -58,11 +44,8 @@ function AddItem() {
           image={uploadedImage}
           onImageChange={handleImageChange}
         />
-        <ItemDetails
-          details={itemDetails}
-          onDetailsChange={handleDetailsChange}
-          onTagsChange={handleTagsChange}
-        />
+        <ItemDetails details={itemDetails} setDetails={setItemDetails} />
+        <ItemTags initialTags={itemDetails.itemTags} />
       </form>
     </>
   );
