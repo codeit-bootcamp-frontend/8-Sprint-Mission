@@ -7,8 +7,9 @@ import SignIn from "./pages/SignIn";
 import Items from "./pages/Items";
 import AddItem from "./pages/AddItem";
 import Community from "./pages/Community";
+import NotFound from "./pages/NotFound";
 
-function App() {
+function Router() {
   return (
     <BrowserRouter>
       <Header />
@@ -19,10 +20,11 @@ function App() {
           <Route path="/Items" element={<Items />} />
           <Route path="/AddItem" element={<AddItem />} />
           <Route path="/Community" element={<Community />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Main>
     </BrowserRouter>
   );
 }
 
-export default App;
+export default Router;
