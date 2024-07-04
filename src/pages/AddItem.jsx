@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./AddItem.css";
-import ItemImageUpload from "../components/AddItem/ItemImageUpload";
-import ItemDetails from "../components/AddItem/ItemDetails";
-import ItemTags from "../components/AddItem/ItemTags";
+import AddItemImage from "../components/AddItem/AddItemImage";
+import AddItemDetails from "../components/AddItem/AddItemDetails";
+import AddItemTags from "../components/AddItem/AddItemTags";
 
 function AddItem() {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -40,12 +40,9 @@ function AddItem() {
         >
           등록
         </button>
-        <ItemImageUpload
-          image={uploadedImage}
-          onImageChange={handleImageChange}
-        />
-        <ItemDetails details={itemDetails} setDetails={setItemDetails} />
-        <ItemTags initialTags={itemDetails.itemTags} />
+        <AddItemImage image={uploadedImage} onImageChange={handleImageChange} />
+        <AddItemDetails details={itemDetails} setDetails={setItemDetails} />
+        <AddItemTags initialTags={itemDetails.itemTags} />
       </form>
     </>
   );

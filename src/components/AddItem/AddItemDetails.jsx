@@ -1,6 +1,6 @@
 import React from "react";
 
-function ItemDetails({ details, setDetails }) {
+function AddItemDetails({ details, setDetails }) {
   const handleDetailsChange = (e) => {
     const { name, value } = e.target;
     setDetails((prevDetails) => ({
@@ -58,4 +58,4 @@ function ItemDetails({ details, setDetails }) {
   );
 }
 
-export default ItemDetails;
+export default AddItemDetails;

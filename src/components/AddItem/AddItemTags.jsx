@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ItemTags({ initialTags }) {
+function AddItemTags({ initialTags }) {
   const [tags, setTags] = useState(initialTags);
   const [tagInput, setTagInput] = useState("");
 
@@ -46,4 +46,4 @@ function ItemTags({ initialTags }) {
   );
 }
 
-export default ItemTags;
+export default AddItemTags;
