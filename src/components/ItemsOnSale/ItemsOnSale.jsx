@@ -2,13 +2,18 @@ import '../ItemsOnSale/ItemsOnSale.css';
 import favoriteIcon from '../../assets/images/icon/btn_icon/ic_favorite.png';
 import searchIcon from '../../assets/images/icon/btn_icon/ic_search.png';
 import DropDown from '../DropDown/DropDown';
+import { useNavigate } from 'react-router-dom';
 
 function BestItems({ item }) {
-  const { favoriteCount, images, price, name } = item;
+  const { favoriteCount, images, price, name, id } = item;
   const won = price.toLocaleString('ko-KR');
+  const navigate = useNavigate();
+  const onImgClick = (id) => {
+    navigate(`${id}`);
+  };
   return (
     <div className="sale-item-box">
-      <img className="sale-item-img" src={images} alt={name} />
+      <img className="sale-item-img" src={images} alt={name} onClick={() => onImgClick(id)} />
       <div className="sale-item-title">{name}</div>
       <div className="sale-item-price">{won}원</div>
       <div className="sale-item-favorite">

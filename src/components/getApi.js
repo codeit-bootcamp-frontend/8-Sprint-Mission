@@ -13,3 +13,17 @@ export async function getApiOrderBy({ order = 'recent', lowerSize = '10', page =
   const result = await response.json();
   return result;
 }
+
+export async function getApiProducts(selectItem) {
+  const response = await fetch(`https://panda-market-api.vercel.app/products/${selectItem}`);
+  const result = await response.json();
+  return result;
+}
+
+export async function getApiProductsComments(selectItem) {
+  const response = await fetch(
+    `https://panda-market-api.vercel.app/products/${selectItem}/comments?limit=10`
+  );
+  const result = await response.json();
+  return result;
+}
