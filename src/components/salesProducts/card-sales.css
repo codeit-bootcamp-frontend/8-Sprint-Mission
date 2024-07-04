@@ -4,8 +4,7 @@
   justify-items: center;
   align-content: center;
   gap: 20px;
-  overflow-x: scroll;
-  margin: 32px auto;
+  margin: 0.4rem auto;
   max-width: 1200px;
 }
 
