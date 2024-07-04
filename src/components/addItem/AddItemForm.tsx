@@ -59,21 +59,21 @@ const INITIAL_ITEMS = {
 };
 
 const AddItemForm = () => {
-  const [addItems, setAddItems] = useState<AddItems>(INITIAL_ITEMS);
+  const [additionalItem, setAddItems] = useState<AddItems>(INITIAL_ITEMS);
   const [isButtonOff, setIsButtonOff] = useState<boolean>(true);
 
   const isValidate = useCallback(() => {
     if (
-      addItems.name !== "" &&
-      addItems.description !== "" &&
-      addItems.price !== "" &&
-      addItems.tags.length > 0
+      additionalItem.name !== "" &&
+      additionalItem.description !== "" &&
+      additionalItem.price !== "" &&
+      additionalItem.tags.length > 0
     ) {
       setIsButtonOff(false);
     } else {
       setIsButtonOff(true);
     }
-  }, [addItems]);
+  }, [additionalItem]);
 
   const handleChange = (name: string, value: string | File[] | null) => {
     setAddItems((prev) => ({
@@ -83,12 +83,12 @@ const AddItemForm = () => {
   };
 
   const onDeleteTag = (item: string) => {
-    const newTags = addItems.tags.filter((value) => value !== item);
+    const newTags = additionalItem.tags.filter((value) => value !== item);
     setAddItems((prev) => ({ ...prev, tags: newTags }));
   };
 
   const onAddTag = (newTag: string) => {
-    const newTags = [...addItems.tags];
+    const newTags = [...additionalItem.tags];
     newTags.push(newTag);
     setAddItems((prev) => ({ ...prev, tags: newTags }));
   };
@@ -113,7 +113,7 @@ const AddItemForm = () => {
         <AddItemLabel htmlFor="images">상품 이미지</AddItemLabel>
         <AddItemImageInput
           name="images"
-          value={addItems.images}
+          value={additionalItem.images}
           onChange={handleChange}
         />
       </InputWrap>
@@ -122,7 +122,7 @@ const AddItemForm = () => {
         <AddItemInput
           type="text"
           name="name"
-          value={addItems.name}
+          value={additionalItem.name}
           onChange={handleChange}
           placeholder="상품명을 입력해주세요"
         />
@@ -131,7 +131,7 @@ const AddItemForm = () => {
         <AddItemLabel htmlFor="description">상품 소개</AddItemLabel>
         <AddItemTextArea
           name="description"
-          value={addItems.description}
+          value={additionalItem.description}
           onChange={handleChange}
           placeholder="상품 소개를 입력해주세요"
         />
@@ -141,7 +141,7 @@ const AddItemForm = () => {
         <AddItemInput
           type="number"
           name="price"
-          value={addItems.price}
+          value={additionalItem.price}
           onChange={handleChange}
           placeholder="판매 가격을 입력해주세요"
         />
@@ -149,7 +149,7 @@ const AddItemForm = () => {
       <InputWrap>
         <AddItemLabel htmlFor="tags">태그</AddItemLabel>
         <AddItemTagInput
-          tagList={addItems.tags}
+          tagList={additionalItem.tags}
           onAdd={onAddTag}
           onDelete={onDeleteTag}
         />
