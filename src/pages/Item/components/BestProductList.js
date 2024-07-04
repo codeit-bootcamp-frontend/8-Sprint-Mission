@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard from './ProductCard';
-import { getProducts } from '../../services/api';
-import Loadingbar from './Loadingbar';
+import ProductCard from '../../../components/ui/ProductCard';
+import { getProducts } from '../../../services/api';
+import { Link } from 'react-router-dom';
+import Loadingbar from '../../../components/ui/Loadingbar';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -49,7 +50,9 @@ function BestProductList() {
       <ul className="product-list">
         {products.map(product => (
           <li key={product.id}>
-            <ProductCard product={product} />
+            <Link to={`/items/${product.id}`}>
+              <ProductCard product={product} />
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard from './ProductCard';
-import Pagination from './Pagination';
-import Loadingbar from './Loadingbar';
-import Dropdown from './Dropdown';
-import { getProducts } from '../../services/api';
-import { useNavigate } from 'react-router-dom';
-
+import ProductCard from '../../../components/ui/ProductCard';
+import Pagination from '../../../components/ui/Pagination';
+import Loadingbar from '../../../components/ui/Loadingbar';
+import Dropdown from '../../../components/ui/Dropdown';
+import { getProducts } from '../../../services/api';
+import { Link, useNavigate } from 'react-router-dom';
 const getPageSize = () => {
   const width = window.innerWidth;
   switch (true) {
@@ -80,7 +79,9 @@ function AllProductList() {
       <ul className="product-list">
         {products.map(product => (
           <li key={product.id}>
-            <ProductCard product={product} />
+            <Link to={`/items/${product.id}`}>
+              <ProductCard product={product} />
+            </Link>
           </li>
         ))}
       </ul>
