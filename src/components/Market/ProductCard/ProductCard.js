@@ -1,6 +1,6 @@
-import "../../styles/components/Items/ProductCard.css";
+import "./ProductCard.css";
 
-import heartIconUrl from "../../assets/ic_heart_inactive.png";
+import heartIconUrl from "../../../assets/images/ic_heart_inactive.png";
 
 function ProductCard({ product }) {
   const { favoriteCount, images, name, price } = product;

@@ -96,11 +96,11 @@
 }
 
 .imgfile-delete-btn.active {
-  background-image: url("../../../assets/ic_img_delete_btn_active.png");
+  background-image: url("../../../assets/images/ic_img_delete_btn_active.png");
 }
 
 .imgfile-delete-btn.inactive {
-  background-image: url("../../../assets/ic_img_delete_btn_inactive.png");
+  background-image: url("../../../assets/images/ic_img_delete_btn_inactive.png");
 }
 
 /*==========text-input==========*/
@@ -158,7 +158,7 @@
   display: block;
   width: 22px;
   height: 22px;
-  background-image: url("../../../assets/ic_img_delete_btn_inactive.png");
+  background-image: url("../../../assets/images/ic_img_delete_btn_inactive.png");
   background-size: 22px;
   background-position: center;
   background-repeat: no-repeat;

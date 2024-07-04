@@ -1,15 +1,15 @@
-import "../styles/Items.css";
+import "./UsedMarketPage.css";
 
-import Header from "../components/Header";
-import BestProductsList from "../components/Items/BestProductsList";
-import SalesProductsList from "../components/Items/SalesProductsList";
-import ProductsPaginaitonBtns from "../components/Items/ProductsPaginaitonBtnGroup";
+import Header from "../../components/@shared/Header/Header";
+import BestProductsList from "../../components/Market/BestProductsList/BestProductsList";
+import SalesProductsList from "../../components/Market/SalesProductsList/SalesProductsList";
+import ProductsPaginaitonBtns from "../../components/Market/SalesProductsList/ProductsPaginaitonBtns";
 
-import { getProducts } from "../api/api";
+import { getProducts } from "../../api/api";
 import { useState, useEffect } from "react";
-import useMediaCheck from "../hooks/useMediaCheck";
+import useMediaCheck from "../../hooks/useMediaCheck";
 
-function Items() {
+function UsedMarketPage() {
   const [isMediaQueryInValid, isPc, isTablet, isMobile] = useMediaCheck();
   const [bestProducts, setBestProducts] = useState([]);
   const [salesProducts, setSalesProducts] = useState([]);
@@ -147,4 +147,4 @@ function Items() {
   );
 }
 
-export default Items;
+export default UsedMarketPage;

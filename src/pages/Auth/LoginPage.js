@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-import logoWithTypoImgUrl from "../assets/logo_with_typo.png";
-import onlyTypoImgUrl from "../assets/logo_typo.png";
+import logoWithTypoImgUrl from "../../assets/images/logo_with_typo.png";
+import onlyTypoImgUrl from "../../assets/images/logo_typo.png";
 
-function Login() {
+function LoginPage() {
   return (
     <>
       <Link to="/">
@@ -26,9 +26,11 @@ function Login() {
         <input></input>
         <button></button>
       </form>
-      <div></div>
+      <div>
+        <Link to="/signin">회원가입 가기</Link>
+      </div>
     </>
   );
 }
 
-export default Login;
+export default LoginPage;

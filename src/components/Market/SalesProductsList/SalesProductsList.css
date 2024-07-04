@@ -37,7 +37,7 @@
   border-radius: 12px;
   background-color: var(--cool-gray-100);
   padding: 9px 16px 9px 44px;
-  background-image: url("../../../assets/ic_search.png");
+  background-image: url("../../../assets/images/ic_search.png");
   background-repeat: no-repeat;
   background-size: 24px;
   background-position: 16px center;
@@ -71,7 +71,7 @@
   font-weight: 400;
   border: 1px solid var(--cool-gray-200);
   border-radius: 12px;
-  background-image: url("../../../assets/ic_arrow_down.png");
+  background-image: url("../../../assets/images/ic_arrow_down.png");
   background-repeat: no-repeat;
   background-size: 24px;
   background-position: 86px center;
@@ -186,7 +186,7 @@
     height: 42px;
     border: 1px solid var(--cool-gray-200);
     border-radius: 12px;
-    background-image: url("../../../assets/ic_sort.png");
+    background-image: url("../../../assets/images/ic_sort.png");
     background-repeat: no-repeat;
     background-size: 24px;
     background-position: center;

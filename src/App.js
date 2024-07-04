@@ -1,27 +1,27 @@
-import "./styles/base/reset.css";
-import "./styles/base/global.css";
+import "./assets/styles/reset.css";
+import "./assets/styles/global.css";
 
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Signin from "./pages/Signin";
-import Items from "./pages/Items";
-import AddItem from "./pages/AddItem";
-import Faq from "./pages/Faq";
-import Privacy from "./pages/Privacy";
+import HomePage from "./pages/Home/HomePage";
+import LoginPage from "./pages/Auth/LoginPage";
+import SigninPage from "./pages/Auth/SigninPage";
+import UsedMarketPage from "./pages/Market/UsedMarketPage";
+import AddItemPage from "./pages/Market/AddItemPage";
+import FaqPage from "./pages/Faq/FaqPage";
+import PrivacyPage from "./pages/Privacy/PrivacyPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
     <Routes>
-      <Route exact path="/" element={<Home />} />
-      <Route exact path="/login" element={<Login />} />
-      <Route exact path="/signin" element={<Signin />} />
-      <Route exact path="/items" element={<Items />} />
-      <Route exact path="/additem" element={<AddItem />} />
-      <Route exact path="/privacy" element={<Privacy />} />
-      <Route exact path="/faq" element={<Faq />} />
+      <Route exact index element={<HomePage />} />
+      <Route exact path="/login" element={<LoginPage />} />
+      <Route exact path="/signin" element={<SigninPage />} />
+      <Route exact path="/items" element={<UsedMarketPage />} />
+      <Route exact path="/additem" element={<AddItemPage />} />
+      <Route exact path="/privacy" element={<PrivacyPage />} />
+      <Route exact path="/faq" element={<FaqPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

@@ -1,6 +1,6 @@
-import "../../styles/components/Items/BestProductsList.css";
+import "./BestProductsList.css";
 
-import ProductCard from "./ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
 
 function BestProductsList({ bestProducts }) {
   return (

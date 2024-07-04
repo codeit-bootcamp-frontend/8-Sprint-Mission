@@ -1,16 +1,14 @@
-import "../styles/Home.css";
+import mainTopImgUrl from "../../assets/images/img_home_top.png";
+import registerImgUrl from "../../assets/images/img_home_register.png";
+import searchImgUrl from "../../assets/images/img_home_search.png";
+import itemsImgUrl from "../../assets/images/img_home_items.png";
+import mainBottomImgUrl from "../../assets/images/img_home_bottom.png";
 
-import mainTopImgUrl from "../assets/img_home_top.png";
-import registerImgUrl from "../assets/img_home_register.png";
-import searchImgUrl from "../assets/img_home_search.png";
-import itemsImgUrl from "../assets/img_home_items.png";
-import mainBottomImgUrl from "../assets/img_home_bottom.png";
-
-import Header from "../components/Header";
-import MainTop from "../components/Home/MainTop";
-import MainContent from "../components/Home/MainContent";
-import MainBottom from "../components/Home/MainBottom";
-import Footer from "../components/Home/Footer";
+import Header from "../../components/@shared/Header/Header";
+import MainTop from "../../components/Home/MainTop/MainTop";
+import MainContent from "../../components/Home/MainContent/MainContent";
+import MainBottom from "../../components/Home/MainBottom/MainBottom";
+import Footer from "../../components/Home/Footer/Footer";
 
 const MAIN_TOP_DETAILS = {
   imgUrl: mainTopImgUrl,
@@ -45,7 +43,7 @@ const MAIN_BOTTOM_DETAILS = {
   mainBottomContent: "믿을 수 있는\n판다마켓 중고거래",
 };
 
-function Home() {
+function HomePage() {
   return (
     <>
       <Header />
@@ -64,4 +62,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

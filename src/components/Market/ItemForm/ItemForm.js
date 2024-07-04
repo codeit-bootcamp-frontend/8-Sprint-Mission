@@ -1,6 +1,6 @@
-import styles from "../../styles/components/AddItem/ItemForm.module.css";
+import styles from "./ItemForm.module.css";
 
-import registerImgIcUrl from "../../assets/ic_register_img.png";
+import registerImgIcUrl from "../../../assets/images/ic_register_img.png";
 
 import { useEffect, useState } from "react";
 

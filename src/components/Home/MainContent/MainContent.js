@@ -1,4 +1,4 @@
-import "../../styles/components/Home/MainContent.css";
+import "./MainContent.css";
 
 function MainContent({ contentDetail }) {
   const {

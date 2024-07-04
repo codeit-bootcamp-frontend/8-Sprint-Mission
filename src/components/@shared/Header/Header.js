@@ -1,9 +1,9 @@
-import "../styles/components/Header.css";
+import "./Header.css";
 
-import logoWithTypoImgUrl from "../assets/logo_with_typo.png";
-import onlyTypoImgUrl from "../assets/logo_typo.png";
+import logoWithTypoImgUrl from "../../../assets/images/logo_with_typo.png";
+import onlyTypoImgUrl from "../../../assets/images/logo_typo.png";
 
-import userPfpImgUrl from "../assets/basic_user_pfp_img.png";
+import userPfpImgUrl from "../../../assets/images/basic_user_pfp_img.png";
 
 import { Link } from "react-router-dom";
 

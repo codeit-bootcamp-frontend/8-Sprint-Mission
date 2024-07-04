@@ -1,8 +1,8 @@
-import "../../styles/components/Items/SalesProductsList.css";
+import "./SalesProductsList.css";
 
 import { Link } from "react-router-dom";
 
-import ProductCard from "./ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
 
 const orderDict = {
   recent: "최신순",
