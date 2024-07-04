@@ -1,5 +1,5 @@
-export async function getProducts(params = {}) {
-  const query = new URLSearchParams(params).toString();
+export async function getProducts({ page, pageSize, orderBy }) {
+  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
   try {
     const response = await fetch(
       `${process.env.REACT_APP_BASE_URL}/products?${query}`

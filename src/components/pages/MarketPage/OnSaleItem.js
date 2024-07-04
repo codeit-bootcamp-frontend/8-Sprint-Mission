@@ -6,15 +6,18 @@ import { Link } from 'react-router-dom';
 
 function OnSaleItem() {
   const [itemList, setItemList] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [orderBy, setOrderBy] = useState('recent');
 
-  const handleLoad = async () => {
-    const { list } = await getProducts();
+  const handleLoad = async (options) => {
+    const { list } = await getProducts(options);
     setItemList(list);
   };
 
   useEffect(() => {
-    handleLoad();
-  }, []);
+    handleLoad({ page, pageSize, orderBy });
+  }, [page, pageSize, orderBy]);
 
   return (
     <div>

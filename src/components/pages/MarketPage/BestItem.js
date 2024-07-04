@@ -5,25 +5,24 @@ import './BestItem.css';
 
 function BestItem() {
   const [itemList, setItemList] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(4);
+  const [orderBy, setOrderBy] = useState('favorite');
 
-  const handleLoad = async () => {
-    const { list } = await getProducts();
+  const handleLoad = async (options) => {
+    const { list } = await getProducts(options);
     setItemList(list);
   };
 
-  const bestItemList = itemList
-    .sort((a, b) => b.favoriteCount - a.favoriteCount)
-    .slice(0, 4);
-
   useEffect(() => {
-    handleLoad();
-  }, []);
+    handleLoad({ page, pageSize, orderBy });
+  }, [page, pageSize, orderBy]);
 
   return (
     <div>
       <h1 className="best-section-title">베스트 상품</h1>
       <div className="best-item-wrap">
-        {bestItemList.map((item) => {
+        {itemList.map((item) => {
           return <ItemCard item={item} key={item.id} />;
         })}
       </div>

@@ -5,11 +5,11 @@ header {
   height: 70px;
   padding: 0 200px;
   gap: 20px;
-  border: 1px solid #dfdfdf;
+  border: 1px solid var(--border-gray);
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 a {
@@ -48,11 +48,11 @@ a {
   height: 42px;
   border-radius: 8px;
   gap: 10px;
-  background-color: #3692ff;
+  background-color: var(--blue);
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
-  color: #fff;
+  color: var(--white);
 }
 
 @media (max-width: 1199px) {
