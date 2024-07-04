@@ -16,14 +16,12 @@ function BestList({itemList}) {
     )
 }
 
-function BestSection() {
+function BestSection({ getPageSize }) {
     const [items, setItems] = useState([])
+    const [pageSize, setPageSize] = useState(getPageSize(4, 2, 1));
     const [isLoading, error, getProductsAsync] = useAsync(getProducts);
 
     const handleLoad = useCallback (async (query) => {
-        // const response = await getProducts(query);
-        // const { list } = response;
-        // setItems(list);
         const result = await getProductsAsync(query)
         if(!result) return;
         const { list } = result;
@@ -31,8 +29,9 @@ function BestSection() {
     }, [getProductsAsync]);
 
     useEffect(() => {
-        handleLoad({ page: 1, pageSize: 4, orderBy: "favorite"})
-    }, [handleLoad]);
+        setPageSize(getPageSize(4, 2, 1));
+        handleLoad({ page: 1, pageSize, orderBy: "favorite"})
+    }, [handleLoad, pageSize, getPageSize]);
     
     return (
         <section>

@@ -13,6 +13,7 @@ main .card-container .card-info {
 main .card.item-image {
     max-width: 100%; 
     border-radius: 16px;
+    aspect-ratio: 1 / 1;
 }
 
 main .card {

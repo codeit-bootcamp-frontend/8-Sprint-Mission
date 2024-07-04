@@ -3,9 +3,13 @@ import { ReactComponent as HeartIcon } from '../assets/ic_heart.svg';
 
 function ItemInfo({ item }) {
 
+    console.log(item.images);
+
     return (
         <section className={styles.itemInfo}>
-            <img src={item.images[0]} alt={item.name} className={styles.itemImage} />
+            <div className={styles.itemImageContainer}>
+                {item.images[0] && <img src={item.images[0]} alt={item.name} className={styles.itemImage} />}
+            </div>
             <div className={styles.itemContents}>
                 <div className={styles.itemHeader}>
                     <span className={styles.itemName}>{item.name}</span>
