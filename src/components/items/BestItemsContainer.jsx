@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ItemContainer from "./ItemContainer";
-import { getItems } from "../../core/api";
+import { getProducts } from "../../core/api";
 
 // count items according to pageSize
 const countPageItems = () => {
@@ -15,13 +15,12 @@ const countPageItems = () => {
 
 function BestItemsContainer() {
   const [items, setItems] = useState([]);
-  const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
 
   // get api data
-  const fetchItemData = async ({ page, pageSize, orderBy }) => {
+  const fetchItemData = async ({ pageSize, orderBy }) => {
     try {
-      const item = await getItems({ page, pageSize, orderBy });
+      const item = await getProducts({ page: 1, pageSize, orderBy });
       setItems(item.list);
     } catch (error) {
       console.error("데이터 가져오기 실패:", error);
@@ -37,12 +36,12 @@ function BestItemsContainer() {
   useEffect(() => {
     window.addEventListener("resize", measurePageSize);
 
-    fetchItemData({ page, pageSize, orderBy: "favorite" });
+    fetchItemData({ pageSize, orderBy: "favorite" });
 
     return (e) => {
       window.removeEventListener("resize", measurePageSize);
     };
-  }, [page, pageSize]);
+  }, [pageSize]);
 
   return (
     <section className="best-items-container">

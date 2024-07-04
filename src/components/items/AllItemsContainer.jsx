@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ItemContainer from "./ItemContainer";
 import DropDownList from "./DropDownList";
 import PageNation from "./PageNation";
-import { getItems } from "../../core/api";
+import { getProducts } from "../../core/api";
 
 // count items according to pageSize
 const countPageItems = () => {
@@ -26,7 +26,11 @@ function AllItemsContainer() {
   // get data
   const fetchItemData = async ({ page, pageSize, orderBy }) => {
     try {
-      const { list, totalCount } = await getItems({ page, pageSize, orderBy });
+      const { list, totalCount } = await getProducts({
+        page,
+        pageSize,
+        orderBy,
+      });
       setItems(list);
       setTotalPages(Math.ceil(totalCount / pageSize));
     } catch (error) {

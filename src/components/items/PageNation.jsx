@@ -1,5 +1,4 @@
 import React from "react";
-import "../../pages/Items.css";
 
 function PageNation({ currentPage, onPageChange, totalPages }) {
   const handlePageChange = (page) => {
