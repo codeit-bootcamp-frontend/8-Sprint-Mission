@@ -6,7 +6,7 @@ function ItemCard({ item }) {
     <div className="card-wrap">
       <img src={item.images} alt={item.name} className="img-wrap" />
       <p className="item-name">{item.name}</p>
-      <h2 className="item-price">{item.price}원</h2>
+      <h2 className="item-price">{item.price.toLocaleString('ko-KR')}원</h2>
       <div>
         <HeartIcon />
         {item.favoriteCount}
