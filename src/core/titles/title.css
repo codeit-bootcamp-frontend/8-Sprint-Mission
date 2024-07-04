@@ -5,4 +5,5 @@
   letter-spacing: 2%;
   color: #111827;
   grid-area: title;
+  justify-self: start;
 }

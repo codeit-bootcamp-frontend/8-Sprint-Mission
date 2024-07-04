@@ -106,15 +106,15 @@ const SalesProducts = () => {
     <section className="sales-product-container">
       <div className="sales-header-container">
         <Title>판매 중인 상품</Title>
-        <div className="sales-options-container">
-          <SearchInput handleSearch={handleSearch} />
-          <AddItemMoveBtn />
-          <Dropdown
-            isLoading={isLoading}
-            order={productQuery.order}
-            handleListClick={handleListClick}
-          />
-        </div>
+        {/* <div className="sales-options-container"> */}
+        <SearchInput handleSearch={handleSearch} />
+        <AddItemMoveBtn />
+        <Dropdown
+          isLoading={isLoading}
+          order={productQuery.order}
+          handleListClick={handleListClick}
+        />
+        {/* </div> */}
       </div>
       {!errorMessage ? (
         <div className="products-container">
