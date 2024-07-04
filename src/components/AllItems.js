@@ -91,7 +91,7 @@ function AllItems() {
             placeholder="검색할 상품을 입력해주세요"
           />
         </div>
-        <button className="itemRegisteration">
+        <button className="itemRegistration">
           <Link style={style} to="/additem">
             상품 등록하기
           </Link>

@@ -1,0 +1,253 @@
+.registration-wrapper {
+  width: 1200px;
+  margin: 94px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.registration-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 33.41px;
+  text-align: left;
+  color: #1f2937;
+}
+
+.registration-button {
+  width: 88px;
+  height: 42px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #9ca3af;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-form {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin: 16px auto 0;
+}
+
+.item-form {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin: 0 auto 87px;
+}
+
+.input-label,
+.input-img {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.48px;
+  text-align: left;
+  color: #1f2937;
+}
+
+.input-file {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+  position: relative;
+}
+
+.input-icon {
+  position: relative;
+  top: 99px;
+  left: 117px;
+}
+
+.input-icon-title {
+  position: absolute;
+  top: 159px;
+  left: 104px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.input-file-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.input-preview {
+  width: 282px;
+  height: 282px;
+  border: none;
+  border-radius: 12px;
+}
+
+.input-button {
+  background: none;
+  border: none;
+}
+
+.input-button img {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 556px;
+  top: 8px;
+}
+
+.input-label {
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+
+.input-img {
+  margin-bottom: 12px;
+}
+
+input,
+textarea {
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  padding: 16px 24px;
+}
+
+textarea {
+  height: 200px;
+}
+
+.registration-button.active {
+  background-color: #3692ff;
+}
+
+@media (max-width: 1279px) {
+  .registration-wrapper {
+    width: 696px;
+    margin: 86px auto 0;
+  }
+
+  .img-form {
+    width: 696px;
+  }
+
+  .item-form {
+    width: 696px;
+    margin: 0 auto 139px;
+  }
+
+  .input-file {
+    width: 162px;
+    height: 162px;
+    position: relative;
+  }
+
+  .input-icon {
+    position: relative;
+    top: 39px;
+    left: 56.5px;
+  }
+
+  .input-icon-title {
+    position: absolute;
+    top: 99px;
+    left: 43.5px;
+  }
+
+  .input-file-wrapper {
+    gap: 16px;
+  }
+
+  .input-preview {
+    width: 162px;
+    height: 162px;
+  }
+
+  .input-button img {
+    position: absolute;
+    left: 308px;
+    top: 10px;
+  }
+
+  .input-label {
+    margin-bottom: 12px;
+    margin-top: 24px;
+  }
+
+  .input-img {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .registration-wrapper {
+    width: 344px;
+    margin: 86px auto 0;
+  }
+
+  .img-form {
+    width: 344px;
+  }
+
+  .item-form {
+    width: 344px;
+    margin: 0 auto 183px;
+  }
+
+  .input-file {
+    width: 168px;
+    height: 168px;
+    position: relative;
+  }
+
+  .input-icon {
+    position: relative;
+    top: 42px;
+    left: 60px;
+  }
+
+  .input-icon-title {
+    position: absolute;
+    top: 99px;
+    left: 43.5px;
+  }
+
+  .input-file-wrapper {
+    gap: 8px;
+  }
+
+  .input-preview {
+    width: 168px;
+    height: 168px;
+  }
+
+  .input-button img {
+    position: absolute;
+    left: 310px;
+    top: 12px;
+  }
+
+  .input-label {
+    margin-bottom: 12px;
+    margin-top: 16px;
+  }
+
+  .input-img {
+    margin-bottom: 9px;
+  }
+}
