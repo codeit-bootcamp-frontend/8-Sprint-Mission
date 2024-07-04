@@ -12,7 +12,9 @@ function ItemDetails({ details, setDetails }) {
   return (
     <section className="item-details">
       <div className="item-detail-container">
-        <label className="section-title">상품명</label>
+        <label htmlFor="itemName" className="section-title">
+          상품명
+        </label>
         <input
           className="item-detail-input"
           type="text"
@@ -25,7 +27,9 @@ function ItemDetails({ details, setDetails }) {
       </div>
 
       <div className="item-detail-container">
-        <label className="section-title">상품 소개</label>
+        <label htmlFor="itemDesciption" className="section-title">
+          상품 소개
+        </label>
         <textarea
           className="item-detail-input"
           id="itemDescription"
@@ -37,7 +41,9 @@ function ItemDetails({ details, setDetails }) {
       </div>
 
       <div className="item-detail-container">
-        <label className="section-title">판매가격</label>
+        <label htmlFor="itemPrice" className="section-title">
+          판매가격
+        </label>
         <input
           className="item-detail-input"
           type="text"
