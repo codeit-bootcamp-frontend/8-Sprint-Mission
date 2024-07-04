@@ -1,6 +1,7 @@
 import SalesProductCard from "./SalesProductCard";
 import "./card-sales.css";
 import { ProductItem } from "core/Interface/Product";
+import { Link } from "react-router-dom";
 
 interface SalesProductCardListProps {
   salesProducts: ProductItem[];
@@ -12,9 +13,11 @@ const SalesProductCardList = ({ salesProducts }: SalesProductCardListProps) => {
       {salesProducts.length > 0 ? (
         salesProducts.map((product) => {
           return (
-            <li key={product.id} className="sales-product">
-              <SalesProductCard product={product} />
-            </li>
+            <Link to={`/items/${product.id}`}>
+              <li key={product.id} className="sales-product">
+                <SalesProductCard product={product} />
+              </li>
+            </Link>
           );
         })
       ) : (
