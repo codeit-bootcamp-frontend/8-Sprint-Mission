@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
-import { getProducts } from '../api';
+import { getProducts } from '../../api';
+import { Link, useNavigate } from 'react-router-dom';
 import './BestProductList.css';
 
 function BestProductListItem({ item }) {
-
+    const navigate = useNavigate();
+    const handleAddItemClick = () => {
+        navigate(`/items/${item.id}`);
+    }
 
     return (
-        <div className='BestProductListItem'>
+        <button onClick={handleAddItemClick} className='BestProductListItem'>
             <img className="BestProductListItem-img" src={item.images} alt={item.name}></img>
             <p> {item.name}</p>
-            <h3>{item.price}</h3>
+            <h3>{item.price}원</h3>
             <p>{item.favoriteCount}</p>
-        </div>
+        </button>
     );
 
 }
@@ -20,9 +24,6 @@ function BestProductList() {
 
 
     const [items, setItems] = useState([]);
-
-
-
 
     const handleLoad = async () => {
         const { list } = await getProducts({ order: 'favorite', page: 1, pageSize: 10 });

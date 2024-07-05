@@ -1,52 +1,53 @@
-import ProductList from '../components/ProductList';
-import BestProductList from '../components/BestProductList';
-import Button from '../components/Button';
+import ProductList from '../components/ProductList/ProductList';
+import BestProductList from '../components/BestProductList/BestProductList';
+import Button from '../components/Button/Button';
 import { useEffect, useState } from 'react';
 import { getProducts } from '../api';
 import './Items.css';
 import { Link, useNavigate } from 'react-router-dom';
+import PageNation from '../components/pageNation/PageNation';
 
 function Items() {
     const navigate = useNavigate();
 
     const [order, setOrder] = useState('recent');
     const [item, setItem] = useState([]);
-    const [totalPages, setTotalPages] = useState(1);
+    const [totalCount, setTotalCount] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(2);
+    const [pageSize, setPageSize] = useState(10);
+    const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
         handleLoadMore({ order, page: currentPage, pageSize });
-    }, [order])
+    }, [order, currentPage])
 
     useEffect(() => {
-
-        setTotalPages(Math.ceil(item.length / pageSize));
+        setTotalPages(Math.ceil(totalCount / pageSize));
         //Math.ceil(전체 컨텐츠 개수 / 한 페이지에 보여주고자 하는 컨텐츠의 개수)
-        console.log(totalPages);
-
     }, [item])
-
-
 
     const SortedItems = item.sort((a, b) => b[order] - a[order]);
 
     const handleFavorite = () => setOrder('favorite');
-
     const handleRecent = () => setOrder('recent');
-
-    const handleLoad = async (orderQuery) => {
-        const { list } = await getProducts(orderQuery);
-        setItem(list);
-
-    }
 
     const handleLoadMore = async () => {
         await handleLoad({ order, page: currentPage, pageSize });
     }
 
+    const handleLoad = async (orderQuery) => {
+        const { list, totalCount } = await getProducts(orderQuery);
+        setItem(list);
+        setTotalCount(totalCount);
+    }
+
+
     const handleAddItemClick = () => {
         navigate('/additem');
+    }
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
     }
 
     return (
@@ -68,18 +69,8 @@ function Items() {
             </div>
 
             <ProductList items={SortedItems}></ProductList>
-            <div className="pagination">
-                <button disabled={currentPage === 1}>{'<'}</button>
-                {Array.from({ length: totalPages }, (_, i) => (
-                    <button
-                        key={i + 1}
-                        className={currentPage === i + 1 ? 'active' : ''}
-                    >
-                        {i + 1}
-                    </button>
-                ))}
-                <button disabled={currentPage === totalPages}>{'>'}</button>
-            </div>
+
+            <PageNation totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange}></PageNation>
         </div>
     )
 

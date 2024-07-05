@@ -3,8 +3,8 @@ import './Button.css';
 
 
 
-function Button({ children, onClick, select = '' }) {
-  const classNames = `Button ${select}`;
+function Button({ children, onClick, select = '', width = '' }) {
+  const classNames = `Button ${select} ${width}`;
   return (
     <button className={classNames} onClick={onClick}>
       {children}

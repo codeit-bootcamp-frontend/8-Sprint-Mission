@@ -1,19 +1,27 @@
 import './ProductList.css';
+import { useNavigate } from 'react-router-dom';
 
 function ProductListItem({ item }) {
 
+    const navigate = useNavigate();
+    const handleAddItemClick = () => {
+        navigate(`/items/${item.id}`);
+    }
+
+
     return (
-        <div className='ProductListItem'>
+        <button onClick={handleAddItemClick} className='ProductListItem'>
             <img className="ProductListItem-img" src={item.images} alt={item.name}></img>
             <p> {item.name}</p>
-            <h3>{item.price}</h3>
+            <h3>{item.price}원</h3>
             <p>{item.favoriteCount}</p>
-        </div>
+        </button>
     );
 
 }
 
 function ProductList({ items }) {
+
 
     return (
 

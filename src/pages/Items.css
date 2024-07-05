@@ -23,3 +23,9 @@
   padding: 9px 20px 9px 16px;
   outline: none;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

@@ -1,6 +1,6 @@
 import './Additem.css';
 import { useEffect, useState } from "react";
-import FileInput from "../components/FileInput";
+import FileInput from '../components/FileInput/FileInput';
 
 function AddItem() {
 
