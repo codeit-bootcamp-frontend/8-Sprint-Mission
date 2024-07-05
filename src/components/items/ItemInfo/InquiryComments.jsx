@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getProductComments } from "../../../core/api";
-
-const INITIAL_COMMENTS = {
-  id: 0,
-  content: "",
-  createdAt: "",
-  updatedAt: "",
-  writer: { id: 0, image: "", nickname: "" },
-};
+import { INITIAL_COMMENTS } from "../../../constants";
 
 function InquiryComments({ productId, limit }) {
   const [comments, setComments] = useState([INITIAL_COMMENTS]);

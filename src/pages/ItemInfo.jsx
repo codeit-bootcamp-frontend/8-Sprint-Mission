@@ -1,23 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductId } from "../core/api";
+import { INITIAL_PRODUCTID, defaultImageUrl } from "../constants";
 import InquiryInput from "../components/Items/ItemInfo/InquiryInput";
 import "./ItemInfo.css";
-
-const defaultImageUrl = "https://example.com/...";
-
-const INITIAL_PRODUCTID = {
-  createdAt: "",
-  favoriteCount: 0,
-  ownerId: 0,
-  images: [],
-  tags: [],
-  price: 0,
-  description: "",
-  name: "",
-  id: 0,
-  isFavorite: false,
-};
 
 function ItemInfo() {
   const { productId } = useParams();
