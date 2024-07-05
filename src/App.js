@@ -1,19 +1,28 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Root from './router/Root.jsx';
-import ProductsPage from './router/ProductsPage.jsx';
-import AddItemPage from './router/AddItemPage.jsx';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./router/Root.jsx";
+import ProductsPage from "./router/ProductsPage.jsx";
+import AddItemPage from "./router/AddItemPage.jsx";
+import ProductDetailPage, {
+  loader as productLoader,
+} from "./router/ProductDetailPage.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Root />,
     children: [
       {
-        path: 'items',
+        path: "items",
         element: <ProductsPage />,
       },
       {
-        path: 'additem',
+        path: "items/:productId",
+        id: "product-detail",
+        element: <ProductDetailPage />,
+        loader: productLoader,
+      },
+      {
+        path: "additem",
         element: <AddItemPage />,
       },
     ],

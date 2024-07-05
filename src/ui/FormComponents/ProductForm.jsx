@@ -19,6 +19,13 @@ export default function ProductForm() {
   const [formValues, setFormValues] = useState(INITIAL_VALUES);
   const [isActive, setIsActive] = useState(false);
 
+  const { title, description, price, tag } = formValues;
+  const submitActive =
+    title.trim() !== '' &&
+    description.trim() !== '' &&
+    price !== '' &&
+    tag.length;
+
   const handleChangeValue = (name, value) => {
     setFormValues(prevValue => ({
       ...prevValue,
@@ -31,15 +38,7 @@ export default function ProductForm() {
   };
 
   useEffect(() => {
-    const { title, description, price, tag } = formValues;
-    setIsActive(() => {
-      const active =
-        title.trim() !== '' &&
-        description.trim() !== '' &&
-        price !== '' &&
-        tag.length;
-      return active;
-    });
+    setIsActive(() => submitActive);
   }, [formValues]);
 
   return (
@@ -74,6 +73,8 @@ export default function ProductForm() {
         label="상품 소개"
         type="text"
         name="description"
+        className={styles.inputBox}
+        variant="addProduct"
         value={formValues.description}
         placeholder="상품 소개를 입력해주세요"
         changeValue={handleChangeInput}
@@ -89,7 +90,6 @@ export default function ProductForm() {
         changeValue={handleChangeInput}
       />
       <TagInput
-        className={styles.inputBox}
         id="tag"
         label="태그"
         type="text"
