@@ -1,7 +1,7 @@
-import BtnHeartLarge from "core/buttons/BtnHeartLarge";
-import BtnHeartSmall from "core/buttons/BtnHeartSmall";
 import { DefaultTag } from "core/tags/TagDefault";
+
 import { styled } from "styled-components";
+import DetailHeartBtn from "./DetailHeartBtn";
 
 interface ProductContent {
   name: string;
@@ -16,9 +16,11 @@ interface DetailCardContentProps {
 }
 
 const DetailContentWrap = styled.div`
-  width: 100%;
+  max-width: 69rem;
+  height: 48.6rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   & h1 {
     font-size: 2.4rem;
@@ -63,42 +65,32 @@ const DetailContentWrap = styled.div`
     line-height: 4.773rem;
     color: var(--gray-800);
   }
-
-  & .description {
-    /* flex-go: ; */
-  }
 `;
 
 const DetailCardContent = ({ product }: DetailCardContentProps) => {
   const { name, price, description, tags, favoriteCount, isFavorite } = product;
+
   return (
     <DetailContentWrap>
-      <h1>{name}</h1>
-      <p className="price">{price.toLocaleString("ko-KR")}원</p>
-      <hr />
-      <h2>상품 소개</h2>
-      <p className="description">{description}</p>
-      <h2>상품 태그</h2>
-      <ul>
-        {tags.map((tag) => {
-          return (
-            <li key={tag}>
-              <DefaultTag>{"#" + tag}</DefaultTag>
-            </li>
-          );
-        })}
-      </ul>
+      <div>
+        <h1>{name}</h1>
+        <p className="price">{price.toLocaleString("ko-KR")}원</p>
+        <hr />
+        <h2>상품 소개</h2>
+        <p className="description">{description}</p>
+        <h2>상품 태그</h2>
+        <ul>
+          {tags.map((tag) => {
+            return (
+              <li key={tag}>
+                <DefaultTag>{"#" + tag}</DefaultTag>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
 
-      <BtnHeartLarge
-        isFavorite={isFavorite}
-        favoriteCount={favoriteCount}
-        onClick={() => {}}
-      />
-      {/* <BtnHeartSmall
-        isFavorite={true}
-        favoriteCount={favoriteCount}
-        onClick={() => {}}
-      /> */}
+      <DetailHeartBtn isFavorite={isFavorite} favoriteCount={favoriteCount} />
     </DetailContentWrap>
   );
 };

@@ -1,17 +1,7 @@
 import DetailCard from "components/productDetail/DetailCard";
+import { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
-
-export interface ProductDetail {
-  id: number;
-  name: string;
-  description: string;
-  ownerId: number;
-  images: string[];
-  tags: string[];
-  isFavorite: boolean;
-  favoriteCount: number;
-}
 
 const DetailSection = styled.section`
   max-width: 120rem;
@@ -29,9 +19,12 @@ const DetailLine = styled.hr`
 
 const ProductDetail = () => {
   const { productId } = useParams();
+
   return (
     <DetailSection>
-      <DetailCard productId={Number(productId)} />
+      <Suspense fallback={<div>로딩중</div>}>
+        <DetailCard productId={Number(productId)} />
+      </Suspense>
       <DetailLine />
     </DetailSection>
   );

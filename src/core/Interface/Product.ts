@@ -21,3 +21,21 @@ export interface QueryOptions {
   orderBy?: string;
   searchKeyword?: string;
 }
+
+export interface ProductDetailParams {
+  productId: number;
+}
+
+export interface ProductDetailData {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  tags: string[];
+  images: string[];
+  ownerId: number;
+  favoriteCount: number;
+  createAt: string;
+  updateAt: string;
+  isFavorite: boolean;
+}

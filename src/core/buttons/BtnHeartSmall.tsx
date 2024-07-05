@@ -18,9 +18,15 @@ const BtnHeartSmall = ({
   favoriteCount,
   onClick,
 }: BtnHeartProps) => {
+  const handleClick = () => {
+    onClick();
+  };
   return (
-    <SmallHeartBtn>
-      <img src={isFavorite ? activeHeartImg : inactiveHeartImg} />
+    <SmallHeartBtn onClick={handleClick}>
+      <img
+        src={isFavorite ? activeHeartImg : inactiveHeartImg}
+        alt="하트아이콘"
+      />
       {favoriteCount}
     </SmallHeartBtn>
   );

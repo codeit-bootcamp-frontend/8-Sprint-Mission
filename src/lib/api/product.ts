@@ -1,3 +1,5 @@
+import { ProductDetailParams } from "core/Interface/Product";
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const productUrl = BASE_URL + "products";
 
@@ -6,6 +8,14 @@ interface GetProductArgs {
   pageSize?: number;
   orderBy?: string;
   searchKeyword?: string;
+}
+
+interface PostProductParams {
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
 }
 
 export const fetchGetProduct = async ({
@@ -29,14 +39,6 @@ export const fetchGetProduct = async ({
   return body;
 };
 
-interface PostProductParams {
-  images: string[];
-  tags: string[];
-  price: number;
-  description: string;
-  name: string;
-}
-
 export const fetchPostProduct = async (params: PostProductParams) => {
   const response = await fetch(productUrl, {
     method: "POST",
@@ -48,4 +50,21 @@ export const fetchPostProduct = async (params: PostProductParams) => {
   if (!response.ok) {
     throw new Error("데이터를 업로드하는데 실패하였습니다.");
   }
+  const body = await response.json();
+  return body;
+};
+
+export const fetchGetProductDetail = async ({
+  productId,
+}: ProductDetailParams) => {
+  const response = await fetch(productUrl + `/${productId}`, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("데이터를 업로드하는데 실패하였습니다.");
+  }
+  const body = await response.json();
+  return body;
 };

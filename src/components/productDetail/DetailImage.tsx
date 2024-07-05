@@ -6,7 +6,7 @@ interface DetailImageProps {
 }
 
 const DetailImgWrap = styled.div`
-  max-width: 48.8rem;
+  width: 48.8rem;
   max-height: 48.8rem;
 `;
 

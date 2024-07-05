@@ -23,6 +23,7 @@ export const LargeHeartBtn = styled.button`
   background-color: white;
   border: 0.1rem solid var(--gray-200);
   border-radius: 3.5rem;
+  cursor: pointer;
 
   & img {
     display: inline-block;
@@ -36,9 +37,15 @@ const BtnHeartLarge = ({
   favoriteCount,
   onClick,
 }: BtnHeartProps) => {
+  const handeClick = () => {
+    onClick();
+  };
   return (
-    <LargeHeartBtn>
-      <img src={isFavorite ? activeHeartImg : inactiveHeartImg} />
+    <LargeHeartBtn onClick={handeClick}>
+      <img
+        src={isFavorite ? activeHeartImg : inactiveHeartImg}
+        alt="하트아이콘"
+      />
       {favoriteCount}
     </LargeHeartBtn>
   );
