@@ -15,6 +15,12 @@ interface ForSaleProductListProps {
 function ForSaleProductList({ order, keyword }: ForSaleProductListProps) {
   const [serchParams, setSearchParams] = useSearchParams(); // 현재 페이지 번호
   const currentPage = serchParams.get('page');
+
+  // 상품 상세 페이지 등에서 목록으로 돌아가기 버튼을 누를 경우에, 사용자가 들어왔던 페이지를 기억하기 위함
+  // 만약 100 페이지에서 상품 상세 페이지를 들어온 경우에,
+  // 목록으로 돌아가기 버튼을 눌렀을 때 1 페이지로 돌아가지 않기 위해 저장
+  sessionStorage.setItem('prevPage', currentPage || '1');
+
   const pageSize = usePageSize('forSale');
   const {
     data: { list: productList, totalCount },

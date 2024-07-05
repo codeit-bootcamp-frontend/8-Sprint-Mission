@@ -8,8 +8,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import EmptyComments from './EmptyComments';
 
-function InquiryList() {
+function CommentList() {
   const { id } = useParams();
+  const prevPage = sessionStorage.getItem('prevPage');
   const {
     data: { list: comments },
   } = useProductCommentsQuery({ productId: id });
@@ -23,7 +24,7 @@ function InquiryList() {
       ) : (
         <EmptyComments />
       )}
-      <StyledBackLink to={'/items'}>
+      <StyledBackLink to={`/items?page=${prevPage}`}>
         목록으로 돌아가기
         <Image src={backImg} alt={'뒤로가기 아이콘'} height={'2.4rem'} width={'2.4rem'} />
       </StyledBackLink>
@@ -31,7 +32,7 @@ function InquiryList() {
   );
 }
 
-export default InquiryList;
+export default CommentList;
 
 const StyledBackLink = styled(Link)`
   display: flex;
