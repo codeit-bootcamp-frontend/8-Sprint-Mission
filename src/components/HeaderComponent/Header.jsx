@@ -18,7 +18,7 @@ function Header() {
             <NavLink to="#">자유게시판</NavLink>
           </li>
           <li>
-            <NavLink to="/items" style={connectLink}>
+            <NavLink to="/products" style={connectLink}>
               중고마켓
             </NavLink>
           </li>
