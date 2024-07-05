@@ -8,7 +8,7 @@ import { PATH_ADD_ITEM } from ' constants/paths/paths';
 import Image from 'components/@shared/Image';
 import useNavigateTo from 'hooks/useNavigateTo';
 import useWindowSize from 'hooks/useWindowSize';
-import { MOBILE_MAX_WIDTH } from ' constants/infomations/size';
+import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 import { ProductOrderByType } from 'types/@shared/marketTypes';
 
 const orderByObject = {

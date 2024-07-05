@@ -3,15 +3,15 @@ import styled from 'styled-components';
 interface ImageProps {
   src: string;
   alt: string;
-  width: string;
-  height: string;
+  width?: string;
+  height?: string;
   radius?: string;
   className?: string;
   aspectRatio?: string;
   onClick?: () => void;
 }
 
-function Image({ src, alt, width, height, radius, className, onClick, aspectRatio }: ImageProps) {
+function Image({ src, alt, width = 'auto', height = 'auto', radius, className, onClick, aspectRatio }: ImageProps) {
   return (
     <StyledImage
       src={src}
