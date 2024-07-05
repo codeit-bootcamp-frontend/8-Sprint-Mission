@@ -3,6 +3,7 @@ import MarketPage from "./pages/MarketPage/MarketPage";
 import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/HeaderComponent/Header";
 import AddProductPage from "./pages/AddProductPage/AddProductPage";
+import ProductPage from "./pages/ProductPage/ProductPage";
 
 function App() {
   return (
@@ -10,9 +11,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="items">
+        <Route path="products">
           <Route index element={<MarketPage />} />
-          <Route path="addItem" element={<AddProductPage />} />
+          <Route path="addProduct" element={<AddProductPage />} />
+          <Route path=":productId" element={<ProductPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
