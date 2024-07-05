@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Commu from "./pages/Community/Commu";
-import Market from "./pages/market/market";
+import Market from "./pages/Market/Market";
 import Login from "./pages/Login/Login";
 import Header from "./global/Header/Header";
 

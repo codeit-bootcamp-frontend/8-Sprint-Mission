@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./DropdownMenu.css";
-import { ReactComponent as SortIcon } from "../../assets/images/icons/ic_sort.svg";
+import { ReactComponent as SortIcon } from "../assets/images/icons/ic_sort.svg";
 
 function DropdownMenu({ onSortSelection }) {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);

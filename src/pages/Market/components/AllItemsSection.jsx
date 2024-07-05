@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getProducts } from "../../../api/itemApi";
+import { getProducts } from "../../../api/api";
 import ItemCard from "./ItemCard";
 import { ReactComponent as SortIcon } from "../../../assets/images/icons/ic_sort.svg";
 import { ReactComponent as SearchIcon } from "../../../assets/images/icons/ic_search.svg";
 import { Link } from "react-router-dom";
-import DropdownMenu from "../../../components/UI/DropdownMenu";
-import PaginationBar from "../../../components/UI/PaginationBar";
+import DropdownMenu from "../../../UI/DropdownMenu";
+import PaginationBar from "../../../UI/PaginationBar";
 
 const getPageSize = () => {
   const width = window.innerWidth;

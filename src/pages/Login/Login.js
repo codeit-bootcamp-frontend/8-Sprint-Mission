@@ -1,9 +1,9 @@
 import React from "react";
-import BestItemsSection from "./components/BestItemsSection";
-import AllItemsSection from "./components/AllItemsSection";
-import "./MarketPage.css";
+import BestItemsSection from "../Market/components/BestItemsSection";
+import AllItemsSection from "../Market/components/AllItemsSection";
+import "../Market/Market.css";
 
-function MarketPage() {
+function Login() {
   return (
     <div className="wrapper">
       <BestItemsSection />
@@ -12,4 +12,4 @@ function MarketPage() {
   );
 }
 
-export default MarketPage;
+export default Login;
