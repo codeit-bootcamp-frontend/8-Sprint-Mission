@@ -16,7 +16,7 @@ interface DetailCardContentProps {
 }
 
 const DetailContentWrap = styled.div`
-  max-width: 69rem;
+  width: 100%;
   height: 48.6rem;
   display: flex;
   flex-direction: column;
@@ -64,6 +64,12 @@ const DetailContentWrap = styled.div`
     font-weight: 600;
     line-height: 4.773rem;
     color: var(--gray-800);
+  }
+
+  @media (width < 768px) {
+    height: 100%;
+    justify-content: start;
+    gap: 2rem;
   }
 `;
 

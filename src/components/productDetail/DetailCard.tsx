@@ -10,6 +10,9 @@ const DetailCardWrap = styled.div`
   @media (width < 1200px) {
     margin: 0 2.4rem;
   }
+  @media (width < 768px) {
+    display: block;
+  }
 `;
 
 const DetailCard = ({ productId }: ProductDetailParams) => {
