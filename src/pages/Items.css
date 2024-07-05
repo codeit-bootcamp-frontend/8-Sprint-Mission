@@ -11,6 +11,12 @@ html {
 }
 
 /* section's title area */
+.best-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .all-items-header {
   display: flex;
   justify-content: flex-start;
@@ -54,7 +60,6 @@ html {
 .dropdown-ul {
   position: relative;
   color: var(--coolgray-800);
-  background-color: var(---fff);
   border: 1px solid var(--coolgray-200);
   border-radius: 12px;
   width: 130px;
@@ -239,6 +244,10 @@ html {
   div.ic-search {
     bottom: 37px;
     left: 19px;
+  }
+
+  .dropdown-ul {
+    right: 16px;
   }
 
   div.dropdown-orderby {

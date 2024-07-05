@@ -63,7 +63,7 @@ function ItemInfo() {
             <h3>상품 태그</h3>
             <ul className="tags">
               {productData.tags.map((tag, index) => (
-                <li key={index} className="tag-item">
+                <li key={index} className="tag-info">
                   #{tag}
                 </li>
               ))}
