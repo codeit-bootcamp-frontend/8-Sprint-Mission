@@ -59,7 +59,7 @@ nav {
   cursor: pointer;
 }
 
-.active {
+.menu.active {
   color: var(--blue);
 }
 

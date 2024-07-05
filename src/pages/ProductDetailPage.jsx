@@ -25,7 +25,7 @@ function ProductDetailPage() {
   return (
     <div className="product-detail">
       <ProductDetailContent product={productDetails} />
-      {/* <CommentList /> */}
+      <CommentList />
       <Link className="backto-list-button" to="/items">
         목록으로 돌아가기
         <img
