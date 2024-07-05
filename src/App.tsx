@@ -8,7 +8,7 @@ import Login from 'pages/Login';
 import Signup from 'pages/Signup';
 import Market from 'pages/Market';
 import AddProduct from 'pages/AddProduct';
-import ProductDetail from 'pages/ProductDetail';
+import ProductInfo from 'pages/ProductInfo';
 
 function App() {
   const queryClient = new QueryClient();
@@ -25,7 +25,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/items">
               <Route index element={<Market />} />
-              <Route path=":id" element={<ProductDetail />} />
+              <Route path=":id" element={<ProductInfo />} />
             </Route>
             <Route path="/additem" element={<AddProduct />} />
             <Route path="*" element={<div>해당 페이지는 없는 페이지입니다.</div>} />
