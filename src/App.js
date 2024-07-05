@@ -1,4 +1,4 @@
-import Items from './Items.jsx';
+import Items from './Pages/Items.jsx';
 
 function App() {
   return (
