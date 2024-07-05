@@ -1,20 +1,19 @@
-.ask-wrapper {
+.add-inquiry-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  margin-bottom: 24px;
   width: 100%;
 }
 
-.ask-label {
+.inquiry-label {
   width: 100%;
   font-size: 16px;
   font-weight: normal;
   color: var(--gray900);
 }
 
-.ask-content {
+.inquiry-content {
   width: 100%;
   height: 104px;
   margin-top: 16px;
@@ -24,13 +23,13 @@
   border-radius: 12px;
   background-color: var(--gray100);
 }
-.ask-content::placeholder {
+.inquiry-content::placeholder {
   font-size: 16px;
   font-weight: normal;
   color: var(--gray400);
 }
 
-.add-ask-button {
+.add-inquiry-button {
   width: 74px;
   height: 42px;
   padding: auto 23px;
@@ -42,7 +41,7 @@
   color: var(--white);
 }
 
-.add-ask-button.active {
+.add-inquiry-button.active {
   background-color: var(--blue);
   cursor: pointer;
 }
@@ -50,4 +49,23 @@
 .comment-lists {
   width: 100%;
   list-style: none;
+}
+
+.inquiry-wrapper {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.no-inquiry-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-inquiry-text {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 24px;
+  color: var(--gray400);
 }
