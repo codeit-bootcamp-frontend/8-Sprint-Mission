@@ -4,10 +4,10 @@ import useProductsQuery from 'queries/useProductsQuery';
 import { useState } from 'react';
 import Pagination from 'components/@shared/Pagination';
 import usePageSize from 'hooks/usePageSize';
-import { IProduct } from 'types/@shared/marketTypes';
+import { IProduct, ProductOrderByType } from 'types/@shared/marketTypes';
 
 interface ForSaleProductListProps {
-  order: string;
+  order: ProductOrderByType;
   keyword: string;
 }
 

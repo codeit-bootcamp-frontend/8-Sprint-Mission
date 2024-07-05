@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import ProductManagement from './ProductManagement';
 
 import useToggle from 'hooks/useToggle';
-import { ProductOrderBy } from 'types/@shared/marketTypes';
+import { ProductOrderByType } from 'types/@shared/marketTypes';
 
 function ForSaleProductsSection() {
   const [searchValue, setSearchValue] = useState('');
-  const [orderBy, setOrderBy] = useState<ProductOrderBy>('recent');
+  const [orderBy, setOrderBy] = useState<ProductOrderByType>('recent');
   const [isOpen, toggleIsOpen] = useToggle();
 
   const handleOrderByClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -17,7 +17,7 @@ function ForSaleProductsSection() {
 
     if (value) {
       // dataset에 있는 데이터로 재정렬 요청 후 토글 닫기
-      setOrderBy(value as ProductOrderBy);
+      setOrderBy(value as ProductOrderByType);
       toggleIsOpen();
     }
   };

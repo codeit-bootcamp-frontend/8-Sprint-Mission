@@ -9,7 +9,7 @@ import Image from 'components/@shared/Image';
 import useNavigateTo from 'hooks/useNavigateTo';
 import useWindowSize from 'hooks/useWindowSize';
 import { MOBILE_MAX_WIDTH } from ' constants/infomations/size';
-import { ProductOrderBy } from 'types/@shared/marketTypes';
+import { ProductOrderByType } from 'types/@shared/marketTypes';
 
 const orderByObject = {
   recent: '최신순',
@@ -18,7 +18,7 @@ const orderByObject = {
 
 interface ProductManagementProps {
   isOpenDropdown: boolean;
-  orderBy: ProductOrderBy;
+  orderBy: ProductOrderByType;
   handleOrderByClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   handleSearchSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   handleIsOpenClick: () => void;
