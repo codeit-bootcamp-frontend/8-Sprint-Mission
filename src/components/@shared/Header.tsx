@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from './Button';
 import { PATH_LOGIN } from ' constants/paths/paths';
 import HeaderLinkSection from './HeaderLinkSection';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 
 function Header() {
   const { navigateTo } = useNavigateTo();
@@ -43,10 +44,10 @@ const StyledHeader = styled.header`
   background-color: var(--white);
   border-bottom: 1px solid var(--border-gray);
 
-  @media all and (min-width: 768px) and (max-width: 1199px) {
+  @media all and (min-width: ${MOBILE_MAX_WIDTH}px) and (max-width: ${TABLET_MAX_WIDTH}px) {
     padding: 0 2.4rem;
   }
-  @media all and (max-width: 767px) {
+  @media all and (max-width: ${MOBILE_MAX_WIDTH}px) {
     padding: 0 1.6rem;
     & button {
       width: 6rem;

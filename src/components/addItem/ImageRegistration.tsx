@@ -7,6 +7,7 @@ import React from 'react';
 import Image from 'components/@shared/Image';
 import PreviewList from './PreviewList';
 import { IPreview } from 'types/@shared/addProductTypes';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 
 interface ImageRegistrationProps {
   previewList: IPreview[];
@@ -48,13 +49,13 @@ const StyledItemRegistSection = styled.section`
   width: var(--container-width);
   height: 28.2rem;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${TABLET_MAX_WIDTH}px) {
     height: 16.2rem;
     max-width: calc(100vw - 5.2rem);
     overflow-y: hidden;
     overflow-x: auto;
   }
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
     max-width: calc(100vw - 3.2rem);
   }
 
@@ -73,7 +74,7 @@ const StyledItemRegistSection = styled.section`
 
     cursor: pointer;
 
-    @media (max-width: 1200px) {
+    @media (max-width: ${TABLET_MAX_WIDTH}px) {
       width: 16.2rem;
     }
   }

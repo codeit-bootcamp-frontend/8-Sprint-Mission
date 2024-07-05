@@ -6,6 +6,7 @@ import ProductManagement from './ProductManagement';
 
 import useToggle from 'hooks/useToggle';
 import { ProductOrderByType } from 'types/@shared/marketTypes';
+import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 
 function ForSaleProductsSection() {
   const [searchValue, setSearchValue] = useState('');
@@ -64,7 +65,7 @@ const StyledForSaleProductSubHeader = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
     position: relative;
 
     & .for-sale-text {

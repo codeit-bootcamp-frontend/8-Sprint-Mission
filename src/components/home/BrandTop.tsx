@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import useNavigateTo from 'hooks/useNavigateTo';
 import Image from 'components/@shared/Image';
 import { PATH_ITEMS } from ' constants/paths/paths';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 
 function BrandTop() {
   const { navigateTo } = useNavigateTo();
@@ -28,12 +29,12 @@ const StyledBrandTop = styled.div`
   flex-direction: column;
   gap: 3.2rem;
 
-  @media all and (max-width: 1199px) {
+  @media all and (max-width: ${TABLET_MAX_WIDTH}px) {
     padding: 8.4rem 0 10rem;
     align-items: center;
   }
 
-  @media all and (max-width: 767px) {
+  @media all and (max-width: ${MOBILE_MAX_WIDTH}px) {
     button {
       width: 15.4rem;
       height: 4.8rem;
