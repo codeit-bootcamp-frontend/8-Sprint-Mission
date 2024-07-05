@@ -3,7 +3,7 @@ import Spacer from 'components/@shared/Spacer';
 import styled from 'styled-components';
 import { IProductComment } from 'types/@shared/productInfoTypes';
 
-function Comment({ content, createdAt, writer }: Pick<IProductComment, 'content' | 'createdAt' | 'writer'>) {
+function Comment({ content, updatedAt, writer }: Pick<IProductComment, 'content' | 'updatedAt' | 'writer'>) {
   return (
     <StyledCommentContainer>
       <p>{content}</p>
@@ -11,7 +11,7 @@ function Comment({ content, createdAt, writer }: Pick<IProductComment, 'content'
         <Image src={writer.image} alt={'프로필 이미지'} height={'4rem'} width={'4rem'} />
         <StyledWriterInfo>
           <span>{writer.nickname}</span>
-          <small>{createdAt}</small>
+          <small>{updatedAt}</small>
         </StyledWriterInfo>
       </StyledCommentWriter>
       <Spacer $topHeight={'2.4rem'} $bottomHeight={'2.4rem'} $needLine={true} />
@@ -27,6 +27,7 @@ const StyledCommentContainer = styled.article`
     font-weight: 400;
     line-height: 2.24rem;
     margin-bottom: 2.4rem;
+    color: var(--cool-gray-800);
   }
 `;
 

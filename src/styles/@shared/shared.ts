@@ -6,7 +6,7 @@ export const commonContainerStyle = css`
   max-width: 120rem;
   margin: 0 auto;
 
-  padding: 0 2.4rem;
+  padding: 2.4rem;
   @media (max-width: 768px) {
     padding: 0 1.6rem;
   }
