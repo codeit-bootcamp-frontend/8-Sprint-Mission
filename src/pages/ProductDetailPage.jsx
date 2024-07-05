@@ -26,7 +26,7 @@ function ProductDetailPage() {
       setProductComments(data);
     }
     getProductComment();
-  }, []);
+  }, [productId]);
 
   return (
     <div className="product-detail">
