@@ -5,30 +5,12 @@ import DropDownList from "./DropDownList";
 import PageNation from "./PageNation";
 import { getProducts } from "../../core/api";
 import useFetch from "../../lib/hooks/useFetch";
-
-// count items according to pageSize
-const countPageItems = () => {
-  if (window.innerWidth < 768) {
-    return 4;
-  } else if (window.innerWidth < 1200) {
-    return 6;
-  } else {
-    return 10;
-  }
-};
+import countPageItems from "../../lib/utils/countPageItems";
 
 function AllItemsContainer() {
   const [page, setPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState("최신순");
-  const [pageSize, setPageSize] = useState(countPageItems());
-
-  const handleResize = () => {
-    const newPageSize = countPageItems();
-    if (newPageSize !== pageSize) {
-      setPageSize(newPageSize);
-    }
-  };
-
+  const [pageSize, setPageSize] = useState(countPageItems(4, 6, 10));
   const { data: { list = [], totalCount = 0 } = {} } = useFetch(
     getProducts,
     {
@@ -40,6 +22,13 @@ function AllItemsContainer() {
   );
 
   const totalPages = Math.ceil(totalCount / pageSize);
+
+  const handleResize = () => {
+    const newPageSize = countPageItems(4, 6, 10);
+    if (newPageSize !== pageSize) {
+      setPageSize(newPageSize);
+    }
+  };
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);

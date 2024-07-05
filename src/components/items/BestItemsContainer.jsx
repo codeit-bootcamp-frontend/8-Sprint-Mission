@@ -2,20 +2,10 @@ import React, { useState, useEffect } from "react";
 import ItemContainer from "./ItemContainer";
 import { getProducts } from "../../core/api";
 import useFetch from "../../lib/hooks/useFetch";
-
-// count items according to pageSize
-const countPageItems = () => {
-  if (window.innerWidth < 768) {
-    return 1;
-  } else if (window.innerWidth < 1200) {
-    return 2;
-  } else {
-    return 4;
-  }
-};
+import countPageItems from "../../lib/utils/countPageItems";
 
 function BestItemsContainer() {
-  const [pageSize, setPageSize] = useState(countPageItems());
+  const [pageSize, setPageSize] = useState(countPageItems(1, 2, 4));
   const { data: itemsData } = useFetch(
     getProducts,
     { page: 1, pageSize, orderBy: "favorite" },
@@ -25,11 +15,10 @@ function BestItemsContainer() {
   const items = itemsData.list;
 
   const measurePageSize = () => {
-    const newPageSize = countPageItems();
+    const newPageSize = countPageItems(1, 2, 4);
     setPageSize(newPageSize);
   };
 
-  console.log(items);
   // get pageSize on window resize
   useEffect(() => {
     window.addEventListener("resize", measurePageSize);

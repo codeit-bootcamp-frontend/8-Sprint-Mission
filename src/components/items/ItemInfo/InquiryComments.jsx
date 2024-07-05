@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getProductComments } from "../../../core/api";
 import { INITIAL_COMMENTS } from "../../../constants";
 import useFetch from "../../../lib/hooks/useFetch";
+import { countTime } from "../../../lib/utils/countTime";
 
 function InquiryComments({ productId, limit }) {
   const { data: commentsData } = useFetch(
@@ -13,21 +14,6 @@ function InquiryComments({ productId, limit }) {
   const navigate = useNavigate();
 
   const comments = commentsData.list;
-
-  function countTime(comment) {
-    const now = new Date();
-    const createdAt = new Date(comment.createdAt);
-    const diff = (now - createdAt) / 60000;
-
-    if (diff < 60) {
-      return `${Math.floor(diff)}분 전`;
-    } else if (diff < 1440) {
-      // 1440분 = 24시간
-      return `${Math.floor(diff / 60)}시간 전`;
-    } else {
-      return `${Math.floor(diff / 1440)}일 전`;
-    }
-  }
 
   return (
     <section className="inquiry-comments">

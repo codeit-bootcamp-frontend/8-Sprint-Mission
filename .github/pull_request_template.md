@@ -35,21 +35,23 @@ design
 
 refactor
 
+- Items 페이지, util 함수 분리
+- constatns.jsx 생성, 데이터 초기 값 분리
+- 데이터 패칭 용도 useFetch 커스텀 훅 생성 및 적용
 - AddItemDetails 컴포넌트에 htmlFor 속성 추가
-- AddItemTags 컴포넌트에서 tag 배열 렌더링 index 값 -> id 값 변경
+- AddItemTags 컴포넌트에서 tag 배열 index 값 -> id 값 변경
 - ItemDetails, ItemTags 컴포넌트 분리
 
 rename
 
-- 미디어쿼리 디자인 각 페이지의 CSS 파일로 이동, mediaquery.css 파일 삭제
-- constatns.jsx
+- mediaquery.css 파일 삭제, 미디어쿼리 디자인 각 페이지의 CSS 파일에 병합
 - 네이밍 App.jsx -> Router.jsx
 - 네이밍 ItemDetials, ItemTags -> AddItemDetails, ...
 
 feat
 
 - ItemInfo 페이지, 기본 요구사항 구현
-- Items 페이지, 페이지네이션 기능 추가
+- Items 페이지, 페이지네이션 추가
 
 ## 스크린샷
 
@@ -57,4 +59,5 @@ feat
 
 ## 멘토에게
 
-- tailwind CSS와 커스텀 훅은 다음 미션에 꼭 적용해보겠습니다!
+- 멘토링 시간에 말씀하셨던 커스텀 훅을 하나 만들어봤습니다.
+- 테일윈드 CSS와 다른 커스텀 훅은 다음 미션에 차차 적용해보겠습니다!
