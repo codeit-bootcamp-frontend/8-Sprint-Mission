@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { getApiProductsComments } from '../components/getApi';
+import { getApiProductsComments } from './getApi';
 import KebabIconImg from '../assets/images/icon/btn_icon/ic_kebab_menu.png';
 import ReturnIconImg from '../assets/images/icon/btn_icon/ic_return.png';
 import GrayPandaImg from '../assets/images/logo/gray_panda.png';
@@ -13,6 +13,10 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media screen and (min-width: 1200px) {
+    align-items: center;
+    margin-top: 32px;
+  }
 `;
 const CommentsContainer = styled.section`
   padding: 0px 16px 16px 16px;
@@ -26,6 +30,7 @@ const CommentsContainer = styled.section`
   }
 `;
 const CommentTopBox = styled.div`
+  width: 100%;
   border-top: 1px solid var(--gray200);
   padding-top: 16px;
   display: flex;
@@ -46,6 +51,12 @@ const CommentInput = styled.textarea`
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
+  @media screen and (max-width: 1199px) and (min-width: 768px) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 16px;
+  }
 
   &::placeholder {
     color: var(--gray400);

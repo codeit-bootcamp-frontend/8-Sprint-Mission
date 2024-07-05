@@ -37,6 +37,17 @@ const Image = styled.img`
     height: 486px;
   }
 `;
+const Top = styled.div`
+  @media screen and (max-width: 1199px) and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-left: 24px;
+    width: 100%;
+  }
+`;
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,18 +61,38 @@ const TitleBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 1199px) and (min-width: 768px) {
+    margin-bottom: 12px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 16px;
+  }
 `;
 const Title = styled.h2`
   margin-top: 16px;
   font-size: 16px;
   color: var(--gray800);
   font-weight: 600;
+  @media screen and (max-width: 1199px) and (min-width: 768px) {
+    margin-top: 0px;
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 0px;
+    font-size: 24px;
+  }
 `;
 const Price = styled.div`
   font-size: 24px;
   font-weight: 600;
   color: var(--gray800);
   margin: 8px 0px 16px;
+  @media screen and (max-width: 1199px) and (min-width: 768px) {
+    font-size: 32px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 40px;
+  }
 `;
 const MiniTitle = styled.p`
   font-size: 14px;
@@ -85,6 +116,9 @@ const Tag = styled.li`
   color: var(--gray800);
 `;
 const FavoriteBox = styled.div`
+  display: flex;
+`;
+const FavoriteButton = styled.div`
   display: inline-flex;
   align-items: center;
   font-size: 16px;
@@ -95,6 +129,8 @@ const FavoriteBox = styled.div`
   border: 1px solid var(--gray200);
   padding: 4px 12px;
   gap: 10px;
+  @media screen and (max-width: 1199px) and (min-width: 768px) {
+  }
 `;
 
 function Product() {
@@ -133,23 +169,31 @@ function Product() {
         <ImageWrapper>
           <Image src={images} alt="상품 이미지" width="340px" height="340px" />
         </ImageWrapper>
-        <TitleContainer>
-          <TitleBox>
-            <Title>{name}</Title>
-            <img src={KebabIconImg} alt="케밥 메뉴 아이콘" width="24px" height="24px" />
-          </TitleBox>
-          <Price>{korPrice}원</Price>
-        </TitleContainer>
-        <MiniTitle>상품 소개</MiniTitle>
-        <Text>{description}</Text>
-        <MiniTitle>상품 태그</MiniTitle>
-        <ul>
-          {alltags ? alltags.map((tag, index) => <Tag key={tag + index}>{`#${tag}`}</Tag>) : <></>}
-        </ul>
-        <FavoriteBox>
-          <img src={FavoriteIconImg} alt="좋아요 하트 아이콘" width="24px" height="24px" />
-          {favoriteCount}
-        </FavoriteBox>
+        <Top>
+          <TitleContainer>
+            <TitleBox>
+              <Title>{name}</Title>
+              <img src={KebabIconImg} alt="케밥 메뉴 아이콘" width="24px" height="24px" />
+            </TitleBox>
+            <Price>{korPrice}원</Price>
+          </TitleContainer>
+          <MiniTitle>상품 소개</MiniTitle>
+          <Text>{description}</Text>
+          <MiniTitle>상품 태그</MiniTitle>
+          <ul>
+            {alltags ? (
+              alltags.map((tag, index) => <Tag key={tag + index}>{`#${tag}`}</Tag>)
+            ) : (
+              <></>
+            )}
+          </ul>
+          <FavoriteBox>
+            <FavoriteButton>
+              <img src={FavoriteIconImg} alt="좋아요 하트 아이콘" width="24px" height="24px" />
+              {favoriteCount}
+            </FavoriteButton>
+          </FavoriteBox>
+        </Top>
       </DetailsContainer>
     </Main>
   );
