@@ -140,3 +140,30 @@
   width: 22px;
   height: 24px;
 }
+/* mobile */
+@media (max-width: 768px) {
+  /* Additem page */
+  div.upload-container,
+  img.img-preview {
+    max-width: 168px;
+    max-height: 168px;
+  }
+
+  div.upload-content {
+    height: 168px;
+  }
+}
+
+/* tablet */
+@media (min-width: 769px) and (max-width: 1199px) {
+  /* AddItem page */
+  div.upload-container,
+  img.img-preview {
+    max-width: 162px;
+    max-height: 162px;
+  }
+
+  div.upload-content {
+    height: 162px;
+  }
+}
