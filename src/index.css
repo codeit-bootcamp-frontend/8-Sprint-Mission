@@ -10,9 +10,11 @@
   --gray50: #f9fafb;
 
   --blue: #3692ff;
+  --red: #f74747;
+
   --hover: #1967d6;
-  --focus: #1251aa;
-  --disabled: #9ca3af;
+  --click: #1251aa;
+  --inactive: #9ca3af;
 
   --header-height: 70px;
 }
@@ -111,12 +113,12 @@ button {
     background-color: var(--hover);
   }
 
-  &:focus {
-    background-color: var(--focus);
+  &:active {
+    background-color: var(--click);
   }
 
   &:disabled {
-    background-color: var(--disabled);
+    background-color: var(--inactive);
     cursor: default;
     pointer-events: none;
   }
@@ -134,15 +136,7 @@ button {
 } */
 
 @media (min-width: 768px) {
-  header {
-    padding: 0 24px;
-  }
-
-  /* .wrapper {
-    padding: 0 24px;
-  }
-
-  .button.pill {
+  /* .button.pill {
     font-size: 20px;
     font-weight: 700;
     padding: 16px 126px;
@@ -158,17 +152,8 @@ button {
   } */
 }
 
-@media (min-width: 1280px) {
-  header {
-    padding: 0 200px;
-  }
-
-  /* .wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .break-on-desktop {
+@media (min-width: var(--desktop)) {
+  /* .break-on-desktop {
     display: inline;
   }
 

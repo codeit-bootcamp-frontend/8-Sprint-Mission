@@ -1,17 +1,18 @@
+// import styled from 'styled-components';
+import './DeleteButton.css';
 import { ReactComponent as CloseIcon } from '../../../images/icons/ic_x.svg';
-import styled from 'styled-components';
 
-const CloseButton = styled(CloseIcon)`
-  cursor: pointer;
-  fill: #9ca3af;
+// const DeleteIcon = styled(CloseIcon)`
+//   &:hover {
+//     cursor: pointer;
+//     fill: var(--blue);
+//   }
+// `;
 
-  &:hover {
-    fill: #3692ff;
-  }
-`;
-
-function DeleteButton({ onClick, label }) {
-  return <CloseButton type='button' aria-label={`${label} 삭제`} onClick={onClick} />;
+function DeleteButton({ css, label, Click }) {
+  return <CloseIcon class={`deleteIcon ${css}`} aria-label={`${label} 삭제 아이콘`} onClick={Click} />;
 }
 
 export default DeleteButton;
+
+// 코드 테스트 중

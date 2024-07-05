@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getProducts } from '../../../API/itemApi';
 import ItemCard from './ItemCard';
 import { ReactComponent as SortIcon } from '../../../images/icons/ic_sort.svg';
@@ -59,9 +60,9 @@ function AllItemsSection() {
           <SearchIcon />
           <input className='searchBarInput' placeholder='검색할 상품을 입력해 주세요' />
         </div>
-        <a href='/additem' className='login button'>
+        <Link to='/additem' className='login button'>
           상품 등록하기
-        </a>
+        </Link>
         <div className='sortButtonWrapper'>
           <button className='sortDropdownTriggerButton' onClick={toggleDropdown}>
             <SortIcon />

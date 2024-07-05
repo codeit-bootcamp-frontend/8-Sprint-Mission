@@ -1,0 +1,6 @@
+.deleteIcon {
+  &:hover {
+    cursor: pointer;
+    fill: var(--blue);
+  }
+}

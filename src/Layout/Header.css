@@ -1,20 +1,19 @@
-header {
+.globalHeader {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  background-color: var(--white);
+  background-color: #fff;
   border-bottom: 1px solid #dfdfdf;
-}
+  z-index: 1;
 
-.navLeft {
-  display: flex;
-  align-items: center;
+  :nth-child(2) {
+    flex-grow: 1;
+  }
 }
 
 .globalHeader nav ul {
@@ -39,6 +38,11 @@ header {
 }
 
 @media (min-width: 768px) {
+  .globalHeader {
+    padding: 0 24px;
+    gap: 32px;
+  }
+
   .globalHeader nav ul {
     gap: 36px;
     font-size: 18px;
@@ -47,6 +51,11 @@ header {
 }
 
 @media (min-width: 1280px) {
+  .globalHeader {
+    padding: 0 200px;
+    gap: 32px;
+  }
+
   .globalHeader nav ul {
     margin-left: 32px;
   }

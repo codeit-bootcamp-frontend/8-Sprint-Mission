@@ -26,7 +26,8 @@
   }
 }
 
-.imagePreview {
+.imagePreview,
+.testImg {
   background-size: cover;
   background-position: center;
   position: relative;
@@ -34,10 +35,15 @@
 
 .uploadButton,
 .imagePreview {
-  width: calc(50% - 4px);
+  width: calc(100%);
   max-width: 200px;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
+}
+
+.test {
+  position: relative;
+  background-color: red;
 }
 
 .deleteButton {

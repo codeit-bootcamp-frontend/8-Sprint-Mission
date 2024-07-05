@@ -1,12 +1,10 @@
-import './ImageUpload.css';
 import { useState } from 'react';
-import styled from 'styled-components';
+import './ImageUpload.css';
 import { ReactComponent as PlusIcon } from '../../../images/icons/ic_plus.svg';
 import DeleteButton from './DeleteButton';
+import styled from 'styled-components';
 
-const ImagePreview = styled.div`
-  background-image: url(${({ src }) => src});
-`;
+const Div = styled.div``;
 
 function ImageUpload({ title }) {
   const [image, setImage] = useState('');
@@ -41,12 +39,11 @@ function ImageUpload({ title }) {
           accept='image/*'
         />
 
-        {image && (
-          <ImagePreview className='imagePreview' src={image}>
-            <div className='deleteButton'>
-              <DeleteButton onClick={handleDelete} label='이미지 파일' />
-            </div>
-          </ImagePreview>
+        {image && ( // 코드 테스트 중
+          <Div className='imagePreview' class='test'>
+            <img class='test' className='imagePreview' src={image} alt='이미지 미리보기' />
+            <DeleteButton css='deleteButton' Click={handleDelete} label='이미지 파일' />
+          </Div>
         )}
       </div>
     </div>
