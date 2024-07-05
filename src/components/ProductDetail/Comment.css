@@ -11,19 +11,33 @@
   color: var(--gray800);
 }
 
-.comment-wrapper .writer {
+.writer-wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   margin-bottom: 24px;
 }
 
-.writer .image {
+.writer.image {
   margin-right: 8px;
 }
 
-.comment-wrapper .nickname {
+.comment-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.comment-info .nickname {
+  margin-bottom: 4px;
   font-size: 14px;
   font-weight: normal;
   color: var(--gray600);
+}
+
+.comment-info .time-elapsed {
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--gray400);
 }

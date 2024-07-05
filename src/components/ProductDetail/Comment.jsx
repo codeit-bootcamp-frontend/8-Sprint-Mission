@@ -1,19 +1,20 @@
 import "./Comment.css";
 
+import getTimeElapsed from "../../utils/getTimeElapsed";
+
 function Comment({ comment }) {
   const {
     writer: { image, nickname },
     content,
-    updateAt,
+    updatedAt,
   } = comment;
 
-  const updateDate = new Date(updateAt);
-  const updatedTime = new Date(updateAt) - new Date();
+  const timeElapsed = getTimeElapsed(new Date(updatedAt));
 
   return (
     <div className="comment-wrapper">
       <div className="comment-content">{content}</div>
-      <div className="writer">
+      <div className="writer-wrapper">
         <img
           className="writer image"
           src={image}
@@ -21,8 +22,10 @@ function Comment({ comment }) {
           width="40px"
           height="40px"
         />
-        <div className="writer nickname">{nickname}</div>
-        <div>{updateAt}</div>
+        <div className="comment-info">
+          <div className="nickname">{nickname}</div>
+          <div className="time-elapsed">{timeElapsed}</div>
+        </div>
       </div>
     </div>
   );
