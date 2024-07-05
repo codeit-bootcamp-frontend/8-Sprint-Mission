@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./AddProductPage.css";
 import FileInput from "./components/FileInput/FileInput";
 import TagInput from "./components/TagInput/TagInput";
@@ -29,13 +29,15 @@ function AddProductPage(props) {
       ...prevValues,
       [name]: value,
     }));
+  };
+  const checkButtonImmutability = useCallback(() => {
     const { name: productName, introduction, price, tag } = productValues;
     if (productName && introduction && price && tag.length > 0) {
       setIsDisableBtn(false);
     } else {
       setIsDisableBtn(true);
     }
-  };
+  }, [productValues]);
 
   const handleProductSubmit = (e) => {
     e.preventDefault();
@@ -45,8 +47,8 @@ function AddProductPage(props) {
   };
 
   useEffect(() => {
-    console.log(products);
-  }, [products]);
+    checkButtonImmutability();
+  }, [checkButtonImmutability, products]);
 
   return (
     <div className="add-product-container">
