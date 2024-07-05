@@ -129,7 +129,7 @@ const StyledLikeCount = styled.article`
 
   background-image: url(${likeIcon});
   background-repeat: no-repeat;
-  background-size: 2.68rem 2.33rem;
+  background-size: 3.2rem;
   background-position: 1.4rem;
 
   width: fit-content;
