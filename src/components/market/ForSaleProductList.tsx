@@ -5,6 +5,7 @@ import Pagination from 'components/@shared/Pagination';
 import usePageSize from 'hooks/usePageSize';
 import { IProduct, ProductOrderByType } from 'types/@shared/marketTypes';
 import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { useSearchParams } from 'react-router-dom';
 
 interface ForSaleProductListProps {
   order: ProductOrderByType;
@@ -12,10 +13,12 @@ interface ForSaleProductListProps {
 }
 
 function ForSaleProductList({ order, keyword }: ForSaleProductListProps) {
+  const [serchParams, setSearchParams] = useSearchParams(); // 현재 페이지 번호
+  const currentPage = serchParams.get('page');
   const pageSize = usePageSize('forSale');
   const {
     data: { list: productList, totalCount },
-  } = useProductsQuery({ size: pageSize, order, keyword });
+  } = useProductsQuery({ page: currentPage, size: pageSize, order, keyword });
 
   return (
     <StyledForSaleProductContainer>
@@ -24,7 +27,7 @@ function ForSaleProductList({ order, keyword }: ForSaleProductListProps) {
           <Product key={id} id={id} name={name} images={images} price={price} favoriteCount={favoriteCount} />
         ))}
       </StyledForSaleProductsSection>
-      <Pagination totalCount={totalCount} />
+      <Pagination currentPage={Number(currentPage)} totalCount={totalCount} setSearchParams={setSearchParams} />
     </StyledForSaleProductContainer>
   );
 }

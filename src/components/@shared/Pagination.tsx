@@ -1,18 +1,17 @@
 import usePageSize from 'hooks/usePageSize';
 import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { SetURLSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface PaginationProps {
+  currentPage: number;
   totalCount: number;
+  setSearchParams: SetURLSearchParams;
 }
 
 const MAX_PAGE_BUTTONS = 5; // 화면에 최대 보여줄 페이지 버튼 수
 
-function Pagination({ totalCount }: PaginationProps) {
-  const [serchParams, setSearchParams] = useSearchParams(); // 현재 페이지 번호
-  const currentPage = serchParams.get('page') === null ? 0 : Number(serchParams.get('page'));
-
+function Pagination({ currentPage, totalCount, setSearchParams }: PaginationProps) {
   const pageSize = usePageSize('forSale');
 
   // 현재 페이지 그룹의 시작 페이지 번호
