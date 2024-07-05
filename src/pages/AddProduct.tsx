@@ -9,7 +9,7 @@ import InputSection from 'components/addItem/InputSection';
 import RegistraionHeader from 'components/addItem/RegistrationHeader';
 import { IFormValue, IPreview, ITag } from 'types/@shared/addItemTypes';
 
-function AddItem() {
+function AddProduct() {
   const [formValue, setFormValue] = useState<IFormValue>({
     imgfiles: [],
     title: '',
@@ -86,7 +86,7 @@ function AddItem() {
   );
 }
 
-export default AddItem;
+export default AddProduct;
 
 const StyledAddItemForm = styled.form`
   margin: 0 auto;

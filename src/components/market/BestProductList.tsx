@@ -13,7 +13,7 @@ function BestProductList() {
   return (
     <StyledBestProductsSection>
       {productList.map(({ id, name, price, images, favoriteCount }: IProduct) => (
-        <Product key={id} name={name} images={images} price={price} favoriteCount={favoriteCount} />
+        <Product key={id} id={id} name={name} images={images} price={price} favoriteCount={favoriteCount} />
       ))}
     </StyledBestProductsSection>
   );

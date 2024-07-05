@@ -7,7 +7,8 @@ import Home from 'pages/Home';
 import Login from 'pages/Login';
 import Signup from 'pages/Signup';
 import Market from 'pages/Market';
-import AddItem from 'pages/AddItem';
+import AddProduct from 'pages/AddProduct';
+import ProductDetail from 'pages/ProductDetail';
 
 function App() {
   const queryClient = new QueryClient();
@@ -22,8 +23,11 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/items" element={<Market />} />
-            <Route path="/additem" element={<AddItem />} />
+            <Route path="/items">
+              <Route index element={<Market />} />
+              <Route path=":id" element={<ProductDetail />} />
+            </Route>
+            <Route path="/additem" element={<AddProduct />} />
             <Route path="*" element={<div>해당 페이지는 없는 페이지입니다.</div>} />
           </Route>
         </Routes>

@@ -2,15 +2,17 @@ import styled from 'styled-components';
 import Image from 'components/@shared/Image';
 import likeIcon from 'assets/images/market/like-icon.png';
 import { IProduct } from 'types/@shared/marketTypes';
+import { Link } from 'react-router-dom';
 
 function Product({
+  id,
   name,
   price,
   images,
   favoriteCount,
-}: Pick<IProduct, 'name' | 'price' | 'images' | 'favoriteCount'>) {
+}: Pick<IProduct, 'id' | 'name' | 'price' | 'images' | 'favoriteCount'>) {
   return (
-    <article>
+    <Link to={`${id}`}>
       <div className={'product-image-wrapper'}>
         {images.map(image => (
           <Image
@@ -32,7 +34,7 @@ function Product({
           {favoriteCount}
         </small>
       </StyledProductInfoWrapper>
-    </article>
+    </Link>
   );
 }
 
