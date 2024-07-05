@@ -21,7 +21,6 @@ function LoginForm() {
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(form);
     navigateTo(PATH_ITEMS);
   };
 
