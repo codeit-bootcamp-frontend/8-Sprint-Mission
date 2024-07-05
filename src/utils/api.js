@@ -20,7 +20,7 @@ export async function fetchProductData() {
   return data;
 }
 
-export async function fetchProductDataWithId(productId) {
+export async function fetchProductDataById(productId) {
   const url = `${BASE_URL}/products/${productId}`;
   const response = await fetch(url);
 
@@ -28,4 +28,16 @@ export async function fetchProductDataWithId(productId) {
   const result = await response.json();
 
   return result;
+}
+
+export async function fetchProductComment(productId) {
+  const url = `${BASE_URL}/products/${productId}/comments?limit=10`;
+  const response = await fetch(url);
+
+  if (!response || !response.ok) return [];
+  const result = await response.json();
+
+  const data = result.list;
+
+  return data;
 }

@@ -1,0 +1,29 @@
+.comment-wrapper {
+  margin-bottom: 24px;
+  border-bottom: solid 1px var(--gray200);
+}
+
+.comment-content {
+  margin-bottom: 24px;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 140%;
+  color: var(--gray800);
+}
+
+.comment-wrapper .writer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.writer .image {
+  margin-right: 8px;
+}
+
+.comment-wrapper .nickname {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--gray600);
+}

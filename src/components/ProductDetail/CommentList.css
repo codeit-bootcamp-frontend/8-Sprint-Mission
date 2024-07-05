@@ -46,3 +46,8 @@
   background-color: var(--blue);
   cursor: pointer;
 }
+
+.comment-lists {
+  width: 100%;
+  list-style: none;
+}
