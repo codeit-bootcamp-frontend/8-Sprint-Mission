@@ -1,3 +1,7 @@
+html {
+  background-color: #fcfcfc;
+}
+
 .main {
   max-width: 1200px;
   margin: 94px auto;
@@ -144,8 +148,9 @@
   font-size: 0.8rem;
 }
 
-.favorite-count-btn {
-  background-image: url("/src/assets/images/ic_heart.png");
+.btn-heart {
+  background: url("/src/assets/images/ic_heart.png") no-repeat;
+  background-size: contain;
   width: 16px;
   height: 16px;
   margin-right: 4px;
@@ -168,3 +173,5 @@
   font-weight: 600;
   font-size: 1rem;
 }
+
+/* mediaquery */

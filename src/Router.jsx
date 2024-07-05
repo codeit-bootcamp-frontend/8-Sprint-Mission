@@ -5,6 +5,7 @@ import Main from "./components/common/Main";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import Items from "./pages/Items";
+import ItemInfo from "./pages/ItemInfo";
 import AddItem from "./pages/AddItem";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
@@ -18,6 +19,7 @@ function Router() {
           <Route path="/" element={<Home />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/Items" element={<Items />} />
+          <Route path="/Items/:productId" element={<ItemInfo />} />
           <Route path="/AddItem" element={<AddItem />} />
           <Route path="/Community" element={<Community />} />
           <Route path="*" element={<NotFound />} />
