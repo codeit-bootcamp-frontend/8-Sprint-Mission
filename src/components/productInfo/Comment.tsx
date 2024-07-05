@@ -2,6 +2,7 @@ import Image from 'components/@shared/Image';
 import Spacer from 'components/@shared/Spacer';
 import styled from 'styled-components';
 import { IProductComment } from 'types/@shared/productInfoTypes';
+import getElapsedPeriod from '../../utils/getElapsedPeriod';
 
 function Comment({ content, updatedAt, writer }: Pick<IProductComment, 'content' | 'updatedAt' | 'writer'>) {
   return (
@@ -11,7 +12,7 @@ function Comment({ content, updatedAt, writer }: Pick<IProductComment, 'content'
         <Image src={writer.image} alt={'프로필 이미지'} height={'4rem'} width={'4rem'} />
         <StyledWriterInfo>
           <span>{writer.nickname}</span>
-          <small>{updatedAt}</small>
+          <small>{getElapsedPeriod(updatedAt)}</small>
         </StyledWriterInfo>
       </StyledCommentWriter>
       <Spacer $topHeight={'2.4rem'} $bottomHeight={'2.4rem'} $needLine={true} />
