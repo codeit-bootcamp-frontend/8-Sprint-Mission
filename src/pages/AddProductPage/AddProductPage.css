@@ -33,7 +33,7 @@
   line-height: 1.3rem;
 }
 .add-product-section input,
-textarea {
+.add-product-section textarea {
   margin: 0.5rem 0;
   background-color: var(--gray-100);
   padding: 1rem;
