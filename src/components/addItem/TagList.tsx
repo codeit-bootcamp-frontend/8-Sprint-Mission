@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { smallTextStyle } from 'styles/addItem/textStyles';
+import { smallTextStyle } from 'styles/addProduct/textStyles';
 
-import { StyledRemoveButton } from 'styles/addItem/buttonStyles';
-import { ITag } from 'types/@shared/addItemTypes';
+import { StyledRemoveButton } from 'styles/addProduct/buttonStyles';
+import { ITag } from 'types/@shared/addProductTypes';
 
 interface TagListProps {
   tagList: ITag[];

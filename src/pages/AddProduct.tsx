@@ -7,7 +7,7 @@ import ImageRegistration from 'components/addItem/ImageRegistration';
 import InputSection from 'components/addItem/InputSection';
 
 import RegistraionHeader from 'components/addItem/RegistrationHeader';
-import { IFormValue, IPreview, ITag } from 'types/@shared/addItemTypes';
+import { IFormValue, IPreview, ITag } from 'types/@shared/addProductTypes';
 
 function AddProduct() {
   const [formValue, setFormValue] = useState<IFormValue>({

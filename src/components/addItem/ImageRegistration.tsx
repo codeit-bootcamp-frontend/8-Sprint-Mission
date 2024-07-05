@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { inputStyle, placeholderStyle } from 'styles/auth/formStyles';
-import plusIcon from 'assets/images/addItem/plus-icon.png';
+import plusIcon from 'assets/images/addProduct/plus-icon.png';
 import { ALLOW_FILE_EXTENSION } from ' constants/infomations/fileExtension';
-import { StyledAddItemSubTitle } from 'styles/addItem/textStyles';
+import { StyledAddItemSubTitle } from 'styles/addProduct/textStyles';
 import React from 'react';
 import Image from 'components/@shared/Image';
 import PreviewList from './PreviewList';
-import { IPreview } from 'types/@shared/addItemTypes';
+import { IPreview } from 'types/@shared/addProductTypes';
 
 interface ImageRegistrationProps {
   previewList: IPreview[];
