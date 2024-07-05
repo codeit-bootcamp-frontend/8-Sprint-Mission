@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+const defaultImageUrl = "https://example.com/...";
+
 function ItemContainer({ item }) {
   const navigate = useNavigate();
 
@@ -13,7 +15,11 @@ function ItemContainer({ item }) {
       <img
         src={item.images}
         alt={item.name}
-        className="item-img"
+        className={
+          String(item.images) === defaultImageUrl
+            ? "item-default-img"
+            : "item-img"
+        }
         onClick={() => handleItemClick(item.id)}
       />
       <div className="item-content">

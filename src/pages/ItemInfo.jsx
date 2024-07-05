@@ -4,6 +4,8 @@ import { getProductId } from "../core/api";
 import InquiryInput from "../components/Items/ItemInfo/InquiryInput";
 import "./ItemInfo.css";
 
+const defaultImageUrl = "https://example.com/...";
+
 const INITIAL_PRODUCTID = {
   createdAt: "",
   favoriteCount: 0,
@@ -39,7 +41,11 @@ function ItemInfo() {
     <>
       <section className="item-info-container">
         <img
-          className="item-info-img"
+          className={
+            String(productData.images) === defaultImageUrl
+              ? "item-default-img item-info-img"
+              : "item-info-img"
+          }
           src={productData.images}
           alt={productData.name}
         />

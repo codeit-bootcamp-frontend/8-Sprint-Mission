@@ -70,6 +70,8 @@ html {
 
 .dropdown-ul {
   position: absolute;
+  border-radius: 12px;
+  background-color: var(--fff);
   margin-top: 5px;
   text-align: center;
 }
@@ -80,6 +82,7 @@ html {
 
 .dropdown-li {
   padding: 12px;
+  border-radius: 12px;
 }
 
 .ic-arrow-down {
@@ -113,11 +116,17 @@ html {
   gap: 24px;
 }
 
+.item-default-img,
 .item-img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 19px;
+}
+
+.item-default-img {
+  background: url(/src/assets/images/img_item_default.png);
+  background-size: cover;
 }
 
 .item-container {
