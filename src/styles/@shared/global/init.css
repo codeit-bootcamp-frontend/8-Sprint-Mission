@@ -27,4 +27,7 @@
 
   /* z-index */
   --z-index-header: 2;
+
+  /* border */
+  --border-200: 1px solid var(--cool-gray-200);
 }

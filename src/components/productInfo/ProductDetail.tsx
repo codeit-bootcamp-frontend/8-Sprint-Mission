@@ -3,6 +3,7 @@ import useProductDetailQuery from 'queries/useProductDetailQuery';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import likeIcon from 'assets/images/market/like-icon.png';
+import Spacer from 'components/@shared/Spacer';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -29,6 +30,7 @@ function ProductDetail() {
         <StyledProductSpecs>
           <h2>{name}</h2>
           <h1>{price.toLocaleString()}원</h1>
+          <Spacer topHeight={'1.6rem'} bottomHeight={'1.6rem'} needLine={true} />
           <small>상품 소개</small>
           <p>{description}</p>
           <small>상품 태그</small>
@@ -80,10 +82,6 @@ const StyledProductSpecs = styled.article`
     font-weight: 600;
     line-height: 4.773rem;
     color: var(--cool-gray-800);
-
-    padding-bottom: 1.6rem;
-    border-bottom: 1px solid var(--cool-gray-200);
-    margin-bottom: 1.6rem;
   }
 
   // 서브 타이틀
