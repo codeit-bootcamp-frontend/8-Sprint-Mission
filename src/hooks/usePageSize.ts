@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react';
+import useWindowSize from './useWindowSize';
 
 type ProductCategoryType = 'best' | 'forSale';
 
-const getPageSize = (catagory: ProductCategoryType) => {
-  const width = window.innerWidth;
-  if (width < 768) {
+const getPageSize = ({ catagory, innerWidth }: { catagory: ProductCategoryType; innerWidth: number }) => {
+  if (innerWidth < 768) {
     // Mobile viewport
     return catagory === 'best' ? 1 : 4;
-  } else if (width < 1280) {
+  } else if (innerWidth < 1280) {
     // Tablet viewport
     return catagory === 'best' ? 2 : 6;
   } else {
@@ -17,21 +16,9 @@ const getPageSize = (catagory: ProductCategoryType) => {
 };
 
 const usePageSize = (catagory: ProductCategoryType): number => {
-  const [pageSize, setPageSize] = useState(catagory === 'best' ? 4 : 10);
+  const { innerWidth } = useWindowSize();
 
-  const handleResize = () => {
-    setPageSize(getPageSize(catagory));
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  return pageSize;
+  return getPageSize({ catagory, innerWidth });
 };
 
 export default usePageSize;
