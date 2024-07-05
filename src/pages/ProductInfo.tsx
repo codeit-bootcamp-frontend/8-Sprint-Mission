@@ -11,7 +11,7 @@ function ProductInfo() {
       <Suspense fallback={<div>Loading...</div>}>
         <ProductDetail />
       </Suspense>
-      <Spacer topHeight={'3.2rem'} bottomHeight={'2.4rem'} needLine={true} />
+      <Spacer $topHeight={'3.2rem'} $bottomHeight={'2.4rem'} $needLine={true} />
       <Suspense fallback={<div>Loading...</div>}>
         <InquirySection />
       </Suspense>

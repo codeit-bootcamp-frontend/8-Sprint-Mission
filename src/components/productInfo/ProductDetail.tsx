@@ -30,7 +30,7 @@ function ProductDetail() {
         <StyledProductSpecs>
           <h2>{name}</h2>
           <h1>{price.toLocaleString()}원</h1>
-          <Spacer topHeight={'1.6rem'} bottomHeight={'1.6rem'} needLine={true} />
+          <Spacer $topHeight={'1.6rem'} $bottomHeight={'1.6rem'} $needLine={true} />
           <small>상품 소개</small>
           <p>{description}</p>
           <small>상품 태그</small>

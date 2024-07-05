@@ -43,6 +43,7 @@ const StyledInputForm = styled.form`
   }
 
   & button {
+    /* 버튼 자체 우측 정렬 */
     margin-left: auto;
   }
 `;
