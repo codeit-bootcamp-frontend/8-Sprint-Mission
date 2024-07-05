@@ -58,12 +58,39 @@ export const fetchGetProductDetail = async ({
   productId,
 }: ProductDetailParams) => {
   const response = await fetch(productUrl + `/${productId}`, {
+    method: "GET",
     headers: {
       "Content-type": "application/json",
     },
   });
   if (!response.ok) {
-    throw new Error("데이터를 업로드하는데 실패하였습니다.");
+    throw new Error("상세 정보를 가져오는데 실패하였습니다.");
+  }
+  const body = await response.json();
+  return body;
+};
+
+interface ProductDetailCommentParams extends ProductDetailParams {
+  limit: number;
+  cursor: number | null;
+}
+
+export const fetchProductComment = async ({
+  productId,
+  limit,
+  cursor,
+}: ProductDetailCommentParams) => {
+  const url =
+    productUrl +
+    `/${productId}/comments?limit=${limit}${cursor ? `&cursor=${cursor}` : ""}`;
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("댓글을 불러오는데 실패하였습니다.");
   }
   const body = await response.json();
   return body;

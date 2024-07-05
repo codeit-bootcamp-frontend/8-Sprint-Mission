@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import DetailAddComment from "./DetailAddComment";
-import DetailCommentContent from "./DetailCommentContent";
+import DetailCommentContentList from "./DetailCommentContentList";
 import DetailCommentFallbackBtn from "./DetailCommentFallbackBtn";
 
 interface DetailCommentsProps {
@@ -10,14 +10,14 @@ interface DetailCommentsProps {
 const DetailCommentsWrap = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 2.4rem;
 `;
 
 const DetailComments = ({ productId }: DetailCommentsProps) => {
   return (
     <DetailCommentsWrap>
       <DetailAddComment />
-      <DetailCommentContent />
+      <DetailCommentContentList productId={productId} />
       <DetailCommentFallbackBtn />
     </DetailCommentsWrap>
   );
