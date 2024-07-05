@@ -1,0 +1,61 @@
+.product-section {
+  display: grid;
+  grid-template-areas: "image detail";
+  gap: 24px;
+}
+
+.product-img {
+  width: 486px;
+  height: 486px;
+  border-radius: 16px;
+  grid-area: image;
+}
+
+.detail-container {
+  grid-area: detail;
+}
+
+.product-name {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.product-price {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.product-description {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.product-tags {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.like-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.like-container {
+  width: 87px;
+  height: 40px;
+  padding: 4px 12px;
+  border-radius: 35px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.product-favoriteCount {
+  font-size: 20px;
+  font-weight: 500;
+  color: #6b7280;
+  flex-grow: 2;
+  text-align: center;
+}
