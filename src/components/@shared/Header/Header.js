@@ -24,7 +24,7 @@ function Header({ pageType = "main", isLogin = false }) {
             alt="판다마켓 로고"
           />
           <img
-            className="header-typo-img"
+            className={`header-typo-img ${pageType}`}
             src={onlyTypoImgUrl}
             alt="판다마켓 로고"
           />

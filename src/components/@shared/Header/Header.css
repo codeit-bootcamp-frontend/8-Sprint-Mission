@@ -11,7 +11,7 @@ header {
   border-bottom: 1px solid var(--header-underline-color);
 }
 
-/*================header-left-wrapper================*/
+/*================header-left-container================*/
 .header-left-container {
   display: flex;
   gap: 32px;
@@ -26,10 +26,17 @@ header {
   cursor: pointer;
 }
 
-.header-typo-img {
+.header-typo-img.main {
   display: none;
   width: 103px;
   height: 51px;
+  cursor: pointer;
+}
+
+.header-typo-img.item {
+  display: none;
+  width: 81px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -107,12 +114,19 @@ header {
     display: none;
   }
 
-  .header-typo-img {
+  .header-typo-img.main,
+  .header-typo-img.item {
     display: inline-block;
+  }
+
+  /*==========header-left-container==========*/
+  .header-left-container {
+    gap: 16px;
   }
 
   /*==========header-left-nav==========*/
   .item-page-header-nav {
+    font-size: 16px;
     gap: 8px;
   }
 

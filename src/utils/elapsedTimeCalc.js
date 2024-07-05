@@ -2,9 +2,6 @@ const elapsedTimeCalc = (comparedDate) => {
   const currentDate = new Date();
   const specificDate = new Date(comparedDate);
 
-  console.log(`현재시각 : ${currentDate}`);
-  console.log(`등록시각 : ${specificDate}`);
-
   const timeDifference = currentDate - specificDate;
 
   const min = 1000 * 60;
