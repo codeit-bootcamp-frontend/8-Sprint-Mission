@@ -1,39 +1,30 @@
+import { ProductDetailComment } from "core/Interface/Product";
 import {
   fetchProductComment,
   ProductDetailCommentParams,
 } from "lib/api/product";
 import { useCallback, useEffect, useState } from "react";
 
-const INITIAL_DETAIL_COMMENTS = [
-  {
-    id: 0,
-    content: "",
-    createdAt: "0000-00-00T00:00:00.000Z",
-    updatedAt: "0000-00-00T00:00:00.000Z",
-    writer: {
-      id: 0,
-      nickname: "",
-      image: "",
-    },
-  },
-];
-
 const useFetchDetailComments = ({
   productId,
   limit,
   cursor = null,
 }: ProductDetailCommentParams) => {
-  const [detailComments, setDetailComments] = useState(INITIAL_DETAIL_COMMENTS);
+  const [isError, setIsError] = useState(false);
+  const [detailComments, setDetailComments] = useState<ProductDetailComment[]>(
+    []
+  );
   const [nextCursor, setNextCursor] = useState<number | null>(null);
 
   const handleDetailComments = useCallback(async () => {
     try {
+      setIsError(false);
       const result = await fetchProductComment({ productId, limit, cursor });
       const { list, nextCursor } = result;
       setDetailComments(list);
       setNextCursor(nextCursor);
     } catch (error) {
-      console.log(error);
+      setIsError(true);
     }
   }, [productId, limit, cursor]);
 
@@ -41,7 +32,7 @@ const useFetchDetailComments = ({
     handleDetailComments();
   }, [handleDetailComments]);
 
-  return { detailComments, nextCursor };
+  return { detailComments, nextCursor, isError };
 };
 
 export default useFetchDetailComments;
