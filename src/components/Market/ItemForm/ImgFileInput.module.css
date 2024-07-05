@@ -1,4 +1,12 @@
 /*==========sub-title==========*/
+.sub-title {
+  color: var(--cool-gray-800);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  margin: 16px 0 12px;
+}
+
 .submit-btn:disabled {
   background-color: var(--cool-gray-400);
 }

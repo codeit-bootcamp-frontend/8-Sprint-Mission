@@ -17,11 +17,9 @@ function SalesProductsList({ salesProducts, order, onChangeOrder }) {
 
   const handleSelctOptionsDisplay = (event) => {
     const options = event.currentTarget.lastChild;
-    if (options.style.display === "none") {
-      options.style.display = "flex";
-    } else {
-      options.style.display = "none";
-    }
+    options.style.display === "none"
+      ? (options.style.display = "flex")
+      : (options.style.display = "none");
   };
 
   return (
@@ -55,6 +53,7 @@ function SalesProductsList({ salesProducts, order, onChangeOrder }) {
           </div>
         </div>
       </div>
+
       <div className="sales-products-header mobile">
         <h2 className="sales-products-title">판매 중인 상품</h2>
         <Link to="/additem">
@@ -79,6 +78,7 @@ function SalesProductsList({ salesProducts, order, onChangeOrder }) {
           </div>
         </div>
       </div>
+
       <ol className="sales-products-grid">
         {salesProducts.map((product) => (
           <ProductCard key={product.id} product={product} />

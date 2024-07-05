@@ -1,4 +1,4 @@
-import styles from "./ItemForm.module.css";
+import styles from "./ItemInfoInput.module.css";
 
 import { useState } from "react";
 

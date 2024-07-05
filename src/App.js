@@ -7,6 +7,7 @@ import HomePage from "./pages/Home/HomePage";
 import LoginPage from "./pages/Auth/LoginPage";
 import SigninPage from "./pages/Auth/SigninPage";
 import UsedMarketPage from "./pages/Market/UsedMarketPage";
+import ItemDetailPage from "./pages/Market/ItemDetailPage";
 import AddItemPage from "./pages/Market/AddItemPage";
 import FaqPage from "./pages/Faq/FaqPage";
 import PrivacyPage from "./pages/Privacy/PrivacyPage";
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/login" element={<LoginPage />} />
       <Route exact path="/signin" element={<SigninPage />} />
       <Route exact path="/items" element={<UsedMarketPage />} />
+      <Route path="/items/:itemId" element={<ItemDetailPage />} />
       <Route exact path="/additem" element={<AddItemPage />} />
       <Route exact path="/privacy" element={<PrivacyPage />} />
       <Route exact path="/faq" element={<FaqPage />} />

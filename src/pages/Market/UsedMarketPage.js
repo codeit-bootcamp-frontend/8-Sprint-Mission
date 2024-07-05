@@ -47,7 +47,6 @@ function UsedMarketPage() {
         "handleProductLoad의 listType으로 적절한 값을 입력하세요. (bestProducts, salesProducts)"
       );
     }
-    return { list, totalCount };
   };
 
   /**
@@ -87,7 +86,7 @@ function UsedMarketPage() {
 
     const pageSize = getProductsPageSize(10, 6, 4);
 
-    const { totalCount } = handleProductLoad({
+    handleProductLoad({
       listType: "salesProducts",
       orderBy: salesProductsOrder,
       pageSize,
