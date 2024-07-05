@@ -1,3 +1,20 @@
+@media (min-width: 768px) {
+  .HeaderContainer nav ul {
+    gap: 36px;
+    font-size: 18px;
+  }
+
+  .Logo {
+    margin-right: 35px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .Logo {
+    margin-right: 47px;
+  }
+}
+
 a {
   text-decoration: none;
 }
@@ -32,6 +49,19 @@ header {
   justify-content: space-between;
 }
 
+.HeaderContainer nav ul {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #4b5563;
+}
+
+.globalHeader nav ul li a:hover {
+  color: #3692ff;
+}
+
 .Header {
   display: flex;
   align-items: center;
@@ -60,7 +90,7 @@ header {
 
 .login {
   font-size: 16px;
-
+  padding: 11.5px 23px;
   font-weight: 600;
   border-radius: 8px;
 }

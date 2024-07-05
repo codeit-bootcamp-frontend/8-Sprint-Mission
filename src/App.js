@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Commu from "./pages/Commu";
-import Market from "./pages/Market";
-import Login from "./pages/Login";
+import Home from "./pages/Home/Home";
+import Commu from "./pages/Community/Commu";
+import Market from "./pages/market/market";
+import Login from "./pages/Login/Login";
 import Header from "./global/Header/Header";
 
 function App() {
