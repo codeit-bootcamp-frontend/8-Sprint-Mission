@@ -43,7 +43,7 @@ const Button = styled.button`
   height: 42px;
   border-radius: 8px;
   padding: 12px 23px;
-  background-color: #9ca3af;
+  background-color: ${({ hasContent }) => (hasContent ? "#3692ff" : "#9ca3af")};
   font-weight: 600;
   font-size: 16px;
   color: #ffffff;
@@ -136,6 +136,7 @@ const BackIconImage = styled.img`
 function CommentsSection() {
   const { productid } = useParams();
   const [comments, setComments] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -152,6 +153,10 @@ function CommentsSection() {
     fetchComments();
   }, [productid]);
 
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
   if (!comments) {
     return <Container>댓글을 불러오는 중입니다.</Container>;
   }
@@ -163,8 +168,11 @@ function CommentsSection() {
         <TextInput
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
           type="text"
+          onChange={handleInputChange}
         />
-        <Button type="submit">등록</Button>
+        <Button type="submit" hasContent={inputValue.length > 0}>
+          등록
+        </Button>
       </form>
       {comments.length === 0 ? (
         <EmptyText>
