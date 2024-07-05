@@ -1,5 +1,5 @@
 import { ProductDetailParams } from "core/Interface/Product";
-import useFetch from "lib/hooks/useFetch";
+import useFetchDetail from "lib/hooks/useFetchDetail";
 import { styled } from "styled-components";
 import DetailCardContent from "./DetailCardContent";
 import DetailImage from "./DetailImage";
@@ -13,7 +13,7 @@ const DetailCardWrap = styled.div`
 `;
 
 const DetailCard = ({ productId }: ProductDetailParams) => {
-  const { productDetail } = useFetch({ productId });
+  const { productDetail } = useFetchDetail({ productId });
   return (
     <DetailCardWrap>
       <DetailImage name={productDetail.name} imgSrc={productDetail.images[0]} />

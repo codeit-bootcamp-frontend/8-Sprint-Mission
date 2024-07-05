@@ -16,7 +16,7 @@ const INITIAL_PRODUCT_DETAIL = {
   isFavorite: false,
 };
 
-const useFetch = ({ productId }: ProductDetailParams) => {
+const useFetchDetail = ({ productId }: ProductDetailParams) => {
   // const [isLoading, setIsLoading] = useState();
   const [errorMessage, setErrorMessage] = useState<Error>();
   const [productDetail, setProductDetail] = useState<ProductDetailData>(
@@ -41,4 +41,4 @@ const useFetch = ({ productId }: ProductDetailParams) => {
   return { productDetail };
 };
 
-export default useFetch;
+export default useFetchDetail;
