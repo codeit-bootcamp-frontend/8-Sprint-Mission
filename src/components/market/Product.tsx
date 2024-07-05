@@ -12,7 +12,7 @@ function Product({
   favoriteCount,
 }: Pick<IProduct, 'id' | 'name' | 'price' | 'images' | 'favoriteCount'>) {
   return (
-    <Link to={`${id}`}>
+    <StyledProductContainer to={`${id}`}>
       {images.map(image => (
         <Image
           key={image}
@@ -32,11 +32,17 @@ function Product({
           {favoriteCount}
         </small>
       </StyledProductInfoWrapper>
-    </Link>
+    </StyledProductContainer>
   );
 }
 
 export default Product;
+
+const StyledProductContainer = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const StyledProductInfoWrapper = styled.div`
   display: flex;

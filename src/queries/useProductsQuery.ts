@@ -33,7 +33,7 @@ const useProductsQuery = ({
   size = INITIAL_PAGE_SIZE,
   keyword = '',
 }: useProductsQueryFetcherProps) => {
-  const [serchParams] = useSearchParams();
+  const [serchParams] = useSearchParams(); // 현재 페이지 번호
   const currentPage = serchParams.get('page');
 
   return useSuspenseQuery({
