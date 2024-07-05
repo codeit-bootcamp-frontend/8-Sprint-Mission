@@ -1,12 +1,16 @@
 import React from "react";
-import ProductDetail from "./DetailCard";
+import DetailCard from "./DetailCard";
+import Inquiry from "./Inquiry";
+import Comment from "./Comments";
 
-function ProdcutDetail() {
+function ProductDetail() {
   return (
     <div>
-      <ProductDetail />
+      <DetailCard />
+      <Inquiry />
+      <Comment />
     </div>
   );
 }
 
-export default ProdcutDetail;
+export default ProductDetail;

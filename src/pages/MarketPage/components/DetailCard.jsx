@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { ItemContext } from "../../../context/ItemContext";
 import { ReactComponent as HeartIcon } from "../../../images/icons/ic_heart.svg";
 import { ReactComponent as SeeMoreIcon } from "../../../images/icons/ic_seemore.svg";
-function ProductDetail() {
+function DetailCard() {
   const { id } = useParams();
   const itemList = useContext(ItemContext);
   const item = itemList.find((item) => item.id === parseInt(id));
@@ -26,4 +26,4 @@ function ProductDetail() {
   );
 }
 
-export default ProductDetail;
+export default DetailCard;
