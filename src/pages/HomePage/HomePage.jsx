@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "@pages/HomePage/HomePage.scss";
 import "@styles/global.scss";
+import Button from "@components/UI/jsx/Button";
 
 import homeImg1 from "@assets/HomePage/Img_home_01.png";
 import homeImg2 from "@assets/HomePage/Img_home_02.png";
@@ -16,9 +17,7 @@ function HomePage() {
           <h1 className="homePage__title--h1">
             일상의 모든 물건을 거래해 보세요
           </h1>
-          <Link to="/items" className="globalBtn globalBtn--large">
-            구경하러 가기
-          </Link>
+          <Button to="/items" size="large" innerText="구경하러 가기" />
         </div>
       </section>
       {/* Main-Content */}

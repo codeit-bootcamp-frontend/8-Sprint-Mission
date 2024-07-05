@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "@pages/AddItemPage/AddItemPage.scss";
 import Input from "@components/UI/jsx/Input";
 import TextArea from "@components/UI/jsx/TextArea";
+import Button from "@components/UI/jsx/Button";
 
 /** 상품 등록 페이지
  *
@@ -98,14 +99,13 @@ function AddItemPage() {
         <form className="addItemPage__wrapper">
           <div className="addItemPage__header">
             <h1 className="addItemPage__sectionTitle">상품 등록하기</h1>
-            <button
-              className="globalBtn globalBtn--small"
+            <Button
+              innerText="등록"
+              size="small"
               type="submit"
               disabled={!isFormComplete}
               onClick={handleSubmit}
-            >
-              등록
-            </button>
+            />
           </div>
 
           <div className="addItemPage__inputContainer">

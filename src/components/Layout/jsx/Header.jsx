@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import "@components/Layout/scss/Header.scss";
+import Button from "@components/UI/jsx/Button";
 
 import logo from "@assets/common/logo.svg";
 import logoMobile from "@assets/common/logo-mobile.svg";
@@ -45,9 +46,7 @@ function Header() {
               중고마켓
             </NavLink>
           </div>
-          <Link to="/login" className="globalBtn globalBtn--small">
-            로그인
-          </Link>
+          <Button to="/login" size="small" height="48" innerText="로그인" />
         </nav>
       </header>
     </>

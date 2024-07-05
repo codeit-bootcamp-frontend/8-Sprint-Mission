@@ -1,0 +1,74 @@
+/* Buttons */
+.globalBtn {
+  display: inline-block;
+  background-color: var(--brand-blue);
+  color: var(--white);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  border: 0;
+
+  &:hover {
+    background-color: var(--brand-blue-hover);
+  }
+
+  &:active {
+    background-color: var(--brand-blue-active);
+  }
+
+  &:disabled {
+    background-color: var(--disabled);
+  }
+
+  &--small42 {
+    min-width: 88px;
+    width: max-content; // 글자에 따라 너비 변경
+    height: 42px;
+    border-radius: 8px;
+    padding: 8px 20px;
+    line-height: 24px;
+    font-size: 1.6rem;
+  }
+
+  &--small48 {
+    min-width: 88px;
+    width: max-content; // 글자에 따라 너비 변경
+    height: 48px;
+    border-radius: 8px;
+    padding: 12px 20px;
+    line-height: 24px;
+    font-size: 1.6rem;
+  }
+
+  &--small48w {
+    min-width: 88px;
+    width: max-content; // 글자에 따라 너비 변경
+    height: 48px;
+    border-radius: 8px;
+    padding: 12px 20px;
+    line-height: 24px;
+    font-size: 1.6rem;
+
+    color: var(--brand-blue);
+    background-color: var(--white);
+  }
+
+  &--medium {
+    min-width: 240px;
+    width: max-content; // 글자에 따라 너비 변경
+    height: 56px;
+    padding: 12px 71px;
+    border-radius: 40px;
+  }
+
+  &--large {
+    min-width: 355px;
+    width: max-content; // 글자에 따라 너비 변경
+    height: 56px;
+    border-radius: 40px;
+    padding: 16px 114px;
+    line-height: 24px;
+    font-size: 2rem;
+  }
+}

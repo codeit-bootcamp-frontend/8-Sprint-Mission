@@ -8,6 +8,7 @@ import ItemCard from "@pages/ItemsPage/components/ItemCard";
 import { getProducts as getAllItems } from "@js/itemApi";
 import SearchBar from "@components/UI/jsx/SearchBar";
 import DropDownList from "@components/UI/jsx/DropDownList";
+import Button from "@components/UI/jsx/Button";
 
 const ORDER_BY_RECENT = "recent";
 const ORDER_BY_FAVORITE = "favorite";
@@ -48,7 +49,7 @@ function AllItemsSection() {
     setOrderBy(sortOption);
   };
 
-  const ORDER_BY_ITEMS = [
+  const orderByItems = [
     {
       name: "최신순",
       value: ORDER_BY_RECENT,
@@ -85,16 +86,23 @@ function AllItemsSection() {
           <h2 className="allItemsSection__title">판매중인 상품</h2>
         </div>
         <SearchBar className="allItemsSection__searchBar" />
-        <Link
+        <Button
+          to="/additem"
+          size="small"
+          height="48"
+          innerText="상품 등록하기"
+        />
+
+        {/* <Link
           to="/additem"
           className="allItemsSection__btn globalBtn globalBtn--small"
           type="button"
         >
           상품 등록하기
-        </Link>
+        </Link> */}
         <DropDownList
           className="allItemsSection__dropDownList"
-          dropDownItems={ORDER_BY_ITEMS}
+          dropDownItems={orderByItems}
           currentItem={orderBy}
           onSelection={handleSortSelection}
         />
