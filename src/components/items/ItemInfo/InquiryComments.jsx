@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { getProductComments } from "../../../core/api";
 import { INITIAL_COMMENTS } from "../../../constants";
+import useFetch from "../../../lib/hooks/useFetch";
 
 function InquiryComments({ productId, limit }) {
-  const [comments, setComments] = useState([INITIAL_COMMENTS]);
+  const { data: commentsData } = useFetch(
+    getProductComments,
+    { productId, limit },
+    { list: [INITIAL_COMMENTS] }
+  );
   const navigate = useNavigate();
 
-  //get comments data
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const data = await getProductComments({ productId, limit });
-        setComments(data.list);
-      } catch (error) {
-        console.error("fetchComments 실패:", error);
-      }
-    };
-
-    fetchComments();
-  }, [productId, limit]);
+  const comments = commentsData.list;
 
   function countTime(comment) {
     const now = new Date();

@@ -4,6 +4,7 @@ import ItemContainer from "./ItemContainer";
 import DropDownList from "./DropDownList";
 import PageNation from "./PageNation";
 import { getProducts } from "../../core/api";
+import useFetch from "../../lib/hooks/useFetch";
 
 // count items according to pageSize
 const countPageItems = () => {
@@ -17,46 +18,36 @@ const countPageItems = () => {
 };
 
 function AllItemsContainer() {
-  const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
   const [selectedCategory, setSelectedCategory] = useState("최신순");
+  const [pageSize, setPageSize] = useState(countPageItems());
 
-  // get data
-  const fetchItemData = async ({ page, pageSize, orderBy }) => {
-    try {
-      const { list, totalCount } = await getProducts({
-        page,
-        pageSize,
-        orderBy,
-      });
-      setItems(list);
-      setTotalPages(Math.ceil(totalCount / pageSize));
-    } catch (error) {
-      console.error("데이터 가져오기 실패:", error);
-      setItems([]);
+  const handleResize = () => {
+    const newPageSize = countPageItems();
+    if (newPageSize !== pageSize) {
+      setPageSize(newPageSize);
     }
   };
 
-  const handlePageSize = () => {
-    setPageSize(countPageItems());
-  };
-
-  //change orderBy according to selectedCategory
-  useEffect(() => {
-    window.addEventListener("resize", handlePageSize);
-
-    fetchItemData({
+  const { data: { list = [], totalCount = 0 } = {} } = useFetch(
+    getProducts,
+    {
       page,
       pageSize,
       orderBy: selectedCategory === "최신순" ? "recent" : "favorite",
-    });
+    },
+    { list: [], totalCount: 0 }
+  );
+
+  const totalPages = Math.ceil(totalCount / pageSize);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handlePageSize);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [page, pageSize, selectedCategory]);
+  }, [pageSize]);
 
   return (
     <>
@@ -74,7 +65,7 @@ function AllItemsContainer() {
           />
         </div>
         <div className="all-items-list">
-          {items.map((item) => (
+          {list.map((item) => (
             <ItemContainer key={item.id} item={item} />
           ))}
         </div>

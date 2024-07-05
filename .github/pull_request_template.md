@@ -30,20 +30,26 @@
 
 design
 
-- 타블렛, 모바일 사이즈 미디어 쿼리 적용
-- 피그마 시안과 다른 디자인 부분(폰트 미적용, pageNavBar 레이아웃) 수정
+- Items 페이지, 아이템 요소의 기본 이미지 추가
+- ItemInfo 페이지, 피그마 시안의 디자인 적용
 
-fix
+refactor
 
-- 특정 페이지를 렌더링하지 않는 오류 개선
+- AddItemDetails 컴포넌트에 htmlFor 속성 추가
+- AddItemTags 컴포넌트에서 tag 배열 렌더링 index 값 -> id 값 변경
+- ItemDetails, ItemTags 컴포넌트 분리
 
 rename
 
-- 폴더 구조 및 컴포넌트 재정리
+- 미디어쿼리 디자인 각 페이지의 CSS 파일로 이동, mediaquery.css 파일 삭제
+- constatns.jsx
+- 네이밍 App.jsx -> Router.jsx
+- 네이밍 ItemDetials, ItemTags -> AddItemDetails, ...
 
-factor
+feat
 
-- AddItem 페이지 요구사항 기능 구현
+- ItemInfo 페이지, 기본 요구사항 구현
+- Items 페이지, 페이지네이션 기능 추가
 
 ## 스크린샷
 
@@ -51,4 +57,4 @@ factor
 
 ## 멘토에게
 
--
+- tailwind CSS와 커스텀 훅은 다음 미션에 꼭 적용해보겠습니다!

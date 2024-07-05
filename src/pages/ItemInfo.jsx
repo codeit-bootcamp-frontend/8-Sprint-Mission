@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
+import useFetch from "../lib/hooks/useFetch";
 import { getProductId } from "../core/api";
 import { INITIAL_PRODUCTID, defaultImageUrl } from "../constants";
 import InquiryInput from "../components/Items/ItemInfo/InquiryInput";
@@ -7,21 +8,13 @@ import "./ItemInfo.css";
 
 function ItemInfo() {
   const { productId } = useParams();
-  const [productData, setProductData] = useState(INITIAL_PRODUCTID);
-
-  //get productId data
-  useEffect(() => {
-    const fetchProductId = async () => {
-      try {
-        const data = await getProductId({ productId });
-        setProductData(data);
-      } catch (error) {
-        console.error("fetchProductId 실패:", error);
-      }
-    };
-
-    fetchProductId();
-  }, [productId]);
+  const { data: productData = INITIAL_PRODUCTID } = useFetch(
+    getProductId,
+    {
+      productId,
+    },
+    INITIAL_PRODUCTID
+  );
 
   return (
     <>
