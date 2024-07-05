@@ -13,11 +13,11 @@ const SalesProductCardList = ({ salesProducts }: SalesProductCardListProps) => {
       {salesProducts.length > 0 ? (
         salesProducts.map((product) => {
           return (
-            <Link to={`/items/${product.id}`}>
-              <li key={product.id} className="sales-product">
+            <li key={product.id} className="sales-product">
+              <Link to={`/items/${product.id}`}>
                 <SalesProductCard product={product} />
-              </li>
-            </Link>
+              </Link>
+            </li>
           );
         })
       ) : (

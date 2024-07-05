@@ -13,11 +13,11 @@ const BestProductCardList = ({ bestProducts }: BestProductCardListProps) => {
       {bestProducts.length > 0 ? (
         bestProducts.map((product) => {
           return (
-            <Link to={`/items/${product.id}`}>
-              <li key={product.id} className="best-product">
+            <li key={product.id} className="best-product">
+              <Link to={`/items/${product.id}`}>
                 <BestProductCard product={product} />
-              </li>
-            </Link>
+              </Link>
+            </li>
           );
         })
       ) : (
