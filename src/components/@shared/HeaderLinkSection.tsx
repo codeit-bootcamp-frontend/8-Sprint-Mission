@@ -29,7 +29,7 @@ function HeaderLinkSection() {
           <StyledLink to={PATH_BOARDS} $isPageMatch={PATH_BOARDS === pathname}>
             자유게시판
           </StyledLink>
-          <StyledLink to={PATH_ITEMS} $isPageMatch={[PATH_ITEMS, PATH_ADD_ITEM].includes(pathname)}>
+          <StyledLink to={`${PATH_ITEMS}?page=1`} $isPageMatch={[PATH_ITEMS, PATH_ADD_ITEM].includes(pathname)}>
             중고마켓
           </StyledLink>
         </section>

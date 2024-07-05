@@ -13,7 +13,11 @@ function BrandTop() {
     <BrandContainer>
       <StyledBrandTop className={'top'}>
         <h1>{'일상의 모든 물건을\n거래해 보세요'}</h1>
-        <Button width={'35.7rem'} height={'5.6rem'} $category={'large'} onClick={() => navigateTo(PATH_ITEMS)}>
+        <Button
+          width={'35.7rem'}
+          height={'5.6rem'}
+          $category={'large'}
+          onClick={() => navigateTo(`${PATH_ITEMS}?page=1`)}>
           구경하러 가기
         </Button>
       </StyledBrandTop>
