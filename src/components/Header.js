@@ -24,8 +24,8 @@ function Header() {
                   <Link
                     to="/Items"
                     className={
-                      location.pathname === "/Items" ||
-                      location.pathname === "/AddItem"
+                      location.pathname.startsWith("/Items") ||
+                      location.pathname.startsWith("/AddItem")
                         ? "on"
                         : ""
                     }

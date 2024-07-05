@@ -9,6 +9,7 @@ import "../css/reset.css";
 import "../css/style.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NotFoundPage from "./NotFoundPage";
+import ProductDetail from "./ProductDetail";
 
 function App() {
   return (
@@ -20,7 +21,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />
-            <Route path="/Items" element={<Items />} />
+            <Route path="/Items">
+              <Route index element={<Items />} />
+              <Route path=":productId" element={<ProductDetail />} />
+            </Route>
             <Route path="/AddItem" element={<AddItem />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

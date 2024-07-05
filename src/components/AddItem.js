@@ -36,25 +36,29 @@ function AddItem() {
     setInputFileUrl(null);
   };
 
-  const validAddItem = () => {
+  const validAddItemVal = () => {
     // 유효성 검사
     if (
-      formData.name !== "" &&
-      formData.info !== "" &&
-      formData.price !== "" &&
-      formData.tag !== ""
+      formData.name.trim() !== "" &&
+      formData.info.trim() !== "" &&
+      formData.price.trim() !== "" &&
+      formData.tag.trim() !== ""
     ) {
+      return true;
+    }
+
+    return false;
+  };
+
+  useEffect(() => {
+    // input 데이터 변경 될때마다 유효성 검사 실행
+    if (validAddItemVal()) {
       setAddItemBtn("on");
       setBtnDisabled(false);
     } else {
       setAddItemBtn("");
       setBtnDisabled(true);
     }
-  };
-
-  useEffect(() => {
-    // input 데이터 변경 될때마다 유효성 검사 실행
-    validAddItem();
   }, [formData]);
 
   return (
