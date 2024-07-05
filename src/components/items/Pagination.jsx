@@ -1,6 +1,6 @@
 import React from "react";
 
-function PageNation({ currentPage, onPageChange, totalPages }) {
+function Pagination({ currentPage, onPageChange, totalPages }) {
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       onPageChange(page);
@@ -48,4 +48,4 @@ function PageNation({ currentPage, onPageChange, totalPages }) {
   );
 }
 
-export default PageNation;
+export default Pagination;

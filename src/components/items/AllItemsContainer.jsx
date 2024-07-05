@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ItemContainer from "./ItemContainer";
 import DropDownList from "./DropDownList";
-import PageNation from "./PageNation";
+import Pagination from "./Pagination";
 import { getProducts } from "../../core/api";
 import useFetch from "../../lib/hooks/useFetch";
 import countPageItems from "../../lib/utils/countPageItems";
@@ -59,7 +59,7 @@ function AllItemsContainer() {
           ))}
         </div>
       </section>
-      <PageNation
+      <Pagination
         currentPage={page}
         totalPages={totalPages}
         onPageChange={setPage}
