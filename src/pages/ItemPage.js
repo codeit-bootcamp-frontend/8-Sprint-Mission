@@ -6,6 +6,7 @@ import useAsync from "../hooks/useAsync";
 import { useCallback, useEffect, useState } from "react";
 import { Container } from "../components/styles";
 import ItemComments from "../components/ItemComments";
+import LoadingErrorHandler from "../components/LoadingErrorHandler";
 
 const INITIAL_ITEM_VALUE = {
     "id": 0,
@@ -40,7 +41,10 @@ function ItemPage() {
         <>
             <Header />
             <Container>
-                <ItemInfo item={item} />
+                {(isLoading || error)
+                    ?<LoadingErrorHandler isLoading={isLoading} error={error} />
+                    :<ItemInfo item={item} />
+                }
                 <ItemComments itemId={itemId} />
             </Container>
         </>

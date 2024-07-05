@@ -129,6 +129,7 @@
         font-size: 1rem;
         font-weight: 400;
         color: var(--gray400);
+        margin-bottom: 2.5rem;
     }
 
     .goBackButtonContainer {

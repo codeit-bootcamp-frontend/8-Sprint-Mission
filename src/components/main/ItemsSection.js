@@ -7,7 +7,7 @@ import { ReactComponent as SearchMark } from '../../assets/ic_search.svg';
 import { ReactComponent as SortIcon } from '../../assets/ic_sort.svg';
 import { Link } from "react-router-dom";
 import useAsync from "../../hooks/useAsync";
-import LoadingImage from "../LoadingImage";
+import LoadingErrorHandler from "../LoadingErrorHandler";
 
 const ORDER_KOR = {
     "recent": "최신순",
@@ -167,10 +167,12 @@ function ItemsSection({ getPageSize }) {
         <section className="items-section">
             {(pageSize === 4)
                 ? <ItemsSectionHeaderMobile orderSetter={orderClickHandler} keywordSetter={searchHandler} />
-                : <ItemsSectionHeader orderBy={orderBy} orderSetter={orderClickHandler} keywordSetter={searchHandler} />}
-            {isLoading && <LoadingImage />}
-            {error?.message && <span>{error.message}</span>}
-            <ItemsSectionList items={items}/>
+                : <ItemsSectionHeader orderBy={orderBy} orderSetter={orderClickHandler} keywordSetter={searchHandler} />
+            }
+            {(isLoading || error)
+                ? <LoadingErrorHandler isLoading={isLoading} error={error} />
+                : <ItemsSectionList items={items}/>
+            }
             <Pages page={page} pageSize={pageSize} total={total} pageSetter={pageClickHandler} />
         </section>
     )

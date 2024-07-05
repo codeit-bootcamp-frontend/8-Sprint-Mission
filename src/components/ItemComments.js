@@ -5,6 +5,9 @@ import { getComments } from "../api/api";
 import { ReactComponent as GoBackIcon } from '../assets/ic_back.svg';
 import emptyCommentPanda from "../assets/Img_inquiry_empty.png"
 import { useNavigate } from "react-router-dom";
+import LoadingErrorHandler from "./LoadingErrorHandler";
+
+const COMMENTS_LIMIT = 5;
 
 function CommentSubmitForm() {
 
@@ -79,8 +82,6 @@ function CommentsList({ itemId }) {
     const [cursor, setCursor] = useState(null);
     const [isLoading, error, getCommentsAsync] = useAsync(getComments);
     const navigate = useNavigate();
-
-    const commentsLimit = 5;
     
     const handleLoad = useCallback (async (query) => {
         const result = await getCommentsAsync(query);
@@ -90,7 +91,7 @@ function CommentsList({ itemId }) {
     }, [getCommentsAsync]);
 
     const handleLoadMore = async () => {
-        handleLoad({ productId: itemId, limit: commentsLimit, cursor: cursor });
+        handleLoad({ productId: itemId, limit: COMMENTS_LIMIT, cursor: cursor });
     }
 
     const handleGoBack = (e) => {
@@ -99,13 +100,17 @@ function CommentsList({ itemId }) {
     }
 
     useEffect(() => {
-        handleLoad({ productId: itemId, limit: commentsLimit, cursor: 0 });
+        handleLoad({ productId: itemId, limit: COMMENTS_LIMIT, cursor: 0 });
     }, [handleLoad, itemId]);
     
     return (
         <>
-            {comments.length ? <Comments comments={comments} /> : <EmptyCommentImage />}
-            {cursor &&
+            {!comments.length || <Comments comments={comments} />}
+            {comments.length ||
+                (isLoading || error)
+                ? <LoadingErrorHandler isLoading={isLoading} error={error} />
+                : <EmptyCommentImage />}
+            {(cursor && !isLoading) &&
                 <div className={styles.loadMoreContainer}>
                     <button className={styles.loadMoreButton} onClick={handleLoadMore}>더보기</button>
                 </div>
