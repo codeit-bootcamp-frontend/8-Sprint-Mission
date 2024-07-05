@@ -70,7 +70,7 @@ export const fetchGetProductDetail = async ({
   return body;
 };
 
-interface ProductDetailCommentParams extends ProductDetailParams {
+export interface ProductDetailCommentParams extends ProductDetailParams {
   limit: number;
   cursor: number | null;
 }
