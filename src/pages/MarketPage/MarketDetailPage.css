@@ -1,0 +1,89 @@
+.MarketDetailItem {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.MarketDetailItem-img {
+  width: 486px;
+  height: 486px;
+  border-radius: 16px;
+}
+
+.MarketMarketDetailContent {
+  margin-bottom: 124px;
+}
+
+.p {
+  color: #1f2937;
+}
+
+.itemName {
+  font-size: 24px;
+}
+
+.itemPrice {
+  font-size: 40px;
+  padding-top: 16px;
+}
+
+.line {
+  border: 1px solid #e5e7eb;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.itemIntroduce {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.itemDescription {
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+.itemTagName {
+  font-size: 14px;
+  color: #4b5563;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.itemTag {
+  padding: 6px 16px 6px 16px;
+  border-radius: 26px;
+  background: #f3f4f6;
+}
+
+.like {
+  padding: 4px 12px 4px 12px;
+  gap: 10px;
+  border-radius: 35px;
+  border: 1px;
+
+  border: 1px solid #e5e7eb;
+}
+
+.heart-icon {
+  width: 26.8px;
+  height: 23.3px;
+  top: 4px;
+  left: 2.67px;
+  gap: 0px;
+  border: 1.8px 0px 0px 0px;
+  opacity: 0px;
+
+  /* Icon */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  left: 8.33%;
+  right: 7.92%;
+  top: 12.5%;
+  bottom: 14.69%;
+
+  /* Cool Gray/500 */
+  border: 1.8px solid #6b7280;
+}
