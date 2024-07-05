@@ -1,12 +1,6 @@
 import { validType } from 'hooks/useValidForm';
 import styled, { css } from 'styled-components';
 
-export const StyledAuthForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-`;
-
 export const inputStyle = css`
   width: 100%;
   height: 5.6rem;
@@ -20,6 +14,12 @@ export const placeholderStyle = css`
   font-weight: 400;
   line-height: 2.4rem;
   color: var(--cool-gray-400);
+`;
+
+export const StyledAuthForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 `;
 
 export const StyledInputSection = styled.section<{ $isValid: validType | undefined }>`

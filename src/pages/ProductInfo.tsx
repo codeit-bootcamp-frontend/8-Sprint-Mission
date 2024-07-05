@@ -1,13 +1,19 @@
 import ProductDetail from 'components/productInfo/ProductDetail';
 import { Suspense } from 'react';
+import styled from 'styled-components';
+import { commonContainerStyle } from 'styles/@shared/shared';
 
 function ProductInfo() {
   return (
-    <div>
+    <StyledProductInfoContainer>
       <Suspense fallback={<div>Loading...</div>}>
         <ProductDetail />
       </Suspense>
-    </div>
+    </StyledProductInfoContainer>
   );
 }
 export default ProductInfo;
+
+const StyledProductInfoContainer = styled.main`
+  ${commonContainerStyle};
+`;

@@ -13,22 +13,20 @@ function Product({
 }: Pick<IProduct, 'id' | 'name' | 'price' | 'images' | 'favoriteCount'>) {
   return (
     <Link to={`${id}`}>
-      <div className={'product-image-wrapper'}>
-        {images.map(image => (
-          <Image
-            key={image}
-            src={image}
-            alt={'상품 이미지'}
-            height={'auto'}
-            width={'100%'}
-            radius={'1.6rem'}
-            aspectRatio={'1'}
-          />
-        ))}
-      </div>
+      {images.map(image => (
+        <Image
+          key={image}
+          src={image}
+          alt={'상품 이미지'}
+          height={'auto'}
+          width={'100%'}
+          radius={'1.6rem'}
+          aspectRatio={'1'}
+        />
+      ))}
       <StyledProductInfoWrapper>
         <h4>{name}</h4>
-        <h5>{price}원</h5>
+        <h5>{price.toLocaleString()}원</h5>
         <small>
           <Image className={'like-icon'} src={likeIcon} alt={'좋아요 아이콘'} height={'1.165rem'} width={'1.34rem'} />
           {favoriteCount}

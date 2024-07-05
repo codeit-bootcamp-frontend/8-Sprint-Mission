@@ -1,4 +1,5 @@
 import { BRAND_FEATURE_ITEM_LIST } from ' constants/infomations/brandFeatureList';
+import { commonContainerStyle } from 'styles/@shared/shared';
 import FeatItem from './FeatItem';
 import styled from 'styled-components';
 
@@ -22,8 +23,7 @@ function FeatList() {
 export default FeatList;
 
 const StyledFeatList = styled.main`
-  max-width: 120rem;
-  margin: 0 auto;
+  ${commonContainerStyle};
 
   & figure:nth-of-type(2) {
     text-align: right;
