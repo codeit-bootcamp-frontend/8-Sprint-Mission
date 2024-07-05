@@ -1,5 +1,5 @@
 import CardSales from "./CardSales";
-import DefaultImg from "../../core/assets/images/img_default.png";
+import DefaultImg from "../../core/assets/images/product/img_default.png";
 import { ProductItem } from "core/Interface/Product";
 
 interface SalesProductCardProps {
