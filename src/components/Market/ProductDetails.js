@@ -9,12 +9,17 @@ const DetailsContainer = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 690px;
-  gap: 24px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "img text"
+    ". text";
+  column-gap: 24px;
+  row-gap: 0px;
 
   @media screen and (max-width: 1199px) {
     width: auto;
     margin: 24px;
-    gap: 16px;
+    column-gap: 16px;
     grid-template-columns: 1fr 340px;
   }
 
@@ -22,6 +27,11 @@ const DetailsContainer = styled.div`
     margin: 16px 16px 24px;
     flex-direction: column;
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "img"
+      "text";
+    row-gap: 16px;
   }
 `;
 
@@ -32,6 +42,7 @@ const ProductImg = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 16px;
+  grid-area: img;
 
   @media screen and (max-width: 1199px) {
     width: auto;
@@ -41,6 +52,7 @@ const ProductImg = styled.div`
 
 const DetailsTextContainer = styled.div`
   position: relative;
+  grid-area: text;
 `;
 
 const DetailsMainContainer = styled.div`
@@ -95,6 +107,11 @@ const KebabMenuBtn = styled.img`
 
 const DetailsSubContainer = styled.div`
   padding-top: 16px;
+  padding-bottom: 64px;
+
+  @media screen and (max-width: 767px) {
+    padding-bottom: 56px;
+  }
 `;
 
 const SubDetailTitle = styled.div`
@@ -117,7 +134,6 @@ const ProductTagsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom; 24px;
 `;
 
 const ProductTag = styled.div`
@@ -162,10 +178,6 @@ const LikeCount = styled.div`
   line-height: 19px;
   margin: auto;
 `;
-
-// 해야하는것
-// 좋아요 왼쪽 아래 하단으로 고정 + 탑 마진 24px (이미 태그 밑에 24px있음)
-// 상품소개 길어져도 밑으로 늘어나게 하기
 
 function ProductDetails({ details }) {
   const { name, description, price, tags, favoriteCount, isFavorite, images } =
