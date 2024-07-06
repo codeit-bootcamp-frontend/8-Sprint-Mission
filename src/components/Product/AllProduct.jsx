@@ -33,13 +33,11 @@ export default function AllProduct() {
   const [maxPage, setMaxPage] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [isSortOpen, setIsSortOpen] = useState(false);
-  // const [size, setSize] = useState(getResponseProducts());
   const [options, setOptions] = useState({
     size: getResponseProducts(),
     keyword: '',
     order: 'recent',
   });
-  console.log(options.order);
 
   const showSortOptionHandler = () => {
     setIsSortOpen(prev => !prev);
@@ -89,7 +87,6 @@ export default function AllProduct() {
         ...prevOption,
         size: getResponseProducts(),
       }));
-      // setSize(getResponseProducts());
     };
     window.addEventListener('resize', handleResize);
     handleResize();
@@ -146,7 +143,6 @@ export default function AllProduct() {
         maxPage={maxPage}
         currentPage={currentPage}
         pageHandler={pageHandler}
-        // loadProducts={loadProducts}
       />
     </Section>
   );
