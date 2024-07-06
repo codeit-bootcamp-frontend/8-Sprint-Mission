@@ -10,8 +10,18 @@ import ProductDetailComments from "../../components/Market/ProductDetailComments
 import ReturnToListBtn from "../../components/Market/ReturnToListBtn";
 import StyledLink from "../../components/@shared/StyledLink";
 
+const INITIAL_DETIAILS = {
+  name: "",
+  description: "",
+  price: 0,
+  tags: [],
+  favoriteCount: 0,
+  isFavorite: false,
+  images: "",
+};
+
 function ItemDetailPage() {
-  const [details, setDetails] = useState(null);
+  const [details, setDetails] = useState(INITIAL_DETIAILS);
   const [comments, setComments] = useState([]);
   const [commentsCursor, setCommentsCursor] = useState(null);
   const params = useParams();
@@ -21,9 +31,24 @@ function ItemDetailPage() {
    * @param {string} productId - 상품 ID
    */
   const handleProductDetailLoad = async ({ productId }) => {
-    const { name, description, price, tags, favoriteCount, isFavorite } =
-      await getProductDetail({ productId });
-    setDetails({ name, description, price, tags, favoriteCount, isFavorite });
+    const {
+      name,
+      description,
+      price,
+      tags,
+      favoriteCount,
+      isFavorite,
+      images,
+    } = await getProductDetail({ productId });
+    setDetails({
+      name,
+      description,
+      price,
+      tags,
+      favoriteCount,
+      isFavorite,
+      images,
+    });
   };
 
   /**

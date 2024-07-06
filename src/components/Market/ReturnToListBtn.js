@@ -11,7 +11,7 @@ const ListLinkBtn = styled(BlueButton)`
   font-size: 18px;
   width: 240px;
   height: 48px;
-  margin: 0 auto;
+  margin: 0 auto 60px;
 `;
 
 const ReturnImg = styled.img`
