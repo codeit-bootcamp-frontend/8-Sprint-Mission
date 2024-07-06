@@ -5,6 +5,7 @@ import { getProducts } from '../../../pages/api/Items';
 import Item from '../Item/Item';
 import PaginationBar from '../PaginationBar/PaginationBar';
 import './SellingItems.css';
+import { useNavigate } from 'react-router-dom';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -31,6 +32,7 @@ function SellingItems() {
   const [totalPageNum, setTotalPageNum] = useState();
   // 에러
   const [fetchingError, setfetchingError] = useState(null);
+  const navigate = useNavigate();
 
   const handlePageChange = (pageNumber) => {
     setPage(pageNumber);
@@ -47,6 +49,12 @@ function SellingItems() {
       event.preventDefault();
       setKeyword(event.target.value);
     }
+  };
+
+  const handleClickItem = (e) => {
+    e.preventDefault();
+
+    navigate(`/items/${e.currentTarget.dataset.itemId}`);
   };
 
   const fetchItemList = async ({ order, page, pageSize, keyword }) => {
@@ -130,7 +138,11 @@ function SellingItems() {
         )}
         <div className="list-selling-items">
           {itemList?.map((item) => (
-            <Item item={item} key={`selling-item-${item.id}`} />
+            <Item
+              item={item}
+              key={`selling-item-${item.id}`}
+              handleClick={handleClickItem}
+            />
           ))}
         </div>
         <div className="wrapper-pagination-bar">

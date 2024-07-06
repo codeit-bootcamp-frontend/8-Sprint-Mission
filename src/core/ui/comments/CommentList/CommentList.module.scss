@@ -1,0 +1,32 @@
+@import '../../../../styles/global.scss';
+
+.list {
+  margin: 24px 0 0;
+
+  &__wrapper-item {
+    margin: 0 0 24px;
+  }
+
+  &__item {
+    margin: 0 0 24px;
+  }
+
+  &__item:last-child {
+    margin: 0;
+  }
+
+  &__wrapper-empty {
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__empty-message {
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 24px;
+    color: $gray-400;
+  }
+}

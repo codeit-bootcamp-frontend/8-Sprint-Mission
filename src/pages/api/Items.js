@@ -39,3 +39,46 @@ export async function getProducts({
   const body = await response.json();
   return body;
 }
+
+/**
+ * 상품 상세 조회
+ * @param {number} productId 상품 번호 
+ * @returns json. ex)
+ * {
+  "createdAt": "2024-07-05T04:42:58.556Z",
+  "favoriteCount": 0,
+  "ownerId": 1,
+  "images": [
+    "https://example.com/..."
+  ],
+  "tags": [
+    "전자제품"
+  ],
+  "price": 0,
+  "description": "string",
+  "name": "상품 이름",
+  "id": 1,
+  "isFavorite": true
+}
+ */
+export async function getProductById(productId = 0) {
+  const param = `${productId}`;
+  const response = await fetch(`${BASE_URL}/products/${param}`);
+  const body = await response.json();
+  return body;
+}
+
+export async function getCommentsByProductId(
+  productId = 0,
+  limit = 1,
+  nextCursor
+) {
+  const param = `${productId}`;
+  let query = `?limit=${limit}`;
+  if (nextCursor) query += `&cursor=${nextCursor}`;
+  const response = await fetch(
+    `${BASE_URL}/products/${param}/comments${query}`
+  );
+  const body = await response.json();
+  return body;
+}

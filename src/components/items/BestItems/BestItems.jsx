@@ -2,6 +2,7 @@ import './BestItems.css';
 import { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 import { getProducts } from '../../../pages/api/Items';
+import { useNavigate } from 'react-router-dom';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -24,6 +25,7 @@ function BestItems() {
   const [keyword, setKeyword] = useState('');
   // 에러
   const [fetchingError, setfetchingError] = useState(null);
+  const navigate = useNavigate();
 
   const fetchItemList = async ({ order, page, pageSize, keyword }) => {
     try {
@@ -35,8 +37,15 @@ function BestItems() {
       setfetchingError(err);
     }
   };
+
   const handleResize = () => {
     setPageSize(getPageSize());
+  };
+
+  const handleClickItem = (e) => {
+    e.preventDefault();
+
+    navigate(`/items/${e.currentTarget.dataset.itemId}`);
   };
 
   useEffect(() => {
@@ -56,7 +65,11 @@ function BestItems() {
         <div className="list-best-items">
           {fetchingError && fetchingError.message}
           {itemList?.map((item) => (
-            <Item item={item} key={`best-item-${item.id}`} />
+            <Item
+              item={item}
+              key={`best-item-${item.id}`}
+              handleClick={handleClickItem}
+            />
           ))}
         </div>
       </div>
