@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
-import styles from "./ItemList.module.css";
-import heartIcon from "../../assets/images/heart_Icon.png";
-import errorImage from "../../assets/images/error_image.png";
+import { Link } from 'react-router-dom';
+import styles from './ItemList.module.css';
+import heartIcon from '../../assets/images/heart_Icon.png';
+import defaultImage from '../../assets/images/img_default.png';
 
 export default function ItemList({ id, name, images, price, favoriteCount }) {
-  const itemPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  const onErrorImg = (e) => {
-    e.target.src = errorImage;
+  const itemPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const onErrorImg = e => {
+    e.target.src = defaultImage;
   };
 
   return (
