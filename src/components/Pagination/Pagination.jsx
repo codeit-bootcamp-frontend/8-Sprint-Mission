@@ -9,16 +9,6 @@ export default function Pagination({ maxPage, currentPage, pageHandler }) {
     setPageNum([...pageArray]);
   };
 
-  // useEffect(() => {
-  //   const fetchMaxPage = async () => {
-  //     const caculateMaxPage = await loadProducts();
-  //     console.log(caculateMaxPage);
-  //     displayPagination(caculateMaxPage);
-  //   };
-
-  //   fetchMaxPage();
-  // }, []);
-
   useEffect(() => {
     displayPagination(maxPage);
   }, [maxPage]);
