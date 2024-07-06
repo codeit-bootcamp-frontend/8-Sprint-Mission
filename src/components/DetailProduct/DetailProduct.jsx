@@ -1,8 +1,13 @@
-import heartIcon from "../../assets/images/heart_Icon.png";
-import styles from "./DetailProduct.module.css";
+import heartIcon from '../../assets/images/heart_Icon.png';
+import styles from './DetailProduct.module.css';
+import defaultImage from '../../assets/images/img_default@2x.png';
 
 export default function DetailProduct({ product }) {
-  const productPrice = product.price && product.price.toLocaleString("kr");
+  const productPrice = product.price && product.price.toLocaleString('kr');
+
+  const onErrorImg = e => {
+    e.target.src = defaultImage;
+  };
 
   return (
     <article className={styles.container}>
@@ -10,6 +15,7 @@ export default function DetailProduct({ product }) {
         className={styles.productImg}
         src={product.images && product.images[0]}
         alt={product.name}
+        onError={onErrorImg}
       />
       <div className={styles.productDetails}>
         <div className={styles.productHeader}>
