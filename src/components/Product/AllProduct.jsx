@@ -96,7 +96,7 @@ export default function AllProduct() {
 
   useEffect(() => {
     fetchProducts();
-  }, [currentPage, options]);
+  }, [currentPage, options.order, options.size, options.keyword]);
 
   const pageHandler = page => {
     setCurrentPage(page);
