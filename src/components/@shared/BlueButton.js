@@ -6,7 +6,10 @@ const BlueButton = styled.button`
   color: var(--gray-00);
   text-align: center;
   font-weight: 600;
-  cursor: pointer;
+
+  &:disabled {
+    background-color: var(--cool-gray-400);
+  }
 `;
 
 export default BlueButton;

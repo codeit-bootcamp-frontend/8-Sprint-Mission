@@ -31,6 +31,10 @@ html {
   font-family: Pretendard, sans-serif;
 }
 
+* {
+  font-family: Pretendard, sans-serif;
+}
+
 button,
 input {
   border: none;
