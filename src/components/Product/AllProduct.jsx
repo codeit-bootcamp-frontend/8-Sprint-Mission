@@ -45,7 +45,6 @@ export default function AllProduct() {
 
   const sortHandler = e => {
     const sortType = e.currentTarget.dataset.type;
-    console.log(sortType);
     setOptions(prevOption => ({
       ...prevOption,
       order: sortType,
