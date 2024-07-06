@@ -1,0 +1,76 @@
+.sortContainer {
+  position: relative;
+}
+.sortList {
+  display: flex;
+  align-items: center;
+  width: 130px;
+  padding: 8px 19px;
+  border: 1px solid var(--color-gray200);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.sortList > p {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.sortArrowIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url(../../assets/images/ic_arrow_down.png) no-repeat center center;
+}
+.sortOptions {
+  position: absolute;
+  top: 45px;
+  right: 0;
+}
+.sortOptions > ul {
+  width: 130px;
+  border: 1px solid var(--color-gray200);
+  border-radius: 12px;
+  background: #fff;
+}
+.sortOptions > ul > li {
+  text-align: center;
+  border-bottom: 1px solid var(--color-gray200);
+}
+.sortOptions > ul > li > button {
+  width: 100%;
+  padding: 9px 0;
+  line-height: 24px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.sortOptions > ul > li:last-child {
+  border-bottom: none;
+}
+@media (max-width: 1199px) {
+  .sortList {
+    width: 120px;
+  }
+  .sortOptions > ul {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sortList {
+    width: 42px;
+    height: 42px;
+    padding: 9px;
+  }
+  .sortList > p {
+    display: none;
+  }
+
+  .sortArrowIcon {
+    display: block;
+    background: url(../../assets/images/ic_sort.png) no-repeat center center;
+  }
+  .sortOptions {
+    top: 50px;
+  }
+}

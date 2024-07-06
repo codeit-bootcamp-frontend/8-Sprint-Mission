@@ -1,0 +1,43 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 200px;
+  width: 100%;
+  overflow: hidden;
+}
+.productImage {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.productImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.productInfo {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 1.6rem;
+}
+.productName {
+  font-size: 1.4rem;
+}
+.productPrice {
+  margin-top: 0.6rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.productFavorite {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 0.6rem;
+}
+.favoriteCount {
+  font-size: 1.2rem;
+}
