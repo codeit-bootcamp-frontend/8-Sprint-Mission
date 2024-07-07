@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getProduct, getComments } from "../../api/itemApi";
 import { useParams } from "react-router-dom";
 import "./MarketDetailPage.css";
+import "./MarketDetailComment.css";
 import MarketDetailContent from "./MarketDetailContent";
 import MarketDetailComment from "./MarketDetailComment";
 

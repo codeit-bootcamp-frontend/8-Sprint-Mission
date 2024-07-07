@@ -2,6 +2,7 @@
   display: flex;
   padding: 10px;
   align-items: center;
+  justify-content: center;
 }
 
 .MarketDetailItem-img {
@@ -12,6 +13,7 @@
 
 .MarketMarketDetailContent {
   margin-bottom: 124px;
+  margin-left: 24px;
 }
 
 .p {
@@ -60,9 +62,10 @@
   padding: 4px 12px 4px 12px;
   gap: 10px;
   border-radius: 35px;
-  border: 1px;
 
   border: 1px solid #e5e7eb;
+
+  margin-left: 24px;
 }
 
 .heart-icon {
@@ -70,9 +73,7 @@
   height: 23.3px;
   top: 4px;
   left: 2.67px;
-  gap: 0px;
-  border: 1.8px 0px 0px 0px;
-  opacity: 0px;
+  border: 1.8px;
 
   /* Icon */
 

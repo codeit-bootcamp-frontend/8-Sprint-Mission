@@ -9,7 +9,7 @@ export default function MarketDetailContent({ data }) {
         src={data.images}
         alt={data.title}
       />
-      <div>
+      <div className="MarketDetailContentContainer">
         <div className="MarketMarketDetailContent">
           <p className="itemName">{data.name}</p>
           <p className="itemPrice">{data.price.toLocaleString()}원</p>
