@@ -1,3 +1,7 @@
+.detailpage {
+  margin: 20px 100px;
+}
+
 .product-section {
   display: grid;
   grid-template-areas: "image detail";
@@ -58,4 +62,8 @@
   color: #6b7280;
   flex-grow: 2;
   text-align: center;
+}
+
+.comment-section {
+  border-top: 1px solid #e5e7eb;
 }

@@ -24,3 +24,14 @@ export async function getProductById(productId) {
   const productData = await response.json();
   return productData;
 }
+
+export async function getCommentById(productId) {
+  const response = await fetch(
+    `https://panda-market-api.vercel.app/Products/${productId}/comments?limit=3`
+  );
+  if (!response.ok) {
+    throw new Error("댓글 목록을 불러오는 데 실패했습니다.");
+  }
+  const commentData = await response.json();
+  return commentData;
+}
