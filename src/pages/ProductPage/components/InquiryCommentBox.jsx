@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CommentCard from "./CommentCard";
 import { getComments } from "../../../api/api";
 import styled from "styled-components";
 import inquiryEmptyImg from "../../../images/Img_inquiry_empty.png";
+import useAsync from "../../../hooks/useAsync";
 
 const InquiryCommentForm = styled.form`
   display: flex;
@@ -48,13 +49,10 @@ const InquiryEmptyText = styled.p`
 `;
 
 function InquiryCommentBox({ productId }) {
-  const [comments, setComments] = useState();
+  const [fetchStatus, data] = useAsync(getComments, productId);
+  const { getData: comments } = data;
   const [comment, setComment] = useState();
 
-  const fetchComments = async (id) => {
-    const commentsData = await getComments(id);
-    setComments(commentsData);
-  };
   const handleInputChange = (e) => {
     const commentValue = e.target.value;
     setComment(commentValue);
@@ -62,10 +60,6 @@ function InquiryCommentBox({ productId }) {
   const handleCommentSubmit = (e) => {
     e.preventDefault();
   };
-
-  useEffect(() => {
-    fetchComments(productId);
-  }, [productId]);
 
   return (
     <>
@@ -81,16 +75,17 @@ function InquiryCommentBox({ productId }) {
         </SubmitCommentBtn>
       </InquiryCommentForm>
 
-      {comments?.list.length === 0 ? (
-        <InquiryEmptyBox>
-          <InquiryEmptyImg src={inquiryEmptyImg} />
-          <InquiryEmptyText>아직 문의가 없습니다.</InquiryEmptyText>
-        </InquiryEmptyBox>
-      ) : (
-        comments?.list.map((comment) => (
-          <CommentCard key={comment.id} comment={comment} />
-        ))
-      )}
+      {fetchStatus === "완료" &&
+        (comments.list.length === 0 ? (
+          <InquiryEmptyBox>
+            <InquiryEmptyImg src={inquiryEmptyImg} />
+            <InquiryEmptyText>아직 문의가 없습니다.</InquiryEmptyText>
+          </InquiryEmptyBox>
+        ) : (
+          comments.list.map((comment) => (
+            <CommentCard key={comment.id} comment={comment} />
+          ))
+        ))}
     </>
   );
 }
