@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentById } from "../../api";
 import "./CommentList.css";
+import emptyComment from "../../images/empty_comment_img.png";
 
 function CommentList() {
   const { productId } = useParams();
@@ -25,8 +26,13 @@ function CommentList() {
     return <div>Error: {error}</div>;
   }
 
-  if (!comment) {
-    return <div>Loading...</div>;
+  if (comment.length === 0) {
+    return (
+      <div className="empty-comment">
+        <img src={emptyComment} alt="No comments" />
+        <p>아직 문의가 없습니다.</p>
+      </div>
+    );
   }
 
   function formatRelativeTime(dateString) {
@@ -56,24 +62,24 @@ function CommentList() {
 
   return (
     <div>
-      {error && <p>Error: {error}</p>}
-      <section className="commment-section">
-        <ul>
+      {error && <p className="comment-section__error">Error: {error}</p>}
+      <section className="comment-section">
+        <ul className="comment-section__list">
           {comment.map(({ id, content, updatedAt, writer }) => (
-            <li key={id} className="comment-list-item">
-              <p className="commment-content">{content}</p>
-              <div className="commment-info-container">
+            <li key={id} className="comment-section__list-item">
+              <p className="comment-section__top">{content}</p>
+              <div className="comment-section__bottom">
                 <img
-                  className="commment-writer-img"
+                  className="comment-section__writer-img"
                   src={writer.image}
                   alt="프로필 이미지"
                 />
-
-                <h1 className="commment-writer">{writer.nickname}</h1>
-
-                <p className="commment-updateAt">
-                  {formatRelativeTime(updatedAt)}
-                </p>
+                <div className="comment-section__info">
+                  <h1 className="comment-section__writer">{writer.nickname}</h1>
+                  <p className="comment-section__updatedAt">
+                    {formatRelativeTime(updatedAt)}
+                  </p>
+                </div>
               </div>
             </li>
           ))}
