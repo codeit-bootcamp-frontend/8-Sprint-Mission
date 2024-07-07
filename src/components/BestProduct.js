@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { getProducts } from "../api.js";
 import { useEffect, useState } from "react";
 
@@ -51,21 +52,23 @@ function BestProduct() {
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); // 숫자 3자리 마다 콤마 추가(정규식 사용)
 
               return (
-                <li key={product.id}>
-                  <div className="product-img">
-                    <img src={product.images} alt={product.name} />
-                  </div>
-                  <div>
-                    <p className="product-name">{product.name}</p>
-                    <p className="product-price">{productPrice}원</p>
-                    <div className="product-favoriteCount">
-                      <button type="button">
-                        <img src="/images/i-like.png" alt="하트 아이콘" />
-                      </button>
-                      <span>{product.favoriteCount}</span>
+                <Link key={product.id} to={`/Items/${product.id}`}>
+                  <li>
+                    <div className="product-img">
+                      <img src={product.images} alt={product.name} />
                     </div>
-                  </div>
-                </li>
+                    <div>
+                      <p className="product-name">{product.name}</p>
+                      <p className="product-price">{productPrice}원</p>
+                      <div className="product-favoriteCount">
+                        <button type="button">
+                          <img src="/images/i-like.png" alt="하트 아이콘" />
+                        </button>
+                        <span>{product.favoriteCount}</span>
+                      </div>
+                    </div>
+                  </li>
+                </Link>
               );
             })}
           </ul>

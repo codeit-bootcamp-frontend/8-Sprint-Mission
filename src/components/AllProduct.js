@@ -16,14 +16,14 @@ const responsivePageSize = () => {
   }
 };
 
-const recent = "recent";
-const favorite = "favorite";
+const RECENT = "recent";
+const FAVORITE = "favorite";
 
 function AllProduct() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [order, setOrder] = useState(recent);
+  const [order, setOrder] = useState(RECENT);
   const [dropArrow, setDropArrow] = useState("");
   const [dropDisplay, setDropDisplay] = useState("none");
   const [orderTxt, setOrderTxt] = useState("최신순");
@@ -44,7 +44,7 @@ function AllProduct() {
     setOrderTxt(menuTxt);
     setDropArrow("");
     setDropDisplay("none");
-    setOrder(recent);
+    setOrder(RECENT);
   };
 
   const handleBestOrder = (e) => {
@@ -52,7 +52,7 @@ function AllProduct() {
     setOrderTxt(menuTxt);
     setDropArrow("");
     setDropDisplay("none");
-    setOrder(favorite);
+    setOrder(FAVORITE);
   };
 
   const pageNumClick = (page) => {
@@ -116,22 +116,26 @@ function AllProduct() {
 
               return (
                 <li key={product.id}>
-                  <div className="product-img">
-                    <img
-                      src={imgChk ? product.images : "/images/card01-small.png"} // 이미지 경로에 jpeg가 없으면 기본 이미지 있으면 정상적인 이미지
-                      alt={product.name}
-                    />
-                  </div>
-                  <div>
-                    <p className="product-name">{product.name}</p>
-                    <p className="product-price">{productPrice}원</p>
-                    <div className="product-favoriteCount">
-                      <button type="button">
-                        <img src="/images/i-like.png" alt="하트 아이콘" />
-                      </button>
-                      <span>{product.favoriteCount}</span>
+                  <Link to={`/Items/${product.id}`}>
+                    <div className="product-img">
+                      <img
+                        src={
+                          imgChk ? product.images : "/images/card01-small.png"
+                        } // 이미지 경로에 jpeg가 없으면 기본 이미지 있으면 정상적인 이미지
+                        alt={product.name}
+                      />
                     </div>
-                  </div>
+                    <div>
+                      <p className="product-name">{product.name}</p>
+                      <p className="product-price">{productPrice}원</p>
+                      <div className="product-favoriteCount">
+                        <button type="button">
+                          <img src="/images/i-like.png" alt="하트 아이콘" />
+                        </button>
+                        <span>{product.favoriteCount}</span>
+                      </div>
+                    </div>
+                  </Link>
                 </li>
               );
             })}
