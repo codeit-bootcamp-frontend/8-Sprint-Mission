@@ -1,5 +1,12 @@
-import NavBar from '../../components/NavBar/NavBar.js';
+import NavBar from '../../components/NavBar/NavBar.jsx';
 import '../home/Home.css';
+import HotItemImg from '../../assets/images/mainPage/Img_home_hot_item.png';
+import ItemSearchImg from '../../assets/images/mainPage/Img_home_item_search.png';
+import HomeForSaleImg from '../../assets/images/mainPage/Img_home_for_sale_item.png';
+import FaceBookIc from '../../assets/images/icon/ic_facebook.png';
+import TwitterIc from '../../assets/images/icon/ic_twitter.png';
+import YoutubeIc from '../../assets/images/icon/ic_youtube.png';
+import Instagram from '../../assets/images/icon/ic_instagram.png';
 function Home() {
   return (
     <div className="home-container">
@@ -23,11 +30,7 @@ function Home() {
       <main className="section-container">
         <section>
           <div className="section-box">
-            <img
-              src={require('../../assets/images/mainPage/Img_home_hot_item.png')}
-              alt="인기 상품 기능 소개 이미지"
-              className="section-image"
-            />
+            <img src={HotItemImg} alt="인기 상품 기능 소개 이미지" className="section-image" />
             <div className="contents">
               <div className="content-category">Hot item</div>
               <div className="content-title">
@@ -58,20 +61,12 @@ function Home() {
                 쉽게 찾아보세요
               </div>
             </div>
-            <img
-              src={require('../../assets/images/mainPage/Img_home_item_search.png')}
-              alt="검색 기능 소개 이미지"
-              className="section-image"
-            />
+            <img src={ItemSearchImg} alt="검색 기능 소개 이미지" className="section-image" />
           </div>
         </section>
         <section>
           <div className="section-box">
-            <img
-              src={require('../../assets/images/mainPage/Img_home_for_sale_item.png')}
-              alt="상품 등록 기능 소개 이미지"
-              className="section-image"
-            />
+            <img src={HomeForSaleImg} alt="상품 등록 기능 소개 이미지" className="section-image" />
             <div className="contents">
               <div className="content-category">Register</div>
               <div className="content-title">
@@ -120,38 +115,22 @@ function Home() {
             <ul>
               <li>
                 <a href="/facebook" target="_blank" rel="noopener norefferer">
-                  <img
-                    className="sns-link-mini"
-                    src={require('../../assets/images/icon/ic_facebook.png')}
-                    alt="sns-link-facebook"
-                  />
+                  <img className="sns-link-mini" src={FaceBookIc} alt="sns-link-facebook" />
                 </a>
               </li>
               <li>
                 <a href="/twitter" target="_blank" rel="noopener norefferer">
-                  <img
-                    className="sns-link-mini"
-                    src={require('../../assets/images/icon/ic_twitter.png')}
-                    alt="sns-link-twitter"
-                  />
+                  <img className="sns-link-mini" src={TwitterIc} alt="sns-link-twitter" />
                 </a>
               </li>
               <li>
                 <a href="/youtube" target="_blank" rel="noopener norefferer">
-                  <img
-                    className="sns-link-mini"
-                    src={require('../../assets/images/icon/ic_youtube.png')}
-                    alt="sns-link-youtube"
-                  />
+                  <img className="sns-link-mini" src={YoutubeIc} alt="sns-link-youtube" />
                 </a>
               </li>
               <li>
                 <a href="/instagram" target="_blank" rel="noopener norefferer">
-                  <img
-                    className="sns-link-mini"
-                    src={require('../../assets/images/icon/ic_instagram.png')}
-                    alt="sns-link-instagram"
-                  />
+                  <img className="sns-link-mini" src={Instagram} alt="sns-link-instagram" />
                 </a>
               </li>
             </ul>
