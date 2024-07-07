@@ -20,8 +20,7 @@ export async function getProducts(
   }
 }
 
-export async function getDetailProduct(productId) {
-  // throw new Error("error");
+export async function getDetailProduct({ productId }) {
   try {
     const response = await fetch(`${PRODUCTS_URL}/${productId}`);
     if (!response.ok) {
@@ -35,7 +34,7 @@ export async function getDetailProduct(productId) {
   }
 }
 
-export async function getComments(productId) {
+export async function getComments({ productId }) {
   try {
     const response = await fetch(
       `${PRODUCTS_URL}/${productId}/comments?limit=5`
