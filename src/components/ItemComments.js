@@ -6,6 +6,7 @@ import { ReactComponent as GoBackIcon } from '../assets/ic_back.svg';
 import emptyCommentPanda from "../assets/Img_inquiry_empty.png"
 import { useNavigate } from "react-router-dom";
 import LoadingErrorHandler from "./LoadingErrorHandler";
+import formatComparedTime from "../utils/formatComparedTime";
 
 const COMMENTS_LIMIT = 5;
 
@@ -60,18 +61,21 @@ function Comments({ comments }) {
 
     return (
         <ul className={styles.commentsList}>
-                {comments.map((comment) => 
-                    <li className={styles.comment} key={comment.id}>
-                        <span className={styles.commentContent}>{comment.content}</span>
-                        <div className={styles.commentInfo}>
-                            <img src={comment.writer.image} alt={comment.writer.nickname} className={styles.commentInfoImage} />
-                            <div className={styles.commentInfoTexts}>
-                                <span className={styles.commentInfoNickname}>{comment.writer.nickname}</span>
-                                <span className={styles.commentInfoUpdatedAt}>{comment.updatedAt}</span>
+                {comments.map((comment) => {
+                    const dateFormat = formatComparedTime(comment.updatedAt);
+
+                    return (
+                        <li className={styles.comment} key={comment.id}>
+                            <span className={styles.commentContent}>{comment.content}</span>
+                            <div className={styles.commentInfo}>
+                                <img src={comment.writer.image} alt={comment.writer.nickname} className={styles.commentInfoImage} />
+                                <div className={styles.commentInfoTexts}>
+                                    <span className={styles.commentInfoNickname}>{comment.writer.nickname}</span>
+                                    <span className={styles.commentInfoUpdatedAt}>{dateFormat}</span>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                )}
+                        </li>
+                    )})}
             </ul>
     )
 }

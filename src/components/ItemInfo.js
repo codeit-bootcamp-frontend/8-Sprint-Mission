@@ -3,8 +3,6 @@ import { ReactComponent as HeartIcon } from '../assets/ic_heart.svg';
 
 function ItemInfo({ item }) {
 
-    console.log(item.images);
-
     return (
         <section className={styles.itemInfo}>
             <div className={styles.itemImageContainer}>
