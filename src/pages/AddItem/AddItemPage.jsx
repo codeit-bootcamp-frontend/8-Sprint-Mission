@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './AddItemPage.css';
+import AddItem from './AddItem.module.css';
 import InputItem from './components/InputItem';
 import TagInput from './components/TagInput';
 import ImageUpload from './components/ImageUpload';
@@ -23,16 +23,16 @@ function AddItemPage() {
   const submitDisabled = !name || !description || !price || !tags.length;
 
   return (
-    <div className='container'>
+    <div className={AddItem.container}>
       <form>
-        <div className='TitleSection'>
+        <div className={AddItem.titleSection}>
           <h1>상품 등록하기</h1>
-          <button type='submit' disabled={submitDisabled}>
+          <button className={AddItem.registerButton} type='submit' disabled={submitDisabled}>
             등록
           </button>
         </div>
 
-        <div className='inputSection'>
+        <div className={AddItem.inputSection}>
           <ImageUpload title='상품 이미지' />
 
           <InputItem

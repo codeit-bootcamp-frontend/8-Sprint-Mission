@@ -1,20 +1,24 @@
 import { useState } from 'react';
+import './ImageUpload.css';
 import { ReactComponent as PlusIcon } from '../../../images/icons/ic_plus.svg';
 import DeleteButton from './DeleteButton';
+import styled from 'styled-components';
+
+const Div = styled.div``;
 
 function ImageUpload({ title }) {
-  const [imagePreviewUrl, setImagePreviewUrl] = useState('');
+  const [image, setImage] = useState('');
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
-      setImagePreviewUrl(imageUrl);
+      setImage(imageUrl);
     }
   };
 
   const handleDelete = () => {
-    setImagePreviewUrl('');
+    setImage('');
   };
 
   return (
@@ -22,21 +26,24 @@ function ImageUpload({ title }) {
       {title && <label className='titleLabel'>{title}</label>}
 
       <div className='imageUpload'>
-        {}
         <label className='uploadButton' htmlFor='image-upload'>
           <PlusIcon />
           이미지 등록
         </label>
 
-        <input id='image-upload' type='file' onChange={handleImageChange} accept='image/*' />
+        <input
+          id='image-upload'
+          className='hiddenFileInput'
+          type='file'
+          onChange={handleImageChange}
+          accept='image/*'
+        />
 
-        {}
-        {imagePreviewUrl && (
-          <div src={imagePreviewUrl}>
-            <div className='deleteButton'>
-              <DeleteButton onClick={handleDelete} label='이미지 파일' />
-            </div>
-          </div>
+        {image && ( // 코드 테스트 중
+          <Div className='imagePreview' class='test'>
+            <img class='test' className='imagePreview' src={image} alt='이미지 미리보기' />
+            <DeleteButton css='deleteButton' Click={handleDelete} label='이미지 파일' />
+          </Div>
         )}
       </div>
     </div>

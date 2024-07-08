@@ -1,14 +1,15 @@
-.imageUpload {
-  display: flex;
-  gap: 8px;
-}
-
 .titleLabel {
   display: block;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 12px;
 }
+
+.imageUpload {
+  display: flex;
+  gap: 8px;
+}
+
 .uploadButton {
   background-color: var(--gray100);
   color: var(--gray400);
@@ -20,18 +21,29 @@
   font-size: 16px;
   cursor: pointer;
 
-  width: calc(50% - 4px);
+  &:hover {
+    background-color: var(--gray50);
+  }
+}
+
+.imagePreview,
+.testImg {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.uploadButton,
+.imagePreview {
+  width: calc(100%);
   max-width: 200px;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
 }
 
-.uploadButton:hover {
-  background-color: var(--gray50);
-}
-
-input {
-  display: none;
+.test {
+  position: relative;
+  background-color: red;
 }
 
 .deleteButton {
@@ -40,16 +52,21 @@ input {
   right: 12px;
 }
 
-@media (min-width: 768px) {
-  .imageUpload {
-    gap: 18px;
-  }
+.hiddenFileInput {
+  display: none;
+}
 
+@media (min-width: 768px) {
   .titleLabel {
     font-size: 18px;
   }
 
-  .uploadButton {
+  .imageUpload {
+    gap: 18px;
+  }
+
+  .uploadButton,
+  .imagePreview {
     width: 162px;
   }
 }
@@ -59,7 +76,8 @@ input {
     gap: 24px;
   }
 
-  .uploadButton {
+  .uploadButton,
+  .imagePreview {
     width: 282px;
   }
 }

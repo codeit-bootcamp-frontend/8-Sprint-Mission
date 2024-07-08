@@ -1,0 +1,37 @@
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+textArea {
+  height: 200px;
+  resize: none;
+}
+
+input,
+textArea {
+  padding: 16px 24px;
+  background-color: var(--gray100);
+  color: var(--gray800);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+
+  &:focus {
+    outline-color: var(--blue);
+  }
+
+  &::placeholder {
+    color: var(--gray400);
+  }
+}
+
+@media (min-width: 768px) {
+  .label {
+    font-size: 18px;
+  }
+}
