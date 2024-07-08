@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 
 const TagInput = ({ onTagListChange, reset }) => {
@@ -31,6 +32,7 @@ const TagInput = ({ onTagListChange, reset }) => {
     [tagList, onTagListChange],
   );
 
+
   useEffect(() => {
     if (reset) {
       setTagList([]);
@@ -38,12 +40,14 @@ const TagInput = ({ onTagListChange, reset }) => {
     }
   }, [reset, onTagListChange]);
 
+
   return (
     <div className="tag-input-container">
       <input
         type="text"
         name="tag"
         placeholder="태그를 입력 후 Enter를 눌러 추가하세요"
+
         value={tagInputValue}
         onChange={e => setTagInputValue(e.target.value)}
         onKeyUp={handleKeyPress}
