@@ -13,13 +13,7 @@ const INIT_VALUSE = {
 
 function AddItemMain() {
   const [tagValue, setTagValue] = useState("");
-  const [values, setValues] = useState({
-    images: [],
-    tags: [],
-    price: "",
-    description: "",
-    name: "",
-  });
+  const [values, setValues] = useState(INIT_VALUSE);
   const [isValuesFill, setIsValuesFill] = useState(false);
 
   const valuesChecker = () => {

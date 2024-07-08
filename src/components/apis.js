@@ -20,12 +20,24 @@ const getItems = async ({
 
 const getItemInfo = async (id) => {
   try {
-    const response = await fetch(`${BASE_URL}/products/${id}`);
-    const itemInfo = await response.json();
+    const responseInfo = await fetch(`${BASE_URL}/products/${id}`);
+    const itemInfo = await responseInfo.json();
     return itemInfo;
   } catch (err) {
-    console.log(err);
+    console.log("패치에러", err);
   }
 };
 
-export { getItems, getItemInfo };
+const getItemComments = async (id, limit = 3) => {
+  try {
+    const responseComments = await fetch(
+      `${BASE_URL}/products/${id}/comments?limit=${limit}`
+    );
+    const itemComments = await responseComments.json();
+    return itemComments;
+  } catch (err) {
+    console.log("패치에러", err);
+  }
+};
+
+export { getItems, getItemInfo, getItemComments };

@@ -4,9 +4,10 @@ import "josa-complete";
 
 function AddItemInputs({ label, name, value, onChange, onKeyDown }) {
   const josa = `${label.을를}`;
+
   return (
     <>
-      {name !== "description" ? (
+      {name !== "description" && (
         <InputContainer>
           <label htmlFor={`additem-${name}`}>{label}</label>
           <input
@@ -18,7 +19,8 @@ function AddItemInputs({ label, name, value, onChange, onKeyDown }) {
             onKeyDown={onKeyDown}
           ></input>
         </InputContainer>
-      ) : (
+      )}
+      {name === "description" && (
         <InputContainer>
           <label htmlFor={`additem-${name}`}>{label}</label>
           <textarea

@@ -21,14 +21,10 @@ function AddItemFileInput({ onChange, images, onDelete }) {
           name="images"
           value=""
         />
-        {!images.length ||
+        {images?.length > 0 &&
           images.map((e, i) => {
             return (
-              <div
-                className="preview-wrapper"
-                key={Date.now() + i * 13}
-                onClick={onDelete}
-              >
+              <div className="preview-wrapper" key={Date.now() + i * 13}>
                 <img className="previews" src={images[i]} />
                 <button
                   type="button"
@@ -37,7 +33,7 @@ function AddItemFileInput({ onChange, images, onDelete }) {
                     onDelete(i);
                   }}
                 >
-                  <img src={xButton}></img>
+                  <img src={xButton} />
                 </button>
               </div>
             );

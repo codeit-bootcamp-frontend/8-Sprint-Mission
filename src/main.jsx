@@ -5,9 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
-import Items from "./pages/Items";
+import Items from "./pages/Items.jsx";
 import AddItem from "./pages/AddItem";
-import DetailItem from "./components/items/itemsDetail/DetailItem.jsx";
+import DetailItem from "./pages/DetailItem.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

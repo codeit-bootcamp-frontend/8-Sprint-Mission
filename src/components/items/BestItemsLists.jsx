@@ -7,7 +7,7 @@ function BestItemsList({ items }) {
     <BestUl>
       {items.map((item) => {
         return (
-          <Link to={`${item.id}`} key={item.id}>
+          <Link className="item" to={`${item.id}`} key={item.id}>
             <li>
               <div className="item-container">
                 <img className="item-img" src={item.images} />
@@ -45,19 +45,19 @@ const BestUl = styled.ul`
     border-radius: 16px;
   }
   @media (max-width: 1199px) {
-    li {
+    .item {
       width: 50%;
       align-items: center;
     }
-    li:nth-child(n + 3) {
+    .item:nth-child(n + 3) {
       display: none;
     }
   }
   @media (max-width: 767px) {
-    li {
+    .item {
       width: 100%;
     }
-    li:nth-child(n + 2) {
+    .item:nth-child(n + 2) {
       display: none;
     }
   }
