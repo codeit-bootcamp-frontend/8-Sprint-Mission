@@ -1,0 +1,21 @@
+.item-detail {
+  max-width: 1200px;
+  margin: 94px auto;
+  padding: 0 16px;
+
+  &__btn-to-list {
+    display: flex;
+    margin: 40px 0 0;
+    justify-content: center;
+  }
+}
+
+.comment-form {
+  margin: 24px 0 0;
+
+  &__btn-submit {
+    display: flex;
+    margin: 16px 0 0;
+    justify-content: end;
+  }
+}

@@ -98,7 +98,7 @@ function AddItems() {
                 type="text"
                 name="name"
                 value={values.name}
-                placeholder="상품명을 적어주세요."
+                placeholder="상품명을 입력해주세요"
                 onChange={handleInputChange}
               />
             </div>
@@ -110,7 +110,7 @@ function AddItems() {
                 className="input-form-add-item input-textarea"
                 name="desc"
                 value={values.desc}
-                placeholder="상품 소개를 적어주세요."
+                placeholder="상품 소개를 입력해주세요"
                 onChange={handleInputChange}
               />
             </div>
@@ -123,7 +123,7 @@ function AddItems() {
                 type="number"
                 name="price"
                 value={values.price}
-                placeholder="판매가격을 적어주세요."
+                placeholder="판매가격을 입력해주세요"
                 onChange={handleInputChange}
               />
             </div>

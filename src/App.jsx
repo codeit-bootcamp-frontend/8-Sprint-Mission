@@ -7,6 +7,7 @@ import Privacy from './pages/privacy/Privacy';
 import Items from './pages/items/Items';
 import AddItems from './pages/addItems/AddItems';
 import NavigationBar from './components/navigationBar/NavigationBar';
+import ItemDetail from './pages/itemDetail/ItemDetail';
 import './styles/global.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="items">
           <Route index element={<Items />} />
           <Route path="additems" element={<AddItems />} />
+          <Route path=":productId" element={<ItemDetail />} />
         </Route>
         <Route path="additems" element={<AddItems />} />
       </Routes>
