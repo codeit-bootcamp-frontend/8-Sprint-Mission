@@ -1,25 +1,11 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import Nav from "./components/Nav";
-import AllProductList from "./components/AllProductList";
-
-async function getData() {
-  const url = "https://panda-market-api.vercel.app/products";
-  const response = await fetch(url);
-  const result = await response.json();
-
-  const data = result.list.map((items) => ({
-    id: items.id,
-    title: items.name,
-    description: items.description,
-    price: items.price,
-    image: items.images,
-    favoriteCount: items.favoriteCount,
-    createAt: items.createAt,
-  }));
-
-  return data;
-}
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import MarketPage from "./pages/MarketPage/MarketPage";
+import AddItemPage from "./pages/AddItemPage/AddItemPage";
+import ItemsPage from "./pages/Item/ItemsPage";
+import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
+import Header from "./components/Layout/Header";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -33,13 +19,24 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Nav />
-      <div className="product-lists">
-        <AllProductList className="all-product-list" items={items} />
+    <BrowserRouter>
+      {/* Global Navigation Bar */}
+      <Header />
+
+      <div className="withHeader">
+        <Routes>
+          {/* React Router v6부터는 path="/" 대신 간단하게 `index`라고 표기하면 돼요 */}
+          <Route index element={<HomePage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="additem" element={<AddItemPage />} />
+          <Route path="items" element={<ItemsPage />}>
+            <Route index element={<MarketPage />} />
+            <Route path=":productId" element={<ItemsPage />} />
+          </Route>
+          <Route path="community" element={<CommunityFeedPage />} />
+        </Routes>
       </div>
-      ;
-    </>
+    </BrowserRouter>
   );
 }
 
