@@ -1,8 +1,10 @@
+const API_BASE_URL = 'https://panda-market-api.vercel.app';
+
 export async function getProducts(params = {}) {
   const query = new URLSearchParams(params).toString();
 
   try {
-    const response = await fetch(`https://panda-market-api.vercel.app/products?${query}`);
+    const response = await fetch(`${API_BASE_URL}/products?${query}`);
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
@@ -16,7 +18,7 @@ export async function getProducts(params = {}) {
 
 export async function getProductById(productId) {
   try {
-    const response = await fetch(`https://panda-market-api.vercel.app/products/${productId}`);
+    const response = await fetch(`${API_BASE_URL}/products/${productId}`);
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
@@ -30,7 +32,7 @@ export async function getProductById(productId) {
 
 export async function getInquery(productId) {
   try {
-    const response = await fetch(`https://panda-market-api.vercel.app/products/${productId}/comments?limit=100`);
+    const response = await fetch(`${API_BASE_URL}/products/${productId}/comments?limit=100`);
     if (!response.ok) {
       const errorBody = await response.json();
       throw new Error(`HTTP error: ${response.status}, ${errorBody.message}`);
