@@ -115,9 +115,7 @@
   }
 }
 
-@custom-media --test (min-width: 1280px);
-
-@media (--test) {
+@media (min-width: 1280px) {
   .banner {
     text-align: left;
     height: 540px;
