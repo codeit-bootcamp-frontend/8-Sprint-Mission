@@ -1,14 +1,32 @@
 import styles from "./TextArea.module.css";
 
-export default function TextArea({ label, id, changeValue, ...props }) {
+export default function TextArea({
+  className,
+  variant,
+  label,
+  id,
+  changeValue,
+  ...props
+}) {
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     changeValue(name, value);
   };
+
+  const variantCheck =
+    variant === "addProduct" ? styles.addProduct : styles.comment;
+
   return (
-    <div className={styles.inputBox}>
-      <label htmlFor={id}>{label}</label>
-      <textarea id={id} {...props} onChange={handleChangeInput} />
+    <div className={`${className ? className : ""}`}>
+      <label className={styles.textArealabel} htmlFor={id}>
+        {label}
+      </label>
+      <textarea
+        className={`${styles.textArea} ${variantCheck}`}
+        id={id}
+        {...props}
+        onChange={handleChangeInput}
+      />
     </div>
   );
 }
