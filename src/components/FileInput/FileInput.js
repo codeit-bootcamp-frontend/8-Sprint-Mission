@@ -17,6 +17,7 @@ function FileInput({ name, value, onChange }) {
         if (!inputNode) return;
 
         inputNode.value = '';
+
         setPreview(null);
         onChange(name, null);
 
@@ -26,6 +27,7 @@ function FileInput({ name, value, onChange }) {
         if (!value) return;
 
         const nextpreview = URL.createObjectURL(value);
+
         setPreview(nextpreview);
 
     }, [value])

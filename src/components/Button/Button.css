@@ -22,3 +22,13 @@
   font-size: 18px;
   font-weight: 700;
 }
+
+.disable {
+  background-color: #9ca3af;
+  color: #ffffff;
+}
+
+.inquiry {
+  width: 74px;
+  align-self: flex-end;
+}

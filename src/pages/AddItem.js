@@ -1,6 +1,6 @@
 import './Additem.css';
 import { useEffect, useState } from "react";
-import FileInput from "../components/FileInput";
+import FileInput from '../components/FileInput/FileInput';
 
 function AddItem() {
 
@@ -12,15 +12,15 @@ function AddItem() {
         imgFile: null,
     });
 
-    const [isButtonDisabled, SetisButtonDisabled] = useState(true);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     useEffect(() => {
         const allInput = values.introduction && values.price && values.productName && values.tag;
         if (allInput) {
-            SetisButtonDisabled(false);
+            setIsButtonDisabled(false);
         }
         else {
-            SetisButtonDisabled(true);
+            setIsButtonDisabled(true);
         }
 
     }, [values])
@@ -39,7 +39,6 @@ function AddItem() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(values);
     }
 
 
