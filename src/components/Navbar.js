@@ -6,7 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 function getLinkStyle({ isActive }) {
   return {
     color: isActive ? "#3692FF" : "#4B5563",
-    textDecoration: isActive ? "none" : "none",
+    textDecoration: "none",
   };
 }
 

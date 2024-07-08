@@ -59,7 +59,6 @@
   border-radius: 12px;
   border: none;
   background-color: #f3f4f6;
-  position: relative;
 }
 
 .input-icon {
@@ -81,8 +80,8 @@
 
 .input-file-wrapper {
   display: flex;
-  align-items: center;
   gap: 24px;
+  position: relative;
 }
 
 .input-preview {

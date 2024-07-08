@@ -1,5 +1,5 @@
 import { getProducts } from "../api.js";
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import ItemList from "./ItemList.js";
 import searchIcon from "../assets/ic_search.svg";
 import Dropdown from "./Dropdown.js";
@@ -48,7 +48,7 @@ function AllItems() {
     setOrder(value);
   };
 
-  const handleLoadProducts = async ({ order, page, pageSize }) => {
+  const handleLoadProducts = useCallback(async ({ order, page, pageSize }) => {
     try {
       const products = await getProducts({ order, page, pageSize });
       setProducts(products.list);
@@ -56,7 +56,7 @@ function AllItems() {
     } catch (error) {
       console.error("상품 목록을 가져오는 중 오류 발생:", error);
     }
-  };
+  }, []);
 
   const style = {
     textDecoration: "none",
@@ -77,7 +77,7 @@ function AllItems() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [order, page, pageSize]);
+  }, [order, page, pageSize, handleLoadProducts]);
 
   return (
     <>

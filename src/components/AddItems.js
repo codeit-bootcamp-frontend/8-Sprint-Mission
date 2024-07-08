@@ -3,7 +3,7 @@ import FileInput from "./FileInput";
 import "./AddItems.css";
 import "./global.css";
 
-function ItemForm() {
+function AddItems() {
   const [values, setValues] = useState({
     imgFile: null,
     title: "",
@@ -12,9 +12,9 @@ function ItemForm() {
     tag: "",
   });
 
-  const [submit, setSubmit] = useState(false);
+  const [isAbleToSubmit, setIsAbleToSubmit] = useState(false);
 
-  const handleChange = (name, value) => {
+  const handleFormValuesChange = (name, value) => {
     setValues((preValues) => ({
       ...preValues,
       [name]: value,
@@ -23,13 +23,13 @@ function ItemForm() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    handleChange(name, value);
+    handleFormValuesChange(name, value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
-    setSubmit(true);
+    setIsAbleToSubmit(true);
   };
 
   return (
@@ -37,8 +37,8 @@ function ItemForm() {
       <div className="registration-wrapper">
         <div className="registration-title">상품 등록하기</div>
         <button
-          type="submit"
-          className={`registration-button ${submit ? "active" : ""}`}
+          type="isAbleToSubmit"
+          className={`registration-button ${isAbleToSubmit ? "active" : ""}`}
           onClick={handleSubmit}
         >
           등록
@@ -51,7 +51,7 @@ function ItemForm() {
         <FileInput
           name="imgFile"
           value={values.imgFile}
-          onChange={handleChange}
+          onChange={handleFormValuesChange}
         />
       </div>
       <form className="item-form" onSubmit={handleSubmit}>
@@ -101,4 +101,4 @@ function ItemForm() {
   );
 }
 
-export default ItemForm;
+export default AddItems;

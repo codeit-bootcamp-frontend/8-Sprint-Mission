@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MarketPage from "./pages/Market.js";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import ItemForm from "./components/AddItems.js";
+import AddItems from "./components/AddItems.js";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="items" element={<MarketPage />} />
-          <Route path="additem" element={<ItemForm />} />
+          <Route path="additem" element={<AddItems />} />
         </Routes>
       </div>
     </BrowserRouter>
