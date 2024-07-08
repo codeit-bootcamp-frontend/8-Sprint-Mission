@@ -1,6 +1,7 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./style/BestCard.css";
 import { getProducts } from "../../../API/ItemAPI";
+import ItemCard from "./ItemCard";
 
 export const getTopFavoriteItems = (data, n) => {
   const sortedItems = data.list.sort(
@@ -8,17 +9,6 @@ export const getTopFavoriteItems = (data, n) => {
   );
   return sortedItems.slice(0, n);
 };
-
-export function CardItem({ item }) {
-  return (
-    <Fragment>
-      <img className="CardImg" src={item.images} alt={item.name} />
-      <h1>{item.name}</h1>
-      <p>{item.price}원</p>
-      <p>{item.ownerId}</p>
-    </Fragment>
-  );
-}
 
 function BestCard() {
   const [itemList, setItemList] = useState([]);
@@ -37,15 +27,19 @@ function BestCard() {
   }, []);
 
   return (
-    <ul className="card-container">
-      {itemList.map((item) => {
-        return (
-          <li key={item.id}>
-            <CardItem item={item} />
-          </li>
-        );
-      })}
-    </ul>
+    <div className="bestItemsContainer">
+      <h1 className="sectionTitle">베스트 상품</h1>
+
+      <div className="bestItemsCardSection">
+        {itemList.map((item) => {
+          return (
+            <li key={item.id}>
+              <ItemCard item={item} />
+            </li>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
