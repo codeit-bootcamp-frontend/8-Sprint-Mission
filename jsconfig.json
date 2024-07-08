@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "api/*": ["api/*"],
+      "app/*": ["app/*"],
+      "image/*": ["image/*"],
+      "page/*": ["page/*"]
+    }
+  },
+  "include": ["src"]
+}
