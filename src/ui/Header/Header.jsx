@@ -12,19 +12,17 @@ export default function Header() {
   const [tempLogin, setTempLogin] = useState(false);
 
   const getLocationActive = ({ isActive, to }) => {
-    if (
+    const activeMenu =
       (location.pathname === "/items" || location.pathname === "/additem") &&
-      (to === "items" || to === "additem")
-    ) {
-      return styles.active;
-    }
+      (to === "items" || to === "additem");
+
+    if (activeMenu) return styles.active;
+
     return isActive ? styles.active : undefined;
   };
 
   useEffect(() => {
-    if (location.pathname === "/additem") {
-      setTempLogin(true);
-    } else setTempLogin(false);
+    setTempLogin(location.pathname === "/additem");
   }, [location]);
 
   const navList = NAVIGATION_LIST.map((list) => (
@@ -34,7 +32,6 @@ export default function Header() {
         className={({ isActive }) =>
           getLocationActive({ isActive, to: list.path })
         }
-        end={list.path === "items" || list.path === "additem"}
       >
         {list.name}
       </NavLink>

@@ -9,20 +9,28 @@
   font-size: 1.6rem;
   font-weight: 600;
   box-sizing: content-box;
-  color: #ffffff;
+  border-radius: 8px;
+  background-color: var(--color-blue);
+  color: #fff;
 }
 
-.btnContainer > button {
+.button {
   display: inline-block;
   padding: 11.5px 30px;
   font-size: 1.6rem;
   font-weight: 600;
   box-sizing: content-box;
+  border-radius: 8px;
+  background-color: var(--color-blue);
   color: #ffffff;
   cursor: pointer;
 }
 
-.btnContainer > button:disabled {
+.button.commentForm {
+  padding: 11.5px 23px;
+}
+
+.button:disabled {
   cursor: default;
   border-radius: 8px;
   background-color: var(--color-gray400);

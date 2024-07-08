@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { getFavoriteProduct } from '../../utils/http.js';
 import Loading from '../../ui/Loading/Loading.jsx';
 import Section from '../../ui/Section/Section.jsx';
@@ -27,7 +27,7 @@ export default function BestProduct() {
   const [error, setError] = useState('');
   const [size, setSize] = useState(getResponseProducts());
 
-  const loadedItem = useCallback(async () => {
+  const fetchBestProducts = async () => {
     const query = {
       size,
     };
@@ -40,7 +40,7 @@ export default function BestProduct() {
     } catch (error) {
       setError(error.message);
     }
-  }, [size]);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,8 +54,8 @@ export default function BestProduct() {
   }, []);
 
   useEffect(() => {
-    loadedItem();
-  }, [loadedItem]);
+    fetchBestProducts();
+  }, [size]);
 
   if (error) {
     return <p>{error}</p>;
