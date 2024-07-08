@@ -46,7 +46,9 @@ function Header() {
               중고마켓
             </NavLink>
           </div>
-          <Button to="/login" size="small" height="48" innerText="로그인" />
+          <Button to="/login" size="small" height="48">
+            로그인
+          </Button>
         </nav>
       </header>
     </>

@@ -3,7 +3,6 @@
  */
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import ItemCard from "@pages/ItemsPage/components/ItemCard";
 import { getProducts as getAllItems } from "@js/itemApi";
 import SearchBar from "@components/UI/jsx/SearchBar";
@@ -86,20 +85,9 @@ function AllItemsSection() {
           <h2 className="allItemsSection__title">판매중인 상품</h2>
         </div>
         <SearchBar className="allItemsSection__searchBar" />
-        <Button
-          to="/additem"
-          size="small"
-          height="48"
-          innerText="상품 등록하기"
-        />
-
-        {/* <Link
-          to="/additem"
-          className="allItemsSection__btn globalBtn globalBtn--small"
-          type="button"
-        >
+        <Button to="/additem" size="small" height="48">
           상품 등록하기
-        </Link> */}
+        </Button>
         <DropDownList
           className="allItemsSection__dropDownList"
           dropDownItems={orderByItems}

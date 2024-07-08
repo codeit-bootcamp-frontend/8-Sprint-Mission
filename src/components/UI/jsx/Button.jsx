@@ -4,16 +4,22 @@ import { Link } from "react-router-dom";
 import "@components/UI/scss/Button.scss";
 
 /**
- * @param {small (default), medium, large} size - 크기
- * @param {42 (default), 48} height - size가 small 일 때, 42 또는 48
- * @param {blue (default), white} theme - size가 small 이고 높이가 48일 때, white
- * @param innerText - 버튼 Text
+ * Button 컴포넌트
+ *
+ * @param {string} className - 버튼 클래스 이름
+ * @param {'small'|'medium'|'large'} [size='small'] - 버튼의 크기
+ * @param {'42'|'48'} [height='42'] - 버튼의 높이 (size가 small일 때만 사용)
+ * @param {'blue'|'white'} [theme='blue'] - 버튼의 테마 (size가 small이고 height가 48일 때만 white 사용 가능)
+ * @param {string} [to] - Link 태그로 사용될 경우 이동할 경로
+ * @param {React.ReactNode} children - 버튼 내부의 내용
+ * @returns {JSX.Element} - 버튼 컴포넌트
  */
 function Button({
+  className,
   size = "small",
   height = "42",
   theme = "blue",
-  innerText = "",
+  children,
   to,
   ...props
 }) {
@@ -37,21 +43,21 @@ function Button({
 
   if (to) {
     return (
-      <Link to={to} className={getButtonClass()} {...props}>
-        {innerText}
+      <Link to={to} className={`${className} ` + getButtonClass()} {...props}>
+        {children}
       </Link>
     );
+  } else {
+    return (
+      <button className={`${className} ` + getButtonClass()} {...props}>
+        {children}
+      </button>
+    );
   }
-
-  return (
-    <button className={getButtonClass()} {...props}>
-      {innerText}
-    </button>
-  );
 }
 
 Button.propTypes = {
-  size: PropTypes.oneOf(["small", "medium", "large"]).isRequired,
+  size: PropTypes.oneOf(["small", "medium", "large"]),
   height: PropTypes.oneOf(["42", "48"]),
   theme: PropTypes.oneOf(["blue", "white"]),
   innerText: PropTypes.string,

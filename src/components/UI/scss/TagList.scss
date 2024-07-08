@@ -1,0 +1,43 @@
+.TagList {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  &__tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: auto;
+    padding: 12px;
+    border-radius: 26px;
+    background-color: var(--gray50);
+
+    color: var(--gray800);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  &__icX {
+    position: absolute;
+    background-image: url("~@assets/icons/ic_X.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 24px;
+    height: 24px;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+
+    cursor: pointer;
+
+    &--tag {
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+  }
+}

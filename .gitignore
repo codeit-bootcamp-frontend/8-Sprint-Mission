@@ -22,5 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# user-added
 src/assets/all-assets
 .env
