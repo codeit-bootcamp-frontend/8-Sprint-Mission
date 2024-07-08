@@ -4,6 +4,9 @@ import './AddItem.scss';
 import Header from '../../layout/Header';
 import FileInput from '../../components/form/FileInput';
 import TagInput from '../../components/form/TagInput';
+import TextInput from '../../components/form/TextInput';
+import TextArea from '../../components/form/TextArea';
+import NumberInput from '../../components/form/NumberInput';
 
 const INITIAL_VALUES = {
   imgFile: null,
@@ -15,12 +18,6 @@ const INITIAL_VALUES = {
 
 const AddItem = () => {
   const [values, setValues] = useState(INITIAL_VALUES);
-  const [resetTagInput, setResetTagInput] = useState(false);
-
-  const resetForm = () => {
-    setValues(INITIAL_VALUES);
-    setResetTagInput(true);
-  };
 
   const isFormValid = useMemo(() => {
     const { product, content, price, tag } = values;
@@ -52,12 +49,14 @@ const AddItem = () => {
       event.preventDefault();
     }
   };
+
   const handleSubmit = e => {
     e.preventDefault();
     e.stopPropagation();
     alert('등록되었습니다');
     console.log(values);
-    resetForm();
+    //추후 READ 해당파일로 이동
+    window.location.reload();
   };
 
   return (
@@ -75,49 +74,40 @@ const AddItem = () => {
                 등록
               </button>
             </div>
-            <div className="input-group">
-              <label>상품이미지</label>
-              <FileInput name="imgFile" value={values.imgFile} onChange={handleChange} />
-            </div>
-            <div className="input-group">
-              <label>상품명</label>
-              <input
-                type="text"
-                placeholder="상품명을 입력해주세요"
-                name="product"
-                value={values.product}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="input-group">
-              <label>상품 소개</label>
-              <textarea
-                name="content"
-                value={values.content}
-                onChange={handleInputChange}
-                placeholder="상품 소개를 입력해주세요"
-                rows="10"></textarea>
-            </div>
-            <div className="input-group">
-              <label>판매가격</label>
-              <input
-                type="number"
-                name="price"
-                value={values.price}
-                onChange={handleInputChange}
-                placeholder="판매 가격을 입력해주세요"
-              />
-            </div>
-            <div className="input-group">
-              <label>태그</label>
-              <TagInput onTagListChange={handleTagListChange} reset={resetTagInput} />
-            </div>
+            <FileInput label="상품이미지" name="imgFile" value={values.imgFile} onChange={handleChange} />
+            <TextInput
+              label="상품명"
+              name="product"
+              value={values.product}
+              onChange={handleInputChange}
+              placeholder="상품명을 입력해주세요"
+            />
+            <TextArea
+              label="상품 소개"
+              name="content"
+              value={values.content}
+              onChange={handleInputChange}
+              placeholder="상품 소개를 입력해주세요"
+              rows="10"
+            />
+            <NumberInput
+              label="판매가격"
+              name="price"
+              value={values.price}
+              onChange={handleInputChange}
+              placeholder="판매 가격을 입력해주세요"
+            />
+            <TagInput
+              label="태그"
+              name="tag"
+              onTagListChange={handleTagListChange}
+              placeholder="태그를 입력 후 Enter를 눌러 추가하세요"
+            />
           </form>
         </section>
       </main>
     </>
   );
 };
-
 
 export default AddItem;

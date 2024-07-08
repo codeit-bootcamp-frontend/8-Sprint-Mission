@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import inputImg from '../../assets/img/product/sample2.png';
 
-function FileInput({ name, value, onChange }) {
+function FileInput({ label, name, value, onChange }) {
   const [preview, setPreview] = useState(value || inputImg);
   const inputRef = useRef();
   const [isBoxVisible, setIsBoxVisible] = useState(null);
@@ -38,7 +38,6 @@ function FileInput({ name, value, onChange }) {
       setPreview(inputImg);
       setIsBoxVisible(false);
     }
-
   }, [value]);
 
   const handleImageError = () => {
@@ -46,18 +45,21 @@ function FileInput({ name, value, onChange }) {
   };
 
   return (
-    <div className="image-add-wrap">
-      <label className="image-add-btn" aria-label="이미지 등록 버튼">
-        <input ref={inputRef} className="sr-only" type="file" onChange={handleChange} accept="image/jpeg,image/png" />
-        <i className="ic_plus icon-lg"></i>
-        <span>이미지 등록</span>
-      </label>
-      {isBoxVisible && (
-        <div className="image-add-box">
-          <img src={preview} alt="상품 이미지" onError={handleImageError} />
-          <i className="icon ic_remove" onClick={handleRemove} role="button" aria-label="이미지 제거 버튼"></i>
-        </div>
-      )}
+    <div className="input-group">
+      <label>{label}</label>
+      <div className="image-add-wrap">
+        <label className="image-add-btn" aria-label="이미지 등록 버튼">
+          <input ref={inputRef} className="sr-only" type="file" onChange={handleChange} accept="image/jpeg,image/png" />
+          <i className="ic_plus icon-lg"></i>
+          <span>이미지 등록</span>
+        </label>
+        {isBoxVisible && (
+          <div className="image-add-box">
+            <img src={preview} alt="상품 이미지" onError={handleImageError} />
+            <i className="icon ic_remove" onClick={handleRemove} role="button" aria-label="이미지 제거 버튼"></i>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
