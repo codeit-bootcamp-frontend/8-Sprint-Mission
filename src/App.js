@@ -8,6 +8,16 @@ import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
 import Header from "./components/Layout/Header";
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getData();
+      setItems(data);
+    }
+    fetchData();
+  }, []);
+
   return (
     <BrowserRouter>
       {/* Global Navigation Bar */}

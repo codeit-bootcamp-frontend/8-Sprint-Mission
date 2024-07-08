@@ -1,0 +1,21 @@
+.Menu-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Menu {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 109px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  color: var(--gray600);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:active {
+  color: var(--blue);
+}
