@@ -1,8 +1,18 @@
 import { useState, useEffect } from "react";
 import { getProductById } from "../services/api";
 
+const INITIAL_PRODUCT = {
+  favoriteCount: 0,
+  images: "",
+  tags: [],
+  price: 0,
+  description: "",
+  name: "",
+  isFavorite: false,
+};
+
 const useProductId = (productId) => {
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState(INITIAL_PRODUCT);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
