@@ -2,9 +2,11 @@ import React from "react";
 import { CiHeart } from "react-icons/ci";
 import "./Product.css";
 import defaultImg from "../../../../images/defaultImg.jpeg";
+import { Link } from "react-router-dom";
 
 function Product({ product }) {
-  const { images, name, price, favoriteCount } = product;
+  const { images, name, price, favoriteCount, id } = product;
+  console.log(`${id}`);
 
   const fileExtension = images[0].substring(
     images[0].length - 4,
@@ -13,7 +15,7 @@ function Product({ product }) {
   const isValidImageUrl = fileExtension === "jpeg" ? images[0] : defaultImg;
 
   return (
-    <div className="product-box">
+    <Link to={`${id}`} className="product-box">
       <img src={isValidImageUrl} alt={name} className="product-img" />
       <div className="product-info">
         <span className="product-name">{name}</span>
@@ -23,7 +25,7 @@ function Product({ product }) {
           {favoriteCount}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

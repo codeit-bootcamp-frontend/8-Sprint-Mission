@@ -2,40 +2,45 @@ import React, { useEffect, useState } from "react";
 import "./SalesProducts.css";
 import { getProducts } from "../../../../api/api";
 import Product from "../Product/Product";
+import Pagination from "../../../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaSortAmountDown } from "react-icons/fa";
+const getHtmlSize = () => {
+  const width = window.innerWidth;
+  if (width < 768) {
+    return 4;
+  } else if (width < 1200) {
+    return 6;
+  } else {
+    return 10;
+  }
+};
 
 function SalesProducts() {
   const [products, setProducts] = useState([]);
   const [isSelectVisibleList, setIsSelectVisibleList] = useState(false);
   const [orderBy, setOrderBy] = useState("recent");
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(getHtmlSize());
+  const [page, setPage] = useState(1);
+  const [totalPageNum, setTotalPageNum] = useState();
 
-  const fetchSalesProducts = async (pageSize, orderBy) => {
-    const { list: productList } = await getProducts(pageSize, orderBy);
-    setProducts(productList);
+  const fetchSalesProducts = async (pageSize, orderBy, page) => {
+    const productsData = await getProducts(pageSize, orderBy, page);
+    setProducts(productsData.list);
+    setTotalPageNum(Math.ceil(productsData.totalCount / pageSize));
   };
-  const getHtmlSize = () => {
-    const width = window.innerWidth;
-    if (width < 768) {
-      return 4;
-    } else if (width < 1200) {
-      return 6;
-    } else {
-      return 10;
-    }
-  };
+
   useEffect(() => {
-    fetchSalesProducts(pageSize, orderBy);
+    fetchSalesProducts(pageSize, orderBy, page);
     const handleResizeScreen = () => setPageSize(getHtmlSize());
     window.addEventListener("resize", handleResizeScreen);
 
     return () => {
       window.removeEventListener("resize", handleResizeScreen);
     };
-  }, [orderBy, pageSize]);
+  }, [orderBy, pageSize, page]);
 
   const sortSelectListVisibleToggle = () => {
     setIsSelectVisibleList(!isSelectVisibleList);
@@ -44,6 +49,9 @@ function SalesProducts() {
     const selectedValue = e.target.innerText;
     selectedValue === "최신순" ? setOrderBy("recent") : setOrderBy("favorite");
     setIsSelectVisibleList(false);
+  };
+  const onPageChange = (pageNumber) => {
+    setPage(pageNumber);
   };
   return (
     <div className="salesProducts-container">
@@ -58,7 +66,7 @@ function SalesProducts() {
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
-          <Link to="addItem" className="Product-registration-button">
+          <Link to="addProduct" className="Product-registration-button">
             상품 등록하기
           </Link>
           <div className="salesProducts-sort-select-container">
@@ -91,6 +99,13 @@ function SalesProducts() {
         {products.map((product, idx) => {
           return <Product key={product.id} product={product} />;
         })}
+      </div>
+      <div className="paginationBarWrapper">
+        <Pagination
+          totalPageNum={totalPageNum}
+          activePageNum={page}
+          onPageChange={onPageChange}
+        />
       </div>
     </div>
   );
