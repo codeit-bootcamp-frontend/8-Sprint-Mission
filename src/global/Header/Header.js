@@ -23,9 +23,7 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/items" style={getLinkStyle}>
-                중고 마켓
-              </NavLink>
+              <NavLink to="/items">중고 마켓</NavLink>
             </li>
           </ul>
         </nav>
