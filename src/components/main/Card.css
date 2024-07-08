@@ -1,12 +1,23 @@
+main .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main .card-container .card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
 main .card.item-image {
     max-width: 100%; 
     border-radius: 16px;
-    margin-bottom: 0.75rem;
+    aspect-ratio: 1 / 1;
 }
 
 main .card {
     width: 100%;
-    padding: 0.15rem 0;
     letter-spacing: 0.04rem;
 }
 
@@ -14,6 +25,7 @@ main .card.item-name {
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--gray800);
+    text-decoration: none;
 }
 
 main .card.item-price {

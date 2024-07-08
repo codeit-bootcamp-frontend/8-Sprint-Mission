@@ -1,22 +1,22 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getProducts } from "../../api/api";
 import Card from "./Card";
 import './ItemsSection.css';
 import { ReactComponent as DropdownArrow} from '../../assets/dropdown_arrow.svg';
 import { ReactComponent as SearchMark } from '../../assets/ic_search.svg';
+import { ReactComponent as SortIcon } from '../../assets/ic_sort.svg';
 import { Link } from "react-router-dom";
 import useAsync from "../../hooks/useAsync";
-import LoadingImage from "../LoadingImage";
+import LoadingErrorHandler from "../LoadingErrorHandler";
 
 const ORDER_KOR = {
     "recent": "최신순",
     "favorite": "좋아요순",
 }
 
-function ItemsSectionHeader({ orderBy, orderSetter, keywordSetter }) {
+function ItemsSectionHeader ({ orderBy, orderSetter, keywordSetter }) {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const dropdown = useRef();
 
     const dropdownHandler = () => setIsDropdownOpen(prev => !prev);
     const searchSubmitHandler = (e) => {
@@ -35,10 +35,49 @@ function ItemsSectionHeader({ orderBy, orderSetter, keywordSetter }) {
             </form>
             <Link to="/additem"><button className="add-item-button">상품 등록하기</button></Link>
             <button className="sort-dropdown" onClick={dropdownHandler}>
-            <span className="dropdown-text">{ORDER_KOR[orderBy]}</span>
+                <span className="dropdown-text">{ORDER_KOR[orderBy]}</span>
                 <DropdownArrow />
             </button>
-            <ul className={dropdownClassName} ref={dropdown}>
+            <ul className={dropdownClassName}>
+                <li className="dropdown-button orderBy-recent" onClick={() => {orderSetter("recent")}}>
+                    최신순
+                </li>
+                <li className="dropdown-button orderBy-favorite" onClick={() => {orderSetter("favorite")}}>
+                    좋아요순
+                </li>
+            </ul>
+        </div>
+    )
+}
+
+function ItemsSectionHeaderMobile ({ orderSetter, keywordSetter }) {
+
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const dropdownHandler = () => setIsDropdownOpen(prev => !prev);
+    const searchSubmitHandler = (e) => {
+        e.preventDefault();
+        keywordSetter(e.target['search'].value);
+    }
+
+    const dropdownClassName = `orderBy-dropdown ${isDropdownOpen ? '' : "hidden"}`;
+
+    return (
+        <div className="section-header">
+            <div className="section-header-mobile-upper">
+                <h3>판매 중인 상품</h3>
+                <Link to="/additem"><button className="add-item-button">상품 등록하기</button></Link>
+            </div>
+            <div className="section-header-mobile-down">
+                <form className="search-container" onSubmit={searchSubmitHandler}>
+                    <div className="search-icon"><SearchMark /></div>
+                    <input className="search-input" name="search" placeholder="검색할 상품을 입력해주세요" />
+                </form>
+                <button className="sort-dropdown" onClick={dropdownHandler}>
+                    <SortIcon />
+                </button>
+            </div>
+            <ul className={dropdownClassName}>
                 <li className="dropdown-button orderBy-recent" onClick={() => {orderSetter("recent")}}>
                     최신순
                 </li>
@@ -89,11 +128,11 @@ function Pages({ page, pageSize, total, pageSetter }) {
     );
 }
 
-function ItemsSection() {
+function ItemsSection({ getPageSize }) {
 
     const [items, setItems] = useState([]);
     const [page, setPage] = useState(1);
-    const [pageSize, setPageSize] = useState(10);
+    const [pageSize, setPageSize] = useState(getPageSize(10, 6, 4));
     const [orderBy, setOrderBy] = useState("recent");
     const [total, setTotal] = useState(0);
     const [keyword, setKeyword] = useState('');
@@ -110,7 +149,7 @@ function ItemsSection() {
     }, [getProductsAsync])
 
     const pageClickHandler = (i) => {
-        handleLoad({ page: i, pageSize: 10, orderBy, keyword });
+        handleLoad({ page: i, pageSize, orderBy, keyword });
     }
     const orderClickHandler = (order) => {
         setOrderBy(order);
@@ -120,15 +159,20 @@ function ItemsSection() {
     }
 
     useEffect(() => {
-        handleLoad({ page: 1, pageSize: 10, orderBy, keyword })
-    }, [orderBy, keyword, handleLoad]);
+        setPageSize(getPageSize(10, 6, 4));
+        handleLoad({ page: 1, pageSize, orderBy, keyword })
+    }, [orderBy, keyword, handleLoad, pageSize, getPageSize]);
 
     return (
         <section className="items-section">
-            <ItemsSectionHeader orderBy={orderBy} orderSetter={orderClickHandler} keywordSetter={searchHandler}/>
-            {isLoading && <LoadingImage />}
-            {error?.message && <span>{error.message}</span>}
-            <ItemsSectionList items={items}/>
+            {(pageSize === 4)
+                ? <ItemsSectionHeaderMobile orderSetter={orderClickHandler} keywordSetter={searchHandler} />
+                : <ItemsSectionHeader orderBy={orderBy} orderSetter={orderClickHandler} keywordSetter={searchHandler} />
+            }
+            {(isLoading || error)
+                ? <LoadingErrorHandler isLoading={isLoading} error={error} />
+                : <ItemsSectionList items={items}/>
+            }
             <Pages page={page} pageSize={pageSize} total={total} pageSetter={pageClickHandler} />
         </section>
     )

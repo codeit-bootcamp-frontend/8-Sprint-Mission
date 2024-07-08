@@ -3,7 +3,7 @@ main {
 }
 
 main .container {
-    width: 75rem;
+    max-width: 75rem;
     margin: 0 auto;
 }
 
