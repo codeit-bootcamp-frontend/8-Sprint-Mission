@@ -1,4 +1,5 @@
 import { ProductItem } from "core/Interface/Product";
+import { Link } from "react-router-dom";
 import BestProductCard from "./BestProductCard";
 import "./card-best.css";
 
@@ -13,7 +14,9 @@ const BestProductCardList = ({ bestProducts }: BestProductCardListProps) => {
         bestProducts.map((product) => {
           return (
             <li key={product.id} className="best-product">
-              <BestProductCard product={product} />
+              <Link to={`/items/${product.id}`}>
+                <BestProductCard product={product} />
+              </Link>
             </li>
           );
         })
