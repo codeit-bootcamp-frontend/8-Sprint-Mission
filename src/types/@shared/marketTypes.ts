@@ -15,4 +15,4 @@ export interface IProductResponse {
   list: IProduct[];
 }
 
-export type ProductOrderBy = 'recent' | 'favorite';
+export type ProductOrderByType = 'recent' | 'favorite';

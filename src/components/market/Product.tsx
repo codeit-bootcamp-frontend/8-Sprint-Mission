@@ -2,41 +2,47 @@ import styled from 'styled-components';
 import Image from 'components/@shared/Image';
 import likeIcon from 'assets/images/market/like-icon.png';
 import { IProduct } from 'types/@shared/marketTypes';
+import { Link } from 'react-router-dom';
 
 function Product({
+  id,
   name,
   price,
   images,
   favoriteCount,
-}: Pick<IProduct, 'name' | 'price' | 'images' | 'favoriteCount'>) {
+}: Pick<IProduct, 'id' | 'name' | 'price' | 'images' | 'favoriteCount'>) {
   return (
-    <article>
-      <div className={'product-image-wrapper'}>
-        {images.map(image => (
-          <Image
-            key={image}
-            src={image}
-            alt={'상품 이미지'}
-            height={'auto'}
-            width={'100%'}
-            radius={'1.6rem'}
-            aspectRatio={'1'}
-          />
-        ))}
-      </div>
+    <StyledProductContainer to={`${id}`}>
+      {images.map(image => (
+        <Image
+          key={image}
+          src={image}
+          alt={'상품 이미지'}
+          height={'auto'}
+          width={'100%'}
+          radius={'1.6rem'}
+          aspectRatio={'1'}
+        />
+      ))}
       <StyledProductInfoWrapper>
         <h4>{name}</h4>
-        <h5>{price}원</h5>
+        <h5>{price.toLocaleString()}원</h5>
         <small>
           <Image className={'like-icon'} src={likeIcon} alt={'좋아요 아이콘'} height={'1.165rem'} width={'1.34rem'} />
           {favoriteCount}
         </small>
       </StyledProductInfoWrapper>
-    </article>
+    </StyledProductContainer>
   );
 }
 
 export default Product;
+
+const StyledProductContainer = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const StyledProductInfoWrapper = styled.div`
   display: flex;

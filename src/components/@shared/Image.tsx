@@ -1,17 +1,23 @@
+import { SyntheticEvent } from 'react';
 import styled from 'styled-components';
+import noImage from 'assets/images/@shared/no-image-placeholder.png';
 
 interface ImageProps {
   src: string;
   alt: string;
-  width: string;
-  height: string;
+  width?: string;
+  height?: string;
   radius?: string;
   className?: string;
   aspectRatio?: string;
   onClick?: () => void;
 }
 
-function Image({ src, alt, width, height, radius, className, onClick, aspectRatio }: ImageProps) {
+function Image({ src, alt, width = 'auto', height = 'auto', radius, className, onClick, aspectRatio }: ImageProps) {
+  const handleImageError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    (e.target as HTMLImageElement).src = noImage;
+  };
+
   return (
     <StyledImage
       src={src}
@@ -22,6 +28,7 @@ function Image({ src, alt, width, height, radius, className, onClick, aspectRati
       className={className || ''}
       $aspectRatio={aspectRatio || ''}
       onClick={onClick}
+      onError={handleImageError}
     />
   );
 }

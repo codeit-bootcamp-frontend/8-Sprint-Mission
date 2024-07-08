@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import removeIcon from 'assets/images/addItem/remove-icon.png';
+import removeIcon from 'assets/images/addProduct/remove-icon.png';
 
 export const StyledRemoveButton = styled.button`
   width: 2rem;

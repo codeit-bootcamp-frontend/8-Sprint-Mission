@@ -8,8 +8,8 @@ import { PATH_ADD_ITEM } from ' constants/paths/paths';
 import Image from 'components/@shared/Image';
 import useNavigateTo from 'hooks/useNavigateTo';
 import useWindowSize from 'hooks/useWindowSize';
-import { MOBILE_MAX_WIDTH } from ' constants/infomations/size';
-import { ProductOrderBy } from 'types/@shared/marketTypes';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { ProductOrderByType } from 'types/@shared/marketTypes';
 
 const orderByObject = {
   recent: '최신순',
@@ -18,7 +18,7 @@ const orderByObject = {
 
 interface ProductManagementProps {
   isOpenDropdown: boolean;
-  orderBy: ProductOrderBy;
+  orderBy: ProductOrderByType;
   handleOrderByClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   handleSearchSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   handleIsOpenClick: () => void;
@@ -79,7 +79,7 @@ const StyledProductManagementSection = styled.section`
   gap: 1.2rem;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
     height: 9.2rem;
     width: 100%;
     position: relative;
@@ -115,10 +115,10 @@ const StyledSearchInputForm = styled.form`
     }
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_MAX_WIDTH}px) {
     width: 24.2rem;
   }
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
     width: 100%;
   }
 `;
@@ -142,10 +142,10 @@ const StyledDropdownWrapper = styled.div`
   background-color: var(--white);
   border: 1px solid var(--cool-gray-200);
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_MAX_WIDTH}px) {
     width: 12rem;
   }
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
     width: 4.2rem;
     border-radius: 1.2rem;
   }

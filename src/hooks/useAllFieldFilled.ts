@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ObjectType } from 'types/@shared/addItemTypes';
+import { ObjectType } from 'types/@shared/addProductTypes';
 
 const useAllFieldFilled = <T extends Record<string, ObjectType>>(object: T): boolean => {
   const [isAllFieldFilled, setIsAllFieldFilled] = useState(false);

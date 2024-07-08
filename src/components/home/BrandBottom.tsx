@@ -1,3 +1,4 @@
+import { TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 import BrandContainer from './BrandContainer';
 import brandBottomImg from 'assets/images/home/home_bottom.png';
 import Image from 'components/@shared/Image';
@@ -17,7 +18,7 @@ function BrandBottom() {
 export default BrandBottom;
 
 const StyledBrandBottom = styled.div`
-  @media all and (max-width: 1199px) {
+  @media all and (max-width: ${TABLET_MAX_WIDTH}px) {
     padding: 12.1rem 0 5.9rem;
   }
 `;

@@ -2,10 +2,10 @@ import { ADDITEM_FEIELDSET_LIST } from ' constants/infomations/addItemList';
 import React from 'react';
 import { Fragment } from 'react/jsx-runtime';
 import styled from 'styled-components';
-import { StyledAddItemSubTitle, smallTextStyle } from 'styles/addItem/textStyles';
+import { StyledAddItemSubTitle, smallTextStyle } from 'styles/addProduct/textStyles';
 import { inputStyle, placeholderStyle } from 'styles/auth/formStyles';
 import TagList from './TagList';
-import { IFormValue, ITag } from 'types/@shared/addItemTypes';
+import { IFormValue, ITag } from 'types/@shared/addProductTypes';
 
 interface InputSectionProps {
   formValue: IFormValue;

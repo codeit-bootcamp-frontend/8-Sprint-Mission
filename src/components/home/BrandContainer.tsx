@@ -1,3 +1,4 @@
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
@@ -22,7 +23,7 @@ const StyledBrandContainer = styled.article`
   height: 54rem;
   background-color: var(--pale-blue);
 
-  @media all and (max-width: 1199px) {
+  @media all and (max-width: ${TABLET_MAX_WIDTH}px) {
     height: 100%;
   }
 `;
@@ -34,7 +35,7 @@ const StyledBrandWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  @media all and (max-width: 1199px) {
+  @media all and (max-width: ${TABLET_MAX_WIDTH}px) {
     flex-direction: column;
     /* 이미지가 잘려도 되도록 hidden 속성 부여*/
     overflow-x: hidden;
@@ -50,16 +51,16 @@ const StyledBrandWrapper = styled.div`
     color: var(--cool-gray);
     white-space: pre-line;
 
-    @media all and (max-width: 1199px) {
+    @media all and (max-width: ${TABLET_MAX_WIDTH}px) {
       text-align: center;
     }
 
-    @media all and (min-width: 768px) and (max-width: 1199px) {
+    @media all and (min-width: ${MOBILE_MAX_WIDTH}px) and (max-width: ${TABLET_MAX_WIDTH}px) {
       width: 100%;
       white-space: normal;
     }
 
-    @media all and (min-width: 375px) and (max-width: 767px) {
+    @media all and (min-width: 375px) and (max-width: ${MOBILE_MAX_WIDTH}px) {
       font-size: 3.2rem;
 
       line-height: 4.48rem;
@@ -72,7 +73,7 @@ const StyledBrandWrapper = styled.div`
     left: 35rem; /* 뷰포트 너비에 구애 받지 않아야 하므로 .container를 기준으로 피그마를 참고해 다시 계산한 값 */
     bottom: 0;
 
-    @media all and (max-width: 1199px) {
+    @media all and (max-width: ${TABLET_MAX_WIDTH}px) {
       position: static;
       /* 이미지가 확대 되어 필요 이상으로 잘리지 않도록 max-width 지정*/
       max-width: 135%;

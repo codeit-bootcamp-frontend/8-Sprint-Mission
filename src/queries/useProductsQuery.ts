@@ -1,13 +1,15 @@
 import { PRODUCTS_QUERY_KEY } from ' constants/queryKeys/queryKeys';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { axiosInstance } from 'apis/setupAxios';
-import { IProductResponse } from 'types/@shared/marketTypes';
+import { IProductResponse, ProductOrderByType } from 'types/@shared/marketTypes';
+
+const INITIAL_PAGE_SIZE = 10;
 
 interface useProductsQueryFetcherProps {
-  page: number;
-  order: string;
-  keyword: string;
-  size: number;
+  page?: string | null;
+  order?: ProductOrderByType;
+  keyword?: string;
+  size?: number;
 }
 
 const fetcher = async ({ page, order, size, keyword }: useProductsQueryFetcherProps): Promise<IProductResponse> => {
@@ -25,8 +27,12 @@ const fetcher = async ({ page, order, size, keyword }: useProductsQueryFetcherPr
   }
 };
 
-//TODO: size 상수화
-const useProductsQuery = ({ page = 1, order = 'recent', size = 10, keyword = '' }) => {
+const useProductsQuery = ({
+  page = '1',
+  order = 'recent',
+  size = INITIAL_PAGE_SIZE,
+  keyword = '',
+}: useProductsQueryFetcherProps) => {
   return useSuspenseQuery({
     queryKey: [PRODUCTS_QUERY_KEY, page, order, size, keyword],
     queryFn: () => fetcher({ page, order, size, keyword }),

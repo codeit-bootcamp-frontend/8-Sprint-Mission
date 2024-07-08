@@ -12,7 +12,9 @@
   --cool-gray-100: #f3f4f6;
   --cool-gray-200: #e5e7eb;
   --cool-gray-400: #9ca3af;
+  --cool-gray-500: #6b7280;
   --cool-gray-600: #4b5563;
+  --cool-gray-800: #1f2937;
   --cool-gray-900: #111827;
   --error-red: #f74747;
 
@@ -25,4 +27,7 @@
 
   /* z-index */
   --z-index-header: 2;
+
+  /* border */
+  --border-200: 1px solid var(--cool-gray-200);
 }

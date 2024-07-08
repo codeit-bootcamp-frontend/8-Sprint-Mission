@@ -1,3 +1,4 @@
+import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 import styled from 'styled-components';
 
 export const StyledAuthContainer = styled.div`
@@ -8,7 +9,7 @@ export const StyledAuthContainer = styled.div`
   width: 64rem;
   margin: 6rem auto 0;
 
-  @media all and (max-width: 767px) {
+  @media all and (max-width: ${MOBILE_MAX_WIDTH}px) {
     box-sizing: content-box;
     padding: 0 16px;
     max-width: 400px;

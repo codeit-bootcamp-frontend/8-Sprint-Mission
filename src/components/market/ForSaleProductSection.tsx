@@ -5,11 +5,12 @@ import styled from 'styled-components';
 import ProductManagement from './ProductManagement';
 
 import useToggle from 'hooks/useToggle';
-import { ProductOrderBy } from 'types/@shared/marketTypes';
+import { ProductOrderByType } from 'types/@shared/marketTypes';
+import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 
 function ForSaleProductsSection() {
   const [searchValue, setSearchValue] = useState('');
-  const [orderBy, setOrderBy] = useState<ProductOrderBy>('recent');
+  const [orderBy, setOrderBy] = useState<ProductOrderByType>('recent');
   const [isOpen, toggleIsOpen] = useToggle();
 
   const handleOrderByClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -17,7 +18,7 @@ function ForSaleProductsSection() {
 
     if (value) {
       // dataset에 있는 데이터로 재정렬 요청 후 토글 닫기
-      setOrderBy(value as ProductOrderBy);
+      setOrderBy(value as ProductOrderByType);
       toggleIsOpen();
     }
   };
@@ -64,7 +65,7 @@ const StyledForSaleProductSubHeader = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
     position: relative;
 
     & .for-sale-text {

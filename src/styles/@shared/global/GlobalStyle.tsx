@@ -37,9 +37,13 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
-  input {
+  input, textarea {
     outline: none;
     border: none;
+  }
+
+  textarea{
+    resize: none;
   }
 `;
 

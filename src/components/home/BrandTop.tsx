@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import useNavigateTo from 'hooks/useNavigateTo';
 import Image from 'components/@shared/Image';
 import { PATH_ITEMS } from ' constants/paths/paths';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 
 function BrandTop() {
   const { navigateTo } = useNavigateTo();
@@ -12,7 +13,11 @@ function BrandTop() {
     <BrandContainer>
       <StyledBrandTop className={'top'}>
         <h1>{'일상의 모든 물건을\n거래해 보세요'}</h1>
-        <Button width={'35.7rem'} height={'5.6rem'} $category={'large'} onClick={() => navigateTo(PATH_ITEMS)}>
+        <Button
+          width={'35.7rem'}
+          height={'5.6rem'}
+          $category={'large'}
+          onClick={() => navigateTo(`${PATH_ITEMS}?page=1`)}>
           구경하러 가기
         </Button>
       </StyledBrandTop>
@@ -28,12 +33,12 @@ const StyledBrandTop = styled.div`
   flex-direction: column;
   gap: 3.2rem;
 
-  @media all and (max-width: 1199px) {
+  @media all and (max-width: ${TABLET_MAX_WIDTH}px) {
     padding: 8.4rem 0 10rem;
     align-items: center;
   }
 
-  @media all and (max-width: 767px) {
+  @media all and (max-width: ${MOBILE_MAX_WIDTH}px) {
     button {
       width: 15.4rem;
       height: 4.8rem;

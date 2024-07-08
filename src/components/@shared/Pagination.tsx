@@ -1,16 +1,17 @@
 import usePageSize from 'hooks/usePageSize';
 import React, { useState } from 'react';
+import { SetURLSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface PaginationProps {
-  totalCount: number;
   currentPage: number;
-  setCurrentPageCount: React.Dispatch<React.SetStateAction<number>>;
+  totalCount: number;
+  setSearchParams: SetURLSearchParams;
 }
 
-const MAX_PAGE_BUTTONS = 3; // 화면에 최대 보여줄 페이지 버튼 수
+const MAX_PAGE_BUTTONS = 5; // 화면에 최대 보여줄 페이지 버튼 수
 
-function Pagination({ totalCount, currentPage, setCurrentPageCount }: PaginationProps) {
+function Pagination({ currentPage, totalCount, setSearchParams }: PaginationProps) {
   const pageSize = usePageSize('forSale');
 
   // 현재 페이지 그룹의 시작 페이지 번호
@@ -34,15 +35,15 @@ function Pagination({ totalCount, currentPage, setCurrentPageCount }: Pagination
         // 이전 페이지로 이동할 경우, 이전 페이지 그룹으로 넘어가야 하는 지 확인
         setStartPage(startPage - MAX_PAGE_BUTTONS);
       }
-      setCurrentPageCount(prevState => Math.max(prevState - 1, 1)); // 이전 페이지로 이동
+      setSearchParams({ page: Math.max(currentPage - 1, 1).toString() }); // 이전 페이지로 이동
     } else if (value === 'nextPage') {
       if (endPage < currentPage + 1) {
         // 다음 페이지로 이동할 경우, 다음 페이지 그룹으로 넘어가야 하는 지 확인
         setStartPage(endPage + 1);
       }
-      setCurrentPageCount(prevState => Math.min(prevState + 1, lastPage)); // 다음 페이지로 이동
+      setSearchParams({ page: Math.min(currentPage + 1, lastPage).toString() }); // 다음 페이지로 이동
     } else {
-      setCurrentPageCount(parseInt(value)); // 선택한 페이지로 이동
+      setSearchParams({ page: parseInt(value).toString() }); // 선택한 페이지로 이동
     }
   };
 

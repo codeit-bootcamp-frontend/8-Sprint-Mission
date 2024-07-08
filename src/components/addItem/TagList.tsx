@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { smallTextStyle } from 'styles/addItem/textStyles';
+import { smallTextStyle } from 'styles/addProduct/textStyles';
 
-import { StyledRemoveButton } from 'styles/addItem/buttonStyles';
-import { ITag } from 'types/@shared/addItemTypes';
+import { StyledRemoveButton } from 'styles/addProduct/buttonStyles';
+import { ITag } from 'types/@shared/addProductTypes';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
 
 interface TagListProps {
   tagList: ITag[];
@@ -36,10 +37,10 @@ const StyledTagList = styled.ul`
 
   ${smallTextStyle};
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${TABLET_MAX_WIDTH}px) {
     max-width: calc(100vw - 5.2rem);
   }
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
     max-width: calc(100vw - 3.2rem);
   }
 `;
