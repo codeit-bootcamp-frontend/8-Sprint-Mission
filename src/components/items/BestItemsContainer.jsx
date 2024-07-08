@@ -1,48 +1,32 @@
 import React, { useState, useEffect } from "react";
 import ItemContainer from "./ItemContainer";
-import { getItems } from "../../core/api";
-
-// count items according to pageSize
-const countPageItems = () => {
-  if (window.innerWidth < 768) {
-    return 1;
-  } else if (window.innerWidth < 1200) {
-    return 2;
-  } else {
-    return 4;
-  }
-};
+import { getProducts } from "../../core/api";
+import useFetch from "../../lib/hooks/useFetch";
+import countPageItems from "../../lib/utils/countPageItems";
 
 function BestItemsContainer() {
-  const [items, setItems] = useState([]);
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(4);
+  const [pageSize, setPageSize] = useState(countPageItems(1, 2, 4));
+  const { data: itemsData } = useFetch(
+    getProducts,
+    { page: 1, pageSize, orderBy: "favorite" },
+    { list: [] }
+  );
 
-  // get api data
-  const fetchItemData = async ({ page, pageSize, orderBy }) => {
-    try {
-      const item = await getItems({ page, pageSize, orderBy });
-      setItems(item.list);
-    } catch (error) {
-      console.error("데이터 가져오기 실패:", error);
-      setItems([]);
-    }
+  const items = itemsData.list;
+
+  const measurePageSize = () => {
+    const newPageSize = countPageItems(1, 2, 4);
+    setPageSize(newPageSize);
   };
 
-  const measurePageSize = (e) => {
-    setPageSize(countPageItems());
-  };
-
-  // get pageSize
+  // get pageSize on window resize
   useEffect(() => {
     window.addEventListener("resize", measurePageSize);
 
-    fetchItemData({ page, pageSize, orderBy: "favorite" });
-
-    return (e) => {
+    return () => {
       window.removeEventListener("resize", measurePageSize);
     };
-  }, [page, pageSize]);
+  }, [pageSize]);
 
   return (
     <section className="best-items-container">

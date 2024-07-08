@@ -1,11 +1,20 @@
 import React from "react";
-import ItemTags from "./ItemTags";
 
-function ItemDetails({ details, onDetailsChange, onTagsChange }) {
+function AddItemDetails({ details, setDetails }) {
+  const handleDetailsChange = (e) => {
+    const { name, value } = e.target;
+    setDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
+
   return (
     <section className="item-details">
       <div className="item-detail-container">
-        <label className="section-title">상품명</label>
+        <label htmlFor="itemName" className="section-title">
+          상품명
+        </label>
         <input
           className="item-detail-input"
           type="text"
@@ -13,38 +22,40 @@ function ItemDetails({ details, onDetailsChange, onTagsChange }) {
           name="itemName"
           placeholder="상품명을 입력해주세요"
           value={details.itemName}
-          onChange={onDetailsChange}
+          onChange={handleDetailsChange}
         />
       </div>
 
       <div className="item-detail-container">
-        <label className="section-title">상품 소개</label>
+        <label htmlFor="itemDesciption" className="section-title">
+          상품 소개
+        </label>
         <textarea
           className="item-detail-input"
           id="itemDescription"
           name="itemDescription"
           placeholder="상품 소개를 입력해주세요"
           value={details.itemDescription}
-          onChange={onDetailsChange}
+          onChange={handleDetailsChange}
         />
       </div>
 
       <div className="item-detail-container">
-        <label className="section-title">판매가격</label>
+        <label htmlFor="itemPrice" className="section-title">
+          판매가격
+        </label>
         <input
           className="item-detail-input"
-          type="number"
+          type="text"
           id="itemPrice"
           name="itemPrice"
           placeholder="판매 가격을 입력해주세요"
           value={details.itemPrice}
-          onChange={onDetailsChange}
+          onChange={handleDetailsChange}
         />
       </div>
-
-      <ItemTags tags={details.itemTags} onTagsChange={onTagsChange} />
     </section>
   );
 }
 
-export default ItemDetails;
+export default AddItemDetails;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-function ItemTags({ tags, onTagsChange }) {
+function AddItemTags({ initialTags }) {
+  const [tags, setTags] = useState(initialTags);
   const [tagInput, setTagInput] = useState("");
 
   const handleInputChange = (e) => {
@@ -10,13 +11,13 @@ function ItemTags({ tags, onTagsChange }) {
   const handleAddTag = (e) => {
     if (e.key === "Enter" && tagInput.trim()) {
       e.preventDefault();
-      onTagsChange([...tags, tagInput.trim()]);
+      setTags([...tags, { id: Date.now(), value: tagInput.trim() }]);
       setTagInput("");
     }
   };
 
-  const handleRemoveTag = (index) => {
-    onTagsChange(tags.filter((element, i) => i !== index));
+  const handleRemoveTag = (id) => {
+    setTags(tags.filter((tag) => tag.id !== id));
   };
 
   return (
@@ -31,12 +32,12 @@ function ItemTags({ tags, onTagsChange }) {
         onKeyDown={handleAddTag}
       />
       <ul className="tags">
-        {tags.map((tag, index) => (
-          <li key={index} className="tag-item">
-            {tag}
+        {tags.map((tag) => (
+          <li key={tag.id} className="tag-item">
+            {tag.value}
             <button
               className="ic-delete-gray"
-              onClick={() => handleRemoveTag(index)}
+              onClick={() => handleRemoveTag(tag.id)}
             />
           </li>
         ))}
@@ -45,4 +46,4 @@ function ItemTags({ tags, onTagsChange }) {
   );
 }
 
-export default ItemTags;
+export default AddItemTags;

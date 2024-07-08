@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./AddItem.css";
-import ItemImageUpload from "../components/AddItem/ItemImageUpload";
-import ItemDetails from "../components/AddItem/ItemDetails";
+import AddItemImage from "../components/AddItem/AddItemImage";
+import AddItemDetails from "../components/AddItem/AddItemDetails";
+import AddItemTags from "../components/AddItem/AddItemTags";
 
 function AddItem() {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -15,21 +16,6 @@ function AddItem() {
 
   const handleImageChange = (file) => {
     setUploadedImage(file);
-  };
-
-  const handleDetailsChange = (e) => {
-    const { name, value } = e.target;
-    setItemDetails((prevDetails) => ({
-      ...prevDetails,
-      [name]: value,
-    }));
-  };
-
-  const handleTagsChange = (newTags) => {
-    setItemDetails((prevDetails) => ({
-      ...prevDetails,
-      itemTags: newTags,
-    }));
   };
 
   const handleSubmit = (e) => {
@@ -54,15 +40,9 @@ function AddItem() {
         >
           등록
         </button>
-        <ItemImageUpload
-          image={uploadedImage}
-          onImageChange={handleImageChange}
-        />
-        <ItemDetails
-          details={itemDetails}
-          onDetailsChange={handleDetailsChange}
-          onTagsChange={handleTagsChange}
-        />
+        <AddItemImage image={uploadedImage} onImageChange={handleImageChange} />
+        <AddItemDetails details={itemDetails} setDetails={setItemDetails} />
+        <AddItemTags initialTags={itemDetails.itemTags} />
       </form>
     </>
   );

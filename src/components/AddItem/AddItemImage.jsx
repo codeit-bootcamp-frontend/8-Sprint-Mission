@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-function ItemImageUpload({ image, onImageChange }) {
+function AddItemImage({ image, onImageChange }) {
   const [previewImgUrl, setPreviewImgUrl] = useState(null);
   const inputRef = useRef(null);
 
@@ -67,4 +67,4 @@ function ItemImageUpload({ image, onImageChange }) {
   );
 }
 
-export default ItemImageUpload;
+export default AddItemImage;
