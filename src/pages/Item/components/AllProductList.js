@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ProductCard from '../../../components/ui/ProductCard';
 import Pagination from '../../../components/ui/Pagination';
 import Loadingbar from '../../../components/ui/Loadingbar';
 import Dropdown from '../../../components/ui/Dropdown';
-import { getProducts } from '../../../services/api';
 import { Link, useNavigate } from 'react-router-dom';
+import useProducts from '../../../hooks/useProductList';
+
 const getPageSize = () => {
   const width = window.innerWidth;
   switch (true) {
-    case width < 768: // Mobile viewport
+    case width < 768:
       return 4;
-    case width < 1200: // Tablet viewport
+    case width < 1200:
       return 6;
-    default: // Desktop viewport
+    default:
       return 10;
   }
 };
@@ -30,49 +31,16 @@ const SORT_MENU_INFO = {
 
 function AllProductList() {
   const navigate = useNavigate();
-  const [orderBy, setOrderBy] = useState('recent');
-  const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(getPageSize());
-  const [totalPageNum, setTotalPageNum] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const { orderBy, setOrderBy, products, page, setPage, totalPageNum, loading } = useProducts('recent', getPageSize);
 
   const handleClickAddItemButton = () => {
     navigate('/additem');
-  };
-
-  const handleLoad = async ({ orderBy, page, pageSize }) => {
-    setLoading(true);
-    try {
-      const products = await getProducts({ orderBy, page, pageSize });
-      setProducts(products.list);
-      setTotalPageNum(Math.ceil(products.totalCount / pageSize));
-    } catch (error) {
-      console.error('Failed to load products:', error);
-      setProducts([]);
-    } finally {
-      setLoading(false);
-    }
   };
 
   const onPageChange = pageNumber => {
     if (!pageNumber || pageNumber > totalPageNum) return;
     setPage(pageNumber);
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setPageSize(getPageSize());
-    };
-    window.addEventListener('resize', handleResize);
-
-    // Initial load
-    handleLoad({ orderBy, page, pageSize });
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [orderBy, page, pageSize]);
 
   const ProductList =
     products.length > 0 ? (

@@ -1,50 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ProductCard from '../../../components/ui/ProductCard';
-import { getProducts } from '../../../services/api';
 import { Link } from 'react-router-dom';
 import Loadingbar from '../../../components/ui/Loadingbar';
+import useProducts from '../../../hooks/useProductList';
 
 const getPageSize = () => {
   const width = window.innerWidth;
   switch (true) {
-    case width < 768: // Mobile viewport
+    case width < 768:
       return 1;
-    case width < 1200: // Tablet viewport
+    case width < 1200:
       return 2;
-    default: // Desktop viewport
+    default:
       return 4;
   }
 };
 
 function BestProductList() {
-  const orderBy = 'favorite';
-  const [products, setProducts] = useState([]);
-  const [pageSize, setPageSize] = useState(getPageSize());
-  const [loading, setLoading] = useState(false);
+  const { products, loading } = useProducts('favorite', getPageSize);
 
-  const handleLoad = async ({ orderBy, pageSize }) => {
-    setLoading(true);
-    try {
-      const products = await getProducts({ orderBy, pageSize });
-      setProducts(products.list);
-    } catch (error) {
-      console.error('Failed to load products:', error);
-      setProducts([]);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    handleLoad({ orderBy, pageSize });
-    const handleResize = () => {
-      setPageSize(getPageSize());
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [orderBy, pageSize]);
   const ProductList =
     products.length > 0 ? (
       <ul className="product-list">
@@ -59,6 +33,7 @@ function BestProductList() {
     ) : (
       <p className="list-none">상품이 없습니다.</p>
     );
+
   return (
     <>
       <div className="section-header">
