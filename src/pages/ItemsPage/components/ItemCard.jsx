@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as HeartIcon } from "../../../assets/icons/ic_heart.svg";
-import default_image from "../../../assets/ItemsPage/alt_image.png";
+import { ReactComponent as HeartIcon } from "@assets/icons/ic_heart.svg";
+import default_image from "@assets/ItemsPage/alt_image.png";
 
 function ItemCard({ item }) {
   const { images, name, price, favoriteCount } = item;

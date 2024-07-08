@@ -4,10 +4,14 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ItemCard from "./ItemCard";
-import { getProducts as getAllItems } from "../../../js/itemApi";
-import SearchBar from "../../../components/UI/jsx/SearchBar";
-import DropDownList from "../../../components/UI/jsx/DropDownList";
+import ItemCard from "@pages/ItemsPage/components/ItemCard";
+import { getProducts as getAllItems } from "@js/itemApi";
+import SearchBar from "@components/UI/jsx/SearchBar";
+import DropDownList from "@components/UI/jsx/DropDownList";
+import Button from "@components/UI/jsx/Button";
+
+const ORDER_BY_RECENT = "recent";
+const ORDER_BY_FAVORITE = "favorite";
 
 /**
  * 페이지 사이즈에 따라, 불러와야하는 아이템 갯수를 리턴하는 함수
@@ -28,7 +32,7 @@ function AllItemsSection() {
   const [itemList, setItemList] = useState([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
-  const [orderBy, setOrderBy] = useState("recent");
+  const [orderBy, setOrderBy] = useState(ORDER_BY_RECENT);
 
   /**
    * 데이터를 받아와서 itemList states에 넣는 비동기 함수
@@ -48,11 +52,11 @@ function AllItemsSection() {
   const orderByItems = [
     {
       name: "최신순",
-      value: "recent",
+      value: ORDER_BY_RECENT,
     },
     {
       name: "추천순",
-      value: "favorite",
+      value: ORDER_BY_FAVORITE,
     },
   ];
 
@@ -82,13 +86,20 @@ function AllItemsSection() {
           <h2 className="allItemsSection__title">판매중인 상품</h2>
         </div>
         <SearchBar className="allItemsSection__searchBar" />
-        <Link
+        <Button
+          to="/additem"
+          size="small"
+          height="48"
+          innerText="상품 등록하기"
+        />
+
+        {/* <Link
           to="/additem"
           className="allItemsSection__btn globalBtn globalBtn--small"
           type="button"
         >
           상품 등록하기
-        </Link>
+        </Link> */}
         <DropDownList
           className="allItemsSection__dropDownList"
           dropDownItems={orderByItems}

@@ -72,7 +72,7 @@ a.password-inv {
   width: 24px;
   height: 24px;
 
-  background-image: url("../../assets/LoginPage/btn_visibility_off_24px.svg");
+  background-image: url("@assets/LoginPage/btn_visibility_off_24px.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -110,14 +110,14 @@ a.password-inv {
 .google-social-login {
   border: 1px solid #f9fafb;
   background-color: #ffffff;
-  background-image: url("../../assets/LoginPage/Google-icon.svg");
+  background-image: url("@assets/LoginPage/Google-icon.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .kakao-social-login {
   background-color: #f5e14b;
-  background-image: url("../../assets/LoginPage/Kakao-icon.svg");
+  background-image: url("@assets/LoginPage/Kakao-icon.svg");
   background-repeat: no-repeat;
   background-position: center;
 }

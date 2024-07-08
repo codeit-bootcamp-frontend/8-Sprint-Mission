@@ -1,4 +1,4 @@
-const BASE_URL = "https://panda-market-api.vercel.app";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 /** 상품 정보를 읽는 함수
  * @param {number} [params.page] - 페이지 번호 (선택)

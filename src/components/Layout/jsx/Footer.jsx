@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../scss/Footer.scss";
+import "@components/Layout/scss/Footer.scss";
 
-import icFacebook from "../../../assets/HomePage/ic_facebook.png";
-import icTwitter from "../../../assets/HomePage/ic_twitter.png";
-import icYoutube from "../../../assets/HomePage/ic_youtube.png";
-import icInstagram from "../../../assets/HomePage/ic_instagram.png";
+import icFacebook from "@assets/HomePage/ic_facebook.png";
+import icTwitter from "@assets/HomePage/ic_twitter.png";
+import icYoutube from "@assets/HomePage/ic_youtube.png";
+import icInstagram from "@assets/HomePage/ic_instagram.png";
 
 function Footer() {
   return (

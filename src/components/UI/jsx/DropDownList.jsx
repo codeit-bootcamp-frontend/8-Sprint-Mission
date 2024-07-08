@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import dropDownIcon from "../../../assets/icons/ic_arrow_down.svg";
+import dropDownIcon from "@assets/icons/ic_arrow_down.svg";
 import { useEffect } from "react";
-import "../scss/DropDownList.scss";
+import "@components/UI/scss/DropDownList.scss";
 
 /**
  * 페이지 사이즈에 따라, 다르게 보여야 하는 State를 바꾸는 함수
@@ -24,8 +24,8 @@ function getPageSize() {
  * @param {Function} onSelection - 선택 시 호출되는 함수
  */
 function DropDownList({ dropDownItems, currentItem, onSelection }) {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-  const [current, setCurrent] = useState();
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false); // 드랍 다운 표시/숨기기
+  const [current, setCurrent] = useState(); // 현재 선택된 아이템
   const [pageSize, setPageSize] = useState(getPageSize()); // boolean
 
   const handleItems = () => {
@@ -33,16 +33,18 @@ function DropDownList({ dropDownItems, currentItem, onSelection }) {
   };
 
   const handleListItems = (e) => {
-    const selectedItem = e.target.getAttribute("data-value"); // 클릭된 요소의 data-value 속성 가져오기
-    const selectedItemName = dropDownItems.find(
-      (item) => item.value === selectedItem
-    )?.name;
+    const selectedItemName = e.target.innerText; // 클릭된 요소의 {item.name} 속성 가져오기
+    console.log(selectedItemName);
+    const selectedItem = dropDownItems.find(
+      (item) => item.name === selectedItemName
+    )?.value;
     setCurrent(selectedItemName);
     onSelection(selectedItem);
     setIsDropdownVisible(false); // 아이템 선택 후 드롭다운 닫기
   };
 
   const currentItemName = dropDownItems.find(
+    // 현재 아이템의 이름
     (item) => item.value === currentItem
   )?.name;
 
@@ -84,7 +86,6 @@ function DropDownList({ dropDownItems, currentItem, onSelection }) {
             <div
               key={item.value}
               className="dropDownList__item"
-              data-value={item.value}
               onClick={handleListItems}
             >
               {item.name}
