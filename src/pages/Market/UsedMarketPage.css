@@ -1,0 +1,21 @@
+.product-lists {
+  display: flex;
+  width: 1200px;
+  flex-direction: column;
+  gap: 40px;
+  margin: 24px auto 40px;
+}
+
+@media screen and (max-width: 1199px) {
+  .product-lists {
+    width: auto;
+    margin: 24px 24px 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product-lists {
+    margin: 17px 16px 40px;
+    gap: 24px;
+  }
+}

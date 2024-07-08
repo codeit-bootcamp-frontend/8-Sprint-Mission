@@ -1,0 +1,94 @@
+/*==========sub-title==========*/
+.sub-title {
+  color: var(--cool-gray-800);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  margin: 16px 0 12px;
+}
+
+.submit-btn:disabled {
+  background-color: var(--cool-gray-400);
+}
+
+/*==========file-input==========*/
+.imgfile-container {
+  display: flex;
+  gap: 24px;
+}
+
+.file-input-label,
+.imgfile-preview {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+}
+
+.file-input-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cool-gray-100);
+  cursor: pointer;
+}
+
+.register-img-icon {
+  display: block;
+  width: 74px;
+  height: 84px;
+}
+
+.file-input {
+  display: none;
+}
+
+.imgfile-preview {
+  display: none;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/*==========imgfile-delete-btn==========*/
+.imgfile-delete-btn {
+  display: block;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  background-size: 22px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.imgfile-delete-btn.active {
+  background-image: url("../../../assets/images/ic_img_delete_btn_active.png");
+}
+
+.imgfile-delete-btn.inactive {
+  background-image: url("../../../assets/images/ic_img_delete_btn_inactive.png");
+}
+
+/*==========Tablet==========*/
+@media screen and (max-width: 1199px) {
+  .imgfile-container {
+    gap: 16px;
+  }
+
+  .file-input-label,
+  .imgfile-preview {
+    width: 162px;
+    height: 162px;
+    border-radius: 12px;
+  }
+}
+
+/*==========Mobile==========*/
+@media screen and (max-width: 767px) {
+  .imgfile-container {
+    gap: 8px;
+  }
+}
