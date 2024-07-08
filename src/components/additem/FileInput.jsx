@@ -42,7 +42,6 @@ function FileInput({ name, onChange }) {
         <img
           className="preview-img"
           src={preview}
-          // src={previewImgFile}
           alt="업로드한 이미지 미리보기"
           width="282px"
           height="282px"

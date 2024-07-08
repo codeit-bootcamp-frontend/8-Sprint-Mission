@@ -1,0 +1,13 @@
+.product-tag {
+  margin-right: 8px;
+  padding: 6px 16px;
+  height: 36px;
+  float: left;
+  border-radius: 26px;
+  background-color: var(--gray100);
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 24px;
+  color: var(--gray800);
+}

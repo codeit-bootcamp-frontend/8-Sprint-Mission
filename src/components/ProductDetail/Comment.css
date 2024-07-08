@@ -1,0 +1,43 @@
+.comment-wrapper {
+  margin-bottom: 24px;
+  border-bottom: solid 1px var(--gray200);
+}
+
+.comment-content {
+  margin-bottom: 24px;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 140%;
+  color: var(--gray800);
+}
+
+.writer-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.writer.image {
+  margin-right: 8px;
+}
+
+.comment-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.comment-info .nickname {
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--gray600);
+}
+
+.comment-info .time-elapsed {
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--gray400);
+}

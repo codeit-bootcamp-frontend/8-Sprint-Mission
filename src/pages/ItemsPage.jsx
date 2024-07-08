@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import "./ItemsPage.css";
-import fetchProductData from "../components/api";
+import { fetchProductData } from "../utils/api";
 import BestProductList from "../components/items/BestProductList";
 import AllProductList from "../components/items/AllProductList";
 

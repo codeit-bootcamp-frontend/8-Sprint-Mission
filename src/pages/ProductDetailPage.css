@@ -1,0 +1,32 @@
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  margin: 70px auto 0;
+  padding-top: 24px;
+}
+
+.backto-list-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 48px;
+  margin-bottom: 24px;
+  padding: 12px;
+  border: none;
+  border-radius: 40px;
+  background-color: var(--blue);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 24px;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.backto-list-button-img {
+  margin-left: 10px;
+}
