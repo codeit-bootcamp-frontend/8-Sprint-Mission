@@ -31,7 +31,7 @@ function ProductInfo({ product }) {
           <label>상품태그</label>
           <div className="tag-list">
             {tags.map((tag, index) => (
-              <span key={index}>{tag}</span>
+              <span key={index}>#{tag}</span>
             ))}
           </div>
         </div>

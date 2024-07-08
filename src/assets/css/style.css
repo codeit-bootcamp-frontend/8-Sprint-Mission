@@ -607,9 +607,6 @@ footer {
   background: var(--gray100);
   color: var(--gray600);
 }
-.btn-favorite:hover .ic_heart {
-  background-image: url("../img/ic_heart_fill.svg");
-}
 .btn-favorite.on .ic_heart {
   background-image: url("../img/ic_heart_fill.svg");
 }
@@ -1230,7 +1227,6 @@ i.icon-sm {
   height: 100%;
   object-fit: cover;
 }
-
 .image-add-wrap .image-add-box .ic_remove {
   position: absolute;
   right: 10px;
