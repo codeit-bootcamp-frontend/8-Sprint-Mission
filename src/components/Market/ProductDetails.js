@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../assets/styles/device";
 import kebabMenuImg from "../../assets/images/ic_kebab.png";
 import heartActive from "../../assets/images/ic_heart_active.png";
 import heartInActive from "../../assets/images/ic_heart_inactive.png";
@@ -16,14 +17,14 @@ const DetailsContainer = styled.div`
   column-gap: 24px;
   row-gap: 0px;
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (${device.tablet}) {
     width: auto;
     margin: 24px;
     column-gap: 16px;
     grid-template-columns: 1fr 340px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (${device.mobile}) {
     margin: 16px 16px 24px;
     flex-direction: column;
     grid-template-columns: 1fr;
@@ -44,7 +45,7 @@ const ProductImg = styled.div`
   border-radius: 16px;
   grid-area: img;
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (${device.tablet}) {
     width: auto;
     aspect-ratio: 1/1;
   }
@@ -67,13 +68,13 @@ const ProductName = styled.h2`
   color: var(--cool-gray-800);
   margin-bottom: 16px;
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (${device.tablet}) {
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 12px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (${device.mobile}) {
     font-size: 16px;
     line-height: 19px;
     margin-bottom: 8px;
@@ -86,12 +87,12 @@ const ProductPrice = styled.div`
   line-height: 48px;
   color: var(--cool-gray-800);
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (${device.tablet}) {
     font-size: 32px;
     line-height: 38px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (${device.mobile}) {
     font-size: 24px;
     line-height: 29px;
   }
@@ -109,7 +110,7 @@ const DetailsSubContainer = styled.div`
   padding-top: 16px;
   padding-bottom: 64px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (${device.mobile}) {
     padding-bottom: 56px;
   }
 `;
@@ -165,7 +166,7 @@ const HeartImg = styled.img`
   width: 32px;
   height: 32px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (${device.mobile}) {
     width: 24px;
     height: 24px;
   }
