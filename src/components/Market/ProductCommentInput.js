@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../assets/styles/device";
 import BlueButton from "../@shared/BlueButton";
 import GrayBgInput from "../@shared/GrayBgInput";
 import { useState, useEffect } from "react";
@@ -14,12 +15,12 @@ const CommentInputContainer = styled.div`
   padding-top: 24px;
   border-top: 1px solid var(--cool-gray-200);
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (${device.tablet}) {
     width: auto;
     margin: 0 24px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (${device.mobile}) {
     margin: 0 16px;
     padding-top: 16px;
   }
@@ -40,7 +41,7 @@ const CommentInput = styled(GrayBgInput)`
   font-weight: 400;
   line-height: 24px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (${device.mobile}) {
     font-size: 14px;
   }
 `;

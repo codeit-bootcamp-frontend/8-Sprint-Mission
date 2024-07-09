@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../assets/styles/device";
 
 import noCommentsImg from "../../assets/images/img_no_comments.png";
 
@@ -8,12 +9,12 @@ const CommentsContainer = styled.ol`
   width: 1200px;
   margin: 0 auto;
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (${device.tablet}) {
     width: auto;
     margin: 0 24px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (${device.mobile}) {
     margin: 0 16px;
   }
 `;
