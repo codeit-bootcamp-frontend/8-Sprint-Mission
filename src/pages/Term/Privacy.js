@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import Header from '../layout/Header';
+import Header from '../../layout/Header';
 import './Privacy.scss';
 
 function Privacy() {

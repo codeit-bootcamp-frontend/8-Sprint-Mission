@@ -1,9 +1,16 @@
 /* ==== loadingbar ==== */
+.bg-dark {
+  background: var(--gray100);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
 .load-wrapp {
   width: 100px;
   height: 100px;
-  margin: 60px auto;
-  padding: 20px 20px 20px;
+  margin: 0 auto;
+  padding: 80px 20px 140px;
   text-align: center;
 
   .load {

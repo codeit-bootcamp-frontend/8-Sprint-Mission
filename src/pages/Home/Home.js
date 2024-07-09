@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
+import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
 import './Home.scss';
 
 function Home() {

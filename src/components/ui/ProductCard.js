@@ -1,10 +1,5 @@
 import React from 'react';
-import imgDefault from '../assets/img/img-default.png';
-
-function formatDate(value) {
-  const date = new Date(value);
-  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}.`;
-}
+import imgDefault from '../../assets/img/img-default.png';
 
 function ProductCard({ product }) {
   if (!product) {
@@ -13,7 +8,7 @@ function ProductCard({ product }) {
   const handleError = event => {
     event.target.src = imgDefault;
   };
-  const { images, name, price, favoriteCount, createdAt } = product;
+  const { images, name, price, favoriteCount } = product;
 
   return (
     <div className="product-card">
@@ -27,7 +22,6 @@ function ProductCard({ product }) {
           <i className="icon-sm ic_heart"></i>
           <span className="num">{favoriteCount}</span>
         </p>
-        <p className="sr-only">{formatDate(createdAt)}</p>
       </div>
     </div>
   );

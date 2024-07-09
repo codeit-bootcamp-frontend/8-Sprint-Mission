@@ -25,11 +25,8 @@ function Pagination({ totalPageNum, activePageNum, onPageChange }) {
           title="이전"></button>
       </li>
       {pages.map(page => (
-        <li>
-          <button
-            key={page}
-            className={`page-link ${activePageNum === page ? 'on' : ''}`}
-            onClick={() => onPageChange(page)}>
+        <li key={page}>
+          <button className={`page-link ${activePageNum === page ? 'on' : ''}`} onClick={() => onPageChange(page)}>
             {page}
           </button>
         </li>

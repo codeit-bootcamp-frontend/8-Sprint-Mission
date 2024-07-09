@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet';
-import Header from './../layout/Header';
-import BestProductList from '../components/BestProductList';
-import AllProductList from '../components/AllProductList';
+import Header from '../../layout/Header';
+import BestProductList from './components/BestProductList';
+import AllProductList from './components/AllProductList';
 import './Items.scss';
 
 function Items() {
