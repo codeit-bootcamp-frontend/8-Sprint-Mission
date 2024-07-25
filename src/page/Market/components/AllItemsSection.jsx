@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import ItemCard from './ItemCard';
 import DropdownList from './layout/DropdownList';
 import PaginationBar from './layout/PaginationBar';
-import { ReactComponent as SortIcon } from 'image/icon/ic_sort.svg';
-import { ReactComponent as SearchIcon } from 'image/icon/ic_search.svg';
-import { getProducts } from 'api/itemApi';
+import { ReactComponent as SortIcon } from '../../../asset/svg/ic_sort.svg';
+import { ReactComponent as SearchIcon } from '../../../asset/svg/ic_search.svg';
+import { getProducts } from '../../../api/itemApi';
 
 const getPageSize = () => {
   const width = window.innerWidth;

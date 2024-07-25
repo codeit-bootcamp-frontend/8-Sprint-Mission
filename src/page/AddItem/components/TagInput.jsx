@@ -28,7 +28,6 @@ function TagInput({ tags, onAddTag, onRemoveTag }) {
         placeholder='태그를 입력해 주세요'
       />
 
-      {}
       {tags.length > 0 && (
         <div className='tagSection'>
           {tags.map((tag) => (

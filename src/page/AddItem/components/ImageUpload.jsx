@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './ImageUpload.css';
 import styled from 'styled-components';
 import RemoveIcon from './RemoveIcon';
-import { ReactComponent as PlusIcon } from 'image/icon/ic_plus.svg';
+import { ReactComponent as PlusIcon } from '../../../asset/svg/ic_plus.svg';
 
 const Div = styled.div``;
 

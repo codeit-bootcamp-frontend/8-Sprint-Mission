@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as EmptyStateImage } from 'image/icon/empty-comments.svg';
-import { ReactComponent as SeeMoreIcon } from 'image/icon/ic_kebab.svg';
-import DefaultProfileImage from 'image/icon/ic_profile.svg';
+import emptyComments from 'image/empty_comments.png';
+import { ReactComponent as SeeMoreIcon } from 'svg/ic_kebab.svg';
+import DefaultProfileImage from 'svg/ic_profile.svg';
 import { getProductComments } from 'api/itemApi';
 
 const CommentContainer = styled.div`
@@ -82,7 +82,7 @@ const EmptyStateText = styled.p`
 const EmptyState = () => {
   return (
     <EmptyStateContainer>
-      <EmptyStateImage />
+      <img src={emptyComments} alt='빈 문의 의미지' />
       <EmptyStateText>아직 문의가 없습니다.</EmptyStateText>
     </EmptyStateContainer>
   );

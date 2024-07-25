@@ -3,8 +3,8 @@ import { useParams, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import ItemProfileSection from './components/ItemProfileSection';
 import ItemCommentSection from './components/ItemCommentSection';
-import { ReactComponent as BackIcon } from 'image/icon/ic_back.svg';
-import { getProductDetail } from 'api/itemApi';
+import { ReactComponent as BackIcon } from '../../asset/svg/ic_back.svg';
+import { getProductDetail } from '../../api/itemApi';
 
 const BackMarketPage = styled(NavLink)`
   background-color: var(--blue);

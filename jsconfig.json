@@ -2,11 +2,10 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "api/*": ["api/*"],
-      "app/*": ["app/*"],
-      "image/*": ["image/*"],
-      "page/*": ["page/*"]
+      "icon/*": ["asset/icon/*"],
+      "image/*": ["asset/image/*"],
+      "logo/*": ["asset/logo/*"],
+      "svg/*": ["asset/svg/*"]
     }
-  },
-  "include": ["src"]
+  }
 }

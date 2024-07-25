@@ -15,11 +15,11 @@
 }
 
 .hero.banner {
-  background-image: url('./image/top.png');
+  background-image: url('../../asset/image/banner_top.png');
 }
 
 .bottom.banner {
-  background-image: url('./image/bottom.png');
+  background-image: url('../../asset/image/banner_bottom.png');
 }
 
 .banner h2 {

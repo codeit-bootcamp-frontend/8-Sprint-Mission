@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import TagDisplay from './TagDisplay';
 import LikeButton from './LikeButton';
-import { ReactComponent as SeeMoreIcon } from 'image/icon/ic_kebab.svg';
+import { ReactComponent as SeeMoreIcon } from '../../../asset/svg/ic_kebab.svg';
 
 const SectionContainer = styled.section`
   display: flex;

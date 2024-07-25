@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import './style.css';
+import './style.scss';
 import BestItemsSection from './components/BestItemsSection';
 import AllItemsSection from './components/AllItemsSection';
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as HeartSvg } from 'image/icon/ic_heart.svg';
+import heartSvg from '../../../asset/svg/ic_heart.svg';
 
 const PillButton = styled.button`
   color: var(--gray500);
@@ -25,7 +25,7 @@ function LikeButton({ favoriteCount }) {
   return (
     <PillButton>
       <ButtonContent>
-        <HeartSvg />
+        <img src={heartSvg} alt='test' />
         {favoriteCount.toLocaleString()}
       </ButtonContent>
     </PillButton>

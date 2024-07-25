@@ -1,6 +1,6 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Header.css';
-import logo from 'image/pandaMarket/iconLogo.png';
+import logo from 'logo/icon_logo.png';
 
 function Header() {
   const location = useLocation();

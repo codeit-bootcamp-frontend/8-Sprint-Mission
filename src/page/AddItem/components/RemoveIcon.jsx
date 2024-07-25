@@ -1,6 +1,6 @@
 // import styled from 'styled-components';
 import './RemoveIcon.css';
-import { ReactComponent as XIcon } from 'image/icon/ic_x.svg';
+import { ReactComponent as XIcon } from '../../../asset/svg/ic_x.svg';
 
 // const DeleteIcon = styled(CloseIcon)`
 //   &:hover {
