@@ -1,7 +1,7 @@
 import logoImg from "../../assets/logo.svg";
 import "./Navbar.css";
 import "../../style/global.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 function getLinkStyle({ isActive }) {
   return {
@@ -11,6 +11,10 @@ function getLinkStyle({ isActive }) {
 }
 
 function Navbar() {
+  const location = useLocation();
+  const isActive =
+    location.pathname === "/additem" || location.pathname === "/items";
+
   return (
     <header>
       <Link to="/">
@@ -19,7 +23,7 @@ function Navbar() {
       <div className="menu">
         <div className="menu-borad">자유게시판</div>
         <div className="menu-market">
-          <NavLink style={getLinkStyle} to="/items">
+          <NavLink style={getLinkStyle({ isActive })} to="/items">
             중고마켓
           </NavLink>
         </div>
