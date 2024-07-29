@@ -1,6 +1,6 @@
-import logoImg from "../assets/logo.svg";
+import logoImg from "../../assets/logo.svg";
 import "./Navbar.css";
-import "./global.css";
+import "../../style/global.css";
 import { Link, NavLink } from "react-router-dom";
 
 function getLinkStyle({ isActive }) {

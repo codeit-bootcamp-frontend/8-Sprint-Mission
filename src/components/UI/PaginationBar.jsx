@@ -1,7 +1,7 @@
 import React from "react";
 import { useMemo } from "react";
-import { ReactComponent as LeftArrow } from "../assets/btn_left.svg";
-import { ReactComponent as RightArrow } from "../assets/btn_right.svg";
+import { ReactComponent as LeftArrow } from "../../assets/btn_left.svg";
+import { ReactComponent as RightArrow } from "../../assets/btn_right.svg";
 
 const MAX_VISIBLE_PAGE_COUNT = 5;
 

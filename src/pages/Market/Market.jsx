@@ -1,5 +1,5 @@
-import AllItems from "../components/AllItems";
-import BestItems from "../components/BestItems";
+import AllItems from "./components/AllItems";
+import BestItems from "./components/BestItems";
 
 function MarketPage() {
   return (

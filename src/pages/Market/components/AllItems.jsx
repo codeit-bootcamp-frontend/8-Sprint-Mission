@@ -1,12 +1,12 @@
-import { getProducts } from "../api.js";
+import { getProducts } from "../../../api/api.js";
 import React, { useEffect, useState, useMemo, useCallback } from "react";
-import ItemList from "./ItemList.js";
-import searchIcon from "../assets/ic_search.svg";
-import Dropdown from "./Dropdown.js";
+import ItemList from "./ItemList.jsx";
+import searchIcon from "../../../assets/ic_search.svg";
+import Dropdown from "../../../components/UI/Dropdown.jsx";
 import "./AllItems.css";
-import "./global.css";
+import "../../../style/global.css";
 import { Link } from "react-router-dom";
-import PaginationBar from "./PaginationBar.js";
+import PaginationBar from "../../../components/UI/PaginationBar.jsx";
 
 const getPageSize = () => {
   const width = window.innerWidth;

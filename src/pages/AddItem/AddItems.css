@@ -119,12 +119,17 @@ textarea {
   border: none;
   border-radius: 12px;
   background-color: #f3f4f6;
-  color: #9ca3af;
+  color: #1f2937;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   text-align: left;
   padding: 16px 24px;
+}
+
+input,
+textarea::placeholder {
+  color: #9ca3af;
 }
 
 textarea {
@@ -133,6 +138,33 @@ textarea {
 
 .registration-button.active {
   background-color: #3692ff;
+}
+
+#tags {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  width: 110px;
+  height: 36px;
+  padding: 5px 12px 5px 16px;
+  border-radius: 26px;
+  background-color: #f3f4f6;
+}
+
+.tag-title {
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
 }
 
 @media (max-width: 1279px) {

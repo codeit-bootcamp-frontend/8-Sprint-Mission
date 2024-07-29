@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import PlusIcon from "../assets/ic_plus.svg";
-import XIcon from "../assets/ic_X.svg";
+import PlusIcon from "../../assets/ic_plus.svg";
+import XIcon from "../../assets/ic_X.svg";
 
 function FileInput({ name, value, onChange }) {
   const [previewImg, setPreviewImg] = useState(null);

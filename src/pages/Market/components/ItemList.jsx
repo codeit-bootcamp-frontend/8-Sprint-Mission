@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as HeartIcon } from "../assets/ic_heart.svg";
+import { ReactComponent as HeartIcon } from "../../../assets/ic_heart.svg";
 import "./AllItems.css";
-import "./global.css";
+import "../../../style/global.css";
 
 function ItemList({ product }) {
   const { images, name, price, favoriteCount, createdAt } = product;

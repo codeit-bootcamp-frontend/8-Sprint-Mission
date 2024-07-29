@@ -1,7 +1,8 @@
 import { useState } from "react";
-import FileInput from "./FileInput";
+import FileInput from "../../components/UI/FileInput.jsx";
 import "./AddItems.css";
-import "./global.css";
+import "../../style/global.css";
+import TagInput from "../../components/UI/TagInput.jsx";
 
 function AddItems() {
   const [values, setValues] = useState({
@@ -9,10 +10,25 @@ function AddItems() {
     title: "",
     description: "",
     price: "",
-    tag: "",
+    tags: [],
   });
 
-  const [isAbleToSubmit, setIsAbleToSubmit] = useState(false);
+  const addTag = (tag) => {
+    if (!values.tags.includes(tag)) {
+      setValues((prevState) => ({
+        ...prevState,
+        tags: [...prevState.tags, tag],
+      }));
+    }
+  };
+
+  // Function to remove a tag
+  const removeTag = (tagToRemove) => {
+    setValues((prevState) => ({
+      ...prevState,
+      tags: prevState.tags.filter((tag) => tag !== tagToRemove),
+    }));
+  };
 
   const handleFormValuesChange = (name, value) => {
     setValues((preValues) => ({
@@ -26,26 +42,23 @@ function AddItems() {
     handleFormValuesChange(name, value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(values);
-    setIsAbleToSubmit(true);
-  };
+  const isSubmitDisabled =
+    !values.title || !values.description || !values.price || !values.tags;
 
   return (
     <>
       <div className="registration-wrapper">
         <div className="registration-title">상품 등록하기</div>
         <button
-          type="isAbleToSubmit"
-          className={`registration-button ${isAbleToSubmit ? "active" : ""}`}
-          onClick={handleSubmit}
+          type="submit"
+          className={`registration-button ${!isSubmitDisabled ? "active" : ""}`}
+          disabled={isSubmitDisabled}
         >
           등록
         </button>
       </div>
       <div className="img-form">
-        <label Htmlfor="input-img" className="input-img">
+        <label htmlFor="input-img" className="input-img">
           상품 이미지
         </label>
         <FileInput
@@ -54,8 +67,8 @@ function AddItems() {
           onChange={handleFormValuesChange}
         />
       </div>
-      <form className="item-form" onSubmit={handleSubmit}>
-        <label Htmlfor="input-title" className="input-label">
+      <form className="item-form">
+        <label htmlFor="input-title" className="input-label">
           상품명
         </label>
         <input
@@ -65,7 +78,7 @@ function AddItems() {
           onChange={handleInputChange}
           placeholder="상품명을 입력해주세요"
         />
-        <label Htmlfor="input-description" className="input-label">
+        <label htmlFor="input-description" className="input-label">
           상품 소개
         </label>
         <textarea
@@ -75,7 +88,7 @@ function AddItems() {
           onChange={handleInputChange}
           placeholder="상품 소개를 입력해주세요"
         />
-        <label Htmlfor="input-price" className="input-label">
+        <label htmlFor="input-price" className="input-label">
           판매가격
         </label>
         <input
@@ -86,15 +99,10 @@ function AddItems() {
           onChange={handleInputChange}
           placeholder="판매 가격을 입력해주세요"
         />
-        <label Htmlfor="input-tag" className="input-label">
-          태그
-        </label>
-        <input
-          className="input-tag"
-          name="tag"
-          value={values.tag}
-          onChange={handleInputChange}
-          placeholder="태그를 입력해주세요"
+        <TagInput
+          tags={values.tags}
+          onAddTag={addTag}
+          onRemoveTag={removeTag}
         />
       </form>
     </>

@@ -1,8 +1,8 @@
-import { getProducts } from "../api.js";
+import { getProducts } from "../../../api/api.js";
 import { useEffect, useState, useMemo } from "react";
-import ItemList from "./ItemList.js";
+import ItemList from "./ItemList.jsx";
 import "./AllItems.css";
-import "./global.css";
+import "../../../style/global.css";
 
 const getPageSize = () => {
   const width = window.innerWidth;

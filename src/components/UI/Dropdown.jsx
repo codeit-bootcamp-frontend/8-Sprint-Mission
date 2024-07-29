@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ReactComponent as ArrowDownIcon } from "../assets/ic_arrow_down.svg";
-import "./AllItems.css";
-import "./global.css";
+import { ReactComponent as ArrowDownIcon } from "../../assets/ic_arrow_down.svg";
+import "../../pages/Market/components/AllItems.css";
+import "../../style/global.css";
 
 const Dropdown = ({ options, selectedValue, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
