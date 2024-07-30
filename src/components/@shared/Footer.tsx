@@ -1,7 +1,7 @@
 import { SNS_LINKS } from ' constants/information/snsLinks';
 import styled from 'styled-components';
 import Image from './Image';
-import { MOBILE_MAX_WIDTH } from ' constants/information/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 function Footer() {
   return (
@@ -55,7 +55,7 @@ const StyledFooter = styled.footer`
     gap: 1.2rem;
   }
 
-  @media all and (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     position: relative;
     padding: 3.2rem;
     & .footer-company {

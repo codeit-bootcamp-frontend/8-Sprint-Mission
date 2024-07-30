@@ -8,7 +8,7 @@ import InputSection from 'components/addItem/InputSection';
 
 import RegistrationHeader from 'components/addItem/RegistrationHeader';
 import { IFormValue, IPreview, ITag } from 'types/@shared/addProductTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 function AddProduct() {
   const [formValue, setFormValue] = useState<IFormValue>({
@@ -98,10 +98,10 @@ const StyledAddItemForm = styled.form`
     margin-bottom: 2.4rem;
   }
 
-  @media (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     padding: 2.4rem 2.6rem 0 2.6rem;
   }
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     padding: 2.4rem 2.6rem 0 2.6rem;
   }
 `;

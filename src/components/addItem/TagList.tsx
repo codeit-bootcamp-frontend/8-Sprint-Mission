@@ -4,7 +4,7 @@ import { smallTextStyle } from 'styles/addProduct/textStyles';
 
 import { StyledRemoveButton } from 'styles/addProduct/buttonStyles';
 import { ITag } from 'types/@shared/addProductTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 interface TagListProps {
   tagList: ITag[];
@@ -37,10 +37,10 @@ const StyledTagList = styled.ul`
 
   ${smallTextStyle};
 
-  @media (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     max-width: calc(100vw - 5.2rem);
   }
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     max-width: calc(100vw - 3.2rem);
   }
 `;

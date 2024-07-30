@@ -3,7 +3,7 @@ import Product from './Product';
 import useProductsQuery from 'queries/useProductsQuery';
 import usePageSize from 'hooks/usePageSize';
 import { IProduct } from 'types/@shared/marketTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 function BestProductList() {
   const pageSize = usePageSize('best');
@@ -26,10 +26,10 @@ const StyledBestProductsSection = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  @media (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     grid-template-columns: repeat(1, 1fr);
   }
 

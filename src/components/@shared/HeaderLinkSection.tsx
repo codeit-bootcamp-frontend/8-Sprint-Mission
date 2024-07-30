@@ -6,7 +6,7 @@ import { PATH_HOME, PATH_BOARDS, PATH_ITEMS, PATH_ADD_ITEM } from ' constants/pa
 import styled from 'styled-components';
 import useNavigateTo from 'hooks/useNavigateTo';
 import useWindowSize from 'hooks/useWindowSize';
-import { MOBILE_MAX_WIDTH } from ' constants/information/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 function HeaderLinkSection() {
   const { innerWidth } = useWindowSize();
@@ -50,7 +50,7 @@ const StyledLinkSection = styled.section`
     cursor: pointer;
   }
 
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     gap: 1.5rem;
   }
 `;
@@ -63,12 +63,12 @@ const StyledLink = styled(Link)<{ $isPageMatch: boolean }>`
 
   &:not(:last-child) {
     margin-right: 3.2rem;
-    @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.mobile} {
       margin-right: 0.8rem;
     }
   }
 
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     font-size: 1.6rem;
     line-height: 1.909rem;
   }

@@ -8,7 +8,7 @@ import { PATH_ADD_ITEM } from ' constants/paths/paths';
 import Image from 'components/@shared/Image';
 import useNavigateTo from 'hooks/useNavigateTo';
 import useWindowSize from 'hooks/useWindowSize';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
+import { DEVICE_MAX_WIDTH, MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 import { ProductOrderByType } from 'types/@shared/marketTypes';
 
 const orderByObject = {
@@ -51,10 +51,10 @@ function ProductManagement({
 
       <StyledDropdownWrapper>
         <StyledDropdownTrigger>
-          {innerWidth > MOBILE_MAX_WIDTH && <span>{orderByObject[orderBy]}</span>}
+          {innerWidth > DEVICE_MAX_WIDTH.mobile && <span>{orderByObject[orderBy]}</span>}
           <button onClick={handleIsOpenClick}>
             <Image
-              src={innerWidth > MOBILE_MAX_WIDTH ? dropDownIcon : sortIcon}
+              src={innerWidth > DEVICE_MAX_WIDTH.mobile ? dropDownIcon : sortIcon}
               alt={'드롭다운 열기 아이콘'}
               height={'2.4rem'}
               width={'2.4rem'}
@@ -79,7 +79,7 @@ const StyledProductManagementSection = styled.section`
   gap: 1.2rem;
   align-items: center;
 
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     height: 9.2rem;
     width: 100%;
     position: relative;
@@ -115,10 +115,10 @@ const StyledSearchInputForm = styled.form`
     }
   }
 
-  @media (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     width: 24.2rem;
   }
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     width: 100%;
   }
 `;
@@ -142,10 +142,10 @@ const StyledDropdownWrapper = styled.div`
   background-color: var(--white);
   border: 1px solid var(--cool-gray-200);
 
-  @media (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     width: 12rem;
   }
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     width: 4.2rem;
     border-radius: 1.2rem;
   }

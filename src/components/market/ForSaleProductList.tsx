@@ -4,8 +4,8 @@ import useProductsQuery from 'queries/useProductsQuery';
 import Pagination from 'components/@shared/Pagination';
 import usePageSize from 'hooks/usePageSize';
 import { IProduct, ProductOrderByType } from 'types/@shared/marketTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 import { useSearchParams } from 'react-router-dom';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 interface ForSaleProductListProps {
   order: ProductOrderByType;
@@ -53,10 +53,10 @@ const StyledForSaleProductsSection = styled.section`
   column-gap: 2.4rem;
   row-gap: 4rem;
 
-  @media (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
