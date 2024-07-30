@@ -1,5 +1,5 @@
 import Header from 'components/@shared/Header';
-import BsetProductsSection from 'components/market/BestProductsSection';
+import BestProductsSection from 'components/market/BestProductsSection';
 import ForSaleProductsSection from 'components/market/ForSaleProductSection';
 import styled from 'styled-components';
 import { commonContainerStyle } from 'styles/@shared/shared';
@@ -9,7 +9,7 @@ function Market() {
     <div>
       <Header />
       <MarketContainer>
-        <BsetProductsSection />
+        <BestProductsSection />
         <ForSaleProductsSection />
       </MarketContainer>
     </div>

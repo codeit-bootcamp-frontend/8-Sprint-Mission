@@ -2,15 +2,15 @@ import { Suspense } from 'react';
 import BestProductList from './BestProductList';
 import { StyledProductCategoryText } from 'styles/market/textStyles';
 
-function BsetProductsSection() {
+function BestProductsSection() {
   return (
     <section>
       <StyledProductCategoryText>베스트 상품</StyledProductCategoryText>
-      <Suspense fallback={<div>Loding...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <BestProductList />
       </Suspense>
     </section>
   );
 }
 
-export default BsetProductsSection;
+export default BestProductsSection;

@@ -1,4 +1,4 @@
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 

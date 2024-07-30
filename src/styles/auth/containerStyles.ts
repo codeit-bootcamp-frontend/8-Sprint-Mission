@@ -1,4 +1,4 @@
-import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 import styled from 'styled-components';
 
 export const StyledAuthContainer = styled.div`

@@ -1,4 +1,4 @@
-import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 import { css } from 'styled-components';
 
 export const commonContainerStyle = css`

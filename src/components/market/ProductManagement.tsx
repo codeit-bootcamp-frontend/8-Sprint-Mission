@@ -8,7 +8,7 @@ import { PATH_ADD_ITEM } from ' constants/paths/paths';
 import Image from 'components/@shared/Image';
 import useNavigateTo from 'hooks/useNavigateTo';
 import useWindowSize from 'hooks/useWindowSize';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 import { ProductOrderByType } from 'types/@shared/marketTypes';
 
 const orderByObject = {
@@ -42,7 +42,7 @@ function ProductManagement({
       </StyledSearchInputForm>
 
       <Button
-        className={'product-regist-btn'}
+        className={'product-registration-btn'}
         height={'4.2rem'}
         width={'13.3rem'}
         onClick={() => navigateTo(PATH_ADD_ITEM)}>
@@ -86,7 +86,7 @@ const StyledProductManagementSection = styled.section`
     align-items: flex-end;
     gap: 0.8rem;
 
-    & .product-regist-btn {
+    & .product-registration-btn {
       position: absolute;
       top: 0;
       right: 0;

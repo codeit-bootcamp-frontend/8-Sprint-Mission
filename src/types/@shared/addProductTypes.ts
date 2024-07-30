@@ -1,15 +1,15 @@
-type AddItemFeildsetNameType = 'title' | 'description' | 'price' | 'tag';
+type AddItemFieldsetNameType = 'title' | 'description' | 'price' | 'tag';
 
-export interface IAddItemFeildset {
+export interface IAddItemFieldset {
   subTitle: string;
-  name: AddItemFeildsetNameType;
+  name: AddItemFieldsetNameType;
   placeholder: string;
 }
 
 export type ObjectType = string | File[];
 
 export interface IFormValue extends Record<string, ObjectType> {
-  imgfiles: File[];
+  imgFiles: File[];
   title: string;
   description: string;
   price: string;

@@ -6,7 +6,7 @@ import ProductManagement from './ProductManagement';
 
 import useToggle from 'hooks/useToggle';
 import { ProductOrderByType } from 'types/@shared/marketTypes';
-import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 
 function ForSaleProductsSection() {
   const [searchValue, setSearchValue] = useState('');
@@ -46,7 +46,7 @@ function ForSaleProductsSection() {
         />
       </StyledForSaleProductSubHeader>
 
-      <Suspense fallback={<div>Loding...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <ForSaleProductList keyword={searchValue} order={orderBy} />
       </Suspense>
     </StyledForSaleProductsSection>

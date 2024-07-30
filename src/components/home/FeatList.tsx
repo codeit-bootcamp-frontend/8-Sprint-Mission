@@ -1,8 +1,8 @@
-import { BRAND_FEATURE_ITEM_LIST } from ' constants/infomations/brandFeatureList';
+import { BRAND_FEATURE_ITEM_LIST } from ' constants/information/brandFeatureList';
 import { commonContainerStyle } from 'styles/@shared/shared';
 import FeatItem from './FeatItem';
 import styled from 'styled-components';
-import { TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 
 function FeatList() {
   return (

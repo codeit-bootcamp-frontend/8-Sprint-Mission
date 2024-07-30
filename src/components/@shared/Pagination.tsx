@@ -48,7 +48,7 @@ function Pagination({ currentPage, totalCount, setSearchParams }: PaginationProp
   };
 
   return (
-    <StyledPagenationSection onClick={handlePageButtonClick}>
+    <StyledPaginationSection onClick={handlePageButtonClick}>
       <StyledPageButton data-value={'prevPage'} disabled={currentPage === 1}>
         {'<'}
       </StyledPageButton>
@@ -60,13 +60,13 @@ function Pagination({ currentPage, totalCount, setSearchParams }: PaginationProp
       <StyledPageButton data-value={'nextPage'} disabled={currentPage === lastPage}>
         {'>'}
       </StyledPageButton>
-    </StyledPagenationSection>
+    </StyledPaginationSection>
   );
 }
 
 export default Pagination;
 
-const StyledPagenationSection = styled.section`
+const StyledPaginationSection = styled.section`
   width: 100%;
   display: flex;
   justify-content: center;

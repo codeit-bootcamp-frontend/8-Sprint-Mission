@@ -1,4 +1,4 @@
-import { ADDITEM_FEIELDSET_LIST } from ' constants/infomations/addItemList';
+import { ADDITEM_FIELDSET_LIST } from ' constants/information/addItemList';
 import React from 'react';
 import { Fragment } from 'react/jsx-runtime';
 import styled from 'styled-components';
@@ -24,7 +24,7 @@ function InputSection({
 }: InputSectionProps) {
   return (
     <StyledAddItemInputSection>
-      {ADDITEM_FEIELDSET_LIST.map(fieldset => (
+      {ADDITEM_FIELDSET_LIST.map(fieldset => (
         <Fragment key={fieldset.name}>
           <fieldset>
             <StyledAddItemSubTitle htmlFor={fieldset.name}>{fieldset.subTitle}</StyledAddItemSubTitle>

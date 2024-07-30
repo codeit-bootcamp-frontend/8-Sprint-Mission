@@ -4,7 +4,7 @@ import useProductsQuery from 'queries/useProductsQuery';
 import Pagination from 'components/@shared/Pagination';
 import usePageSize from 'hooks/usePageSize';
 import { IProduct, ProductOrderByType } from 'types/@shared/marketTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 import { useSearchParams } from 'react-router-dom';
 
 interface ForSaleProductListProps {
@@ -13,8 +13,8 @@ interface ForSaleProductListProps {
 }
 
 function ForSaleProductList({ order, keyword }: ForSaleProductListProps) {
-  const [serchParams, setSearchParams] = useSearchParams(); // 현재 페이지 번호
-  const currentPage = serchParams.get('page');
+  const [searchParams, setSearchParams] = useSearchParams(); // 현재 페이지 번호
+  const currentPage = searchParams.get('page');
 
   // 상품 상세 페이지 등에서 목록으로 돌아가기 버튼을 누를 경우에, 사용자가 들어왔던 페이지를 기억하기 위함
   // 만약 100 페이지에서 상품 상세 페이지를 들어온 경우에,

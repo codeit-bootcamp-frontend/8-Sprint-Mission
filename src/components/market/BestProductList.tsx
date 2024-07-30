@@ -3,7 +3,7 @@ import Product from './Product';
 import useProductsQuery from 'queries/useProductsQuery';
 import usePageSize from 'hooks/usePageSize';
 import { IProduct } from 'types/@shared/marketTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 
 function BestProductList() {
   const pageSize = usePageSize('best');

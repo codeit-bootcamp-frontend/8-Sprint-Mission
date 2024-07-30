@@ -6,13 +6,13 @@ import useAllFieldFilled from 'hooks/useAllFieldFilled';
 import ImageRegistration from 'components/addItem/ImageRegistration';
 import InputSection from 'components/addItem/InputSection';
 
-import RegistraionHeader from 'components/addItem/RegistrationHeader';
+import RegistrationHeader from 'components/addItem/RegistrationHeader';
 import { IFormValue, IPreview, ITag } from 'types/@shared/addProductTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 
 function AddProduct() {
   const [formValue, setFormValue] = useState<IFormValue>({
-    imgfiles: [],
+    imgFiles: [],
     title: '',
     description: '',
     price: '',
@@ -31,7 +31,7 @@ function AddProduct() {
       if (files && files[0]) {
         // 상위 if와 합치지 않은 이유는 image input 과정에서 잘못된 값이 들어올 수도 있을 거라 생각이 들었음
         const file = files[0];
-        setFormValue(prevState => ({ ...prevState, [name]: [...prevState.imgfiles, file] }));
+        setFormValue(prevState => ({ ...prevState, [name]: [...prevState.imgFiles, file] }));
         const imageUrl = URL.createObjectURL(file);
         setPreviewList(prevState => [...prevState, { id: uuidv4(), url: imageUrl }]);
 
@@ -51,8 +51,8 @@ function AddProduct() {
   const handleReturnKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter' && !event.nativeEvent.isComposing) {
       // 한글 입력 시 2번 입력되는 것을 막기위함
-      const newTage: ITag = { id: uuidv4(), content: formValue.tag };
-      setTagList(prevState => [...prevState, newTage]);
+      const newTag: ITag = { id: uuidv4(), content: formValue.tag };
+      setTagList(prevState => [...prevState, newTag]);
       setFormValue(prevState => ({ ...prevState, ['tag']: '' }));
     }
   };
@@ -70,7 +70,7 @@ function AddProduct() {
 
   return (
     <StyledAddItemForm onSubmit={handleSubmitForm}>
-      <RegistraionHeader isSubmitActive={isSubmitActive} />
+      <RegistrationHeader isSubmitActive={isSubmitActive} />
       <ImageRegistration
         previewList={previewList}
         handleInputChange={handleInputChange}

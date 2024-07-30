@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'components/@shared/Image';
 import { IBrandFeatureItem } from 'types/@shared/homeTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 
 function FeatItem({ src, alt, title, description, detail }: Omit<IBrandFeatureItem, 'id'>) {
   return (

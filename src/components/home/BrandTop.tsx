@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import useNavigateTo from 'hooks/useNavigateTo';
 import Image from 'components/@shared/Image';
 import { PATH_ITEMS } from ' constants/paths/paths';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 
 function BrandTop() {
   const { navigateTo } = useNavigateTo();

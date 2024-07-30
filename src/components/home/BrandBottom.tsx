@@ -1,4 +1,4 @@
-import { TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 import BrandContainer from './BrandContainer';
 import brandBottomImg from 'assets/images/home/home_bottom.png';
 import Image from 'components/@shared/Image';

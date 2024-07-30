@@ -6,7 +6,7 @@ import { PATH_HOME, PATH_BOARDS, PATH_ITEMS, PATH_ADD_ITEM } from ' constants/pa
 import styled from 'styled-components';
 import useNavigateTo from 'hooks/useNavigateTo';
 import useWindowSize from 'hooks/useWindowSize';
-import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 
 function HeaderLinkSection() {
   const { innerWidth } = useWindowSize();

@@ -4,7 +4,7 @@ import { smallTextStyle } from 'styles/addProduct/textStyles';
 
 import { StyledRemoveButton } from 'styles/addProduct/buttonStyles';
 import { ITag } from 'types/@shared/addProductTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 
 interface TagListProps {
   tagList: ITag[];

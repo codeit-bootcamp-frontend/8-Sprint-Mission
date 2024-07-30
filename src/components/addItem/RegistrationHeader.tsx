@@ -2,11 +2,11 @@ import Button from 'components/@shared/Button';
 import styled from 'styled-components';
 import { StyledTitleText } from 'styles/market/textStyles';
 
-interface RegistraionHeaderProps {
+interface RegistrationHeaderProps {
   isSubmitActive: boolean;
 }
 
-function RegistraionHeader({ isSubmitActive }: RegistraionHeaderProps) {
+function RegistrationHeader({ isSubmitActive }: RegistrationHeaderProps) {
   return (
     <StyledAddItemHeader>
       <StyledAddItemTitle>상품 등록하기</StyledAddItemTitle>
@@ -17,7 +17,7 @@ function RegistraionHeader({ isSubmitActive }: RegistraionHeaderProps) {
   );
 }
 
-export default RegistraionHeader;
+export default RegistrationHeader;
 
 const StyledAddItemHeader = styled.header`
   display: flex;

@@ -1,4 +1,4 @@
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 import likeIcon from 'assets/images/market/like-icon.png';
 import Spacer from 'components/@shared/Spacer';
 import styled from 'styled-components';

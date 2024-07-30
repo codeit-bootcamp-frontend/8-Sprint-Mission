@@ -1,7 +1,7 @@
-import { SNS_LINKS } from ' constants/infomations/snsLinks';
+import { SNS_LINKS } from ' constants/information/snsLinks';
 import styled from 'styled-components';
 import Image from './Image';
-import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MOBILE_MAX_WIDTH } from ' constants/information/mediaQuerySize';
 
 function Footer() {
   return (
