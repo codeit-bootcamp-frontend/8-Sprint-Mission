@@ -168,8 +168,8 @@ footer {
   margin-left: 10px;
 }
 
-.icon_sns {
-  margin-left: 10px;
+.icon_sns > a {
+  margin-left: 5px;
 }
 
 /* text decoration */
