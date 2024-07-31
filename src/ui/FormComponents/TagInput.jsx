@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styles from "./TagInput.module.css";
+import { useState } from 'react';
+import styles from './TagInput.module.css';
 
 export default function TagInput({
   label,
@@ -11,21 +11,19 @@ export default function TagInput({
   changeValue,
   ...props
 }) {
-  const [tagValue, setTagValue] = useState("");
+  const [tagValue, setTagValue] = useState('');
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = e => {
     let { value } = e.target;
     setTagValue(value);
   };
 
-  const handleAddTags = (e) => {
+  const handleAddTags = e => {
     let { value } = e.target;
-    if (e.key !== "Enter" || tagValue === "") return;
-    const existingTag =
-      tags && tags.some((tag) => tag.name === tagValue.trim());
+    if (e.key !== 'Enter' || tagValue === '') return;
+    const existingTag = tags && tags.some(tag => tag.name === tagValue.trim());
     if (existingTag) {
-      setTagValue("");
-      return;
+      return setTagValue('');
     }
     const newTag = {
       id: `${value}-${Math.random().toString(36).substring(2, 9)}`,
@@ -33,11 +31,11 @@ export default function TagInput({
     };
     const newTags = [...tags, newTag];
     changeValue(name, newTags);
-    setTagValue("");
+    setTagValue('');
   };
 
-  const handleRemoveTag = (list) => {
-    const updateTag = tags.filter((item) => item.id !== list.id);
+  const handleRemoveTag = list => {
+    const updateTag = tags.filter(item => item.id !== list.id);
     changeValue(name, updateTag);
   };
 
@@ -45,7 +43,7 @@ export default function TagInput({
     <div className={styles.inputBox}>
       <label htmlFor={id}>{label}</label>
       <input
-        className={`${className ? className : ""}`}
+        className={`${className ? className : ''}`}
         id={id}
         {...props}
         value={tagValue}
@@ -55,7 +53,7 @@ export default function TagInput({
       <div className={styles.tagContainer}>
         <ul className={styles.tagList}>
           {tags &&
-            tags.map((tag) => (
+            tags.map(tag => (
               <li key={tag.id} id={tag.id}>
                 <span className={styles.tagTitle}>{tag.name}</span>
                 <i
