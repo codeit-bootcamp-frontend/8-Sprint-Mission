@@ -3,26 +3,26 @@
   text-decoration: none;
 }
 
-.ProductListItem {
+.product-list-item {
   margin-bottom: 5px;
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
-.ProductListItem-img {
+.product-list-item-img {
   width: 220px;
   height: 220px;
   border-radius: 16px;
   border-color: gray;
 }
 
-.ProductListItem-name {
+.product-list-item-name {
   font-size: 14px;
   font-weight: 500;
 }
 
-.ProductListItem-price {
+.product-list-item-price {
   font-size: 16px;
   font-weight: 700;
 }

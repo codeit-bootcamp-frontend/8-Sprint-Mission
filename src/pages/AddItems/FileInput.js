@@ -32,7 +32,7 @@ function FlieInput({ name, value, onChange }) {
 
   return (
     <div>
-      <label className="lable" htmlFor="fileinput">
+      <label className="label" htmlFor="fileinput">
         상품 이미지
       </label>
       <input
@@ -42,7 +42,7 @@ function FlieInput({ name, value, onChange }) {
         onChange={handleChange}
         ref={inputRef}
       />
-      {value ? <button onClick={handleClearClick}>X</button> : null}{" "}
+      {value ? <button onClick={handleClearClick}>X</button> : null}
       <img className="preview-img" src={preview} alt="이미지 미리보기" />
     </div>
   );
