@@ -1,10 +1,22 @@
-import { MouseEventHandler, ReactNode } from "react";
+import { MouseEvent } from "react";
 
 type ButtonProps = {
-  onClick: MouseEventHandler<HTMLButtonElement>;
-  children: ReactNode;
+  onClick: (e: MouseEvent, validateOk: boolean) => void;
+  children: string;
+  activeBtn: boolean;
 };
 
-export default function Button({ onClick, children }: ButtonProps) {
-  return <button onClick={onClick}>{children}</button>;
+export default function Button({ onClick, children, activeBtn }: ButtonProps) {
+  const activeColor = activeBtn ? "bg-my-blue" : "bg-gray-400";
+
+  return (
+    <button
+      onClick={(e) => {
+        onClick(e, activeBtn);
+      }}
+      className={`w-full rounded-[40px] p-4 text-white ${activeColor}`}
+    >
+      {children}
+    </button>
+  );
 }

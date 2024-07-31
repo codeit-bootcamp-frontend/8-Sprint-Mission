@@ -24,14 +24,16 @@
     "noFallthroughCasesInSwitch": true,
 
     //path alias
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@src/*": ["src/*"],
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@utils/*": ["utils/*"]
+      "#/*": ["*"],
+      "#assets/*": ["assets/*"],
+      "#components/*": ["components/*"],
+      "#components": ["components"],
+      "#pages/*": ["pages/*"],
+      "#pages": ["pages"],
+      "#utils/*": ["utils/*"],
+      "#utils": ["utils"]
     },
 
     "typeRoots": ["src/@types"]
