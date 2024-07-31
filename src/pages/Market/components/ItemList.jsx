@@ -2,6 +2,7 @@ import React from "react";
 import { ReactComponent as HeartIcon } from "../../../assets/ic_heart.svg";
 import "./AllItems.css";
 import "../../../style/global.css";
+import { Link } from "react-router-dom";
 
 function ItemList({ product }) {
   const { images, name, price, favoriteCount, createdAt } = product;
@@ -11,7 +12,7 @@ function ItemList({ product }) {
   }
 
   return (
-    <div className="productContent">
+    <Link to={`/items/${product.id}`} className="productContent">
       <img className="productImage" src={images[0]} alt={name} />
       <div className="productText">
         <h2 className="productName">{name}</h2>
@@ -22,7 +23,7 @@ function ItemList({ product }) {
         </div>
         <p className="createdAt">{formatDate(createdAt)}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 

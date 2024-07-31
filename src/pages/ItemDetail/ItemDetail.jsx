@@ -1,6 +1,8 @@
 import { getProductDetail } from "../../api/api";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ItemProfile from "./components/ItemProfile";
+import ItemComment from "./components/ItemComment";
 
 function ItemDetail() {
   const [product, setProduct] = useState(null);
@@ -19,7 +21,12 @@ function ItemDetail() {
     fetchProduct();
   }, [productId]);
 
-  return <></>;
+  return (
+    <>
+      <ItemProfile product={product} />
+      <ItemComment productId={productId} />
+    </>
+  );
 }
 
 export default ItemDetail;

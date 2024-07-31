@@ -35,6 +35,16 @@ function AllItems() {
     { label: "좋아요순", value: "favoriteCount" },
   ];
 
+  const handleLoadProducts = useCallback(async ({ order, page, pageSize }) => {
+    try {
+      const products = await getProducts({ order, page, pageSize });
+      setProducts(products.list);
+      setTotalPageNum(Math.ceil(products.totalCount / pageSize));
+    } catch (error) {
+      console.error("상품 목록을 가져오는 중 오류 발생:", error);
+    }
+  }, []);
+
   const sortedItems = useMemo(() => {
     return [...products].sort((a, b) => {
       if (order === "createdAt") {
@@ -47,16 +57,6 @@ function AllItems() {
   const handleChangeOrder = (value) => {
     setOrder(value);
   };
-
-  const handleLoadProducts = useCallback(async ({ order, page, pageSize }) => {
-    try {
-      const products = await getProducts({ order, page, pageSize });
-      setProducts(products.list);
-      setTotalPageNum(Math.ceil(products.totalCount / pageSize));
-    } catch (error) {
-      console.error("상품 목록을 가져오는 중 오류 발생:", error);
-    }
-  }, []);
 
   const style = {
     textDecoration: "none",

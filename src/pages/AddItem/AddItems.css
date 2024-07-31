@@ -140,7 +140,7 @@ textarea {
   background-color: #3692ff;
 }
 
-#tags {
+#input-tags {
   list-style-type: none;
   display: flex;
   padding: 0;
@@ -148,7 +148,7 @@ textarea {
   gap: 12px;
 }
 
-.tag {
+.input-tag {
   display: flex;
   align-content: center;
   justify-content: space-between;
@@ -159,7 +159,7 @@ textarea {
   background-color: #f3f4f6;
 }
 
-.tag-title {
+.input-tag-title {
   color: #1f2937;
   font-size: 16px;
   font-weight: 400;

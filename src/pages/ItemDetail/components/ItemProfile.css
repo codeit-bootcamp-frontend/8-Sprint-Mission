@@ -1,0 +1,69 @@
+.detail-container {
+  margin: 94px auto 40px;
+  width: 1200px;
+  display: flex;
+  gap: 24px;
+}
+
+.detail-container > img {
+  width: 486px;
+  height: 486px;
+  border-radius: 16px;
+}
+
+section .title {
+  width: 690px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-text .name {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  color: #1f2937;
+  margin-top: 0;
+}
+
+.title img {
+  width: 24px;
+  height: 24px;
+}
+
+section h3 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 47.73px;
+  text-align: left;
+  color: #1f2937;
+  margin: 16px 0 16px;
+}
+
+.description-title {
+  margin-top: 24px;
+}
+
+.description-title,
+.description {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: left;
+  color: #4b5563;
+}
+
+.description {
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.detail-text hr {
+  border: 1px solid #e5e7eb;
+}
+
+.line-divider {
+  width: 1200px;
+  border: 1px solid #e5e7eb;
+}

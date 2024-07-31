@@ -19,7 +19,7 @@ const Dropdown = ({ options, selectedValue, onSelect }) => {
   return (
     <div className="dropdownBox">
       <div className="dropdownToggle" onClick={toggleDropdown}>
-        <div class="optionText">
+        <div className="optionText">
           {options.find((option) => option.value === selectedValue)?.label}
         </div>
         <ArrowDownIcon />
