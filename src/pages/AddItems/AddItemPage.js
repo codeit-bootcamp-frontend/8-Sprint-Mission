@@ -26,7 +26,7 @@ const StyledLabel = styled.label`
   font-weight: 700;
 `;
 const StyledInput = styled.input`
-  background-color: #f3f4f6;
+  background-color: var(--gray-100);
   padding: 10px;
   font-size: 16px;
   font-weight: 400;
@@ -36,7 +36,7 @@ const StyledInput = styled.input`
   border: none;
 `;
 const StyledTextArea = styled.textarea`
-  background-color: #f3f4f6;
+  background-color: var(--gray-100);
   padding: 10px;
   font-size: 16px;
   font-weight: 400;

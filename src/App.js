@@ -3,6 +3,7 @@ import MarketPage from "./pages/Market/MarketPage";
 import AddItemPage from "./pages/AddItems/AddItemPage";
 import HomePage from "./pages/Home/HomePage";
 import ProductdetailPage from "./pages/ProductDetail/ProductDetailPage";
+import "../src/css/global.css";
 
 function App() {
   return (
