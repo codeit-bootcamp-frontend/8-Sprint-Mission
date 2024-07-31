@@ -3,7 +3,7 @@ import styles from './DetailProduct.module.css';
 import defaultImage from '../../assets/images/img_default@2x.png';
 
 export default function DetailProduct({ product }) {
-  const productPrice = product.price && product.price.toLocaleString('kr');
+  const productPrice = product.price.toLocaleString('kr');
 
   const onErrorImg = e => {
     e.target.src = defaultImage;
