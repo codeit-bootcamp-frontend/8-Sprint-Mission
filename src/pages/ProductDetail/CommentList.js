@@ -50,7 +50,7 @@ function CommentList() {
                 <div className="comment-section__info">
                   <h1 className="comment-section__writer">{writer.nickname}</h1>
                   <p className="comment-section__updatedAt">
-                    <FormatRelativeTime datastring={updatedAt} />
+                    <FormatRelativeTime time={updatedAt} />
                   </p>
                 </div>
               </div>

@@ -1,12 +1,10 @@
-function FormatRelativeTime(dateString) {
-  const dateObject = new Date(dateString);
+function FormatRelativeTime({ time }) {
+  const dateObject = new Date(time);
   const targetDate = dateObject.getTime();
 
   const liveDateObject = new Date();
   const now = liveDateObject.getTime();
-
   const diff = now - targetDate;
-
   const minutes = Math.floor(diff / (1000 * 60));
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
