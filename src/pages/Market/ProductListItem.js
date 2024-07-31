@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 import likeIcon from "../../images/heart_inactive.png";
-import "./ProductListItem.css";
 import styled from "styled-components";
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit; // 링크 색상을 상위 요소와 동일하게 설정
+`;
 
 const StyledListItemContainer = styled.div`
   word-break: keep-all;
-  text-decoration: none;
   display: flex;
   flex-direction: column;
   text-align: left;
   color: black;
-  text-decoration: none;
   margin-bottom: 20px;
 
   &:visited {
@@ -58,7 +60,7 @@ const StyledLikeCount = styled.p`
 
 function ProductListItem({ item }) {
   return (
-    <Link to={`/market/${item.id}`}>
+    <StyledLink to={`/market/${item.id}`}>
       <StyledListItemContainer>
         <StyledListItemImg src={item.images[0]} alt={item.name} />
         <StyledItemName>{item.name}</StyledItemName>
@@ -68,7 +70,7 @@ function ProductListItem({ item }) {
           <StyledLikeCount>{item.favoriteCount}</StyledLikeCount>
         </StyledLikeArea>
       </StyledListItemContainer>
-    </Link>
+    </StyledLink>
   );
 }
 
