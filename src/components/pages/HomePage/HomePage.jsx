@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Header from '../../header/Header';
-import Banner from './Banner';
+import Banner from './components/Banner';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
 function HomePage() {
   return (
@@ -8,7 +10,9 @@ function HomePage() {
       <Header />
       <Container>
         <Banner />
+        <Main />
         <Banner bottom />
+        <Footer />
       </Container>
     </>
   );

@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import bannerTopImage from '../../../images/Img_home_top.png';
-import bannerBottomImage from '../../../images/Img_home_bottom.png';
+import bannerTopImage from '../../../../images/Img_home_top.png';
+import bannerBottomImage from '../../../../images/Img_home_bottom.png';
 
 function Banner({ bottom }) {
   return (
     <BannerWrapper>
       <ContentWrapper>
-        <ContentLeft>
-          <p>
+        <TextBox>
+          <h1>
             {bottom ? (
               <>
                 믿을 수 있는
@@ -21,10 +21,10 @@ function Banner({ bottom }) {
                 거래해 보세요
               </>
             )}
-          </p>
+          </h1>
           {!bottom && <ItemsButton>구경하러 가기</ItemsButton>}
-        </ContentLeft>
-        <ContentRight bottom={bottom} />
+        </TextBox>
+        <ImageBox bottom={bottom} />
       </ContentWrapper>
     </BannerWrapper>
   );
@@ -48,7 +48,7 @@ const ContentWrapper = styled.div`
   align-items: center;
 `;
 
-const ContentLeft = styled.div`
+const TextBox = styled.div`
   width: 357px;
   height: 260px;
   display: flex;
@@ -56,14 +56,14 @@ const ContentLeft = styled.div`
   justify-content: center;
   gap: 30px;
 
-  & p {
+  & h1 {
     color: var(--gray700);
     font-weight: 700;
     font-size: 40px;
   }
 `;
 
-const ContentRight = styled.div`
+const ImageBox = styled.div`
   width: 746px;
   height: 340px;
   background-image: url(${({ bottom }) =>
