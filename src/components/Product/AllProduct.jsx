@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { getAllProduct } from '../../utils/http.js';
+import { useAsyncStatus } from '../../hooks/useAsyncStatus.js';
 import Pagination from '../Pagination/Pagination.jsx';
 import ItemList from './ItemList.jsx';
 import SortOptions from '../SortOptions/SortOptions.jsx';
@@ -27,17 +29,22 @@ const getResponseProducts = () => {
 };
 
 export default function AllProduct() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [itemList, setItemList] = useState([]);
-  const [maxPage, setMaxPage] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
+  const {
+    loading,
+    error,
+    fetchData: itemList,
+    totalItem: maxPage,
+    fetchProducts,
+  } = useAsyncStatus(getAllProduct, []);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [options, setOptions] = useState({
     size: getResponseProducts(),
     keyword: '',
     order: 'recent',
   });
+
+  sessionStorage.setItem('page', searchParams.get('page'));
 
   const showSortOptionHandler = () => {
     setIsSortOpen(prev => !prev);
@@ -52,28 +59,8 @@ export default function AllProduct() {
     setIsSortOpen(false);
   };
 
-  const fetchProducts = async () => {
-    const query = {
-      currentPage,
-      order: options.order,
-      size: options.size,
-      keyword: options.keyword,
-    };
-    setLoading(true);
-    try {
-      const product = await getAllProduct({ query });
-      const { list, totalCount } = product;
-      setLoading(false);
-      setItemList(list);
-      const maxPage = Math.ceil(totalCount / options.size);
-      setMaxPage(maxPage);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
   const searchHandler = value => {
-    setCurrentPage(1);
+    searchParams.set('page', 1);
     setOptions(prev => ({
       ...prev,
       keyword: value,
@@ -81,11 +68,24 @@ export default function AllProduct() {
   };
 
   useEffect(() => {
+    const storedPage = sessionStorage.getItem('page');
+    searchParams.set('page', storedPage === 'null' ? '1' : storedPage);
+    setSearchParams(searchParams);
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
-      setOptions(prevOption => ({
-        ...prevOption,
-        size: getResponseProducts(),
-      }));
+      const newSize = getResponseProducts();
+      setOptions(prevOption => {
+        if (prevOption.size === newSize) {
+          return prevOption;
+        } else {
+          return {
+            ...prevOption,
+            size: getResponseProducts(),
+          };
+        }
+      });
     };
     window.addEventListener('resize', handleResize);
     handleResize();
@@ -95,11 +95,18 @@ export default function AllProduct() {
   }, []);
 
   useEffect(() => {
-    fetchProducts();
-  }, [currentPage, options.order, options.size, options.keyword]);
+    const query = {
+      currentPage: searchParams.get('page'),
+      order: options.order,
+      size: options.size,
+      keyword: options.keyword,
+    };
+    fetchProducts({ query });
+  }, [searchParams, options]);
 
   const pageHandler = page => {
-    setCurrentPage(page);
+    searchParams.set('page', page);
+    setSearchParams(searchParams);
   };
 
   const sortText = options.order === 'recent' ? '최신순' : '좋아요순';
@@ -132,17 +139,14 @@ export default function AllProduct() {
           <Loading className={styles.loading} />
         ) : (
           <div className={styles.listContainer}>
-            {itemList.map(list => (
-              <ItemList key={`product-${list.id}`} {...list} />
-            ))}
+            {itemList &&
+              itemList.map(list => (
+                <ItemList key={`product-${list.id}`} {...list} />
+              ))}
           </div>
         )}
       </div>
-      <Pagination
-        maxPage={maxPage}
-        currentPage={currentPage}
-        pageHandler={pageHandler}
-      />
+      <Pagination maxPage={maxPage} pageHandler={pageHandler} />
     </Section>
   );
 }

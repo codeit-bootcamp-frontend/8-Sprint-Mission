@@ -36,11 +36,16 @@ export default function CommentList({ commentList }) {
     </div>
   );
 
+  const savePagination = sessionStorage.getItem('page');
+
   return (
     <>
       <div>{comment}</div>
       <div className={styles.historyAction}>
-        <Link className={styles.historyBtn} to="/items">
+        <Link
+          className={styles.historyBtn}
+          to={`/items?page=${savePagination}`}
+        >
           목록으로 돌아가기
           <img src={backIcon} alt="목록으로 돌아가기" />
         </Link>
