@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import FileInput from "./FileInput";
 import { useState } from "react";
+import Nav from "../../components/Nav";
 
 const StyledFormContainer = styled.section`
   display: flex;
@@ -20,6 +21,14 @@ const StyledAddItemButton = styled.button`
   border-radius: 8px;
   margin: auto 0;
   border: none;
+  color: var(--gray-50);
+  background-color: var(--blue-100);
+  cursor: pointer;
+
+  &:disabled {
+    background-color: var(--gray-400);
+    cursor: auto;
+  }
 `;
 const StyledLabel = styled.label`
   font-size: 18px;
@@ -73,15 +82,25 @@ function AddItem() {
   };
 
   const checkAllInputsFilled = () => {
-    return Object.values(values).every((value) => value !== "");
+    return (
+      values.name !== "" &&
+      values.detail !== "" &&
+      values.price !== "" &&
+      values.tag !== ""
+    );
   };
+
+  // const checkAllInputsFilled = () => {
+  //  return Object.values(values).every((value) => value !== "");
+  // };
 
   return (
     <div>
+      <Nav />
       <StyledFormContainer onSubmit={handleSubmit}>
         <StyledTopSection>
           <h1>상품 등록하기</h1>
-          <StyledAddItemButton disabled={!checkAllInputsFilled(values)}>
+          <StyledAddItemButton disabled={!checkAllInputsFilled()}>
             등록
           </StyledAddItemButton>
         </StyledTopSection>
@@ -92,6 +111,7 @@ function AddItem() {
         />
         <StyledLabel htmlFor="item-name">상품명</StyledLabel>
         <StyledInput
+          id="item-name"
           name="name"
           value={values.name}
           onChange={handleInputChange}
@@ -99,6 +119,7 @@ function AddItem() {
         />
         <StyledLabel htmlFor="item-detail">상품 소개</StyledLabel>
         <StyledTextArea
+          id="item-detail"
           name="detail"
           value={values.detail}
           onChange={handleInputChange}
@@ -106,6 +127,7 @@ function AddItem() {
         />
         <StyledLabel htmlFor="item-price">판매가격</StyledLabel>
         <StyledInput
+          id="item-price"
           name="price"
           value={values.price}
           onChange={handleInputChange}
@@ -114,6 +136,7 @@ function AddItem() {
         />
         <StyledLabel htmlFor="tag">태그</StyledLabel>
         <StyledInput
+          id="tag"
           name="tag"
           value={values.tag}
           onChange={handleInputChange}

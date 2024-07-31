@@ -132,7 +132,7 @@ function FlieInput({ name, value, onChange }) {
               X
             </StyledCancelButton>
           ) : null}
-          <StyledPreviewImg src={preview} alt="이미지 미리보기" />
+          {preview && <StyledPreviewImg src={preview} alt="이미지 미리보기" />}
         </StyledImgArea>
       </StyledFileArea>
     </div>
