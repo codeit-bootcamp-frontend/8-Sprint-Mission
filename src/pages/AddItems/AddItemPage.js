@@ -49,7 +49,7 @@ function AddItem() {
           value={values.imgFile}
           onChange={handleChange}
         />
-        <label className="lable" htmlFor="item-name">
+        <label className="label" htmlFor="item-name">
           상품명
         </label>
         <input
@@ -59,7 +59,7 @@ function AddItem() {
           onChange={handleInputChange}
           placeholder="상품명을 입력해주세요"
         ></input>
-        <label className="lable" htmlFor="item-detail">
+        <label className="label" htmlFor="item-detail">
           상품 소개
         </label>
         <textarea
@@ -69,7 +69,7 @@ function AddItem() {
           onChange={handleInputChange}
           placeholder="상품 소개를 입력해주세요"
         ></textarea>
-        <label className="lable" htmlFor="item-price">
+        <label className="label" htmlFor="item-price">
           판매가격
         </label>
         <input
@@ -80,7 +80,7 @@ function AddItem() {
           type="number"
           placeholder="판매 가격을 입력해주세요"
         ></input>
-        <label className="lable" htmlFor="tag">
+        <label className="label" htmlFor="tag">
           태그
         </label>
         <input
