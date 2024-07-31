@@ -1,56 +1,50 @@
-import "./AddItemPage.css";
+import styled from "styled-components";
 import FileInput from "./FileInput";
 import { useState } from "react";
 
-.form-container {
+const StyledFormContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin: 0 100px;
-}
-
-.top-section-submit {
+`;
+const StyledTopSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+`;
 
-.add-item-button {
+const StyledAddItemButton = styled.button`
   height: 42px;
   padding: 12px 20px;
   border-radius: 8px;
   margin: auto 0;
-}
-
-.label {
+  border: none;
+`;
+const StyledLabel = styled.label`
   font-size: 18px;
   font-weight: 700;
-}
-
-#item-name,
-#item-price,
-#item-detail,
-#tag {
+`;
+const StyledInput = styled.input`
   background-color: #f3f4f6;
   padding: 10px;
   font-size: 16px;
   font-weight: 400;
-}
-
-#item-name,
-#item-price,
-#tag {
   width: 100%;
   height: 56px;
   border-radius: 12px;
-}
-
-#item-detail {
+  border: none;
+`;
+const StyledTextArea = styled.textarea`
+  background-color: #f3f4f6;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
   width: 100%;
-  height: 200px;
+  height: 282px;
   border-radius: 12px;
-}
-
+  border: none;
+`;
 
 function AddItem() {
   const [values, setValues] = useState({
@@ -84,63 +78,48 @@ function AddItem() {
 
   return (
     <div>
-      <form className="form-container" onSubmit={handleSubmit}>
-        <div className="top-section-submit">
+      <StyledFormContainer onSubmit={handleSubmit}>
+        <StyledTopSection>
           <h1>상품 등록하기</h1>
-          <button
-            className="add-item-button"
-            disabled={!checkAllInputsFilled(values)}
-          >
+          <StyledAddItemButton disabled={!checkAllInputsFilled(values)}>
             등록
-          </button>
-        </div>
+          </StyledAddItemButton>
+        </StyledTopSection>
         <FileInput
           name="imgFile"
           value={values.imgFile}
           onChange={handleChange}
         />
-        <label className="label" htmlFor="item-name">
-          상품명
-        </label>
-        <input
-          id="item-name"
+        <StyledLabel htmlFor="item-name">상품명</StyledLabel>
+        <StyledInput
           name="name"
           value={values.name}
           onChange={handleInputChange}
           placeholder="상품명을 입력해주세요"
-        ></input>
-        <label className="label" htmlFor="item-detail">
-          상품 소개
-        </label>
-        <textarea
-          id="item-detail"
+        />
+        <StyledLabel htmlFor="item-detail">상품 소개</StyledLabel>
+        <StyledTextArea
           name="detail"
           value={values.detail}
           onChange={handleInputChange}
           placeholder="상품 소개를 입력해주세요"
-        ></textarea>
-        <label className="label" htmlFor="item-price">
-          판매가격
-        </label>
-        <input
-          id="item-price"
+        />
+        <StyledLabel htmlFor="item-price">판매가격</StyledLabel>
+        <StyledInput
           name="price"
           value={values.price}
           onChange={handleInputChange}
           type="number"
           placeholder="판매 가격을 입력해주세요"
-        ></input>
-        <label className="label" htmlFor="tag">
-          태그
-        </label>
-        <input
-          id="tag"
+        />
+        <StyledLabel htmlFor="tag">태그</StyledLabel>
+        <StyledInput
           name="tag"
           value={values.tag}
           onChange={handleInputChange}
           placeholder="태그를 입력해주세요"
-        ></input>
-      </form>
+        />
+      </StyledFormContainer>
     </div>
   );
 }
