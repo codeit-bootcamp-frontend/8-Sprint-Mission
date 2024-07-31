@@ -2,15 +2,6 @@ import styled from 'styled-components';
 import HeartIcon from './HeartIcon';
 import './ItemCard.css';
 
-const FavoriteCountWrap = styled.div`
-  display: flex;
-  align-items: center;
-
-  & img {
-    margin-right: 4px;
-  }
-`;
-
 function ItemCard({ item }) {
   return (
     <div className="card-wrap">
@@ -26,3 +17,12 @@ function ItemCard({ item }) {
 }
 
 export default ItemCard;
+
+const FavoriteCountWrap = styled.div`
+  display: flex;
+  align-items: center;
+
+  & img {
+    margin-right: 4px;
+  }
+`;

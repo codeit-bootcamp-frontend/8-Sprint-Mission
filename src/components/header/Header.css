@@ -1,5 +1,6 @@
 header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 70px;
@@ -12,8 +13,10 @@ header {
   background-color: var(--white);
 }
 
-a {
-  text-decoration: none;
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .home-button {
@@ -24,35 +27,33 @@ a {
 
 .nav-box {
   display: flex;
-  flex-direction: row;
-  width: 100%;
   list-style-type: none;
+  gap: 24px;
+}
+
+li .nav-item:hover {
+  color: var(--blue);
 }
 
 .nav-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 109px;
-  height: 69px;
   font-weight: 700;
   font-size: 18px;
-  line-height: 21px;
+  color: var(--gray600);
 }
 
 .login-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 88px;
-  height: 42px;
+  padding: 12px 23px;
   border-radius: 8px;
-  gap: 10px;
   background-color: var(--blue);
+  color: var(--white);
   font-weight: 600;
   font-size: 16px;
-  line-height: 19px;
-  color: var(--white);
 }
 
 @media (max-width: 1199px) {

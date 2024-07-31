@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 import Header from '../../header/Header';
-
-const Container = styled.div`
-  margin-top: 70px;
-`;
+import Banner from './Banner';
 
 function HomePage() {
   return (
     <>
       <Header />
-      <Container>홈페이지</Container>
+      <Container>
+        <Banner />
+        <Banner bottom />
+      </Container>
     </>
   );
 }
 
 export default HomePage;
+
+const Container = styled.div`
+  margin-top: 70px;
+`;
