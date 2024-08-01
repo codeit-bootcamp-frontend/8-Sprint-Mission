@@ -12,8 +12,8 @@ const TagButtonsSection = styled.div`
 `;
 
 const Tag = styled(FlexContainer)`
-  background-color: ${({ theme }) => theme.colors.gray[2]};
-  color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.gray[50]};
+  color: ${({ theme }) => theme.colors.gray[800]};
   padding: 14px 14px 14px 16px;
   border-radius: 999px;
   min-width: 100px;
