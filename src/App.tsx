@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MarketPage from "./pages/Market/Market.jsx";
-import Home from "./pages/Home/Home.jsx";
-import Navbar from "./components/Layout/Navbar.jsx";
-import AddItems from "./pages/AddItem/AddItems.jsx";
-import ItemDetail from "./pages/ItemDetail/ItemDetail.jsx";
+import MarketPage from "./pages/Market/Market";
+import Home from "./pages/Home/Home";
+import Navbar from "./components/Layout/Navbar";
+import AddItems from "./pages/AddItem/AddItems";
+import ItemDetail from "./pages/ItemDetail/ItemDetail";
 import "./style/global.css";
 
 function App() {

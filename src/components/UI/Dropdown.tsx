@@ -3,7 +3,13 @@ import { ReactComponent as ArrowDownIcon } from "../../assets/ic_arrow_down.svg"
 import "../../pages/Market/components/AllItems.css";
 import "../../style/global.css";
 
-const Dropdown = ({ options, selectedValue, onSelect }) => {
+interface DropdownProps {
+  options: { label: string; value: string }[];
+  selectedValue: string;
+  onSelect: (value: string) => void;
+}
+
+const Dropdown = ({ options, selectedValue, onSelect }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -11,7 +17,7 @@ const Dropdown = ({ options, selectedValue, onSelect }) => {
   };
 
   // 옵션 선택 시 실행되는 함수
-  const handleSelect = (value) => {
+  const handleSelect = (value: string) => {
     onSelect(value);
     setIsOpen(false);
   };

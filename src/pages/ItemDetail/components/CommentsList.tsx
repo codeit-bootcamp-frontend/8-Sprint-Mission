@@ -5,13 +5,27 @@ import ModifyComment from "../../../assets/ic_kebab.svg";
 import ProfileImg from "../../../assets/ic_profile.svg";
 import "./CommentsList.css";
 
-const Comment = ({ item }) => {
+interface CommentType {
+  id: number;
+  content: string;
+  createdAt: Date;
+  updatedAt: Date;
+  writer: {
+    nickname: string;
+  };
+}
+
+interface CommentProps {
+  item: CommentType;
+}
+
+const Comment = ({ item }: CommentProps) => {
   // 문자열을 Date 객체로 변환합니다
   const createdDate = new Date(item.createdAt);
   const updatedDate = new Date(item.updatedAt);
 
   // 두 날짜 사이의 시간 차이를 밀리초 단위로 계산합니다
-  const timeDifference = updatedDate - createdDate;
+  const timeDifference = updatedDate.getTime() - createdDate.getTime();
 
   // 밀리초를 시간으로 변환합니다
   const hoursDifference = Math.ceil(timeDifference / (1000 * 60 * 60));
@@ -34,8 +48,12 @@ const Comment = ({ item }) => {
   );
 };
 
-function CommentsList({ productId }) {
-  const [comments, setComments] = useState([]);
+interface ProductIdProps {
+  productId: number;
+}
+
+function CommentsList({ productId }: ProductIdProps) {
+  const [comments, setComments] = useState<CommentType[]>([]);
 
   useEffect(() => {
     async function fetchComment() {

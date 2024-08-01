@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { KeyboardEvent, useState } from "react";
 import DeleteIcon from "../../assets/deleteIcon.png";
 
-const TagInput = ({ tags, onAddTag, onRemoveTag }) => {
-  const [input, setInput] = useState("");
+interface TagInputProps {
+  tags: string[];
+  onAddTag: (tag: string) => void;
+  onRemoveTag: (tag: string) => void;
+}
 
-  const onPressEnter = (event) => {
-    if (event.nativeEvent.isComposing) return;
+const TagInput = ({ tags, onAddTag, onRemoveTag }: TagInputProps) => {
+  const [input, setInput] = useState<string>("");
+
+  const onPressEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.nativeEvent.isComposing) return;
 
     const inputString = input.trim();
-    if (event.key === "Enter" && inputString) {
-      event.preventDefault();
+    if (e.key === "Enter" && inputString) {
+      e.preventDefault();
       onAddTag(inputString);
       setInput("");
     }
@@ -17,7 +23,7 @@ const TagInput = ({ tags, onAddTag, onRemoveTag }) => {
 
   return (
     <>
-      <label htmlfor="input-tag" className="input-label">
+      <label htmlFor="input-tag" className="input-label">
         태그
       </label>
       <input

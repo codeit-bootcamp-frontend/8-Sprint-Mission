@@ -1,5 +1,5 @@
 export async function getProducts(params = {}) {
-  const query = new URLSearchParams(params).toString();
+  const query = new URLSearchParams(params as any).toString();
 
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?${query}`
@@ -8,7 +8,7 @@ export async function getProducts(params = {}) {
   return body;
 }
 
-export async function getProductDetail(productId) {
+export async function getProductDetail(productId: number) {
   if (!productId) {
     throw new Error("Invalid product ID");
   }
@@ -25,13 +25,25 @@ export async function getProductDetail(productId) {
   }
 }
 
-export async function getProductComments({ productId, params }) {
+export interface GetProductCommentsParams {
+  productId: number;
+  params?: {
+    limit?: number;
+    offset?: number;
+    [key: string]: any;
+  };
+}
+
+export async function getProductComments({
+  productId,
+  params,
+}: GetProductCommentsParams) {
   if (!productId) {
     throw new Error("Invalid product ID");
   }
 
   try {
-    const query = new URLSearchParams(params).toString();
+    const query = new URLSearchParams(params as any).toString();
     const response = await fetch(
       `https://panda-market-api.vercel.app/products/${productId}/comments?${query}`
     );

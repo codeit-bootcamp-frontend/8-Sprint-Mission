@@ -3,10 +3,15 @@ import { ReactComponent as HeartIcon } from "../../../assets/ic_heart.svg";
 import "./AllItems.css";
 import "../../../style/global.css";
 import { Link } from "react-router-dom";
+import { Product } from "../../../type/ProductType";
 
-function ItemList({ product }) {
+interface ProductProps {
+  product: Product;
+}
+
+function ItemList({ product }: ProductProps) {
   const { images, name, price, favoriteCount, createdAt } = product;
-  function formatDate(value) {
+  function formatDate(value: number) {
     const date = new Date(value);
     return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
   }

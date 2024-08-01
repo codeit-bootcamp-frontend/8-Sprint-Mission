@@ -1,19 +1,25 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ChangeEvent } from "react";
 import PlusIcon from "../../assets/ic_plus.svg";
 import XIcon from "../../assets/ic_X.svg";
 
-function FileInput({ name, value, onChange }) {
-  const [previewImg, setPreviewImg] = useState(null);
+interface FileInputProps {
+  name: string;
+  value: File | null;
+  onChange: (name: string, file: File | null) => void;
+}
+
+function FileInput({ name, value, onChange }: FileInputProps) {
+  const [previewImg, setPreviewImg] = useState<string | null>(null);
   const [showPreview, setShowPreview] = useState(false);
 
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleButtonClick = () => {
-    inputRef.current.click();
+    inputRef.current?.click();
   };
 
-  const handleFileChange = (e) => {
-    const nextValue = e.target.files[0];
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const nextValue = e.target.files?.[0] || null;
     onChange(name, nextValue);
   };
 
@@ -60,7 +66,7 @@ function FileInput({ name, value, onChange }) {
         {showPreview ? (
           <img
             className="input-preview"
-            src={previewImg}
+            src={previewImg ?? ""}
             alt="미리보기 이미지"
           />
         ) : null}

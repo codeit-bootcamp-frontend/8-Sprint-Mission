@@ -1,12 +1,16 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { useState } from "react";
 import CommentsList from "./CommentsList";
 import "./ItemComment.css";
 
-function ItemComment({ productId }) {
+interface ProductProps {
+  productId: number;
+}
+
+function ItemComment({ productId }: ProductProps) {
   const [comment, setComment] = useState("");
 
-  const handleCommentChange = (e) => {
+  const handleCommentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setComment(e.target.value);
   };
   return (

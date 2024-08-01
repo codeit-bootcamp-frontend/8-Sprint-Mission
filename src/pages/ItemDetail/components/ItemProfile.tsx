@@ -3,12 +3,17 @@ import LikeButton from "./LikeButton";
 import ItemTag from "./ItemTag";
 import ModifyProfile from "../../../assets/ic_kebab.svg";
 import "./ItemProfile.css";
+import { Product } from "../../../type/ProductType";
 
-function ItemProfile({ product }) {
+export interface ItemProfileProps {
+  product: Product | null;
+}
+
+function ItemProfile({ product }: ItemProfileProps) {
   if (!product) {
     return <div>Loading...</div>; // 또는 적절한 로딩 컴포넌트 또는 메시지
   }
-  const { images, favoriteCount, name, description, tags, price } = product;
+  const { images, favoriteCount, name, price, description, tags } = product;
 
   return (
     <>

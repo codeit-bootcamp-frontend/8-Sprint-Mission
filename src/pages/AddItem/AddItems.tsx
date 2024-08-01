@@ -1,11 +1,19 @@
-import { useState } from "react";
-import FileInput from "../../components/UI/FileInput.jsx";
+import { ChangeEvent, useState } from "react";
+import FileInput from "../../components/UI/FileInput";
 import "./AddItems.css";
 import "../../style/global.css";
-import TagInput from "../../components/UI/TagInput.jsx";
+import TagInput from "../../components/UI/TagInput";
+
+interface AddItemsState {
+  imgFile: File | null;
+  title: string;
+  description: string;
+  price: any;
+  tags: string[];
+}
 
 function AddItems() {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<AddItemsState>({
     imgFile: null,
     title: "",
     description: "",
@@ -13,7 +21,7 @@ function AddItems() {
     tags: [],
   });
 
-  const addTag = (tag) => {
+  const addTag = (tag: string) => {
     if (!values.tags.includes(tag)) {
       setValues((prevState) => ({
         ...prevState,
@@ -23,23 +31,25 @@ function AddItems() {
   };
 
   // Function to remove a tag
-  const removeTag = (tagToRemove) => {
+  const removeTag = (tagToRemove: string) => {
     setValues((prevState) => ({
       ...prevState,
       tags: prevState.tags.filter((tag) => tag !== tagToRemove),
     }));
   };
 
-  const handleFormValuesChange = (name, value) => {
+  const handleFormValuesChange = (name: keyof AddItemsState, value: any) => {
     setValues((preValues) => ({
       ...preValues,
       [name]: value,
     }));
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    handleFormValuesChange(name, value);
+    handleFormValuesChange(name as keyof AddItemsState, value);
   };
 
   const isSubmitDisabled =
@@ -64,7 +74,9 @@ function AddItems() {
         <FileInput
           name="imgFile"
           value={values.imgFile}
-          onChange={handleFormValuesChange}
+          onChange={(name, file) =>
+            handleFormValuesChange(name as keyof AddItemsState, file)
+          }
         />
       </div>
       <form className="item-form">

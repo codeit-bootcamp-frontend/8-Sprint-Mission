@@ -3,7 +3,11 @@ import "./Navbar.css";
 import "../../style/global.css";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
-function getLinkStyle({ isActive }) {
+interface GetLinkStyleProps {
+  isActive: boolean;
+}
+
+function getLinkStyle({ isActive }: GetLinkStyleProps) {
   return {
     color: isActive ? "#3692FF" : "#4B5563",
     textDecoration: "none",

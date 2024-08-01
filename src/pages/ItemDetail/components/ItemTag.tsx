@@ -1,7 +1,11 @@
 import React from "react";
 import "./ItemTag.css";
 
-function ItemTag({ tags }) {
+interface ItemTagProps {
+  tags: string[];
+}
+
+function ItemTag({ tags }: ItemTagProps) {
   return (
     <>
       <p className="detail-tag-title">상품 태그</p>
