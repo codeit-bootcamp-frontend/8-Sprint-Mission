@@ -1,23 +1,26 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../../api/product";
+import { getProduct } from "src/api/product";
 import { Main } from "../../styles/pages/Home";
 import * as S from "../../styles/pages/Product";
 import { Flex } from "../../styles/styled";
+import { ProductsApi } from "src/types/type";
 
-function Product() {
+function ProductId() {
   const { productId } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState<ProductsApi | null>(null);
 
-  const handleLoad = async (id) => {
+  const handleLoad = async (id: number) => {
     const nextProduct = await getProduct(id);
     console.log(nextProduct);
     setProduct({ ...nextProduct });
   };
 
   useEffect(() => {
-    handleLoad(productId);
+    handleLoad(Number(productId));
   }, [productId]);
+
+  console.log(1);
 
   return (
     <Main>
@@ -31,4 +34,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default ProductId;

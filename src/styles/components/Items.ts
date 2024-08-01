@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { BoxProps } from "styled-components";
 import media from "../styled/media";
 import { Box, Flex } from "../styled";
 
@@ -27,7 +27,7 @@ export const BestGrid = styled(ItemGrid)`
 	`}
 `;
 
-export const ItemWrap = styled.div`
+export const ItemWrap = styled.div<BoxProps>`
   margin-top: ${({ mt = 0 }) => mt + "px"};
   margin-bottom: ${({ mb = 0 }) => mb + "px"};
 `;

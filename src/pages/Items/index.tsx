@@ -7,23 +7,13 @@ import useMediaQuery from "../../utils/useQueryMedia";
 import BestItemList from "../../components/BestItemList";
 import SellItemList from "../../components/SellItemList";
 import { Container } from "../../styles/styled";
+import { Item } from "src/types/type";
+import { getItems } from "../../api/product";
+//import { getItems } from "../../api/product";
 
 const FILTER_NAME = {
   recent: "최신순",
   favorite: "좋아요순",
-};
-
-interface QueryType {
-  page: number;
-  pageSize: number;
-  orderBy: string;
-  keyword: number;
-}
-
-const getItems = ({ page, pageSize, orderBy, keyword }: QueryType) => {
-  return fetch(
-    `https://panda-market-api.vercel.app/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`
-  ).then((response) => response.json());
 };
 
 function getFetchingSiceByDevice(isMobile: boolean, isTablet: boolean) {
@@ -40,9 +30,9 @@ type FilterName = {
 function Items() {
   const isMobile = useMediaQuery("(max-width: 767px)");
   const isTablet = useMediaQuery("(max-width: 1199px)");
-  const [bests, setBests] = useState([]);
-  const [sells, setSells] = useState([]);
-  const [total, setTotal] = useState(0);
+  const [bests, setBests] = useState<Item[]>([]);
+  const [sells, setSells] = useState<Item[]>([]);
+  const [total, setTotal] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
   const [filter, setFilter] = useState<keyof FilterName>("recent");
 

@@ -6,6 +6,7 @@ import Items from "./pages/Items";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AddItem from "./pages/AddItem";
+import ProductId from "./pages/Items/ProductId";
 
 function AppRouter() {
   return (
@@ -14,7 +15,10 @@ function AppRouter() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/items" element={<Items />} />
+            <Route path="/items">
+              <Route index element={<Items />} />
+              <Route element={<ProductId />} />
+            </Route>
             <Route path="/additem" element={<AddItem />} />
           </Route>
           <Route path="/login" element={<Login />} />

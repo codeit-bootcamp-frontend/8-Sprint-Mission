@@ -1,6 +1,6 @@
-import { Item } from "ItemsType";
 import { SellGrid } from "../styles/components/Items";
 import SellItem from "./SellItem";
+import { Item } from "src/types/type";
 
 type Props = {
   items: Item[];

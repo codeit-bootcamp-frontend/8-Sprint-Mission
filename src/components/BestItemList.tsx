@@ -1,6 +1,6 @@
 import BestItem from "./BestItem";
 import { BestGrid } from "../styles/components/Items";
-import { Item } from "ItemsType";
+import { Item } from "src/types/type";
 
 type Props = {
   items: Item[];

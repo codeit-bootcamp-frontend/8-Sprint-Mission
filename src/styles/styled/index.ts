@@ -1,15 +1,4 @@
-import styled from "styled-components";
-
-interface BoxProps {
-  mt?: number;
-  mb?: number;
-  ml?: number;
-  mr?: number;
-  pt?: number;
-  pb?: number;
-  pl?: number;
-  pr?: number;
-}
+import styled, { BoxProps, FlexProps } from "styled-components";
 
 export const Box = styled.div<BoxProps>`
   margin-top: ${({ mt = 0 }) => mt + "px"};
@@ -33,16 +22,6 @@ export const Container = styled(Box)<Pick<BoxProps, "mt">>`
     width: 344px;
   }
 `;
-
-interface FlexProps {
-  flex?: string;
-  content?: string;
-  item?: string;
-  wrap?: string;
-  gap?: string;
-  mt?: string;
-  pl?: string;
-}
 
 export const Flex = styled.div<FlexProps>`
   display: flex;

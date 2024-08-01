@@ -8,17 +8,23 @@ import {
   SellImage,
 } from "../styles/components/Items";
 import heartIcon from "../assets/ic_heart.png";
-import { Item } from "ItemsType";
+import { Item } from "src/types/type";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   item: Item;
 };
 
 function SellItem({ item }: Props) {
-  const { images, description, price, favoriteCount } = item;
+  const navigate = useNavigate();
+  const { id, images, description, price, favoriteCount } = item;
   const sliceDescription = description.slice(0, 10);
   return (
-    <li>
+    <li
+      onClick={() => {
+        navigate(`/items/${id}`);
+      }}
+    >
       <SellImage src={images[0]} alt="item" />
       <Content>
         <Description>{sliceDescription}</Description>

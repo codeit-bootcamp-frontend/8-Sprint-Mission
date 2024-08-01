@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { Flex } from "../styles/styled";
 import "../App.css";
 import {
@@ -13,6 +13,7 @@ import {
 import ItemFileInput from "../components/ItemFileInput";
 import CancelLogo from "../assets/ic_X@3x.png";
 import styled from "styled-components";
+import { ItemKeyType, ItemType } from "src/types/type";
 
 const INITIAL_VALUE = {
   imageFile: null,
@@ -29,38 +30,40 @@ const Cancel = styled.img`
 `;
 
 function AddItem() {
-  const [value, setValue] = useState(INITIAL_VALUE);
-  const [tags, setTags] = useState([]);
+  const [value, setValue] = useState<ItemType>(INITIAL_VALUE);
+  const [tags, setTags] = useState<string[]>([]);
   const { imageFile, title, content, price, tag } = value;
 
   const isValid =
     title !== "" && content !== "" && price !== "" && tags.length > 0;
 
-  const onChange = (name, value) => {
+  const onChange = (name: string, value: ItemType[ItemKeyType]) => {
     setValue((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const onChangeTags = (value) => {
+  const onChangeTags = (value: string) => {
     setTags((prev) => [...new Set([...prev, value])]);
   };
 
-  const handleChange = ({ target }) => {
+  const handleChange = ({
+    target,
+  }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = target;
     onChange(name, value);
   };
 
-  const handleEnterTags = (e) => {
+  const handleEnterTags = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      onChangeTags(e.target.value);
-      onChange(e.target.name, "");
+      onChangeTags(e.currentTarget.value);
+      onChange(e.currentTarget.name, "");
     }
   };
 
-  const onCancel = (value) => {
+  const onCancel = (value: string) => {
     setTags((prevTags) => {
       const nextTags = prevTags.filter((tag) => tag !== value);
       return nextTags;
@@ -68,10 +71,10 @@ function AddItem() {
   };
 
   return (
-    <Form mt="94" mb="170">
+    <Form mt={94} mb={170}>
       <Flex content="space-between" item="center">
         <Title>상품 등록하기</Title>
-        <Submit isValid={isValid} disabled={!isValid} width="88" height="42">
+        <Submit isValid={isValid} disabled={!isValid} width={88} height={42}>
           등록
         </Submit>
       </Flex>
@@ -94,7 +97,6 @@ function AddItem() {
             placeholder="상품 소개를 입력해주세요"
             id="content"
             name="content"
-            type="text"
             value={content}
             onChange={handleChange}
           />

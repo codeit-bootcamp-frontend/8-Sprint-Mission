@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { BoxProps, ThemeContextType } from "styled-components";
 
-export const Form = styled.form`
+export const Form = styled.form<BoxProps>`
   width: 1200px;
   margin: 0 auto;
   margin-top: ${({ mt }) => mt + "px"};
@@ -68,13 +68,15 @@ export const Input = styled.input`
   }
 `;
 
-export const FileInput = styled(Input)`
+export const FileInput = styled(Input)<{
+  display?: string;
+}>`
   display: ${({ display }) => display};
 `;
 
 export const Section = styled.section``;
 
-export const Button = styled.button`
+export const Button = styled.button<BoxProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +91,10 @@ export const Button = styled.button`
   border: 0;
 `;
 
-export const Submit = styled(Button)`
+export const Submit = styled(Button)<{
+  isValid: boolean;
+  theme: ThemeContextType;
+}>`
   background-color: ${({ isValid, theme }) =>
     isValid ? theme.colors.brandBlueActive : theme.colors.brandBlueInActive};
 `;
@@ -118,7 +123,9 @@ export const Label = styled.label`
   }
 `;
 
-export const TextArea = styled.textarea`
+export const TextArea = styled.textarea<{
+  display?: string;
+}>`
   display: ${({ display }) => display};
   width: 100%;
   height: 200px;

@@ -1,4 +1,4 @@
-import { Item } from "ItemsType";
+import { Item } from "src/types/type";
 import heartIcon from "../assets/ic_heart.png";
 import {
   BestImage,

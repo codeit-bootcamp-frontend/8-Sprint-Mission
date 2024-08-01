@@ -25,7 +25,7 @@ const Cancel = styled.img`
 `;
 
 type Props = {
-  value: Blob | MediaSource;
+  value: Blob | MediaSource | null;
   name: string;
   onChange: (name: string, file: File | null) => void;
 };

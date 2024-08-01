@@ -7,7 +7,9 @@ export const Main = styled.main`
   width: 100%;
 `;
 
-export const BannerTop = styled.div`
+export const BannerTop = styled.div<{
+  image?: string;
+}>`
   display: flex;
   width: 100%;
   height: 540px;
@@ -149,7 +151,9 @@ export const ContentRight = styled(Content)`
   }
 `;
 
-export const ContentImg = styled.img`
+export const ContentImg = styled.img<{
+  order?: number;
+}>`
   width: 588px;
   height: 444px;
   order: ${({ order = 0 }) => order};
