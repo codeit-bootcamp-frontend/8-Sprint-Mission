@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import styled from "styled-components";
 import { ReactComponent as CloseIcon } from "../../assets/images/icons/ic_x.svg";
 
@@ -16,7 +16,12 @@ const Button = styled.button`
   }
 `;
 
-function DeleteButton({ onClick, label }) {
+interface DeleteButtonProps {
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  label: string;
+}
+
+function DeleteButton({ onClick, label }: DeleteButtonProps) {
   return (
     <Button aria-label={`${label} 삭제`} onClick={onClick}>
       <CloseIcon />
