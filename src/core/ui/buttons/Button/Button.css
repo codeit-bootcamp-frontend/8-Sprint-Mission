@@ -1,0 +1,38 @@
+.btn-default {
+  background-color: var(--blue);
+  color: #ffffff;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  line-height: inherit;
+  border-radius: 8px;
+  padding: 12px 23px;
+}
+
+.btn-default:hover {
+  background-color: #1967d6;
+}
+
+.btn-default:focus {
+  background-color: #1251aa;
+}
+
+.btn-default:disabled {
+  background-color: #9ca3af;
+  cursor: default;
+  pointer-events: none;
+}
+
+.btn-default.pill-button {
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 14.5px 33.5px;
+}

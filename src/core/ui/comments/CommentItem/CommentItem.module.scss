@@ -1,0 +1,44 @@
+@import '../../../../styles/global.scss';
+
+.comment {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  &__content {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+    color: $gray-800;
+  }
+
+  &__wrapper-info {
+    display: flex;
+    margin: 24px 0 0;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__wrapper-nickname {
+    margin: 0 0 0 8px;
+  }
+
+  &__nickname {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: $gray-600;
+  }
+
+  &__updated-at {
+    font-size: 12px;
+    font-weight: 400;
+    color: $gray-400;
+  }
+}
