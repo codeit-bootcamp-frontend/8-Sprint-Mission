@@ -22,7 +22,7 @@ const StyledNavContainer = styled.nav`
   display: flex;
   max-width: 1200px;
   height: 70px;
-  margin: 0 200px;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
 
