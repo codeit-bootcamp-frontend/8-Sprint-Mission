@@ -21,8 +21,8 @@ function App() {
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/items">
               <Route index element={<UsedMarketPage />} />
-              <Route path="/:itemId" element={<ProductDetailPage />} />
-              <Route path="/additem" element={<AddProductPage />} />
+              <Route path=":itemId" element={<ProductDetailPage />} />
+              <Route path="additem" element={<AddProductPage />} />
             </Route>
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>

@@ -1,5 +1,11 @@
+import GlobalNavBar from "components/@shared/GlobalNavBar";
+
 function HomePage() {
-  return <div></div>;
+  return (
+    <>
+      <GlobalNavBar isMain={true} isLogin={false} />
+    </>
+  );
 }
 
 export default HomePage;

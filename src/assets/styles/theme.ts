@@ -25,18 +25,18 @@ const deviceSizes = {
   DESKTOP_MIN_WIDTH: 1200,
 };
 
-const mediaQueries = {
-  mobile: `(min-width: ${deviceSizes.MOBILE_MIN_WIDTH}px and max-width: ${deviceSizes.MOBILE_MAX_WIDTH}px)`,
-  tablet: `(min-width: ${deviceSizes.TABLET_MIN_WIDTH}px and max-width: ${deviceSizes.TABLET_MAX_WIDTH}px)`,
-  desktop: `(min-width: ${deviceSizes.DESKTOP_MIN_WIDTH})px`,
+const device = {
+  mobile: `screen and (min-width: ${deviceSizes.MOBILE_MIN_WIDTH}px) and (max-width: ${deviceSizes.MOBILE_MAX_WIDTH}px)`,
+  tablet: `screen and (min-width: ${deviceSizes.TABLET_MIN_WIDTH}px) and (max-width: ${deviceSizes.TABLET_MAX_WIDTH}px)`,
+  desktop: `screen and (min-width: ${deviceSizes.DESKTOP_MIN_WIDTH})px)`,
 };
 
 type ColorsType = typeof colors;
-type mediaQueriesType = typeof mediaQueries;
+type deviceType = typeof device;
 
-const theme: { colors: ColorsType; mediaQueries: mediaQueriesType } = {
+const theme: { colors: ColorsType; device: deviceType } = {
   colors,
-  mediaQueries,
+  device,
 };
 
 export default theme;

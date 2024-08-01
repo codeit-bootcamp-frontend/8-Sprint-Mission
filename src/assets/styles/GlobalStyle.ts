@@ -22,7 +22,9 @@ const GlobalStyles = createGlobalStyle`
 
   button,
   a {
-    cursor: pointer
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
   }
 `;
 
