@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
-import "@components/UI/scss/Input.scss";
+import React, { useEffect } from 'react';
+import '@components/UI/scss/Input.scss';
 
 function Input({
-  type = "text",
+  type = 'text',
   id,
   name,
-  dataInput,
-  placeholder = "",
+  placeholder = '',
   required = false,
   onChange,
-  onKeyDown,
+  ...props
 }) {
   return (
     <>
@@ -18,11 +17,10 @@ function Input({
         type={type}
         id={id}
         name={name}
-        data-input={dataInput}
         placeholder={placeholder}
         required={required}
         onChange={onChange}
-        onKeyDown={onKeyDown}
+        {...props}
       />
     </>
   );

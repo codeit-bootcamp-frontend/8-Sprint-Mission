@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { ReactComponent as HeartIcon } from "@assets/icons/ic_heart.svg";
-import { getProduct } from "@js/itemApi";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { ReactComponent as HeartIcon } from '@assets/icons/ic_heart.svg';
+import { getProduct } from '@js/itemApi';
 
-import Input from "@components/UI/jsx/Input";
-import Button from "@components/UI/jsx/Button";
-import "@pages/ProductPage/ProductPage.scss";
+import Input from '@components/UI/jsx/Input';
+import Button from '@components/UI/jsx/Button';
+import '@pages/ProductPage/ProductPage.scss';
 
-import default_image from "@assets/ItemsPage/alt_image.png"; // 테스트 이미지
+import default_image from '@assets/ItemsPage/alt_image.png'; // 테스트 이미지
 
 function ProductPage() {
   // State
   const [product, setProduct] = useState();
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
 
   // useParams()
   const { productId } = useParams();
@@ -21,7 +21,7 @@ function ProductPage() {
   useEffect(() => {
     // 유효하지 않은 productId 확인 로직 (예: 숫자가 아닌 경우)
     if (!productId || isNaN(productId)) {
-      navigate("/items");
+      navigate('/items');
     }
   }, [productId, navigate]);
 
@@ -40,12 +40,17 @@ function ProductPage() {
   };
 
   const handleCommentAdd = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.preventDefault();
       const commentValue = e.target.value.trim();
+      handleSubmit();
 
-      e.target.value = "";
+      e.target.value = '';
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   // 페이지 로드 시,
@@ -86,7 +91,7 @@ function ProductPage() {
       <section className="productPage__commentSection commentSection">
         <div>
           <label className="commentSection__contentHeader">문의하기</label>
-          <form>
+          <form onSubmit={handleSubmit}>
             <Input
               type="text"
               id="comment"
