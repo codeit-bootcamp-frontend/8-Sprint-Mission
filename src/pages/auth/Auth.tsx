@@ -12,6 +12,16 @@ const Main = styled.main`
     justify-content: center;
 `;
 
+const Article = styled.article`
+    width: 64rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    @media (375px <= width < 768px) {
+        max-width: 40rem;
+        width: 100%;
+    }
+`;
 
 interface AuthProps {
     isLogin: boolean;
@@ -22,6 +32,8 @@ const Auth = ({isLogin}:AuthProps) => {
         <>
             <Header />
             <Main>
+                <Article>
+
                 {
                     isLogin? (
                         <SignInForm />
@@ -30,6 +42,7 @@ const Auth = ({isLogin}:AuthProps) => {
                     )
                 }
                 <OAuth isLogin={isLogin}/>
+                </Article>
             </Main>
         </>
     );

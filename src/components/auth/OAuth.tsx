@@ -4,17 +4,6 @@ import kakaoIcon from '../../core/assets/icons/sns/kakao/kakao.svg';
 import googleIcon from '../../core/assets/icons/sns/google/google.svg';
 import styled from 'styled-components';
 
-const Article = styled.article`
-    width: 64rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
-    @media (375px <= width < 768px) {
-        max-width: 40rem;
-        width: 100%;
-    }
-`;
-
 const OAuthLoginContainer = styled.div`
     display: flex;
     background-color: #e6f2ff;
@@ -46,7 +35,7 @@ interface OAuthProps {
 
 const OAuth = ({isLogin}:OAuthProps) => {
     return (
-        <Article>
+        <>
             <OAuthLoginContainer>
                 <p>간편 로그인하기</p>
                 <OAuthIcons>
@@ -57,7 +46,7 @@ const OAuth = ({isLogin}:OAuthProps) => {
             <ToggleSign>
                 <p>{isLogin ? '판다마켓이 처음이신가요?' : '이미 회원이신가요?'} <Link to={isLogin?'/signUp':'/signIn'}>{isLogin?'회원가입':'로그인'}</Link></p>
             </ToggleSign>
-        </Article>
+        </>
     );
 }
 
