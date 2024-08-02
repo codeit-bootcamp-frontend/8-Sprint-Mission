@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function useMediaWidth() {
     const getMediaWidth = () => {
@@ -9,9 +9,9 @@ function useMediaWidth() {
 
     const [mediaWidth, setMediaWidth] = useState(getMediaWidth());
 
-    const handleWidthChange = () => {
+    const handleWidthChange = useCallback (() => {
         setMediaWidth(getMediaWidth());
-    }
+    }, [])
 
     useEffect(() => {
         window.addEventListener("resize", handleWidthChange);
