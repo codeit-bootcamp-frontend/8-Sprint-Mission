@@ -1,5 +1,5 @@
-import { validType } from 'hooks/useValidForm';
 import styled, { css } from 'styled-components';
+import { validType } from 'types/@shared/authTypes';
 
 export const inputStyle = css`
   width: 100%;
