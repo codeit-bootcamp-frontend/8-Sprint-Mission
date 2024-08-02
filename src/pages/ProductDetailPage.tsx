@@ -8,29 +8,56 @@ import goBackIcon from "../assets/images/ic_back.png";
 import ProductDetailContent from "../components/ProductDetail/ProductDetailContent";
 import CommentList from "../components/ProductDetail/CommentList";
 
+interface ProductDetails {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  images: string;
+  favoriteCount: number;
+  tags?: string[];
+}
+
+interface Writer {
+  image: string;
+  nickname: string;
+}
+
+interface ProductComments {
+  writer: Writer;
+  content: string;
+  updatedAt: string;
+}
+
 function ProductDetailPage() {
-  const [productDetails, setProductDetails] = useState([]);
-  const [productComments, setProductComments] = useState([]);
+  const [productDetails, setProductDetails] = useState<ProductDetails | null>(
+    null
+  );
+  const [productComments, setProductComments] = useState<ProductComments[]>([]);
 
   const { productId } = useParams();
 
   useEffect(() => {
     async function getProductDetail() {
-      const data = await fetchProductDataById(productId);
-      setProductDetails(data);
+      if (productId) {
+        const data = await fetchProductDataById(productId);
+        setProductDetails(data);
+      }
     }
     getProductDetail();
 
     async function getProductComment() {
-      const data = await fetchProductComment(productId);
-      setProductComments(data);
+      if (productId) {
+        const data = await fetchProductComment(productId);
+        setProductComments(data);
+      }
     }
     getProductComment();
   }, [productId]);
 
   return (
     <div className="product-detail">
-      <ProductDetailContent product={productDetails} />
+      {productDetails && <ProductDetailContent product={productDetails} />}
       <CommentList comments={productComments} />
       <Link className="backto-list-button" to="/items">
         목록으로 돌아가기

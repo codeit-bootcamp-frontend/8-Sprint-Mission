@@ -21,14 +21,14 @@ function AddItemForm() {
   ];
 
   const [inputValues, setInputValues] = useState({
-    imgFile: null,
+    imgFile: null as File | null,
     name: "",
     content: "",
     price: "",
     tag: "",
   });
 
-  const handleValueChange = (name, value) => {
+  const handleValueChange = (name: string, value: string | File) => {
     setInputValues((prevValues) => ({
       ...prevValues,
       [name]: value,
@@ -57,11 +57,7 @@ function AddItemForm() {
       </div>
 
       <div className="add-item-input-wrapper">
-        <FileInput
-          name="imgFile"
-          label="상품 이미지"
-          onChange={handleValueChange}
-        />
+        <FileInput name="imgFile" onChange={handleValueChange} />
         {INPUT_CONTENTS.map((content, index) => {
           return (
             <TextInput

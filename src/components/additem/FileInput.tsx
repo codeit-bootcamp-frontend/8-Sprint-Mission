@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 import "./FileInput.css";
 import imageAddIcon from "../../assets/images/ic_plus.png";
 
-function FileInput({ name, onChange }) {
+interface Props {
+  name: string;
+  onChange: (name: string, value: File) => void;
+}
+
+function FileInput({ name, onChange }: Props) {
   const [preview, setPreview] = useState("");
 
-  const handleFileInputChange = (e) => {
+  const handleFileInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
     const selectedImg = e.target.files[0];
     const previewImg = URL.createObjectURL(selectedImg);
 

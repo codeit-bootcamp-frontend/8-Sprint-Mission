@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 
 import "./ProductDetailContent.css";
 import errorImage from "../../assets/images/img_default.png";
@@ -8,11 +8,25 @@ import likeIconFull from "../../assets/images/ic_heart_full.png";
 
 import Tag from "./Tag";
 
-const onErrorImg = (e) => {
-  e.target.src = errorImage;
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  images: string;
+  favoriteCount: number;
+  tags?: string[];
+}
+
+interface Props {
+  product: Product;
+}
+
+const onErrorImg = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+  e.currentTarget.src = errorImage;
 };
 
-function ProductDetailContent({ product }) {
+function ProductDetailContent({ product }: Props) {
   const {
     id,
     name,
@@ -37,7 +51,7 @@ function ProductDetailContent({ product }) {
         width="486px"
         height="486px"
         onError={onErrorImg}
-      ></img>
+      />
       <div className="contents">
         <div className="text">
           <div className="title-wrapper">
@@ -57,7 +71,7 @@ function ProductDetailContent({ product }) {
             <div className="contents-label">상품 태그</div>
             <ul className="tags">
               {tags.length > 0 &&
-                tags.map((tag) => {
+                tags.map((tag: string) => {
                   return (
                     <li key={id} className="tag">
                       <Tag tag={tag} />

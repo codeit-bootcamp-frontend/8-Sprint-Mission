@@ -4,7 +4,8 @@ import "./Nav.css";
 import logoIcon from "../assets/images/Img_logo_icon.png";
 import logoText from "../assets/images/Img_logo_text.png";
 
-const getNavLinkClassName = (isActive) => (isActive ? "menu active" : "menu");
+const getNavLinkClassName = (isActive: boolean) =>
+  isActive ? "menu active" : "menu";
 
 function Nav() {
   return (

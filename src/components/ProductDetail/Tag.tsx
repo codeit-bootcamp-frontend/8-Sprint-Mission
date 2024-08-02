@@ -1,6 +1,10 @@
 import "./Tag.css";
 
-function Tag({ tag }) {
+interface Props {
+  tag: string;
+}
+
+function Tag({ tag }: Props) {
   return <div className="product-tag">#{tag}</div>;
 }
 
