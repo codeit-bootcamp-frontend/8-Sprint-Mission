@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "../../../../Downloads/FE-Sprint-Mission2-week2"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "8-Sprint-Mission"
+  }
+}
