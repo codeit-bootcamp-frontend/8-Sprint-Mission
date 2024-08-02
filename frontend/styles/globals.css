@@ -2,32 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+  .btn {
+    @apply flex items-center justify-center border border-solid border-gray-400;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .btn-small {
+    @apply rounded-lg w-[5.5rem] h-[2.625rem] md:w-[8rem] md:h-[3.25rem];
+  }
+
+  .btn-large {
+    @apply rounded-[4rem] max-w-sm w-full h-[3rem];
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .logo-base,
+  .logo-sm,
+  .logo-md,
+  .logo-lg,
+  .logo-xl {
+    display: none;
+  }
+
+  @media (max-width: 19.9em) {
+    .logo-base {
+      display: block;
+    }
+  }
+
+  @media (min-width: 20em) and (max-width: 64em) {
+    .logo-sm {
+      display: block;
+    }
+  }
+
+  @media (max-width: 64em) {
+    .logo-lg {
+      display: block;
+    }
+  }
+
+  @media (min-width: 64.1em) {
+    .logo-md,
+    .logo-xl {
+      display: block;
+    }
   }
 }
