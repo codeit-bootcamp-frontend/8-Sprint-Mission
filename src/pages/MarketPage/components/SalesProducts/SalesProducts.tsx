@@ -7,6 +7,15 @@ import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaSortAmountDown } from "react-icons/fa";
+
+interface ProductType {
+  id: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+  images: string[];
+}
+
 const getHtmlSize = () => {
   const width = window.innerWidth;
   if (width < 768) {
@@ -24,12 +33,17 @@ function SalesProducts() {
   const [orderBy, setOrderBy] = useState("recent");
   const [pageSize, setPageSize] = useState(getHtmlSize());
   const [page, setPage] = useState(1);
-  const [totalPageNum, setTotalPageNum] = useState();
+  const [totalPageNum, setTotalPageNum] = useState<number>();
 
-  const fetchSalesProducts = async (pageSize, orderBy, page) => {
+  const fetchSalesProducts = async (
+    pageSize: number,
+    orderBy: string,
+    page: number
+  ) => {
     const productsData = await getProducts(pageSize, orderBy, page);
     setProducts(productsData.list);
-    setTotalPageNum(Math.ceil(productsData.totalCount / pageSize));
+    const totalPages: number = Math.ceil(productsData.totalCount / pageSize);
+    setTotalPageNum(totalPages);
   };
 
   useEffect(() => {
@@ -45,12 +59,14 @@ function SalesProducts() {
   const sortSelectListVisibleToggle = () => {
     setIsSelectVisibleList(!isSelectVisibleList);
   };
-  const onClickSortSelect = (e) => {
-    const selectedValue = e.target.innerText;
+  const onClickSortSelect = (e: React.MouseEvent<HTMLDivElement>) => {
+    const selectedValue = e.currentTarget.innerText;
+    console.log(selectedValue);
+
     selectedValue === "최신순" ? setOrderBy("recent") : setOrderBy("favorite");
     setIsSelectVisibleList(false);
   };
-  const onPageChange = (pageNumber) => {
+  const onPageChange = (pageNumber: number): void => {
     setPage(pageNumber);
   };
   return (
@@ -96,7 +112,7 @@ function SalesProducts() {
         </div>
       </div>
       <div className="salesProducts-box">
-        {products.map((product, idx) => {
+        {products.map((product: ProductType) => {
           return <Product key={product.id} product={product} />;
         })}
       </div>
