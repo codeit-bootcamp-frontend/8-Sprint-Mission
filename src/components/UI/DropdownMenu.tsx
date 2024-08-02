@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import "./DropdownMenu.css";
 import { ReactComponent as SortIcon } from "../../assets/images/icons/ic_sort.svg";
 
-function DropdownMenu({ onSortSelection }) {
+// 종화 : 드롭다운 메뉴에서 선택된 정렬 기준을 처리하는 함수이기에,"recent" 또는 "favorite"와 같은 문자열을 인수로 받아 (sortType: string)으로 지정
+function DropdownMenu({
+  onSortSelection,
+}: {
+  onSortSelection: (sortType: string) => void;
+}) {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {

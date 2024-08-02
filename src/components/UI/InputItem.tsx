@@ -43,6 +43,19 @@ const TextArea = styled.textarea`
   resize: none; // 우측 하단 코너의 textarea 영역 크기 조절 기능을 없애줍니다
 `;
 
+// 종화 : onChange 이벤트 핸들러는 Input과 TextArea에서 사용될 수 있기 때문에 유니언 타입 사용
+interface InputItemProps {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  placeholder: string;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  isTextArea?: boolean;
+}
+
 function InputItem({
   id,
   label,
@@ -51,7 +64,7 @@ function InputItem({
   placeholder,
   onKeyDown,
   isTextArea,
-}) {
+}: InputItemProps) {
   return (
     <div>
       {label && <Label htmlFor={id}>{label}</Label>}

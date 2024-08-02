@@ -3,7 +3,18 @@ import "./PaginationBar.css";
 import { ReactComponent as LeftArrow } from "../../assets/images/icons/arrow_left.svg";
 import { ReactComponent as RightArrow } from "../../assets/images/icons/arrow_right.svg";
 
-const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
+// 종화 : onPageChange는 함수 타입으로 지정
+interface PaginationBarProps {
+  totalPageNum: number;
+  activePageNum: number;
+  onPageChange: (pageNum: number) => void;
+}
+
+const PaginationBar = ({
+  totalPageNum,
+  activePageNum,
+  onPageChange,
+}: PaginationBarProps) => {
   const maxVisiblePages = 5;
   let startPage;
 

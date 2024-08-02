@@ -16,7 +16,13 @@ const Button = styled.button`
   }
 `;
 
-function DeleteButton({ onClick, label }) {
+function DeleteButton({
+  onClick,
+  label,
+}: {
+  onClick: () => void;
+  label: string;
+}) {
   return (
     <Button aria-label={`${label} 삭제`} onClick={onClick}>
       <CloseIcon />

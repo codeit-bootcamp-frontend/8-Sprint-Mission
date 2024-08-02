@@ -25,19 +25,19 @@ const InputSection = styled.div`
 `;
 
 function AddItemPage() {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [tags, setTags] = useState([]);
+  const [name, setName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [price, setPrice] = useState<string>("");
+  const [tags, setTags] = useState<string[]>([]);
 
   // 중복 등록 막기 위해 tags 배열에 없는 것 확인하고 삽입
-  const addTag = (tag) => {
+  const addTag = (tag: string) => {
     if (!tags.includes(tag)) {
       setTags([...tags, tag]);
     }
   };
 
-  const removeTag = (tagToRemove) => {
+  const removeTag = (tagToRemove: string) => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
@@ -63,6 +63,8 @@ function AddItemPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="상품명을 입력해 주세요"
+            onKeyDown={undefined}
+            isTextArea={undefined}
           />
 
           <InputItem
@@ -72,6 +74,7 @@ function AddItemPage() {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="상품 소개를 입력해 주세요"
             isTextArea
+            onKeyDown={undefined}
           />
 
           <InputItem
@@ -80,6 +83,8 @@ function AddItemPage() {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             placeholder="판매 가격을 입력해 주세요"
+            onKeyDown={undefined}
+            isTextArea={undefined}
           />
 
           <TagInput tags={tags} onAddTag={addTag} onRemoveTag={removeTag} />

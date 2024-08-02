@@ -91,9 +91,27 @@ const HeartImage = styled.img`
   height: 32px;
 `;
 
+interface ItemProps {
+  favoriteCount: number;
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+  id: number;
+}
+
 function ProductSection() {
   const { productid } = useParams();
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState<ItemProps>({
+    favoriteCount: 0,
+    images: [],
+    tags: [],
+    price: 0,
+    description: "",
+    name: "",
+    id: 0,
+  });
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -116,7 +134,7 @@ function ProductSection() {
 
   return (
     <Container>
-      <Img src={item.images} alt={item.name} />
+      <Img src={item.images[0]} alt={item.name} />
       <TitleContainer>
         <HeadTitle>{item.name}</HeadTitle>
         <Price>{item.price.toLocaleString("ko-KR")}원</Price>
