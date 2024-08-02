@@ -1,4 +1,4 @@
-const nav = [
+const nav: NavigationType = [
   {
     path: "board",
     name: "자유게시판",

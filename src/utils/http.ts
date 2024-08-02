@@ -1,4 +1,14 @@
-export async function getAllProduct({ query }) {
+interface Query {
+  query: {
+    productId?: number;
+    currentPage?: number;
+    order?: string;
+    size?: number;
+    keyword?: string;
+  };
+}
+
+export async function getAllProduct({ query }: Query) {
   const { currentPage, order, size, keyword } = query;
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?page=${currentPage}&orderBy=${order}&pageSize=${size}&keyword=${keyword}`
@@ -10,7 +20,7 @@ export async function getAllProduct({ query }) {
   return data;
 }
 
-export async function getProduct({ query }) {
+export async function getProduct({ query }: Query) {
   const { productId } = query;
   const response = await fetch(
     `https://panda-market-api.vercel.app/products/${productId}`
@@ -22,7 +32,7 @@ export async function getProduct({ query }) {
   return data;
 }
 
-export async function getFavoriteProduct({ query }) {
+export async function getFavoriteProduct({ query }: Query) {
   const { size } = query;
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?&orderBy=favorite&pageSize=${size}`

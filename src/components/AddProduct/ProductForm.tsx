@@ -1,39 +1,57 @@
-import { useEffect, useState } from 'react';
-import { Form } from 'react-router-dom';
-import FileInput from '../../ui/FormComponents/FileInput';
-import TagInput from '../../ui/FormComponents/TagInput';
-import Input from '../../ui/FormComponents/Input';
-import TextArea from '../../ui/FormComponents/TextArea';
-import Button from '../../ui/Button/Button';
-import styles from './ProductForm.module.css';
+import { useEffect, useState } from "react";
+import { Form } from "react-router-dom";
+import FileInput from "../../ui/FormComponents/FileInput";
+import TagInput from "../../ui/FormComponents/TagInput";
+import Input from "../../ui/FormComponents/Input";
+import TextArea from "../../ui/FormComponents/TextArea";
+import Button from "../../ui/Button/Button";
+import styles from "./ProductForm.module.css";
 
-const INITIAL_VALUES = {
+interface Tag {
+  id: string;
+  name: string;
+}
+
+interface InitialValues {
+  imgFile: File | null;
+  title: string;
+  description: string;
+  price: string;
+  tag: Tag[];
+}
+
+const INITIAL_VALUES: InitialValues = {
   imgFile: null,
-  title: '',
-  description: '',
-  price: '',
+  title: "",
+  description: "",
+  price: "",
   tag: [],
 };
 
+type ChangeValueType = (
+  name: string,
+  value: string | null | Tag[] | number | File | readonly string[]
+) => void;
+
 export default function ProductForm() {
-  const [formValues, setFormValues] = useState(INITIAL_VALUES);
-  const [isActive, setIsActive] = useState(false);
+  const [formValues, setFormValues] = useState<InitialValues>(INITIAL_VALUES);
+  const [isActive, setIsActive] = useState<boolean>(false);
   const { title, description, price, tag } = formValues;
 
-  const submitActive =
-    title.trim() !== '' &&
-    description.trim() !== '' &&
-    price !== '' &&
-    tag.length;
+  const submitActive: boolean =
+    title.trim() !== "" &&
+    description.trim() !== "" &&
+    price !== "" &&
+    tag.length > 0;
 
-  const handleChangeValue = (name, value) => {
-    setFormValues(prevValue => ({
+  const handleChangeValue: ChangeValueType = (name, value) => {
+    setFormValues((prevValue) => ({
       ...prevValue,
       [name]: value,
     }));
   };
 
-  const handleChangeInput = (name, value) => {
+  const handleChangeInput: ChangeValueType = (name, value) => {
     handleChangeValue(name, value);
   };
 
@@ -42,7 +60,7 @@ export default function ProductForm() {
   }, [formValues]);
 
   return (
-    <Form method="post" className={styles.formContainer}>
+    <Form className={styles.formContainer}>
       <div className={styles.titleContainer}>
         <h2 className={styles.title}>상품 등록하기</h2>
         <Button isActive={!isActive} btnName="등록" />
@@ -54,7 +72,6 @@ export default function ProductForm() {
           name="imgFile"
           type="file"
           accept="image/png, image/jpeg"
-          value={formValues.imgFile}
           changeValue={handleChangeValue}
         />
       </div>
@@ -71,7 +88,6 @@ export default function ProductForm() {
       <TextArea
         id="description"
         label="상품 소개"
-        type="text"
         name="description"
         className={styles.inputBox}
         variant="addProduct"

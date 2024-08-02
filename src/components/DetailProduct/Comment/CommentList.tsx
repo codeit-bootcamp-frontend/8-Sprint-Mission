@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom';
-import styles from './CommentList.module.css';
-import convertTime from '../../../utils/convertTime';
-import commentEmpty from '../../../assets/images/Img_inquiry_empty.png';
-import backIcon from '../../../assets/images/ic_back.png';
+import { Link } from "react-router-dom";
+import styles from "./CommentList.module.css";
+import convertTime from "../../../utils/convertTime";
+import commentEmpty from "../../../assets/images/Img_inquiry_empty.png";
+import backIcon from "../../../assets/images/ic_back.png";
 
-export default function CommentList({ commentList }) {
+export default function CommentList({ commentList }: CommentProps) {
   const comment = commentList.length ? (
     <ul className={styles.commentContainer}>
-      {commentList.map(comment => (
+      {commentList.map((comment) => (
         <li
           key={`${comment.writer.nickname}-${comment.id}`}
           className={styles.commentList}
@@ -36,7 +36,7 @@ export default function CommentList({ commentList }) {
     </div>
   );
 
-  const savePagination = sessionStorage.getItem('page');
+  const savePagination = sessionStorage.getItem("page");
 
   return (
     <>

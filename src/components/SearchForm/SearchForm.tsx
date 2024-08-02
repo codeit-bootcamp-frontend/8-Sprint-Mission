@@ -1,10 +1,15 @@
-import { useRef } from 'react';
-import styles from './SearchForm.module.css';
+import { FormEvent, useRef } from "react";
+import styles from "./SearchForm.module.css";
 
-export default function SearchForm({ searchHandler, className }) {
-  const inputValue = useRef();
+interface FormProps {
+  className: string;
+  searchHandler: (value: string) => void;
+}
 
-  const searchItemHandler = e => {
+export default function SearchForm({ searchHandler, className }: FormProps) {
+  const inputValue = useRef<HTMLInputElement>(null);
+
+  const searchItemHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const enteredInputValue = inputValue.current.value;
     searchHandler(enteredInputValue);

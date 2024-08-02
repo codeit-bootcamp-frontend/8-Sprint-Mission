@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import Button from "../Button/LinkButton.jsx";
-import NAVIGATION_LIST from "../../utils/NAVIGATION_LIST.js";
+import Button from "../Button/LinkButton";
+import NAVIGATION_LIST from "../../utils/NAVIGATION_LIST";
 import styles from "./Header.module.css";
 import logo from "../../assets/images/logo.png";
 import mobileLogo from "../../assets/images/mobile_logo.png";
 import profileImg from "../../assets/images/profile@2.png";
 
+interface HeaderProps {
+  isActive: boolean;
+  to: string;
+}
+
 export default function Header() {
   const location = useLocation();
-  const [tempLogin, setTempLogin] = useState(false);
+  const [tempLogin, setTempLogin] = useState<boolean>(false);
 
-  const getLocationActive = ({ isActive, to }) => {
+  const getLocationActive = ({ isActive, to }: HeaderProps) => {
     const activeMenu =
       (location.pathname === "/items" || location.pathname === "/additem") &&
       (to === "items" || to === "additem");
@@ -63,7 +68,7 @@ export default function Header() {
             ></img>
           </Link>
         ) : (
-          <Button path="/login" btnName="로그인" />
+          <Button path="/signin" btnName="로그인" />
         )}
       </div>
     </header>

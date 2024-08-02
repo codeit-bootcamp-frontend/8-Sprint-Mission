@@ -1,12 +1,20 @@
-import { Link } from 'react-router-dom';
-import styles from './ItemList.module.css';
-import heartIcon from '../../assets/images/heart_Icon.png';
-import defaultImage from '../../assets/images/img_default.png';
+import { SyntheticEvent } from "react";
+import { Link } from "react-router-dom";
+import styles from "./ItemList.module.css";
+import heartIcon from "../../assets/images/heart_Icon.png";
+import defaultImage from "../../assets/images/img_default.png";
 
-export default function ItemList({ id, name, images, price, favoriteCount }) {
-  const itemPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  const onErrorImg = e => {
-    e.target.src = defaultImage;
+export default function ItemList({
+  id,
+  name,
+  images,
+  price,
+  favoriteCount,
+}: ProductProps) {
+  const itemPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  const onErrorImg = (e: SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = defaultImage;
   };
 
   return (

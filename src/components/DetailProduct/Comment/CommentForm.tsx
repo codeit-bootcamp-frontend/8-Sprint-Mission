@@ -4,9 +4,9 @@ import TextArea from "../../../ui/FormComponents/TextArea";
 import Button from "../../../ui/Button/Button";
 
 export default function CommnetForm() {
-  const [commentValue, setCommentValue] = useState("");
+  const [commentValue, setCommentValue] = useState<string>("");
 
-  const handleChangeValue = (name = "comment", value) => {
+  const handleChangeValue = (name: string = "comment", value: string) => {
     setCommentValue(value);
   };
 
@@ -18,7 +18,6 @@ export default function CommnetForm() {
         <TextArea
           id="comment"
           name="comment"
-          type="text"
           variant="comment"
           label="문의하기"
           value={commentValue}

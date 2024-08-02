@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { getAllProduct } from '../../utils/http.js';
-import { useAsyncStatus } from '../../hooks/useAsyncStatus.js';
-import Pagination from '../Pagination/Pagination.jsx';
-import ItemList from './ItemList.jsx';
-import SortOptions from '../SortOptions/SortOptions.jsx';
-import SearchForm from '../SearchForm/SearchForm.jsx';
-import Button from '../../ui/Button/LinkButton.jsx';
-import Section from '../../ui/Section/Section.jsx';
-import Loading from '../../ui/Loading/Loading.jsx';
-import styles from './AllProduct.module.css';
+import { ReactNode, MouseEvent, useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { getAllProduct } from "../../utils/http";
+import { useAsyncStatus } from "../../hooks/useAsyncStatus";
+import Pagination from "../Pagination/Pagination";
+import ItemList from "./ItemList";
+import SortOptions from "../SortOptions/SortOptions";
+import SearchForm from "../SearchForm/SearchForm";
+import Button from "../../ui/Button/LinkButton";
+import Section from "../../ui/Section/Section";
+import Loading from "../../ui/Loading/Loading";
+import styles from "./AllProduct.module.css";
 
 const DEVICE_SIZE = {
   mobile: 768,
@@ -40,43 +40,43 @@ export default function AllProduct() {
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [options, setOptions] = useState({
     size: getResponseProducts(),
-    keyword: '',
-    order: 'recent',
+    keyword: "",
+    order: "recent",
   });
 
-  sessionStorage.setItem('page', searchParams.get('page'));
+  sessionStorage.setItem("page", searchParams.get("page"));
 
   const showSortOptionHandler = () => {
-    setIsSortOpen(prev => !prev);
+    setIsSortOpen((prev) => !prev);
   };
 
-  const sortHandler = e => {
+  const sortHandler = (e: MouseEvent<HTMLElement>) => {
     const sortType = e.currentTarget.dataset.type;
-    setOptions(prevOption => ({
+    setOptions((prevOption) => ({
       ...prevOption,
       order: sortType,
     }));
     setIsSortOpen(false);
   };
 
-  const searchHandler = value => {
-    searchParams.set('page', 1);
-    setOptions(prev => ({
+  const searchHandler = (value: string) => {
+    searchParams.set("page", "1");
+    setOptions((prev) => ({
       ...prev,
       keyword: value,
     }));
   };
 
   useEffect(() => {
-    const storedPage = sessionStorage.getItem('page');
-    searchParams.set('page', storedPage === 'null' ? '1' : storedPage);
+    const storedPage: string | null = sessionStorage.getItem("page");
+    searchParams.set("page", storedPage === "null" ? "1" : storedPage);
     setSearchParams(searchParams);
   }, []);
 
   useEffect(() => {
     const handleResize = () => {
       const newSize = getResponseProducts();
-      setOptions(prevOption => {
+      setOptions((prevOption) => {
         if (prevOption.size === newSize) {
           return prevOption;
         } else {
@@ -87,16 +87,16 @@ export default function AllProduct() {
         }
       });
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   useEffect(() => {
     const query = {
-      currentPage: searchParams.get('page'),
+      currentPage: Number(searchParams.get("page")) || undefined,
       order: options.order,
       size: options.size,
       keyword: options.keyword,
@@ -104,12 +104,12 @@ export default function AllProduct() {
     fetchProducts({ query });
   }, [searchParams, options]);
 
-  const pageHandler = page => {
-    searchParams.set('page', page);
+  const pageHandler = (page: string) => {
+    searchParams.set("page", page);
     setSearchParams(searchParams);
   };
 
-  const sortText = options.order === 'recent' ? '최신순' : '좋아요순';
+  const sortText = options.order === "recent" ? "최신순" : "좋아요순";
 
   if (error) {
     return <p>{error}</p>;
@@ -140,7 +140,7 @@ export default function AllProduct() {
         ) : (
           <div className={styles.listContainer}>
             {itemList &&
-              itemList.map(list => (
+              itemList.map((list) => (
                 <ItemList key={`product-${list.id}`} {...list} />
               ))}
           </div>

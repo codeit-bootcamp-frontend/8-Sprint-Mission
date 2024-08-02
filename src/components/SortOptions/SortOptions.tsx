@@ -1,10 +1,19 @@
-import styles from './SortOptions.module.css';
+import { MouseEvent } from "react";
+import styles from "./SortOptions.module.css";
+
+interface SortOptionProps {
+  isOpen: boolean;
+  sortText: string;
+  sortHandler: (e: MouseEvent) => void;
+  showOptions: () => void;
+}
+
 export default function SortOptions({
   isOpen,
   sortText,
   sortHandler,
   showOptions,
-}) {
+}: SortOptionProps) {
   return (
     <div className={styles.sortContainer}>
       <div className={styles.sortList} onClick={showOptions}>

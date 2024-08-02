@@ -1,12 +1,17 @@
-import heartIcon from '../../assets/images/heart_Icon.png';
-import styles from './DetailProduct.module.css';
-import defaultImage from '../../assets/images/img_default@2x.png';
+import { SyntheticEvent } from "react";
+import heartIcon from "../../assets/images/heart_Icon.png";
+import styles from "./DetailProduct.module.css";
+import defaultImage from "../../assets/images/img_default@2x.png";
 
-export default function DetailProduct({ product }) {
-  const productPrice = product.price.toLocaleString('kr');
+interface DetailProductProps {
+  product: ProductProps;
+}
 
-  const onErrorImg = e => {
-    e.target.src = defaultImage;
+export default function DetailProduct({ product }: DetailProductProps) {
+  const productPrice = product.price.toLocaleString("kr");
+
+  const onErrorImg = (e: SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = defaultImage;
   };
 
   return (
@@ -30,7 +35,9 @@ export default function DetailProduct({ product }) {
           <h3 className={styles.tagTitle}>상품 태그</h3>
           <ul className={styles.tagList}>
             {product.tags &&
-              product.tags.map((tag, index) => <li key={index}>#{tag}</li>)}
+              product.tags.map((tag: string, index: number) => (
+                <li key={index}>#{tag}</li>
+              ))}
           </ul>
         </div>
         <button className={styles.favoriteCount}>

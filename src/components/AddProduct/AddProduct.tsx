@@ -1,5 +1,5 @@
-import Section from '../../ui/Section/Section.jsx';
-import ProductForm from './ProductForm.jsx';
+import Section from "../../ui/Section/Section";
+import ProductForm from "./ProductForm";
 
 export default function AddProduct() {
   return (
