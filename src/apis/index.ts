@@ -19,7 +19,5 @@ export const getItemList = async ({
     );
     const itemList = await response.json();
     return itemList;
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
