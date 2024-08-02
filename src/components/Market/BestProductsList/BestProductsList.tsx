@@ -1,8 +1,20 @@
+import React from 'react';
 import "./BestProductsList.css";
-
 import ProductCard from "../ProductCard/ProductCard";
 
-function BestProductsList({ bestProducts }) {
+interface Product {
+  id: number;
+  images: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
+
+interface BestProductsListProps {
+  bestProducts: Product[];
+}
+
+const BestProductsList: React.FC<BestProductsListProps> = ({ bestProducts }) => {
   return (
     <section className="best-products-section">
       <h2 className="best-products-title">베스트 상품</h2>
