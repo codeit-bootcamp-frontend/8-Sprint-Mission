@@ -26,7 +26,7 @@ interface Query {
   page: number;
   pageSize: number;
   orderBy: string;
-  keyword: string | null;
+  keyword?: string | null;
 }
 
 export default function SellingItems({
