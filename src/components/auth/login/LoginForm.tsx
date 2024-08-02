@@ -20,6 +20,7 @@ function LoginForm() {
   };
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
+    // 입력 양식을 통과하지 못하면 button이 disabled 상태라 누를 수 없음
     event.preventDefault();
     navigateTo(PATH_ITEMS);
   };

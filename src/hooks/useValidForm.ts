@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import useDidMountEffect from './useDidMountEffect';
 
-type inputName = 'email' | 'password' | 'nickname' | 'verifyPassword';
-export type validType = 'default' | 'valid' | 'invalid';
 export interface IAuthForm {
   email: string;
   password: string;
@@ -10,15 +8,18 @@ export interface IAuthForm {
   verifyPassword?: string;
 }
 
-// 서로 목적이 다른 타입이지만 내용이 같기 때문에 아래와 같이 처리
-type IValidMessages = IAuthForm;
-
+export type validType = 'default' | 'valid' | 'invalid';
 export interface IValidationResult {
   email: validType;
   password: validType;
   nickname?: validType;
   verifyPassword?: validType;
 }
+
+// 타입 이름으로 용도를 직관적으로 알기 쉽게 하기 위해 아래와 같이 처리
+type IValidMessages = IAuthForm;
+
+type inputName = keyof IAuthForm;
 
 const transformFormObject = <T>(initialValue: T, formObject: IAuthForm): Record<inputName, T> => {
   const keys = Object.keys(formObject) as inputName[];
@@ -32,14 +33,7 @@ const transformFormObject = <T>(initialValue: T, formObject: IAuthForm): Record<
   return newObject;
 };
 
-const useValidForm = (
-  form: IAuthForm,
-): {
-  validMessages: IValidMessages;
-  validationResult: IValidationResult;
-  isFormValid: boolean;
-  validateForm: () => void;
-} => {
+function useValidForm(form: IAuthForm) {
   const [validMessages, setValidMessages] = useState<IValidMessages>(() => transformFormObject<string>('', form));
   const [validationResult, setValidationResult] = useState<IValidationResult>(() =>
     transformFormObject<validType>('default', form),
@@ -105,6 +99,6 @@ const useValidForm = (
   }, [form.verifyPassword, form.password]);
 
   return { validMessages, validationResult, isFormValid, validateForm };
-};
+}
 
 export default useValidForm;
