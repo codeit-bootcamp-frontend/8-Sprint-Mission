@@ -57,19 +57,9 @@ const StyledTextLinkArea = styled.div`
 const StyledExternalLinkContainer = styled.div`
   display: flex;
   gap: 13px;
-
-  & a {
-    cursor: pointer;
-  }
 `;
 
-interface ExternalLink {
-  alt: string;
-  link: string;
-  img: string;
-}
-
-const EXTERNAL_LINKS_DETAILS: ExternalLink[] = [
+const EXTERNAL_LINKS_DETAILS = [
   {
     alt: "페이스북 링크",
     link: "https://www.facebook.com",
