@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import BlueButton from "../@shared/BlueButton";
 import GrayBgInput from "../@shared/GrayButton";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 
+// Styled components
 const CommentInputContainer = styled.div`
   width: 1200px;
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
   gap: 16px;
-
   padding-top: 24px;
   border-top: 1px solid var(--cool-gray-200);
 
@@ -53,17 +52,20 @@ const CommentSubmitBtn = styled(BlueButton)`
   margin-left: auto;
 `;
 
+// Define the component
 function ProductCommentInput() {
-  const [comment, setComment] = useState(null);
-  const [isCommentValid, setIsCommentValid] = useState(false);
+  // Define state types
+  const [comment, setComment] = useState<string | null>(null);
+  const [isCommentValid, setIsCommentValid] = useState<boolean>(false);
 
-  const handleChangeInput = (event) => {
+  // Event handler types
+  const handleChangeInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const commentValue = event.target.value;
     setComment(commentValue);
   };
 
   useEffect(() => {
-    comment ? setIsCommentValid(true) : setIsCommentValid(false);
+    setIsCommentValid(comment ? true : false);
   }, [comment]);
 
   return (
