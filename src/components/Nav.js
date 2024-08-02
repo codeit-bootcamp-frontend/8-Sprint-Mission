@@ -8,7 +8,7 @@ const StyledNavContainer = styled.nav`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin: 10px 100px;
+  padding: 10px 100px;
   border-bottom: 1px solid var(--gray-200);
 `;
 

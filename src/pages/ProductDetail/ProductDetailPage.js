@@ -5,6 +5,7 @@ import backIcon from "../../images/icon_back.png";
 import CommentList from "./CommentList";
 import { getProductById } from "../../api";
 import "./ProductDetail.css";
+import Nav from "../../components/Nav";
 
 function ProductdetailPage() {
   const { productId } = useParams();
@@ -33,6 +34,7 @@ function ProductdetailPage() {
 
   return (
     <div>
+      <Nav />
       <div className="detailpage">
         <section className="product-section">
           <img
