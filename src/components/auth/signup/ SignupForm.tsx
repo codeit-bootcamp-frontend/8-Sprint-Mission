@@ -1,17 +1,17 @@
+import React from 'react';
 import Button from 'components/@shared/Button';
 import PasswordInput from '../PasswordInput';
-import useNavigateTo from 'hooks/useNavigateTo';
 import { StyledAuthForm, StyledAuthLabel, StyledInputSection } from 'styles/auth/formStyles';
 import useSignupForm from 'hooks/form/useSignupForm';
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SignupForm() {
-  const { navigateTo } = useNavigateTo();
+  const navigator = useNavigate();
   const { form, handler, result, message, isFormValid } = useSignupForm();
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    navigateTo('/');
+    navigator('/');
   };
 
   return (

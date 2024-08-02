@@ -1,19 +1,19 @@
 import PasswordInput from '../PasswordInput';
 import Button from 'components/@shared/Button';
-import useNavigateTo from 'hooks/useNavigateTo';
 import { PATH_ITEMS } from ' constants/paths/paths';
 import { StyledAuthForm, StyledAuthLabel, StyledInputSection } from 'styles/auth/formStyles';
 import React from 'react';
 import useLoginForm from 'hooks/form/useLoginForm';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
-  const { navigateTo } = useNavigateTo();
+  const navigator = useNavigate();
   const { form, handler, result, message, isFormValid } = useLoginForm();
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
     // 입력 양식을 통과하지 못하면 button이 disabled 상태라 누를 수 없음
     event.preventDefault();
-    navigateTo(PATH_ITEMS);
+    navigator(PATH_ITEMS);
   };
 
   return (

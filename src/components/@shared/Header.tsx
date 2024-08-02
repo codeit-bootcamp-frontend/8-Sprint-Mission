@@ -1,20 +1,20 @@
-import useNavigateTo from 'hooks/useNavigateTo';
 import styled from 'styled-components';
 import Button from './Button';
 import { PATH_LOGIN } from ' constants/paths/paths';
 import HeaderLinkSection from './HeaderLinkSection';
 import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
+import { Link } from 'react-router-dom';
 
 function Header() {
-  const { navigateTo } = useNavigateTo();
-
   return (
     <StyledHeaderWrapper>
       <StyledHeader>
         <HeaderLinkSection />
-        <Button width={'12.8rem'} height={'4.8rem'} onClick={() => navigateTo(PATH_LOGIN)}>
-          로그인
-        </Button>
+        <Link to={PATH_LOGIN}>
+          <Button width={'12.8rem'} height={'4.8rem'}>
+            로그인
+          </Button>
+        </Link>
       </StyledHeader>
     </StyledHeaderWrapper>
   );
