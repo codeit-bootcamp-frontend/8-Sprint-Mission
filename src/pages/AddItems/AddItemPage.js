@@ -43,7 +43,16 @@ const StyledInput = styled.input`
   height: 56px;
   border-radius: 12px;
   border: none;
+
+  &:focus {
+    outline: 1px solid var(--blue-100);
+  }
+
+  &:active {
+    outline: 1px solid var(--blue-100);
+  }
 `;
+
 const StyledTextArea = styled.textarea`
   background-color: var(--gray-100);
   padding: 10px;
@@ -53,6 +62,15 @@ const StyledTextArea = styled.textarea`
   height: 282px;
   border-radius: 12px;
   border: none;
+  resize: none;
+
+  &:focus {
+    outline: 1px solid var(--blue-100);
+  }
+
+  &:active {
+    outline: 1px solid var(--blue-100);
+  }
 `;
 
 function AddItem() {

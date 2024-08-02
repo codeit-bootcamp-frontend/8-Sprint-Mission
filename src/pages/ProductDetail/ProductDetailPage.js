@@ -9,10 +9,12 @@ import Nav from "../../components/Nav";
 import StyledCommonButton from "../../components/Button";
 
 const StyledPageContainer = styled.main`
-  margin: 20px 100px;
+  width: 1200px;
+  margin: auto;
 `;
 const StyledProductSection = styled.section`
   display: grid;
+  grid-template-columns: 2fr 3fr;
   grid-template-areas: "image detail";
   gap: 24px;
 `;
@@ -33,15 +35,18 @@ const StyledName = styled.p`
 const StyledPrice = styled.p`
   font-size: 40px;
   font-weight: 600;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gray-200);
 `;
 
 const StyledDescriptionTag = styled.p`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
+  margin-bottom: 30px;
 `;
 const StyledLikeIcon = styled.img`
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 `;
 const StyledLikeContainer = styled.div`
   width: 87px;
@@ -61,15 +66,48 @@ const StyledLikeCount = styled.p`
   flex-grow: 2;
   text-align: center;
 `;
+
+const StyledAskArea = styled.textarea`
+  width: 1200px;
+  height: 104px;
+  padding: 16px 24px;
+  gap: 10px;
+  border-radius: 12px;
+  background-color: var(--gray-100);
+  border: none;
+  margin-bottom: 80px;
+  resize: none;
+`;
+
+const StyledLabel = styled.label`
+  font-size: 16px;
+  font-weight: 600;
+  margin: 15px 0;
+`;
+
 const StyledCommentSection = styled.section`
   border-top: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
 `;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const StyledBackButton = styled(StyledCommonButton)`
   width: 240px;
   height: 48px;
-  padding: 0 10px;
+  padding: 0 20px;
   border-radius: 40px;
+  display: flex;
+  margin: 30px auto;
 `;
+
+const StyledButtonText = styled.p`
+  margin: auto;
+`;
+
 const StyledBackIcon = styled.img`
   width: 24px;
   height: 24px;
@@ -123,19 +161,19 @@ function ProductdetailPage() {
           </StyledDetailContainer>
         </StyledProductSection>
         <StyledCommentSection>
-          <label htmlFor="ask-input">문의하기</label>
-          <textarea
+          <StyledLabel htmlFor="ask-input">문의하기</StyledLabel>
+          <StyledAskArea
             id="ask-input"
             placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
           />
           <CommentList />
         </StyledCommentSection>
-        <Link to="/market">
+        <StyledLink to="/market">
           <StyledBackButton>
-            목록으로 돌아가기
+            <StyledButtonText>목록으로 돌아가기</StyledButtonText>
             <StyledBackIcon src={backIcon} alt="돌아가기 아이콘" />
           </StyledBackButton>
-        </Link>
+        </StyledLink>
       </StyledPageContainer>
     </div>
   );
