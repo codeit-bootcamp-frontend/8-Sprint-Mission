@@ -5,6 +5,7 @@ header .nav {
     gap: 2rem;
 }
 
+<<<<<<< HEAD
 header .nav .tab {
     text-align: center;
     font-size: 1.125rem;
@@ -23,6 +24,8 @@ header .nav .tab.active {
     }
 }
 
+=======
+>>>>>>> 1b113fa13c8f6fa2c08bd384cedc6cf041f8e26c
 @media (width <= 1199px) {
     
     header .nav {

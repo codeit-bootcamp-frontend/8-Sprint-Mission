@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 main.items-main {
+=======
+main {
+>>>>>>> 1b113fa13c8f6fa2c08bd384cedc6cf041f8e26c
     padding: 1.5rem;
 }
 
@@ -7,7 +11,11 @@ main .container {
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .items-main section {
+=======
+main section {
+>>>>>>> 1b113fa13c8f6fa2c08bd384cedc6cf041f8e26c
     margin-bottom: 3.75rem;
 }
 
