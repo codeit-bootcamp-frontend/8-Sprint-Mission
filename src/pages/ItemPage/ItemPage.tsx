@@ -20,7 +20,7 @@ const BackToMarketPageLink = styled(StyledLink)`
 function ItemPage() {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   // react-router-dom의 useParams 훅을 사용해 URL의 path parameter(상품 아이디)를 가져오세요.
   // Route에서 정의한 path parameter의 이름과 useParams 훅에서 사용하는 변수명이 일치해야 정상적으로 추출돼요.
@@ -41,7 +41,7 @@ function ItemPage() {
           throw new Error("해당 상품의 데이터를 찾을 수 없습니다.");
         }
         setProduct(data);
-      } catch (error) {
+      } catch (error: any) {
         setError(error.message);
       } finally {
         setIsLoading(false);

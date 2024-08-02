@@ -24,15 +24,21 @@ const ButtonContent = styled(FlexContainer)`
   gap: 4px;
 `;
 
-function LikeButton({ productId, isFavorite, favoriteCount }) {
+interface LikeButtonProps {
+  productId: string;
+  isFavorite: boolean;
+  favoriteCount: number;
+}
+
+function LikeButton({ isFavorite, favoriteCount }: LikeButtonProps) {
   return (
     <PillButton>
       <ButtonContent>
         {/* SVG의 사이즈 및 색상을 동적으로 변경할 수 있는 컴포넌트를 만들었어요 */}
         <Icon
-          iconComponent={HeartSvg}
+          IconComponent={HeartSvg}
           size={24}
-          fillColor={isFavorite && "var(--red)"}
+          fillColor={isFavorite ? undefined : "var(--red)"}
         />
         {favoriteCount.toLocaleString()}
       </ButtonContent>

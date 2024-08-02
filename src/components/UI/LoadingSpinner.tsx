@@ -35,8 +35,9 @@ const LoadingSpinner = ({
   size = 20,
   color = "var(--blue)",
   minLoadTime = 500,
+  isLoading = false,
 }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(isLoading);
 
   // 로딩이 너무 빨라서 로딩 스피너가 순간적으로 나타났다 사라지는 것을 방지하기 위해 설정된 최소시간 동안은 스피너가 떠있도록 했어요.
   useEffect(() => {

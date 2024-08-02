@@ -58,7 +58,9 @@ export const Button = styled.button`
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)<{
+  $pill?: string;
+}>`
   background-color: ${({ theme }) => theme.colors.blue.primary};
   color: ${({ theme }) => theme.colors.white};
   padding: 11.5px 23px;
@@ -83,7 +85,9 @@ export const StyledLink = styled(Link)`
 `;
 
 // 구분선을 만들 때 <div>를 사용할 수도 있지만 thematic break의 의미를 내포하고 있는 <hr> 태그를 사용하면 보다 semantic하고 접근성을 고려한 코드가 됩니다.
-export const LineDivider = styled.hr`
+export const LineDivider = styled.hr<{
+  $margin?: string;
+}>`
   width: 100%;
   border: none;
   height: 1px;

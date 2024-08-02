@@ -16,18 +16,31 @@ const getPageSize = () => {
     return 4;
   }
 };
+interface ItemProps {
+  id: string;
+  name: string;
+  price: number;
+  images: string[];
+  favoriteCount: number;
+}
 
 function BestItemsSection() {
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState<ItemProps[]>([]);
   const [pageSize, setPageSize] = useState(getPageSize());
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchSortedData = async ({ orderBy, pageSize }) => {
+  const fetchSortedData = async ({
+    orderBy,
+    pageSize,
+  }: {
+    orderBy: string;
+    pageSize: number;
+  }) => {
     setIsLoading(true);
     try {
       const products = await getProducts({ orderBy, pageSize });
       setItemList(products.list);
-    } catch (error) {
+    } catch (error: any) {
       console.error("오류: ", error.message);
     } finally {
       setIsLoading(false);

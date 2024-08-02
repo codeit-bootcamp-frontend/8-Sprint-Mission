@@ -26,9 +26,9 @@ const IconWrapper = styled.div<IIconWrapper>`
 
 interface IconProps {
   IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
-  size: number;
-  fillColor: string;
-  outlineColor: string;
+  size?: number;
+  fillColor?: string;
+  outlineColor?: string;
 }
 
 const Icon = ({ IconComponent, size, fillColor, outlineColor }: IconProps) => (

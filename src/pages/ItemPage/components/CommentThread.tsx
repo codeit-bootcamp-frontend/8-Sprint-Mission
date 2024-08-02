@@ -7,6 +7,7 @@ import { ReactComponent as SeeMoreIcon } from "../../../assets/images/icons/ic_k
 import DefaultProfileImage from "../../../assets/images/ui/ic_profile.svg";
 import { LineDivider } from "../../../styles/CommonStyles";
 import { formatUpdatedAt } from "../../../utils/dateUtils";
+import { IComment } from "../../../types";
 
 const CommentContainer = styled.div`
   padding: 24px 0;
@@ -50,7 +51,7 @@ const Timestamp = styled.p`
   font-size: 12px;
 `;
 
-const CommentItem = ({ item }) => {
+const CommentItem = ({ item }: { item: IComment }) => {
   const authorInfo = item.writer;
   // 업데이트 시간 표기를 위한 util function을 만들었으니 dateUtils.js 파일에서 꼭 설명을 확인해 주세요!
   const formattedTimestamp = formatUpdatedAt(item.updatedAt);
@@ -111,10 +112,10 @@ const ThreadContainer = styled.div`
   margin-bottom: 40px;
 `;
 
-function CommentThread({ productId }) {
-  const [comments, setComments] = useState([]);
+function CommentThread({ productId }: { productId: string }) {
+  const [comments, setComments] = useState<IComment[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!productId) return;
@@ -122,7 +123,7 @@ function CommentThread({ productId }) {
     const fetchComments = async () => {
       setIsLoading(true);
       const params = {
-        limit: 10, // 페이지당 보여줄 댓글 개수 (참고: 요구사항에 아직 댓글란 pagination 기능이 없기 때문에 임의로 10으로 설정했어요.)
+        limit: "10", // 페이지당 보여줄 댓글 개수 (참고: 요구사항에 아직 댓글란 pagination 기능이 없기 때문에 임의로 10으로 설정했어요.)
       };
 
       try {

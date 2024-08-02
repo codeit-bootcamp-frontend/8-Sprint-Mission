@@ -52,8 +52,7 @@ const UploadButton = styled.label`
   ${squareStyles}
 `;
 
-
-const ImagePreview = styled.div`
+const ImagePreview = styled.div<{ src: string }>`
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
@@ -61,7 +60,6 @@ const ImagePreview = styled.div`
 
   ${squareStyles}
 `;
-
 
 const DeleteButtonWrapper = styled.div`
   position: absolute;
@@ -74,7 +72,7 @@ const HiddenFileInput = styled.input`
   display: none;
 `;
 
-function ImageUpload({ title }) {
+function ImageUpload({ title }: { title: string }) {
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import DropdownMenu from "../../../components/UI/DropdownMenu";
 import PaginationBar from "../../../components/UI/PaginationBar";
 import LoadingSpinner from "../../../components/UI/LoadingSpinner";
+import { IItem } from "../../../types";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -25,24 +26,32 @@ function AllItemsSection() {
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
-  const [itemList, setItemList] = useState([]);
-  const [totalPageNum, setTotalPageNum] = useState();
+  const [itemList, setItemList] = useState<IItem[]>([]);
+  const [totalPageNum, setTotalPageNum] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchSortedData = async ({ orderBy, page, pageSize }) => {
+  const fetchSortedData = async ({
+    orderBy,
+    page,
+    pageSize,
+  }: {
+    orderBy: string;
+    page: number;
+    pageSize: number;
+  }) => {
     setIsLoading(true);
     try {
       const products = await getProducts({ orderBy, page, pageSize });
       setItemList(products.list);
       setTotalPageNum(Math.ceil(products.totalCount / pageSize));
-    } catch (error) {
+    } catch (error: any) {
       console.error("오류: ", error.message);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleSortSelection = (sortOption) => {
+  const handleSortSelection = (sortOption: string) => {
     setOrderBy(sortOption);
   };
 
@@ -61,7 +70,7 @@ function AllItemsSection() {
     };
   }, [orderBy, page, pageSize]);
 
-  const onPageChange = (pageNumber) => {
+  const onPageChange = (pageNumber: number) => {
     setPage(pageNumber);
   };
 
