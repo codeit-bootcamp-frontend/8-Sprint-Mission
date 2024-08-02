@@ -1,15 +1,22 @@
+import React, { useState, KeyboardEvent, MouseEvent } from "react";
 import styles from "./ItemInfoInput.module.css";
 
-import { useState } from "react";
+interface InitialValues {
+  tags: string[];
+}
 
-function ItemInfoInput({ initialValues }) {
-  const [tags, setTags] = useState(initialValues.tags);
+interface ItemInfoInputProps {
+  initialValues: InitialValues;
+}
 
-  const handleEnterKeyDown = (event) => {
+const ItemInfoInput: React.FC<ItemInfoInputProps> = ({ initialValues }) => {
+  const [tags, setTags] = useState<string[]>(initialValues.tags);
+
+  const handleEnterKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key !== "Enter") return;
 
-    const target = event.target;
-    const tag = target.value;
+    const target = event.target as HTMLInputElement;
+    const tag = target.value.trim();
     if (!tag || tags.indexOf(tag) !== -1) {
       target.value = "";
       return;
@@ -19,10 +26,11 @@ function ItemInfoInput({ initialValues }) {
     target.value = "";
   };
 
-  const handleTagDelete = (event) => {
-    const registerdTag = event.target.previousElementSibling.textContent;
+  const handleTagDelete = (event: MouseEvent<HTMLDivElement>) => {
+    const target = event.target as HTMLDivElement;
+    const registeredTag = target.previousElementSibling?.textContent ?? "";
 
-    const nextTags = tags.filter((tag) => tag !== registerdTag);
+    const nextTags = tags.filter((tag) => tag !== registeredTag);
     setTags(nextTags);
   };
 
@@ -33,14 +41,14 @@ function ItemInfoInput({ initialValues }) {
         className={styles["name-input"]}
         placeholder="상품명을 입력해주세요"
         name="name"
-      ></input>
+      />
 
       <h3 className={styles["sub-title"]}>상품 소개</h3>
       <textarea
         className={styles["info-input"]}
         placeholder="상품 소개를 입력해주세요"
         name="description"
-      ></textarea>
+      />
 
       <h3 className={styles["sub-title"]}>판매가격</h3>
       <input
@@ -48,7 +56,7 @@ function ItemInfoInput({ initialValues }) {
         placeholder="판매 가격을 입력해주세요"
         type="number"
         name="price"
-      ></input>
+      />
 
       <h3 className={styles["sub-title"]}>태그</h3>
       <input
@@ -56,21 +64,20 @@ function ItemInfoInput({ initialValues }) {
         placeholder="태그를 입력해주세요"
         name="tags"
         onKeyDown={handleEnterKeyDown}
-      ></input>
+      />
       <ol className={styles["tags-container"]}>
-        {tags &&
-          tags.map((tag) => (
-            <li key={tag} className={styles["tag"]}>
-              <div className={styles["tag-name"]}>{tag}</div>
-              <div
-                className={styles["tag-delete-btn"]}
-                onClick={handleTagDelete}
-              />
-            </li>
-          ))}
+        {tags.map((tag) => (
+          <li key={tag} className={styles["tag"]}>
+            <div className={styles["tag-name"]}>{tag}</div>
+            <div
+              className={styles["tag-delete-btn"]}
+              onClick={handleTagDelete}
+            />
+          </li>
+        ))}
       </ol>
     </>
   );
-}
+};
 
 export default ItemInfoInput;
