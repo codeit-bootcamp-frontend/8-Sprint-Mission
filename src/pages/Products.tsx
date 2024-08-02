@@ -19,15 +19,17 @@ interface Item {
 
 function Products() {
   const navigate = useNavigate();
-  const { productSlug } = useParams();
+  const { productSlug } = useParams<{ productSlug: string }>();
   const [item, setItem] = useState<Item | null>(null);
   const [inquiry, setInquiry] = useState("");
 
   useEffect(() => {
-    handleLoad(productSlug);
+    if (productSlug) {
+      handleLoad(productSlug);
+    }
   }, [productSlug]);
 
-  const handleLoad = async (productSlug: any) => {
+  const handleLoad = async (productSlug: string) => {
     const list = await getProduct(productSlug);
     setItem(list);
   };
@@ -84,7 +86,7 @@ function Products() {
         </Button>
       </div>
 
-      <CommentList productSlug={productSlug} />
+      {productSlug && <CommentList productSlug={productSlug} />}
 
       <button className="backButton" onClick={handleBackClick}>
         <span>목록으로 돌아가기</span>
