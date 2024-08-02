@@ -1,4 +1,4 @@
-import { getItemList } from "#apis";
+import { getItemList } from "#/apis/getItemList";
 import { useEffect, useReducer } from "react";
 
 interface List {
