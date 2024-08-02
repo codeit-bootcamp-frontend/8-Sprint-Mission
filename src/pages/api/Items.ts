@@ -1,5 +1,12 @@
 const BASE_URL = 'https://panda-market-api.vercel.app';
 
+interface getProductsProps {
+  order: 'recent' | 'favorite';
+  page: number;
+  pageSize: number;
+  keyword?: string;
+}
+
 /**
  * 상품 목록 조회
  * @param {string} order 정렬 기준: recent, favorite
@@ -30,7 +37,7 @@ export async function getProducts({
   page, // 페이지 번호
   pageSize, // 페이지 당 상품 수
   keyword, // 검색 키워드
-}) {
+}: getProductsProps) {
   const query = `orderBy=${order}&page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
   const response = await fetch(`${BASE_URL}/products?${query}`);
   if (!response.ok) {
@@ -71,7 +78,7 @@ export async function getProductById(productId = 0) {
 export async function getCommentsByProductId(
   productId = 0,
   limit = 1,
-  nextCursor
+  nextCursor: string
 ) {
   const param = `${productId}`;
   let query = `?limit=${limit}`;

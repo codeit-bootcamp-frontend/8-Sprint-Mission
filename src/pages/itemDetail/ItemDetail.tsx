@@ -4,18 +4,18 @@ import ItemInfo from '../../components/items/ItemInfo/ItemInfo';
 import HorizontalLine from '../../core/ui/lines/HorizontalLine/HorizontalLine';
 import Button from '../../core/ui/buttons/Button/Button';
 import CommentList from '../../core/ui/comments/CommentList/CommentList';
-import { ReactComponent as IconBack } from '../../assets/images/icons/ic_back.svg';
-import { ReactComponent as IconEmptyComment } from '../../assets/images/icons/ic_inquiry_empty.svg';
+// import { ReactComponent as IconBack } from '../../assets/images/icons/ic_back.svg';
+// import { ReactComponent as IconEmptyComment } from '../../assets/images/icons/ic_inquiry_empty.svg';
 import styles from './ItemDetail.module.scss';
 import { useItemComments } from '../../lib/items/hooks/useItemComments';
 import SimpleInput from '../../core/ui/inputs/SimpleInput/SimpleInput';
 
 function ItemDetail() {
-  const { productId } = useParams();
+  const { productId } = useParams<string>();
   const navigate = useNavigate();
 
   const [imgSrc, title, price, desc, tags, isFavorite, favoriteCount] = useItem(
-    productId,
+    Number(productId),
     []
   );
 
@@ -56,13 +56,13 @@ function ItemDetail() {
 
         <CommentList
           comments={comments}
-          emptyIcon={<IconEmptyComment />}
+          // emptyIcon={<IconEmptyComment />}
           emptyMessage={'아직 문의가 없습니다.'}
         />
         <div className={styles['item-detail__btn-to-list']}>
           <Button
             text="목록으로 돌아가기"
-            iconBack={<IconBack />}
+            // iconBack={<IconBack />}
             onClick={() => {
               navigate('/items');
             }}

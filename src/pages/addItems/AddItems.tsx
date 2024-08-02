@@ -4,7 +4,15 @@ import ImageFileInput from '../../core/ui/inputs/ImageFileInput/ImageFileInput';
 import './AddItems.css';
 import TagInput from '../../core/ui/inputs/TagInput/TagInput';
 
-const INITIAL_VALUES = {
+interface initValue {
+  imgFile: any;
+  name: string;
+  desc: string;
+  price: number;
+  tags: string[];
+}
+
+const INITIAL_VALUES: initValue = {
   imgFile: null,
   name: '',
   desc: '',
@@ -14,10 +22,10 @@ const INITIAL_VALUES = {
 
 function AddItems() {
   const [values, setValues] = useState(INITIAL_VALUES);
-  const [initialPreview, setInitialPreview] = useState(undefined);
+  const [initialPreview, setInitialPreview] = useState<string>('');
   const [isAllValid, setIsAllValid] = useState(false);
 
-  const handleChange = (name, value) => {
+  const handleChange = (name: string, value: any) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
@@ -34,12 +42,14 @@ function AddItems() {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     handleChange(name, value);
   };
 
-  const addTag = (tag) => {
+  const addTag = (tag: any) => {
     if (!values.tags.includes(tag)) {
       handleChange(
         'tags',
@@ -48,7 +58,7 @@ function AddItems() {
     }
   };
 
-  const removeTag = (targetTag) => {
+  const removeTag = (targetTag: string) => {
     // setValues(
     //   'tags',
     //   values.tags.filter((tag) => tag !== targetTag)
@@ -59,7 +69,11 @@ function AddItems() {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (
+    e:
+      | React.MouseEvent<HTMLElement, MouseEvent>
+      | React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
   };
 

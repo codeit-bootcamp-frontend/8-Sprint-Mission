@@ -1,11 +1,15 @@
-import { ReactComponent as IconSearch } from '../../../assets/images/icons/ic_search.svg';
-import { ReactComponent as IconSort } from '../../../assets/images/icons/ic_sort.svg';
+// import { ReactComponent as IconSearch } from '../../../assets/images/icons/ic_search.svg';
+// import { ReactComponent as IconSort } from '../../../assets/images/icons/ic_sort.svg';
 import { useEffect, useState } from 'react';
 import { getProducts } from '../../../pages/api/Items';
 import Item from '../Item/Item';
 import PaginationBar from '../PaginationBar/PaginationBar';
 import './SellingItems.css';
 import { useNavigate } from 'react-router-dom';
+
+interface Item {
+  id: number;
+}
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -20,7 +24,7 @@ const getPageSize = () => {
 
 function SellingItems() {
   // 상품
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState<Item[]>([]);
   // 쿼리
   const [order, setOrder] = useState('recent');
   const [page, setPage] = useState(1);
@@ -29,35 +33,48 @@ function SellingItems() {
   // 검색
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   // 페이지네이션
-  const [totalPageNum, setTotalPageNum] = useState();
+  const [totalPageNum, setTotalPageNum] = useState<number>(0);
   // 에러
-  const [fetchingError, setfetchingError] = useState(null);
+  const [fetchingError, setfetchingError] = useState<null | Error>(null);
   const navigate = useNavigate();
 
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     setPage(pageNumber);
   };
   const handleClickDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
-  const handleClickDropdownItem = (order) => {
+  const handleClickDropdownItem = (order: string) => {
     setOrder(order);
     setIsDropdownVisible(!isDropdownVisible);
   };
-  const handleKeyupSearchInput = (event) => {
+  const handleKeyupSearchInput = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
     if (event.keyCode === 13) {
       event.preventDefault();
-      setKeyword(event.target.value);
+      const target = event.target as HTMLInputElement;
+      setKeyword(target.value);
     }
   };
 
-  const handleClickItem = (e) => {
+  const handleClickItem = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.preventDefault();
 
     navigate(`/items/${e.currentTarget.dataset.itemId}`);
   };
 
-  const fetchItemList = async ({ order, page, pageSize, keyword }) => {
+  const fetchItemList = async ({
+    order,
+    page,
+    pageSize,
+    keyword,
+  }: {
+    order: any;
+    page: any;
+    pageSize: any;
+    keyword: any;
+  }) => {
     try {
       setfetchingError(null);
       const products = await getProducts({ order, page, pageSize, keyword });
@@ -66,7 +83,7 @@ function SellingItems() {
     } catch (err) {
       setItemList([]);
       setTotalPageNum(0);
-      setfetchingError(err);
+      setfetchingError(err as Error);
     }
   };
 
@@ -99,7 +116,7 @@ function SellingItems() {
               상품 등록하기
             </a>
             <div className="wrapper-input-search-item">
-              <IconSearch />
+              {/* <IconSearch /> */}
               <input
                 className="input-search-item"
                 placeholder="검색할 상품을 입력해 주세요"
@@ -109,7 +126,7 @@ function SellingItems() {
             <div className="wrapper-sort-item">
               <button className="btn-sort-item" onClick={handleClickDropdown}>
                 {order === 'recent' ? '최신순' : '좋아요순'}
-                <IconSort />
+                {/* <IconSort /> */}
               </button>
               {isDropdownVisible && (
                 <div className="dropdown-sort-item">

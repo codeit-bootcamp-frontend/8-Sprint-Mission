@@ -1,6 +1,15 @@
 import { useEffect, useRef } from 'react';
-
 import './Button.css';
+
+interface ButtonProps {
+  text?: string;
+  onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  isDisabled?: boolean;
+  iconFront?: React.ReactNode;
+  iconBack?: React.ReactNode;
+  customBorderRound?: any;
+}
+
 function Button({
   text = '버튼',
   onClick = () => {},
@@ -8,11 +17,13 @@ function Button({
   iconFront,
   iconBack,
   customBorderRound,
-}) {
-  const ref = useRef();
+}: ButtonProps) {
+  const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    ref.current.disabled = isDisabled ? true : false;
+    if (ref.current) {
+      ref.current.disabled = isDisabled;
+    }
   }, [isDisabled]);
 
   return (
