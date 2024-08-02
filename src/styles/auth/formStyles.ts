@@ -22,34 +22,34 @@ export const StyledAuthForm = styled.form`
   gap: 2.4rem;
 `;
 
-export const StyledInputSection = styled.section<{ $isValid: validType | undefined }>`
+export const StyledInputSection = styled.section<{ $validType: validType | undefined }>`
   & input {
     ${inputStyle};
     &::placeholder {
       ${placeholderStyle};
     }
-    outline: ${({ $isValid }) =>
-      $isValid === 'default'
+    outline: ${({ $validType }) =>
+      $validType === 'default'
         ? 'none'
-        : $isValid === 'valid'
+        : $validType === 'valid'
           ? '1px solid var(--brand-blue)'
           : '1px solid var(--error-red)'};
 
     &:focus {
-      /* 기존에 borderd없이 focus 상태에만 border를 사용하면
+      /* 기존에 border없이 focus 상태에만 border를 사용하면
       없던 border가 생기면서 안쪽으로 덜컹거리게 되는 것이 보기에 좋지 않기에
       outline을 사용하였음 */
-      outline: ${({ $isValid }) =>
-        $isValid === 'default'
+      outline: ${({ $validType }) =>
+        $validType === 'default'
           ? 'none'
-          : $isValid === 'valid'
+          : $validType === 'valid'
             ? '1px solid var(--brand-blue)'
             : '1px solid var(--error-red)'};
     }
   }
 
   & small {
-    display: ${({ $isValid }) => ($isValid === 'invalid' ? 'block' : 'none')};
+    display: ${({ $validType }) => ($validType === 'invalid' ? 'block' : 'none')};
     color: var(--error-red);
     font-size: 1.5rem;
     font-weight: 600;
