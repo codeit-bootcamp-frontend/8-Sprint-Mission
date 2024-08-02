@@ -16,7 +16,7 @@ function TagList({ tagList, handleRemoveClick }: TagListProps) {
     <StyledTagList onClick={handleRemoveClick}>
       {tagList.map(tag => (
         <StyledTagItem key={tag.id}>
-          {tag.content}
+          {tag.tagContent}
           <StyledRemoveButton className={'tag-remove-btn'} data-category={'tag'} data-id={tag.id} />
         </StyledTagItem>
       ))}

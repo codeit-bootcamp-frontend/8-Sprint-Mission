@@ -7,7 +7,7 @@ import { inputStyle, placeholderStyle } from 'styles/auth/formStyles';
 import TagList from './TagList';
 import { IFormValue, ITag } from 'types/@shared/addProductTypes';
 
-interface InputSectionProps {
+interface AddProductInputSectionProps {
   formValue: IFormValue;
   tagList: ITag[];
   handleInputChange: (event: React.ChangeEvent<HTMLElement>) => void;
@@ -15,15 +15,15 @@ interface InputSectionProps {
   handleRemoveClick: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-function InputSection({
+function AddProductInputSection({
   formValue,
   tagList,
   handleInputChange,
   handleReturnKeyDown,
   handleRemoveClick,
-}: InputSectionProps) {
+}: AddProductInputSectionProps) {
   return (
-    <StyledAddItemInputSection>
+    <StyledAdProductInputSection>
       {ADDITEM_FIELDSET_LIST.map(fieldset => (
         <Fragment key={fieldset.name}>
           <fieldset>
@@ -50,12 +50,12 @@ function InputSection({
           </fieldset>
         </Fragment>
       ))}
-    </StyledAddItemInputSection>
+    </StyledAdProductInputSection>
   );
 }
-export default InputSection;
+export default AddProductInputSection;
 
-const StyledAddItemInputSection = styled.section`
+const StyledAdProductInputSection = styled.section`
   & input,
   & textarea {
     ${inputStyle};

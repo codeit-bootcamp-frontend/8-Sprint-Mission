@@ -6,11 +6,11 @@ import { StyledAddItemSubTitle } from 'styles/addProduct/textStyles';
 import React from 'react';
 import Image from 'components/@shared/Image';
 import PreviewList from './PreviewList';
-import { IPreview } from 'types/@shared/addProductTypes';
+import { IImagePreview } from 'types/@shared/addProductTypes';
 import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 interface ImageRegistrationProps {
-  previewList: IPreview[];
+  previewList: IImagePreview[];
   handleInputChange: (event: React.ChangeEvent<HTMLElement>) => void;
   handleRemoveClick: (event: React.MouseEvent<HTMLElement>) => void;
 }

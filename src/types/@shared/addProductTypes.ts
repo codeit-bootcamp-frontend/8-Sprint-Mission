@@ -6,9 +6,9 @@ export interface IAddItemFieldset {
   placeholder: string;
 }
 
-export type ObjectType = string | File[];
+export type FormObjectType = string | File[];
 
-export interface IFormValue extends Record<string, ObjectType> {
+export interface IFormValue extends Record<string, FormObjectType> {
   imgFiles: File[];
   title: string;
   description: string;
@@ -16,12 +16,12 @@ export interface IFormValue extends Record<string, ObjectType> {
   tag: string;
 }
 
-export interface IPreview {
+export interface IImagePreview {
   id: string;
-  url: string;
+  imgUrl: string;
 }
 
 export interface ITag {
   id: string;
-  content: string;
+  tagContent: string;
 }
