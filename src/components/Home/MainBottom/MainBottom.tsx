@@ -1,6 +1,16 @@
+import React from 'react';
 import "./MainBottom.css";
 
-function MainBottom({ mainBottomDetails }) {
+interface MainBottomDetails {
+  imgUrl: string;
+  mainBottomContent: string;
+}
+
+interface MainBottomProps {
+  mainBottomDetails: MainBottomDetails;
+}
+
+const MainBottom: React.FC<MainBottomProps> = ({ mainBottomDetails }) => {
   const { imgUrl, mainBottomContent } = mainBottomDetails;
 
   return (
