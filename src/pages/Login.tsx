@@ -3,7 +3,7 @@ import AuthLogo from 'components/auth/AuthLogo';
 import MemberCheck from 'components/auth/MemberCheck';
 import SocialLogin from 'components/auth/SocialLogin';
 import LoginForm from 'components/auth/login/LoginForm';
-import { StyledAuthContainer, StyledAuthMain } from 'styles/auth/containerStyles';
+import { StyledAuthContainer, StyledAuthMain } from 'styles/market/auth/containerStyles';
 
 function Login() {
   return (

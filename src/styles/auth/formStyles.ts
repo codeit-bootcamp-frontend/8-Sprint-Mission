@@ -49,7 +49,7 @@ export const StyledInputSection = styled.section<{ $isValid: validType | undefin
   }
 
   & small {
-    display: ${({ $isValid }) => ($isValid === 'unvalid' ? 'block' : 'none')};
+    display: ${({ $isValid }) => ($isValid === 'invalid' ? 'block' : 'none')};
     color: var(--error-red);
     font-size: 1.5rem;
     font-weight: 600;

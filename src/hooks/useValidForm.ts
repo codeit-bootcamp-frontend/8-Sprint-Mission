@@ -2,7 +2,7 @@ import { useState } from 'react';
 import useDidMountEffect from './useDidMountEffect';
 
 type inputName = 'email' | 'password' | 'nickname' | 'verifyPassword';
-export type validType = 'default' | 'valid' | 'unvalid';
+export type validType = 'default' | 'valid' | 'invalid';
 export interface IAuthForm {
   email: string;
   password: string;
@@ -59,10 +59,10 @@ const useValidForm = (
     const regex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
     if (form.email === '') {
       setValidMessages(prevState => ({ ...prevState, email: '이메일을 입력해주세요' }));
-      setValidationResult(prevState => ({ ...prevState, email: 'unvalid' }));
+      setValidationResult(prevState => ({ ...prevState, email: 'invalid' }));
     } else if (!regex.test(form.email)) {
       setValidMessages(prevState => ({ ...prevState, email: '잘못된 이메일 형식입니다' }));
-      setValidationResult(prevState => ({ ...prevState, email: 'unvalid' }));
+      setValidationResult(prevState => ({ ...prevState, email: 'invalid' }));
     } else {
       setValidationResult(prevState => ({ ...prevState, email: 'valid' }));
     }
@@ -74,7 +74,7 @@ const useValidForm = (
 
     if (form.nickname === '') {
       setValidMessages(prevState => ({ ...prevState, nickname: '닉네임을 입력해주세요' }));
-      setValidationResult(prevState => ({ ...prevState, nickname: 'unvalid' }));
+      setValidationResult(prevState => ({ ...prevState, nickname: 'invalid' }));
     } else {
       setValidationResult(prevState => ({ ...prevState, nickname: 'valid' }));
     }
@@ -83,10 +83,10 @@ const useValidForm = (
   useDidMountEffect(() => {
     if (form.password === '') {
       setValidMessages(prevState => ({ ...prevState, password: '비밀번호를 입력해주세요' }));
-      setValidationResult(prevState => ({ ...prevState, password: 'unvalid' }));
+      setValidationResult(prevState => ({ ...prevState, password: 'invalid' }));
     } else if (form.password.length < 8) {
       setValidMessages(prevState => ({ ...prevState, password: '비밀번호를 8자 이상 입력해주세요' }));
-      setValidationResult(prevState => ({ ...prevState, password: 'unvalid' }));
+      setValidationResult(prevState => ({ ...prevState, password: 'invalid' }));
     } else {
       setValidationResult(prevState => ({ ...prevState, password: 'valid' }));
     }
@@ -96,7 +96,7 @@ const useValidForm = (
 
     if (form.password !== form.verifyPassword) {
       setValidMessages(prevState => ({ ...prevState, verifyPassword: '비밀번호가 일치하지 않습니다' }));
-      setValidationResult(prevState => ({ ...prevState, verifyPassword: 'unvalid' }));
+      setValidationResult(prevState => ({ ...prevState, verifyPassword: 'invalid' }));
     } else if (form.password === '' || form.verifyPassword === '') {
       setValidationResult(prevState => ({ ...prevState, verifyPassword: 'default' }));
     } else {
