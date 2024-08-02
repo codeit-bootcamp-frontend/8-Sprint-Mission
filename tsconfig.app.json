@@ -33,7 +33,9 @@
       "#pages/*": ["pages/*"],
       "#pages": ["pages"],
       "#utils/*": ["utils/*"],
-      "#utils": ["utils"]
+      "#utils": ["utils"],
+      "#apis": ["apis"],
+      "#hooks": ["hooks"]
     },
 
     "typeRoots": ["src/@types"]

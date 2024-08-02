@@ -94,7 +94,7 @@ const reducer = (state: State, action: Action) => {
       return {
         ...state,
         nicknameValue,
-        nicknameValidate: nicknameValue.length > 3 ? true : false,
+        nicknameValidate: nicknameValue.length >= 3 ? true : false,
       };
     case "CHANGE_PW_VALUE":
       const pwValue = action.pwValue || "";
@@ -179,7 +179,12 @@ export default function Signup() {
         value={state.pwRepeatValue}
       />
       <Button
-        activeBtn={state.emailValidate && state.pwValidate}
+        activeBtn={
+          state.emailValidate &&
+          state.pwValidate &&
+          state.pwRepeatValidate &&
+          state.nicknameValidate
+        }
         onClick={onSubmitButton}
       >
         회원가입

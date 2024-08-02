@@ -1,31 +1,42 @@
 import logoImg from "#assets/images/logo.svg";
 import logoText from "#assets/images/logo-txt.svg";
-import { Link, Outlet, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 
 export default function Header() {
-  const [isShowHeader, setIsShowHeader] = useState(true);
   const { pathname } = useLocation();
-
-  useEffect(() => {
-    if (pathname.includes("auth")) {
-      setIsShowHeader(false);
-    } else {
-      setIsShowHeader(true);
-    }
-  }, [pathname]);
+  const showHeader: boolean = !pathname.includes("auth");
+  const showLoginBtn: boolean = !pathname.includes("items");
   return (
     <>
-      {isShowHeader && (
-        <nav className="fixed top-0 h-[70px] w-full">
-          <div className="mx-auto flex max-w-[1120px] items-center justify-between px-4 py-2.5">
+      {showHeader && (
+        <nav className={`fixed top-0 w-full border-b bg-white drop-shadow-sm`}>
+          <div className="mx-auto flex h-[70px] max-w-[1120px] items-center justify-between gap-2 px-4 py-2.5 md:gap-5 lg:gap-8">
             <Link to="/" className="flex gap-2.5">
               <img src={logoImg} className="hidden md:block" />
               <img src={logoText} />
             </Link>
-            <Link to="/auth/login">
-              <button className="btn h-[48px] w-[128px]">로그인</button>
-            </Link>
+            {pathname.includes("items") && (
+              <div className="grow font-bold">
+                <NavLink to="forum" className="px-1 md:px-4">
+                  자유게시판
+                </NavLink>
+                <NavLink
+                  to="items"
+                  className={({ isActive }) =>
+                    isActive
+                      ? `px-1 text-my-blue md:px-4`
+                      : `px-1 text-gray-600 md:px-4`
+                  }
+                >
+                  중고마켓
+                </NavLink>
+              </div>
+            )}
+            {showLoginBtn && (
+              <Link to="/auth/login">
+                <button className="btn h-[48px] w-[128px]">로그인</button>
+              </Link>
+            )}
           </div>
         </nav>
       )}
