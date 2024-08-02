@@ -21,11 +21,12 @@ interface BtnLargeProps {
   bgColor: string | null;
   color: string | null;
   children: string;
+  disabled?: boolean;
 }
 
-const BtnLarge = ({ bgColor, color, children }: BtnLargeProps) => {
+const BtnLarge = ({ bgColor, color, disabled=false, children }: BtnLargeProps) => {
   return (
-    <LargeButton $bgColor={bgColor} $color={color}>
+    <LargeButton $bgColor={bgColor} $color={color} disabled={disabled}>
       {children}
     </LargeButton>
   );

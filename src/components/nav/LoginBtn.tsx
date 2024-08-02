@@ -7,7 +7,7 @@ interface LoginBtnProps {
 
 const LoginBtn = ({ onClick }: LoginBtnProps) => {
   return (
-    <Link to="/auth">
+    <Link to="/signIn">
       <BtnSmall onClick={onClick} disabled={false}>
         로그인
       </BtnSmall>
