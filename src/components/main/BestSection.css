@@ -1,0 +1,9 @@
+main .best-list {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+main .best-card {
+    flex: 1;
+}

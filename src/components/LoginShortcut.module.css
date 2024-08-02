@@ -1,0 +1,30 @@
+.LoginShortcutContainer {
+    width: 100%;
+    height: 4.625rem;
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    background-color: #E6F2FF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    .shortcutText {
+        color: var(--gray800);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.625rem;
+    }
+
+    .shortcutMedia {
+        display: flex;
+        gap: 1rem;
+
+        .shortcutMediaIcon {
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+main.items-main {
+    padding: 1.5rem;
+}
+
+main .container {
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.items-main section {
+    margin-bottom: 3.75rem;
+}
+
+main .section-header {
+    height: 2.625rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+main h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--gray900);
+}
+
+main button:not(:disabled):hover {
+    cursor: pointer;
+}

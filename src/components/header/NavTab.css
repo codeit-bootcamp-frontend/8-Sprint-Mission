@@ -1,0 +1,17 @@
+header .nav .tab {
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--gray600);
+    flex-shrink: 0;
+}
+
+header .nav .tab.active {
+    color: var(--blue);
+}
+
+@media (width <= 767px) {
+    header .nav .tab {
+        font-size: 1rem;
+    }
+}

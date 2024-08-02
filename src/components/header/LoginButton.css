@@ -1,0 +1,22 @@
+.login-button {
+    width: 8rem;
+    height: 3rem;
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--blue);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+}
+
+.login-button:hover {
+    cursor: pointer;
+}
+
+@media (width <= 1199px) {
+    .login-button {
+        width: 5.5rem;
+        font-size: 1rem;
+    }
+}
