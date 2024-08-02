@@ -14,7 +14,7 @@ function Signup() {
         <div className="input-wrap">
           <form>
             <div className="input-box">
-              <label for="user-email">이메일</label>
+              <label htmlFor="user-email">이메일</label>
               <div className="input-position">
                 <input
                   id="user-email"
@@ -26,7 +26,7 @@ function Signup() {
               </div>
             </div>
             <div className="input-box">
-              <label for="user-name">닉네임</label>
+              <label htmlFor="user-name">닉네임</label>
               <div className="input-position">
                 <input
                   id="user-name"
@@ -38,7 +38,7 @@ function Signup() {
               </div>
             </div>
             <div className="input-box">
-              <label for="user-password">비밀번호</label>
+              <label htmlFor="user-password">비밀번호</label>
               <div className="input-position">
                 <input
                   id="user-password"
@@ -60,7 +60,7 @@ function Signup() {
               </div>
             </div>
             <div className="input-box">
-              <label for="user-password-chk">비밀번호 확인</label>
+              <label htmlFor="user-password-chk">비밀번호 확인</label>
               <div className="input-position">
                 <input
                   id="user-password-chk"

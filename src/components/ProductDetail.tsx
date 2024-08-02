@@ -1,38 +1,68 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getProducts } from "../api.js";
 import { getComments } from "../api.js";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+
+type Writer = {
+  id: number;
+  nickname: string;
+  image: string;
+};
+
+interface Product {
+  id: number;
+  name: string;
+  info: string;
+  price: number;
+  tags: string[];
+  images: string;
+  description: string;
+  favoriteCount: number;
+}
+
+interface Comment {
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  writer: Writer;
+}
+
+interface InquiryBtn {
+  disabled: boolean;
+  btnClass: string;
+}
 
 function ProductDetail() {
-  const { productId } = useParams();
-  const [products, setProducts] = useState([]);
-  const [comments, setComments] = useState([]);
-  const [commentLimit, setCommentLimit] = useState(3);
-  const [loading, setLoading] = useState(true);
-  const [inquiryTxt, setInquiryTxt] = useState("");
-  const [inquiryBtn, setInquiryBtn] = useState({
-    disabled: "true",
+  const { productId } = useParams<{ productId: string | undefined }>();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [commentLimit, setCommentLimit] = useState<number>(3);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [inquiryTxt, setInquiryTxt] = useState<string>("");
+  const [inquiryBtn, setInquiryBtn] = useState<InquiryBtn>({
+    disabled: true,
     btnClass: "",
   });
 
-  const productIdFind = (id) => {
+  const findProductId = (id: number) => {
     return products.find((product) => product.id === id);
   };
 
-  const foundProduct = productIdFind(Number(productId));
+  const foundProduct = findProductId(Number(productId));
 
-  const validInquiry = () => {
+  const validInquiry = useCallback(() => {
     return inquiryTxt.trim() !== "";
-  };
+  }, [inquiryTxt]);
 
   // 상품 가져오기
   useEffect(() => {
     const handleLoad = async () => {
       try {
-        const { list } = await getProducts(1);
+        const { list } = await getProducts({ page: 1 });
         setProducts(list);
       } catch (error) {
-        console.log("Error message:", error);
+        console.error("Error message:", error);
       } finally {
         setLoading(false); // 로딩 완료
       }
@@ -43,34 +73,37 @@ function ProductDetail() {
 
   // 상품 댓글 가져오기
   useEffect(() => {
-    const handleLoad = async (option) => {
+    const handleLoad = async (option: {
+      productId: string | undefined;
+      commentLimit: number;
+    }) => {
       try {
         const { list } = await getComments(option);
         setComments(list);
       } catch (error) {
-        console.log("Error message:", error);
+        console.error("Error message:", error);
       } finally {
         setLoading(false); // 로딩 완료
       }
     };
 
     handleLoad({ productId, commentLimit });
-  }, [commentLimit]);
+  }, [productId, commentLimit]);
 
   // 문의하기 유효성 검사
   useEffect(() => {
     if (validInquiry()) {
       setInquiryBtn({
-        disabled: "false",
+        disabled: false,
         btnClass: "on",
       });
     } else {
       setInquiryBtn({
-        disabled: "true",
+        disabled: true,
         btnClass: "",
       });
     }
-  }, [inquiryTxt]);
+  }, [validInquiry]);
 
   // 로딩중
   if (loading) {
@@ -92,8 +125,9 @@ function ProductDetail() {
   }
 
   // 상품 이미지 경로 확인후 잘못된 이미지면 기본 이미지로 적용
-  const imgChk = foundProduct.images.join("").includes("jpeg"); // 이미지 경로에 jpeg가 있는지 확인
-  const imgUrl = imgChk ? foundProduct.images : "/images/card01-small.png";
+  const imgUrl = foundProduct
+    ? foundProduct.images
+    : "/images/card01-small.png";
 
   return (
     <section className="max-wrap product-detail-wrap">
@@ -118,7 +152,7 @@ function ProductDetail() {
             </p>
             <span>상품 태그</span>
             <ul className="detail-tag">
-              {foundProduct.tags.map((tag, i) => {
+              {foundProduct.tags.map((tag: string, i: number) => {
                 return <li key={i}># {tag}</li>;
               })}
             </ul>

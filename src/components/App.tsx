@@ -1,5 +1,5 @@
-import Footer from "./Footer";
-import Header from "./Header";
+import Footer from "./layout/Footer";
+import Header from "./layout/Header";
 import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
@@ -19,13 +19,13 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Signup" element={<Signup />} />
-            <Route path="/Items">
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/items">
               <Route index element={<Items />} />
               <Route path=":productId" element={<ProductDetail />} />
             </Route>
-            <Route path="/AddItem" element={<AddItem />} />
+            <Route path="/addItem" element={<AddItem />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
