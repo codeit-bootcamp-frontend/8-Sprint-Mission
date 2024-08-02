@@ -4,7 +4,7 @@ import useNavigateTo from 'hooks/useNavigateTo';
 import { PATH_ITEMS } from ' constants/paths/paths';
 import { StyledAuthForm, StyledAuthLabel, StyledInputSection } from 'styles/auth/formStyles';
 import React from 'react';
-import useLoginForm from 'hooks/useLoginForm';
+import useLoginForm from 'hooks/form/useLoginForm';
 
 function LoginForm() {
   const { navigateTo } = useNavigateTo();

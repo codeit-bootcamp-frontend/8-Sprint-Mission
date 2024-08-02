@@ -2,7 +2,7 @@ import Button from 'components/@shared/Button';
 import PasswordInput from '../PasswordInput';
 import useNavigateTo from 'hooks/useNavigateTo';
 import { StyledAuthForm, StyledAuthLabel, StyledInputSection } from 'styles/auth/formStyles';
-import useSignupForm from 'hooks/useSignupForm';
+import useSignupForm from 'hooks/form/useSignupForm';
 import React from 'react';
 
 function SignupForm() {

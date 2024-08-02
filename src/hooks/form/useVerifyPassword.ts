@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import useDidMountEffect from './useDidMountEffect';
+import useDidMountEffect from '../useDidMountEffect';
 import { validType } from 'types/@shared/authTypes';
 
 function useVerifyPassword(password: string) {

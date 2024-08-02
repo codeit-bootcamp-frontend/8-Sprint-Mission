@@ -1,5 +1,6 @@
+import useDidMountEffect from 'hooks/useDidMountEffect';
 import { ChangeEvent, useState } from 'react';
-import useDidMountEffect from './useDidMountEffect';
+
 import { validType } from 'types/@shared/authTypes';
 
 function usePassword() {
