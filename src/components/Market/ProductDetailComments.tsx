@@ -1,7 +1,5 @@
 import styled from "styled-components";
-
 import noCommentsImg from "../../assets/images/img_no_comments.png";
-
 import elapsedTimeCalc from "../../utils/elapsedTimeCalc";
 
 const CommentsContainer = styled.ol`
@@ -18,7 +16,6 @@ const CommentsContainer = styled.ol`
   }
 `;
 
-// Comments가 없는 경우
 const NoCommentImg = styled.img`
   display: block;
   width: 200px;
@@ -26,7 +23,6 @@ const NoCommentImg = styled.img`
   margin: 0 auto 24px;
 `;
 
-// Comments가 있는 경우
 const CommentContainer = styled.li`
   width: 100%;
   margin: 24px 0;
@@ -75,7 +71,21 @@ const CommentElapseTime = styled.div`
   color: var(--cool-gray-400);
 `;
 
-function ProductDetailComments({ comments }) {
+interface Comment {
+  id: string;
+  writer: {
+    nickname: string;
+    image: string;
+  };
+  content: string;
+  updatedAt: string;
+}
+
+interface ProductDetailCommentsProps {
+  comments: Comment[];
+}
+
+function ProductDetailComments({ comments }: ProductDetailCommentsProps) {
   return (
     <CommentsContainer>
       {comments.length > 0 ? (

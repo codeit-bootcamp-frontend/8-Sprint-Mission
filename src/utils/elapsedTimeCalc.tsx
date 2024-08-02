@@ -1,8 +1,8 @@
-const elapsedTimeCalc = (comparedDate) => {
+const elapsedTimeCalc = (comparedDate: string | Date): string => {
   const currentDate = new Date();
   const specificDate = new Date(comparedDate);
 
-  const timeDifference = currentDate - specificDate;
+  const timeDifference = currentDate.getTime() - specificDate.getTime();
 
   const min = 1000 * 60;
   const hour = min * 60;
