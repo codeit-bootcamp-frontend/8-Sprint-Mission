@@ -47,11 +47,14 @@ interface InputItemProps {
   id: string;
   label: string;
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  placeholder: string;
-  onKeyDown?: (
-    e: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
+  placeholder: string;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+
+  //   e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => void;
   isTextArea?: boolean;
 }
 
