@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./ProductsPaginaitonBtns.css";
+import "./ProductsPaginationBtns.css";
 
 import pageArrowLeft from "../../../assets/images/arrow_left_dark.png";
 import pageArrowRight from "../../../assets/images/arrow_right_dark.png";
