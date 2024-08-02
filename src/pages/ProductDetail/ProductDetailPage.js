@@ -1,11 +1,79 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
+import styled from "styled-components";
 import likeIcon from "../../images/heart_inactive.png";
 import backIcon from "../../images/icon_back.png";
 import CommentList from "./CommentList";
 import { getProductById } from "../../api";
-import "./ProductDetail.css";
 import Nav from "../../components/Nav";
+import StyledCommonButton from "../../components/Button";
+
+const StyledPageContainer = styled.main`
+  margin: 20px 100px;
+`;
+const StyledProductSection = styled.section`
+  display: grid;
+  grid-template-areas: "image detail";
+  gap: 24px;
+`;
+const StyledProductImg = styled.img`
+  width: 486px;
+  height: 486px;
+  border-radius: 16px;
+  grid-area: image;
+`;
+const StyledDetailContainer = styled.div`
+  grid-area: detail;
+`;
+const StyledName = styled.p`
+  font-size: 24px;
+  font-weight: 600;
+`;
+
+const StyledPrice = styled.p`
+  font-size: 40px;
+  font-weight: 600;
+`;
+
+const StyledDescriptionTag = styled.p`
+  font-size: 16px;
+  font-weight: 400;
+`;
+const StyledLikeIcon = styled.img`
+  width: 36px;
+  height: 36px;
+`;
+const StyledLikeContainer = styled.div`
+  width: 87px;
+  height: 40px;
+  padding: 4px 12px;
+  border-radius: 35px;
+  border: 1px solid var(--gray-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+`;
+const StyledLikeCount = styled.p`
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--gray-500);
+  flex-grow: 2;
+  text-align: center;
+`;
+const StyledCommentSection = styled.section`
+  border-top: 1px solid var(--gray-200);
+`;
+const StyledBackButton = styled(StyledCommonButton)`
+  width: 240px;
+  height: 48px;
+  padding: 0 10px;
+  border-radius: 40px;
+`;
+const StyledBackIcon = styled.img`
+  width: 24px;
+  height: 24px;
+`;
 
 function ProductdetailPage() {
   const { productId } = useParams();
@@ -35,51 +103,40 @@ function ProductdetailPage() {
   return (
     <div>
       <Nav />
-      <div className="detailpage">
-        <section className="product-section">
-          <img
-            className="product-img"
-            src={product.images[0]}
-            alt="상품 이미지"
-          />
-          <div className="detail-container">
-            <h1 className="product-name">{product.name}</h1>
-            <p className="product-price">{product.price}</p>
+      <StyledPageContainer>
+        <StyledProductSection>
+          <StyledProductImg src={product.images[0]} alt="상품 이미지" />
+          <StyledDetailContainer>
+            <StyledName>{product.name}</StyledName>
+            <StyledPrice>{product.price}</StyledPrice>
             <h2>상품 소개</h2>
-            <p className="product-description">{product.description}</p>
+            <StyledDescriptionTag>{product.description}</StyledDescriptionTag>
             <h2>상품 태그</h2>
-            <div className="product-tags">{product.tags}</div>
-            <div className="like-container">
-              <img
-                className="like-icon"
+            <StyledDescriptionTag>{product.tags}</StyledDescriptionTag>
+            <StyledLikeContainer>
+              <StyledLikeIcon
                 src={likeIcon}
                 alt="회색 좋아요 아이콘"
-              ></img>
-              <p className="product-favoriteCount">{product.favoriteCount}</p>
-            </div>
-          </div>
-        </section>
-        <section className="comment-section">
-          <label className="ask-label" htmlFor="ask-input">
-            문의하기
-          </label>
+              ></StyledLikeIcon>
+              <StyledLikeCount>{product.favoriteCount}</StyledLikeCount>
+            </StyledLikeContainer>
+          </StyledDetailContainer>
+        </StyledProductSection>
+        <StyledCommentSection>
+          <label htmlFor="ask-input">문의하기</label>
           <textarea
             id="ask-input"
             placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
           />
           <CommentList />
-        </section>
+        </StyledCommentSection>
         <Link to="/market">
-          <button className="button-back">
+          <StyledBackButton>
             목록으로 돌아가기
-            <img
-              className="button-back-icon"
-              src={backIcon}
-              alt="돌아가기 아이콘"
-            />
-          </button>
+            <StyledBackIcon src={backIcon} alt="돌아가기 아이콘" />
+          </StyledBackButton>
         </Link>
-      </div>
+      </StyledPageContainer>
     </div>
   );
 }

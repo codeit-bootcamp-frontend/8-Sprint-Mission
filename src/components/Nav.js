@@ -1,7 +1,7 @@
 import pandaIcon from "../images/logo_image.png";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Button from "./Button";
+import StyledCommonButton from "./Button";
 
 const StyledNavContainer = styled.nav`
   display: flex;
@@ -31,7 +31,7 @@ const StyledLink = styled(Link)`
   font-weight: 700;
 `;
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(StyledCommonButton)`
   font-size: 16px;
   font-weight: 700;
 `;

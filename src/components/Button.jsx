@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+const StyledCommonButton = styled.button`
   height: 42px;
   padding: 12px 20px;
   border-radius: 8px;
@@ -9,6 +9,10 @@ const Button = styled.button`
   color: var(--gray-50);
   background-color: var(--blue-100);
   cursor: pointer;
+  text-align: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
 `;
 
-export default Button;
+export default StyledCommonButton;
