@@ -1,21 +1,19 @@
+import React, { useEffect, useState, ChangeEvent } from 'react';
 import styles from "./ImgFileInput.module.css";
-
 import registerImgIcUrl from "../../../assets/images/ic_register_img.png";
 
-import { useEffect, useState } from "react";
+// 타입 정의
+const ImgFileInput: React.FC = () => {
+  const [postImg, setPostImg] = useState<File | null>(null);
+  const [previewImg, setPreviewImg] = useState<string | null>(null);
+  const [isFileSelected, setIsFileSelected] = useState<boolean>(false);
 
-function ImgFileInput() {
-  const [postImg, setPostImg] = useState(null);
-  const [previewImg, setPreviewImg] = useState(null);
-  const [isFileSelected, setIsFileSelected] = useState(false);
-
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    if (!file) {
-      return;
+  const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] || null;
+    if (file) {
+      setPostImg(file);
+      setIsFileSelected(true);
     }
-    setPostImg(file);
-    setIsFileSelected(true);
   };
 
   const handleFileDelete = () => {
@@ -48,13 +46,13 @@ function ImgFileInput() {
           className={styles["file-input"]}
           id="file"
           type="file"
-          accept=".png, .jepg, .jpg"
+          accept=".png, .jpeg, .jpg"
           onChange={handleFileUpload}
-        ></input>
+        />
         <div
           className={styles["imgfile-preview"]}
           style={{
-            backgroundImage: `url(${previewImg})`,
+            backgroundImage: previewImg ? `url(${previewImg})` : undefined,
             display: isFileSelected ? "block" : "none",
           }}
         >
