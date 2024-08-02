@@ -7,7 +7,7 @@ function useVerifyPassword(password: string) {
   const [result, setResult] = useState<validType>('default');
   const [message, setMessage] = useState('');
 
-  const handleChangeVerifyPassword = (event: ChangeEvent) => {
+  const handleVerifyPasswordChange = (event: ChangeEvent) => {
     const { value } = event.target as HTMLInputElement;
     setVerifyPassword(value);
   };
@@ -21,7 +21,7 @@ function useVerifyPassword(password: string) {
     }
   }, [verifyPassword]);
 
-  return { verifyPassword, handleChangeVerifyPassword, result, message };
+  return { verifyPassword, handleVerifyPasswordChange, result, message };
 }
 
 export default useVerifyPassword;

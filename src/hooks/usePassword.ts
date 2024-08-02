@@ -7,7 +7,7 @@ function usePassword() {
   const [result, setResult] = useState<validType>('default');
   const [message, setMessage] = useState('');
 
-  const handleChangePassword = (event: ChangeEvent) => {
+  const handlePasswordChange = (event: ChangeEvent) => {
     const { value } = event.target as HTMLInputElement;
     setPassword(value);
   };
@@ -24,7 +24,7 @@ function usePassword() {
     }
   }, [password]);
 
-  return { password, handleChangePassword, result, message };
+  return { password, handlePasswordChange, result, message };
 }
 
 export default usePassword;

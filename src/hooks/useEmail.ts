@@ -7,7 +7,7 @@ function useEmail() {
   const [result, setResult] = useState<validType>('default');
   const [message, setMessage] = useState('');
 
-  const handleChangeEmail = (event: ChangeEvent) => {
+  const handleEmailChange = (event: ChangeEvent) => {
     const { value } = event.target as HTMLInputElement;
     setEmail(value);
   };
@@ -25,7 +25,7 @@ function useEmail() {
     }
   }, [email]);
 
-  return { email, handleChangeEmail, result, message };
+  return { email, handleEmailChange, result, message };
 }
 
 export default useEmail;

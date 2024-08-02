@@ -7,7 +7,7 @@ function useNickname() {
   const [result, setResult] = useState<validType>('default');
   const [message, setMessage] = useState('');
 
-  const handleChangeNickname = (event: ChangeEvent) => {
+  const handleNicknameChange = (event: ChangeEvent) => {
     const { value } = event.target as HTMLInputElement;
     setNickname(value);
   };
@@ -21,7 +21,7 @@ function useNickname() {
     }
   }, [nickname]);
 
-  return { nickname, handleChangeNickname, result, message };
+  return { nickname, handleNicknameChange, result, message };
 }
 
 export default useNickname;
