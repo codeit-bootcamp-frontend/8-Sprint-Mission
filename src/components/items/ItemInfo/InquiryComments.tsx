@@ -5,6 +5,7 @@ import { INITIAL_COMMENTS } from "../../../constants";
 import useFetch from "../../../lib/hooks/useFetch";
 import { countTime } from "../../../lib/utils/countTime";
 import { CommentResponse } from "DTO/comment";
+import backIcon from "../../../assets/images/ic_back.png";
 
 interface InquiryCommentsProps {
   productId: number | undefined;
@@ -25,7 +26,7 @@ function InquiryComments({ productId, limit }: InquiryCommentsProps) {
     : [];
 
   return (
-    <section className="inquiry-comments">
+    <section className="flex flex-col content-center gap-[40px] ">
       <ul className="comments-ul">
         {comments.map((comment: CommentResponse) => (
           <li className={`comments-li-${comment.id}`} key={comment.id}>
@@ -41,9 +42,12 @@ function InquiryComments({ productId, limit }: InquiryCommentsProps) {
           </li>
         ))}
       </ul>
-      <button className="back-btn" onClick={() => navigate(-1)}>
+      <button
+        className="w-[248px] bg-brand rounded-[40px] mx-auto flex content-center justify-center p-3 text-gray-100 text-lg gap-3"
+        onClick={() => navigate(-1)}
+      >
         목록으로 돌아가기
-        <div className="ic-back" />
+        <img src={backIcon} className="h-6" />
       </button>
     </section>
   );

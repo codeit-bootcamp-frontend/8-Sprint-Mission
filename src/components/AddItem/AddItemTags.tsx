@@ -23,7 +23,7 @@ const AddItemTags: React.FC<{ initialTags: Tag[] }> = ({ initialTags }) => {
 
   return (
     <div className="item-detail-container">
-      <label className="section-title">태그</label>
+      <label className="font-bold text-gray-800 text-lg">태그</label>
       <input
         className="item-detail-input"
         type="text"

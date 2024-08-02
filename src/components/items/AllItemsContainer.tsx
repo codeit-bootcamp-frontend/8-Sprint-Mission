@@ -7,6 +7,7 @@ import { getProducts } from "../../core/api";
 import useFetch from "../../lib/hooks/useFetch";
 import countPageItems from "../../lib/utils/countPageItems";
 import { ProductResponse } from "../../DTO/product";
+import searchIcon from "../../assets/images/ic_search.png";
 
 function AllItemsContainer() {
   const [page, setPage] = useState<number>(1);
@@ -44,20 +45,32 @@ function AllItemsContainer() {
 
   return (
     <>
-      <section className="all-items-container">
-        <div className="all-items-header">
-          <h1 className="section-title">판매 중인 상품</h1>
-          <div className="ic-search" />
-          <input className="search" placeholder="검색할 상품을 입력해주세요" />
-          <Link to="/AddItem" className="login-btn">
-            상품 등록하기
-          </Link>
-          <DropDownList
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
+      <section className="flex flex-col gap-6">
+        <div className="flex justify-between content-center flex-wrap">
+          <h1 className="font-bold text-xl content-center">판매 중인 상품</h1>
+          <div className="relative flex flex-row gap-[10px]">
+            <img
+              src={searchIcon}
+              alt="돋보기 아이콘"
+              className="absolute top-3 left-4 w-6 h-6 cursor-pointer"
+            />
+            <input
+              className="flex text-gray-400 bg-gray-100 rounded-xl py-[9px] pr-5 pl-14 w-[325px]"
+              placeholder="검색할 상품을 입력해주세요"
+            />
+            <Link
+              to="/AddItem"
+              className="bg-brand text-white content-center text-center w-[133px] rounded-lg"
+            >
+              상품 등록하기
+            </Link>
+            <DropDownList
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
+          </div>
         </div>
-        <div className="all-items-list">
+        <div className="grid grid-cols-5 grid-rows-2 gap-6">
           {list.map((item) => (
             <ItemContainer key={item.id} item={item} />
           ))}

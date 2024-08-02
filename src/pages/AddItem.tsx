@@ -46,9 +46,9 @@ function AddItem() {
   }, [itemDetails]);
 
   return (
-    <>
-      <h1 className="page-title">상품 등록하기</h1>
-      <form className="item-add-form" onSubmit={handleSubmit}>
+    <main className="font-pretendard max-w-[1200px] pt-24 mx-auto gap-6 flex flex-col">
+      <h1 className="font-bold text-gray-800 text-xl">상품 등록하기</h1>
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <button
           type="submit"
           className={`submit-btn ${isFormValid ? "active-btn" : ""}`}
@@ -60,7 +60,7 @@ function AddItem() {
         <AddItemDetails details={itemDetails} setDetails={setItemDetails} />
         <AddItemTags initialTags={itemDetails.itemTags} />
       </form>
-    </>
+    </main>
   );
 }
 

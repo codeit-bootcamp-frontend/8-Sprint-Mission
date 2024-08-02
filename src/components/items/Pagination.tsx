@@ -25,8 +25,9 @@ const Pagination = ({
       buttons.push(
         <button
           key={`page-${pageNumber}`}
-          className={`page-nav-btn page-${pageNumber} ${
-            currentPage === pageNumber ? "active" : ""
+          className={`w-10 h-10 rounded-[40px] font-semibold border-2 border-gray-200 
+            page-${pageNumber} ${
+            currentPage === pageNumber ? "active bg-brand text-white" : ""
           }`}
           onClick={() => handlePageChange(pageNumber)}
         >
@@ -38,9 +39,9 @@ const Pagination = ({
   };
 
   return (
-    <div className="page-nav-bar">
+    <section className="flex justify-center gap-3 font-semibold text-base text-gray-500">
       <button
-        className="page-nav-btn page-previous"
+        className="w-10 h-10 rounded-[40px] bg-white font-semibold border-2 border-gray-200"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
@@ -48,13 +49,13 @@ const Pagination = ({
       </button>
       {renderPageButtons()}
       <button
-        className="page-nav-btn page-next"
+        className="w-10 h-10 rounded-[40px] bg-white font-semibold border-2 border-gray-200"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
         {">"}
       </button>
-    </div>
+    </section>
   );
 };
 

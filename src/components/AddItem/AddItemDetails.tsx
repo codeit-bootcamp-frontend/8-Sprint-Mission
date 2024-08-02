@@ -23,7 +23,7 @@ const AddItemDetails: React.FC<AddItemDetailsProps> = ({
   return (
     <section className="item-details">
       <div className="item-detail-container">
-        <label htmlFor="itemName" className="section-title">
+        <label htmlFor="itemName" className="font-bold text-gray-800 text-lg">
           상품명
         </label>
         <input
@@ -38,7 +38,10 @@ const AddItemDetails: React.FC<AddItemDetailsProps> = ({
       </div>
 
       <div className="item-detail-container">
-        <label htmlFor="itemDesciption" className="section-title">
+        <label
+          htmlFor="itemDesciption"
+          className="font-bold text-gray-800 text-lg"
+        >
           상품 소개
         </label>
         <textarea
@@ -52,7 +55,7 @@ const AddItemDetails: React.FC<AddItemDetailsProps> = ({
       </div>
 
       <div className="item-detail-container">
-        <label htmlFor="itemPrice" className="section-title">
+        <label htmlFor="itemPrice" className="font-bold text-gray-800 text-lg">
           판매가격
         </label>
         <input
