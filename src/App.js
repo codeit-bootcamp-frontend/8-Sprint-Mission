@@ -1,3 +1,4 @@
+import React from 'react';
 import Items from './Pages/Items.jsx';
 
 function App() {
