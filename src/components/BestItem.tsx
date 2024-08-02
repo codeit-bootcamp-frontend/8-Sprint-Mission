@@ -1,5 +1,5 @@
 import { Item } from "src/types/type";
-import heartIcon from "../assets/ic_heart.png";
+import heartIcon from "../assets/ic_heart@2x.png";
 import {
   BestImage,
   Content,

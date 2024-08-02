@@ -5,6 +5,7 @@ export const Main = styled.main`
   margin-top: 70px;
   flex: 1;
   width: 100%;
+  height: 100vh;
 `;
 
 export const BannerTop = styled.div<{ image: string }>`

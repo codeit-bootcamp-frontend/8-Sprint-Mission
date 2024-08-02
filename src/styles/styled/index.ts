@@ -32,6 +32,9 @@ export const Flex = styled.div<FlexProps>`
   gap: ${({ gap }) => gap + "px"};
   margin-top: ${({ mt }) => mt + "px"};
   padding-left: ${({ pl }) => pl + "px"};
+  width: ${({ width }) => width + "px"};
+  height: ${({ height }) => height + "px"};
+  flex-grow: ${({ grow }) => grow};
 `;
 
 export const None = styled.div`

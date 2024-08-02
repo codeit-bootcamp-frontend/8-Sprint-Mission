@@ -1,14 +1,13 @@
 export type ProductsApi = {
-  createdAt: "2024-08-01T06:36:24.384Z";
-  favoriteCount: 0;
-  ownerId: 1;
-  images: ["https://example.com/..."];
-  tags: ["전자제품"];
-  price: 0;
-  description: "string";
-  name: "상품 이름";
-  id: 1;
-  isFavorite: true;
+  createdAt: string;
+  favoriteCount: number;
+  ownerId: number;
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+  id: number;
 };
 
 export type ItemType = {
@@ -37,3 +36,20 @@ export type ItemsApi = {
 };
 
 export type ItemKeyType = keyof ItemType;
+
+export type CommentType = {
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  writer: {
+    id: number;
+    nickname: string;
+    image: string;
+  };
+};
+
+export type CommentsApi = {
+  list: CommentType[];
+  nextCursor: number;
+};

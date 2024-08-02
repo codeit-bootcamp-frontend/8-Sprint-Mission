@@ -17,7 +17,7 @@ function AppRouter() {
             <Route path="/" element={<Home />} />
             <Route path="/items">
               <Route index element={<Items />} />
-              <Route element={<ProductId />} />
+              <Route path=":productId" element={<ProductId />} />
             </Route>
             <Route path="/additem" element={<AddItem />} />
           </Route>

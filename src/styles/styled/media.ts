@@ -1,21 +1,20 @@
-import { css, MediaQueryType, MediaQueryValueType } from "styled-components";
+import { css, MediaQueryType } from "styled-components";
 
 export const breakpoints = {
   mobile: "@media (max-width: 767px)",
-  tablet: "@media (max-width: 1119px)",
+  tablet: "@media (max-width: 1199px)",
 };
 
 const arr = Object.entries(breakpoints);
 
 const media = arr.reduce<MediaQueryType>((acc, [key, value]) => {
-  const nextValue: MediaQueryValueType = (first, ...interpolations) => css`
-    ${value} {
-      ${css(first, ...interpolations)}
-    }
-  `;
   return {
     ...acc,
-    [key]: nextValue,
+    [key]: (first, ...interpolations) => css`
+      ${value} {
+        ${css(first, ...interpolations)}
+      }
+    `,
   };
 }, {} as MediaQueryType);
 

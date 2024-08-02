@@ -7,7 +7,7 @@ import {
   Count,
   SellImage,
 } from "../styles/components/Items";
-import heartIcon from "../assets/ic_heart.png";
+import heartIcon from "../assets/ic_heart@2x.png";
 import { Item } from "src/types/type";
 import { useNavigate } from "react-router-dom";
 

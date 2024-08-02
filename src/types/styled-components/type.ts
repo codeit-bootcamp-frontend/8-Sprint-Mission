@@ -15,14 +15,13 @@ declare module "styled-components" {
     width?: number;
     height?: number;
   }
-  export interface FlexProps {
+  export interface FlexProps extends BoxProps {
     flex?: string;
     content?: string;
     item?: string;
     wrap?: string;
-    gap?: string;
-    mt?: string;
-    pl?: string;
+    gap?: number;
+    grow?: number;
   }
   export type MediaQueryValueType = (
     first: Styles<object>,
