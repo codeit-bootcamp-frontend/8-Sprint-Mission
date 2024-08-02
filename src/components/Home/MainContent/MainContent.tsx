@@ -1,6 +1,19 @@
+import React from 'react';
 import "./MainContent.css";
 
-function MainContent({ contentDetail }) {
+interface ContentDetail {
+  imgUrl: string;
+  title: string;
+  mainContent: string;
+  subContent: string;
+  align?: "left" | "right";
+}
+
+interface MainContentProps {
+  contentDetail: ContentDetail;
+}
+
+const MainContent: React.FC<MainContentProps> = ({ contentDetail }) => {
   const {
     imgUrl,
     title,
