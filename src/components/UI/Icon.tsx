@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 interface IIconWrapper {
-  $fillColor?: string;
   $size?: number;
+  $fillColor?: string;
   $outlineColor?: string;
 }
 
@@ -24,12 +24,14 @@ const IconWrapper = styled.div<IIconWrapper>`
   }
 `;
 
-const Icon = ({
-  iconComponent: IconComponent,
-  size,
-  fillColor,
-  outlineColor,
-}) => (
+interface IconProps {
+  IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
+  size: number;
+  fillColor: string;
+  outlineColor: string;
+}
+
+const Icon = ({ IconComponent, size, fillColor, outlineColor }: IconProps) => (
   <IconWrapper $size={size} $fillColor={fillColor} $outlineColor={outlineColor}>
     <IconComponent />
   </IconWrapper>
