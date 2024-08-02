@@ -11,13 +11,17 @@ interface ProductProps {
 
 function ItemList({ product }: ProductProps) {
   const { images, name, price, favoriteCount, createdAt } = product;
-  function formatDate(value: number) {
+  function formatDate(value: Date) {
     const date = new Date(value);
     return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
   }
 
+  const style = {
+    textDecoration: "none",
+  };
+
   return (
-    <Link to={`/items/${product.id}`} className="productContent">
+    <Link style={style} to={`/items/${product.id}`} className="productContent">
       <img className="productImage" src={images[0]} alt={name} />
       <div className="productText">
         <h2 className="productName">{name}</h2>

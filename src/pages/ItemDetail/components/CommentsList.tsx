@@ -4,6 +4,7 @@ import { getProductComments } from "../../../api/api";
 import ModifyComment from "../../../assets/ic_kebab.svg";
 import ProfileImg from "../../../assets/ic_profile.svg";
 import "./CommentsList.css";
+import CommentEmptyImg from "../../../assets/Img_inquiry_empty.svg";
 
 interface CommentType {
   id: number;
@@ -20,14 +21,11 @@ interface CommentProps {
 }
 
 const Comment = ({ item }: CommentProps) => {
-  // 문자열을 Date 객체로 변환합니다
   const createdDate = new Date(item.createdAt);
   const updatedDate = new Date(item.updatedAt);
 
-  // 두 날짜 사이의 시간 차이를 밀리초 단위로 계산합니다
   const timeDifference = updatedDate.getTime() - createdDate.getTime();
 
-  // 밀리초를 시간으로 변환합니다
   const hoursDifference = Math.ceil(timeDifference / (1000 * 60 * 60));
 
   return (
@@ -44,6 +42,19 @@ const Comment = ({ item }: CommentProps) => {
         </div>
       </section>
       <hr className="comment-line-divider" />
+    </>
+  );
+};
+
+const CommentEmpty = () => {
+  return (
+    <>
+      <img
+        className="empty-img"
+        src={CommentEmptyImg}
+        alt="아직 문의가 없어요 이미지"
+      />
+      <p className="empty-title">아직 문의가 없어요</p>
     </>
   );
 };
@@ -69,6 +80,9 @@ function CommentsList({ productId }: ProductIdProps) {
     fetchComment();
   }, [productId]);
 
+  if (!comments) {
+    return <CommentEmpty />;
+  }
   return (
     <div className="comment-list-container">
       {comments.map((item) => (

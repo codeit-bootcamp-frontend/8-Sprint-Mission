@@ -67,3 +67,77 @@ section h3 {
   width: 1200px;
   border: 1px solid #e5e7eb;
 }
+
+@media (max-width: 1279px) {
+  .detail-container {
+    width: 696px;
+    gap: 26px;
+  }
+
+  .detail-container > img {
+    width: 340px;
+    height: 340px;
+  }
+
+  section .title {
+    width: 340px;
+  }
+
+  .detail-text .name {
+    font-size: 20px;
+  }
+
+  section h3 {
+    font-size: 32px;
+    line-height: 42px;
+    margin: 8px 0 16px;
+  }
+
+  .description-title {
+    margin-top: 16px;
+  }
+
+  .description-title,
+  .description {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .line-divider {
+    width: 696px;
+  }
+}
+
+@media (max-width: 767px) {
+  .detail-container {
+    margin: 96px auto 24px;
+    width: 344px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .detail-container > img {
+    width: 343px;
+    height: 343px;
+    border-radius: 12px;
+  }
+
+  section .title {
+    width: 344px;
+  }
+
+  .detail-text .name {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  section h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .line-divider {
+    width: 344px;
+  }
+}

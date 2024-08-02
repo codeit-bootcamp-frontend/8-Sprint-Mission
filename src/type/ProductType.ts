@@ -1,7 +1,7 @@
 export interface Product {
   id: number;
   name: string;
-  createdAt: number;
+  createdAt: Date;
   favoriteCount: number;
   images: string[];
   price: number;

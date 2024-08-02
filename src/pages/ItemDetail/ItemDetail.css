@@ -1,0 +1,34 @@
+.go-back {
+  width: 240px;
+  height: 48px;
+  padding: 12px 39px;
+  border-radius: 40px;
+  background-color: #3692ff;
+  margin: 64px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.go-back > .title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: center;
+  color: #f3f4f6;
+}
+
+.empty-img {
+  width: 196px;
+  height: 230px;
+  margin: 24px auto 8px;
+}
+
+.empty-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+  color: #9ca3af;
+  margin: 8px auto 48px;
+}

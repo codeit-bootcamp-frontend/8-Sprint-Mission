@@ -140,7 +140,7 @@ textarea {
   background-color: #3692ff;
 }
 
-#input-tags {
+#taginput-tags {
   list-style-type: none;
   display: flex;
   padding: 0;
@@ -148,7 +148,7 @@ textarea {
   gap: 12px;
 }
 
-.input-tag {
+.taginput-tag {
   display: flex;
   align-content: center;
   justify-content: space-between;
@@ -223,6 +223,11 @@ textarea {
   .input-img {
     margin-bottom: 12px;
   }
+
+  textarea {
+    width: 696px;
+    height: 282px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -280,5 +285,10 @@ textarea {
 
   .input-img {
     margin-bottom: 9px;
+  }
+
+  textarea {
+    width: 344px;
+    height: 324px;
   }
 }

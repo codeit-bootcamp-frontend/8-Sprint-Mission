@@ -55,7 +55,7 @@ function BestItems() {
 
   return (
     <>
-      <div className="title">베스트 상품</div>
+      <div className="best-items-title">베스트 상품</div>
       <div className="bestItemsMenu">
         {bestProducts.map((product) => (
           <ItemList product={product} key={product.id} />

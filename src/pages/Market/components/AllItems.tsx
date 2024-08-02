@@ -96,7 +96,7 @@ function AllItems() {
   return (
     <>
       <div className="allItemsBar">
-        <div className="title">판매 중인 상품</div>
+        <div className="all-items-title">판매 중인 상품</div>
         <div className="searchItem">
           <img className="searchIcon" src={searchIcon} alt="searchIcon" />
           <input

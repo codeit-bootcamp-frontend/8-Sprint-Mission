@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import ItemProfile from "./components/ItemProfile";
 import ItemComment from "./components/ItemComment";
 import { Product } from "../../type/ProductType";
+import BackImg from "../../assets/ic_back.svg";
+import "./ItemDetail.css";
 
 function ItemDetail() {
   const [product, setProduct] = useState<Product | null>(null);
@@ -26,6 +28,10 @@ function ItemDetail() {
     <>
       <ItemProfile product={product} />
       <ItemComment productId={Number(productId)} />
+      <section className="go-back">
+        <div className="title">목록으로 돌아가기</div>
+        <img src={BackImg} alt="목록으로 돌아가기 이미지" />
+      </section>
     </>
   );
 }

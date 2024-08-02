@@ -11,7 +11,7 @@ export interface ItemProfileProps {
 
 function ItemProfile({ product }: ItemProfileProps) {
   if (!product) {
-    return <div>Loading...</div>; // 또는 적절한 로딩 컴포넌트 또는 메시지
+    return <div>Loading...</div>;
   }
   const { images, favoriteCount, name, price, description, tags } = product;
 

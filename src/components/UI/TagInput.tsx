@@ -35,9 +35,9 @@ const TagInput = ({ tags, onAddTag, onRemoveTag }: TagInputProps) => {
         placeholder="태그를 입력해주세요"
       />
       {tags.length > 0 && (
-        <ul id="input-tags">
+        <ul id="taginput-tags">
           {tags.map((tag, index) => (
-            <li key={index} className="input-tag">
+            <li key={index} className="taginput-tag">
               <span className="input-tag-title">{tag}</span>
               <img
                 src={DeleteIcon}

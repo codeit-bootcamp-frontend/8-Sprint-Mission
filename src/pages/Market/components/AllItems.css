@@ -16,7 +16,8 @@
   display: none;
 }
 
-.title {
+.best-items-title,
+.all-items-title {
   font-size: 20px;
   font-weight: 700;
   line-height: 28px;

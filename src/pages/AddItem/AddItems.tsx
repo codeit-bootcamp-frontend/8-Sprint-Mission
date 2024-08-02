@@ -30,7 +30,6 @@ function AddItems() {
     }
   };
 
-  // Function to remove a tag
   const removeTag = (tagToRemove: string) => {
     setValues((prevState) => ({
       ...prevState,

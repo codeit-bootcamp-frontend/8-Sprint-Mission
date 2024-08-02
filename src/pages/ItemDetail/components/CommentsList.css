@@ -55,3 +55,9 @@
   margin-bottom: 24px;
   border: 1px solid #e5e7eb;
 }
+
+@media (max-width: 767px) {
+  .comment-line-divider {
+    margin-bottom: 26px;
+  }
+}

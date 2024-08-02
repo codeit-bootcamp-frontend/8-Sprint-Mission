@@ -2,6 +2,7 @@ import logoImg from "../../assets/logo.svg";
 import "./Navbar.css";
 import "../../style/global.css";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import ProfileImg from "../../assets/ic_profile.svg";
 
 interface GetLinkStyleProps {
   isActive: boolean;
@@ -32,7 +33,7 @@ function Navbar() {
           </NavLink>
         </div>
       </div>
-      <div className="login">로그인</div>
+      <img src={ProfileImg} alt="프로필 이미지" />
     </header>
   );
 }
