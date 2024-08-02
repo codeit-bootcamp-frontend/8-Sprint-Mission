@@ -1,4 +1,21 @@
-export async function getComments(productId = 9, limit = 5) {
+interface comment {
+  id: number;
+  name: string;
+  content: string;
+  createdAt: string;
+  images: string;
+  nickname: string;
+  updatedAt: number;
+}
+
+interface commentList {
+  list: comment[];
+}
+
+export async function getComments(
+  productId = 9,
+  limit = 5
+): Promise<commentList> {
   const path = `/products/${productId}/comments?`;
   const query = `limit=${limit}`;
   const response = await fetch(

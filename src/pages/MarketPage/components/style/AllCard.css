@@ -10,3 +10,34 @@
   font-size: 16px;
   font-weight: 600;
 }
+
+.allItemsSectionHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sectioncontent {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.searchInput {
+  width: 325px;
+  height: 42px;
+  padding: 9px 20px 9px 30px;
+  border-radius: 12px;
+  border: none;
+  background-image: url("../../../../images/icons/ic_search.svg");
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  text-align: left;
+  background-color: #f3f4f6;
+}
+
+.searchBarIcon {
+  cursor: pointer;
+}

@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import "./AddItemPage.css";
 import FileInput from "../../Layout/UI/FileInput";
 
+interface valuetype {
+  title: string;
+  content: string;
+  price: number;
+  tag: string[];
+  imgFile: File | null;
+}
+
 function AddItemPage() {
-  const [value, setValue] = useState({
+  const [value, setValue] = useState<valuetype>({
     title: "",
     content: "",
     price: 0,
@@ -11,19 +19,21 @@ function AddItemPage() {
     imgFile: null,
   });
 
-  const handleChange = (name, value) => {
+  const handleChange = (name: string, value: File | null | string) => {
     setValue((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     handleChange(name, value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(value);
   };

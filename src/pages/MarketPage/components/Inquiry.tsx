@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 function Inquiry() {
   const [inputValue, setInputValue] = useState("");
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 

@@ -1,16 +1,19 @@
-import React from "react";
 import Logo from "../images/logo/logo.svg";
 import "./Header.css";
 import { NavLink, useLocation } from "react-router-dom";
 
-export function getLinkStyle({ isActive }) {
+interface GetLinkStyleProps {
+  isActive: boolean;
+}
+
+export function getLinkStyle({ isActive }: GetLinkStyleProps) {
   return {
     color: isActive ? "#3692ff" : "",
     textDecoration: isActive ? "none" : "",
   };
 }
 
-function Header() {
+const Header = () => {
   const location = useLocation();
 
   return (
@@ -38,6 +41,6 @@ function Header() {
       <div className="loginbutton">로그인</div>
     </header>
   );
-}
+};
 
 export default Header;
