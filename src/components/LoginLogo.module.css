@@ -1,0 +1,13 @@
+.loginLogo {
+    width: 24.75rem;
+    margin-bottom: 2.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @media (width <= 767px) {
+        width: 12.375rem;
+        margin-bottom: 1.5rem;
+    }
+}

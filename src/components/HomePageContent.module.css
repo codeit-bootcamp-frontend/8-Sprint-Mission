@@ -1,0 +1,313 @@
+.greetingSection {
+    height: 33.75rem;
+    background-color: #CFE5FF;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    .greetingInnerContainer {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+
+        .greetingContent {
+            max-width: 22.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-bottom: 3.75rem;
+
+            .greetingText {
+                color: var(--gray700);
+                font-size: 2.5rem;
+                font-weight: 700;
+                line-height: 3.5rem;
+                margin: 0;
+                word-break: keep-all;
+            }
+
+            .greetingButton {
+                width: 22.25rem;
+                height: 3.5rem;
+                border: none;
+                border-radius: 2.5rem;
+                background-color: var(--blue);
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: var(--gray50);
+            }
+        }
+
+        .greetingImage {
+            max-width: 46.625rem;
+        }
+    }
+
+    @media (width <= 1199px) {
+        height: auto;
+        margin-bottom: 1.5rem;
+        padding-top: 5.25rem;
+
+        .greetingInnerContainer {
+            flex-direction: column;
+            gap: 13.125rem;
+            
+            .greetingContent {
+                max-width: 100%;
+                align-items: center;
+                padding: 0;
+            }
+
+            .greetingImage {
+                max-width: 100%;
+            }
+        }
+    }
+
+    @media (width <= 767px) {
+        margin-bottom: 3.25rem;
+        padding-top: 3rem;
+
+        .greetingInnerContainer {
+            gap: 8.25rem;
+
+            .greetingContent {
+                width: 15rem;
+
+                .greetingText {
+                    font-size: 2rem;
+                    line-height: 2.8rem;
+                    text-align: center;
+                }
+
+                .greetingButton {
+                    width: 100%;
+                    font-size: 1.125rem;
+                }
+            }
+        }
+    }
+}
+
+.promotionLabel {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.625rem;
+    color: var(--blue);
+    margin-bottom: 0.75rem;
+
+    @media (width <= 1199px) {
+        margin-bottom: 1rem;
+    }
+
+    @media (width <= 767px) {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.promotionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 3.5rem;
+    color: var(--gray700);
+    margin-bottom: 1.5rem;
+    word-break: keep-all;
+    max-width: 19.75rem;
+
+    @media (width <= 1199px) {
+        font-size: 2rem;
+        line-height: 2.625rem;
+        max-width: 100%;
+    }
+
+    @media (width <= 767px) {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.promotionContent {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2rem;
+    color: var(--gray700);
+    word-break: keep-all;
+
+    @media (width <= 1199px) {
+        font-size: 1.125rem;
+        line-height: 1.625rem;
+    }
+
+    @media (width <= 767px) {
+        font-size: 1rem;
+    }
+}
+
+.contentImage {
+    max-width: 36.75rem;
+
+    @media (width <= 1199px) {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.leftySection {
+    height: 45rem;
+    display: flex;
+    align-items: center;
+
+    .leftyContainer {
+        width: 78rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+
+        .hotContent {
+            max-width: 17.125rem;
+        }
+    
+        .registerContent {
+            max-width: 21rem;
+        }
+    }
+
+    @media (width <= 1199px) {
+        height: auto;
+        justify-content: center;
+        margin-bottom: 3.25rem;
+
+        .leftyContainer {
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+
+            .hotContent {
+                max-width: 100%;
+            }
+
+            .registerContent {
+                max-width: 100%;
+            }
+        }
+    }
+
+    @media (width <= 767px) {
+        margin-bottom: 2.5rem;
+
+        .leftyContainer {
+            padding: 0 1rem;
+        }
+    }
+}
+
+.rightySection {
+    height: 45rem;
+    display: flex;
+    align-items: center;
+
+    .rightyContainer {
+        width: 78rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 4rem;
+
+        .searchContent {
+            text-align: right;
+        }
+    }
+
+    @media (width <= 1199px) {
+        height: auto;
+        justify-content: center;
+        margin-bottom: 3.25rem;
+
+        .rightyContainer {
+            width: 100%;
+            flex-direction: column-reverse;
+            align-items: flex-end;
+            gap: 1.5rem;
+        }
+
+        .searchContent {
+            max-width: 100%;
+        }
+    }
+
+    @media (width <= 767px) {
+        margin-bottom: 2.5rem;
+
+        .rightyContainer {
+            padding: 0 1rem;
+        }
+    }
+}
+
+.goodbyeSection {
+    height: 33.75rem;
+    background-color: #CFE5FF;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 8.625rem;
+
+    .goodbyeInnerContainer {
+        display: flex;
+        gap: 4.25rem;
+        align-items: center;
+
+        .goodbyeText {
+            color: var(--gray700);
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 3.5rem;
+            margin: 0;
+            word-break: keep-all;
+            max-width: 18.375rem;
+        }
+
+        .goodbyeImage {
+            max-width: 46.625rem;
+        }
+    }
+
+    @media (width <= 1199px) {
+        height: auto;
+        margin-top: 3.5rem;
+
+        .goodbyeInnerContainer {
+            padding-top: 12.5rem;
+            flex-direction: column;
+
+            .goodbyeText {
+                text-align: center;
+            }
+
+            .goodbyeImage {
+                max-width: 100%;
+            }
+        }
+    }
+
+    @media (width <= 767px) {
+        margin-top: 5.25rem;
+
+        .goodbyeInnerContainer {
+            padding-top: 7.5rem;
+
+            .goodbyeText {
+                font-size: 2rem;
+                line-height: 2.8rem;
+                max-width: 14.75rem;
+            }
+        }
+    }
+}
