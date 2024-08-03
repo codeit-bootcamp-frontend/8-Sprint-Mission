@@ -20,20 +20,38 @@ const getPageSize = () => {
   }
 };
 
+interface ItemListProps {
+  id: string;
+  images: string[];
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
+
+interface FetchSortedDataProps {
+  orderBy: string;
+  page: number;
+  pageSize: number;
+}
+
 function AllItemsSection() {
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
-  const [itemList, setItemList] = useState([]);
-  const [totalPageNum, setTotalPageNum] = useState();
+  const [itemList, setItemList] = useState<ItemListProps[]>([]);
+  const [totalPageNum, setTotalPageNum] = useState<number>(0);
 
-  const fetchSortedData = async ({ orderBy, page, pageSize }) => {
+  const fetchSortedData = async ({
+    orderBy,
+    page,
+    pageSize,
+  }: FetchSortedDataProps) => {
     const products = await getProducts({ orderBy, page, pageSize });
     setItemList(products.list);
     setTotalPageNum(Math.ceil(products.totalCount / pageSize));
   };
 
-  const handleSortSelection = (sortOption) => {
+  const handleSortSelection = (sortOption: string) => {
     setOrderBy(sortOption);
   };
 
@@ -52,7 +70,7 @@ function AllItemsSection() {
     };
   }, [orderBy, page, pageSize]);
 
-  const onPageChange = (pageNumber) => {
+  const onPageChange = (pageNumber: number) => {
     setPage(pageNumber);
   };
 

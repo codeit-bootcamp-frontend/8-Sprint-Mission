@@ -38,7 +38,11 @@ const TextInput = styled.textarea`
   }
 `;
 
-const Button = styled.button`
+interface ButtonProps {
+  hasContent: boolean;
+}
+
+const Button = styled.button<ButtonProps>`
   width: 74px;
   height: 42px;
   border-radius: 8px;
@@ -133,9 +137,20 @@ const BackIconImage = styled.img`
   height: 24px;
 `;
 
+interface CommentsProps {
+  id: number;
+  content: string;
+  writer: {
+    image: string;
+    nickname: string;
+    id: number;
+  };
+  createdAt: Date;
+}
+
 function CommentsSection() {
   const { productid } = useParams();
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState<CommentsProps[]>([]);
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
@@ -153,7 +168,8 @@ function CommentsSection() {
     fetchComments();
   }, [productid]);
 
-  const handleInputChange = (e) => {
+  // 종화 : TextArea와 관련된 부분이라 HTMLTextAreaElement 사용
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(e.target.value);
   };
 
@@ -167,7 +183,6 @@ function CommentsSection() {
       <form>
         <TextInput
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
-          type="text"
           onChange={handleInputChange}
         />
         <Button type="submit" hasContent={inputValue.length > 0}>

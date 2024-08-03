@@ -17,11 +17,27 @@ const getPageSize = () => {
   }
 };
 
+interface ItemListProps {
+  id: string;
+  images: string[];
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
+
+interface FetchSortedDataProps {
+  orderBy: string;
+  pageSize: number;
+}
+
 function BestItemsSection() {
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState<ItemListProps[]>([]);
   const [pageSize, setPageSize] = useState(getPageSize());
 
-  const fetchSortedData = async ({ orderBy, pageSize }) => {
+  const fetchSortedData = async ({
+    orderBy,
+    pageSize,
+  }: FetchSortedDataProps) => {
     const products = await getProducts({ orderBy, pageSize });
     setItemList(products.list);
   };

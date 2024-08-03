@@ -1,5 +1,11 @@
 export async function getProducts(params = {}) {
-  const { productid, comments } = params;
+  const {
+    productid,
+    comments,
+  }: {
+    productid?: number;
+    comments?: string;
+  } = params;
   const query = new URLSearchParams(params).toString();
 
   try {

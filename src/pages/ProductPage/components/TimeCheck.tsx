@@ -1,7 +1,7 @@
-function TimeCheck(date) {
+function TimeCheck(date: string | number | Date) {
   const now = new Date();
   const past = new Date(date);
-  const diffInMs = now - past;
+  const diffInMs = now.getTime() - past.getTime();
 
   const diffInSeconds = Math.floor(diffInMs / 1000);
   const diffInMinutes = Math.floor(diffInSeconds / 60);
