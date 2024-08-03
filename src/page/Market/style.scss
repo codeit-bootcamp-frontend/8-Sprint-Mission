@@ -134,7 +134,7 @@
   }
 }
 
-@include media($desktop) {
+@include media($pc) {
   .bestItemsCardSection {
     grid-template-columns: repeat(4, 1fr);
   }

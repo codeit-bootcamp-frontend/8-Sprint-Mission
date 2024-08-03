@@ -1,0 +1,43 @@
+@import '../../config.scss';
+
+.app-footer {
+  background-color: var(--gray900);
+  color: var(--gray400);
+  font-size: 16px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 60px;
+
+  @include media($tablet) {
+    padding: 32px 104px 108px;
+  }
+
+  @include media($pc) {
+    padding: 32px 200px 108px;
+  }
+
+  .copyright {
+    order: 1;
+    flex-basis: 100%;
+    color: var(--gray400);
+
+    @include media($tablet) {
+      flex-basis: auto;
+      order: 0;
+    }
+  }
+
+  .footer-menu {
+    display: flex;
+    gap: 30px;
+    color: var(--gray200);
+  }
+
+  .social-media {
+    display: flex;
+    gap: 12px;
+  }
+}

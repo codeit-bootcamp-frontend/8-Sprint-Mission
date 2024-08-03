@@ -1,0 +1,77 @@
+@import '../../config.scss';
+
+.AuthContainer.main {
+  padding: 24px 16px;
+  max-width: 432px;
+  margin: 0 auto;
+
+  @include media($tablet) {
+    max-width: 640px;
+    padding: 48px 0;
+  }
+
+  @include media($pc) {
+    padding: 60px 0;
+  }
+}
+
+.LogoHomeLink.a {
+  display: block;
+  margin-bottom: 24px;
+  text-align: center;
+
+  img {
+    width: 198px;
+
+    @include media($tablet) {
+      width: 396px;
+    }
+  }
+
+  @include media($tablet) {
+    margin-bottom: 40px;
+  }
+}
+
+.Form.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.AuthSwitch.div {
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+
+  a {
+    color: #3182f6;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+.SubmitButton.button {
+  background-color: var(--blue);
+  color: #ffffff;
+  padding: 14.5px 33.5px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+
+  &:hover {
+    background-color: #1967d6;
+  }
+
+  &:focus {
+    background-color: #1251aa;
+  }
+
+  &:disabled {
+    background-color: #9ca3af;
+    cursor: default;
+  }
+}

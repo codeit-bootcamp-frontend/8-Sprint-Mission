@@ -1,0 +1,15 @@
+@import '../config.scss';
+
+main {
+  margin: var(--header-height) 16px;
+  width: 100%;
+  max-width: 1200px;
+
+  @include media($tablet) {
+    margin: var(--header-height) 24px;
+  }
+
+  @include media($pc) {
+    margin: var(--header-height) auto;
+  }
+}

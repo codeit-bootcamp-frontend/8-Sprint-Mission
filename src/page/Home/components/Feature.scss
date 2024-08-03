@@ -1,0 +1,74 @@
+@import '../../../config.scss';
+
+.feature {
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+
+  @include media($pc) {
+    margin-bottom: 138px;
+    align-items: center;
+    gap: 5%;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include media($pc) {
+      width: 50%;
+      margin-bottom: 0;
+    }
+  }
+
+  div {
+    h3 {
+      color: var(--blue);
+      font-size: 16px;
+      line-height: 22.4px;
+      font-weight: 700;
+      margin-bottom: 8px;
+
+      @include media($tablet) {
+        font-size: 18px;
+        line-height: 25.2px;
+        margin-bottom: 12px;
+      }
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 33.6px;
+
+      @include media($tablet) {
+        font-size: 32px;
+        line-height: 44.8px;
+      }
+
+      @include media($pc) {
+        font-size: 40px;
+        line-height: 56px;
+      }
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19.2px;
+      letter-spacing: 0.08em;
+      margin-top: 20px;
+
+      @include media($tablet) {
+        font-size: 18px;
+        line-height: 21.6px;
+      }
+
+      @include media($pc) {
+        font-size: 24px;
+        line-height: 28.8px;
+        margin-top: 24px;
+      }
+    }
+  }
+}
