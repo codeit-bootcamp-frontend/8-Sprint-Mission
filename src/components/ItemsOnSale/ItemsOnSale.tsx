@@ -1,14 +1,34 @@
-import '../ItemsOnSale/ItemsOnSale.css';
-import favoriteIcon from '../../assets/images/icon/btn_icon/ic_favorite.png';
-import searchIcon from '../../assets/images/icon/btn_icon/ic_search.png';
-import DropDown from '../DropDown/DropDown';
-import { useNavigate } from 'react-router-dom';
+import "../ItemsOnSale/ItemsOnSale.css";
+import favoriteIcon from "../../assets/images/icon/btn_icon/ic_favorite.png";
+import searchIcon from "../../assets/images/icon/btn_icon/ic_search.png";
+import DropDown from "../DropDown/DropDown";
+import { useNavigate } from "react-router-dom";
 
-function BestItems({ item }) {
+interface Item {
+  favoriteCount: number;
+  images: string;
+  price: number;
+  name: string;
+  id: string;
+}
+
+interface BestItemsProps {
+  item: Item;
+}
+
+interface ItemsOnSaleProps {
+  items: {
+    list: Item[];
+  };
+  orderBy: string;
+  handleOrderChange: (order: string) => void;
+}
+
+function BestItems({ item }: BestItemsProps) {
   const { favoriteCount, images, price, name, id } = item;
-  const won = price.toLocaleString('ko-KR');
+  const won = price.toLocaleString("ko-KR");
   const navigate = useNavigate();
-  const onImgClick = (id) => {
+  const onImgClick = (id: string) => {
     navigate(`${id}`);
   };
   return (
@@ -24,7 +44,7 @@ function BestItems({ item }) {
   );
 }
 
-function ItemsOnSale({ items, orderBy, handleOrderChange }) {
+function ItemsOnSale({ items, orderBy, handleOrderChange }: ItemsOnSaleProps) {
   const cutItems = [...items.list];
   return (
     <div className="sale-item">

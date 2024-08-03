@@ -1,33 +1,39 @@
-import { useState } from 'react';
-import '../DropDown/DropDown.css';
+import { useState } from "react";
+import "../DropDown/DropDown.css";
 
-export default function DropDown({ orderBy, handleOrderChange }) {
+interface DropDownProps {
+  className?: string;
+  orderBy: string;
+  handleOrderChange: (order: string) => void;
+}
+
+export default function DropDown({ className, orderBy, handleOrderChange }: DropDownProps) {
   const nowType = orderBy;
   const [isOpen, setIsOpen] = useState(false);
   const [select, setSelect] = useState(nowType);
   const toggle = () => setIsOpen(!isOpen);
-  const optionClick = (option) => {
+  const optionClick = (option: string) => {
     setSelect(option);
     setIsOpen(false);
   };
 
   const getApiRecent = () => {
-    handleOrderChange('recent');
+    handleOrderChange("recent");
   };
 
   const getApiFavorite = () => {
-    handleOrderChange('favorite');
+    handleOrderChange("favorite");
   };
 
   return (
     <div className="select-options" onClick={toggle}>
-      <div className="select-text">{select === 'recent' ? '최신순' : '좋아요순'}</div>
+      <div className="select-text">{select === "recent" ? "최신순" : "좋아요순"}</div>
       {isOpen && (
         <ul className="select-options-box">
           <li
             className="select-options-recent"
             onClick={() => {
-              optionClick('recent');
+              optionClick("recent");
               getApiRecent();
             }}
           >
@@ -36,7 +42,7 @@ export default function DropDown({ orderBy, handleOrderChange }) {
           <li
             className="select-options-favorite"
             onClick={() => {
-              optionClick('favorite');
+              optionClick("favorite");
               getApiFavorite();
             }}
           >

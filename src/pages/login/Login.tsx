@@ -1,4 +1,4 @@
-import VisibiltyOffIc from '../../assets/images/icon/btn_icon/ic_visibilty_off.png';
+import VisibiltyOffIc from "../../assets/images/icon/btn_icon/ic_visibilty_off.png";
 function Login() {
   return (
     <>

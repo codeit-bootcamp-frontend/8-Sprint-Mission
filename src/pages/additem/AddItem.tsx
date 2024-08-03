@@ -1,33 +1,43 @@
-import { useEffect, useState } from 'react';
-import NavBar from '../../components/NavBar/NavBar';
-import styles from './AddItem.module.css';
-import PlusBtnIc from '../../assets/images/icon/btn_icon/ic_plus.png';
-import DeleteBtnIc from '../../assets/images/icon/btn_icon/ic_delete_btn.png';
-import DeleteGrayBtnIc from '../../assets/images/icon/btn_icon/ic_delete_btn_gray.png';
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import NavBar from "../../components/NavBar/NavBar";
+import styles from "./AddItem.module.css";
+import PlusBtnIc from "../../assets/images/icon/btn_icon/ic_plus.png";
+import DeleteBtnIc from "../../assets/images/icon/btn_icon/ic_delete_btn.png";
+import DeleteGrayBtnIc from "../../assets/images/icon/btn_icon/ic_delete_btn_gray.png";
+
+interface FormValues {
+  images: File[];
+  tags: string[];
+  price: string;
+  description: string;
+  name: string;
+}
+
+type HandleChangeFunction = (name: string, value: string | File | null) => void;
+
 function AddItem() {
-  const [values, setValues] = useState({
-    images: null,
+  const [values, setValues] = useState<FormValues>({
+    images: [],
     tags: [],
-    price: '',
-    description: '',
-    name: '',
+    price: "",
+    description: "",
+    name: "",
   });
-  const [preview, setPreview] = useState();
-  const [tagInput, setTagInput] = useState('');
+  const [preview, setPreview] = useState("");
+  const [tagInput, setTagInput] = useState("");
   const [pass, setPass] = useState(false);
-  console.log(pass);
-  console.log(values);
+  // const won = Number(values.price).toLocaleString("ko-KR"); // 임시 주석 처리
 
   // 이미지 삭제
   const onClickImageDelete = () => {
     setValues((prevValues) => ({
       ...prevValues,
-      images: null,
+      images: [],
     }));
   };
 
   // 태그 삭제
-  const onClickTagDelete = (deleteTag) => {
+  const onClickTagDelete = (deleteTag: string) => {
     const restTag = values.tags.filter((tag) => tag !== deleteTag);
     setValues((prevValues) => ({
       ...prevValues,
@@ -36,7 +46,7 @@ function AddItem() {
   };
 
   // 입력된 값을 state에 저장
-  const handleChange = (name, value) => {
+  const handleChange: HandleChangeFunction = (name, value) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
@@ -44,57 +54,65 @@ function AddItem() {
   };
 
   // 입력된 값을 파악하여 함수에 전달
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement> & ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const { name, value, type, files } = e.target;
-    if (type === 'file') {
-      handleChange(name, files[0]);
+    if (type === "file") {
+      console.log("파일타입 추가하려함");
+      const file = files && files.length > 0 ? files[0] : null;
+      console.log(file);
+      handleChange(name, file);
     } else {
       handleChange(name, value);
     }
   };
 
   // 태그 인풋의 입력값 파악
-  const handleTagInputChange = (e) => {
+  const handleTagInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTagInput(e.target.value);
   };
 
   // 등록 버튼 클릭 시 제출
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(values);
   };
 
   // 이미지 미리 보기 주소 생성, 삭제
   useEffect(() => {
+    if (!values.images || values.images.length === 0) return;
     const image = values.images;
-    if (!image) return;
+    console.log(image);
+    if (!(image instanceof File)) return;
+    console.log(image);
     const nextPreview = URL.createObjectURL(image);
     setPreview(nextPreview);
 
     return () => {
-      setPreview();
       URL.revokeObjectURL(nextPreview);
+      setPreview("");
     };
   }, [values.images]);
 
   // 태그 인풋 엔터키 감지 후 입력값 state에 저장 밑 태그 인풋 초기화
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key !== 'Enter') return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Enter") return;
       const tag = tagInput.trim();
       if (tag && !values.tags.includes(tag)) {
         setValues((prevValues) => ({
           ...prevValues,
           tags: [...prevValues.tags, tag],
         }));
-        setTagInput('');
+        setTagInput("");
       } else {
-        alert('비어있거나 중복된 태그입니다.');
+        alert("비어있거나 중복된 태그입니다.");
       }
     };
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [tagInput, values.tags]);
 
@@ -102,7 +120,7 @@ function AddItem() {
   useEffect(() => {
     function validation() {
       const { tags, price, description, name } = values;
-      const target = price && description && name !== '';
+      const target = Boolean(price) && Boolean(description) && name !== "";
       const tagCheck = tags.length > 0;
 
       return target && tagCheck;
@@ -123,36 +141,31 @@ function AddItem() {
             </button>
           </article>
           <article>
-            <label className={styles.verticalAlign} htmlFor="file-upload">
-              <span className={styles.productImageTitle}>상품 이미지</span>
-              <div className={styles.imageUploadBox}>
+            {/* <label className={styles.verticalAlign} htmlFor="file-upload"> */}
+            <span className={styles.productImageTitle}>상품 이미지</span>
+            <div className={styles.imageUploadBox}>
+              <label className={styles.verticalAlign} htmlFor="file-upload">
                 <div className={styles.imageUpload}>
-                  <img
-                    src={PlusBtnIc}
-                    accept="image/*"
-                    alt="이미지 추가 버튼"
-                    width="48px"
-                    height="48px"
-                  />
+                  <img src={PlusBtnIc} alt="이미지 추가 버튼" width="48px" height="48px" />
                   <span className={styles.imageUploadText}>이미지 등록</span>
                 </div>
-                {preview ? (
-                  <div className={styles.imageUploadSelect}>
-                    <img className={styles.imageUpload} alt="등록된 이미지" src={preview} />
-                    <div className={styles.imageUploadDelete} onClick={onClickImageDelete}>
-                      <img
-                        src={DeleteBtnIc}
-                        alt="등록된 이미지 삭제 버튼"
-                        width="20px"
-                        height="20px"
-                      />
-                    </div>
+              </label>
+              {preview ? (
+                <div className={styles.imageUploadSelect}>
+                  <img className={styles.imageUpload} alt="등록된 이미지" src={preview} />
+                  <div className={styles.imageUploadDelete} onClick={onClickImageDelete}>
+                    <img
+                      src={DeleteBtnIc}
+                      alt="등록된 이미지 삭제 버튼"
+                      width="20px"
+                      height="20px"
+                    />
                   </div>
-                ) : (
-                  <></>
-                )}
-              </div>
-            </label>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
             <input
               onChange={handleInputChange}
               type="file"
@@ -190,7 +203,7 @@ function AddItem() {
               placeholder="판매 가격을 입력해주세요"
               value={values.price}
               name="price"
-              type="text"
+              type="number"
             />
           </article>
           <article className={styles.verticalAlign}>

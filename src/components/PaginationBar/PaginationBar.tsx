@@ -1,20 +1,47 @@
-import './PaginationBar.css';
-import pageNationLeftIcon from '../../assets/images/icon/btn_icon/ic_page_left_arrow.png';
-import pageNationRightIcon from '../../assets/images/icon/btn_icon/ic_page_right_arrow.png';
-import { useEffect, useState } from 'react';
+import "./PaginationBar.css";
+import pageNationLeftIcon from "../../assets/images/icon/btn_icon/ic_page_left_arrow.png";
+import pageNationRightIcon from "../../assets/images/icon/btn_icon/ic_page_right_arrow.png";
+import { useEffect, useState } from "react";
 
-function PaginationBar({ items, pageBy, handlePaginationChange, itemsSize }) {
-  const [list, setList] = useState([]);
+interface Item {
+  favoriteCount: number;
+  images: string;
+  price: number;
+  name: string;
+  id: string;
+}
+
+interface Items {
+  list: Item[];
+}
+
+interface Pagination {
+  items: Items;
+  pageBy: number;
+  totalCount: number;
+  handlePaginationChange: (page: number) => void;
+  itemsSize: number;
+}
+
+function PaginationBar({
+  items,
+  totalCount,
+  pageBy,
+  handlePaginationChange,
+  itemsSize,
+}: Pagination) {
+  const [list, setList] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
   const [navClick, setNavClick] = useState(Number(pageBy));
   const pageItem = itemsSize;
-  const totalItem = items.totalCount;
-  const btnRange = Math.ceil(totalItem / pageItem);
+  // const totalItem = items.totalCount;
+  const btnRange = Math.ceil(totalCount / pageItem);
 
-  const onClickNum = (e) => {
-    if (e.target.tagName !== 'LI') return;
-    setNavClick(Number(e.target.innerText));
-    handlePaginationChange(Number(e.target.innerText));
+  const onClickNum = (e: React.MouseEvent<HTMLUListElement>) => {
+    const target = e.currentTarget as HTMLUListElement;
+    if (target.tagName !== "LI") return;
+    setNavClick(Number(target.innerText));
+    handlePaginationChange(Number(target.innerText));
   };
   const onClickLeft = () => {
     if (navClick === 1) return;
@@ -55,7 +82,7 @@ function PaginationBar({ items, pageBy, handlePaginationChange, itemsSize }) {
       <div
         className="pagiation-arrow"
         onClick={onClickLeft}
-        style={{ opacity: pageBy === 1 ? '40%' : '100%' }}
+        style={{ opacity: pageBy === 1 ? "40%" : "100%" }}
       >
         <img
           src={pageNationLeftIcon}
@@ -66,7 +93,7 @@ function PaginationBar({ items, pageBy, handlePaginationChange, itemsSize }) {
       </div>
       <ul className="pagiation-num" onClick={onClickNum}>
         {list.map((item, index) => (
-          <li key={item + index} className={index + 1 === navClick ? 'pagiation-target' : ''}>
+          <li key={item + index} className={index + 1 === navClick ? "pagiation-target" : ""}>
             {item}
           </li>
         ))}
@@ -74,7 +101,7 @@ function PaginationBar({ items, pageBy, handlePaginationChange, itemsSize }) {
       <div
         className="pagiation-arrow"
         onClick={onClickRight}
-        style={{ opacity: pageBy === btnRange ? '40%' : '100%' }}
+        style={{ opacity: pageBy === btnRange ? "40%" : "100%" }}
       >
         <img
           src={pageNationRightIcon}

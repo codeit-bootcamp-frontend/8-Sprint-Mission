@@ -1,22 +1,40 @@
-import { useCallback, useEffect, useState } from 'react';
-import BestItem from '../../components/BestItem/BestItem.jsx';
-import ItemsOnSale from '../../components/ItemsOnSale/ItemsOnSale.jsx';
-import NavBar from '../../components/NavBar/NavBar.jsx';
-import '../items/Items.css';
-import { getApi, getApiOrderBy } from '../../components/getApi.js';
-import PaginationBar from '../../components/PaginationBar/PaginationBar.jsx';
+import { useCallback, useEffect, useState } from "react";
+import BestItem from "../../components/BestItem/BestItem";
+import ItemsOnSale from "../../components/ItemsOnSale/ItemsOnSale";
+import NavBar from "../../components/NavBar/NavBar";
+import "../items/Items.css";
+import { getApi, getApiOrderBy } from "../../components/getApi";
+import PaginationBar from "../../components/PaginationBar/PaginationBar";
+
+interface Item {
+  favoriteCount: number;
+  images: string;
+  price: number;
+  name: string;
+  id: string;
+}
+
+interface ItemfetchDataValues {
+  order: string;
+  lowerSize: number;
+  page: number;
+}
+
+interface FetchDataValues extends ItemfetchDataValues {
+  upperSize: number;
+}
 
 function Items() {
   const [pageWidth, setPageWidth] = useState(window.innerWidth);
   const [loading, setLoading] = useState(true);
-  const [Bestitems, setBestItems] = useState([]);
-  const [items, setItems] = useState([]);
-  const [orderBy, setOrderBy] = useState('recent');
-  const [pageBy, setPageBy] = useState(1);
-  const [itemsSize, setItemsSize] = useState();
-
+  const [Bestitems, setBestItems] = useState<{ list: Item[] }>({ list: [] });
+  const [items, setItems] = useState<{ list: Item[] }>({ list: [] });
+  const [totalCount, setTotalCount] = useState(0);
+  const [orderBy, setOrderBy] = useState<string>("recent");
+  const [pageBy, setPageBy] = useState<number>(1);
+  const [itemsSize, setItemsSize] = useState(0);
   // 베스트 상품 가져오기
-  const bestfetchData = async (upperSize) => {
+  const bestfetchData = async (upperSize: number) => {
     try {
       const result = await getApi(upperSize);
       setBestItems(result);
@@ -26,10 +44,11 @@ function Items() {
   };
 
   // 판매 중인 상품 가져오기
-  const itemfetchData = async ({ order, lowerSize = '10', page }) => {
+  const itemfetchData = async ({ order, lowerSize = 10, page }: ItemfetchDataValues) => {
     try {
       const result = await getApiOrderBy({ order, lowerSize, page });
       setItems(result);
+      setTotalCount(result.totalCount);
     } catch (error) {
       console.error(error);
     }
@@ -38,7 +57,7 @@ function Items() {
   // 웹 페이지 가로 길이에 따라 받아올 데이터 개수 지정 후 가져오기
   const fetchDataOnResize = useCallback(
     (order = orderBy, page = pageBy) => {
-      const fetchData = async (upperSize, lowerSize, order, page) => {
+      const fetchData = async ({ upperSize, lowerSize, order, page }: FetchDataValues) => {
         try {
           await Promise.all([bestfetchData(upperSize), itemfetchData({ order, lowerSize, page })]);
         } catch (error) {
@@ -49,27 +68,27 @@ function Items() {
       };
 
       if (pageWidth < 768) {
-        const upperSize = '1';
-        const lowerSize = '4';
+        const upperSize = 1;
+        const lowerSize = 4;
         setItemsSize(lowerSize);
-        fetchData(upperSize, lowerSize, order, page);
+        fetchData({ upperSize, lowerSize, order, page });
       } else if (pageWidth < 1199) {
-        const upperSize = '2';
-        const lowerSize = '6';
+        const upperSize = 2;
+        const lowerSize = 6;
         setItemsSize(lowerSize);
-        fetchData(upperSize, lowerSize, order, page);
+        fetchData({ upperSize, lowerSize, order, page });
       } else {
-        const upperSize = '4';
-        const lowerSize = '10';
+        const upperSize = 4;
+        const lowerSize = 10;
         setItemsSize(lowerSize);
-        fetchData(upperSize, lowerSize, order, page);
+        fetchData({ upperSize, lowerSize, order, page });
       }
     },
     [pageWidth, orderBy, pageBy]
   );
 
   // 드롭 다운 동작 시 드롭 다운의 order 값에 따라 fetch 동작
-  const handleOrderChange = async (order) => {
+  const handleOrderChange = async (order: string) => {
     try {
       setOrderBy(order);
       fetchDataOnResize(order, pageBy);
@@ -80,7 +99,7 @@ function Items() {
   };
 
   // 페이지네이션 동작 시 지정한 page 버튼 값에 따라 fetch 동작
-  const handlePaginationChange = async (page) => {
+  const handlePaginationChange = async (page: number) => {
     try {
       setPageBy(page);
       fetchDataOnResize(orderBy, page);
@@ -92,17 +111,17 @@ function Items() {
 
   // 리사이징 동작 시 디바운싱 이용하여 페이지의 width 값을 state에 저장
   useEffect(() => {
-    let timer = null;
+    let timer: number | undefined = undefined;
     const getResize = () => {
       let delay = 300;
       clearTimeout(timer);
-      timer = setTimeout(() => {
+      timer = window.setTimeout(() => {
         setPageWidth(window.innerWidth);
       }, delay);
     };
-    window.addEventListener('resize', getResize);
+    window.addEventListener("resize", getResize);
     return () => {
-      window.removeEventListener('resize', getResize);
+      window.removeEventListener("resize", getResize);
     };
   }, []);
 
@@ -118,7 +137,7 @@ function Items() {
 
   return (
     <>
-      <NavBar page="item-page" />
+      <NavBar />
       <main className="main-box">
         <BestItem items={Bestitems} />
         <ItemsOnSale items={items} orderBy={orderBy} handleOrderChange={handleOrderChange} />
@@ -126,6 +145,7 @@ function Items() {
       <footer className="footer-box">
         <PaginationBar
           items={items}
+          totalCount={totalCount}
           pageBy={pageBy}
           itemsSize={itemsSize}
           handlePaginationChange={handlePaginationChange}

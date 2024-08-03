@@ -179,6 +179,8 @@ textarea:focus {
     margin: 70px;
   }
   .imageUploadBox {
+    margin-top: 16px;
+    max-width: 282px;
     display: flex;
     justify-content: left;
     gap: 24px;

@@ -1,14 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import { getApiProductsComments } from './getApi';
-import KebabIconImg from '../assets/images/icon/btn_icon/ic_kebab_menu.png';
-import ReturnIconImg from '../assets/images/icon/btn_icon/ic_return.png';
-import GrayPandaImg from '../assets/images/logo/gray_panda.png';
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import styled from "styled-components";
+import { getApiProductsComments } from "./getApi";
+import KebabIconImg from "../assets/images/icon/btn_icon/ic_kebab_menu.png";
+import ReturnIconImg from "../assets/images/icon/btn_icon/ic_return.png";
+import GrayPandaImg from "../assets/images/logo/gray_panda.png";
 const PLACEHOLDERTEXT =
-  '개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.';
+  "개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.";
 // @media screen and (max-width: 1199px) and (min-width: 768px) {}
 // @media screen and (min-width: 1200px) {}
+
+interface ButtonProps {
+  $pass?: boolean;
+}
+
+interface ItemsListType<T> {
+  list: T[];
+}
+
 const Main = styled.main`
   display: flex;
   flex-direction: column;
@@ -62,13 +71,14 @@ const CommentInput = styled.textarea`
     color: var(--gray400);
   }
 `;
+
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-const CommentSubmitButton = styled.button`
+const CommentSubmitButton = styled.button<ButtonProps>`
   display: inline-block;
-  background-color: ${({ $pass }) => ($pass ? `var(--blue)` : 'var(--gray400)')};
+  background-color: ${({ $pass }) => ($pass ? `var(--blue)` : "var(--gray400)")};
   color: #ffffff;
   border-radius: 8px;
   padding: 12px 23px;
@@ -148,29 +158,29 @@ const EmptyComment = styled.div`
 
 function ProductComments() {
   const { selectItem } = useParams();
-  const [items, setItems] = useState({});
+  const [items, setItems] = useState<ItemsListType<any>>({ list: [] });
   const [loading, setLoading] = useState(true);
-  const [values, setValues] = useState('');
+  const [values, setValues] = useState("");
   const [pass, setPass] = useState(false);
   const navigate = useNavigate();
 
   const onClickReturn = () => {
-    navigate('/items');
+    navigate("/items");
   };
   // 댓글 인풋의 입력값 파악
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
     setValues(value);
   };
 
   // 테스트를 위해 추가한 동작
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log(values);
   };
 
   // 댓글 작성한 시간 변환 함수
-  const getTimegap = (posting) => {
+  const getTimegap = (posting: string) => {
     const dateString = posting;
     const date = new Date(dateString);
     const timestamp = date.getTime();
@@ -210,7 +220,7 @@ function ProductComments() {
   useEffect(() => {
     function validation() {
       const valueCheck = values.length > 0;
-      return values && valueCheck;
+      return valueCheck;
     }
     const isValid = validation();
     setPass(isValid);

@@ -1,4 +1,4 @@
-export async function getApi(size = '4') {
+export async function getApi(size = 4) {
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?page=1&pageSize=${size}&orderBy=favorite`
   );
@@ -6,7 +6,7 @@ export async function getApi(size = '4') {
   return result;
 }
 
-export async function getApiOrderBy({ order = 'recent', lowerSize = '10', page = '1' }) {
+export async function getApiOrderBy({ order = "recent", lowerSize = 10, page = 1 }) {
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?page=${page}&pageSize=${lowerSize}&orderBy=${order}`
   );
@@ -14,13 +14,13 @@ export async function getApiOrderBy({ order = 'recent', lowerSize = '10', page =
   return result;
 }
 
-export async function getApiProducts(selectItem) {
+export async function getApiProducts(selectItem: string | undefined) {
   const response = await fetch(`https://panda-market-api.vercel.app/products/${selectItem}`);
   const result = await response.json();
   return result;
 }
 
-export async function getApiProductsComments(selectItem) {
+export async function getApiProductsComments(selectItem: string | undefined) {
   const response = await fetch(
     `https://panda-market-api.vercel.app/products/${selectItem}/comments?limit=10`
   );
