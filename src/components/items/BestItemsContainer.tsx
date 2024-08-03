@@ -32,7 +32,7 @@ function BestItemsContainer() {
   return (
     <section className="flex flex-col gap-6">
       <h1 className="font-bold text-xl">베스트 상품</h1>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-4 gap-4 max-md:grid-cols-1 max-xl:grid-cols-2">
         {items.map((item) => (
           <ItemContainer key={item.id} item={item} />
         ))}
