@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getProducts } from '../../../pages/api/Items';
+import { getProducts, GetProductsProps } from '../../../pages/api/Items';
 import { useNavigate } from 'react-router-dom';
 import Item from '../Item/Item';
 import './BestItems.css';
@@ -19,7 +19,7 @@ function BestItems() {
   // 상품 목록
   const [itemList, setItemList] = useState([]);
   // 쿼리
-  const [order, setOrder] = useState('favorite');
+  const [order, setOrder] = useState<GetProductsProps['order']>('favorite');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [keyword, setKeyword] = useState('');

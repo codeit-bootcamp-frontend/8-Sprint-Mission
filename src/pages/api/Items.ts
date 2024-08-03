@@ -1,6 +1,6 @@
 const BASE_URL = 'https://panda-market-api.vercel.app';
 
-interface getProductsProps {
+export interface GetProductsProps {
   order: 'recent' | 'favorite';
   page: number;
   pageSize: number;
@@ -37,7 +37,7 @@ export async function getProducts({
   page, // 페이지 번호
   pageSize, // 페이지 당 상품 수
   keyword, // 검색 키워드
-}: getProductsProps) {
+}: GetProductsProps) {
   const query = `orderBy=${order}&page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
   const response = await fetch(`${BASE_URL}/products?${query}`);
   if (!response.ok) {

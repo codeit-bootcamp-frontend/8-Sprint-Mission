@@ -3,10 +3,10 @@ import CommentItem from '../CommentItem/CommentItem';
 import styles from './CommentList.module.scss';
 
 interface CommentListProps {
-  initCommentCount: number;
-  comments: any[];
-  emptyIcon: any;
-  emptyMessage: string;
+  initCommentCount?: number;
+  comments?: any[];
+  emptyIcon?: any;
+  emptyMessage?: string;
 }
 
 export default function CommentList({

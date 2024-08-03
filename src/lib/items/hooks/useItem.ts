@@ -7,14 +7,14 @@ import { getProductById } from '../../../pages/api/Items';
  * @param {array} deps
  * @returns [imgSrc, title, price, desc, tags, favoriteCount]
  */
-export function useItem(productId = 0, deps = []) {
-  const [imgSrc, setImgSrc] = useState('');
-  const [title, setTitle] = useState('');
-  const [price, setPrice] = useState(0);
-  const [desc, setDesc] = useState('');
-  const [tags, setTags] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [favoriteCount, setFavoriteCount] = useState(0);
+export function useItem(productId: number = 0, deps: any[] = []) {
+  const [imgSrc, setImgSrc] = useState<string>('');
+  const [title, setTitle] = useState<string>('');
+  const [price, setPrice] = useState<number>(0);
+  const [desc, setDesc] = useState<string>('');
+  const [tags, setTags] = useState<string[]>([]);
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const [favoriteCount, setFavoriteCount] = useState<number>(0);
 
   const fetchProduct = async () => {
     try {
@@ -44,5 +44,5 @@ export function useItem(productId = 0, deps = []) {
     fetchProduct();
   }, deps);
 
-  return [imgSrc, title, price, desc, tags, isFavorite, favoriteCount];
+  return { imgSrc, title, price, desc, tags, isFavorite, favoriteCount };
 }

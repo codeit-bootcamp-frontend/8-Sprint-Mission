@@ -22,8 +22,8 @@ function ImageFileInput({
   const [preview, setPreview] = useState(initialPreview);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleChange = (e) => {
-    const nextValue = e.target.files[0];
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const nextValue = e.target.files?.[0];
     onChange(name, nextValue);
   };
 

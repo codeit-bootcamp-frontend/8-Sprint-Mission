@@ -6,20 +6,25 @@ import Button from '../../core/ui/buttons/Button/Button';
 import CommentList from '../../core/ui/comments/CommentList/CommentList';
 // import { ReactComponent as IconBack } from '../../assets/images/icons/ic_back.svg';
 // import { ReactComponent as IconEmptyComment } from '../../assets/images/icons/ic_inquiry_empty.svg';
-import styles from './ItemDetail.module.scss';
 import { useItemComments } from '../../lib/items/hooks/useItemComments';
 import SimpleInput from '../../core/ui/inputs/SimpleInput/SimpleInput';
+import styles from './ItemDetail.module.scss';
 
 function ItemDetail() {
   const { productId } = useParams<string>();
   const navigate = useNavigate();
 
-  const [imgSrc, title, price, desc, tags, isFavorite, favoriteCount] = useItem(
+  const { imgSrc, title, price, desc, tags, favoriteCount } = useItem(
     Number(productId),
     []
   );
 
-  const [comments, nextCursor] = useItemComments(productId, 3, undefined, []);
+  const { comments } = useItemComments({
+    productId: Number(productId),
+    limit: 3,
+    cursor: '',
+    deps: [],
+  });
 
   return (
     <>

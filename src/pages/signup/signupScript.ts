@@ -26,50 +26,52 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   const validateEmail = () => {
-    const emailValue = inputEmail.value.trim();
+    const inputEmailEl = inputEmail as HTMLInputElement;
+    const messageErrorEmailEl = messageErrorEmail as HTMLElement;
+    const emailValue = inputEmailEl.value.trim();
     if (!emailValue) {
-      showError(inputEmail, messageErrorEmail, '이메일을 입력해주세요.');
+      showError(inputEmailEl, messageErrorEmailEl, '이메일을 입력해주세요.');
       isValidEmail = false;
     } else if (!checkEmailRegex(emailValue)) {
-      showError(inputEmail, messageErrorEmail, '잘못된 이메일 형식입니다.');
+      showError(inputEmailEl, messageErrorEmailEl, '잘못된 이메일 형식입니다.');
       isValidEmail = false;
     } else {
-      clearError(inputEmail, messageErrorEmail);
+      clearError(inputEmailEl, messageErrorEmailEl);
       isValidEmail = true;
     }
     updatebtnSignup();
   };
 
   const validateNickname = () => {
-    const nicknameValue = inputNickname.value.trim();
+    const nicknameEl = inputNickname as HTMLInputElement;
+    const messageErrorNicknameEl = messageErrorNickname as HTMLElement;
+    const nicknameValue = nicknameEl.value.trim();
     if (!nicknameValue) {
-      showError(inputNickname, messageErrorNickname, '닉네임을 입력해주세요.');
+      showError(nicknameEl, messageErrorNicknameEl, '닉네임을 입력해주세요.');
       isValidNickname = false;
     } else {
-      clearError(inputNickname, messageErrorNickname);
+      clearError(nicknameEl, messageErrorNicknameEl);
       isValidNickname = true;
     }
     updatebtnSignup();
   };
 
   const validatePassword = () => {
-    const passwordValue = inputPassword.value.trim();
+    const passwordEl = inputPassword as HTMLInputElement;
+    const messageErrorPasswordEl = messageErrorPassword as HTMLElement;
+    const passwordValue = passwordEl.value.trim();
     if (!passwordValue) {
-      showError(
-        inputPassword,
-        messageErrorPassword,
-        '비밀번호를 입력해주세요.'
-      );
+      showError(passwordEl, messageErrorPasswordEl, '비밀번호를 입력해주세요.');
       isValidPassword = false;
     } else if (passwordValue.length < 8) {
       showError(
-        inputPassword,
-        messageErrorPassword,
+        passwordEl,
+        messageErrorPasswordEl,
         '비밀번호를 8자 이상 입력해주세요'
       );
       isValidPassword = false;
     } else {
-      clearError(inputPassword, messageErrorPassword);
+      clearError(passwordEl, messageErrorPasswordEl);
       isValidPassword = true;
     }
     validatePasswordConfirmation();
@@ -77,96 +79,124 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const validatePasswordConfirmation = () => {
-    const passwordConfirmationValue = inputPasswordConfirmation.value.trim();
-    const passwordValue = inputPassword.value.trim();
+    const passwordConfirmationValue = (
+      inputPasswordConfirmation as HTMLInputElement
+    ).value.trim();
+    const passwordValue = (inputPassword as HTMLInputElement).value.trim();
     if (!passwordConfirmationValue) {
       showError(
-        inputPasswordConfirmation,
-        messageErrorPasswordConfirmation,
+        inputPasswordConfirmation as HTMLInputElement,
+        messageErrorPasswordConfirmation as HTMLElement,
         '비밀번호를 입력해주세요.'
       );
     } else if (passwordConfirmationValue !== passwordValue) {
       showError(
-        inputPasswordConfirmation,
-        messageErrorPasswordConfirmation,
+        inputPasswordConfirmation as HTMLInputElement,
+        messageErrorPasswordConfirmation as HTMLElement,
         '비밀번호가 일치하지 않습니다.'
       );
       isValidPasswordConfirmation = false;
     } else {
-      clearError(inputPasswordConfirmation, messageErrorPasswordConfirmation);
+      clearError(
+        inputPasswordConfirmation as HTMLInputElement,
+        messageErrorPasswordConfirmation as HTMLElement
+      );
       isValidPasswordConfirmation = true;
     }
     updatebtnSignup();
   };
 
-  const togglePasswordVisible = (e) => {
+  const togglePasswordVisible = (
+    e: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
     e.preventDefault();
     const visibleBtn = e.currentTarget;
-    const targetInput = visibleBtn.parentElement.querySelector('input');
-    const visibleImg = visibleBtn.querySelector('.img-password-visible');
-    if (targetInput.type === 'password') {
+    const targetInput = visibleBtn.parentElement?.querySelector('input');
+    const visibleImg: HTMLImageElement | null = visibleBtn.querySelector(
+      '.img-password-visible'
+    );
+    if (targetInput?.type === 'password') {
       targetInput.type = 'text';
-      visibleImg.src = '/images/icons/eye-visible.svg';
-      visibleImg.alt = '비밀번호 표시';
+      if (visibleImg) {
+        visibleImg.src = '/images/icons/eye-visible.svg';
+        visibleImg.alt = '비밀번호 표시';
+      }
     } else {
-      targetInput.type = 'password';
-      visibleImg.src = '/images/icons/eye-invisible.svg';
-      visibleImg.alt = '비밀번호 숨김';
+      if (targetInput && visibleImg) {
+        targetInput.type = 'password';
+        visibleImg.src = '/images/icons/eye-invisible.svg';
+        visibleImg.alt = '비밀번호 숨김';
+      }
     }
   };
 
   const updatebtnSignup = () => {
+    const btnSignupEl = btnSignup as HTMLButtonElement;
     if (
       isValidPassword &&
       isValidEmail &&
       isValidNickname &&
       isValidPasswordConfirmation
     ) {
-      btnSignup.disabled = false;
+      btnSignupEl.disabled = false;
     } else {
-      btnSignup.disabled = true;
+      btnSignupEl.disabled = true;
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.preventDefault();
-    if (btnSignup.disabled) return;
+    const btnSignupEl = btnSignup as HTMLButtonElement;
+    if (btnSignupEl.disabled) return;
     window.location.href = '/signin';
   };
 
-  const checkEmailRegex = (email) => {
+  const checkEmailRegex = (email: string) => {
     const emailRegex = new RegExp('[a-z0-9]+@[a-z]+\\.[a-z]{2,3}');
     return emailRegex.test(email);
   };
 
-  const showError = (input, errorMessageElement, message) => {
+  const showError = (
+    input: HTMLInputElement,
+    errorMessageElement: HTMLElement,
+    message: string
+  ) => {
     input.classList.add('error');
     errorMessageElement.textContent = message;
     errorMessageElement.style.display = 'block';
   };
 
-  const clearError = (input, errorMessageElement) => {
+  const clearError = (
+    input: HTMLInputElement,
+    errorMessageElement: HTMLElement
+  ) => {
     input.classList.remove('error');
     errorMessageElement.textContent = '';
     errorMessageElement.style.display = 'none';
   };
 
-  inputEmail.addEventListener('focusout', validateEmail);
-  inputEmail.addEventListener('input', validateEmail);
-  inputNickname.addEventListener('focusout', validateNickname);
-  inputNickname.addEventListener('input', validateNickname);
-  inputPassword.addEventListener('focusout', validatePassword);
-  inputPassword.addEventListener('input', validatePassword);
-  inputPasswordConfirmation.addEventListener(
+  inputEmail?.addEventListener('focusout', validateEmail);
+  inputEmail?.addEventListener('input', validateEmail);
+  inputNickname?.addEventListener('focusout', validateNickname);
+  inputNickname?.addEventListener('input', validateNickname);
+  inputPassword?.addEventListener('focusout', validatePassword);
+  inputPassword?.addEventListener('input', validatePassword);
+  inputPasswordConfirmation?.addEventListener(
     'focusout',
     validatePasswordConfirmation
   );
-  inputPasswordConfirmation.addEventListener(
+  inputPasswordConfirmation?.addEventListener(
     'input',
     validatePasswordConfirmation
   );
-  btnSignup.addEventListener('click', handleSubmit);
+  btnSignup?.addEventListener(
+    'click',
+    handleSubmit as unknown as EventListener
+  );
   btnTogglePasswordVisibleList.forEach((button) => {
-    button.addEventListener('click', togglePasswordVisible);
+    button.addEventListener(
+      'click',
+      togglePasswordVisible as unknown as EventListener
+    );
   });
 });

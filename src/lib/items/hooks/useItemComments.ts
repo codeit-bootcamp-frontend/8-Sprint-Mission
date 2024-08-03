@@ -39,5 +39,5 @@ export function useItemComments({
     fetchData();
   }, deps);
 
-  return [comments, nextCursor];
+  return { comments, nextCursor };
 }
