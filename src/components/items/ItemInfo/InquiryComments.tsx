@@ -27,18 +27,21 @@ function InquiryComments({ productId, limit }: InquiryCommentsProps) {
 
   return (
     <section className="flex flex-col content-center gap-[40px] ">
-      <ul className="comments-ul">
+      <ul className="w-full flex flex-col content-start flex-grow gap-6">
         {comments.map((comment: CommentResponse) => (
-          <li className={`comments-li-${comment.id}`} key={comment.id}>
+          <li
+            className="w-full flex flex-col text-gray-800 gap-[30px]"
+            key={comment.id}
+          >
             <p>{comment.content}</p>
-            <div className="comment-user-info">
-              <img className="comment-user-img" src={comment.writer.image} />
-              <span className="comment-user-name">
+            <div className="grid gap-1 content-center grid-rows-2 grid-cols-2">
+              <img className="grid w-10 h-10 mr-2" src={comment.writer.image} />
+              <span className="grid text-sm text-gray-600">
                 {comment.writer.nickname}
               </span>
-              <p className="comment-user-times">{countTime(comment)}</p>
+              <p className="grid text-xs text-gray-400">{countTime(comment)}</p>
             </div>
-            <div className="line" />
+            <div className="border-2 border-gray-100" />
           </li>
         ))}
       </ul>

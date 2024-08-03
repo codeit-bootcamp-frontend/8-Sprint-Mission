@@ -5,7 +5,6 @@ import heartIcon from "../assets/images/ic_heart.png";
 import { getProductId } from "../core/api";
 import { INITIAL_PRODUCTID, defaultImageUrl } from "../constants";
 import InquiryInput from "../components/Items/ItemInfo/InquiryInput";
-import "./ItemInfo.css";
 
 function ItemInfo() {
   const { productId } = useParams<{ productId: string }>();
@@ -39,10 +38,10 @@ function ItemInfo() {
   }, [productData]);
 
   return (
-    <main className="font-pretendard flex flex-col max-w-[1200px] pt-24 mx-auto gap-16">
-      <section className="flex gap-6">
+    <main className="font-pretendard flex flex-col max-w-[1200px] pt-24 mx-auto gap-16 max-md:px-4 max-xl:px-6 ">
+      <section className="flex gap-6 max-md:flex max-md:flex-col max-md:content-center">
         <img
-          className={`w-[486px] h-[486px] rounded-2xl block max-w-full  ${
+          className={`w-[486px] h-[486px] rounded-2xl block max-w-full  max-md:w-full max-md:h-full ${
             imageSrc === defaultImageUrl ? "item-default-img" : ""
           }`}
           src={imageSrc}
@@ -62,13 +61,16 @@ function ItemInfo() {
             <h3 className="mt-6 font-semibold">상품 태그</h3>
             <ul className="tags">
               {(productData.tags || []).map((tag, index) => (
-                <li key={index} className="tag-info">
+                <li
+                  key={index}
+                  className="rounded-3xl bg-gray-100 text-gray-800 px-4 py-[6px]"
+                >
                   #{tag}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="flex px-3 py-1 rounded-[35px] border-gray-200 border-2 absolute gap-1 bottom-0">
+          <div className="flex px-3 py-1 rounded-[35px] border-gray-200 border-2 absolute gap-1 bottom-0 max-md:-bottom-12 max-md:right-0">
             <button onClick={handleHeartClick}>
               <img src={heartIcon} alt="하트 아이콘" className="h-6 w-6" />
             </button>

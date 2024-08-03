@@ -46,7 +46,7 @@ function AddItem() {
   }, [itemDetails]);
 
   return (
-    <main className="font-pretendard max-w-[1200px] pt-24 mx-auto gap-6 flex flex-col">
+    <main className="font-pretendard max-w-[1200px] pt-24 mx-auto gap-6 flex flex-col max-md:px-4 max-xl:px-6">
       <h1 className="font-bold text-gray-800 text-xl">상품 등록하기</h1>
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <button
