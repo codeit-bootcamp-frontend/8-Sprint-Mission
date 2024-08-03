@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-type Visibility = 'password' | 'text';
+import visibilityIcon from '../../core/assets/icons/visibility/visibility.svg';
+import disvisibilityIcon from '../../core/assets/icons/visibility/disvisibility.svg';
+
 
 const usePasswordVisibility = () => {
-    const [visibility, setVisibility] = useState<Visibility>('password');
+    const [icon, setIcon] = useState<string>(visibilityIcon);
+    const ref = useRef<HTMLInputElement>(null);
     const handlePasswordVisibility = () => {
-        setVisibility((prev) => prev === 'password' ? 'text' : 'password'); 
+        if (ref.current){
+            ref.current.type = ref.current.type === 'text'?'password' : 'text';
+            setIcon((prev) => prev === visibilityIcon ? disvisibilityIcon : visibilityIcon);
+        }
     }
-    return {visibility, handlePasswordVisibility};
+    return {ref, icon, handlePasswordVisibility};
 }
 
 export default usePasswordVisibility;

@@ -4,12 +4,10 @@ import usePasswordVisibility from 'lib/hooks/usePasswordVisibility';
 
 import BtnLarge from 'core/buttons/BtnLarge';
 
-import visibilityIcon from '../../../core/assets/icons/visibility/visibility.svg';
-import disvisibilityIcon from '../../../core/assets/icons/visibility/visibility.svg';
 import { Container, ErrorMessage, Form, Icon, Input, InputWrapper, Label } from '../styles';
 
 const SignInForm = () => {
-    const {visibility, handlePasswordVisibility} = usePasswordVisibility();
+    const {ref,icon, handlePasswordVisibility} = usePasswordVisibility();
     const navigate = useNavigate();
     const [isValid, setIsValid] = useState<boolean>(false);
     const emailErrorMessage = '';
@@ -30,8 +28,8 @@ const SignInForm = () => {
             <Container>
                 <Label htmlFor="password">비밀번호</Label>
                 <InputWrapper>
-                    <Input type={visibility} id="password" name="password" placeholder="비밀번호를 입력해주세요"/>
-                    <Icon src={visibility==='password' ? visibilityIcon : disvisibilityIcon} onClick={handlePasswordVisibility}/>
+                    <Input ref={ref} type='password' id="password" name="password" placeholder="비밀번호를 입력해주세요"/>
+                    <Icon  src={icon} onClick={handlePasswordVisibility}/>
                 </InputWrapper>
                 <ErrorMessage>{passwordErrorMessage}</ErrorMessage>
             </Container>
