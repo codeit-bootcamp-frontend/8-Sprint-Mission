@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./AddItem.css";
 import AddItemImage from "../components/AddItem/AddItemImage";
 import AddItemDetails from "../components/AddItem/AddItemDetails";
 import AddItemTags from "../components/AddItem/AddItemTags";
