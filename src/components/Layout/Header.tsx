@@ -3,7 +3,7 @@ import logo from "../../assets/images/logo_pandamarket.png";
 
 function Header() {
   return (
-    <header className="font-pretendard text-[18px] fixed flex bg-white border-y-[1px] w-full h-[70px] z-10 justify-between px-[200px]">
+    <header className="font-pretendard text-[18px] fixed flex bg-white border-y-[1px] w-full h-[70px] z-10 justify-between px-[200px] max-xl:px-6 max-md:px-4">
       <div className="flex flex-row content-center flex-wrap">
         <Link to="/" className="logo-link">
           <img src={logo} className="bg-cover w-[153px] h-[51px] mx-5" />
