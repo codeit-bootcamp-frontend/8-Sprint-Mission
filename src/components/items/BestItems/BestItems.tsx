@@ -24,7 +24,7 @@ function BestItems() {
   const [pageSize, setPageSize] = useState(4);
   const [keyword, setKeyword] = useState('');
   // 에러
-  const [fetchingError, setfetchingError] = useState<any>(null);
+  const [fetchingError, setfetchingError] = useState<Error | null>(null);
   const navigate = useNavigate();
 
   const fetchItemList = async () => {
@@ -34,7 +34,7 @@ function BestItems() {
       setItemList(products.list);
     } catch (err) {
       setItemList([]);
-      setfetchingError(err);
+      setfetchingError(err as Error);
     }
   };
 
@@ -42,7 +42,7 @@ function BestItems() {
     setPageSize(getPageSize());
   };
 
-  const handleClickItem = (e: any) => {
+  const handleClickItem = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.preventDefault();
 
     navigate(`/items/${e.currentTarget.dataset.itemId}`);

@@ -7,8 +7,10 @@ interface ItemProps {
 }
 
 function Item({ item, handleClick }: ItemProps) {
-  const handleErrorImage = (e: any) => {
-    e.target.src = ImgDefault;
+  const handleErrorImage = (
+    e: React.SyntheticEvent<HTMLImageElement, Event>
+  ) => {
+    (e.target as HTMLImageElement).src = ImgDefault;
   };
 
   return (

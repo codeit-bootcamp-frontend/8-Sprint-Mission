@@ -49,7 +49,7 @@ function AddItems() {
     handleChange(name, value);
   };
 
-  const addTag = (tag: any) => {
+  const addTag = (tag: string) => {
     if (!values.tags.includes(tag)) {
       handleChange(
         'tags',

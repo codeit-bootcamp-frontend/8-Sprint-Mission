@@ -7,7 +7,6 @@ interface ButtonProps {
   isDisabled?: boolean;
   iconFront?: React.ReactNode;
   iconBack?: React.ReactNode;
-  customBorderRound?: any;
 }
 
 function Button({
@@ -16,7 +15,6 @@ function Button({
   isDisabled = false,
   iconFront,
   iconBack,
-  customBorderRound,
 }: ButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
 

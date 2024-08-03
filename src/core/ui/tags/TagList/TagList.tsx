@@ -1,8 +1,8 @@
 import styles from './TagList.module.scss';
 
 interface TagListProps {
-  tags: any;
-  isSharpVisible: any;
+  tags: string[];
+  isSharpVisible: boolean;
 }
 
 function TagList({ tags = [], isSharpVisible }: TagListProps) {
@@ -10,7 +10,7 @@ function TagList({ tags = [], isSharpVisible }: TagListProps) {
     <>
       {tags.length > 0 && (
         <div className={styles['tag-list']}>
-          {tags.map((tag: any, i: any) => (
+          {tags.map((tag: string, i: number) => (
             <div
               className={styles['tag-list__tag']}
               key={`tag-item-${i}`}

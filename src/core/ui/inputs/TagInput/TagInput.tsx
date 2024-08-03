@@ -2,11 +2,11 @@ import { useState } from 'react';
 import './TagInput.css';
 
 interface TagInputProps {
-  className: any;
-  name: any;
-  tags: any;
-  onAdd: any;
-  onRemove: any;
+  className: string;
+  name: string;
+  tags: string[];
+  onAdd: (text: string) => void;
+  onRemove: (text: string) => void;
 }
 
 function TagInput({
@@ -18,13 +18,13 @@ function TagInput({
 }: TagInputProps) {
   const [targetText, setTargetText] = useState('');
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (!value.trim()) return;
     setTargetText(value);
   };
 
-  const handlePress = (e: any) => {
+  const handlePress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && targetText) {
       e.preventDefault();
       onAdd(targetText.trim());
@@ -32,8 +32,8 @@ function TagInput({
     }
   };
 
-  const handleDeleteTag = (e: any) => {
-    onRemove(e.currentTarget.parentNode.dataset.tagName);
+  const handleDeleteTag = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    onRemove((e.currentTarget.parentNode as HTMLElement).dataset.tagName || '');
   };
 
   return (
@@ -51,7 +51,7 @@ function TagInput({
         />
         {tags.length > 0 && (
           <div className="wrapper-list-tag-input-tag">
-            {tags.map((tag: any, i: any) => (
+            {tags.map((tag: string, i: number) => (
               <div
                 className="tag-input-tag"
                 key={`tag-item-${i}`}

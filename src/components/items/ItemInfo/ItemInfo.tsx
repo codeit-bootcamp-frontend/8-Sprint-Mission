@@ -9,7 +9,7 @@ interface ItemInfoProps {
   itemTitle: string;
   itemPrice: number;
   itemDesc: string;
-  itemTags: any[];
+  itemTags: string[];
   itemFavoriteCount: number;
 }
 

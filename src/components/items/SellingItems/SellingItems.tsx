@@ -1,7 +1,7 @@
 // import { ReactComponent as IconSearch } from '../../../assets/images/icons/ic_search.svg';
 // import { ReactComponent as IconSort } from '../../../assets/images/icons/ic_sort.svg';
 import { useEffect, useState } from 'react';
-import { getProducts } from '../../../pages/api/Items';
+import { getProducts, GetProductsProps } from '../../../pages/api/Items';
 import Item from '../Item/Item';
 import PaginationBar from '../PaginationBar/PaginationBar';
 import './SellingItems.css';
@@ -26,7 +26,7 @@ function SellingItems() {
   // 상품
   const [itemList, setItemList] = useState<Item[]>([]);
   // 쿼리
-  const [order, setOrder] = useState('recent');
+  const [order, setOrder] = useState<GetProductsProps['order']>('recent');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [keyword, setKeyword] = useState('');
@@ -44,7 +44,7 @@ function SellingItems() {
   const handleClickDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
-  const handleClickDropdownItem = (order: string) => {
+  const handleClickDropdownItem = (order: GetProductsProps['order']) => {
     setOrder(order);
     setIsDropdownVisible(!isDropdownVisible);
   };
@@ -70,10 +70,10 @@ function SellingItems() {
     pageSize,
     keyword,
   }: {
-    order: any;
-    page: any;
-    pageSize: any;
-    keyword: any;
+    order: GetProductsProps['order'];
+    page: number;
+    pageSize: number;
+    keyword: string;
   }) => {
     try {
       setfetchingError(null);

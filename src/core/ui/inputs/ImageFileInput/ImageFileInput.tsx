@@ -9,7 +9,7 @@ interface ImageFileInputProps {
   name: string;
   value: Blob | MediaSource;
   initialPreview: string;
-  onChange: any;
+  onChange: (name: string, value: any) => void;
 }
 
 function ImageFileInput({
@@ -23,7 +23,7 @@ function ImageFileInput({
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const nextValue = e.target.files?.[0];
+    const nextValue = e.target.files?.[0] || null;
     onChange(name, nextValue);
   };
 
