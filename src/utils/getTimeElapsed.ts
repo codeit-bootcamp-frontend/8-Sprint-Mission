@@ -1,5 +1,5 @@
-const getTimeElapsed = (updatedTime) => {
-  const milliSeconds = new Date() - updatedTime;
+const getTimeElapsed = (updatedTime: Date) => {
+  const milliSeconds = new Date().getTime() - updatedTime.getTime();
 
   const seconds = milliSeconds / 1000;
   if (seconds < 60) return `방금 전`;

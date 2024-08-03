@@ -29,7 +29,7 @@ function AllProductList({ products }: any) {
     const sortedProducts = [...products].sort((a, b) => {
       if (order === "createdAt") {
         return (
-          new Date(b.createdAt).getDate() - new Date(a.createdAt).getDate()
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         );
       }
       return (b as any)[order] - (a as any)[order];
