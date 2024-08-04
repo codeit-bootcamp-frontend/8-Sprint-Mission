@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../images/logo/logo1x.png";
 import "./Header.css";
-const connectLink = ({ isActive }) => {
+const connectLink = ({ isActive }: { isActive: boolean }) => {
   return { color: isActive ? "var(--brand-blue)" : undefined };
 };
 

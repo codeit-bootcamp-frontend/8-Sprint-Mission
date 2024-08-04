@@ -4,7 +4,15 @@ import "./Product.css";
 import defaultImg from "../../../../images/defaultImg.jpeg";
 import { Link } from "react-router-dom";
 
-function Product({ product }) {
+interface ProductInfo {
+  images: string[];
+  name: string;
+  price: number;
+  favoriteCount: number;
+  id: string;
+}
+
+function Product({ product }: { product: ProductInfo }) {
   const { images, name, price, favoriteCount, id } = product;
   console.log(`${id}`);
 

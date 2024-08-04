@@ -3,11 +3,19 @@ import { getProducts } from "../../../../api/api";
 import Product from "../Product/Product";
 import "./BestProducts.css";
 
+interface ProductType {
+  id: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+  images: string[];
+}
+
 function BestProducts() {
   const [products, setProducts] = useState([]);
   const [pageSize, setPageSize] = useState(4);
 
-  const fetchBestProducts = async (pageSize, orderBy) => {
+  const fetchBestProducts = async (pageSize: number, orderBy: string) => {
     const { list: bestProductList } = await getProducts(pageSize, orderBy);
     setProducts(bestProductList);
   };
@@ -36,7 +44,7 @@ function BestProducts() {
     <div className="best-Products-box">
       <h1 className="best-products-title">베스트 상품</h1>
       <div className="best-products">
-        {products?.map((product, idx) => {
+        {products?.map((product: ProductType) => {
           return <Product key={product.id} product={product} />;
         })}
       </div>

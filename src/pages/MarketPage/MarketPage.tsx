@@ -3,7 +3,7 @@ import BestProducts from "./components/BestProducts/BestProducts";
 import SalesProducts from "./components/SalesProducts/SalesProducts";
 import "./MarketPage.css";
 
-function MarketPage(props) {
+function MarketPage() {
   return (
     <main className="market-container">
       <BestProducts />
