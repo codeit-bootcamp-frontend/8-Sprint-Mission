@@ -9,7 +9,7 @@ interface Item {
   id: string;
   name: string;
   price: number;
-  image: string;
+  images: string;
   favoriteCount: number;
 }
 
@@ -23,7 +23,7 @@ const onErrorImg = (e: SyntheticEvent<HTMLImageElement, Event>) => {
 };
 
 function ProductListItem({ item, className }: Props) {
-  const { id, name, price, image, favoriteCount } = item;
+  const { id, name, price, images, favoriteCount } = item;
   const imageClassNames = `image ${className}`;
 
   return (
@@ -31,7 +31,7 @@ function ProductListItem({ item, className }: Props) {
       <Link className="product-detail-link" to={`/items/${id}`}>
         <img
           className={imageClassNames}
-          src={image}
+          src={images}
           alt={name}
           onError={onErrorImg}
         ></img>

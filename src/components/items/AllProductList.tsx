@@ -10,7 +10,7 @@ interface Product {
   name: string;
   description: string;
   price: number;
-  image: string;
+  images: string;
   favoriteCount: number;
   tags?: string[];
   createdAt: string;
@@ -21,7 +21,7 @@ interface Products {
   products: Product[];
 }
 
-function AllProductList({ products }: any) {
+function AllProductList({ products }: Products) {
   const [showedProducts, setShowedProducts] = useState<Product[]>([]);
   const [order, setOrder] = useState<string>("createdAt");
 
