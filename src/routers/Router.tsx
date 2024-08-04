@@ -1,35 +1,19 @@
-import App from "../App";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Layout from "../layouts";
-import Home from "../pages/Home";
-import Items from "../pages/Items";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
-import AddItem from "../pages/AddItem";
-import ProductId from "../pages/Items/ProductId";
-import NavbarLayout from "src/layouts/NavbarLayout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import App from "src/App";
+import Layout from "src/layouts/Layout";
 
-function AppRouter() {
+function Router() {
   return (
     <BrowserRouter>
       <App>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/additem" element={<AddItem />} />
+            <Route path="/" element={<></>} />
           </Route>
-          <Route element={<NavbarLayout />}>
-            <Route path="/items">
-              <Route index element={<Items />} />
-              <Route path=":productId" element={<ProductId />} />
-            </Route>
-          </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
         </Routes>
       </App>
     </BrowserRouter>
   );
 }
 
-export default AppRouter;
+export default Router;

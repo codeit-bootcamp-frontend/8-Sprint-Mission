@@ -1,9 +1,8 @@
 import { ThemeProvider } from "styled-components";
-import { theme } from "./styles/styled/theme/theme";
-import { ReactNode } from "react";
-import "./App.css";
+import theme from "./theme";
+import { PropsWithChildren } from "react";
 
-function App({ children }: { children: ReactNode }) {
+function App({ children }: PropsWithChildren) {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }
 
