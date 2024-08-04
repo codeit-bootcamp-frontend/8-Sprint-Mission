@@ -1,11 +1,11 @@
 const API_BASE_URL = "https://panda-market-api.vercel.app/";
 
 export async function getProducts({
-  order = "favoriteCount",
-  offset = 0,
-  limit = 10,
+  orderBy = "recent",
+  page = 1,
+  pageSize = 10,
 }) {
-  const query = `order=${order}&offset=${offset}&limit=${limit}`;
+  const query = `orderBy=${orderBy}&page=${page}&pageSize=${pageSize}`;
   const response = await fetch(`${API_BASE_URL}Products?${query}`);
   if (!response.ok) {
     throw new Error("상품 목록을 불러오는 데 실패했습니다.");

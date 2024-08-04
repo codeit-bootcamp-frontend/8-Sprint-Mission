@@ -1,12 +1,11 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { getProducts } from "../../api.js";
 import { Link } from "react-router-dom";
 import ProductList from "./ProductList.js";
 import styled from "styled-components";
 import searchIcon from "../../images/icon_search_grey.png";
 
-const LIMIT = 10;
-
+//스타일
 const StyledTitleContainer = styled.h1`
   font-size: 20px;
   font-weight: 700;
@@ -67,43 +66,56 @@ const StyledIcon = styled.img`
   width: 25px;
   height: 25px;
 `;
+//스타일
+
+const PAGE_SIZES = {
+  S: 6,
+  M: 8,
+  L: 10,
+};
+
+const getPageSize = (width) => {
+  if (width < 600) return PAGE_SIZES.S;
+  if (width < 1200) return PAGE_SIZES.M;
+  return PAGE_SIZES.L;
+};
 
 function ItemList() {
   const [items, setItems] = useState([]);
-  const [offset, setOffset] = useState(0);
-  const [order, setOrder] = useState("favoriteCount");
+  const [orderBy, setOrderBy] = useState("recent");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(PAGE_SIZES.L);
+  const [totalCount, setTotalCount] = useState(0);
 
-  const handleNewestClick = () => setOrder("createdAt");
-  const handleBestClick = () => setOrder("favoriteCount");
+  const handleNewestClick = () => setOrderBy("recent");
+  const handleBestClick = () => setOrderBy("favorite");
 
-  /*
-  async function handleLoad({ order, limit: LIMIT }) {
-    let result = await getProducts({ order, offset, limit: LIMIT });
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setPageSize(getPageSize(width));
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleLoad = async (page, pageSize) => {
+    const result = await getProducts({ orderBy, page, pageSize });
     const product = result.list;
     setItems(product);
-    setOffset(offset + LIMIT);
-  }
-*/
-
-  const handleLoad = useCallback(
-    async ({ order, limit: LIMIT }) => {
-      let result = await getProducts({ order, offset, limit: LIMIT });
-      const product = result.list;
-      setItems(product);
-      setOffset((prevOffset) => prevOffset + LIMIT);
-    },
-    [offset]
-  );
-
-  const sortedItems = items.sort((a, b) => b[order] - a[order]);
-
-  const handleLoadMore = () => {
-    handleLoad({ order, offset, limit: LIMIT });
+    setTotalCount(result.totalCount);
   };
 
   useEffect(() => {
-    handleLoad({ order, offset, limit: LIMIT });
-  }, [order, handleLoad, offset]);
+    handleLoad(currentPage, pageSize);
+  }, [currentPage, pageSize]);
+
+  const totalPages = Math.ceil(totalCount / pageSize);
+  const isLastPage = currentPage >= totalPages;
 
   return (
     <div>
@@ -123,8 +135,19 @@ function ItemList() {
         </StyledButtonBar>
       </StyledMenuBar>
 
-      <ProductList items={sortedItems} />
-      <button onClick={handleLoadMore}>다음 페이지</button>
+      <ProductList items={items} />
+      <button
+        disabled={currentPage === 1}
+        onClick={() => setCurrentPage(currentPage - 1)}
+      >
+        이전 페이지
+      </button>
+      <button
+        disabled={isLastPage}
+        onClick={() => setCurrentPage(currentPage + 1)}
+      >
+        다음 페이지
+      </button>
     </div>
   );
 }
