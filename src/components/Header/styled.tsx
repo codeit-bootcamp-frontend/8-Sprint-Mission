@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Header = styled.header`
   position: fixed;
@@ -8,6 +8,11 @@ export const Header = styled.header`
   width: 100%;
   padding: 9px 24px;
   border: 0px 0px 1px 0px;
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      display: none;
+    `)}
+  color: ${({ theme }) => theme.colors.secondary200};
 `
 
 export const HeaderContainer = styled.div`
