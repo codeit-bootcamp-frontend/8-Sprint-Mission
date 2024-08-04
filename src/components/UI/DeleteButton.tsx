@@ -1,9 +1,9 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import styled from "styled-components";
 import { ReactComponent as CloseIcon } from "../../assets/images/icons/ic_x.svg";
 
 const Button = styled.button`
-  background-color: ${({ theme }) => theme.colors.gray[0]};
+  background-color: ${({ theme }) => theme.colors.gray[400]};
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -12,11 +12,16 @@ const Button = styled.button`
   align-items: center;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.blue[0]};
+    background-color: ${({ theme }) => theme.colors.blue.primary};
   }
 `;
 
-function DeleteButton({ onClick, label }) {
+interface DeleteButtonProps {
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  label: string;
+}
+
+function DeleteButton({ onClick, label }: DeleteButtonProps) {
   return (
     <Button aria-label={`${label} 삭제`} onClick={onClick}>
       <CloseIcon />

@@ -23,21 +23,22 @@ const InputSection = styled.div`
     gap: 24px;
   }
 `;
+type Tag = string;
 
 function AddItemPage() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<Tag[]>([]);
 
   // 중복 등록 막기 위해 tags 배열에 없는 것 확인하고 삽입
-  const addTag = (tag) => {
+  const addTag = (tag: Tag) => {
     if (!tags.includes(tag)) {
       setTags([...tags, tag]);
     }
   };
 
-  const removeTag = (tagToRemove) => {
+  const removeTag = (tagToRemove: Tag) => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 

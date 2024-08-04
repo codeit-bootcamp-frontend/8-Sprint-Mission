@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import "./DropdownMenu.css";
 import { ReactComponent as SortIcon } from "../../assets/images/icons/ic_sort.svg";
 
-function DropdownMenu({ onSortSelection }) {
+interface DropdownMenuProps {
+  onSortSelection: (v: string) => void;
+}
+
+function DropdownMenu({ onSortSelection }: DropdownMenuProps) {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { KeyboardEvent, useState } from "react";
 import styled from "styled-components";
 import InputItem from "./InputItem";
 import { FlexContainer } from "../../styles/CommonStyles";
@@ -12,8 +12,8 @@ const TagButtonsSection = styled.div`
 `;
 
 const Tag = styled(FlexContainer)`
-  background-color: ${({ theme }) => theme.colors.gray[2]};
-  color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.gray[50]};
+  color: ${({ theme }) => theme.colors.gray[800]};
   padding: 14px 14px 14px 16px;
   border-radius: 999px;
   min-width: 100px;
@@ -30,11 +30,17 @@ const TagText = styled.span`
   white-space: nowrap;
 `;
 
-function TagInput({ tags, onAddTag, onRemoveTag }) {
-  const [input, setInput] = useState("");
+interface TagInputProps {
+  tags: string[];
+  onAddTag: (tag: string) => void;
+  onRemoveTag: (tag: string) => void;
+}
+
+function TagInput({ tags, onAddTag, onRemoveTag }: TagInputProps) {
+  const [input, setInput] = useState<string>("");
 
   // 엔터 키 누르면 tags 배열에 input 값을 추가
-  const onPressEnter = (event) => {
+  const onPressEnter = (event: KeyboardEvent<HTMLInputElement>) => {
     // 여러 자모를 결합해 하나의 글자를 만드는 아시아 언어권에서는 IME(입력 메소드 에디터)를 통해 브라우저에 글자를 입력해요.
     // 사용자가 글자를 완전히 조합하기 전에는 isComposing의 값이 true로 설정됩니다.
     // 한글 입력 시에 마지막 글자가 하이라이트되는 현상을 보신 적 있을 거예요. 이게 바로 isComposing이 true인 상태로, 아직 입력이 확정되지 않았음을 시각적으로 나타내는 거예요.

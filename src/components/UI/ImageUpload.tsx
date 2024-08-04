@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Label } from "./InputItem";
 import styled, { css } from "styled-components";
 import { ReactComponent as PlusIcon } from "../../assets/images/icons/ic_plus.svg";
@@ -35,8 +35,8 @@ const squareStyles = css`
 
 // file input과 연관 짓기 위해 버튼이 대신 label로 설정
 const UploadButton = styled.label`
-  background-color: ${({ theme }) => theme.colors.gray[1]};
-  color: ${({ theme }) => theme.colors.gray[0]};
+  background-color: ${({ theme }) => theme.colors.gray[100]};
+  color: ${({ theme }) => theme.colors.gray[400]};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,13 +46,13 @@ const UploadButton = styled.label`
   cursor: pointer; // 버튼이 아닌 label을 사용한 경우 별도로 추가해 주세요
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.gray[2]};
+    background-color: ${({ theme }) => theme.colors.gray[50]};
   }
 
   ${squareStyles}
 `;
 
-const ImagePreview = styled.div`
+const ImagePreview = styled.div<{ src: string }>`
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
@@ -72,11 +72,11 @@ const HiddenFileInput = styled.input`
   display: none;
 `;
 
-function ImageUpload({ title }) {
+function ImageUpload({ title }: { title: string }) {
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
       // 미리보기 주소 값(Object URL) 생성
       const imageUrl = URL.createObjectURL(file);
