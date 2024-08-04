@@ -1,9 +1,9 @@
-import { ThemeProvider } from "styled-components";
-import theme from "./theme";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from 'react'
+import { ThemeProvider } from 'styled-components'
+import theme from './theme'
 
 function App({ children }: PropsWithChildren) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
 
-export default App;
+export default App

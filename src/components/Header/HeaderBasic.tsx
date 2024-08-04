@@ -1,12 +1,12 @@
-import { DEVICE } from "src/hooks/useDevice";
-import * as S from "./styled";
-import LogoMobile from "assets/logos/logo_mobile.png";
-import LogoNotMobile from "assets/logos/logo_not_mobile.png";
-import { useContext } from "react";
-import { MediaContext } from "src/contexts/MediaContext";
+import { DEVICE } from 'src/hooks/useDevice'
+import * as S from './styled'
+import LogoMobile from 'assets/logos/logo_mobile.png'
+import LogoNotMobile from 'assets/logos/logo_not_mobile.png'
+import { useContext } from 'react'
+import { MediaContext } from 'src/contexts/MediaContext'
 
 function HeaderBasic() {
-  const { device } = useContext(MediaContext);
+  const { device } = useContext(MediaContext)
 
   return (
     <S.Header>
@@ -18,7 +18,7 @@ function HeaderBasic() {
         )}
       </S.HeaderContainer>
     </S.Header>
-  );
+  )
 }
 
-export default HeaderBasic;
+export default HeaderBasic

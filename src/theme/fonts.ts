@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from 'styled-components'
 
 const fonts = {
   textxs400: css`
@@ -190,6 +190,6 @@ const fonts = {
     line-height: 42px;
     text-align: left;
   `,
-};
+}
 
-export default fonts;
+export default fonts
