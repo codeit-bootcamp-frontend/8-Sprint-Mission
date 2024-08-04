@@ -11,7 +11,7 @@ function ProductId() {
     <Main>
       <S.ProductContainer>
         <ProductDescriptionComponent />
-        <S.VerticalBar my={24} />
+        <S.HorizentalBar my={24} />
         <ProductCommentsComponent />
         <S.ReturnButton onClick={() => navigate(-1)}>
           목록으로 돌아가기

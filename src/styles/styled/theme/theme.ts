@@ -13,6 +13,7 @@ export const theme = {
     gray700: "#374151",
     gray800: "#1f2937",
     gray900: "#111827",
+    borderDivider: "#dfdfdf",
   },
   bgColors: {
     blue: "#cfe5ff",

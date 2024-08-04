@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Container } from "src/styles/styled";
+import { Container, Horizental } from "src/styles/styled";
 
 export const ProductContainer = styled(Container)`
-  color: ${({ theme }) => theme.gray800};
+  color: ${({ theme }) => theme.colors.gray800};
   padding-top: 16px;
 `;
 
@@ -34,7 +34,7 @@ export const Price = styled.h2`
   text-align: left;
 `;
 
-export const VerticalBar = styled.div<{
+export const HorizentalBar = styled(Horizental)<{
   my?: number;
   mt?: number;
   mb?: number;
@@ -67,7 +67,7 @@ export const Profile = styled.img`
   height: 40px;
 `;
 
-export const HorizentalBar = styled.div`
+export const VerticalBar = styled.div`
   width: 1px;
   height: 60%;
   background-color: ${({ theme }) => theme.colors.gray200};
@@ -87,9 +87,13 @@ export const Button = styled.button<{
   border: 0;
 `;
 
+export const ColorHasNotButton = styled(Button)`
+  &:hover {
+    background-color: black;
+  }
+`;
+
 export const Favorite = styled(Button)`
-  display: flex;
-  align-items: center;
   padding: 4px 12px;
   gap: 6px;
   border-radius: 35px;
@@ -172,4 +176,26 @@ export const CommentContent = styled.p`
   line-height: 24px;
   text-align: left;
   color: ${({ theme }) => theme.colors.gray800};
+`;
+
+export const CommentDropdown = styled.ul`
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: white;
+  border: 1px solid ${({ theme }) => theme.colors.gray200};
+  border-radius: 10px;
+  padding: 5px 0;
+`;
+
+export const CommentDropdownMenu = styled.li`
+  padding: 16px 26px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: #6b7280;
+  &:hover {
+    background-color: ${({ theme }) => theme.bgColors.blue};
+  }
 `;

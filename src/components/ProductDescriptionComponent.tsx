@@ -35,7 +35,7 @@ function ProductDescriptionComponent() {
             <img width={24} height={24} src={kebabImg} alt="kebab" />
           </S.Button>
         </Flex>
-        <S.VerticalBar my={16} />
+        <S.HorizentalBar my={16} />
         <Flex flex="column" gap={8}>
           <S.ContentTitle>상품 소개</S.ContentTitle>
           <S.Description>{product?.description}</S.Description>
@@ -56,7 +56,7 @@ function ProductDescriptionComponent() {
               {dayjs(product?.createdAt).format("YYYY. MM. DD")}
             </S.CreateDate>
           </Flex>
-          <S.HorizentalBar />
+          <S.VerticalBar />
           <S.Favorite>
             <S.Heart src={heartImg} alt="heart" />
             {product?.favoriteCount}

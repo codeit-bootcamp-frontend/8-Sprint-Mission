@@ -1,4 +1,4 @@
-import styled, { BoxProps, FlexProps } from "styled-components";
+import styled, { BoxProps, css, FlexProps } from "styled-components";
 
 export const Box = styled.div<BoxProps>`
   margin-top: ${({ mt = 0 }) => mt + "px"};
@@ -35,8 +35,37 @@ export const Flex = styled.div<FlexProps>`
   width: ${({ width }) => width + "px"};
   height: ${({ height }) => height + "px"};
   flex-grow: ${({ grow }) => grow};
+  ${({ relative = false }) =>
+    relative &&
+    css`
+      position: relative;
+    `}
 `;
 
 export const None = styled.div`
   display: none;
+`;
+
+export const Horizental = styled(Box)<
+  BoxProps & {
+    w?: string | number;
+  }
+>`
+  width: ${({ w = "100%" }) => {
+    if (typeof w === "number") {
+      return w + "px";
+    }
+    return w;
+  }};
+`;
+
+export const Vertical = styled.div<{
+  w?: string | number;
+}>`
+  width: ${({ w = "100%" }) => {
+    if (typeof w === "number") {
+      return w + "px";
+    }
+    return w;
+  }};
 `;

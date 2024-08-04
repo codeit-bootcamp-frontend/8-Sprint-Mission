@@ -22,6 +22,7 @@ declare module "styled-components" {
     wrap?: string;
     gap?: number;
     grow?: number;
+    relative?: boolean;
   }
   export type MediaQueryValueType = (
     first: Styles<object>,

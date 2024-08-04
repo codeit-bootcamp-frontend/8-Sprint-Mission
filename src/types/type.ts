@@ -1,4 +1,4 @@
-export type ProductsApi = {
+export type ProductApi = {
   createdAt: string;
   favoriteCount: number;
   ownerId: number;

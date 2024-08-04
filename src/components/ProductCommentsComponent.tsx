@@ -10,6 +10,7 @@ import dayjs from "dayjs";
 function ProductCommentsComponent() {
   const { productId } = useParams();
   const [comments, setComments] = useState<CommentType[]>([]);
+  const [dropdownToggle, setDropdownToggle] = useState<number | null>(null);
 
   useEffect(() => {
     const handleLoad = async (id: number) => {
@@ -20,6 +21,10 @@ function ProductCommentsComponent() {
     handleLoad(Number(productId));
   }, [productId]);
 
+  const handleDropdownToggle = (i: number) => {
+    setDropdownToggle((prev) => (prev !== i ? i : null));
+  };
+
   return (
     <>
       <Flex flex="column" gap={16}>
@@ -28,12 +33,20 @@ function ProductCommentsComponent() {
         <S.CommentSubmit>등록</S.CommentSubmit>
       </Flex>
       <ul>
-        {comments?.map((comment) => (
+        {comments?.map((comment, i) => (
           <li>
             <Flex mt={40} flex="column">
-              <Flex content="space-between">
+              <Flex content="space-between" relative>
                 <S.CommentContent>{comment?.content}</S.CommentContent>
-                <img width={24} height={24} src={kebabImg} alt="kebab" />
+                <S.Button onClick={() => handleDropdownToggle(i)}>
+                  <img width={24} height={24} src={kebabImg} alt="kebab" />
+                </S.Button>
+                {dropdownToggle === i && (
+                  <S.CommentDropdown>
+                    <S.CommentDropdownMenu>수정하기</S.CommentDropdownMenu>
+                    <S.CommentDropdownMenu>삭제하기</S.CommentDropdownMenu>
+                  </S.CommentDropdown>
+                )}
               </Flex>
               <Flex height={50} mt={24} item="center" gap={12}>
                 <S.Profile src={comment.writer.image} />
@@ -45,7 +58,7 @@ function ProductCommentsComponent() {
                 </Flex>
               </Flex>
             </Flex>
-            <S.VerticalBar mt={12} mb={16} />
+            <S.HorizentalBar mt={16} mb={24} />
           </li>
         ))}
       </ul>

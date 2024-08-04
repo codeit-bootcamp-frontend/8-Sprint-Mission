@@ -1,12 +1,13 @@
-import App from "./App";
+import App from "../App";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Layout from "./layouts";
-import Home from "./pages/Home";
-import Items from "./pages/Items";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import AddItem from "./pages/AddItem";
-import ProductId from "./pages/Items/ProductId";
+import Layout from "../layouts";
+import Home from "../pages/Home";
+import Items from "../pages/Items";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+import AddItem from "../pages/AddItem";
+import ProductId from "../pages/Items/ProductId";
+import NavbarLayout from "src/layouts/NavbarLayout";
 
 function AppRouter() {
   return (
@@ -15,11 +16,13 @@ function AppRouter() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/additem" element={<AddItem />} />
+          </Route>
+          <Route element={<NavbarLayout />}>
             <Route path="/items">
               <Route index element={<Items />} />
               <Route path=":productId" element={<ProductId />} />
             </Route>
-            <Route path="/additem" element={<AddItem />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
