@@ -1,9 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Img_inquiry_empty from '../../../assets/img/Img_inquiry_empty.png';
-import timeAgo from '../../../utils/timeAgo';
+import React from "react";
+import { Link } from "react-router-dom";
+import Img_inquiry_empty from "../../../assets/img/Img_inquiry_empty.png";
+import timeAgo from "../../../utils/timeAgo";
+import { Inquiry } from "../../../types/inquiryTypes";
 
-function InquiryList({ inquiries }) {
+interface InquiryListProps {
+  inquiries: Inquiry[];
+}
+
+const InquiryList: React.FC<InquiryListProps> = ({ inquiries }) => {
   const InqueryNone = (
     <div className="inquiry-none">
       <img src={Img_inquiry_empty} alt="이미지" />
@@ -17,7 +22,7 @@ function InquiryList({ inquiries }) {
         InqueryNone
       ) : (
         <ul>
-          {inquiries.map(inquiry => (
+          {inquiries.map((inquiry) => (
             <li key={inquiry.id}>
               <div className="comment">{inquiry.content}</div>
               <div className="profile-info">
@@ -26,7 +31,7 @@ function InquiryList({ inquiries }) {
                 </div>
                 <div>
                   <div className="profile-id">{inquiry.writer.nickname}</div>
-                  <div className="time-log">{timeAgo(inquiry.createdAt)}</div> {/* 시간 변환 함수 사용 */}
+                  <div className="time-log">{timeAgo(inquiry.createdAt)}</div>
                 </div>
               </div>
             </li>
@@ -38,6 +43,6 @@ function InquiryList({ inquiries }) {
       </Link>
     </div>
   );
-}
+};
 
 export default InquiryList;

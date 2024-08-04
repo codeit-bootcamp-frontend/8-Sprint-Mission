@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import AddItem from './pages/Item/AddItem';
-import Items from './pages/Item/Items';
-import ItemsPage from './pages/Item/ItemsPage';
-import Board from './pages/Board/Board';
-import Login from './pages/Auth/Login';
-import Notfound from './pages/Error/Notfound';
-import './assets/css/style.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import AddItem from "./pages/Item/AddItem";
+import Items from "./pages/Item/Items";
+import ItemsPage from "./pages/Item/ItemsPage";
+import Board from "./pages/Board/Board";
+import Login from "./pages/Auth/Login";
+import Notfound from "./pages/Error/Notfound";
+import "./assets/css/style.css";
 
 function App() {
   return (

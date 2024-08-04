@@ -607,6 +607,9 @@ footer {
   background: var(--gray100);
   color: var(--gray600);
 }
+.btn-favorite:hover .ic_heart {
+  background-image: url("../img/ic_heart_fill.svg");
+}
 .btn-favorite.on .ic_heart {
   background-image: url("../img/ic_heart_fill.svg");
 }
