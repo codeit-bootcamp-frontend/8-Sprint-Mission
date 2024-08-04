@@ -1,9 +1,18 @@
-import React from 'react';
+// import { ReactComponent as IconArrowLeft } from '../../../assets/images/icons/arrow_left.svg';
+// import { ReactComponent as IconArrowRight } from '../../../assets/images/icons/arrow_right.svg';
 import './PaginatinoBar.css';
-import { ReactComponent as IconArrowLeft } from '../../../assets/images/icons/arrow_left.svg';
-import { ReactComponent as IconArrowRight } from '../../../assets/images/icons/arrow_right.svg';
 
-function PaginationBar({ totalPageNum, activePageNum, onPageChange }) {
+interface PaginatinoBarProps {
+  totalPageNum: number;
+  activePageNum: number;
+  onPageChange: (i: number) => void;
+}
+
+function PaginationBar({
+  totalPageNum,
+  activePageNum,
+  onPageChange,
+}: PaginatinoBarProps) {
   const maxVisiblePages = 5;
   let startPage;
 
@@ -26,7 +35,7 @@ function PaginationBar({ totalPageNum, activePageNum, onPageChange }) {
           disabled={activePageNum === 1}
           onClick={() => onPageChange(activePageNum - 1)}
         >
-          <IconArrowLeft />
+          {/* <IconArrowLeft /> */}
         </button>
         {/* 반복 */}
         {pages.map((page) => (
@@ -45,7 +54,7 @@ function PaginationBar({ totalPageNum, activePageNum, onPageChange }) {
           disabled={activePageNum === totalPageNum}
           onClick={() => onPageChange(activePageNum + 1)}
         >
-          <IconArrowRight />
+          {/* <IconArrowRight /> */}
         </button>
       </div>
     </>

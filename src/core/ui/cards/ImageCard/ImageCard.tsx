@@ -1,12 +1,19 @@
 import styles from './ImageCard.module.scss';
 import errImg from '../../../../assets/images/market/img_default.png';
 
+interface ImageCardProps {
+  imageSrc: string;
+  ImgDeafault?: string;
+  isRoundEdged?: boolean;
+  isRound?: boolean;
+}
+
 function ImageCard({
   imageSrc,
   ImgDeafault,
   isRoundEdged = false,
   isRound = false,
-}) {
+}: ImageCardProps) {
   return (
     <>
       <div className={styles.wrapper}>
@@ -18,7 +25,8 @@ function ImageCard({
 					`}
           alt="상품 사진"
           onError={(e) => {
-            e.target.src = errImg;
+            const target = e.target as HTMLImageElement;
+            target.src = errImg;
           }}
         />
       </div>

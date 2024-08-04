@@ -1,10 +1,16 @@
-import React from 'react';
-import { ReactComponent as IconHeart } from '../../../assets/images/icons/ic_heart.svg';
+// import { ReactComponent as IconHeart } from '../../../assets/images/icons/ic_heart.svg';
 import ImgDefault from '../../../assets/images/market/img_default.png';
 
-function Item({ item, handleClick = () => {} }) {
-  const handleErrorImage = (e) => {
-    e.target.src = ImgDefault;
+interface ItemProps {
+  item: any;
+  handleClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+}
+
+function Item({ item, handleClick }: ItemProps) {
+  const handleErrorImage = (
+    e: React.SyntheticEvent<HTMLImageElement, Event>
+  ) => {
+    (e.target as HTMLImageElement).src = ImgDefault;
   };
 
   return (
@@ -19,7 +25,7 @@ function Item({ item, handleClick = () => {} }) {
         <p className="item-name">{item.name}</p>
         <p className="item-price">{item.price.toLocaleString()}원</p>
         <div className="item-favorite-count">
-          <IconHeart />
+          {/* <IconHeart /> */}
           {item.favoriteCount}
         </div>
       </div>

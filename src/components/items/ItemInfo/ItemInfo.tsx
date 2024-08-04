@@ -4,6 +4,15 @@ import HorizontalLine from '../../../core/ui/lines/HorizontalLine/HorizontalLine
 import TagList from '../../../core/ui/tags/TagList/TagList';
 import styles from './ItemInfo.module.scss';
 
+interface ItemInfoProps {
+  itemImgSrc: string;
+  itemTitle: string;
+  itemPrice: number;
+  itemDesc: string;
+  itemTags: string[];
+  itemFavoriteCount: number;
+}
+
 function ItemInfo({
   itemImgSrc = '',
   itemTitle = '',
@@ -11,7 +20,7 @@ function ItemInfo({
   itemDesc = '',
   itemTags = [],
   itemFavoriteCount = 0,
-}) {
+}: ItemInfoProps) {
   return (
     <>
       <div className={styles['item-info']}>

@@ -1,8 +1,8 @@
-import './BestItems.css';
 import { useEffect, useState } from 'react';
-import Item from '../Item/Item';
-import { getProducts } from '../../../pages/api/Items';
+import { getProducts, GetProductsProps } from '../../../pages/api/Items';
 import { useNavigate } from 'react-router-dom';
+import Item from '../Item/Item';
+import './BestItems.css';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -19,22 +19,22 @@ function BestItems() {
   // 상품 목록
   const [itemList, setItemList] = useState([]);
   // 쿼리
-  const [order, setOrder] = useState('favorite');
+  const [order, setOrder] = useState<GetProductsProps['order']>('favorite');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [keyword, setKeyword] = useState('');
   // 에러
-  const [fetchingError, setfetchingError] = useState(null);
+  const [fetchingError, setfetchingError] = useState<Error | null>(null);
   const navigate = useNavigate();
 
-  const fetchItemList = async ({ order, page, pageSize, keyword }) => {
+  const fetchItemList = async () => {
     try {
       setfetchingError(null);
       const products = await getProducts({ order, page, pageSize, keyword });
       setItemList(products.list);
     } catch (err) {
       setItemList([]);
-      setfetchingError(err);
+      setfetchingError(err as Error);
     }
   };
 
@@ -42,7 +42,7 @@ function BestItems() {
     setPageSize(getPageSize());
   };
 
-  const handleClickItem = (e) => {
+  const handleClickItem = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.preventDefault();
 
     navigate(`/items/${e.currentTarget.dataset.itemId}`);
@@ -50,7 +50,7 @@ function BestItems() {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    fetchItemList({ order, page, pageSize, keyword });
+    fetchItemList();
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -64,7 +64,7 @@ function BestItems() {
 
         <div className="list-best-items">
           {fetchingError && fetchingError.message}
-          {itemList?.map((item) => (
+          {itemList?.map((item: any) => (
             <Item
               item={item}
               key={`best-item-${item.id}`}

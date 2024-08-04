@@ -1,5 +1,13 @@
 import styles from './SimpleInput.module.scss';
 
+interface SimpleInputProps {
+  lable: string;
+  name: string;
+  type: React.InputHTMLAttributes<HTMLInputElement>['type'];
+  placeholder: string;
+  isLabelVisible: boolean;
+}
+
 export default function SimpleInput({
   lable = '',
   name = '',

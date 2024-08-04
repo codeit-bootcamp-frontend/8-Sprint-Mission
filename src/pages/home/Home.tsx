@@ -1,4 +1,3 @@
-import './Home.css';
 import imgPandaMarketLogo from '../../assets/images/logo/panda-market-logo.png';
 import imgFeature1 from '../../assets/images/home/feature1-image.png';
 import imgFeatureSearch from '../../assets/images/home/feature-search-img.png';
@@ -7,6 +6,7 @@ import imgFacebookLogo from '../../assets/images/social/facebook-logo.svg';
 import imgTwitterLogo from '../../assets/images/social/twitter-logo.svg';
 import imgYoutubeLogo from '../../assets/images/social/youtube-logo.svg';
 import imgInstagramLogo from '../../assets/images/social/instagram-logo.svg';
+import './Home.css';
 
 function Home() {
   return (

@@ -1,6 +1,6 @@
-import './Items.css';
 import BestItems from '../../components/items/BestItems/BestItems';
 import SellingItems from '../../components/items/SellingItems/SellingItems';
+import './Items.css';
 
 function Items() {
   return (

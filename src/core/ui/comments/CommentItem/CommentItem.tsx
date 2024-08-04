@@ -1,12 +1,19 @@
 import ImageCard from '../../cards/ImageCard/ImageCard';
 import styles from './CommentItem.module.scss';
 
+interface CommentItemProps {
+  profileImageSrc: string;
+  nickname: string;
+  content: string;
+  updatedAt: string;
+}
+
 export default function CommentItem({
   profileImageSrc,
   nickname = 'nickname',
   content = 'content',
   updatedAt = '0시간 전',
-}) {
+}: CommentItemProps) {
   return (
     <>
       <div className={styles.comment}>
