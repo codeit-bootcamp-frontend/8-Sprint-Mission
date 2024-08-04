@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren } from 'react'
+import { createContext, PropsWithChildren, useMemo } from 'react'
 import useDevice, { DEVICE } from 'src/hooks/useDevice'
 import { ValueOf } from 'src/types'
 
@@ -13,9 +13,14 @@ export const MediaContext = createContext<MediaContextType>({
 function MediaProvider({ children }: PropsWithChildren) {
   const device = useDevice()
 
-  return (
-    <MediaContext.Provider value={{ device }}>{children}</MediaContext.Provider>
+  const value = useMemo(
+    () => ({
+      device,
+    }),
+    [device]
   )
+
+  return <MediaContext.Provider value={value}>{children}</MediaContext.Provider>
 }
 
 export default MediaProvider
