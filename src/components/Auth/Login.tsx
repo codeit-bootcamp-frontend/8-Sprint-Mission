@@ -1,24 +1,23 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import AuthHeader from "./AuthHeader";
-import Section from "../../ui/Section/Section";
-import Input from "../../ui/FormComponents/Input";
-import Button from "../../ui/Button/Button";
-import styles from "./Register.module.css";
-import logoImg from "../../assets/images/register_logo.png";
+import { useState } from 'react';
+import AuthHeader from './AuthHeader';
+import Section from '../../ui/Section/Section';
+import Input from '../../ui/FormComponents/Input';
+import Button from '../../ui/Button/Button';
+import styles from './Register.module.css';
+import { InitialValue, ChangeValueType } from './@types/Auth';
 
 const INITIAL_VALUE = {
-  email: "",
-  nickName: "",
-  password: "",
-  passwordCheck: "",
+  email: '',
+  nickName: '',
+  password: '',
+  passwordCheck: '',
 };
 
 export default function Register() {
   const [formValue, setFormValue] = useState<InitialValue>(INITIAL_VALUE);
 
   const handleChangeFormValue: ChangeValueType = (name, value) => {
-    setFormValue((prevData) => ({
+    setFormValue(prevData => ({
       ...prevData,
       [name]: value,
     }));

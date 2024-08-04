@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 interface FnQuery {
   query: {
@@ -33,7 +33,6 @@ export function useAsyncStatus<T>(
       setFetchData(data.list);
       const maxPage = Math.ceil(data.totalCount / query.size);
       setTotalItem(maxPage);
-      console.log(totalItem);
     } catch (error) {
       setError(error.message);
     } finally {

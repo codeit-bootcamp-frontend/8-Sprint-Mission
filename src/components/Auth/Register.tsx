@@ -1,20 +1,16 @@
-import { useState, useEffect } from "react";
-import AuthHeader from "./AuthHeader";
-import Section from "../../ui/Section/Section";
-import Input from "../../ui/FormComponents/Input";
-import Button from "../../ui/Button/Button";
-import styles from "./Register.module.css";
-
-interface RegisterInitialValue extends InitialValue {
-  nickName: string;
-  passwordCheck: string;
-}
+import { useState, useEffect } from 'react';
+import AuthHeader from './AuthHeader';
+import Section from '../../ui/Section/Section';
+import Input from '../../ui/FormComponents/Input';
+import Button from '../../ui/Button/Button';
+import styles from './Register.module.css';
+import { RegisterInitialValue, ChangeValueType } from './@types/Auth';
 
 const INITIAL_VALUE = {
-  email: "",
-  nickName: "",
-  password: "",
-  passwordCheck: "",
+  email: '',
+  nickName: '',
+  password: '',
+  passwordCheck: '',
 };
 
 export default function Register() {
@@ -22,7 +18,7 @@ export default function Register() {
     useState<RegisterInitialValue>(INITIAL_VALUE);
 
   const handleChangeFormValue: ChangeValueType = (name, value) => {
-    setFormValue((prevData) => ({
+    setFormValue(prevData => ({
       ...prevData,
       [name]: value,
     }));

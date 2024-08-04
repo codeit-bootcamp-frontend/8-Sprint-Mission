@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { Form } from "react-router-dom";
-import FileInput from "../../ui/FormComponents/FileInput";
-import TagInput from "../../ui/FormComponents/TagInput";
-import Input from "../../ui/FormComponents/Input";
-import TextArea from "../../ui/FormComponents/TextArea";
-import Button from "../../ui/Button/Button";
-import styles from "./ProductForm.module.css";
+import { useEffect, useState } from 'react';
+import { Form } from 'react-router-dom';
+import FileInput from '../../ui/FormComponents/FileInput';
+import TagInput from '../../ui/FormComponents/TagInput';
+import Input from '../../ui/FormComponents/Input';
+import TextArea from '../../ui/FormComponents/TextArea';
+import Button from '../../ui/Button/Button';
+import styles from './ProductForm.module.css';
 
 interface Tag {
   id: string;
@@ -20,18 +20,18 @@ interface InitialValues {
   tag: Tag[];
 }
 
-const INITIAL_VALUES: InitialValues = {
-  imgFile: null,
-  title: "",
-  description: "",
-  price: "",
-  tag: [],
-};
-
 type ChangeValueType = (
   name: string,
   value: string | null | Tag[] | number | File | readonly string[]
 ) => void;
+
+const INITIAL_VALUES: InitialValues = {
+  imgFile: null,
+  title: '',
+  description: '',
+  price: '',
+  tag: [],
+};
 
 export default function ProductForm() {
   const [formValues, setFormValues] = useState<InitialValues>(INITIAL_VALUES);
@@ -39,13 +39,13 @@ export default function ProductForm() {
   const { title, description, price, tag } = formValues;
 
   const submitActive: boolean =
-    title.trim() !== "" &&
-    description.trim() !== "" &&
-    price !== "" &&
+    title.trim() !== '' &&
+    description.trim() !== '' &&
+    price !== '' &&
     tag.length > 0;
 
   const handleChangeValue: ChangeValueType = (name, value) => {
-    setFormValues((prevValue) => ({
+    setFormValues(prevValue => ({
       ...prevValue,
       [name]: value,
     }));

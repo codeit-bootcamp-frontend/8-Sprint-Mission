@@ -1,5 +1,5 @@
-import { FormEvent, useRef } from "react";
-import styles from "./SearchForm.module.css";
+import { FormEvent, useRef } from 'react';
+import styles from './SearchForm.module.css';
 
 interface FormProps {
   className: string;

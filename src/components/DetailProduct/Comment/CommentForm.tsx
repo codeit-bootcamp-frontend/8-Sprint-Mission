@@ -1,16 +1,16 @@
-import { useState } from "react";
-import styles from "./CommentForm.module.css";
-import TextArea from "../../../ui/FormComponents/TextArea";
-import Button from "../../../ui/Button/Button";
+import { useState } from 'react';
+import styles from './CommentForm.module.css';
+import TextArea from '../../../ui/FormComponents/TextArea';
+import Button from '../../../ui/Button/Button';
 
 export default function CommnetForm() {
-  const [commentValue, setCommentValue] = useState<string>("");
+  const [commentValue, setCommentValue] = useState<string>('');
 
-  const handleChangeValue = (name: string = "comment", value: string) => {
+  const handleChangeValue = (name: string = 'comment', value: string) => {
     setCommentValue(value);
   };
 
-  const isActive = commentValue.trim() !== "";
+  const isActive: boolean = commentValue.trim() !== '';
 
   return (
     <>

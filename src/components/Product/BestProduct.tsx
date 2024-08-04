@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
-import { getFavoriteProduct } from "../../utils/http";
-import Loading from "../../ui/Loading/Loading";
-import Section from "../../ui/Section/Section";
-import ItemList from "./ItemList";
-import styles from "./BestProduct.module.css";
+import { useState, useEffect } from 'react';
+import { useAsyncStatus } from '../../hooks/useAsyncStatus';
+import { getFavoriteProduct } from '../../utils/http';
+import Loading from '../../ui/Loading/Loading';
+import Section from '../../ui/Section/Section';
+import ItemList from './ItemList';
+import styles from './BestProduct.module.css';
+import { ResponseProducts } from './@types/Products';
 
 const deviceSize = {
   mobile: 768,
   tablet: 1199,
 };
-const getResponseProducts = () => {
+const getResponseProducts: () => ResponseProducts = () => {
   let windowWidth = window.innerWidth;
 
   if (windowWidth < deviceSize.mobile) {
@@ -22,39 +24,30 @@ const getResponseProducts = () => {
 };
 
 export default function BestProduct() {
-  const [itemList, setItemList] = useState([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const {
+    loading,
+    error,
+    fetchData: itemList,
+    fetchProducts: fetchBestProducts,
+  } = useAsyncStatus(getFavoriteProduct, []);
   const [size, setSize] = useState(getResponseProducts());
-
-  const fetchBestProducts = async () => {
-    const query = {
-      size,
-    };
-    setLoading(true);
-    try {
-      const product = await getFavoriteProduct({ query });
-      const { list } = product;
-      setItemList(list);
-      setLoading(false);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
 
   useEffect(() => {
     const handleResize = () => {
       setSize(getResponseProducts());
     };
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     handleResize();
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   useEffect(() => {
-    fetchBestProducts();
+    const query = {
+      size,
+    };
+    fetchBestProducts({ query });
   }, [size]);
 
   if (error) {
@@ -68,7 +61,7 @@ export default function BestProduct() {
         <Loading />
       ) : (
         <div className={styles.list}>
-          {itemList.map((list) => (
+          {itemList.map(list => (
             <ItemList key={`best-products-${list.id}`} {...list} />
           ))}
         </div>
