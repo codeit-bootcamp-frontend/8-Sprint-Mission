@@ -37,9 +37,9 @@ function PaginationBar({
   // const totalItem = items.totalCount;
   const btnRange = Math.ceil(totalCount / pageItem);
 
-  const onClickNum = (e: React.MouseEvent<HTMLUListElement>) => {
+  const onClickNum = (e: React.MouseEvent<HTMLUListElement, MouseEvent>) => {
     const target = e.currentTarget as HTMLUListElement;
-    if (target.tagName !== "LI") return;
+    // if (target.tagName !== "LI") return;
     setNavClick(Number(target.innerText));
     handlePaginationChange(Number(target.innerText));
   };
