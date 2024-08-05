@@ -1,11 +1,22 @@
+import { ChangeEvent } from "react";
 import "./TextInput.css";
 
-function TextInput({ isTextArea, name, label, placeholder, onChange }) {
+interface Props {
+  isTextArea: boolean;
+  name: string;
+  label: string;
+  placeholder: string;
+  onChange: (name: string, value: string) => void;
+}
+
+function TextInput({ isTextArea, name, label, placeholder, onChange }: Props) {
   const classNames = isTextArea
     ? "text-input-content product-introduction"
     : "text-input-content";
 
-  const handleTextInputChange = (e) => {
+  const handleTextInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     onChange(name, value);
   };

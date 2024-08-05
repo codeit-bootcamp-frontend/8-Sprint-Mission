@@ -2,7 +2,22 @@ import "./Comment.css";
 
 import getTimeElapsed from "../../utils/getTimeElapsed";
 
-function Comment({ comment }) {
+interface Writer {
+  image: string;
+  nickname: string;
+}
+
+interface IComment {
+  writer: Writer;
+  content: string;
+  updatedAt: string;
+}
+
+interface Props {
+  comment: IComment;
+}
+
+function Comment({ comment }: Props) {
   const {
     writer: { image, nickname },
     content,

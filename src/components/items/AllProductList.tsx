@@ -1,25 +1,43 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import "./AllProductList.css";
 import ProductListItem from "./ProductListItem";
 import searchIcon from "../../assets/images/ic_search.png";
 
-function AllProductList({ products }) {
-  const [showedProducts, setShowedProducts] = useState([]);
-  const [order, setOrder] = useState("createdAt");
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  images: string;
+  favoriteCount: number;
+  tags?: string[];
+  createdAt: string;
+}
+
+interface Products {
+  className?: string;
+  products: Product[];
+}
+
+function AllProductList({ products }: Products) {
+  const [showedProducts, setShowedProducts] = useState<Product[]>([]);
+  const [order, setOrder] = useState<string>("createdAt");
 
   useEffect(() => {
     const sortedProducts = [...products].sort((a, b) => {
       if (order === "createdAt") {
-        return new Date(b.createdAt) - new Date(a.createdAt);
+        return (
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
       }
-      return b[order] - a[order];
+      return (b as any)[order] - (a as any)[order];
     });
     setShowedProducts(sortedProducts.slice(0, 10));
   }, [order, products]);
 
-  const handleOrderChange = (e) => {
+  const handleOrderChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setOrder(e.target.value);
   };
 

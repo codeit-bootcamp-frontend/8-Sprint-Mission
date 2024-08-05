@@ -1,23 +1,37 @@
+import { SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
 
 import "./ProductListItem.css";
 import likeIcon from "../../assets/images/ic_heart_empty.png";
 import errorImage from "../../assets/images/img_default.png";
 
-const onErrorImg = (e) => {
-  e.target.src = errorImage;
+interface Item {
+  id: string;
+  name: string;
+  price: number;
+  images: string;
+  favoriteCount: number;
+}
+
+interface Props {
+  item: Item;
+  className: string;
+}
+
+const onErrorImg = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+  e.currentTarget.src = errorImage;
 };
 
-function ProductListItem({ item, className }) {
-  const { id, name, price, image, favoriteCount } = item;
-  const classNames = `image ${className}`;
+function ProductListItem({ item, className }: Props) {
+  const { id, name, price, images, favoriteCount } = item;
+  const imageClassNames = `image ${className}`;
 
   return (
     <div className="product-list-item">
       <Link className="product-detail-link" to={`/items/${id}`}>
         <img
-          className={classNames}
-          src={image}
+          className={imageClassNames}
+          src={images}
           alt={name}
           onError={onErrorImg}
         ></img>

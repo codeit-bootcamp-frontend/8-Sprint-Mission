@@ -1,7 +1,23 @@
 import "./BestProductList.css";
 import ProductListItem from "./ProductListItem";
 
-function BestProductList({ products }) {
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  images: string;
+  favoriteCount: number;
+  tags?: string[];
+  createdAt: string;
+}
+
+interface Products {
+  className?: string;
+  products: Product[];
+}
+
+function BestProductList({ products }: Products) {
   const sortedProducts = [...products].sort(
     (a, b) => b["favoriteCount"] - a["favoriteCount"]
   );
