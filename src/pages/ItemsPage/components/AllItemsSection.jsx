@@ -2,16 +2,15 @@
  * @todo 페이지네이션 구현 및 Page State로 적용
  */
 
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import ItemCard from "@pages/ItemsPage/components/ItemCard";
-import { getProducts as getAllItems } from "@js/itemApi";
-import SearchBar from "@components/UI/jsx/SearchBar";
-import DropDownList from "@components/UI/jsx/DropDownList";
-import Button from "@components/UI/jsx/Button";
+import React, { useState, useEffect } from 'react';
+import ItemCard from '@pages/ItemsPage/components/ItemCard';
+import { getProducts as getAllItems } from '@js/itemApi';
+import SearchBar from '@components/UI/jsx/SearchBar';
+import DropDownList from '@components/UI/jsx/DropDownList';
+import Button from '@components/UI/jsx/Button';
 
-const ORDER_BY_RECENT = "recent";
-const ORDER_BY_FAVORITE = "favorite";
+const ORDER_BY_RECENT = 'recent';
+const ORDER_BY_FAVORITE = 'favorite';
 
 /**
  * 페이지 사이즈에 따라, 불러와야하는 아이템 갯수를 리턴하는 함수
@@ -45,17 +44,17 @@ function AllItemsSection() {
     setItemList(allItems.list);
   };
 
-  const handleSortSelection = (sortOption) => {
+  const handleSortSelection = sortOption => {
     setOrderBy(sortOption);
   };
 
   const orderByItems = [
     {
-      name: "최신순",
+      name: '최신순',
       value: ORDER_BY_RECENT,
     },
     {
-      name: "추천순",
+      name: '추천순',
       value: ORDER_BY_FAVORITE,
     },
   ];
@@ -66,12 +65,12 @@ function AllItemsSection() {
     };
 
     // 화면 크기 변경 시, pageSize 재계산
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     fetchData({ page, pageSize, orderBy });
 
     // Cleanup Function
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, [pageSize]);
 
@@ -86,20 +85,9 @@ function AllItemsSection() {
           <h2 className="allItemsSection__title">판매중인 상품</h2>
         </div>
         <SearchBar className="allItemsSection__searchBar" />
-        <Button
-          to="/additem"
-          size="small"
-          height="48"
-          innerText="상품 등록하기"
-        />
-
-        {/* <Link
-          to="/additem"
-          className="allItemsSection__btn globalBtn globalBtn--small"
-          type="button"
-        >
+        <Button to="/additem" size="small" height="48">
           상품 등록하기
-        </Link> */}
+        </Button>
         <DropDownList
           className="allItemsSection__dropDownList"
           dropDownItems={orderByItems}
@@ -108,7 +96,7 @@ function AllItemsSection() {
         />
       </div>
       <div className="allItemsSection__itemList">
-        {itemList?.map((item) => (
+        {itemList?.map(item => (
           <ItemCard item={item} key={`all-item-${item.id}`} />
         ))}
       </div>

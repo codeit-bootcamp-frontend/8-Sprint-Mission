@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "@pages/HomePage/HomePage.scss";
 import "@styles/global.scss";
 import Button from "@components/UI/jsx/Button";
@@ -17,7 +16,9 @@ function HomePage() {
           <h1 className="homePage__title--h1">
             일상의 모든 물건을 거래해 보세요
           </h1>
-          <Button to="/items" size="large" innerText="구경하러 가기" />
+          <Button to="/items" size="large">
+            구경하러 가기
+          </Button>
         </div>
       </section>
       {/* Main-Content */}

@@ -3,10 +3,10 @@ import "@pages/AddItemPage/AddItemPage.scss";
 import Input from "@components/UI/jsx/Input";
 import TextArea from "@components/UI/jsx/TextArea";
 import Button from "@components/UI/jsx/Button";
+import TagList from "@components/UI/jsx/TagList";
 
 /** 상품 등록 페이지
  *
- * @todo 태그 구현
  * @todo 반응형 구현
  *
  */
@@ -68,7 +68,6 @@ function AddItemPage() {
       ...prevFormData,
       tags: prevFormData.tags.filter((tag) => tag !== tagToDelete),
     }));
-    console.log(formData.tags);
   };
 
   // 이미지 file를 제외한 input 요소가 입력되었을 때 버튼 활성화
@@ -100,12 +99,13 @@ function AddItemPage() {
           <div className="addItemPage__header">
             <h1 className="addItemPage__sectionTitle">상품 등록하기</h1>
             <Button
-              innerText="등록"
               size="small"
               type="submit"
               disabled={!isFormComplete}
               onClick={handleSubmit}
-            />
+            >
+              등록
+            </Button>
           </div>
 
           <div className="addItemPage__inputContainer">
@@ -193,7 +193,6 @@ function AddItemPage() {
             <label className="addItemPage__inputTitle" htmlFor="tags">
               태그
             </label>
-
             <Input
               className="addItemPage__tagInput"
               type="text"
@@ -202,22 +201,11 @@ function AddItemPage() {
               placeholder="태그를 입력하고 Enter를 누르세요."
               onKeyDown={handleAddTag}
             />
-            <div className="addItemPage__tagsList">
-              {formData.tags.map((tag, index) => (
-                <>
-                  <span key={`tag-${index}`} className="addItemPage__tag">
-                    {"#" + tag}
-                    <i
-                      className="addItemPage__icX addItemPage__icX--tag"
-                      key={`xBtn-${index}`}
-                      role="button"
-                      aria-label="태그 삭제 버튼"
-                      onClick={() => handleDeleteTag(tag)}
-                    ></i>
-                  </span>
-                </>
-              ))}
-            </div>
+            <TagList
+              tags={formData.tags}
+              onDelete={handleDeleteTag}
+              canDelete={true}
+            />
           </div>
         </form>
       </main>

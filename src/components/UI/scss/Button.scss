@@ -57,9 +57,10 @@
   &--medium {
     min-width: 240px;
     width: max-content; // 글자에 따라 너비 변경
-    height: 56px;
-    padding: 12px 71px;
+    height: 48px;
+    padding: 13px 71px;
     border-radius: 40px;
+    font-size: 1.8rem;
   }
 
   &--large {
