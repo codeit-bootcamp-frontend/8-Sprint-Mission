@@ -1,84 +1,105 @@
-import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentById } from "../../api";
-import "./CommentList.css";
+import useFetch from "../../hooks/useFetch";
+import emptyComment from "../../images/empty_comment_img.png";
+import FormatRelativeTime from "../../utils/FormatRelativeTime";
+import styled from "styled-components";
+
+const StyledSection = styled.section`
+  border-bottom: 1px solid var(--gray-200);
+`;
+
+const StyledList = styled.ul`
+  padding: 0;
+`;
+const StyledListItem = styled.li`
+  list-style-type: none;
+`;
+
+const StyledContent = styled.p`
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 24px;
+`;
+const StyledBottomSection = styled.section`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
+
+const StyledWriterImg = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`;
+
+const StyledInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+const StyledNickname = styled.p`
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+`;
+
+const StyledTime = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray-400);
+  margin: 0;
+`;
 
 function CommentList() {
   const { productId } = useParams();
-  const [comment, setComment] = useState([]);
-  const [error, setError] = useState(null);
 
-  const fetchComment = useCallback(async () => {
-    try {
-      const result = await getCommentById(productId);
-      const commentData = result.list;
-      setComment(commentData);
-    } catch (error) {
-      setError(error.message);
-    }
+  const {
+    data: comments,
+    error,
+    loading,
+  } = useFetch(async () => {
+    const result = await getCommentById(productId);
+    return result.list;
   }, [productId]);
 
-  useEffect(() => {
-    fetchComment();
-  }, [fetchComment]);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   if (error) {
     return <div>Error: {error}</div>;
   }
 
-  if (!comment) {
-    return <div>Loading...</div>;
-  }
-
-  function formatRelativeTime(dateString) {
-    const dateObject = new Date(dateString);
-    const targetDate = dateObject.getTime();
-
-    const liveDateObject = new Date();
-    const now = liveDateObject.getTime();
-
-    const diff = now - targetDate;
-
-    const minutes = Math.floor(diff / (1000 * 60));
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
-
-    if (minutes < 60) {
-      return `${minutes}분 전`;
-    } else if (hours < 24) {
-      return `${hours}시간 전`;
-    } else if (days < 31) {
-      return `${days}일 전`;
-    } else {
-      return `${months}개월 전`;
-    }
+  if (comments.length === 0) {
+    return (
+      <div className="empty-comment">
+        <img src={emptyComment} alt="No comments" />
+        <p>아직 문의가 없습니다.</p>
+      </div>
+    );
   }
 
   return (
     <div>
-      {error && <p>Error: {error}</p>}
-      <section className="commment-section">
-        <ul>
-          {comment.map(({ id, content, updatedAt, writer }) => (
-            <li key={id} className="comment-list-item">
-              <p className="commment-content">{content}</p>
-              <div className="commment-info-container">
-                <img
-                  className="commment-writer-img"
-                  src={writer.image}
-                  alt="프로필 이미지"
-                />
-
-                <h1 className="commment-writer">{writer.nickname}</h1>
-
-                <p className="commment-updateAt">
-                  {formatRelativeTime(updatedAt)}
-                </p>
-              </div>
-            </li>
+      <StyledSection>
+        <StyledList>
+          {comments.map(({ id, content, updatedAt, writer }) => (
+            <StyledListItem key={id}>
+              <StyledContent>{content}</StyledContent>
+              <StyledBottomSection>
+                <StyledWriterImg src={writer.image} alt="프로필 이미지" />
+                <StyledInfo>
+                  <StyledNickname>{writer.nickname}</StyledNickname>
+                  <StyledTime>
+                    <FormatRelativeTime time={updatedAt} />
+                  </StyledTime>
+                </StyledInfo>
+              </StyledBottomSection>
+            </StyledListItem>
           ))}
-        </ul>
-      </section>
+        </StyledList>
+      </StyledSection>
     </div>
   );
 }

@@ -1,6 +1,77 @@
-import "./AddItemPage.css";
+import styled from "styled-components";
 import FileInput from "./FileInput";
 import { useState } from "react";
+import Nav from "../../components/Nav";
+
+const StyledFormContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 100px;
+`;
+const StyledTopSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const StyledAddItemButton = styled.button`
+  height: 42px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin: auto 0;
+  border: none;
+  color: var(--gray-50);
+  background-color: var(--blue-100);
+  cursor: pointer;
+
+  &:disabled {
+    background-color: var(--gray-400);
+    cursor: auto;
+  }
+`;
+const StyledLabel = styled.label`
+  font-size: 18px;
+  font-weight: 700;
+`;
+const StyledInput = styled.input`
+  background-color: var(--gray-100);
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  border: none;
+
+  &:focus {
+    outline: 1px solid var(--blue-100);
+  }
+
+  &:active {
+    outline: 1px solid var(--blue-100);
+  }
+`;
+
+const StyledTextArea = styled.textarea`
+  background-color: var(--gray-100);
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  height: 282px;
+  border-radius: 12px;
+  border: none;
+  resize: none;
+
+  &:focus {
+    outline: 1px solid var(--blue-100);
+  }
+
+  &:active {
+    outline: 1px solid var(--blue-100);
+  }
+`;
 
 function AddItem() {
   const [values, setValues] = useState({
@@ -28,80 +99,68 @@ function AddItem() {
     console.log(values);
   };
 
-  /*
-  const checkAllInputsFilled = (values) => {
+  const checkAllInputsFilled = () => {
     return (
-      values.name.length > 0 &&
-      values.detail.length > 0 &&
-      values.price.length > 0 &&
-      values.tag.length > 0
+      values.name !== "" &&
+      values.detail !== "" &&
+      values.price !== "" &&
+      values.tag !== ""
     );
   };
-  */
 
-  const checkAllInputsFilled = () => {
-    return Object.values(values).every((value) => value !== "");
-  };
+  // const checkAllInputsFilled = () => {
+  //  return Object.values(values).every((value) => value !== "");
+  // };
 
   return (
     <div>
-      <form className="form-container" onSubmit={handleSubmit}>
-        <div className="top-section-submit">
+      <Nav />
+      <StyledFormContainer onSubmit={handleSubmit}>
+        <StyledTopSection>
           <h1>상품 등록하기</h1>
-          <button
-            className="add-item-button"
-            disabled={!checkAllInputsFilled(values)}
-          >
+          <StyledAddItemButton disabled={!checkAllInputsFilled()}>
             등록
-          </button>
-        </div>
+          </StyledAddItemButton>
+        </StyledTopSection>
         <FileInput
           name="imgFile"
           value={values.imgFile}
           onChange={handleChange}
         />
-        <label className="lable" htmlFor="item-name">
-          상품명
-        </label>
-        <input
+        <StyledLabel htmlFor="item-name">상품명</StyledLabel>
+        <StyledInput
           id="item-name"
           name="name"
           value={values.name}
           onChange={handleInputChange}
           placeholder="상품명을 입력해주세요"
-        ></input>
-        <label className="lable" htmlFor="item-detail">
-          상품 소개
-        </label>
-        <textarea
+        />
+        <StyledLabel htmlFor="item-detail">상품 소개</StyledLabel>
+        <StyledTextArea
           id="item-detail"
           name="detail"
           value={values.detail}
           onChange={handleInputChange}
           placeholder="상품 소개를 입력해주세요"
-        ></textarea>
-        <label className="lable" htmlFor="item-price">
-          판매가격
-        </label>
-        <input
+        />
+        <StyledLabel htmlFor="item-price">판매가격</StyledLabel>
+        <StyledInput
           id="item-price"
           name="price"
           value={values.price}
           onChange={handleInputChange}
           type="number"
           placeholder="판매 가격을 입력해주세요"
-        ></input>
-        <label className="lable" htmlFor="tag">
-          태그
-        </label>
-        <input
+        />
+        <StyledLabel htmlFor="tag">태그</StyledLabel>
+        <StyledInput
           id="tag"
           name="tag"
           value={values.tag}
           onChange={handleInputChange}
           placeholder="태그를 입력해주세요"
-        ></input>
-      </form>
+        />
+      </StyledFormContainer>
     </div>
   );
 }

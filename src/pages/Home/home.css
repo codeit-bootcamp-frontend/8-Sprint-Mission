@@ -168,8 +168,8 @@ footer {
   margin-left: 10px;
 }
 
-.icon_sns {
-  margin-left: 10px;
+.icon_sns > a {
+  margin-left: 5px;
 }
 
 /* text decoration */
@@ -197,4 +197,112 @@ footer {
   font-weight: 500;
   line-height: 28.8px;
   color: #374151;
+}
+
+@media (max-width: 1199px) {
+  header {
+    padding: 0 10px;
+  }
+
+  body {
+    margin-top: 70px;
+  }
+
+  section.top-section {
+    height: 771px;
+    justify-content: start;
+    text-align: center;
+  }
+
+  .top-section .ment {
+    width: 100%;
+  }
+
+  .top-section > .container {
+    width: 1200px;
+    margin-top: 10%;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .main-section {
+    margin: 70px auto;
+    width: 100%;
+    display: block;
+  }
+
+  .main-section div {
+    margin: 20px;
+  }
+
+  section.bottom-section {
+    height: 927px;
+  }
+
+  .bottom-section > .container {
+    margin-top: 30%;
+    text-align: center;
+  }
+
+  .footer-container {
+    padding: 32px 100px 108px 50px;
+  }
+
+  .main-section .ment-doit {
+    font-size: 32px;
+  }
+
+  .small-ment-doit {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  section.top-section {
+    text-align: center;
+    background-size: contain;
+  }
+
+  .login-button {
+    font-size: 16px;
+  }
+
+  .top-section > .container {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .lookfor-button {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+
+  section.bottom-section {
+    background-size: contain;
+    height: 549px;
+  }
+
+  .bottom-section > .container {
+    font-size: 32px;
+  }
+
+  .footer-container {
+    padding: 32px 10px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .main-section .ment-doit {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .small-ment-doit {
+    font-size: 16px;
+  }
 }
