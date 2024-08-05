@@ -3,7 +3,7 @@ import "./UsedMarketPage.css";
 import Header from "../../components/@shared/Header/Header";
 import BestProductsList from "../../components/Market/BestProductsList/BestProductsList";
 import SalesProductsList from "../../components/Market/SalesProductsList/SalesProductsList";
-import ProductsPaginaitonBtns from "../../components/Market/SalesProductsList/ProductsPaginaitonBtns";
+import ProductsPaginationBtns from "../../components/Market/SalesProductsList/ProductsPaginationBtns";
 
 import { getProducts } from "../../api/api";
 import { useState, useEffect } from "react";
@@ -112,7 +112,7 @@ function UsedMarketPage() {
           onChangeOrder={setSalesProductsOrder}
         />
       </main>
-      <ProductsPaginaitonBtns
+      <ProductsPaginationBtns
         pageBtnNumList={pageBtnNumList}
         setPageBtnNumList={setPageBtnNumList}
         currentPage={currentPage}

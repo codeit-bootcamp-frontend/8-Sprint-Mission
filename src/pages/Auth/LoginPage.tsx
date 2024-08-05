@@ -21,7 +21,6 @@ function LoginPage() {
         </div>
       </Link>
       <form>
-        <h2></h2>
         <input></input>
         <input></input>
         <button></button>

@@ -1,25 +1,44 @@
+import React from "react";
 import "./SalesProductsList.css";
-
 import { Link } from "react-router-dom";
-
 import ProductCard from "../ProductCard/ProductCard";
 
-const orderDict = {
+// Define the type for product
+interface Product {
+  id: number;
+  images: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
+
+// Define the type for props
+interface SalesProductsListProps {
+  salesProducts: Product[];
+  order: "recent" | "favorite";
+  onChangeOrder: (order: "recent" | "favorite") => void;
+}
+
+const orderDict: Record<SalesProductsListProps["order"], string> = {
   recent: "최신순",
   favorite: "좋아요순",
 };
 
-function SalesProductsList({ salesProducts, order, onChangeOrder }) {
-  const handleSalesProductsOrder = (event) => {
-    const order = event.target.dataset.value;
+const SalesProductsList: React.FC<SalesProductsListProps> = ({
+  salesProducts,
+  order,
+  onChangeOrder,
+}) => {
+  const handleSalesProductsOrder = (event: React.MouseEvent<HTMLDivElement>) => {
+    const order = event.currentTarget.dataset.value as "recent" | "favorite";
     onChangeOrder(order);
   };
 
-  const handleSelctOptionsDisplay = (event) => {
-    const options = event.currentTarget.lastChild;
-    options.style.display === "none"
-      ? (options.style.display = "flex")
-      : (options.style.display = "none");
+  const handleSelectOptionsDisplay = (event: React.MouseEvent<HTMLDivElement>) => {
+    const options = event.currentTarget.querySelector(".product-order-select-options") as HTMLDivElement;
+    if (options) {
+      options.style.display = options.style.display === "none" ? "flex" : "none";
+    }
   };
 
   return (
@@ -36,7 +55,7 @@ function SalesProductsList({ salesProducts, order, onChangeOrder }) {
             <button className="register-item-button">상품 등록하기</button>
           </Link>
           <div
-            onClick={handleSelctOptionsDisplay}
+            onClick={handleSelectOptionsDisplay}
             className="product-order-select-box"
           >
             <div className="product-selected-order-value">
@@ -66,7 +85,7 @@ function SalesProductsList({ salesProducts, order, onChangeOrder }) {
         />
         <div
           className="product-selected-order-value-minimize"
-          onClick={handleSelctOptionsDisplay}
+          onClick={handleSelectOptionsDisplay}
         >
           <div className="product-order-select-options">
             <div data-value="recent" onClick={handleSalesProductsOrder}>

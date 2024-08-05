@@ -1,9 +1,21 @@
+import React from 'react';
 import "./ProductCard.css";
-
 import heartIconUrl from "../../../assets/images/ic_heart_inactive.png";
 import { Link } from "react-router-dom";
 
-function ProductCard({ product }) {
+interface Product {
+  id: number;
+  images: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
+
+interface ProductCardProps {
+  product: Product;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { favoriteCount, images, name, price, id } = product;
   const itemUrl = `/items/${id}`;
 

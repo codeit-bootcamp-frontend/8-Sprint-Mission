@@ -1,8 +1,18 @@
+import React from 'react';
 import "./MainTop.css";
-
 import { Link } from "react-router-dom";
 
-function MainTop({ mainTopDetails }) {
+interface MainTopDetails {
+  imgUrl: string;
+  mainTopContent: string;
+  buttonContent: string;
+}
+
+interface MainTopProps {
+  mainTopDetails: MainTopDetails;
+}
+
+const MainTop: React.FC<MainTopProps> = ({ mainTopDetails }) => {
   const { imgUrl, mainTopContent, buttonContent } = mainTopDetails;
 
   return (

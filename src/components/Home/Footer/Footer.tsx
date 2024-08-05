@@ -7,7 +7,13 @@ import icInstagram from "../../../assets/images/ic_instagram.png";
 
 import { Link } from "react-router-dom";
 
-const EXTERNAL_LINKS_DETAILS = [
+interface ExternalLinkDetails {
+  alt: string;
+  linkUrl: string;
+  imgUrl: string;
+}
+
+const EXTERNAL_LINKS_DETAILS: ExternalLinkDetails[] = [
   {
     alt: "페이스북 링크",
     linkUrl: "https://www.facebook.com",
@@ -22,16 +28,20 @@ const EXTERNAL_LINKS_DETAILS = [
   },
 ];
 
-function ExternalIcon({ externalLinkDetails }) {
+interface ExternalIconProps {
+  externalLinkDetails: ExternalLinkDetails;
+}
+
+const ExternalIcon: React.FC<ExternalIconProps> = ({ externalLinkDetails }) => {
   const { alt, linkUrl, imgUrl } = externalLinkDetails;
   return (
     <Link className="external-link" to={linkUrl}>
       <img src={imgUrl} alt={alt} />
     </Link>
   );
-}
+};
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer>
       <div className="footer-bar">
@@ -55,6 +65,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

@@ -1,40 +1,49 @@
-import "./ProductsPaginaitonBtns.css";
+import React, { useEffect } from "react";
+import "./ProductsPaginationBtns.css";
 
 import pageArrowLeft from "../../../assets/images/arrow_left_dark.png";
 import pageArrowRight from "../../../assets/images/arrow_right_dark.png";
-import { useEffect } from "react";
 
-function ProductsPaginaitonBtns({
+interface ProductsPaginationBtnsProps {
+  pageBtnNumList: number[];
+  setPageBtnNumList: React.Dispatch<React.SetStateAction<number[]>>;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  totalPageCount: number;
+}
+
+const ProductsPaginaitonBtns: React.FC<ProductsPaginationBtnsProps> = ({
   pageBtnNumList,
   setPageBtnNumList,
   currentPage,
   setCurrentPage,
   totalPageCount,
-}) {
+}) => {
   useEffect(() => {
     if (totalPageCount < 6 || currentPage <= 3) {
       setPageBtnNumList(pageBtnNumList);
     } else if (currentPage > totalPageCount - 2) {
       return;
     } else {
-      let pageNumList = pageBtnNumList;
-      pageNumList = pageNumList.map((pageNum) => pageNum + 1);
+      const pageNumList = pageBtnNumList.map((pageNum) => pageNum + 1);
       setPageBtnNumList(pageNumList);
-      console.log(pageBtnNumList);
     }
-  }, [currentPage]);
+  }, [currentPage, pageBtnNumList, totalPageCount, setPageBtnNumList]);
 
-  const handleArrowBtnClick = (event) => {
+  const handleArrowBtnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (event.currentTarget.className.includes("left")) {
-      if (currentPage !== 1) setCurrentPage((currentPage) => currentPage - 1);
+      if (currentPage !== 1) setCurrentPage((prev) => prev - 1);
     } else {
       if (currentPage !== totalPageCount)
-        setCurrentPage((currentPage) => currentPage + 1);
+        setCurrentPage((prev) => prev + 1);
     }
   };
 
-  const handleButtonClick = (event) => {
-    setCurrentPage(Number(event.target.textContent));
+  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const pageNum = Number(event.currentTarget.textContent);
+    if (!isNaN(pageNum)) {
+      setCurrentPage(pageNum);
+    }
   };
 
   return (
