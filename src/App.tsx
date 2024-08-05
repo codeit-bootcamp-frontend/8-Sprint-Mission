@@ -1,11 +1,10 @@
-import './styles/reset.css';
-import Home from './pages/home/Home.jsx';
-import Items from './pages/items/Items.jsx';
-import Login from './pages/login/Login.jsx';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AddItem from './pages/additem/AddItem.jsx';
-import DetailItems from './pages/DetailItems.jsx';
-import { createGlobalStyle } from 'styled-components';
+import "./styles/reset.css";
+import Home from "./pages/home/Home";
+import Items from "./pages/items/Items";
+import Login from "./pages/login/Login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AddItem from "./pages/additem/AddItem";
+import DetailItems from "./pages/DetailItems";
 
 function App() {
   return (

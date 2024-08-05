@@ -1,11 +1,20 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import { getApiProducts } from './getApi';
-import KebabIconImg from '../assets/images/icon/btn_icon/ic_kebab_menu.png';
-import FavoriteIconImg from '../assets/images/icon/btn_icon/ic_favorite.png';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import styled from "styled-components";
+import { getApiProducts } from "./getApi";
+import KebabIconImg from "../assets/images/icon/btn_icon/ic_kebab_menu.png";
+import FavoriteIconImg from "../assets/images/icon/btn_icon/ic_favorite.png";
 // @media screen and (max-width: 1199px) and (min-width: 768px) {}
 // @media screen and (min-width: 1200px) {}
+
+interface Item {
+  favoriteCount: number;
+  images: string;
+  name: string;
+  description: string;
+  price: number;
+}
+
 const Main = styled.main`
   margin-top: 70px;
   display: flex;
@@ -135,11 +144,10 @@ const FavoriteButton = styled.div`
 
 function Product() {
   const { selectItem } = useParams();
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Item | null>(null);
   const [alltags, setAllTags] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { favoriteCount, images, name, description, price } = items;
-  const [korPrice, setKorPrice] = useState('');
+  const [korPrice, setKorPrice] = useState("");
   // 상품 데이터 가져오기
   useEffect(() => {
     const fetchData = async () => {
@@ -147,8 +155,10 @@ function Product() {
         const result = await getApiProducts(selectItem);
         setItems(result);
         setAllTags(result.tags);
-        const won = price.toLocaleString('ko-KR');
-        setKorPrice(won);
+        if (result) {
+          const won = result.price.toLocaleString("ko-KR");
+          setKorPrice(won);
+        }
       } catch (error) {
         console.error(error);
       } finally {
@@ -157,11 +167,16 @@ function Product() {
     };
 
     fetchData();
-  }, [selectItem, price]);
+  }, [selectItem]);
 
   if (loading) {
     return <div>Loading...</div>;
   }
+  if (!items) {
+    return <div>no data</div>;
+  }
+
+  const { favoriteCount, images, name, description } = items;
 
   return (
     <Main>

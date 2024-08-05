@@ -1,12 +1,30 @@
-import './BestItem.css';
-import favoriteIcon from '../../assets/images/icon/btn_icon/ic_favorite.png';
-import { Link, useNavigate } from 'react-router-dom';
+import "./BestItem.css";
+import favoriteIcon from "../../assets/images/icon/btn_icon/ic_favorite.png";
+import { useNavigate } from "react-router-dom";
 
-function BestItems({ item }) {
-  const { createAt, favoriteCount, ownerId, images, tags, price, description, name, id } = item;
+interface Item {
+  favoriteCount: number;
+  images: string;
+  price: number;
+  name: string;
+  id: string;
+}
+
+interface BestItemsProps {
+  item: Item;
+}
+
+interface BestItemListProps {
+  items: {
+    list: Item[];
+  };
+}
+
+function BestItems({ item }: BestItemsProps) {
+  const { favoriteCount, images, price, name, id } = item;
   const navigate = useNavigate();
-  const won = price.toLocaleString('ko-KR');
-  const onImgClick = (id) => {
+  const won = price.toLocaleString("ko-KR");
+  const onImgClick = (id: string) => {
     navigate(`${id}`);
   };
 
@@ -23,7 +41,7 @@ function BestItems({ item }) {
   );
 }
 
-function BestItemList({ items }) {
+function BestItemList({ items }: BestItemListProps) {
   const cutItems = [...items.list];
 
   return (

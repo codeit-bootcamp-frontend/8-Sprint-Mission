@@ -1,12 +1,12 @@
-import NavBar from '../../components/NavBar/NavBar.jsx';
-import '../home/Home.css';
-import HotItemImg from '../../assets/images/mainPage/Img_home_hot_item.png';
-import ItemSearchImg from '../../assets/images/mainPage/Img_home_item_search.png';
-import HomeForSaleImg from '../../assets/images/mainPage/Img_home_for_sale_item.png';
-import FaceBookIc from '../../assets/images/icon/ic_facebook.png';
-import TwitterIc from '../../assets/images/icon/ic_twitter.png';
-import YoutubeIc from '../../assets/images/icon/ic_youtube.png';
-import Instagram from '../../assets/images/icon/ic_instagram.png';
+import NavBar from "../../components/NavBar/NavBar";
+import "../home/Home.css";
+import HotItemImg from "../../assets/images/mainPage/Img_home_hot_item.png";
+import ItemSearchImg from "../../assets/images/mainPage/Img_home_item_search.png";
+import HomeForSaleImg from "../../assets/images/mainPage/Img_home_for_sale_item.png";
+import FaceBookIc from "../../assets/images/icon/ic_facebook.png";
+import TwitterIc from "../../assets/images/icon/ic_twitter.png";
+import YoutubeIc from "../../assets/images/icon/ic_youtube.png";
+import Instagram from "../../assets/images/icon/ic_instagram.png";
 function Home() {
   return (
     <div className="home-container">

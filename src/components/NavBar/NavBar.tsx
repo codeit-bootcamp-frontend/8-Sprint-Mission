@@ -1,17 +1,18 @@
-import '../NavBar/NavBar.css';
-import logoLarge from '../../assets/images/logo/logo.png';
-import logoSmall from '../../assets/images/logo/mini_logo.png';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import "../NavBar/NavBar.css";
+import logoLarge from "../../assets/images/logo/logo.png";
+import logoSmall from "../../assets/images/logo/mini_logo.png";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { CSSProperties } from "react";
 
-function getLinkStyle({ isActive }) {
+function getLinkStyle({ isActive }: { isActive: boolean }): CSSProperties {
   return {
-    color: isActive ? '#3692ff' : 'none',
+    color: isActive ? "#3692ff" : "none",
   };
 }
 
 function NavBar() {
   const location = useLocation();
-  const matchLocation = location.pathname === '/additem';
+  const matchLocation = location.pathname === "/additem";
 
   return (
     <header>
@@ -28,7 +29,7 @@ function NavBar() {
               자유게시판
             </NavLink>
             <NavLink
-              to={matchLocation ? '/additem' : '/items'}
+              to={matchLocation ? "/additem" : "/items"}
               className="nav-link"
               style={getLinkStyle}
             >
