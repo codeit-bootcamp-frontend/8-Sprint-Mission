@@ -3,7 +3,22 @@ import "./style/BestCard.css";
 import { getProducts } from "../../../API/ItemAPI";
 import ItemCard from "./ItemCard";
 
-export const getTopFavoriteItems = (data, n) => {
+interface Item {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  images: string;
+  createdAt: string;
+  favoriteCount: number;
+  tags: string;
+}
+
+interface ItemList {
+  list: Item[];
+}
+
+export const getTopFavoriteItems = (data: ItemList, n: number): Item[] => {
   const sortedItems = data.list.sort(
     (a, b) => b.favoriteCount - a.favoriteCount
   );
@@ -11,12 +26,12 @@ export const getTopFavoriteItems = (data, n) => {
 };
 
 function BestCard() {
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState<Item[]>([]);
 
   useEffect(() => {
     const fetchAndProcessData = async () => {
       try {
-        const data = await getProducts();
+        const data: ItemList = await getProducts();
         const topFavoriteItems = getTopFavoriteItems(data, 4);
         setItemList(topFavoriteItems);
       } catch (error) {

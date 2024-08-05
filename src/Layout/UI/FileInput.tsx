@@ -1,13 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import "./FileInput.css";
 import xbutton from "../../images/icons/ic_X.svg";
 
-function FileInput({ name, value, onChange }) {
-  const [preview, setPreview] = useState();
-  const inputRef = useRef();
+interface FileInputProps {
+  id: string;
+  name: string;
+  value: File | null;
+  onChange: (name: string, file: File | null) => void;
+}
 
-  const handleChange = (e) => {
-    const nextValue = e.target.files[0];
+function FileInput({ name, value, onChange }: FileInputProps) {
+  const [preview, setPreview] = useState<string>();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const nextValue = e.target.files ? e.target.files[0] : null;
     onChange(name, nextValue);
   };
 
@@ -26,7 +33,7 @@ function FileInput({ name, value, onChange }) {
     setPreview(nextPreview);
 
     return () => {
-      setPreview();
+      setPreview(undefined);
       URL.revokeObjectURL(nextPreview);
     };
   }, [value]);

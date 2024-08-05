@@ -2,10 +2,20 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getComments } from "../../../API/CommentsAPI";
 
-const timeSince = (date) => {
+interface comment {
+  id: number;
+  name: string;
+  content: string;
+  createdAt: string;
+  images: string;
+  nickname: string;
+  updatedAt: number;
+}
+
+const timeSince = (date: number) => {
   const now = new Date();
   const updatedAt = new Date(date);
-  const seconds = Math.floor((now - updatedAt) / 1000);
+  const seconds = Math.floor((now.getTime() - updatedAt.getTime()) / 1000);
 
   let interval = Math.floor(seconds / 31536000);
   if (interval > 1) return `${interval}년 전`;
@@ -25,7 +35,11 @@ const timeSince = (date) => {
   return `${Math.floor(seconds)}초 전`;
 };
 
-function CommentItem({ item }) {
+interface commentItemProps {
+  item: comment;
+}
+
+const CommentItem: React.FC<commentItemProps> = ({ item }) => {
   return (
     <div>
       <h1>{item.content}</h1>
@@ -34,17 +48,23 @@ function CommentItem({ item }) {
       <p>{timeSince(item.updatedAt)}</p>
     </div>
   );
-}
+};
 
 function Comment() {
-  const { id } = useParams(); // URL에서 id 값을 가져옴
-  const [itemList, setItemList] = useState([]);
+  const { id } = useParams<{ id: string }>();
+  const [itemList, setItemList] = useState<comment[]>([]);
 
   useEffect(() => {
     const fetchAndProcessData = async () => {
       try {
-        const data = await getComments(id);
-        setItemList(data.list);
+        const numericId = id ? Number(id) : undefined;
+
+        if (numericId !== undefined) {
+          const data = await getComments(numericId);
+          setItemList(data.list);
+        } else {
+          console.error("ID가 정의되지 않았습니다.");
+        }
       } catch (error) {
         console.error("데이터를 가져오지 못했습니다", error);
       }
