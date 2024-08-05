@@ -1,0 +1,8 @@
+.go-back {
+  display: block;
+  background-image: url('../../../public/og-image.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 100vmin;
+}
