@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { getProducts } from "../api.js";
-import { useEffect, useState } from "react";
+import { MouseEvent, SetStateAction, useEffect, useState } from "react";
 
 const responsivePageSize = () => {
   const winWidth = window.innerWidth;
@@ -19,18 +19,33 @@ const responsivePageSize = () => {
 const RECENT = "recent";
 const FAVORITE = "favorite";
 
-function AllProduct() {
-  const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-  const [order, setOrder] = useState(RECENT);
-  const [dropArrow, setDropArrow] = useState("");
-  const [dropDisplay, setDropDisplay] = useState("none");
-  const [orderTxt, setOrderTxt] = useState("최신순");
-  const [pagesNum, setPagesNum] = useState([1, 2]);
+interface Product {
+  id: number;
+  name: string;
+  info: string;
+  price: number;
+  tag: string;
+  images: string;
+  favoriteCount: number;
+}
 
-  const handleLoad = async (options) => {
+function AllProduct() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
+  const [order, setOrder] = useState<string>(RECENT);
+  const [dropArrow, setDropArrow] = useState<string>("");
+  const [dropDisplay, setDropDisplay] = useState<string>("none");
+  const [orderTxt, setOrderTxt] = useState<string>("최신순");
+  const [pagesNum, setPagesNum] = useState<number[]>([1, 2]);
+
+  const handleLoad = async (options: {
+    page: number;
+    pageSize: number;
+    order: string;
+  }) => {
     let { list } = await getProducts(options);
+    console.log(list);
     setProducts(list);
   };
 
@@ -39,23 +54,23 @@ function AllProduct() {
     setDropDisplay(dropDisplay === "none" ? "block" : "none");
   };
 
-  const handleNewsOrder = (e) => {
-    const menuTxt = e.target.textContent;
+  const handleNewsOrder = (e: MouseEvent<HTMLElement>) => {
+    const menuTxt = e.currentTarget.textContent || "";
     setOrderTxt(menuTxt);
     setDropArrow("");
     setDropDisplay("none");
     setOrder(RECENT);
   };
 
-  const handleBestOrder = (e) => {
-    const menuTxt = e.target.textContent;
+  const handleBestOrder = (e: MouseEvent<HTMLElement>) => {
+    const menuTxt = e.currentTarget.textContent || "";
     setOrderTxt(menuTxt);
     setDropArrow("");
     setDropDisplay("none");
     setOrder(FAVORITE);
   };
 
-  const pageNumClick = (page) => {
+  const pageNumClick = (page: SetStateAction<number>) => {
     setPage(page);
   };
 
@@ -112,7 +127,6 @@ function AllProduct() {
               const productPrice = product.price
                 .toString()
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); // 숫자 3자리 마다 콤마 추가(정규식 사용)
-              const imgChk = product.images.join("").includes("jpeg"); // 이미지 경로에 jpeg가 있는지 확인
 
               return (
                 <li key={product.id}>
@@ -120,8 +134,10 @@ function AllProduct() {
                     <div className="product-img">
                       <img
                         src={
-                          imgChk ? product.images : "/images/card01-small.png"
-                        } // 이미지 경로에 jpeg가 없으면 기본 이미지 있으면 정상적인 이미지
+                          product.images
+                            ? product.images
+                            : "/images/card01-small.png"
+                        }
                         alt={product.name}
                       />
                     </div>

@@ -16,14 +16,29 @@ const responsivePageSize = () => {
   }
 };
 
+interface Product {
+  id: number;
+  name: string;
+  info: string;
+  price: number;
+  tag: string;
+  images: string;
+  favoriteCount: number;
+}
+
 function BestProduct() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [order, setOrder] = useState("favorite");
 
-  const handleLoad = async (options) => {
+  const handleLoad = async (options: {
+    page: number;
+    pageSize: number;
+    order: string;
+  }) => {
     const { list } = await getProducts(options);
+    console.log(list);
     setProducts(list);
   };
 

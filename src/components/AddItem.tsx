@@ -1,19 +1,28 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
+
+interface FormData {
+  name: string;
+  info: string;
+  price: string;
+  tag: string;
+}
 
 function AddItem() {
-  const [formData, setFormDate] = useState({
+  const [formData, setFormDate] = useState<FormData>({
     name: "",
     info: "",
     price: "",
     tag: "",
   });
-  const [addItemBtn, setAddItemBtn] = useState("");
-  const [btnDisabled, setBtnDisabled] = useState(true);
-  const [inputFileUrl, setInputFileUrl] = useState(null);
-  const inputFileImg = useRef(null);
+  const [addItemBtn, setAddItemBtn] = useState<string>("");
+  const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
+  const [inputFileUrl, setInputFileUrl] = useState<string | null>(null);
+  const inputFileImg = useRef<HTMLInputElement>(null);
   const imgAccept = ".jpg, .jpeg, .png";
 
-  const inputChange = (e) => {
+  const inputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     // input value 상태 변경
     const { name, value } = e.target;
     setFormDate({
@@ -23,12 +32,13 @@ function AddItem() {
   };
 
   const inputFileChange = () => {
-    const inputFile = inputFileImg.current.files[0];
-    console.log(inputFile);
+    if (inputFileImg.current && inputFileImg.current.files) {
+      const inputFile = inputFileImg.current.files[0];
 
-    if (inputFile) {
-      const fileUrl = URL.createObjectURL(inputFile);
-      setInputFileUrl(fileUrl);
+      if (inputFile) {
+        const fileUrl = URL.createObjectURL(inputFile);
+        setInputFileUrl(fileUrl);
+      }
     }
   };
 
@@ -38,16 +48,12 @@ function AddItem() {
 
   const validAddItemVal = () => {
     // 유효성 검사
-    if (
+    return (
       formData.name.trim() !== "" &&
       formData.info.trim() !== "" &&
       formData.price.trim() !== "" &&
       formData.tag.trim() !== ""
-    ) {
-      return true;
-    }
-
-    return false;
+    );
   };
 
   useEffect(() => {
@@ -128,7 +134,7 @@ function AddItem() {
             type="number"
             name="price"
             placeholder="판매 가격을 입력해주세요."
-            value={formData.price === NaN ? null : formData.price}
+            value={formData.price === "" ? "" : formData.price}
             onChange={inputChange}
           />
         </div>
