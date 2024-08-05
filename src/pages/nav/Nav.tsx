@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import LogoImage from "../../core/assets/images/logo/logo-large@3x.png";
 
 import TabList from "../../components/nav/TabList";
@@ -34,6 +34,7 @@ const Nav = () => {
     setIsSelected(INITIAL_SELECTED);
   };
   return (
+    <>
     <nav className="nav">
       <Link to="/" onClick={handleIsSelectedReset}>
         <img src={LogoImage} className="logo-img" alt="로고" />
@@ -41,6 +42,8 @@ const Nav = () => {
       <TabList handleClick={handleClick} isSelected={isSelected} />
       <LoginBtn onClick={handleIsSelectedReset} />
     </nav>
+      <Outlet />
+    </>
   );
 };
 
