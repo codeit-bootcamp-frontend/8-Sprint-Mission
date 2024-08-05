@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply flex items-center justify-center border border-solid border-gray-400;
+  }
+
+  .btn-small {
+    @apply rounded-lg w-[5.5rem] h-[2.625rem] md:w-[8rem] md:h-[3.25rem];
+  }
+
+  .btn-large {
+    @apply rounded-[4rem] max-w-sm w-full h-[3rem];
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white;
+  }
+}
+
+@layer utilities {
+  .logo-base,
+  .logo-sm,
+  .logo-md,
+  .logo-lg,
+  .logo-xl {
+    display: none;
+  }
+
+  @media (max-width: 19.9em) {
+    .logo-base {
+      display: block;
+    }
+  }
+
+  @media (min-width: 20em) and (max-width: 64em) {
+    .logo-sm {
+      display: block;
+    }
+  }
+
+  @media (max-width: 64em) {
+    .logo-lg {
+      display: block;
+    }
+  }
+
+  @media (min-width: 64.1em) {
+    .logo-md,
+    .logo-xl {
+      display: block;
+    }
+  }
+}
