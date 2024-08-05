@@ -1,40 +1,55 @@
 {
-  "name": "react-sprint",
-  "version": "0.1.0",
+  "name": "vite-project2",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 & tsc --noEmit",
+    "format": "prettier --cache --write .",
+    "postinstall": "husky install",
+    "prepare": "husky && husky install",
+    "husky": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --cache --write .",
+      "eslint . --ext ts,tsx src/ --report-unused-disable-directives --max-warnings 0"
+    ]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "dayjs": "^1.11.12",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
-    "react-scripts": "5.0.1",
-    "styled-components": "^6.1.11",
-    "web-vitals": "^2.1.4"
+    "styled-components": "^6.1.11"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.8",
+    "prettier": "^3.3.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4",
+    "vite-tsconfig-paths": "^4.3.2"
   }
 }
