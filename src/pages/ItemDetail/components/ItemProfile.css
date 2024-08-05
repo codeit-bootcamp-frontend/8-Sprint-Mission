@@ -1,0 +1,143 @@
+.detail-container {
+  margin: 94px auto 40px;
+  width: 1200px;
+  display: flex;
+  gap: 24px;
+}
+
+.detail-container > img {
+  width: 486px;
+  height: 486px;
+  border-radius: 16px;
+}
+
+section .title {
+  width: 690px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-text .name {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  color: #1f2937;
+  margin-top: 0;
+}
+
+.title img {
+  width: 24px;
+  height: 24px;
+}
+
+section h3 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 47.73px;
+  text-align: left;
+  color: #1f2937;
+  margin: 16px 0 16px;
+}
+
+.description-title {
+  margin-top: 24px;
+}
+
+.description-title,
+.description {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: left;
+  color: #4b5563;
+}
+
+.description {
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.detail-text hr {
+  border: 1px solid #e5e7eb;
+}
+
+.line-divider {
+  width: 1200px;
+  border: 1px solid #e5e7eb;
+}
+
+@media (max-width: 1279px) {
+  .detail-container {
+    width: 696px;
+    gap: 26px;
+  }
+
+  .detail-container > img {
+    width: 340px;
+    height: 340px;
+  }
+
+  section .title {
+    width: 340px;
+  }
+
+  .detail-text .name {
+    font-size: 20px;
+  }
+
+  section h3 {
+    font-size: 32px;
+    line-height: 42px;
+    margin: 8px 0 16px;
+  }
+
+  .description-title {
+    margin-top: 16px;
+  }
+
+  .description-title,
+  .description {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .line-divider {
+    width: 696px;
+  }
+}
+
+@media (max-width: 767px) {
+  .detail-container {
+    margin: 96px auto 24px;
+    width: 344px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .detail-container > img {
+    width: 343px;
+    height: 343px;
+    border-radius: 12px;
+  }
+
+  section .title {
+    width: 344px;
+  }
+
+  .detail-text .name {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  section h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .line-divider {
+    width: 344px;
+  }
+}

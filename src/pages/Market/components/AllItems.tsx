@@ -1,12 +1,19 @@
-import { getProducts } from "../api.js";
-import React, { useEffect, useState, useMemo } from "react";
-import ItemList from "./ItemList.js";
-import searchIcon from "../assets/ic_search.svg";
-import Dropdown from "./Dropdown.js";
+import { getProducts } from "../../../api/api";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
+import ItemList from "./ItemList";
+import searchIcon from "../../../assets/ic_search.svg";
+import Dropdown from "../../../components/UI/Dropdown";
 import "./AllItems.css";
-import "./global.css";
+import "../../../style/global.css";
 import { Link } from "react-router-dom";
-import PaginationBar from "./PaginationBar.js";
+import PaginationBar from "../../../components/UI/PaginationBar";
+import { Product } from "../../../type/ProductType";
+
+export interface HandleLoadProductsParams {
+  order: string;
+  page: number;
+  pageSize: number;
+}
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -24,38 +31,45 @@ const getPageSize = () => {
 };
 
 function AllItems() {
-  const [products, setProducts] = useState([]);
-  const [order, setOrder] = useState("createdAt");
-  const [page, setPage] = useState(1);
-  const [totalPageNum, setTotalPageNum] = useState();
-  const [pageSize, setPageSize] = useState(getPageSize());
+  const [products, setProducts] = useState<Product[]>([]);
+  const [order, setOrder] = useState<string>("createdAt");
+  const [page, setPage] = useState<number>(1);
+  const [totalPageNum, setTotalPageNum] = useState<number | undefined>(
+    undefined
+  );
+  const [pageSize, setPageSize] = useState<number>(getPageSize());
 
   const options = [
     { label: "최신순", value: "createdAt" },
     { label: "좋아요순", value: "favoriteCount" },
   ];
 
+  const handleLoadProducts = useCallback(
+    async ({ order, page, pageSize }: HandleLoadProductsParams) => {
+      try {
+        const products = await getProducts({ order, page, pageSize });
+        setProducts(products.list);
+        setTotalPageNum(Math.ceil(products.totalCount / pageSize));
+      } catch (error) {
+        console.error("상품 목록을 가져오는 중 오류 발생:", error);
+      }
+    },
+    []
+  );
+
   const sortedItems = useMemo(() => {
     return [...products].sort((a, b) => {
       if (order === "createdAt") {
-        return new Date(b.createdAt) - new Date(a.createdAt);
+        return (
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
       }
       return b.favoriteCount - a.favoriteCount;
     });
   }, [products, order]);
 
-  const handleChangeOrder = (value) => {
+  const handleChangeOrder = (value: string) => {
     setOrder(value);
-  };
-
-  const handleLoadProducts = async ({ order, page, pageSize }) => {
-    try {
-      const products = await getProducts({ order, page, pageSize });
-      setProducts(products.list);
-      setTotalPageNum(Math.ceil(products.totalCount / pageSize));
-    } catch (error) {
-      console.error("상품 목록을 가져오는 중 오류 발생:", error);
-    }
   };
 
   const style = {
@@ -63,7 +77,7 @@ function AllItems() {
     color: "#FFFFFF",
   };
 
-  const onPageChange = (pageNumber) => {
+  const onPageChange = (pageNumber: number) => {
     setPage(pageNumber);
   };
 
@@ -77,12 +91,12 @@ function AllItems() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [order, page, pageSize]);
+  }, [order, page, pageSize, handleLoadProducts]);
 
   return (
     <>
       <div className="allItemsBar">
-        <div className="title">판매 중인 상품</div>
+        <div className="all-items-title">판매 중인 상품</div>
         <div className="searchItem">
           <img className="searchIcon" src={searchIcon} alt="searchIcon" />
           <input
@@ -114,7 +128,7 @@ function AllItems() {
       </div>
       <div className="paginationBarWrapper">
         <PaginationBar
-          totalPageNum={totalPageNum}
+          totalPageNum={totalPageNum ?? 1}
           activePageNum={page}
           onPageChange={onPageChange}
         />

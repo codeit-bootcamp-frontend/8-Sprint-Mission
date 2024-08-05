@@ -1,8 +1,9 @@
-import { getProducts } from "../api.js";
+import { getProducts } from "../../../api/api";
 import { useEffect, useState, useMemo } from "react";
-import ItemList from "./ItemList.js";
+import ItemList from "./ItemList";
 import "./AllItems.css";
-import "./global.css";
+import "../../../style/global.css";
+import { Product } from "../../../type/ProductType";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -20,8 +21,8 @@ const getPageSize = () => {
 };
 
 function BestItems() {
-  const [products, setProducts] = useState([]);
-  const [pageSize, setPageSize] = useState(getPageSize());
+  const [products, setProducts] = useState<Product[]>([]);
+  const [pageSize, setPageSize] = useState<number>(getPageSize());
 
   const bestProducts = useMemo(() => {
     const sortedItems = [...products].sort(
@@ -31,7 +32,7 @@ function BestItems() {
     return sortedItems.slice(0, getPageSize());
   }, [products]);
 
-  const handleLoadProducts = async (pageSize) => {
+  const handleLoadProducts = async (pageSize: number) => {
     try {
       const products = await getProducts(pageSize);
       setProducts(products.list);
@@ -54,7 +55,7 @@ function BestItems() {
 
   return (
     <>
-      <div className="title">베스트 상품</div>
+      <div className="best-items-title">베스트 상품</div>
       <div className="bestItemsMenu">
         {bestProducts.map((product) => (
           <ItemList product={product} key={product.id} />

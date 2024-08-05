@@ -36,20 +36,9 @@ header {
   color: #4b5563;
 }
 
-.login {
-  width: 88px;
-  height: 42px;
-  padding: 12px 23px;
-  background-color: #3692ff;
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+header > img {
+  width: 40px;
+  height: 40px;
 }
 
 @media (max-width: 1279px) {

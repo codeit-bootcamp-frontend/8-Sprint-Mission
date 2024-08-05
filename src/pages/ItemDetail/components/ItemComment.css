@@ -1,0 +1,95 @@
+.item-comment-container {
+  width: 1200px;
+  margin: 40px auto 24px;
+}
+
+.item-comment-container > p {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: left;
+  color: #111827;
+}
+
+.item-comment-container > textarea {
+  width: 1200px;
+  height: 104px;
+  border-radius: 12px;
+  padding: 16px, 24px;
+  margin: 9px 0 16px;
+}
+
+.item-comment-container > textarea ::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
+  color: #9ca3af;
+}
+
+.item-comment-container button {
+  width: 74px;
+  height: 42px;
+  padding: 12px 23px;
+  border-radius: 8px;
+  background-color: #9ca3af;
+  color: #f3f4f6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  border: none;
+  position: relative;
+  left: 1126px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1279px) {
+  .item-comment-container {
+    width: 696px;
+    margin: 40px auto 40px;
+  }
+
+  .item-comment-container > textarea {
+    width: 696px;
+  }
+
+  .item-comment-container button {
+    position: relative;
+    left: 622px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .item-comment-container {
+    width: 343px;
+    margin: 24px auto 40px;
+  }
+
+  .item-comment-container > p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #1f2937;
+  }
+
+  .item-comment-container > textarea {
+    width: 343px;
+    height: 129px;
+    margin: 16px 0 16px;
+  }
+
+  .item-comment-container > textarea ::placeholder {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .item-comment-container button {
+    position: relative;
+    left: 270px;
+    margin-bottom: 40px;
+  }
+}
