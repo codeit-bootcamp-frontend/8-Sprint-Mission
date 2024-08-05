@@ -1,8 +1,8 @@
-import { BRAND_FEATURE_ITEM_LIST } from ' constants/infomations/brandFeatureList';
+import { BRAND_FEATURE_ITEM_LIST } from ' constants/information/brandFeatureList';
 import { commonContainerStyle } from 'styles/@shared/shared';
 import FeatItem from './FeatItem';
 import styled from 'styled-components';
-import { TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 function FeatList() {
   return (
@@ -28,7 +28,7 @@ const StyledFeatList = styled.main`
 
   & figure:nth-of-type(2) {
     text-align: right;
-    @media all and (min-width: ${TABLET_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.desktop} {
       /* 두번째 기능은 사진과 텍스트 위치가 바뀌고 우측 정렬이어야 함 */
       flex-direction: row-reverse;
     }

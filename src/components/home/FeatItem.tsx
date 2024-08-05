@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'components/@shared/Image';
 import { IBrandFeatureItem } from 'types/@shared/homeTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 function FeatItem({ src, alt, title, description, detail }: Omit<IBrandFeatureItem, 'id'>) {
   return (
@@ -25,7 +25,7 @@ const StyledFeatItemContainer = styled.figure`
   align-items: center;
   gap: 6.4rem;
 
-  @media all and (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     flex-direction: column;
 
     height: 100%;
@@ -47,7 +47,7 @@ const StyledFeatTextWrapper = styled.div`
     한 줄이 너무 길어서 넘칠 경우 자동으로 줄을 바꿈 */
   white-space: pre-line;
 
-  @media all and (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     width: 100%;
     :not(h2) {
       white-space: normal;
@@ -60,7 +60,7 @@ const StyledFeatTextWrapper = styled.div`
     line-height: 2.52rem;
     color: var(--brand-blue);
     margin-bottom: 1.2rem;
-    @media all and (min-width: 375px) and (max-width: ${MOBILE_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.mobile} {
       font-size: 1.6rem;
       line-height: 2.24rem;
     }
@@ -72,11 +72,11 @@ const StyledFeatTextWrapper = styled.div`
     letter-spacing: 0.2rem;
     color: var(--cool-gray);
     margin-bottom: 2.4rem;
-    @media all and (min-width: ${MOBILE_MAX_WIDTH}px) and (max-width: ${TABLET_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.tablet} {
       font-size: 3.2rem;
       line-height: 4.48rem;
     }
-    @media all and (min-width: 375px) and (max-width: ${MOBILE_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.mobile} {
       font-size: 2.4rem;
       line-height: 3.36rem;
     }
@@ -87,11 +87,11 @@ const StyledFeatTextWrapper = styled.div`
     line-height: 2.88rem;
     letter-spacing: 0.3rem;
     color: var(--cool-gray);
-    @media all and (min-width: ${MOBILE_MAX_WIDTH}px) and (max-width: ${TABLET_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.tablet} {
       font-size: 1.8rem;
       line-height: 2.16rem;
     }
-    @media all and (min-width: 375px) and (max-width: ${MOBILE_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.mobile} {
       font-size: 1.6rem;
       line-height: 1.92rem;
     }

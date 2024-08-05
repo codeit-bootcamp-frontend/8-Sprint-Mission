@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ProductSpecs from './ProductSpecs';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -39,17 +39,17 @@ const StyledProductDetailSection = styled.section`
   display: flex;
   gap: 2.4rem;
 
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     flex-direction: column;
   }
 `;
 
 const StyledProductImageWrapper = styled.div`
   height: 48.6rem;
-  @media (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     height: 34rem;
   }
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     margin: 0 auto;
     flex-direction: column;
   }

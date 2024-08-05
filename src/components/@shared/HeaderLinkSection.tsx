@@ -4,25 +4,24 @@ import typoImg from 'assets/images/home/typo.png';
 import Image from './Image';
 import { PATH_HOME, PATH_BOARDS, PATH_ITEMS, PATH_ADD_ITEM } from ' constants/paths/paths';
 import styled from 'styled-components';
-import useNavigateTo from 'hooks/useNavigateTo';
 import useWindowSize from 'hooks/useWindowSize';
-import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 function HeaderLinkSection() {
   const { innerWidth } = useWindowSize();
-  const { navigateTo } = useNavigateTo();
   const { pathname } = useLocation();
   const needLinkHeaderPaths = [PATH_BOARDS, PATH_ITEMS, PATH_ADD_ITEM];
 
   return (
     <StyledLinkSection>
-      <Image
-        src={innerWidth > 769 ? logoImg : typoImg}
-        alt={'로고 이미지'}
-        height={innerWidth > 769 ? '5.1rem' : '4rem'}
-        width={innerWidth > 769 ? '15.3rem' : '8.1rem'}
-        onClick={() => navigateTo(PATH_HOME)}
-      />
+      <Link to={PATH_HOME}>
+        <Image
+          src={innerWidth > 769 ? logoImg : typoImg}
+          alt={'로고 이미지'}
+          height={innerWidth > 769 ? '5.1rem' : '4rem'}
+          width={innerWidth > 769 ? '15.3rem' : '8.1rem'}
+        />
+      </Link>
       {/* 링크가 필요한 페이지에서만 링크들이 나타나도록 */}
       {needLinkHeaderPaths.includes(pathname) && (
         <section>
@@ -50,7 +49,7 @@ const StyledLinkSection = styled.section`
     cursor: pointer;
   }
 
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     gap: 1.5rem;
   }
 `;
@@ -63,12 +62,12 @@ const StyledLink = styled(Link)<{ $isPageMatch: boolean }>`
 
   &:not(:last-child) {
     margin-right: 3.2rem;
-    @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.mobile} {
       margin-right: 0.8rem;
     }
   }
 
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     font-size: 1.6rem;
     line-height: 1.909rem;
   }

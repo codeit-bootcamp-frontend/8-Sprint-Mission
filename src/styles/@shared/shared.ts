@@ -1,4 +1,4 @@
-import { MOBILE_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 import { css } from 'styled-components';
 
 export const commonContainerStyle = css`
@@ -8,7 +8,7 @@ export const commonContainerStyle = css`
   margin: 0 auto;
 
   padding: 2.4rem;
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     padding: 1.6rem;
   }
 `;

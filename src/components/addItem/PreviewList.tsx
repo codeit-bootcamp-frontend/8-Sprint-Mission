@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import React from 'react';
 import { StyledRemoveButton } from 'styles/addProduct/buttonStyles';
 import Image from 'components/@shared/Image';
-import { IPreview } from 'types/@shared/addProductTypes';
+import { IImagePreview } from 'types/@shared/addProductTypes';
 
 interface PreviewListProps {
-  previewList: IPreview[];
+  previewList: IImagePreview[];
   handleRemoveClick: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
@@ -16,7 +16,7 @@ function PreviewList({ previewList, handleRemoveClick }: PreviewListProps) {
       {previewList.map(preview => (
         <StyledPreviewItem key={preview.id}>
           <Image
-            src={preview.url}
+            src={preview.imgUrl}
             alt={'등록한 상품 이미지 미리보기'}
             height={'100%'}
             width={'auto'}
@@ -27,7 +27,7 @@ function PreviewList({ previewList, handleRemoveClick }: PreviewListProps) {
             className={'preview-remove-btn'}
             data-category={'preview'}
             data-id={preview.id}
-            data-url={preview.url}
+            data-url={preview.imgUrl}
           />
         </StyledPreviewItem>
       ))}

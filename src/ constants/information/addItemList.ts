@@ -1,6 +1,6 @@
-import { IAddItemFeildset } from 'types/@shared/addProductTypes';
+import { IAddItemFieldset } from 'types/@shared/addProductTypes';
 
-export const ADDITEM_FEIELDSET_LIST: IAddItemFeildset[] = [
+export const ADDITEM_FIELDSET_LIST: IAddItemFieldset[] = [
   {
     subTitle: '상품명',
     name: 'title',

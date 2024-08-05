@@ -42,6 +42,7 @@ const StyledProductContainer = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 `;
 
 const StyledProductInfoWrapper = styled.div`

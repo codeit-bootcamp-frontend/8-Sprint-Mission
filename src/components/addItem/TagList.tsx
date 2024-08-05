@@ -4,7 +4,7 @@ import { smallTextStyle } from 'styles/addProduct/textStyles';
 
 import { StyledRemoveButton } from 'styles/addProduct/buttonStyles';
 import { ITag } from 'types/@shared/addProductTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 interface TagListProps {
   tagList: ITag[];
@@ -16,7 +16,7 @@ function TagList({ tagList, handleRemoveClick }: TagListProps) {
     <StyledTagList onClick={handleRemoveClick}>
       {tagList.map(tag => (
         <StyledTagItem key={tag.id}>
-          {tag.content}
+          {tag.tagContent}
           <StyledRemoveButton className={'tag-remove-btn'} data-category={'tag'} data-id={tag.id} />
         </StyledTagItem>
       ))}
@@ -37,10 +37,10 @@ const StyledTagList = styled.ul`
 
   ${smallTextStyle};
 
-  @media (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     max-width: calc(100vw - 5.2rem);
   }
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     max-width: calc(100vw - 3.2rem);
   }
 `;

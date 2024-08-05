@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ObjectType } from 'types/@shared/addProductTypes';
+import { FormObjectType } from 'types/@shared/addProductTypes';
 
-const useAllFieldFilled = <T extends Record<string, ObjectType>>(object: T): boolean => {
+const useAllFieldFilled = <T extends Record<string, FormObjectType>>(targetObject: T): boolean => {
   const [isAllFieldFilled, setIsAllFieldFilled] = useState(false);
-  const values = Object.values(object);
+  const values = Object.values(targetObject);
 
   useEffect(() => {
     const result = values.every(value => value.length > 0);

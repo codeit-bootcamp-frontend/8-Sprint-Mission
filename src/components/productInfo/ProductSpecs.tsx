@@ -1,4 +1,4 @@
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 import likeIcon from 'assets/images/market/like-icon.png';
 import Spacer from 'components/@shared/Spacer';
 import styled from 'styled-components';
@@ -41,7 +41,7 @@ const StyledProductSpecs = styled.section`
   justify-content: space-between;
   gap: 2.5rem;
 
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     gap: 2.4rem;
   }
 `;
@@ -55,11 +55,11 @@ const StyledTextDetail = styled.article`
     color: var(--cool-gray-800);
     margin-bottom: 1.6rem;
 
-    @media (max-width: ${TABLET_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.underTablet} {
       font-size: 2rem;
       line-height: 2.387rem;
     }
-    @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.mobile} {
       font-size: 1.6rem;
       line-height: 1.909rem;
     }
@@ -72,11 +72,11 @@ const StyledTextDetail = styled.article`
     line-height: 4.773rem;
     color: var(--cool-gray-800);
 
-    @media (max-width: ${TABLET_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.underTablet} {
       font-size: 3.2rem;
       line-height: 3.819rem;
     }
-    @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.mobile} {
       font-size: 2.4rem;
       line-height: 2.864rem;
     }
@@ -143,7 +143,7 @@ const StyledLikeCount = styled.article`
   line-height: 1.909rem;
   color: var(--cool-gray-500);
 
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     background-size: 2.4rem;
     padding: 0.4rem 1.2rem 0.4rem 4rem;
   }

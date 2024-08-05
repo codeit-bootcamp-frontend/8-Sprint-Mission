@@ -1,60 +1,48 @@
 import PasswordInput from '../PasswordInput';
-import React, { useEffect, useState } from 'react';
 import Button from 'components/@shared/Button';
-import useNavigateTo from 'hooks/useNavigateTo';
 import { PATH_ITEMS } from ' constants/paths/paths';
-import useValidForm from 'hooks/useValidForm';
 import { StyledAuthForm, StyledAuthLabel, StyledInputSection } from 'styles/auth/formStyles';
+import React from 'react';
+import useLoginForm from 'hooks/form/useLoginForm';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
-  const { navigateTo } = useNavigateTo();
-  const [form, setForm] = useState({
-    email: '',
-    password: '',
-  });
-  const { validMessages, validationResult, isFormValid, validateForm } = useValidForm(form);
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = event.target;
-    setForm({ ...form, [name]: value });
-  };
+  const navigator = useNavigate();
+  const { form, handler, result, message, isFormValid } = useLoginForm();
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
+    // 입력 양식을 통과하지 못하면 button이 disabled 상태라 누를 수 없음
     event.preventDefault();
-    navigateTo(PATH_ITEMS);
+    navigator(PATH_ITEMS);
   };
-
-  useEffect(() => {
-    validateForm();
-  }, [validationResult.email, validationResult.password]);
 
   return (
     // 로그인 정보를 서버로 보낼 form, 비밀번호가 url에 표시되지 않도록 하기위해 method post로 전송
     <StyledAuthForm autoComplete="on" method="post" onSubmit={handleSubmitClick}>
-      <StyledInputSection $isValid={validationResult.email}>
+      <StyledInputSection $validType={result.emailValidResult}>
         <StyledAuthLabel htmlFor={'email'}>이메일</StyledAuthLabel>
         <input
           id="email"
           type="email"
           name="email"
           value={form.email}
-          onChange={handleInputChange}
+          onChange={handler.handleEmailChange}
           placeholder="이메일을 입력해주세요"
         />
-        <small>{validMessages.email}</small>
+        <small>{message.emailValidMessage}</small>
       </StyledInputSection>
 
-      <StyledInputSection $isValid={validationResult.password}>
+      <StyledInputSection $validType={result.passwordValidResult}>
         <StyledAuthLabel htmlFor={'password'}>비밀번호</StyledAuthLabel>
         <PasswordInput
           id="password"
           name="password"
           value={form.password}
-          onChange={handleInputChange}
+          onChange={handler.handlePasswordChange}
           autoComplete="off"
           placeholder="비밀번호를 입력해주세요"
         />
-        <small>{validMessages.password}</small>
+        <small>{message.passwordValidMessage}</small>
       </StyledInputSection>
 
       <Button disabled={!isFormValid} $category={'large'} height={'5.6rem'} width={'100%'}>

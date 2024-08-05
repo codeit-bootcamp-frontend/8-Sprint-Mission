@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import { inputStyle, placeholderStyle } from 'styles/auth/formStyles';
 import plusIcon from 'assets/images/addProduct/plus-icon.png';
-import { ALLOW_FILE_EXTENSION } from ' constants/infomations/fileExtension';
+import { ALLOW_FILE_EXTENSION } from ' constants/information/fileExtension';
 import { StyledAddItemSubTitle } from 'styles/addProduct/textStyles';
 import React from 'react';
 import Image from 'components/@shared/Image';
 import PreviewList from './PreviewList';
-import { IPreview } from 'types/@shared/addProductTypes';
-import { MOBILE_MAX_WIDTH, TABLET_MAX_WIDTH } from ' constants/infomations/mediaQuerySize';
+import { IImagePreview } from 'types/@shared/addProductTypes';
+import { MEDIA_QUERY_SIZE } from ' constants/information/mediaQuerySize';
 
 interface ImageRegistrationProps {
-  previewList: IPreview[];
+  previewList: IImagePreview[];
   handleInputChange: (event: React.ChangeEvent<HTMLElement>) => void;
   handleRemoveClick: (event: React.MouseEvent<HTMLElement>) => void;
 }
@@ -19,7 +19,7 @@ function ImageRegistration({ previewList, handleInputChange, handleRemoveClick }
   return (
     <fieldset>
       <StyledAddItemSubTitle>상품 이미지</StyledAddItemSubTitle>
-      <StyledItemRegistSection>
+      <StyledItemRegistrationSection>
         <label htmlFor={'file-input-display-none'}>
           <Image src={plusIcon} alt={'이미지 추가하기 아이콘'} height={'4.8rem'} width={'4.8rem'} />
           <div>이미지 등록하기</div>
@@ -35,27 +35,27 @@ function ImageRegistration({ previewList, handleInputChange, handleRemoveClick }
           onChange={handleInputChange}
         />
         <PreviewList previewList={previewList} handleRemoveClick={handleRemoveClick} />
-      </StyledItemRegistSection>
+      </StyledItemRegistrationSection>
     </fieldset>
   );
 }
 
 export default ImageRegistration;
 
-const StyledItemRegistSection = styled.section`
+const StyledItemRegistrationSection = styled.section`
   display: flex;
   gap: 2.4rem;
   overflow-x: auto; // 사진이 많아지면 좌우 스크롤이 되도록 지정
   width: var(--container-width);
   height: 28.2rem;
 
-  @media (max-width: ${TABLET_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.underTablet} {
     height: 16.2rem;
     max-width: calc(100vw - 5.2rem);
     overflow-y: hidden;
     overflow-x: auto;
   }
-  @media (max-width: ${MOBILE_MAX_WIDTH}px) {
+  @media ${MEDIA_QUERY_SIZE.mobile} {
     max-width: calc(100vw - 3.2rem);
   }
 
@@ -74,7 +74,7 @@ const StyledItemRegistSection = styled.section`
 
     cursor: pointer;
 
-    @media (max-width: ${TABLET_MAX_WIDTH}px) {
+    @media ${MEDIA_QUERY_SIZE.underTablet} {
       width: 16.2rem;
     }
   }
