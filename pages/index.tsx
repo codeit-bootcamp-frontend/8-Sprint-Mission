@@ -1,5 +1,15 @@
-import styles from "@/styles/Home.module.css";
+import styled from "styled-components";
 
 export default function Home() {
-  return <h1 className={styles.title}>안녕 NEXT</h1>;
+  return (
+    <>
+      <Container>
+        <h1>안녕 NEXT</h1>
+      </Container>
+    </>
+  );
 }
+
+const Container = styled.div`
+  max-width: 1920px;
+`;
