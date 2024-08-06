@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import likeIcon from "../../images/heart_inactive.png";
@@ -6,7 +6,7 @@ import backIcon from "../../images/icon_back.png";
 import CommentList from "./CommentList";
 import { getProductById } from "../../api";
 import Nav from "../../components/Nav";
-import StyledCommonButton from "../../components/Button";
+import StyledCommonButton from "components/Button";
 
 const StyledPageContainer = styled.main`
   width: 1200px;
@@ -113,16 +113,29 @@ const StyledBackIcon = styled.img`
   height: 24px;
 `;
 
+interface Product {
+  createdAt: string;
+  favoriteCount: number;
+  ownerId: number;
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+  id: number;
+  isFavorite: boolean;
+}
+
 function ProductdetailPage() {
   const { productId } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState(null);
 
   const fetchProduct = useCallback(async () => {
     try {
       const productData = await getProductById(productId);
       setProduct(productData);
-    } catch (error) {
+    } catch (error: any) {
       setError(error.message);
     }
   }, [productId]);

@@ -51,17 +51,28 @@ const StyledTime = styled.p`
   margin: 0;
 `;
 
+interface Comment {
+  writer: {
+    image: string;
+    nickname: string;
+    id: number;
+  };
+  updatedAt: string;
+  createdAt: string;
+  content: string;
+  id: number;
+}
+
 function CommentList() {
   const { productId } = useParams();
 
-  const {
-    data: comments,
-    error,
-    loading,
-  } = useFetch(async () => {
+  const fetchResult = useFetch<Comment[]>(async () => {
     const result = await getCommentById(productId);
-    return result.list;
+    return result.list; // result.list는 Comment[] 타입이어야 함
   }, [productId]);
+
+  const comments: Comment[] = fetchResult.data || [];
+  const { error, loading } = fetchResult;
 
   if (loading) {
     return <div>Loading...</div>;

@@ -1,8 +1,11 @@
 import { useState, useCallback, useEffect } from "react";
 
-const useFetch = (fetchCallback, dependencies = []) => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+function useFetch<T>(
+  fetchCallback: () => Promise<T>,
+  dependencies: any[] = []
+) {
+  const [data, setData] = useState<T | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   const fetchData = useCallback(async () => {
@@ -11,7 +14,7 @@ const useFetch = (fetchCallback, dependencies = []) => {
       const result = await fetchCallback();
       setData(result);
       setError(null);
-    } catch (error) {
+    } catch (error: any) {
       setError(error.message);
     } finally {
       setLoading(false);
@@ -23,6 +26,6 @@ const useFetch = (fetchCallback, dependencies = []) => {
   }, [fetchData]);
 
   return { data, error, loading };
-};
+}
 
 export default useFetch;
