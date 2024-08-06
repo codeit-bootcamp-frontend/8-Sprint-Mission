@@ -1,8 +1,8 @@
-import React from 'react';
-import ProductCard from '../../../components/ui/ProductCard';
-import { Link } from 'react-router-dom';
-import Loadingbar from '../../../components/ui/Loadingbar';
-import useProducts from '../../../hooks/useProductList';
+import React from "react";
+import ProductCard from "../../../components/ui/ProductCard";
+import { Link } from "react-router-dom";
+import Loadingbar from "../../../components/ui/Loadingbar";
+import useProducts from "../../../hooks/useProductList";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -17,12 +17,12 @@ const getPageSize = () => {
 };
 
 function BestProductList() {
-  const { products, loading } = useProducts('favorite', getPageSize);
+  const { products, loading } = useProducts("favorite", getPageSize);
 
   const ProductList =
     products.length > 0 ? (
       <ul className="product-list">
-        {products.map(product => (
+        {products.map((product) => (
           <li key={product.id}>
             <Link to={`/items/${product.id}`}>
               <ProductCard product={product} />

@@ -1,16 +1,20 @@
-import React from 'react';
-import { useState } from 'react';
-import ImgDefault from '../../../assets/img/img-default.png';
+import React from "react";
+import { useState } from "react";
+import ImgDefault from "../../../assets/img/img-default.png";
+import { Product } from "../../../types/productTypes";
+interface ProductInfoProps {
+  product: Product;
+}
 
-function ProductInfo({ product }) {
+const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
   const { images, name, price, description, tags, favoriteCount } = product;
   const [isFavorite, setIsFavorite] = useState(false);
 
   const toggleFavorite = () => {
-    setIsFavorite(prevState => !prevState);
+    setIsFavorite((prevState) => !prevState);
   };
-  const ImgError = event => {
-    event.target.src = ImgDefault;
+  const ImgError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    event.currentTarget.src = ImgDefault;
   };
 
   return (
@@ -35,13 +39,16 @@ function ProductInfo({ product }) {
             ))}
           </div>
         </div>
-        <button className={`btn-favorite ${isFavorite ? 'on' : ''}`} onClick={toggleFavorite}>
+        <button
+          className={`btn-favorite ${isFavorite ? "on" : ""}`}
+          onClick={toggleFavorite}
+        >
           <i className="icon ic_heart"></i>
           {favoriteCount}
         </button>
       </div>
     </section>
   );
-}
+};
 
 export default ProductInfo;

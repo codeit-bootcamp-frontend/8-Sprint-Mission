@@ -11,5 +11,6 @@ function Faq() {
       <Header />;
     </>
   );
+}
 
 export default Faq;

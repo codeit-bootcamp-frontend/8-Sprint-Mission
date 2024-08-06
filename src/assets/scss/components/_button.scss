@@ -63,6 +63,9 @@
   &:hover {
     background: var(--gray100);
     color: var(--gray600);
+    .ic_heart {
+      background-image: url('../img/ic_heart_fill.svg');
+    }
   }
   &.on {
     .ic_heart {
