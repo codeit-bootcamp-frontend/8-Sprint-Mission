@@ -10,7 +10,7 @@ export default function Pagination({ maxPage, pageHandler }: PaginationProps) {
   });
   const [pageNum, setPageNum] = useState<number[]>([]);
   const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get("page"));
+  const currentPage = Number(searchParams.get("page")) || 1;
 
   let slicePageNum = pageNum.slice(pageSlice.start, pageSlice.end);
 
