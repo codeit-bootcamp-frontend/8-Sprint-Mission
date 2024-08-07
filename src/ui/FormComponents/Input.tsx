@@ -1,12 +1,6 @@
-import { ChangeEvent, InputHTMLAttributes } from "react";
+import { ChangeEvent } from "react";
+import { InputProps } from "../@types/Input";
 import styles from "./Input.module.css";
-
-interface Input extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  id: string;
-  className: string;
-  changeValue: (name: string, value: string) => void;
-}
 
 export default function Input({
   label,
@@ -14,7 +8,7 @@ export default function Input({
   className,
   changeValue,
   ...props
-}: Input) {
+}: InputProps) {
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     let { name, value } = e.target;
     changeValue(name, value);

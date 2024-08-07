@@ -1,16 +1,12 @@
-import { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import Button from '../Button/LinkButton';
-import NAVIGATION_LIST from '../../utils/NAVIGATION_LIST';
-import styles from './Header.module.css';
-import logo from '../../assets/images/logo.png';
-import mobileLogo from '../../assets/images/mobile_logo.png';
-import profileImg from '../../assets/images/profile@2.png';
-
-interface HeaderProps {
-  isActive: boolean;
-  to: string;
-}
+import { useState, useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { HeaderProps } from "../@types/Header";
+import LinkButton from "../Button/LinkButton";
+import NAVIGATION_LIST from "../../utils/NAVIGATION_LIST";
+import styles from "./Header.module.css";
+import logo from "../../assets/images/logo.png";
+import mobileLogo from "../../assets/images/mobile_logo.png";
+import profileImg from "../../assets/images/profile@2.png";
 
 export default function Header() {
   const location = useLocation();
@@ -18,8 +14,8 @@ export default function Header() {
 
   const getLocationActive = ({ isActive, to }: HeaderProps) => {
     const activeMenu =
-      (location.pathname === '/items' || location.pathname === '/additem') &&
-      (to === 'items' || to === 'additem');
+      (location.pathname === "/items" || location.pathname === "/additem") &&
+      (to === "items" || to === "additem");
 
     if (activeMenu) return styles.active;
 
@@ -27,10 +23,10 @@ export default function Header() {
   };
 
   useEffect(() => {
-    setTempLogin(location.pathname === '/additem');
+    setTempLogin(location.pathname === "/additem");
   }, [location]);
 
-  const navList = NAVIGATION_LIST.map(list => (
+  const navList = NAVIGATION_LIST.map((list) => (
     <li key={list.name}>
       <NavLink
         to={list.path}
@@ -68,7 +64,7 @@ export default function Header() {
             ></img>
           </Link>
         ) : (
-          <Button path="/signin" btnName="로그인" />
+          <LinkButton to="/signin" btnName="로그인" />
         )}
       </div>
     </header>

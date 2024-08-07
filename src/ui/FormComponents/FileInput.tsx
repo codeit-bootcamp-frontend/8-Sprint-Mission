@@ -1,21 +1,6 @@
-import {
-  MouseEvent,
-  ChangeEvent,
-  useState,
-  useEffect,
-  useRef,
-  InputHTMLAttributes,
-} from "react";
+import { MouseEvent, ChangeEvent, useState, useEffect, useRef } from "react";
+import { FileInputProps } from "../@types/Input";
 import styles from "./FileInput.module.css";
-
-interface FileInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  id: string;
-  name: string;
-  value?: string | number | readonly string[];
-  previewImg?: string | null;
-  changeValue: (name: string, value: File | null) => void;
-  className?: string;
-}
 
 export default function FileInput({
   id,

@@ -1,19 +1,6 @@
-import { InputHTMLAttributes, useState } from "react";
+import { useState } from "react";
+import { TagInputProps, Tag } from "../@types/Input";
 import styles from "./TagInput.module.css";
-
-interface Tag {
-  id: string;
-  name: string;
-}
-
-interface TagInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  id: string;
-  name: string;
-  label?: string;
-  className?: string;
-  tags: Tag[];
-  changeValue: (name: string, newTags: Tag[]) => void;
-}
 
 export default function TagInput({
   id,
