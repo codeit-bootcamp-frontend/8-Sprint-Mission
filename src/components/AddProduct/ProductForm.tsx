@@ -17,7 +17,8 @@ const INITIAL_VALUES: FormInitialValues = {
 };
 
 export default function ProductForm() {
-  const [formValues, setFormValues] = useState(INITIAL_VALUES);
+  const [formValues, setFormValues] =
+    useState<FormInitialValues>(INITIAL_VALUES);
   const [isActive, setIsActive] = useState<boolean>(false);
   const { title, description, price, tag } = formValues;
 
