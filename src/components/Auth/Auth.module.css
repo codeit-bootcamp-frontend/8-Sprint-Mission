@@ -1,0 +1,28 @@
+.container {
+  max-width: 70.4rem;
+  min-height: calc(1080px - 236px);
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.4rem;
+}
+
+.loginBtn {
+  width: 100%;
+  margin-bottom: 2.4rem;
+  padding: 12px 23px;
+  border-radius: 4rem;
+  line-height: 3.2rem;
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 43.2rem;
+    padding: 0 1.6rem;
+  }
+}
