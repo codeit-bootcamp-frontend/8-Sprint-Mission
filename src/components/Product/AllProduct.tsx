@@ -77,8 +77,10 @@ export default function AllProduct() {
 
   useEffect(() => {
     const storedPage: string = sessionStorage.getItem("page");
-    searchParams.set("page", storedPage === "null" ? "1" : storedPage);
-    setSearchParams(searchParams);
+    if (storedPage) {
+      searchParams.set("page", storedPage === "null" ? "1" : storedPage);
+      setSearchParams(searchParams);
+    }
   }, []);
 
   useEffect(() => {
