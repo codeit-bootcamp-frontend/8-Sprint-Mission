@@ -1,4 +1,4 @@
-import { MouseEvent, ChangeEvent, useState, useEffect, useRef } from "react";
+import { MouseEvent, ChangeEvent, useState, useEffect } from "react";
 import { FileInputProps } from "../@types/Input";
 import styles from "./FileInput.module.css";
 
@@ -12,7 +12,6 @@ export default function FileInput({
   ...props
 }: FileInputProps) {
   const [preview, setPreview] = useState<string | null>(null);
-  const imgInputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,8 +22,6 @@ export default function FileInput({
 
   const handleRemoveImage = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    const imgInputNode = imgInputRef.current;
-    if (!imgInputNode) return;
 
     setFile((prev) => (prev = null));
     changeValue(name, null);
@@ -33,7 +30,6 @@ export default function FileInput({
   useEffect(() => {
     if (!file) return;
     const nextPreviewImg = URL.createObjectURL(file);
-    console.log(nextPreviewImg);
     setPreview(nextPreviewImg);
     return () => {
       setPreview(null);
@@ -50,7 +46,6 @@ export default function FileInput({
         className={styles.fileInput}
         id={id}
         {...props}
-        ref={imgInputRef}
         onChange={handleChange}
       />
       {preview && (
