@@ -1,22 +1,32 @@
-import { NavLink } from "react-router-dom";
-import styles from "./Button.module.css";
-
-interface LinkButtonProps {
-  path: string;
-  btnName: string;
-  className?: string;
-}
-
+import { Link } from "react-router-dom";
+import styles from "./LinkButton.module.css";
+import { LinkButtonProps } from "../@types/Button";
 export default function LinkButton({
-  path,
+  to,
+  type,
   btnName,
+  isActive,
   className,
 }: LinkButtonProps) {
+  if (to) {
+    return (
+      <div className={`${styles.btnContainer} ${className}`}>
+        <Link className={styles.button} to={to}>
+          {btnName}
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <>
-      <div className={`${styles.btnContainer} ${className}`}>
-        <NavLink to={path}>{btnName}</NavLink>
-      </div>
+      <button
+        className={`${styles.button} ${className}`}
+        disabled={isActive}
+        type={type}
+      >
+        {btnName}
+      </button>
     </>
   );
 }
