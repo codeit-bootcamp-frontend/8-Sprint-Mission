@@ -1,0 +1,50 @@
+.loginMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+  padding: 1.6rem 2.4rem;
+  border-radius: 0.5rem;
+  background: #e6f2ff;
+}
+
+.loginList {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.googleLogin,
+.kakaoLogin {
+  display: block;
+  width: 42px;
+  height: 42px;
+  background-size: 286px 64px;
+}
+
+.googleLogin {
+  background: url(../../assets/images/icon.png) -233px -10px;
+}
+
+.kakaoLogin {
+  background: url(../../assets/images/icon.png) -170px -10px;
+}
+
+.loginSimple {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.registerBox {
+  text-align: center;
+}
+
+.registerBox > span {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.link {
+  margin-left: 4px;
+  text-decoration: underline;
+  color: var(--color-blue);
+}
