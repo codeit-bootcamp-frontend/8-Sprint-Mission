@@ -13,7 +13,7 @@ const INITIAL_VALUE: LoginInitialValue = {
 };
 
 export default function Register() {
-  const [formValue, setFormValue] = useState(INITIAL_VALUE);
+  const [formValue, setFormValue] = useState<LoginInitialValue>(INITIAL_VALUE);
 
   const handleChangeFormValue: ChangeValueType = (name, value) => {
     setFormValue((prevData) => ({

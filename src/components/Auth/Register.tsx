@@ -15,7 +15,8 @@ const INITIAL_VALUE: RegisterInitialValue = {
 };
 
 export default function Register() {
-  const [formValue, setFormValue] = useState(INITIAL_VALUE);
+  const [formValue, setFormValue] =
+    useState<RegisterInitialValue>(INITIAL_VALUE);
 
   const handleChangeFormValue: ChangeValueType = (name, value) => {
     setFormValue((prevData) => ({
