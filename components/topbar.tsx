@@ -11,12 +11,14 @@ export default function Topbar() {
         <Link href="/">
           <Image src={pandaLogo} alt="Panda Logo" />
         </Link>
-        <Link href="/">
-          <PrimaryButton>자유게시판</PrimaryButton>
-        </Link>
-        <Link href="/">
-          <PrimaryButton>중고마켓</PrimaryButton>
-        </Link>
+        <ButtonWrapper>
+          <Link href="/">
+            <ListButton>자유게시판</ListButton>
+          </Link>
+          <Link href="/">
+            <ListButton>중고마켓</ListButton>
+          </Link>
+        </ButtonWrapper>
       </LeftElement>
       <PrimaryButton>로그인</PrimaryButton>
     </TopbarHeader>
@@ -42,5 +44,17 @@ const TopbarHeader = styled.header`
 const LeftElement = styled.div`
   display: flex;
   align-items: center;
+  gap: 60px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
   gap: 10px;
+`;
+
+const ListButton = styled.button`
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #ffffff;
 `;
