@@ -4,11 +4,7 @@ import "../../style/global.css";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import ProfileImg from "../../assets/ic_profile.svg";
 
-interface GetLinkStyleProps {
-  isActive: boolean;
-}
-
-function getLinkStyle({ isActive }: GetLinkStyleProps) {
+function getLinkStyle(isActive: boolean) {
   return {
     color: isActive ? "#3692FF" : "#4B5563",
     textDecoration: "none",
@@ -28,7 +24,7 @@ function Navbar() {
       <div className="menu">
         <div className="menu-borad">자유게시판</div>
         <div className="menu-market">
-          <NavLink style={getLinkStyle({ isActive })} to="/items">
+          <NavLink style={getLinkStyle(isActive)} to="/items">
             중고마켓
           </NavLink>
         </div>

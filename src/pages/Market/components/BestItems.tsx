@@ -34,7 +34,7 @@ function BestItems() {
 
   const handleLoadProducts = async (pageSize: number) => {
     try {
-      const products = await getProducts(pageSize);
+      const products = await getProducts({ pageSize });
       setProducts(products.list);
     } catch (error) {
       console.error("상품 목록을 가져오는 중 오류 발생:", error);

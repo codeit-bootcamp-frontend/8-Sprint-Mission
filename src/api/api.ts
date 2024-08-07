@@ -1,11 +1,18 @@
-export async function getProducts(params = {}) {
-  const query = new URLSearchParams(params as any).toString();
+const BASE_URL = "https://panda-market-api.vercel.app";
 
-  const response = await fetch(
-    `https://panda-market-api.vercel.app/products?${query}`
-  );
-  const body = await response.json();
-  return body;
+export async function getProducts(params: Record<string, any> = {}) {
+  try {
+    const query = new URLSearchParams(params as any).toString();
+
+    const response = await fetch(`${BASE_URL}/products?${query}`);
+
+    if (!response.ok) {
+      throw new Error(`Error fetching products: ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Failed to fetch products:", error);
+  }
 }
 
 export async function getProductDetail(productId: number) {
@@ -14,9 +21,7 @@ export async function getProductDetail(productId: number) {
   }
 
   try {
-    const response = await fetch(
-      `https://panda-market-api.vercel.app/products/${productId}`
-    );
+    const response = await fetch(`${BASE_URL}/products/${productId}`);
     const body = await response.json();
     return body;
   } catch (error) {
@@ -45,7 +50,7 @@ export async function getProductComments({
   try {
     const query = new URLSearchParams(params as any).toString();
     const response = await fetch(
-      `https://panda-market-api.vercel.app/products/${productId}/comments?${query}`
+      `${BASE_URL}/products/${productId}/comments?${query}`
     );
     const body = await response.json();
     return body;

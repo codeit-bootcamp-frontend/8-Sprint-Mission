@@ -9,6 +9,7 @@ import "./ItemDetail.css";
 
 function ItemDetail() {
   const [product, setProduct] = useState<Product | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const { productId } = useParams<Record<string, string | undefined>>();
 
@@ -19,10 +20,15 @@ function ItemDetail() {
         setProduct(data);
       } catch (error) {
         console.error("상품 데이터를 가져오는 중 오류 발생:", error);
+        setError("상품 데이터를 가져오는 중 오류가 발생했습니다.");
       }
     }
     fetchProduct();
   }, [productId]);
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <>

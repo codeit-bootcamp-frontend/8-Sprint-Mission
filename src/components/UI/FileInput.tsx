@@ -63,13 +63,13 @@ function FileInput({ name, value, onChange }: FileInputProps) {
         />
       </div>
       <div>
-        {showPreview ? (
+        {showPreview && (
           <img
             className="input-preview"
             src={previewImg ?? ""}
             alt="미리보기 이미지"
           />
-        ) : null}
+        )}
         {value && (
           <button className="input-button" onClick={handleClearClick}>
             <img src={XIcon} alt="버튼 이미지" />
