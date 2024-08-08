@@ -24,7 +24,7 @@ function AllItemsContainer() {
     { list: [], totalCount: 0 }
   );
 
-  const { list = [], totalCount = 0 } = data || {};
+  const { list = [], totalCount = 0 } = data;
 
   const totalPages = Math.ceil(totalCount / pageSize);
 
