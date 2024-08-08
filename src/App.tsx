@@ -7,7 +7,7 @@ import Items from "./pages/Items";
 import ItemInfo from "./pages/ItemInfo";
 import AddItem from "./pages/AddItem";
 import Community from "./pages/Community";
-import NotFound from "./pages/NotFound";
+import 404 from "./pages/404";
 
 const Router: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ const Router: React.FC = () => {
         <Route path="/Items/:productId" element={<ItemInfo />} />
         <Route path="/AddItem" element={<AddItem />} />
         <Route path="/Community" element={<Community />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<404 />} />
       </Routes>
     </BrowserRouter>
   );
