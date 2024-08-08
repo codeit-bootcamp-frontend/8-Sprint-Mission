@@ -1,0 +1,9 @@
+.button {
+  padding: 0.7188rem 1.4375rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--blue);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}

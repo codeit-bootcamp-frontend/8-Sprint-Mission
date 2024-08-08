@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Article } from "@/types/article";
+import formatDate from "@/lib/formatDate";
+import styles from "./AllArticle.module.css";
 
 import Image from "next/image";
 import profileImage from "@/assets/images/img_profile.png";
 import likeImageFull from "@/assets/images/ic_heart_full.png";
 import likeImageEmpty from "@/assets/images/ic_heart_empty.png";
-import styles from "./AllArticle.module.css";
 
 interface AllArticleProps {
   article: Article;
@@ -38,7 +39,7 @@ function AllArticle({ article }: AllArticleProps) {
         height={24}
       />
       <h5 className={styles.nickname}>{writer.nickname}</h5>
-      <h5 className={styles.createdAt}>{createdAt}</h5>
+      <h5 className={styles.createdAt}>{formatDate(createdAt)}</h5>
       <div className={styles.like}>
         <button onClick={handleLikeButtonClick}>
           <Image

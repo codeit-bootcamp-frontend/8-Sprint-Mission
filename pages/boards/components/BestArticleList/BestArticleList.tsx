@@ -1,5 +1,5 @@
 import { Article } from "@/types/article";
-
+import styles from "./BestArticleList.module.css";
 import BestArticle from "./BestArticle";
 
 interface BestArticleListProps {
@@ -15,7 +15,7 @@ function BestArticleList({ articles }: BestArticleListProps) {
     .slice(0, pageSize);
 
   return (
-    <div>
+    <div className={styles.articlesWrapper}>
       {sortedArticles.map((article: Article) => (
         <div key={article.id}>
           <BestArticle article={article} />

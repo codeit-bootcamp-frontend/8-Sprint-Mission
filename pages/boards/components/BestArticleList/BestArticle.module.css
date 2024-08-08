@@ -1,0 +1,76 @@
+.articleWrapper {
+  width: 24rem;
+  height: auto;
+  padding: 0 1.5rem 1rem;
+  background-color: var(--gray50);
+}
+
+.bestBadgeImage {
+  margin-bottom: 1rem;
+}
+
+.productHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.125rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem;
+  color: var(--gray800);
+}
+
+.productImage {
+  border: 0 0 0 0.0625rem var(--gray200) inset;
+  border-radius: 6;
+}
+
+.articleDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.writerInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nickname {
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  color: var(--gray600);
+}
+
+.likeWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.0625rem;
+}
+
+.likeIcon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.likeCount {
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  color: var(--gray500);
+}
+
+.createdAt {
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  color: var(--gray400);
+}
