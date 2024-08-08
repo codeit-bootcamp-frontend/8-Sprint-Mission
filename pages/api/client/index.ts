@@ -23,6 +23,7 @@ export type ArticlesQuery = {
   page?: number;
   pageSize?: number;
   orderBy?: 'recent' | 'like';
+  keyword?: string;
 };
 
 export type ArticlesRequest = {

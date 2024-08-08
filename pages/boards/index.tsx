@@ -1,9 +1,15 @@
-import RecentlyBoards from '@/components/RecentlyBoards';
+import BestBoards from '@/components/BestBoards';
+import MainBoards from '@/components/MainBoards';
 import NavLayout from '@/layouts/NavLayout';
 import React, { ReactElement } from 'react';
 
 function Boards() {
-  return <RecentlyBoards />;
+  return (
+    <>
+      <BestBoards />
+      <MainBoards />
+    </>
+  );
 }
 
 Boards.getLayout = function getLayout(page: ReactElement) {

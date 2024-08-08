@@ -20,10 +20,10 @@ type AppPropsWithLayout = AppProps & {
 };
 
 function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? (page => page);
   return (
     <div className={`${pretandard.variable}`}>
-      getLayout(
-      <Component {...pageProps} />)
+      {getLayout(<Component {...pageProps} />)}
     </div>
   );
 }

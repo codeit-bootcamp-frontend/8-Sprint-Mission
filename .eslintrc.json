@@ -28,9 +28,11 @@
     "react/react-in-jsx-scope": "off",
     "linebreak-style": ["error", "unix"],
     "react/jsx-props-no-spreading": "off",
-    "react/function-component-definition": [
+    "jsx-a11y/label-has-associated-control": [
       2,
-      { "namedComponents": "function-declaration" }
+      {
+        "labelAttributes": ["htmlFor"]
+      }
     ]
   }
 }
