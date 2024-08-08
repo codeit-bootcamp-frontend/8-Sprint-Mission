@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.nav`
   position: fixed;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   top: 0;
   left: 0;
   right: 0;
@@ -17,14 +21,6 @@ export const Wrapper = styled.nav`
   @media ${sizeTheme.mobile} {
     padding: 0 1rem;
   }
-`;
-
-export const Contents = styled.div`
-  max-width: 1200px;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export const Categories = styled.div`

@@ -10,6 +10,10 @@ export const ImageWrapper = styled.div`
   align-items: center;
   flex-shrink: 0;
   cursor: pointer;
+  :hover {
+    transform: rotate(360deg);
+    transition: transform 1.5s ease-in-out;
+  }
 
   @media ${sizeTheme.mobile} {
     width: 5.0625rem;
