@@ -10,17 +10,20 @@ function DropDownList({
   selectedCategory,
   setSelectedCategory,
 }: DropDownListProps) {
-  const [view, setView] = useState<boolean>(false);
+  const [isOpened, setIsOpened] = useState<boolean>(false);
   const categories = ["최신순", "인기순"];
 
   const selectCategory = (category: string) => {
     setSelectedCategory(category);
-    setView(false);
+    setIsOpened(false);
   };
 
   return (
     <div className="relative pt-3 py-3 rounded-xl w-32 border-gray-200 bg-white border-solid border-2">
-      <button className="flex gap-3 px-5" onClick={(e) => setView(!view)}>
+      <button
+        className="flex gap-3 px-5"
+        onClick={(e) => setIsOpened(!isOpened)}
+      >
         {selectedCategory}
         <img
           src={arrowDownIcon}
@@ -28,7 +31,7 @@ function DropDownList({
           className="right-6 w-6 h-6 cursor-pointer"
         />
       </button>
-      {view && (
+      {isOpened && (
         <ul className="absolute rounded-xl bg-white mt-4 text-center w-full  border-gray-200 border-solid border-2">
           {categories.map((category) => (
             <li
