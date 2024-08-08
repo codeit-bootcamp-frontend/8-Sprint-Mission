@@ -1,8 +1,8 @@
 import { LargeLogo } from '@/shared/logos';
+import { UserProfile } from '@/shared/userProfile';
 
 import * as S from './Nav.style';
 import largeLogo1x from '@/shared/assets/images/logos/main_logo@1x.png';
-import UserProfile from '../userProfile/UserProfile';
 
 export const Nav = () => {
   return (
