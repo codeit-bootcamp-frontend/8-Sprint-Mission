@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Product } from "DTO/product";
 import heartIcon from "../../assets/images/ic_heart.png";
 
-const defaultImageUrl = "https://example.com/...";
+const DEFAULT_IMAGE_URL = "https://example.com/...";
 
 const ItemContainer = ({ item }: { item: Product }) => {
   const navigate = useNavigate();
@@ -12,8 +12,7 @@ const ItemContainer = ({ item }: { item: Product }) => {
     navigate(`/Items/${productId}`);
   };
 
-  const imageUrl =
-    item.images && item.images.length > 0 ? item.images[0] : defaultImageUrl;
+  const imageUrl = item.images ? item.images[0] : DEFAULT_IMAGE_URL;
 
   return (
     <figure className="flex flex-col gap-4">
@@ -21,7 +20,7 @@ const ItemContainer = ({ item }: { item: Product }) => {
         src={imageUrl}
         alt={item.name}
         className={
-          String(item.images) === defaultImageUrl
+          String(item.images) === DEFAULT_IMAGE_URL
             ? "item-default-img"
             : "item-img"
         }
