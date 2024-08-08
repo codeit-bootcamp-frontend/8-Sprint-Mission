@@ -21,14 +21,10 @@ function InquiryComments({ productId, limit }: InquiryCommentsProps) {
 
   const navigate = useNavigate();
 
-  const comments: CommentResponse[] = Array.isArray(commentsData)
-    ? commentsData
-    : [];
-
   return (
     <section className="flex flex-col content-center gap-[40px] ">
       <ul className="w-full flex flex-col content-start flex-grow gap-6">
-        {comments.map((comment: CommentResponse) => (
+        {commentsData.map((comment: CommentResponse) => (
           <li
             className="w-full flex flex-col text-gray-800 gap-[30px]"
             key={comment.id}
