@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import ItemContainer from "./ItemContainer";
-import DropDownList from "./DropDownList";
+import DropDownList from "../common/UI/DropDownList";
 import Pagination from "./Pagination";
 import { getProducts } from "../../core/api";
 import useFetch from "../../lib/hooks/useFetch";
 import countPageItems from "../../lib/utils/countPageItems";
 import { ProductResponse } from "../../DTO/product";
-import searchIcon from "../../assets/images/ic_search.png";
+import SearchForm from "../common/UI/SearchForm";
+import Button from "components/common/UI/Button";
 
 function AllItemsContainer() {
   const [page, setPage] = useState<number>(1);
@@ -49,21 +49,8 @@ function AllItemsContainer() {
         <div className="flex justify-between content-center flex-wrap">
           <h1 className="font-bold text-xl content-center">판매 중인 상품</h1>
           <div className="relative flex flex-row gap-[10px]">
-            <img
-              src={searchIcon}
-              alt="돋보기 아이콘"
-              className="absolute top-3 left-4 w-6 h-6 cursor-pointer"
-            />
-            <input
-              className="flex text-gray-400 bg-gray-100 rounded-xl py-[9px] pr-5 pl-14 w-[325px]"
-              placeholder="검색할 상품을 입력해주세요"
-            />
-            <Link
-              to="/AddItem"
-              className="bg-brand text-white content-center text-center w-[133px] rounded-lg"
-            >
-              상품 등록하기
-            </Link>
+            <SearchForm />
+            <Button buttonText="상품 등록하기" to="/addItem" />
             <DropDownList
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}

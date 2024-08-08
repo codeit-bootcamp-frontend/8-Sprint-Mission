@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import logo from "../../../assets/images/logo_pandamarket.png";
+import logo from "assets/images/logo_pandamarket.png";
+import Button from "components/common/UI/Button";
 
 function Header() {
   return (
@@ -24,12 +25,7 @@ function Header() {
           </li>
         </ul>
       </div>
-      <Link
-        to="/signIn"
-        className="flex bg-brand content-center text-white font-semibold my-2 justify-center w-[128px] rounded-lg flex-wrap"
-      >
-        로그인
-      </Link>
+      <Button buttonText="로그인" to="/signIn" />
     </header>
   );
 }
