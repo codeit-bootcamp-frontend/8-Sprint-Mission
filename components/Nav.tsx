@@ -4,8 +4,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import styles from "./Nav.module.css";
-import logoIcon from "@/assets/images/ic_logo_icon.svg";
-import logoText from "@/assets/images/ic_logo_text.svg";
+import logoIcon from "@/assets/images/ic_logo_icon.png";
+import logoText from "@/assets/images/ic_logo_text.png";
 import profileImage from "@/assets/images/img_profile.png";
 
 function Nav() {
@@ -25,6 +25,7 @@ function Nav() {
             className={styles.logoText}
             src={logoText}
             alt="판다마켓 로고 중 텍스트"
+            priority
           />
         </Link>
 

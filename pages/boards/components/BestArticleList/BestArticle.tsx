@@ -29,7 +29,7 @@ function BestArticle({ article }: BestArticleProps) {
         alt="베스트 배지"
         width={102}
       />
-      <div className={styles.productHeader}>
+      <div className={styles.articleHeader}>
         <h4 className={styles.title}>{title}</h4>
         <Image
           className={styles.productImage}

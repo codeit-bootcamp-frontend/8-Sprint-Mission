@@ -23,34 +23,40 @@ function AllArticle({ article }: AllArticleProps) {
 
   return (
     <article className={styles.article}>
-      <h4 className={styles.title}>{title}</h4>
-      <Image
-        className={styles.productImage}
-        src={image}
-        alt="상품 이미지"
-        width={72}
-        height={72}
-      />
-      <Image
-        className={styles.profileImage}
-        src={profileImage}
-        alt="사용자 프로필 이미지"
-        width={24}
-        height={24}
-      />
-      <h5 className={styles.nickname}>{writer.nickname}</h5>
-      <h5 className={styles.createdAt}>{formatDate(createdAt)}</h5>
-      <div className={styles.like}>
-        <button onClick={handleLikeButtonClick}>
+      <div className={styles.articleHeader}>
+        <h4 className={styles.title}>{title}</h4>
+        <Image
+          className={styles.productImage}
+          src={image}
+          alt="상품 이미지"
+          width={72}
+          height={72}
+        />
+      </div>
+      <div className={styles.articleFooter}>
+        <div className={styles.writerInfo}>
           <Image
-            className={styles.likeImage}
-            src={isLikeClicked ? likeImageFull : likeImageEmpty}
-            alt="좋아요 아이콘"
+            className={styles.profileImage}
+            src={profileImage}
+            alt="사용자 프로필 이미지"
             width={24}
             height={24}
           />
-        </button>
-        <h5 className={styles.likeCount}>{likeCount}</h5>
+          <h5 className={styles.nickname}>{writer.nickname}</h5>
+          <h5 className={styles.createdAt}>{formatDate(createdAt)}</h5>
+        </div>
+        <div className={styles.likeWrapper}>
+          <button onClick={handleLikeButtonClick}>
+            <Image
+              className={styles.likeIcon}
+              src={isLikeClicked ? likeImageFull : likeImageEmpty}
+              alt="좋아요 아이콘"
+              width={24}
+              height={24}
+            />
+          </button>
+          <h5 className={styles.likeCount}>{likeCount}</h5>
+        </div>
       </div>
     </article>
   );
