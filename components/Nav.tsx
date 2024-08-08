@@ -1,36 +1,39 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
+import styles from "./Nav.module.css";
 import logoIcon from "@/assets/images/ic_logo_icon.svg";
 import logoText from "@/assets/images/ic_logo_text.svg";
 import profileImage from "@/assets/images/img_profile.png";
-import { usePathname } from "next/navigation";
 
 function Nav() {
   const [isLogin, setIsLogin] = useState<boolean>(true);
   const pathname = usePathname();
 
   return (
-    <nav>
-      <div className="logo-menu-wrapper">
-        <Link className="logo-wrapper" href="/">
+    <nav className={styles.nav}>
+      <div className={styles.logoMenuWrapper}>
+        <Link className={styles.logoWrapper} href="/">
           <Image
-            className="logo-icon"
+            className={styles.logoIcon}
             src={logoIcon}
             alt="판다마켓 로고 중 아이콘"
           />
           <Image
-            className="logo-text"
+            className={styles.logoText}
             src={logoText}
             alt="판다마켓 로고 중 텍스트"
           />
         </Link>
 
-        <ul className="menu-wrapper">
+        <ul className={styles.menuWrapper}>
           <li>
             <Link
-              className={`menu ${pathname === "/boards" ? "active" : ""}`}
+              className={`${styles.menu} ${
+                pathname === "/boards" ? styles.active : ""
+              }`}
               href="/boards"
             >
               자유게시판
@@ -38,7 +41,9 @@ function Nav() {
           </li>
           <li>
             <Link
-              className={`menu ${pathname === "/items" ? "active" : ""}`}
+              className={`${styles.menu} ${
+                pathname === "/items" ? styles.active : ""
+              }`}
               href="/items"
             >
               중고마켓
@@ -48,7 +53,8 @@ function Nav() {
       </div>
 
       {!isLogin ? (
-        <Link className="login-link" href="/login">
+        // Button 컴포넌트로 바꾸기
+        <Link className={styles.loginLink} href="/login">
           로그인
         </Link>
       ) : (
