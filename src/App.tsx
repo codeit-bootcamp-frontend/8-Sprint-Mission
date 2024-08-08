@@ -6,7 +6,7 @@ import SignIn from "./pages/SignIn";
 import Items from "./pages/Items";
 import ItemInfo from "./pages/ItemInfo";
 import AddItem from "./pages/AddItem";
-import Community from "./pages/Community";
+import Boards from "./pages/Boards";
 import NotFound from "./pages/NotFound";
 
 const Router: React.FC = () => {
@@ -15,11 +15,11 @@ const Router: React.FC = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/Items" element={<Items />} />
-        <Route path="/Items/:productId" element={<ItemInfo />} />
-        <Route path="/AddItem" element={<AddItem />} />
-        <Route path="/Community" element={<Community />} />
+        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/items" element={<Items />} />
+        <Route path="/items/:productId" element={<ItemInfo />} />
+        <Route path="/addItem" element={<AddItem />} />
+        <Route path="/boards" element={<Boards />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

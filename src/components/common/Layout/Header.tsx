@@ -10,13 +10,13 @@ function Header() {
         </Link>
         <ul className="flex flex-row content-center font-bold min-w-[218px] justify-around text-gray-600 flex-wrap">
           <li>
-            <Link to="/Community" className="text-brand">
+            <Link to="/boards" className="text-brand">
               자유게시판
             </Link>
           </li>
           <li>
             <Link
-              to="/Items"
+              to="/items"
               className="hover:text-brand visited:text-gray-600"
             >
               중고마켓
@@ -25,7 +25,7 @@ function Header() {
         </ul>
       </div>
       <Link
-        to="/SignIn"
+        to="/signIn"
         className="flex bg-brand content-center text-white font-semibold my-2 justify-center w-[128px] rounded-lg flex-wrap"
       >
         로그인
