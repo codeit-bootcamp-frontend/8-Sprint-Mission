@@ -1,0 +1,12 @@
+.likeButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.likeCount {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #6b7280;
+}

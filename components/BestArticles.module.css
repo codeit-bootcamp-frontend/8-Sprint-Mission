@@ -1,0 +1,139 @@
+.bestArticles {
+  margin: 94px auto 40px;
+  width: 1200px;
+}
+
+.bestTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23.87px;
+  text-align: left;
+  color: var(--cool-gray-900);
+}
+
+.articleList {
+  display: flex;
+  gap: 24px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.article {
+  width: 384px;
+  height: 169px;
+  padding: 0px 24px;
+  border-radius: 8px;
+  background-color: var(--cool-gray-50);
+}
+
+.bestImage {
+  width: 102px;
+  height: 30px;
+  padding: 2px 24px;
+  border-radius: 0 0 16px 16px;
+  background-color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bestImage > p {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  color: var(--white);
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0 18px;
+}
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #1f2937;
+}
+
+.image {
+  border-radius: 6px;
+  border: 1px solid var(--cool-gray-200);
+}
+
+.writer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.nickname,
+.likeCount,
+.createdAt {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #4b5563;
+  margin-right: 4px;
+}
+
+.likeCount {
+  color: #6b7280;
+  flex: 1 1 auto;
+}
+
+.createdAt {
+  color: #9ca3af;
+  margin-right: 0;
+}
+
+@media (max-width: 1279px) {
+  .bestArticles {
+    margin: 94px auto 24px;
+    width: 696px;
+  }
+
+  .articleList {
+    display: flex;
+    gap: 16px;
+  }
+
+  .article {
+    width: 340px;
+    height: 198px;
+    padding: 0px 24px 16px 24px;
+    border-radius: 8px;
+    background-color: var(--cool-gray-50);
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0 40px;
+  }
+
+  .title {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .image {
+    border-radius: 8px;
+    border: 0.75px solid var(--cool-gray-200);
+  }
+}
+
+@media (max-width: 767px) {
+  .bestArticles {
+    margin: 86px auto 24px;
+    width: 343px;
+  }
+
+  .article {
+    width: 343px;
+  }
+}
