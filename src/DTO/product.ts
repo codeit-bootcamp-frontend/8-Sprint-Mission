@@ -12,5 +12,5 @@ export interface Product {
 
 export interface ProductResponse {
   list: Product[];
-  totalCount?: number;
+  totalCount: number;
 }
