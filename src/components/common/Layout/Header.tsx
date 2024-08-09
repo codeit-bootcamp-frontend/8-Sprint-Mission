@@ -4,7 +4,7 @@ import Button from "components/common/UI/Button";
 
 function Header() {
   return (
-    <header className="font-pretendard text-[18px] fixed flex bg-white border-y-[1px] w-full h-[70px] z-10 justify-between px-[200px] max-xl:px-6 max-md:px-4">
+    <header className="font-pretendard text-[18px] fixed flex h- bg-white border-y-[1px] w-full h-[70px] z-10 justify-between px-[200px] max-xl:px-6 max-md:px-4">
       <div className="flex flex-row content-center flex-wrap">
         <Link to="/" className="logo-link">
           <img src={logo} className="bg-cover w-[153px] h-[51px] mx-5" />
@@ -25,7 +25,7 @@ function Header() {
           </li>
         </ul>
       </div>
-      <Button buttonText="로그인" to="/signIn" />
+      <Button buttonText="로그인" to="/signIn" className="h-[51px] my-auto" />
     </header>
   );
 }

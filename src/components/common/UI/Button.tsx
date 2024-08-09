@@ -4,15 +4,18 @@ import { Link } from "react-router-dom";
 interface ButtonProps {
   buttonText: string;
   to?: string;
+  className?: string;
+  onClick?: () => void;
 }
 
-function Button({ buttonText, to }: ButtonProps) {
+function Button({ buttonText, to, className, onClick }: ButtonProps) {
   // LinkButton
   if (to) {
     return (
       <Link
         to={to}
-        className="bg-brand text-white content-center text-center w-[133px] rounded-lg"
+        onClick={onClick}
+        className={`${className} bg-brand text-white content-center text-center w-[133px] rounded-lg`}
       >
         {buttonText}
       </Link>
@@ -21,7 +24,10 @@ function Button({ buttonText, to }: ButtonProps) {
 
   // Button
   return (
-    <button className="bg-brand text-white content-center text-center w-[133px] rounded-lg">
+    <button
+      onClick={onClick}
+      className={`${className} bg-brand text-white content-center text-center rounded-lg px-6 h-full`}
+    >
       {buttonText}
     </button>
   );
