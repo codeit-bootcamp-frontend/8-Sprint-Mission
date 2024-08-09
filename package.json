@@ -1,5 +1,5 @@
 {
-  "name": "fe-weekly-mission",
+  "name": "nextjs-8-sprint-mission",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,35 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
+    "@tanstack/react-query": "^5.51.21",
+    "@tanstack/react-query-devtools": "^5.51.21",
+    "axios": "^1.7.3",
+    "lodash": "^4.17.21",
+    "next": "^14.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.6"
+    "react-error-boundary": "^4.0.13",
+    "react-hook-form": "^7.52.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tanstack/eslint-plugin-query": "^5.51.15",
+    "@types/lodash": "^4.17.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
     "eslint": "^8",
-    "eslint-config-next": "13.5.6"
-  }
+    "eslint-config-next": "13.5.6",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/codeit-bootcamp-frontend/8-Sprint-Mission.git",
+  "author": "김우성 <me92years@gmail.com>",
+  "license": "MIT",
+  "packageManager": "yarn@4.4.0"
 }
