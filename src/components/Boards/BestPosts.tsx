@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useFetch from "lib/hooks/useFetch";
 import { getArticles } from "core/api";
 import { ArticleResponse } from "DTO/article";
-import countPageItems from "lib/utils/countPageItems";
 import BestPostCard from "components/Boards/UI/BestPostCard";
+import useResize from "lib/hooks/useResize";
 
 function Bestarticles() {
-  const [pageSize, setPageSize] = useState<number>(countPageItems(1, 2, 3));
+  const [pageSize, setPageSize] = useState<number>(3);
   const { data: articlesData } = useFetch<ArticleResponse>(
     getArticles,
     {
@@ -17,19 +17,7 @@ function Bestarticles() {
     { list: [], totalCount: 0 }
   );
 
-  const handlePageSize = () => {
-    const newPageSize = countPageItems(1, 2, 3);
-    setPageSize(newPageSize);
-  };
-
-  // get pageSize on window resize
-  useEffect(() => {
-    window.addEventListener("resize", handlePageSize);
-
-    return () => {
-      window.removeEventListener("resize", handlePageSize);
-    };
-  }, [pageSize]);
+  useResize(setPageSize, { mobile: 1, tablet: 2, pc: 3 });
 
   return (
     <section className="flex flex-col gap-6">
