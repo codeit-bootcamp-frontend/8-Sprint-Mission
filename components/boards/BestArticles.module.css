@@ -1,0 +1,71 @@
+.articleTitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23.87px;
+}
+.articleSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.articleCard {
+  background-color: var(--gray-50);
+  border-radius: 8px;
+  padding: 0 24px 16px 24px;
+}
+.bestMark {
+  display: flex;
+  align-items: center;
+  background-color: var(--blue);
+  border-radius: 0 0 1rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  gap: 4px;
+  padding: 6px 24px 8px 24px;
+  margin-left: 24px;
+  display: inline-flex;
+}
+.articleContent {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+.articleTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  flex: 1;
+}
+.articleThumbnail {
+  background-color: #fff;
+  border: 1px solid var(--gray-200);
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  padding: 12px;
+}
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.articleInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--gray-500);
+}
+.articleInfoContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.articleLike {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

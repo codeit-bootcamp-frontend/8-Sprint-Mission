@@ -1,0 +1,101 @@
+.articleCard {
+  margin-top: 1rem;
+  background-color: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+  padding-bottom: 1.25rem;
+}
+.articleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+.articleTitle {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+.writeButton {
+  background-color: var(--blue);
+  color: #fff;
+  padding: 0.625rem 1.43rem;
+  border-radius: 0.5rem;
+}
+.articleSearch {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+.articleInput {
+  flex: 1;
+  border: none;
+  background-color: var(--gray-100);
+}
+
+.articleThumbnail {
+  background-color: #fff;
+  border: 1px solid var(--gray-200);
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.articleCardContents {
+  display: flex;
+}
+.articleCardTitle {
+  flex: 1;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+.articleCardInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.625rem;
+}
+.articleCardInfoContents {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+.articleCardLikeCount {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  color: var(--gray-500);
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.articleInputBox {
+  background-color: var(--gray-100);
+  border-radius: 0.5rem;
+  padding: 0.7rem 0.6rem;
+  display: flex;
+  align-items: center;
+  color: var(--gray-400);
+  font-weight: 400;
+  gap: 0.5rem;
+  flex: 1;
+}
+.articleInput {
+  border: none;
+  background-color: var(--gray-100);
+  font-size: 1rem;
+  color: #000;
+  outline: none;
+}
+.articleInput::placeholder {
+  color: var(--gray-400);
+  font-weight: 400;
+}
