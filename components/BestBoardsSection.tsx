@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Bedge from "@/assets/images/icons/ic_badge.svg";
 import Image from "next/image";
+import Heart from "@/assets/images/icons/ic_heart.svg";
 
 interface Board {
   id: number;
@@ -70,7 +71,8 @@ export default function BestBoardsSection() {
               <CardUserContainer>
                 <CardUserFont>{board.writer.nickname}</CardUserFont>
                 <CardLikeCountFont>
-                  ♡ {board.likeCount > 9999 ? "9999+" : board.likeCount}
+                  <Image src={Heart} alt="좋아요" width="16" />
+                  {board.likeCount > 9999 ? "9999+" : board.likeCount}
                 </CardLikeCountFont>
               </CardUserContainer>
               <CardCreatedAtFont>
@@ -152,6 +154,9 @@ const CardUserFont = styled(CardText)`
 
 const CardLikeCountFont = styled(CardText)`
   color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 `;
 
 const CardCreatedAtFont = styled(CardText)`
