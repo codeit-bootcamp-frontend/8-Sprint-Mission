@@ -65,7 +65,7 @@ function Board() {
         </div>
         <div className={styles.filterWrapper}>
           <Search setArticles={setArticles} />
-          <Sort articles={articles} setArticles={setArticles} />
+          <Sort setArticles={setArticles} />
         </div>
         <AllArticleList articles={articles} />
       </section>

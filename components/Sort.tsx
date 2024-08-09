@@ -1,28 +1,22 @@
 import { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { Article } from "@/types/article";
+import axios from "@/lib/axios";
 
 interface SortProps {
-  articles: Article[];
   setArticles: Dispatch<SetStateAction<Article[]>>;
 }
 
-function Sort({ articles, setArticles }: SortProps) {
-  const [order, setOrder] = useState<string>("createdAt");
+function Sort({ setArticles }: SortProps) {
+  const [order, setOrder] = useState<string>("recent");
+
+  async function getArticles(order: string) {
+    const response = await axios.get(`/articles/?orderBy=${order}`);
+    setArticles(response.data.list ?? []);
+  }
 
   useEffect(() => {
-    const sortedArticles = [...articles].sort((a, b) => {
-      if (order === "createdAt") {
-        return (
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        );
-      }
-      return b.likeCount - a.likeCount;
-    });
-
-    if (JSON.stringify(sortedArticles) !== JSON.stringify(articles)) {
-      setArticles(sortedArticles);
-    }
-  }, [order, articles]);
+    getArticles(order);
+  }, [order]);
 
   const handleOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOrder(e.target.value);
@@ -31,8 +25,8 @@ function Sort({ articles, setArticles }: SortProps) {
   return (
     <div>
       <select name="order" id="order" onChange={handleOrderChange}>
-        <option value="createdAt">최신순</option>
-        <option value="favoriteCount">좋아요순</option>
+        <option value="recent">최신순</option>
+        <option value="like">좋아요순</option>
       </select>
     </div>
   );

@@ -75,3 +75,9 @@
   line-height: 1.5rem;
   color: var(--gray400);
 }
+
+@media (max-width: 744px) {
+  .articleWrapper {
+    width: 21.25rem;
+  }
+}
