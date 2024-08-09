@@ -34,7 +34,7 @@ export default function Boards({ list }: { list: IArticle[] }) {
   return (
     <div className={styles.boards}>
       <QueryClientProvider client={queryClient}>
-        <div>
+        <div className={styles.bestArticleSection}>
           <h2>베스트 게시글</h2>
           <Suspense fallback={<div>...loading</div>}>
             <BestArticleList />
