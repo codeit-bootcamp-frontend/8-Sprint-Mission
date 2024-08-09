@@ -5,14 +5,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import getArticles, { IArticle } from '@/apis/getArticles';
 import Link from 'next/link';
 import Button from '@/components/@shared/Button';
+import ArticleSection from '@/components/boards/ArticleSection';
 
 const BestArticleList = dynamic(
   () => import('../components/boards/BestArticleList'),
-  { ssr: false }
-);
-
-const ArticleSection = dynamic(
-  () => import('../components/boards/ArticleSection'),
   { ssr: false }
 );
 
@@ -47,9 +43,7 @@ export default function Boards({ list }: { list: IArticle[] }) {
               <Button category={'large'}>글쓰기</Button>
             </Link>
           </div>
-          <Suspense fallback={<div>...loading</div>}>
-            <ArticleSection initialArticleList={list} />
-          </Suspense>
+          <ArticleSection initialArticleList={list} />
         </div>
       </QueryClientProvider>
     </div>
