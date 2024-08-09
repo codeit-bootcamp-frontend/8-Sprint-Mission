@@ -26,6 +26,7 @@ export default function GlobalNavBar({ isMain, isLogin }: GlobalNavBarProps) {
               className="hidden md:block"
               width={153}
               height={51}
+              priority
               src="/images/panda_logo_with_typo.png"
               alt="로고 이미지"
             />
