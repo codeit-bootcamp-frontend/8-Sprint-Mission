@@ -8,7 +8,7 @@ type Props = {
 function BestContent({ board }: Props) {
   return (
     <div className="flex justify-between pt-[16px]">
-      <h1 className="font-2lg-18px-semibold text-secondary-800">
+      <h1 className="text-secondary-800 font-2lg-18px-semibold desktop:font-xl-20px-semibold">
         {board.title}
       </h1>
       <div className="border-1 relative h-[72px] w-[72px] border-secondary-200">

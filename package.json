@@ -11,10 +11,10 @@
     "postinstall": "husky install",
     "prepare": "husky && husky install",
     "husky": "husky install"
-  },
+  }, 
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --cache --write",
+      "prettier --cache --write .",
       "eslint --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0"
     ]
   },
