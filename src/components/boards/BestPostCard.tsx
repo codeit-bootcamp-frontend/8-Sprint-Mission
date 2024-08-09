@@ -18,7 +18,7 @@ export default function BestPostCard({ article }: BestPostCardProps) {
       />
       <div className="flex flex-col gap-[40px] xl:gap-[18px]">
         <div className="flex justify-between">
-          <p className="text-gray-800 font-semibold text-[18px]">{article.title}</p>
+          <p className="text-gray-800 font-semibold text-[18px] xl:text-[20px]">{article.title}</p>
           <Image
             className="bg-gray rounded-[8px] border-solid border-[1px] border-gray-200"
             width={72}
