@@ -4,44 +4,39 @@ import Image, { StaticImageData } from 'next/image';
 interface ImageProps {
   src: StaticImageData;
   alt: string;
-  width?: string;
-  height?: string;
-  radius?: string;
+  width: number;
+  height: number;
+  radius?: number;
+  aspectRatio?: number;
   className?: string;
-  aspectRatio?: string;
   onClick?: () => void;
 }
 
 function CustomImage({
   src,
   alt,
-  width = 'auto',
-  height = 'auto',
+  width,
+  height,
   radius,
   className,
   onClick,
   aspectRatio,
 }: ImageProps) {
-  const imageWrapperStyle = {
-    width,
-    height,
-  };
-
   const imageStyle = {
-    borderRadius: radius || '',
-    aspectRatio: aspectRatio || '',
+    borderRadius: `${radius}px` || '',
+    aspectRatio: `${aspectRatio}` || '',
   };
 
   return (
-    <div style={imageWrapperStyle}>
-      <Image
-        src={src}
-        alt={alt}
-        style={imageStyle}
-        className={classNames(className)}
-        onClick={onClick}
-      />
-    </div>
+    <Image
+      src={src}
+      alt={alt}
+      height={height}
+      width={width}
+      style={imageStyle}
+      className={classNames(className)}
+      onClick={onClick}
+    />
   );
 }
 

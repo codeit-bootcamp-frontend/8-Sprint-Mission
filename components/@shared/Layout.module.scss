@@ -6,8 +6,8 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  padding: var(--header-height) 24px 24px 24px;
+  padding: calc(var(--header-height) + 24px) 24px 24px 24px;
   @media #{$mobileSize} {
-    padding: var(--header-height) 16px 16px 16px;
+    padding: calc(var(--header-height) + 16px) 16px 16px 16px;
   }
 }
