@@ -16,10 +16,12 @@ export interface Article {
   updatedAt: string;
 }
 
+export type orderOption = "like" | "recent";
+
 interface GetArticlesProps {
   page?: number;
   pageSize: number;
-  orderBy?: "like" | "recent";
+  orderBy?: orderOption;
 }
 
 interface Response {
