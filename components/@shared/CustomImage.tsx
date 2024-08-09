@@ -9,6 +9,7 @@ interface ImageProps {
   radius?: number;
   aspectRatio?: number;
   className?: string;
+  priority?: boolean;
   onClick?: () => void;
 }
 
@@ -21,6 +22,7 @@ function CustomImage({
   className,
   onClick,
   aspectRatio,
+  priority,
 }: ImageProps) {
   const imageStyle = {
     borderRadius: `${radius}px` || '',
@@ -36,6 +38,7 @@ function CustomImage({
       style={imageStyle}
       className={classNames(className)}
       onClick={onClick}
+      priority={priority}
     />
   );
 }

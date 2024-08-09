@@ -12,21 +12,23 @@ import {
 } from '@/constants/paths';
 import classNames from 'classnames';
 import styles from './HeaderLinkSection.module.scss';
+import { DEVICE_MAX_WIDTH } from '@/constants/mediaQuerySize';
 
 function HeaderLinkSection() {
   const { innerWidth } = useWindowSize();
   const { pathname } = useRouter();
   const needLinkHeaderPaths = [PATH_BOARDS, PATH_ITEMS, PATH_ADD_ITEM];
+  const isWiderMobileSize = innerWidth > DEVICE_MAX_WIDTH.mobile;
 
   return (
     <section className={classNames(styles.linkSection)}>
       <Link href={PATH_HOME}>
-        {/* TODO: 이 부분은 js로 처리하지 말고 css로 처리해도 될 것 같음 */}
         <CustomImage
-          src={innerWidth > 769 ? logoImg : typoImg}
+          src={isWiderMobileSize ? logoImg : typoImg}
           alt={'로고 이미지'}
-          height={innerWidth > 769 ? 51 : 40}
-          width={innerWidth > 769 ? 153 : 81}
+          height={isWiderMobileSize ? 51 : 40}
+          width={isWiderMobileSize ? 153 : 81}
+          priority={true}
         />
       </Link>
       {/* 링크가 필요한 페이지에서만 링크들이 나타나도록 */}
