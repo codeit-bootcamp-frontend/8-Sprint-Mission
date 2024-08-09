@@ -5,10 +5,10 @@ import mobileLogo from "assets/images/logo_pandamarket_name.png";
 import Button from "components/common/UI/Button";
 
 function Header() {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768); // 모바일 사이즈 기준 설정
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth < 768); // 화면 크기에 따라 상태 업데이트
+    setIsMobile(window.innerWidth < 768);
   };
 
   useEffect(() => {
