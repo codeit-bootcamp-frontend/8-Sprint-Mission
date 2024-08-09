@@ -7,6 +7,10 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      md: "768px",
+      xl: "1200px",
+    },
     extend: {
       colors: {
         gray: {
@@ -22,9 +26,11 @@ const config: Config = {
           800: "#1f2937",
           900: "#111827",
         },
-        errorRed: "#f74747",
-        brandBLue: "#3692ff",
-        headerUnderLine: "#dfdfdf",
+        "error-red": "#f74747",
+        "brand-blue": "#3692ff",
+        "blue-hover": "#1967d6",
+        "blue-active": "#1251aa",
+        "header-under": "#dfdfdf",
       },
     },
   },
