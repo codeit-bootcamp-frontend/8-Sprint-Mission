@@ -11,7 +11,7 @@
     "postinstall": "husky install",
     "prepare": "husky && husky install",
     "husky": "husky install"
-  }, 
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --cache --write .",

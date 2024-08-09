@@ -44,7 +44,7 @@ function MainBoards() {
           boards.map((board, i) => (
             <>
               <div key={board.id} className="w-full rounded-[8px] bg-[#FCFCFC]">
-                <div className="mt-[24px]">
+                <div className="mt-[24px] pb-[24px]">
                   <RecentContent board={board} />
                   <RecentInfo board={board} />
                 </div>

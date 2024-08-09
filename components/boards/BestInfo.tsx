@@ -10,7 +10,7 @@ type Props = {
 function BestInfo({ board }: Props) {
   const createDate = dayjs(board.createdAt).format('YYYY. MM. DD');
   return (
-    <div className="font-md-14px-regular mt-[40px] flex items-center gap-[8px]">
+    <div className="mt-[40px] flex items-center gap-[8px] font-md-14px-regular">
       <span className="text-secondary-600">{board.writer.nickname}</span>
       <div className="flex grow items-center gap-[4px] text-secondary-500">
         <Image width={16} height={16} src="/heart_empty.png" alt="like" />
