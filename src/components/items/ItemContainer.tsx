@@ -1,9 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Product } from "DTO/product";
-import heartIcon from "../../assets/images/ic_heart.png";
-
-const DEFAULT_IMAGE_URL = "https://example.com/...";
+import { DEFAULT_IMAGE_URL } from "../../constants";
+import LikeCount from "components/common/UI/LikeCount";
 
 const ItemContainer = ({ item }: { item: Product }) => {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ const ItemContainer = ({ item }: { item: Product }) => {
         className={
           String(item.images) === DEFAULT_IMAGE_URL
             ? "item-default-img"
-            : "item-img"
+            : "item-img object-cover"
         }
         onClick={() => handleItemClick(item.id)}
       />
@@ -31,13 +30,7 @@ const ItemContainer = ({ item }: { item: Product }) => {
           {item.name}
         </h2>
         <h3 className="font-bold text-base">{item.price}원</h3>
-        <div className="flex content-center text-xs font-medium gap-1 text-gray-600">
-          <button
-            className="w-4 h-4 bg-no-repeat bg-center"
-            style={{ backgroundImage: `url(${heartIcon})` }}
-          />
-          <div>{item.favoriteCount}</div>
-        </div>
+        <LikeCount count={item.favoriteCount} />
       </div>
     </figure>
   );

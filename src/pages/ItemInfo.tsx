@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import useFetch from "../lib/hooks/useFetch";
 import heartIcon from "../assets/images/ic_heart.png";
 import { getProductId } from "../core/api";
-import { INITIAL_PRODUCTID, defaultImageUrl } from "../constants";
+import { INITIAL_PRODUCTID, DEFAULT_IMAGE_URL } from "../constants";
 import InquiryInput from "../components/Items/ItemInfo/InquiryInput";
 
 function ItemInfo() {
@@ -21,7 +21,7 @@ function ItemInfo() {
   const imageSrc =
     Array.isArray(productData.images) && productData.images.length > 0
       ? productData.images[0]
-      : defaultImageUrl;
+      : DEFAULT_IMAGE_URL;
 
   const [favoriteCount, setFavoriteCount] = useState(
     productData.favoriteCount || 0
@@ -38,11 +38,11 @@ function ItemInfo() {
   }, [productData]);
 
   return (
-    <main className="font-pretendard flex flex-col max-w-[1200px] pt-24 mx-auto gap-16 max-md:px-4 max-xl:px-6 ">
+    <main className="font-pretendard flex flex-col max-w-[1200px] max-md:w-full max-xl:w-full pt-24 mx-auto gap-16 max-md:px-4 max-xl:px-6 ">
       <section className="flex gap-6 max-md:flex max-md:flex-col max-md:content-center">
         <img
           className={`w-[486px] h-[486px] rounded-2xl block max-w-full  max-md:w-full max-md:h-full ${
-            imageSrc === defaultImageUrl ? "item-default-img" : ""
+            imageSrc === DEFAULT_IMAGE_URL ? "item-default-img" : ""
           }`}
           src={imageSrc}
           alt={productData.name}
