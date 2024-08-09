@@ -1,0 +1,83 @@
+/* ==== icon ==== */
+
+.icon {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon-lg {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-md {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+/* 아이콘 색상 및 크기 설정 */
+
+.ic_instagram {
+  background-image: url("/img/icon/ic_instagram.svg");
+}
+
+.ic_twitter {
+  background-image: url("/img/icon/ic_twitter.svg");
+}
+
+.ic_facebook {
+  background-image: url("/img/icon/ic_facebook.svg");
+}
+
+.ic_youtube {
+  background-image: url("/img/icon/ic_youtube.svg");
+}
+
+.ic_google {
+  background-image: url("/img/icon/ic_google.svg");
+}
+
+.ic_kakao {
+  background-image: url("/img/icon/ic_kakao.svg");
+}
+
+.ic_visible_on {
+  background-image: url("/img/icon/ic_visibility_on.svg");
+}
+
+.ic_visible_off {
+  background-image: url("/img/icon/ic_visibility_off.svg");
+}
+
+.ic_search {
+  background-image: url("/img/icon/ic_search.svg");
+}
+
+.ic_arrow_down {
+  background-image: url("/img/icon/ic_arrow_down.svg");
+}
+
+.ic_heart {
+  background-image: url("/img/icon/ic_heart.svg");
+}
+
+.ic_plus {
+  background-image: url("/img/icon/ic_plus.svg");
+}
+
+.ic_remove {
+  background-image: url("/img/icon/ic_X.svg");
+}
+
+.ic_back {
+  background-image: url("/img/icon/ic_back.svg");
+}
+.ic_best {
+  background-image: url("/img/icon/ic_best.svg");
+}

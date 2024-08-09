@@ -17,6 +17,14 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/form/TextArea.jsx",
+    "components/form/FileInput.jsx",
+    "components/form/NumberInput.jsx",
+    "components/form/TagInput.jsx"
+  ],
   "exclude": ["node_modules"]
 }
