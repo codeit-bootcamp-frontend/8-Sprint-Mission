@@ -1,5 +1,7 @@
 import PrimaryButton from "./primarybutton";
 import pandaLogo from "@/images/logo.png";
+import mobilePandaLogo from "@/images/mobilelogo.png";
+import userIcon from "@/images/user.png";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
@@ -9,7 +11,14 @@ export default function Topbar() {
     <TopbarHeader>
       <LeftElement>
         <Link href="/">
-          <Image src={pandaLogo} alt="Panda Logo" />
+          <LogoWrapper>
+            <Image src={pandaLogo} alt="Panda Logo" className="desktop" />
+            <Image
+              src={mobilePandaLogo}
+              alt="Mobile Panda Logo"
+              className="mobile"
+            />
+          </LogoWrapper>
         </Link>
         <ButtonWrapper>
           <Link href="/">
@@ -20,7 +29,8 @@ export default function Topbar() {
           </Link>
         </ButtonWrapper>
       </LeftElement>
-      <PrimaryButton>로그인</PrimaryButton>
+      <Image src={userIcon} alt="userIcon" />
+      {/* <PrimaryButton>로그인</PrimaryButton> */}
     </TopbarHeader>
   );
 }
@@ -39,12 +49,18 @@ const TopbarHeader = styled.header`
   padding: 10px 200px;
   align-items: center;
   border-bottom: 1px solid #dfdfdf;
+  @media (max-width: 744px) {
+    padding: 10px 24px;
+  }
 `;
 
 const LeftElement = styled.div`
   display: flex;
   align-items: center;
   gap: 60px;
+  @media (max-width: 376px) {
+    gap: 10px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -57,4 +73,29 @@ const ListButton = styled.button`
   font-size: 18px;
   font-weight: 700;
   background-color: #ffffff;
+  @media (max-width: 376px) {
+    font-size: 16px;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  position: relative;
+
+  .desktop {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  @media (max-width: 376px) {
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+    }
+  }
 `;

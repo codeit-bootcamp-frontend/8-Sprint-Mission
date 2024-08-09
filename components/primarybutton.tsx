@@ -19,27 +19,3 @@ const Button = styled.button`
   text-decoration: none;
   border: none;
 `;
-
-//   .off {
-//     background-color: #ffffff;
-//     color: #4b5563;
-//     font-size: 18px;
-//     font-weight: 700;
-//   }
-
-//   .on {
-//     background-color: #ffffff;
-//     color: #3692ff;
-//     font-size: 18px;
-//     font-weight: 700;
-//   }
-
-//   .disable {
-//     background-color: #9ca3af;
-//     color: #ffffff;
-//   }
-
-//   .inquiry {
-//     width: 74px;
-//     align-self: flex-end;
-//   }

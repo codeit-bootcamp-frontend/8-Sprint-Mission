@@ -3,9 +3,18 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
     html,
     body {
-    padding: 94px 160px;
     margin: 0;
     font-family: 'Noto Sans', 'Noto Sans KR';
+    width: 100%;
+    align-items: center; 
+    }
+
+    #__next {
+    padding: 94px 360px;
+    width: 100%;
+    @media (max-width: 744px) {
+        padding: 94px 24px;
+    }
     }
 
     a {
