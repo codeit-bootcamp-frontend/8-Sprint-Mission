@@ -46,9 +46,3 @@ export const CategoryItem = styled.div`
   padding: 1.3125rem 0.9375rem;
   gap: 0.625rem;
 `;
-
-export const UserProfile = styled.div`
-  width: 2.5rem;
-  height: 2.5rem;
-  flex-shrink: 0;
-`;

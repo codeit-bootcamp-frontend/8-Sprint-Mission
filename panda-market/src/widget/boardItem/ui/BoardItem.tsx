@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 import { Article } from '@/entities/articles';
 import { useDateForm } from '@/shared/lib';
+import { UserProfile } from '@/shared/ui';
 
 import LikeIcon from '@/shared/assets/icons/ic_heart/inactive_heart.svg';
-import ProfileIcon from '@/shared/assets/icons/ic_profile/ic_profile.svg';
 
 import * as S from './BoardItem.style';
 
@@ -35,9 +35,7 @@ export const BoardItem = ({
       </S.ContentContainer>
       <S.SubContentContainer>
         <S.ProfileContainer>
-          <S.ProfileImageWrapper>
-            <ProfileIcon />
-          </S.ProfileImageWrapper>
+          <UserProfile width="1.5rem" height="1.5rem" />
           <S.Nickname>{writerNickname}</S.Nickname>
           <S.CreatedAt>{formDate}</S.CreatedAt>
         </S.ProfileContainer>
