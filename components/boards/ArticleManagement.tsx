@@ -1,6 +1,4 @@
-import Button from '../@shared/Button';
-import styles from './ArticleSection.module.scss';
-import Link from 'next/link';
+import styles from './ArticleManagement.module.scss';
 import CustomImage from '../@shared/CustomImage';
 import { DEVICE_MAX_WIDTH } from '@/constants/mediaQuerySize';
 import sortIcon from '@/public/images/market/sort-icon.png';
@@ -31,13 +29,7 @@ function ArticleManagement({
   const { innerWidth } = useWindowSize();
 
   return (
-    <section>
-      <div className={styles.titleAndButton}>
-        <h2>게시글</h2>
-        <Link href='/'>
-          <Button category={'large'}>글쓰기</Button>
-        </Link>
-      </div>
+    <>
       <div className={styles.inputAndDropdown}>
         <form onSubmit={onSearchSubmit}>
           <input
@@ -68,7 +60,7 @@ function ArticleManagement({
           )}
         </div>
       </div>
-    </section>
+    </>
   );
 }
 

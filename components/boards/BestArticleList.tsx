@@ -20,7 +20,6 @@ function BestArticleList() {
 
   return (
     <>
-      <h2>베스트 게시글</h2>
       <div className={styles.BestArticleList}>
         {BestArticleList.map((bestArticle) => {
           const {

@@ -2,8 +2,8 @@ import getArticles, { IArticle, orderType } from '@/apis/getArticles';
 import ArticleList from './ArticleList';
 import { useState } from 'react';
 import useToggle from '@/hooks/useToggle';
-import useWindowSize from '@/hooks/useWindowSize';
 import ArticleManagement from './ArticleManagement';
+import styles from './ArticleSection.module.scss';
 
 interface ArticleSectionProps {
   initialArticleList: IArticle[];
@@ -43,7 +43,7 @@ function ArticleSection({ initialArticleList }: ArticleSectionProps) {
   };
 
   return (
-    <>
+    <section className={styles.articleSection}>
       <ArticleManagement
         onIsOpenClick={handleIsOpenClick}
         onSearchSubmit={handleSearchSubmit}
@@ -52,7 +52,7 @@ function ArticleSection({ initialArticleList }: ArticleSectionProps) {
         orderBy={orderBy}
       />
       <ArticleList articleList={articleList} />
-    </>
+    </section>
   );
 }
 
