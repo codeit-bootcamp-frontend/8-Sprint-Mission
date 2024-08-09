@@ -1,1 +1,2 @@
-export * from './BtnSmall';
+export * from './small';
+export * from './linkSmall';
