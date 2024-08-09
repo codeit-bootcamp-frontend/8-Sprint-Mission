@@ -1,13 +1,26 @@
-import styles from './BestPost.module.scss';
+import styles from './BestArticle.module.scss';
 import CustomImage from '../@shared/CustomImage';
 import BestIcon from '@/public/images/boards/best-icon.png';
-import sampleImg from '@/public/images/@shared/no-image-placeholder.png';
 import likeImg from '@/public/images/market/like-icon.png';
 
-function BestPost() {
+interface BestArticleProps {
+  title: string;
+  imageUrl: string;
+  likeCount: number;
+  createdAt: string;
+  nickname: string;
+}
+
+function BestArticle({
+  title,
+  nickname,
+  imageUrl,
+  likeCount,
+  createdAt,
+}: BestArticleProps) {
   return (
-    <article className={styles.bestPost}>
-      <div className={styles.bestDeco}>
+    <article className={styles.bestArticle}>
+      <div className={styles.bestArticleDeco}>
         <CustomImage
           src={BestIcon}
           alt={'베스트 상품 메달 아이콘'}
@@ -17,10 +30,10 @@ function BestPost() {
         <span>Best</span>
       </div>
 
-      <div className={styles.postContent}>
-        <div>맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?</div>
+      <div className={styles.articleContent}>
+        <div>{title}</div>
         <CustomImage
-          src={sampleImg}
+          src={imageUrl}
           alt={'베스트 상품 이미지'}
           height={72}
           width={72}
@@ -29,9 +42,9 @@ function BestPost() {
         />
       </div>
 
-      <div className={styles.postInfo}>
+      <div className={styles.articleInfo}>
         <div className={styles.authorNameAndLikeCount}>
-          <span className={styles.authorName}>총명한 판다</span>
+          <span className={styles.authorName}>{nickname}</span>
           <div className={styles.likeCount}>
             <CustomImage
               src={likeImg}
@@ -39,13 +52,13 @@ function BestPost() {
               height={16}
               width={16}
             />
-            <span>9999+</span>
+            <span>{likeCount}</span>
           </div>
         </div>
-        <span className={styles.createdAt}>2024. 04. 16</span>
+        <span className={styles.createdAt}>{createdAt}</span>
       </div>
     </article>
   );
 }
 
-export default BestPost;
+export default BestArticle;

@@ -1,11 +1,17 @@
-.bestPost {
-  width: 384px;
+@import '../../styles/variables';
+
+.bestArticle {
+  width: 100%;
   height: 169px;
   padding: 0 24px 16px;
   border-radius: 8px;
   background-color: var(--cool-gray-50);
 
-  & .bestDeco {
+  @media #{$underTabletSize} {
+    height: 198px;
+  }
+
+  & .bestArticleDeco {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -18,20 +24,25 @@
     color: var(--white);
   }
 
-  & .postContent {
+  & .articleContent {
     display: flex;
-    gap: 8px;
-    margin: 18px 0;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 18px;
 
-    word-break: break-all;
+    word-break: keep-all;
 
     font-size: 20px;
     font-weight: 600;
     line-height: 32px;
     color: var(--cool-gray-800);
+
+    @media #{$underTabletSize} {
+      margin-bottom: 40px;
+    }
   }
 
-  & .postInfo {
+  & .articleInfo {
     display: flex;
     justify-content: space-between;
     font-weight: 400;

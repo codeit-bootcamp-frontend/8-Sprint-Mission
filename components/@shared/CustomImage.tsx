@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import Image, { StaticImageData } from 'next/image';
 
 interface ImageProps {
-  src: StaticImageData;
+  src: string | StaticImageData;
   alt: string;
   width: number;
   height: number;

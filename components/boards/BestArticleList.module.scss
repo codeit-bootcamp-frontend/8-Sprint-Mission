@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.BestArticleList {
+  display: flex;
+  gap: 24px;
+
+  @media #{$tabletSize} {
+    gap: 16px;
+  }
+}

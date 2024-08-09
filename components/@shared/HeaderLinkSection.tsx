@@ -25,8 +25,8 @@ function HeaderLinkSection() {
         <CustomImage
           src={innerWidth > 769 ? logoImg : typoImg}
           alt={'로고 이미지'}
-          height={innerWidth > 769 ? '51px' : '40px'}
-          width={innerWidth > 769 ? '153px' : '81px'}
+          height={innerWidth > 769 ? 51 : 40}
+          width={innerWidth > 769 ? 153 : 81}
         />
       </Link>
       {/* 링크가 필요한 페이지에서만 링크들이 나타나도록 */}
