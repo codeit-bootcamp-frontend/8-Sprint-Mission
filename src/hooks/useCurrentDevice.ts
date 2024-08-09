@@ -11,10 +11,14 @@ function useCurrentDevice() {
   const { DESKTOP_MIN_WIDTH, TABLET_MIN_WIDTH } = deviceSizes;
 
   const handleCurrentDevice = useCallback(() => {
-    if (window.innerWidth >= DESKTOP_MIN_WIDTH) {
-      return "desktop";
-    } else if (window.innerWidth >= TABLET_MIN_WIDTH) {
-      return "tablet";
+    if (typeof window !== "undefined") {
+      if (window.innerWidth >= DESKTOP_MIN_WIDTH) {
+        return "desktop";
+      } else if (window.innerWidth >= TABLET_MIN_WIDTH) {
+        return "tablet";
+      } else {
+        return "mobile";
+      }
     } else {
       return "mobile";
     }
