@@ -10,20 +10,20 @@ function BestItemsContainer() {
   const { data: itemsData } = useFetch<ProductResponse>(
     getProducts,
     { page: 1, pageSize, orderBy: "favorite" },
-    { list: [] }
+    { list: [], totalCount: 0 }
   );
 
-  const measurePageSize = () => {
+  const handlePageSize = () => {
     const newPageSize = countPageItems(1, 2, 4);
     setPageSize(newPageSize);
   };
 
   // get pageSize on window resize
   useEffect(() => {
-    window.addEventListener("resize", measurePageSize);
+    window.addEventListener("resize", handlePageSize);
 
     return () => {
-      window.removeEventListener("resize", measurePageSize);
+      window.removeEventListener("resize", handlePageSize);
     };
   }, [pageSize]);
 
