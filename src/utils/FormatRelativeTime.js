@@ -11,13 +11,13 @@ function FormatRelativeTime({ time }) {
   const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
 
   if (minutes < 60) {
-    return `${minutes}분 전`;
+    return <>`${minutes}분 전`</>;
   } else if (hours < 24) {
-    return `${hours}시간 전`;
+    return <>`${hours}시간 전`</>;
   } else if (days < 31) {
-    return `${days}일 전`;
+    return <>`${days}일 전`</>;
   } else {
-    return `${months}개월 전`;
+    return <>`${months}개월 전`</>;
   }
 }
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import plusIcon from "../../images/icon_plus.svg";
 
@@ -84,12 +84,18 @@ const StyledImgArea = styled.div`
   display: inline-block;
 `;
 
-function FlieInput({ name, value, onChange }) {
-  const [preview, setPreview] = useState();
-  const inputRef = useRef();
+interface Props {
+  name: string;
+  value: string | File | null;
+  onChange: (name: string, value: string | File | null) => void;
+}
 
-  const handleChange = (e) => {
-    const nextValue = e.target.files[0];
+function FileInput({ name, value, onChange }: Props) {
+  const [preview, setPreview] = useState();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const nextValue = e.target.files?.[0] || null;
     onChange(name, nextValue);
   };
 
@@ -104,7 +110,7 @@ function FlieInput({ name, value, onChange }) {
   useEffect(() => {
     if (!value) return;
 
-    const nextPreview = URL.createObjectURL(value);
+    const nextPreview: string = URL.createObjectURL(value);
     setPreview(nextPreview);
 
     return () => {
@@ -139,4 +145,4 @@ function FlieInput({ name, value, onChange }) {
   );
 }
 
-export default FlieInput;
+export default FileInput;

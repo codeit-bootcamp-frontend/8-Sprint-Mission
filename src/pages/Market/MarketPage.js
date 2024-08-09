@@ -1,6 +1,6 @@
 import ItemList from "./ItemList.js";
 import BestList from "./BestList.js";
-import Nav from "../../components/Nav.js";
+import Nav from "../../components/Nav";
 
 function MarketPage() {
   return (

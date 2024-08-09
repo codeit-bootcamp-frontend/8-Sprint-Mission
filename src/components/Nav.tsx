@@ -44,7 +44,7 @@ function Nav() {
           <StyledLogo src={pandaIcon} alt="판다마켓 로고" />
         </Link>
         <div>
-          <StyledLink href="https://www.google.com/">자유게시판</StyledLink>
+          <StyledLink to={`/market`}>자유게시판</StyledLink>
           <StyledLink to={`/market`}>중고마켓</StyledLink>
         </div>
       </FrontNavContainer>

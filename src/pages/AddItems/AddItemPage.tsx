@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import FileInput from "./FileInput";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Nav from "../../components/Nav";
 
 const StyledFormContainer = styled.section`
@@ -73,8 +73,16 @@ const StyledTextArea = styled.textarea`
   }
 `;
 
+interface FormValues {
+  name: string;
+  detail: string;
+  price: string;
+  tag: string;
+  imgFile: File | null;
+}
+
 function AddItem() {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<FormValues>({
     name: "",
     detail: "",
     price: "",
@@ -82,19 +90,21 @@ function AddItem() {
     imgFile: null,
   });
 
-  const handleChange = (name, value) => {
+  const handleChange = (name: string, value: string | number | File | null) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     handleChange(name, value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(values);
   };
