@@ -1,0 +1,23 @@
+.logo {
+  margin-right: 16px;
+
+  @media (min-width: 768px) {
+    margin-right: 35px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-right: 47px;
+  }
+
+  .logoImage {
+    width: 153;
+  }
+
+  .logoText {
+    position: relative;
+    font-size: 1.602rem;
+    font-family: 'ROKAF Sans';
+    color: #3692ff;
+    text-align: left;
+  }
+}

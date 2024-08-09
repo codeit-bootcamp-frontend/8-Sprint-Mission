@@ -1,0 +1,110 @@
+@import '/src/styles/global.scss';
+
+@mixin box-button-theme($theme: 'default') {
+  @if $theme == 'default' {
+    &:hover {
+      outline: 2px solid $Brown-50;
+      background: $Brown-40;
+    }
+
+    &:active {
+      background: $Brown-50;
+    }
+
+    &:disabled {
+      border: 1px solid $Brown-30;
+      background: $Brown-30;
+    }
+  } @else if $theme == 'light' {
+    border: 1px solid $Brown-40;
+    background: $Brown-10;
+    color: $Brown-40;
+
+    &:hover {
+      outline: 2px solid $Brown-40;
+      background: $Brown-10;
+    }
+
+    &:active {
+      background: $Brown-20;
+    }
+
+    &:disabled {
+      border: 1px solid $Brown-30;
+      background: $Brown-10;
+      color: $Brown-30;
+    }
+  }
+}
+
+.common-button {
+  cursor: pointer;
+}
+
+.box-button {
+  @include Body3-Regular;
+  display: inline-flex;
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid $Brown-40;
+  border-radius: 0.5rem;
+  background: $Brown-40;
+  color: $Grayscale-10;
+  @include box-button-theme('default');
+
+  &--small {
+    @include Caption1-Regular;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+
+  &--light {
+    @include box-button-theme('light');
+  }
+}
+
+.floating-button {
+  @include Body1-Regular;
+  @include Shadow(2);
+  display: flex;
+  width: 13rem;
+  height: 3.375rem;
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 12.5rem;
+  background: $Brown-40;
+  color: $Grayscale-10;
+
+  &--small {
+    @include Caption1-Regular;
+    margin: 0 0 0.56rem;
+    width: 6.3rem;
+    height: 2.1875rem;
+    padding: 0.75rem 1.5rem;
+    color: $Grayscale-10;
+  }
+}
+
+.round-button {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 12.5rem;
+
+  &:hover {
+    @include Shadow(2);
+  }
+  &:active {
+    background-color: $Brown-30;
+  }
+}
