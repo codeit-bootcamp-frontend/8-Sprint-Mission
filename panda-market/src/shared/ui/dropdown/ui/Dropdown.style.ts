@@ -59,6 +59,8 @@ export const ContentsWrapper = styled.div<ContentWrapperProps>`
   border-radius: 12px;
   border: 1px solid ${colors.coolGray[200]};
   background-color: ${colors.white};
+
+  z-index: 1;
 `;
 
 interface ContentProps {
