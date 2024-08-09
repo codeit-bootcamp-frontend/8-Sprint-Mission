@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { BestBadge } from '@/shared/ui';
 import { Article } from '@/entities/articles';
+import { useDateForm } from '@/shared/lib';
 
 // import ActiveHeart from '@/shared/assets/icons/ic_heart/active_heart.svg';
 import InactiveHeart from '@/shared/assets/icons/ic_heart/inactive_heart.svg';
 
 import * as S from './BoardCard.style';
-import { UseDateForm } from '../lib';
 
 type BoardCardProps = Pick<
   Article,
@@ -22,7 +22,7 @@ export const BoardCard = ({
   writerNickname,
   createdAt,
 }: BoardCardProps) => {
-  const { formDate } = UseDateForm({ dateTime: createdAt });
+  const { formDate } = useDateForm({ dateTime: createdAt });
   return (
     <S.Wrapper>
       <S.ContentsWrapper>

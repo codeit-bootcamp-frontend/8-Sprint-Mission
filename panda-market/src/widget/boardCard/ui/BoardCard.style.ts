@@ -11,6 +11,12 @@ export const Wrapper = styled.div`
   gap: 0.625rem;
   border-radius: 0.5rem;
   background-color: ${colors.coolGray[50]};
+  cursor: pointer;
+
+  &:hover {
+    outline: 1px solid ${colors.secondary[400]};
+    box-shadow: 0 4px 4px ${colors.secondary[200]};
+  }
 `;
 
 export const ContentsWrapper = styled.div`
