@@ -1,25 +1,31 @@
 import getArticles, { Article, ArticlesQuery } from '@/pages/api/client';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import RecentContent from './boards/MainContent';
 import RecentInfo from './boards/MainInfo';
 import VerticalDivider from './elements/VerticalDivider';
 import BoardTitle from './boards/BoardTitle';
 
 function MainBoards() {
+  const router = useRouter();
   const [boards, setBoards] = useState<Article[]>([]);
   const [keyword, setKeyword] = useState<string>('');
   const [orderBy, setOrderBy] = useState<ArticlesQuery['orderBy']>('recent');
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const handleLoad = useCallback(async () => {
-    const { list } = await getArticles({
+    const query = {
       page: 1,
       pageSize: 6,
       orderBy,
       keyword,
+    };
+    const { list } = await getArticles(query);
+    router.push({
+      query,
     });
     setBoards(() => list);
-  }, [keyword, orderBy]);
+  }, [keyword, orderBy, router]);
 
   useEffect(() => {
     if (isLoading === true) {
