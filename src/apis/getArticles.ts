@@ -19,7 +19,12 @@ export interface Article {
 interface GetArticlesProps {
   page?: number;
   pageSize: number;
-  orderBy: "like" | "recent";
+  orderBy?: "like" | "recent";
+}
+
+interface Response {
+  list: Article[];
+  totalCount: number;
 }
 
 export default async function getArticles({
@@ -29,7 +34,7 @@ export default async function getArticles({
 }: GetArticlesProps) {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
   const res = await instance.get(`/articles?${query}`);
-  const { list, totalCount } = res.data;
+  const { list, totalCount }: Response = res.data;
 
   // 예외 처리 및 에러 처리 필요
   return { list, totalCount };
