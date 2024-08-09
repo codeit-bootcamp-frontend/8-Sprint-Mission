@@ -1,3 +1,4 @@
+import React from "react";
 import AllBoard from "@/components/boards/AllBoard";
 import BestBoard from "@/components/boards/BestBoard";
 
