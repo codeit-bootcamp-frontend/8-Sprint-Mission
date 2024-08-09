@@ -1,0 +1,28 @@
+.mainBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.footerBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .mainBox {
+    padding: 0 24px 0 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mainBox {
+    padding: 0 16px 0 16px;
+  }
+}

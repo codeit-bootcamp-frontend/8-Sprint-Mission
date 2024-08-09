@@ -1,0 +1,166 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.commentsContainer {
+  padding: 0px 16px 16px 16px;
+}
+
+.commentTopBox {
+  width: 100%;
+  border-top: 1px solid var(--gray200);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.miniTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray900);
+}
+
+.commentInput {
+  width: 100%;
+  height: 104px;
+  background-color: var(--gray100);
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.commentInput::placeholder {
+  color: var(--gray400);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.commentSubmitButton {
+  display: inline-block;
+  background-color: var(--gray400);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 12px 23px;
+}
+
+.commentSubmitButton.pass {
+  background-color: var(--blue);
+}
+
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentBox {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--gray200);
+}
+
+.comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.commentText {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray800);
+  line-height: 22.4px;
+  margin: 24px 0px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 8px;
+}
+
+.userProfileImage {
+  border-radius: 50%;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray600);
+}
+
+.timeAgo {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray400);
+}
+
+.bottomButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 166px;
+}
+
+.returnButton {
+  display: inline-flex;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--blue);
+  border-radius: 40px;
+  margin: 24px 0px;
+  padding: 12px 38.5px;
+  gap: 10px;
+  align-items: center;
+}
+
+.emptyComment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray400);
+  line-height: 24px;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .commentsContainer {
+    display: flex;
+    padding: 24px;
+  }
+  .commentInput {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main {
+    align-items: center;
+    margin-top: 32px;
+  }
+  .commentsContainer {
+    display: flex;
+    width: 1200px;
+  }
+  .commentInput {
+    font-size: 16px;
+  }
+}
