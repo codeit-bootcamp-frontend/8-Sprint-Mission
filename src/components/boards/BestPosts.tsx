@@ -1,14 +1,7 @@
 import getArticles, { Article } from "@/apis/getArticles";
 import usePageSize from "@/hooks/usePageSize";
 import { useState, useEffect, useCallback } from "react";
-
-interface BestPostCardProps {
-  article: Article;
-}
-
-function BestPostCard({ article }: BestPostCardProps) {
-  return <article className="w-full h-full bg-slate-400">{article.title}</article>;
-}
+import BestPostCard from "./BestPostCard";
 
 export default function BestPosts() {
   const [bestArticles, setBestArticles] = useState<Article[]>([]);
