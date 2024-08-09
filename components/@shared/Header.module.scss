@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  /* 다른 요소에 의해 가려지지 않도록 z-index 부여 */
+  z-index: var(--z-index-header);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: var(--header-height);
+  padding: var(--padding-001);
+
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-gray);
+
+  @media #{$tabletSize} {
+    padding: 0 24px;
+  }
+
+  @media #{$mobileSize} {
+    padding: 0 16px;
+  }
+
+  button {
+    width: 128px;
+    height: 48px;
+
+    @media #{$mobileSize} {
+      width: 60px;
+    }
+  }
+}
