@@ -1,13 +1,14 @@
-import { BoardCardList } from '@/widget/boardCardList';
+import { useState } from 'react';
+
 import { BoardSearch } from '@/widget/boardSearch';
+import { BoardCardList } from '@/widget/boardCardList';
+import { BoardItemList } from '@/widget/boardItemList';
 import { SectionTitle } from '@/shared/ui/title';
 import { LinkSmall } from '@/shared/ui/buttons';
 import { Dropdown } from '@/shared/ui/dropdown';
-
 import { BOARD_DROPDOWN_CONTENTS } from '@/shared/config';
 
 import * as S from './Boards.style';
-import { useState } from 'react';
 
 const mock = {
   list: [
@@ -185,6 +186,7 @@ export const Boards = () => {
             {dropdownValue}
           </Dropdown>
         </S.SearchSection>
+        <BoardItemList boardItemList={mock.list} />
       </S.Section>
     </S.Wrapper>
   );
