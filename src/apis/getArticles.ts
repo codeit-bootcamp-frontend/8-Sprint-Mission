@@ -12,8 +12,8 @@ export interface Article {
   image: string;
   likeCount: number;
   writer: Writer;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface GetArticlesProps {
