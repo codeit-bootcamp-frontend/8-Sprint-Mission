@@ -36,5 +36,5 @@ next-env.d.ts
 
 # Yarn 캐시 및 임시 파일 무시
 .yarn/*
-!.yarn/release/
+!.yarn/releases/
 !.yarn/sdks/
