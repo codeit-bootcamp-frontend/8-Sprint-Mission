@@ -64,7 +64,7 @@ const HeaderNavUl = styled.ul`
   display: flex;
   list-style: none;
   gap: 30px;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
   color: #4b5563;
 
