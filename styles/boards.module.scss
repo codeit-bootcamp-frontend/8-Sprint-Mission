@@ -1,0 +1,18 @@
+@import 'config';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 40px;
+
+  @include media($tablet) {
+    padding: 16px 24px;
+  }
+
+  @include media($pc) {
+    max-width: 1200px;
+    padding: 24px 0;
+    margin: 0 auto;
+  }
+}
