@@ -1,0 +1,97 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0 20rem;
+  z-index: 999;
+  background: #fff;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.mainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.logoBox {
+  margin-right: 32px;
+}
+.headerNav {
+  display: flex;
+  align-items: center;
+}
+.navList > ul {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+}
+.navList > ul > li {
+  text-align: center;
+  padding: 24px 15px;
+}
+.navList > ul > li > a {
+  display: inline-block;
+  width: 78px;
+  font-weight: 700;
+}
+.navList > ul > li > a.active {
+  color: var(--color-blue);
+}
+
+.logo {
+  position: relative;
+  display: block;
+  width: 153px;
+  height: 51px;
+}
+.mobileLogo {
+  display: none;
+}
+.profile {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-right: 40px;
+}
+/* header */
+
+@media (max-width: 1199px) {
+  .header {
+    padding: 0 2.4rem;
+  }
+  .profile {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 메인 페이지 */
+  .header {
+    padding: 0 1.6rem;
+  }
+  .logo {
+    display: none;
+  }
+  .mobileLogo {
+    position: relative;
+    display: block;
+    width: 81px;
+    height: 40px;
+  }
+  .logoBox {
+    margin-right: 16px;
+  }
+  .navList > ul {
+    font-size: 1.6rem;
+  }
+  .navList > ul > li {
+    padding: 0 8px 0 0;
+  }
+  .navList > ul > li:last-child {
+    padding: 0;
+  }
+  .navList > ul > li > a {
+    width: 100%;
+  }
+}

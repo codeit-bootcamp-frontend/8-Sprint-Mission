@@ -1,0 +1,16 @@
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+.title {
+  line-height: 3.2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.userActionContainer {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 2.4rem;
+}

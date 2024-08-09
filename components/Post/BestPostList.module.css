@@ -1,0 +1,93 @@
+.postListContainer {
+  flex: 1 0;
+  padding: 0 24px 16px 24px;
+  background: var(--color-gray50);
+  border-radius: 8px;
+}
+.badgeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 1.6rem;
+  width: 102px;
+  height: 30px;
+  border-radius: 0 0 16px 16px;
+  background: var(--color-blue);
+}
+.badgeContainer span {
+  line-height: 2.6rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #fff;
+}
+.medalIcon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 1.8rem;
+}
+.postTitle {
+  word-break: keep-all;
+  line-height: 3.2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.postImage {
+  position: relative;
+  width: 74px;
+  height: 74px;
+}
+
+.postImage > img {
+  border-radius: 6px;
+  border: 1px solid var(--color-gray200);
+}
+
+.writerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.nickName {
+  line-height: 2.4rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #4b5563;
+}
+
+.date {
+  line-height: 2.4rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #9ca3af;
+}
+/* writerContainer */
+
+.postLike {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.likeCount {
+  line-height: 2.4rem;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #6b7280;
+}
+
+.favoriteicon {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
