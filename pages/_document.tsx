@@ -2,10 +2,8 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 function Document() {
   return (
-    <Html lang="en">
+    <Html lang="ko">
       <Head>
-        <title>판다마켓</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="판다마켓 홈페이지" />
 

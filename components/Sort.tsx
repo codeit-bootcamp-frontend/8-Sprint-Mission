@@ -1,10 +1,4 @@
-import {
-  useEffect,
-  useState,
-  Dispatch,
-  SetStateAction,
-  ChangeEvent,
-} from "react";
+import { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { Article } from "@/types/article";
 
 interface SortProps {
@@ -30,7 +24,7 @@ function Sort({ articles, setArticles }: SortProps) {
     }
   }, [order, articles]);
 
-  const handleOrderChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOrder(e.target.value);
   };
 
