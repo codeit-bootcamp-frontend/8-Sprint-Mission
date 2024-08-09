@@ -76,7 +76,6 @@ export default function AllArticles() {
                 alt="프로필 이미지"
                 width={24}
                 height={24}
-                priority
               />
               <div className={styles.nickname}>{article.writer.nickname}</div>
               <div className={styles.createdAt}>
