@@ -101,7 +101,7 @@ function AddItem() {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    handleChange(name, value);
+    handleChange(name as keyof FormValues, value);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

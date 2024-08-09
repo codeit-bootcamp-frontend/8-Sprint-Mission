@@ -91,7 +91,7 @@ interface Props {
 }
 
 function FileInput({ name, value, onChange }: Props) {
-  const [preview, setPreview] = useState();
+  const [preview, setPreview] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -110,18 +110,18 @@ function FileInput({ name, value, onChange }: Props) {
   useEffect(() => {
     if (!value) return;
 
-    const nextPreview: string = URL.createObjectURL(value);
+    const nextPreview: string = URL.createObjectURL(value as File);
     setPreview(nextPreview);
 
     return () => {
-      setPreview();
+      setPreview(null);
       URL.revokeObjectURL(nextPreview);
     };
   }, [value]);
 
   return (
     <div>
-      <StyledLabel htmlFor="fileinput">상품 이미지</StyledLabel>
+      <StyledLabel>상품 이미지</StyledLabel>
       <StyledFileArea>
         <StyledFileInputBox>
           <StyledFileInput
