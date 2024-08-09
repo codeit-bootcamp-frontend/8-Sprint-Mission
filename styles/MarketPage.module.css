@@ -1,0 +1,82 @@
+.MarketPage {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 0px auto;
+  width: 1200px;
+}
+
+.allItemsSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bestItemsContainer {
+  padding-top: 17px;
+  padding-bottom: 24px;
+  list-style-type: none;
+}
+
+.bestItemsCardSection {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.sectionTitle {
+  color: #111827;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: normal;
+}
+
+.itemCard {
+  color: #1f2937;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.itemCardThumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  margin-bottom: 16px;
+}
+
+.itemSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.itemName {
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemPrice {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.favoriteCount {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #4b5563;
+  font-size: 12px;
+}
+
+.allItemsCardSection {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px 8px;
+}

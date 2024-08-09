@@ -1,0 +1,45 @@
+.besticon {
+  width: 102px;
+  height: 30px;
+}
+
+.cardcontainer {
+  width: 336px;
+  height: 153px;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+.commentcontent {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+  margin: 0px;
+}
+
+.commentimage {
+  width: 72px;
+  height: 72px;
+}
+
+.sectioncontent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.commentmetacontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.commentmeta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}

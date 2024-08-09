@@ -1,0 +1,15 @@
+.bestCommentContainer {
+}
+
+.sectionTitle {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.bestCommentsCard {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 72px;
+}
