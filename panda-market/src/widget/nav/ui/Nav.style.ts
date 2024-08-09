@@ -15,6 +15,8 @@ export const Wrapper = styled.nav`
   border-bottom: 1px solid #dfdfdf;
   background: white;
 
+  z-index: 2;
+
   @media ${sizeTheme.tablet} {
     padding: 0 1.5rem;
   }
