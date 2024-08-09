@@ -1,0 +1,6 @@
+export const deviceSizes = {
+  MOBILE_MAX_WIDTH: 767,
+  TABLET_MIN_WIDTH: 768,
+  TABLET_MAX_WIDTH: 1199,
+  DESKTOP_MIN_WIDTH: 1200,
+};
