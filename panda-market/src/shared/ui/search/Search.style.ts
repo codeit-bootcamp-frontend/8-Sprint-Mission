@@ -7,12 +7,13 @@ export const Wrapper = styled.div`
 
 export const Input = styled.input`
   display: flex;
+  min-width: 20.3125rem;
+  width: 65.875rem;
   padding: 0.56rem 1.25rem 0.56rem 2.75rem;
+  justify-content: stretch;
   align-items: center;
   gap: 0.625rem;
   flex-shrink: 0;
-
-  min-width: 20.3125rem;
   border-radius: 12px;
   background: ${colors.secondary[100]};
   border: none;
