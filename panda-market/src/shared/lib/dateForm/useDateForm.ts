@@ -2,7 +2,7 @@ type DateFormParams = {
   dateTime: string;
 };
 
-export const UseDateForm = ({
+export const useDateForm = ({
   dateTime,
 }: DateFormParams): { formDate: string } => {
   const date = new Date(dateTime);
