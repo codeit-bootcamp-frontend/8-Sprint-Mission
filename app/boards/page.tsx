@@ -1,3 +1,5 @@
+import Header from "@/components/Header";
+
 export default function boards() {
-  return <div></div>;
+  return <Header />;
 }
