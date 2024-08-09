@@ -26,7 +26,7 @@ function BestArticle({ article }: BestArticleProps) {
       <Image
         className={styles.bestBadgeImage}
         src={bestBadge}
-        alt="베스트 배지"
+        alt="베스트 뱃지"
         width={102}
       />
       <div className={styles.articleHeader}>

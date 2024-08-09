@@ -7,16 +7,9 @@ interface BestArticleListProps {
 }
 
 function BestArticleList({ articles }: BestArticleListProps) {
-  let pageSize = 3;
-  const sortedArticles = [...articles]
-    .sort((a, b) => {
-      return b.likeCount - a.likeCount;
-    })
-    .slice(0, pageSize);
-
   return (
     <div className={styles.articlesWrapper}>
-      {sortedArticles.map((article: Article) => (
+      {articles.map((article: Article) => (
         <div key={article.id}>
           <BestArticle article={article} />
         </div>

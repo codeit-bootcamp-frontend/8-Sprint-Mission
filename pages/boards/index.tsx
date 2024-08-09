@@ -42,7 +42,9 @@ function Board() {
   }, []);
 
   async function getBestArticles(pageSize: number) {
-    const response = await axios.get(`/articles/?pageSize=${pageSize}`);
+    const response = await axios.get(
+      `/articles/?orderBy=like&pageSize=${pageSize}`
+    );
     setBestArticles(response.data.list ?? []);
   }
 
