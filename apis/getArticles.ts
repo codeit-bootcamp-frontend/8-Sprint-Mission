@@ -3,7 +3,7 @@ import { axiosInstance } from './setupAxios';
 
 type orderType = 'like' | 'recent';
 
-export interface Article {
+export interface IArticle {
   id: number;
   title: string;
   content: string;
@@ -18,7 +18,7 @@ export interface Article {
 }
 
 interface ArticlesResponse {
-  list: Article[];
+  list: IArticle[];
   totalCount: number;
 }
 
@@ -26,19 +26,15 @@ export interface GetArticlesProps {
   page?: string;
   order?: orderType;
   keyword?: string;
-  size?: number;
+  size?: string;
 }
 
 const getArticles = async ({
-  page,
-  order,
-  size,
-  keyword,
+  page = '1',
+  order = 'recent',
+  size = '10',
+  keyword = '',
 }: GetArticlesProps): Promise<ArticlesResponse> => {
-  console.log(
-    'process.env.NEXT_PUBLIC_APP_API_URL:',
-    process.env.NEXT_PUBLIC_APP_API_URL
-  );
   const { data } = await axiosInstance.get(
     `/${ARTICLES_QUERY_KEY}?page=${page}&pageSize=${size}&orderBy=${order}&keyword=${keyword}`
   );
