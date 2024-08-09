@@ -1,7 +1,7 @@
 import { ARTICLES_QUERY_KEY } from '@/constants/queryKeys';
 import { axiosInstance } from './setupAxios';
 
-type orderType = 'like' | 'recent';
+export type orderType = 'like' | 'recent';
 
 export interface IArticle {
   id: number;

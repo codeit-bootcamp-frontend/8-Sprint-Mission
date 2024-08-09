@@ -9,7 +9,6 @@ interface ArticleListProps {
 function ArticleList({ articleList }: ArticleListProps) {
   return (
     <>
-      <h2>게시글</h2>
       <section className={styles.articleList}>
         {articleList.map((article) => {
           const {
