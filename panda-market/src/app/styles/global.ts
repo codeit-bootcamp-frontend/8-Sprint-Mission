@@ -1,4 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
+// import localFont from 'next/font/local'
+
+// const pretendard = localFont({
+//   src: '@/shared/assets/fonts/Pretendard/',
+//   display: 'swap',
+//   weight: '45 920',
+// })
 
 export const GlobalStyle = createGlobalStyle`
     @font-face {

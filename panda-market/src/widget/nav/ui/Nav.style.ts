@@ -1,4 +1,4 @@
-import { colors, sizeTheme } from '@/shared/styles';
+import { colors, sizeTheme } from '@/shared/config/styles';
 import styled from 'styled-components';
 
 export const Wrapper = styled.nav`

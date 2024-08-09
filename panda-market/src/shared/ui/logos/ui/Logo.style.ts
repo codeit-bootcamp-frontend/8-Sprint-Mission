@@ -1,4 +1,4 @@
-import { sizeTheme } from '@/shared/styles';
+import { sizeTheme } from '@/shared/config/styles';
 import styled from 'styled-components';
 
 export const ImageWrapper = styled.div`
