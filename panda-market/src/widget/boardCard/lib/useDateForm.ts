@@ -7,6 +7,6 @@ export const UseDateForm = ({
 }: DateFormParams): { formDate: string } => {
   const date = new Date(dateTime);
 
-  const formDate = `${date.getFullYear()}.${date.getMonth()}.${date.getDay()}`;
+  const formDate = `${date.getFullYear()}. ${date.getMonth()}. ${date.getDay()}`;
   return { formDate };
 };

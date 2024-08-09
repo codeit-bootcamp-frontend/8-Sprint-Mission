@@ -4,7 +4,6 @@ import { Article } from '@/entities/articles';
 
 // import ActiveHeart from '@/shared/assets/icons/ic_heart/active_heart.svg';
 import InactiveHeart from '@/shared/assets/icons/ic_heart/inactive_heart.svg';
-import tempImage from '@/shared/assets/images/ic_profile/ic_profile@3x.png';
 
 import * as S from './BoardCard.style';
 import { UseDateForm } from '../lib';
@@ -33,7 +32,7 @@ export const BoardCard = ({
             {title.length > 36 ? title.slice(0, 35) + '...' : title}
           </S.Title>
           <S.ImageWrapper>
-            <Image src={tempImage} alt="게시글 사진" fill />
+            <Image src={image} alt="게시글 사진" fill />
           </S.ImageWrapper>
         </S.Contents>
         <S.SubContents>
