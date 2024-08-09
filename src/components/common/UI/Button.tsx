@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 interface ButtonProps {
@@ -15,7 +14,7 @@ function Button({ buttonText, to, className, onClick }: ButtonProps) {
       <Link
         to={to}
         onClick={onClick}
-        className={`${className} bg-brand text-white content-center text-center w-[133px] rounded-lg`}
+        className={`${className} bg-brand text-white content-center text-center w-[133px] rounded-lg max-md:w-auto max-md:px-5`}
       >
         {buttonText}
       </Link>
@@ -26,7 +25,7 @@ function Button({ buttonText, to, className, onClick }: ButtonProps) {
   return (
     <button
       onClick={onClick}
-      className={`${className} bg-brand text-white content-center text-center rounded-lg px-6 h-full`}
+      className={`${className} bg-brand text-white content-center text-center rounded-lg px-6 h-full max-md:w-auto max-md:px-5 `}
     >
       {buttonText}
     </button>
