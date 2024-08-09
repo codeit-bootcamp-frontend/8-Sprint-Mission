@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
+import countPageItems from "lib/utils/countPageItems";
 
 interface PaginationProps {
   currentPage: number;
@@ -13,7 +14,23 @@ const Pagination = ({
   totalCount,
   pageSize,
 }: PaginationProps) => {
+  const [buttonCount, setButtonCount] = useState<number>(
+    countPageItems(5, 8, 10)
+  );
   const totalPages = Math.ceil(totalCount / pageSize);
+
+  // 화면 크기에 따라 버튼 수 조정
+  const handleResize = () => {
+    setButtonCount(countPageItems(5, 8, 10));
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
@@ -24,15 +41,14 @@ const Pagination = ({
   // 페이지 버튼 렌더링 함수
   const renderPageButtons = () => {
     const buttons = [];
-    const maxVisibleButtons = 10; // 한 번에 보여줄 최대 버튼 수
-    const halfVisibleButtons = Math.floor(maxVisibleButtons / 2);
+    const halfVisibleButtons = Math.floor(buttonCount / 2);
 
     let startPage = Math.max(1, currentPage - halfVisibleButtons);
-    let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+    let endPage = Math.min(totalPages, startPage + buttonCount - 1);
 
     // 버튼이 최대 수를 초과할 경우 시작 페이지 조정
-    if (endPage - startPage < maxVisibleButtons - 1) {
-      startPage = Math.max(1, endPage - maxVisibleButtons + 1);
+    if (endPage - startPage < buttonCount - 1) {
+      startPage = Math.max(1, endPage - buttonCount + 1);
     }
 
     // 버튼 렌더링
