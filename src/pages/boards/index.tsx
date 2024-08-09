@@ -1,36 +1,15 @@
-import instance from "@/apis/instance";
+import GlobalNavBar from "@/components/@shared/GlobalNavBar";
+import BestPosts from "@/components/boards/BestPosts";
+import PostList from "@/components/boards/PostList";
 
-interface Article {
-  id: number;
-  title: string;
-  content: string;
-  image: string;
-  likeCount: number;
-  writer: { id: number; nickname: string };
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export async function getServerSideProps() {
-  const res = await instance.get("/articles?page=1&pageSize=10&orderBy=like");
-  const articles = res.data.results ?? [];
-
-  return {
-    props: {
-      articles,
-    },
-  };
-}
-
-interface BoardsProps {
-  articles: Article[];
-}
-
-export default function Boards({ articles }: BoardsProps) {
-  console.log(articles);
+export default function Boards() {
   return (
     <>
-      <div>자유게시판!</div>
+      <GlobalNavBar isMain={false} isLogin />
+      <main className="mt-[16px] md:mt-[24px] mx-[16px] md:mx-[24px] xl:mx-auto xl:w-[1200px]">
+        <BestPosts />
+        <PostList />
+      </main>
     </>
   );
 }
