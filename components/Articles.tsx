@@ -5,6 +5,7 @@ import { getArticles } from "@/pages/api/apis";
 import Article from "@/DTO/article";
 import formatComparedTime from "@/lib/formatComparedTime";
 import getRenderedPages from "@/lib/getRenderedPages";
+import useDropdownState from "@/lib/hooks/useDropdownState";
 
 const ORDER_EN_KO_PAIR: {
   [key: string]: string,
@@ -20,8 +21,9 @@ export default function Articles() {
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
   const [keyword, setKeyword] = useState('');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [totalPages, setTotalPages] = useState(1);
+
+  const { isDropdownOpen, handleDropdown } = useDropdownState();
 
   const renderedPages = getRenderedPages(page, totalPages);
 
@@ -30,11 +32,6 @@ export default function Articles() {
     if(!result) return;
     setArticles(result.list);
     setTotalPages(Math.floor(result.totalCount / pageSize) + 1);
-  }
-
-  const handleDropdown = (e: MouseEvent) => {
-    e.stopPropagation();
-    setIsDropdownOpen(!isDropdownOpen);
   }
 
   const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -53,14 +50,6 @@ export default function Articles() {
     setPage(1);
     handleLoad(1, PAGE_SIZE, orderBy, keyword);
   }, [PAGE_SIZE, orderBy, keyword]);
-
-  useEffect(() => {
-    document.addEventListener("click", () => setIsDropdownOpen(false));
-
-    return (() => {
-      document.removeEventListener("click", () => setIsDropdownOpen(false));
-    })
-  }, [])
 
   return (
     <section className={styles.articlesSection}>
