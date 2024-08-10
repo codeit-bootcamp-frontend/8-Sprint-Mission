@@ -31,9 +31,10 @@ export default function GlobalNavBar({ isMain, isLogin }: GlobalNavBarProps) {
               alt="로고 이미지"
             />
             <Image
-              className="md:hidden"
+              className="block md:hidden"
               width={isMain ? "103" : "81"}
               height={isMain ? "51" : "40"}
+              priority
               src="/images/panda_typo.png"
               alt="로고 타이포 이미지"
             />
