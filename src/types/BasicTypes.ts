@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type BasicType = {
   title: string;
   id: number;
@@ -11,6 +13,8 @@ export type BasicType = {
   src: string;
   alt: string;
   className: string;
+  likeCount: number;
+  children: ReactNode;
 
   // handler
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;

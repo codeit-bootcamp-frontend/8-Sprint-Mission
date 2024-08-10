@@ -1,7 +1,13 @@
 import styles from './BestArticlesSection.module.scss';
 
+import BestArticleCard from '../BestArticleCard/BestArticleCard';
+
 const BestArticlesSection = ({}) => {
-  return <></>;
+  return (
+    <>
+      <BestArticleCard />
+    </>
+  );
 };
 
 export default BestArticlesSection;
