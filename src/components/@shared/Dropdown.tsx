@@ -1,6 +1,5 @@
 import React from "react";
 import useToggle from "@/hooks/useToggle";
-import useCurrentDevice from "@/hooks/useCurrentDevice";
 import Image from "next/image";
 
 type DropdownProps<T extends string> = {
