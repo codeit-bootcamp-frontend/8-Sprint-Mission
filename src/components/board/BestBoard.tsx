@@ -37,7 +37,11 @@ export default function BestBoard() {
   return (
     <BestBoardWrap>
       <BoardTitle>베스트 게시글</BoardTitle>
-      <BestBoardCard />
+      <BestBoardCardList>
+        <BestBoardCard />
+        <BestBoardCard />
+        <BestBoardCard />
+      </BestBoardCardList>
     </BestBoardWrap>
   );
 }
@@ -47,12 +51,20 @@ const BestBoardWrap = styled.div`
   max-width: 1200px;
   padding: 0 20px;
   margin: 0 auto;
+  margin-bottom: 40px;
 `;
 
 const BoardTitle = styled.h2`
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 24px;
+`;
+
+const BestBoardCardList = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 `;
 
 const BestCardWrap = styled.div`
@@ -63,14 +75,6 @@ const BestCardWrap = styled.div`
   padding: 46px 24px 9px 24px;
   border-radius: 8px;
   background-color: #f9fafb;
-
-  span {
-    display: inline-block;
-    font-size: 1.6rem;
-    font-weight: 600;
-    padding-top: 3px;
-    color: #ffffff;
-  }
 `;
 
 const BestIcon = styled.div`
@@ -85,6 +89,14 @@ const BestIcon = styled.div`
   height: 30px;
   border-radius: 0 0 16px 16px;
   background-color: var(--blue-color);
+
+  span {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding-top: 3px;
+    color: #ffffff;
+  }
 `;
 
 const BestCardContent = styled.div`
@@ -118,8 +130,33 @@ const BestCardImage = styled.div`
   }
 `;
 
-const BestCardInfo = styled.div``;
+const BestCardInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
-const CardInfoLeft = styled.div``;
+const CardInfoLeft = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--gray600-color);
 
-const CardInfoDate = styled.span``;
+  span {
+    display: flex;
+    align-items: center;
+    margin: 0 8px;
+    color: var(--gray500-color);
+
+    img {
+      margin-right: 5px;
+    }
+  }
+`;
+
+const CardInfoDate = styled.span`
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--gray400-color);
+`;
