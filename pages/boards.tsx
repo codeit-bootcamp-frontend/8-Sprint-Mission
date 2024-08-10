@@ -1,7 +1,7 @@
-import axios from "@/lib/axios";
 
-import BestArticleList from "@/components/BestArticleList";
-import ArticleList from "@/components/ArticleList";
+
+import BestArticleList from "@/components/boards/BestArticleList";
+import ArticleList from "@/components/boards/ArticleList";
 
 export default function Boards() {
   return (

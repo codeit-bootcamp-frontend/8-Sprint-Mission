@@ -10,7 +10,7 @@ export const getArticleList = async ({
 }: ArticleQuery) => {
   const res = await axios.get(
     `/articles?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}${
-      keyword ? `&keyword="${keyword}` : ""
+      keyword ? `&keyword=${keyword}` : ""
     }`
   );
   const { list, totalCount }: ArticleResponse = res.data;

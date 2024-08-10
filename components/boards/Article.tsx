@@ -1,27 +1,22 @@
 import Image from "next/image";
-
 import { formatDate } from "@/utils/formatDate";
-import { Article } from "@/models/article";
+import type { Article } from "@/models/article";
 
-import icMedal from "@/public/images/ic_medal.svg";
 import icHeart from "@/public/images/ic_heart.svg";
+import icProfile from "@/public/images/ic_profile.svg";
 interface Props {
   articles: Article[];
 }
 
-export default function BestArticle({ articles }: Props) {
+export default function Article({ articles }: Props) {
   return (
-    <>
+    <ul>
       {articles?.length > 0 &&
-        articles.map((article) => (
-          <div
-            key={article.id}
-            className="[&:nth-child(n+2)]:hidden md:[&:nth-last-child(2)]:block lg:[&:nth-last-child(1)]:block grow bg-gray-50 h-[198px] lg:h-[169px] px-[22px] pt-[46px] pb-4 relative rounded-lg"
+        articles.map((article, index) => (
+          <li
+            key={`${article.id}+${index}`}
+            className=" bg-gray-50 px-2 pb-6 pt-1 mt-5 border-b shadow-md rounded-xl border-gray-200"
           >
-            <span className="absolute gap-1 flex-center top-0 left-[22px] w-[102px] h-[30px] text-white bg-my-blue rounded-b-2xl">
-              <Image src={icMedal} alt="베스트 게시글 뱃지" />
-              Best
-            </span>
             <div className="flex h-full flex-col justify-between">
               <div className="flex justify-between gap-10">
                 <div className="font-semibold text-lg">{article.content}</div>
@@ -33,25 +28,31 @@ export default function BestArticle({ articles }: Props) {
                   alt="게시글 이미지"
                 />
               </div>
-              <div className="text-sm gap-2 flex justify-between">
+              <div className="text-sm gap-2 flex justify-between pt-4">
+                <Image
+                  src={icProfile}
+                  width={24}
+                  height={24}
+                  alt="유저 프로필"
+                />
                 <span className="text-gray-700">{article.writer.nickname}</span>
-                <span className="flex gap-0.5 grow text-gray-500">
+                <span className="text-gray-400 grow">
+                  {formatDate(article.createdAt)}
+                </span>
+                <span className="flex gap-0.5  text-gray-500">
                   <Image
                     src={icHeart}
-                    className="mt-[2px]"
+                    className="mb-[2px]"
                     width={13.4}
                     height={11.65}
                     alt="좋아요"
                   />
                   {article.likeCount}
                 </span>
-                <span className="text-gray-400">
-                  {formatDate(article.createdAt)}
-                </span>
               </div>
             </div>
-          </div>
+          </li>
         ))}
-    </>
+    </ul>
   );
 }

@@ -13,9 +13,7 @@ const useArticles = () => {
   const [queryParams, setQueryParams] = useState(DEFAULT_QUERY_PARAMS);
   const [articles, setArticles] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
   const loadArticles = async () => {
-    console.log("패치");
     setIsLoading(true);
     try {
       const nextArticles: ArticleResponse = await getArticleList({
@@ -28,10 +26,14 @@ const useArticles = () => {
       setIsLoading(false);
     }
   };
-
   useEffect(() => {
     loadArticles();
-  }, [queryParams.orderBy, queryParams.page, queryParams.pageSize]);
+  }, [
+    queryParams.orderBy,
+    queryParams.page,
+    queryParams.pageSize,
+    queryParams.keyword,
+  ]);
 
   return { isLoading, loadArticles, articles, setQueryParams };
 };

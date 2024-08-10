@@ -15,6 +15,7 @@ export default function BestArticleList() {
       page: 1,
       pageSize: INITIAL_PAGE_SIZE[sizeName],
       orderBy: "like",
+      keyword: null,
     });
     setBestArticles(nextArticles.list);
   };
@@ -28,9 +29,7 @@ export default function BestArticleList() {
   return (
     <div className="flex flex-col gap-4 md:gap6">
       <span className="font-bold text-lg">베스트 게시글</span>
-      <div className="flex-center gap-[18px] lg:gap-6">
-        <BestArticle articles={bestArticles} />
-      </div>
+      <BestArticle articles={bestArticles} />
     </div>
   );
 }

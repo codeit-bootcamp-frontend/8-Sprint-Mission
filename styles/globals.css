@@ -11,6 +11,9 @@
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     color: #1f2937;
   }
+  li {
+    list-style: none;
+  }
 }
 
 @layer components {
