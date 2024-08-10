@@ -6,11 +6,16 @@ import BasicPostCard from "./BasicPostCard";
 export default function PostList() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [orderOption, setOrderOption] = useState<orderOption>("recent");
+  const [currentKeyword, setCurrentKeyword] = useState("");
 
   const handleAllArticleLoad = useCallback(async () => {
-    const { list } = await getArticles({ pageSize: 10, orderBy: orderOption });
+    const { list } = await getArticles({
+      pageSize: 10,
+      orderBy: orderOption,
+      keyword: currentKeyword,
+    });
     setArticles(list);
-  }, [orderOption]);
+  }, [orderOption, currentKeyword]);
 
   useEffect(() => {
     handleAllArticleLoad();
@@ -18,7 +23,11 @@ export default function PostList() {
 
   return (
     <section className="flex flex-col gap-[16px] md:gap-[24px]">
-      <PostListHeader currentOrderOption={orderOption} onOrderChange={setOrderOption} />
+      <PostListHeader
+        currentOrderOption={orderOption}
+        onOrderChange={setOrderOption}
+        onKeywordChange={setCurrentKeyword}
+      />
       <div className="flex flex-col gap-[24px]">
         {articles.map((article) => (
           <BasicPostCard key={article.id} article={article} />

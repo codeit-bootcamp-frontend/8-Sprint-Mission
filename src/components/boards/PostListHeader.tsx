@@ -1,10 +1,10 @@
 import React from "react";
 import { orderOption } from "@/apis/getArticles";
 import Dropdown from "../@shared/Dropdown";
-import SearchBar from "../@shared/SearchBar";
+import SearchBar, { SearchBarProps } from "../@shared/SearchBar";
 import BlueButton from "../@shared/BlueButton";
 
-interface PostListHeader {
+interface PostListHeader extends SearchBarProps {
   currentOrderOption: orderOption;
   onOrderChange: React.Dispatch<React.SetStateAction<orderOption>>;
 }
@@ -14,7 +14,11 @@ const ORDER_ITEM_DICT = {
   recent: "최신순",
 };
 
-export default function PostListHeader({ currentOrderOption, onOrderChange }: PostListHeader) {
+export default function PostListHeader({
+  currentOrderOption,
+  onOrderChange,
+  onKeywordChange,
+}: PostListHeader) {
   return (
     <div className="flex flex-col gap-[16px] md:gap-[24px]">
       <div className="flex justify-between items-center">
@@ -24,7 +28,7 @@ export default function PostListHeader({ currentOrderOption, onOrderChange }: Po
         </div>
       </div>
       <div className="flex items-center gap-[12px] xl:gap-[16px]">
-        <SearchBar />
+        <SearchBar onKeywordChange={onKeywordChange} />
         <Dropdown
           itemDict={ORDER_ITEM_DICT}
           currentItemValue={currentOrderOption}
