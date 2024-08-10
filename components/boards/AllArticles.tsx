@@ -1,7 +1,7 @@
 import axios from "@/lib/axios";
 import Image from "next/image";
 import { Article, ArticlesResponse } from "@/types/types";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import profileIcon from "@/public/images/icons/ic_profile.svg";
 import heartIcon from "@/public/images/icons/ic_heart.svg";
 import searchIcon from "@/public/images/icons/ic_search.svg";
@@ -10,18 +10,19 @@ import styles from "./AllArticles.module.css";
 
 const AllArticles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
+  const [order, setOrder] = useState<string>("recent");
 
-  const getAllArticles = async () => {
+  const getAllArticles = async (order: string) => {
     const res = await axios.get<ArticlesResponse>(
-      `/articles?page=1&pageSize=10&orderBy=recent`
+      `/articles?page=1&pageSize=10&orderBy=${order}`
     );
     const articles = res.data;
     setArticles(articles.list);
   };
 
   useEffect(() => {
-    getAllArticles();
-  }, []);
+    getAllArticles(order);
+  }, [order]);
 
   const dateFormat = (date: Date) => {
     const newDate = new Date(date);
@@ -29,6 +30,10 @@ const AllArticles = () => {
       newDate.getMonth() + 1
     ).padStart(2, "0")}.${String(newDate.getDate()).padStart(2, "0")}`;
     return formatDate;
+  };
+
+  const handleOrderChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setOrder(e.target.value);
   };
 
   return (
@@ -46,7 +51,11 @@ const AllArticles = () => {
             placeholder="검색할 상품을 입력해주세요"
           />
         </div>
-        <select name="order" id="order">
+        <select
+          className={styles.orderSelect}
+          name="order"
+          onChange={handleOrderChange}
+        >
           <option value="recent">최신순</option>
           <option value="like">좋아요순</option>
         </select>

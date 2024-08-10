@@ -99,3 +99,13 @@
   color: var(--gray-400);
   font-weight: 400;
 }
+.orderSelect {
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.7rem;
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
