@@ -9,20 +9,31 @@ import styles from './Post.module.css';
 import LinkButton from '../Button/LinkButton';
 import { PostListProps } from './@types/Post';
 
+interface OptionType {
+  orderBy: string | string[] | undefined;
+  keyword: string | undefined;
+}
+
 export default function Post() {
   const router = useRouter();
   const query = router.query;
   const [posts, setPosts] = useState<PostListProps[]>([]);
   const [isSortOpen, setIsSortOpen] = useState(false);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<OptionType>({
     orderBy: 'recent',
     keyword: '',
   });
 
   async function getPost() {
-    const res = await axios.get(`/articles?orderBy=${options.orderBy}`);
-    const allPosts = res.data.list;
-    setPosts(allPosts);
+    try {
+      const res = await axios.get(
+        `/articles?orderBy=${options.orderBy}&keyword=${options.keyword}`
+      );
+      const allPosts = res.data.list;
+      setPosts(allPosts);
+    } catch (err) {
+      throw new Error('데이터를 불러오는데 실패했습니다.');
+    }
   }
 
   useEffect(() => {
@@ -33,14 +44,22 @@ export default function Post() {
     setIsSortOpen(prev => !prev);
   };
 
-  const sortHandler = (e: MouseEvent<HTMLElement>) => {
+  const sortHandler = (e: MouseEvent<HTMLButtonElement>) => {
     const sortType = e.currentTarget.dataset.type;
     router.push(`/boards?orderBy=${sortType}`);
     setOptions(prevOption => ({
       ...prevOption,
-      order: sortType,
+      orderBy: sortType,
     }));
     setIsSortOpen(false);
+  };
+
+  const searchHandler = (keyword: string) => {
+    router.push(`/boards?keyword=${keyword}`);
+    setOptions(prevOption => ({
+      ...prevOption,
+      keyword: keyword,
+    }));
   };
 
   const sortText = options.orderBy === 'recent' ? '최신순' : '좋아요순';
@@ -52,7 +71,7 @@ export default function Post() {
         <LinkButton href="/" btnName="글쓰기" />
       </div>
       <div className={styles.userActionContainer}>
-        <SearchForm />
+        <SearchForm searchHandler={searchHandler} />
         <SortOptions
           isOpen={isSortOpen}
           showOptions={showSortOptionHandler}
