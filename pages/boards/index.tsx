@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { Article } from "@/types/article";
 import axios from "@/lib/axios";
 
-import styles from "./style.module.css";
+import styles from "@/styles/boards.module.css";
 
 import LinkButton from "@/components/LinkButton";
-import Search from "@/components/Search";
+import SearchForm from "@/components/SearchForm";
 import Sort from "@/components/Sort";
-import BestArticleList from "./components/BestArticleList/BestArticleList";
-import AllArticleList from "./components/AllArticleList/AllArticleList";
+import BestArticleList from "@/components/BestArticleList/BestArticleList";
+import AllArticleList from "@/components/AllArticleList/AllArticleList";
 
 function Board() {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -66,7 +66,7 @@ function Board() {
           <LinkButton href="" text="글쓰기" />
         </div>
         <div className={styles.filterWrapper}>
-          <Search setArticles={setArticles} />
+          <SearchForm />
           <Sort setArticles={setArticles} />
         </div>
         <AllArticleList articles={articles} />

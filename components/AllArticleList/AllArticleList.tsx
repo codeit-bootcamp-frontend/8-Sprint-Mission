@@ -30,9 +30,9 @@ function AllArticleList({ articles }: AllArticleListProps) {
           <div className={styles.emptyMessageText}>
             검색어와 일치하는 게시글이 없어요
           </div>
-          <ReturnButton text="전체 게시글로 돌아가기" />
         </div>
       )}
+      <ReturnButton href="/boards" text="전체 게시글로 돌아가기" />
     </div>
   );
 }

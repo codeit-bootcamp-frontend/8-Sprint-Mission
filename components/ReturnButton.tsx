@@ -5,16 +5,23 @@ import Image from "next/image";
 import goBackIcon from "@/assets/images/ic_back.png";
 
 interface ReturnButtonProps {
+  href: string;
   text: string;
 }
 
-function ReturnButton({ text }: ReturnButtonProps) {
+function ReturnButton({ href, text }: ReturnButtonProps) {
   return (
-    // onClick 처리 함수 필요
-    <button className={styles.button}>
-      {text}
-      <Image src={goBackIcon} alt="되돌아가기 아이콘" width={24} height={24} />
-    </button>
+    <div className={styles.buttonWrapper}>
+      <Link className={styles.button} href={href}>
+        {text}
+        <Image
+          src={goBackIcon}
+          alt="되돌아가기 아이콘"
+          width={24}
+          height={24}
+        />
+      </Link>
+    </div>
   );
 }
 

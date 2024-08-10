@@ -1,39 +1,22 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
-import { Article } from "@/types/article";
-import axios from "@/lib/axios";
 
-import styles from "./Search.module.css";
+import styles from "./SearchForm.module.css";
 import Image from "next/image";
 import searchIcon from "@/assets/images/ic_search.png";
 
-interface SearchProps {
-  setArticles: Dispatch<SetStateAction<Article[]>>;
-}
-
-function Search({ setArticles }: SearchProps) {
+function SearchForm() {
   const [searchValue, setSearchValue] = useState<string>("");
   const router = useRouter();
-  const { keyword } = router.query;
-
-  async function getArticles(keyword: string) {
-    const response = await axios.get(`/articles/?keyword=${keyword}`);
-    setArticles(response.data.list ?? []);
-  }
-
-  useEffect(() => {
-    if (typeof keyword === "string" && keyword.trim() !== "")
-      getArticles(keyword);
-  }, [keyword]);
 
   const handleSearchValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
 
   const handleEnterKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && searchValue.length !== 0) {
       e.preventDefault();
-      getArticles(searchValue);
+      return router.push(`/search?keyword=${searchValue}`);
     }
   };
 
@@ -58,4 +41,4 @@ function Search({ setArticles }: SearchProps) {
   );
 }
 
-export default Search;
+export default SearchForm;

@@ -1,5 +1,12 @@
-.button {
+.buttonWrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.button {
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
