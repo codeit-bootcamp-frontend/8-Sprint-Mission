@@ -10,7 +10,9 @@
   font-weight: 700;
 }
 .userActionContainer {
+  position: relative;
   display: flex;
   gap: 16px;
   margin-bottom: 2.4rem;
+  z-index: 2;
 }
