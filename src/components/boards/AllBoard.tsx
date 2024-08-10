@@ -7,9 +7,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArticlesList, ArticlesQuery } from "@/types/articleType";
 
-type SearchOrderProp = {
-  setArticleQuery: React.Dispatch<React.SetStateAction<ArticlesQuery>>;
-};
+type SearchOrderProp = Pick<AllBoardProps, "setArticleQuery">;
 
 const SearchInput = ({ setArticleQuery }: SearchOrderProp) => {
   const [searchInput, setSearchInput] = useState<string>("");
