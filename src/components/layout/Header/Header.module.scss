@@ -7,7 +7,7 @@
   width: 100%;
   height: 70px;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
   padding: 0 16px;
   background-color: #ffffff;
@@ -22,9 +22,16 @@
     width: 153px;
   }
 
+  &__profile {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    border-radius: 50%;
+    background-color: $gray-200;
+  }
+
   &__menu {
     margin: 0 15px;
-    text-decoration: none;
   }
 
   &__menuList {
@@ -36,6 +43,7 @@
     display: inline-block;
     margin: 10px;
     color: $gray-800;
+    text-decoration: none;
     @include Body2;
 
     &--active {
@@ -45,9 +53,17 @@
 
   @media (min-width: 768px) {
     padding: 0 24px;
+
+    &__profile {
+      right: 72px;
+    }
   }
 
   @media (min-width: 1280px) {
     padding: 0 200px;
+
+    &__profile {
+      right: 600px;
+    }
   }
 }
