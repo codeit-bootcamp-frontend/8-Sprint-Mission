@@ -16,7 +16,7 @@ export default function BestArticle({ articles }: Props) {
         articles.map((article) => (
           <li
             key={article.id}
-            className="[&:nth-child(n+2)]:hidden md:[&:nth-last-child(2)]:block lg:[&:nth-last-child(1)]:block grow bg-gray-50 shadow-md h-[198px] lg:h-[169px] px-[22px] pt-[46px] pb-4 relative rounded-lg"
+            className="grow bg-gray-50 shadow-md h-[198px] lg:h-[169px] px-[22px] pt-[46px] pb-4 relative rounded-lg"
           >
             <span className="absolute gap-1 flex-center top-0 left-[22px] w-[102px] h-[30px] text-white bg-my-blue rounded-b-2xl">
               <Image src={icMedal} alt="베스트 게시글 뱃지" />

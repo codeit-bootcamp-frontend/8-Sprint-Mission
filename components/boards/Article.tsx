@@ -4,16 +4,19 @@ import type { Article } from "@/models/article";
 
 import icHeart from "@/public/images/ic_heart.svg";
 import icProfile from "@/public/images/ic_profile.svg";
+import { Dispatch, SetStateAction } from "react";
 interface Props {
   articles: Article[];
+  setTarget: Dispatch<SetStateAction<HTMLLIElement | null>>;
 }
 
-export default function Article({ articles }: Props) {
+export default function Article({ articles, setTarget }: Props) {
   return (
     <ul>
       {articles?.length > 0 &&
         articles.map((article, index) => (
           <li
+            ref={index === articles.length - 1 ? setTarget : null}
             key={`${article.id}+${index}`}
             className=" bg-gray-50 px-2 pb-6 pt-1 mt-5 border-b shadow-md rounded-xl border-gray-200"
           >

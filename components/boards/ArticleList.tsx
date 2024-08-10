@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Image from "next/image";
 
 import useArticles from "@/hooks/useArticles";
@@ -16,8 +16,9 @@ const INIT_ORDERS = {
 type OrderByType = "최신순" | "좋아요순";
 
 export default function ArticleList() {
+  const { isLoading, articles, setQueryParams, setTarget, setArticles } =
+    useArticles();
   const [nowOrderBy, setNowOrderBy] = useState<OrderByType>(INIT_ORDERS.recent);
-  const { isLoading, loadArticles, articles, setQueryParams } = useArticles();
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
 
   const onClickDropDown = () => {
@@ -25,6 +26,7 @@ export default function ArticleList() {
   };
 
   const onClickOrderBy = (orderBy: "recent" | "like") => {
+    setArticles([]);
     setQueryParams((prev) => ({
       ...prev,
       orderBy: orderBy,
@@ -39,6 +41,7 @@ export default function ArticleList() {
       clearTimeout(debounceTimer);
     }
     debounceTimer = setTimeout(() => {
+      setArticles([]);
       setQueryParams((prev) =>
         prev.page === 1
           ? { ...prev, keyword: e.target.value }
@@ -82,7 +85,10 @@ export default function ArticleList() {
         {isOpenDropDown && <DropDown onClick={onClickOrderBy} />}
       </div>
 
-      <Article articles={articles} />
+      <Article setTarget={setTarget} articles={articles} />
+      {isLoading && (
+        <div className="flex-center w-full text-2xl">@로딩스피너@</div>
+      )}
     </div>
   );
 }

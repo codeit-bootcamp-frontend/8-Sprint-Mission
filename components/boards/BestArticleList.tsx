@@ -29,7 +29,9 @@ export default function BestArticleList() {
   return (
     <div className="flex flex-col gap-4 md:gap6">
       <span className="font-bold text-lg">베스트 게시글</span>
-      <BestArticle articles={bestArticles} />
+      <BestArticle
+        articles={bestArticles.slice(0, INITIAL_PAGE_SIZE[sizeName])}
+      />
     </div>
   );
 }
