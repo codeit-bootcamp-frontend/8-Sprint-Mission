@@ -45,14 +45,12 @@ function AllBoard({ initialArticles }) {
 
   useEffect(() => {
     const fetchArticles = async () => {
-      let url = `https://panda-market-api.vercel.app/articles?orderBy=${orderBy}`;
+      let url = `/articles?orderBy=${orderBy}`;
       if (keyword.trim()) {
-        // encodeURIComponent는 공백이나 특수 문자 등 URL에 포함될 수 없는 문자열을 안전하게 전달할 수 있도록 인코딩하는 자바스크립트 함수예요.
         url += `&keyword=${encodeURIComponent(keyword)}`;
       }
-      const response = await fetch(url);
-      const data = await response.json();
-      setArticles(data.list);
+      const response = await axios.get(url);
+      setArticles(response.data.list);
     };
 
     fetchArticles();
