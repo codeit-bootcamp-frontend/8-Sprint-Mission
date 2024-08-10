@@ -12,7 +12,7 @@ const NoSearchResult = ({ category }: NoSearchResultProps) => {
         alt="검색 결과 없음"
         className="w-[196px] h-[196px]"
       />
-      <p className="text-gray-400">`검색된 {category}이 없어요.`</p>
+      <p className="text-gray-400">검색된 {category}이 없어요.</p>
     </>
   );
 };
