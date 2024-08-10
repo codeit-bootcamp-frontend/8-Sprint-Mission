@@ -1,20 +1,20 @@
 import PostListHeader from "./PostListHeader";
 import getArticles, { Article, orderOption } from "@/apis/getArticles";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import BasicPostCard from "./BasicPostCard";
 
 export default function PostList() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [orderOption, setOrderOption] = useState<orderOption>("recent");
 
-  const handleAllArticleLoad = async () => {
+  const handleAllArticleLoad = useCallback(async () => {
     const { list } = await getArticles({ pageSize: 10, orderBy: orderOption });
     setArticles(list);
-  };
+  }, [orderOption]);
 
   useEffect(() => {
     handleAllArticleLoad();
-  }, [orderOption]);
+  }, [handleAllArticleLoad]);
 
   return (
     <section>
