@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import medalIcon from "@/public/images/icons/ic_medal.svg";
 import heartIcon from "@/public/images/icons/ic_heart.svg";
 import styles from "./BestArticles.module.css";
+import Link from "next/link";
 
 const BestArticles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -32,37 +33,41 @@ const BestArticles = () => {
       <div className={styles.articleSection}>
         {articles.map((article) => {
           return (
-            <div className={styles.articleCard} key={article.id}>
-              <div className={styles.bestMark}>
-                <Image src={medalIcon} alt="medalIcon" />
-                Best
-              </div>
-              <div className={styles.articleContent}>
-                <p className={styles.articleTitle}>{article.title}</p>
-                <div className={styles.articleThumbnail}>
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      fill
-                      src={article.image}
-                      alt={`${article.id}번 게시글 이미지`}
-                      style={{ objectFit: "contain" }}
-                    />
+            <Link href={`/boards/${article.id}`} key={article.id}>
+              <div className={styles.articleCard}>
+                <div className={styles.bestMark}>
+                  <Image src={medalIcon} alt="medalIcon" />
+                  Best
+                </div>
+                <div className={styles.articleContent}>
+                  <p className={styles.articleTitle}>{article.title}</p>
+                  <div className={styles.articleThumbnail}>
+                    <div className={styles.imageWrapper}>
+                      <Image
+                        fill
+                        src={article.image}
+                        alt={`${article.id}번 게시글 이미지`}
+                        style={{ objectFit: "contain" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.articleInfo}>
+                  <div className={styles.articleInfoContent}>
+                    <span>{article.writer.nickname}</span>
+                    <div className={styles.articleLike}>
+                      <Image src={heartIcon} alt="heart-icon" />
+                      {article.likeCount > 9999
+                        ? 9999 + "+"
+                        : article.likeCount}
+                    </div>
+                  </div>
+                  <div className={styles.articleTimestamp}>
+                    {dateFormat(article.createdAt)}
                   </div>
                 </div>
               </div>
-              <div className={styles.articleInfo}>
-                <div className={styles.articleInfoContent}>
-                  <span>{article.writer.nickname}</span>
-                  <div className={styles.articleLike}>
-                    <Image src={heartIcon} alt="heart-icon" />
-                    {article.likeCount > 9999 ? 9999 + "+" : article.likeCount}
-                  </div>
-                </div>
-                <div className={styles.articleTimestamp}>
-                  {dateFormat(article.createdAt)}
-                </div>
-              </div>
-            </div>
+            </Link>
           );
         })}
       </div>
