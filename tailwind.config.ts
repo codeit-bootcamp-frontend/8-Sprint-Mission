@@ -33,8 +33,8 @@ const config: Config = {
       colors: {
         primary: {
           100: '#3692FF',
-          200: '#FFFFFF',
-          300: '#3692FF',
+          200: '#1967D6',
+          300: '#1251AA',
         },
         secondary: {
           50: '#F9FAFB',
@@ -70,6 +70,15 @@ const config: Config = {
     require('tailwindcss-animate'),
     ({ addUtilities }: PluginAPI) => {
       addUtilities({
+        '.max-w-mobile': {
+          maxWidth: '343px',
+        },
+        '.max-w-tablet': {
+          maxWidth: '343px',
+        },
+        '.max-w-desktop': {
+          maxWidth: '343px',
+        },
         '.font-xs-12px-regular': {
           fontFamily: 'Pretendard',
           fontSize: '12px',
@@ -160,6 +169,12 @@ const config: Config = {
           fontWeight: '700',
           lineHeight: '26px',
           textAlign: 'left',
+        },
+        '.font-lg-18px-semibold': {
+          fontFamily: 'Pretendard',
+          fontSize: '18px',
+          fontWeight: '600',
+          lineHeight: '26px',
         },
         '.font-2lg-18px-regular': {
           fontFamily: 'Pretendard',

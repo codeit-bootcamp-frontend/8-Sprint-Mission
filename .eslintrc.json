@@ -33,6 +33,7 @@
       {
         "labelAttributes": ["htmlFor"]
       }
-    ]
+    ],
+    "react/require-default-props": "off"
   }
 }
