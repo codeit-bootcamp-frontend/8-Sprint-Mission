@@ -36,7 +36,10 @@ export default async function getArticles({
   orderBy = "recent",
   keyword = "",
 }: GetArticlesProps) {
-  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}}`;
+  let query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
+  if (keyword) {
+    query += `&keyword=${keyword}`;
+  }
   const res = await instance.get(`/articles?${query}`);
   const { list, totalCount }: Response = res.data;
 
