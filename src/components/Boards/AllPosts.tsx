@@ -8,10 +8,10 @@ import { ArticleResponse } from "../../DTO/article";
 import useFetch from "../../lib/hooks/useFetch";
 import { useSearch } from "lib/hooks/useSearch";
 import { usePagination } from "lib/hooks/usePagination";
-import Pagination from "components/Items/Pagination";
-import emptyReplyImage from "assets/images/img_reply_empty.png";
-import BasicPostCard from "components/Boards/UI/BasicPostCard";
 import useResize from "lib/hooks/useResize";
+import Pagination from "components/Items/Pagination";
+import BasicPostCard from "components/Boards/UI/BasicPostCard";
+import NoSearchResult from "components/common/UI/NoSearchResult";
 
 function AllPosts() {
   const [selectedCategory, setSelectedCategory] = useState<string>("최신순");
@@ -68,12 +68,7 @@ function AllPosts() {
       <ul className="flex flex-col gap-6">
         {filteredResults.length === 0 ? (
           <li className="mt-12 flex flex-col items-center justify-center gap-2 ">
-            <img
-              src={emptyReplyImage}
-              alt="검색 내용 없음"
-              className="w-[196px] h-[196px]"
-            />
-            <p className="text-gray-400">검색된 게시글이 없어요.</p>
+            <NoSearchResult category="게시글" />
             <ReturnButton buttonText="전체 게시글 보기" onClick={handleReset} />
           </li>
         ) : (

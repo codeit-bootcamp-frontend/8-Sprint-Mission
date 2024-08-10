@@ -6,12 +6,12 @@ import { getProducts } from "core/api";
 import useFetch from "lib/hooks/useFetch";
 import { useSearch } from "lib/hooks/useSearch";
 import { usePagination } from "lib/hooks/usePagination";
+import useResize from "lib/hooks/useResize";
 import { ProductResponse } from "DTO/product";
-import SearchForm from "../common/UI/SearchForm";
+import SearchForm from "components/common/UI/SearchForm";
 import ReturnButton from "components/common/UI/ReturnButton";
 import Button from "components/common/UI/Button";
-import emptyReplyImage from "assets/images/img_reply_empty.png";
-import useResize from "lib/hooks/useResize";
+import NoSearchResult from "components/common/UI/NoSearchResult";
 
 function AllItemsContainer() {
   const [selectedCategory, setSelectedCategory] = useState<string>("최신순");
@@ -63,12 +63,7 @@ function AllItemsContainer() {
         <ul className="grid grid-cols-5 grid-rows-2 gap-6 max-xl:grid-cols-3 max-md:grid-cols-2">
           {filteredResults.length === 0 ? (
             <li className="col-span-5 row-span-2 flex gap-2 mt-20 mb-10 flex-col items-center justify-center w-full">
-              <img
-                src={emptyReplyImage}
-                alt="검색 내용 없음"
-                className="w-[196px] h-[196px]"
-              />
-              <p className="text-gray-400">검색된 상품이 없어요.</p>
+              <NoSearchResult category="상품" />
               <ReturnButton buttonText="전체 상품 보기" onClick={handleReset} />
             </li>
           ) : (
