@@ -30,7 +30,7 @@ export default function Dropdown<T extends string>({
 
   return (
     <div className="relative">
-      <button onClick={toggleIsOpen}>
+      <button onClick={toggleIsOpen} suppressHydrationWarning={true}>
         {currentDevice === "mobile" ? (
           <div className="flex justify-center items-center w-[42px] h-[42px] bg-gray border-gray-200 border-[1px] rounded-[8px]">
             <Image width={24} height={24} src="/images/ic_dropdown.png" alt="드롭다운 버튼" />
