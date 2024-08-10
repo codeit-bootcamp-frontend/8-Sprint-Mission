@@ -1,28 +1,39 @@
 import axios from "@/lib/axios";
 import Image from "next/image";
 import { Article, ArticlesResponse } from "@/types/types";
-import { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import profileIcon from "@/public/images/icons/ic_profile.svg";
 import heartIcon from "@/public/images/icons/ic_heart.svg";
 import searchIcon from "@/public/images/icons/ic_search.svg";
 
 import styles from "./AllArticles.module.css";
+import { useRouter } from "next/router";
 
 const AllArticles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [order, setOrder] = useState<string>("recent");
+  const [searchKeyword, setSearchKeyword] = useState<string>("");
 
-  const getAllArticles = async (order: string) => {
-    const res = await axios.get<ArticlesResponse>(
-      `/articles?page=1&pageSize=10&orderBy=${order}`
-    );
-    const articles = res.data;
-    setArticles(articles.list);
-  };
+  const router = useRouter();
+  const keyword = (router.query.keyword as string) || "";
 
   useEffect(() => {
-    getAllArticles(order);
-  }, [order]);
+    const getAllArticles = async () => {
+      let params = `/articles?page=1&pageSize=10&orderBy=${order}`;
+      if (keyword.trim()) {
+        params += `&keyword=${encodeURIComponent(keyword)}`;
+      }
+      const res = await axios.get<ArticlesResponse>(params);
+      const articles = res.data;
+      setArticles(articles.list);
+    };
+
+    getAllArticles();
+  }, [order, keyword]);
+
+  useEffect(() => {
+    setSearchKeyword(keyword);
+  }, [keyword]);
 
   const dateFormat = (date: Date) => {
     const newDate = new Date(date);
@@ -35,6 +46,27 @@ const AllArticles = () => {
   const handleOrderChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setOrder(e.target.value);
   };
+
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchKeyword(e.target.value);
+  };
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const query = { ...router.query };
+    if (e.key === "Enter") {
+      if (searchKeyword.trim()) {
+        query.keyword = searchKeyword;
+      } else {
+        delete query.keyword;
+      }
+
+      router.replace({
+        pathname: router.pathname,
+        query: query,
+      });
+    }
+  };
+
+  console.log(articles);
 
   return (
     <>
@@ -49,6 +81,9 @@ const AllArticles = () => {
             type="text"
             className={styles.articleInput}
             placeholder="검색할 상품을 입력해주세요"
+            value={searchKeyword}
+            onChange={handleSearchChange}
+            onKeyDown={handleSearchKeyDown}
           />
         </div>
         <select
