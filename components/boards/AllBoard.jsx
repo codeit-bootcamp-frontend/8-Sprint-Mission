@@ -7,28 +7,30 @@ import SearchForm from "@/components/form/SearchForm";
 import Dropdown from "@/components/ui/Dropdown";
 import { useRouter } from "next/router";
 import axios from "@/lib/axios";
-import { formatDate } from "@/utils/formatDate";
+import Link from "next/link";
+import { formatDate } from "@/lib/utils/formatDate";
 
 function AllBoard({ initialArticles }) {
   const [orderBy, setOrderBy] = useState("recent");
   const [articles, setArticles] = useState(initialArticles);
-  const [searchKeyword, setSearchKeyword] = useState("");
+
+  const router = useRouter();
+  const keyword = router.query.q || "";
+
   const [selectedOption, setSelectedOption] = useState({
     value: "recent",
     label: "최신순",
   });
   const sortOptions = [
     { value: "recent", label: "최신순" },
-    { value: "popular", label: "인기순" },
+    { value: "like", label: "인기순" },
   ];
-  const router = useRouter();
-  const keyword = router.query.q || "";
 
   const handleSortSelection = (sortOption) => {
     setOrderBy(sortOption);
   };
 
-  function handleSearch() {
+  function handleSearch(searchKeyword) {
     const query = { ...router.query };
     if (searchKeyword.trim()) {
       query.q = searchKeyword;
@@ -45,16 +47,12 @@ function AllBoard({ initialArticles }) {
     const fetchArticles = async () => {
       let url = `https://panda-market-api.vercel.app/articles?orderBy=${orderBy}`;
       if (keyword.trim()) {
+        // encodeURIComponent는 공백이나 특수 문자 등 URL에 포함될 수 없는 문자열을 안전하게 전달할 수 있도록 인코딩하는 자바스크립트 함수예요.
         url += `&keyword=${encodeURIComponent(keyword)}`;
       }
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        setArticles(data.list || []);
-      } catch (error) {
-        console.error("Failed to fetch articles:", error);
-        setArticles([]);
-      }
+      const response = await fetch(url);
+      const data = await response.json();
+      setArticles(data.list);
     };
 
     fetchArticles();
@@ -69,55 +67,64 @@ function AllBoard({ initialArticles }) {
         </LinkButton>
       </div>
       <div className={styles["input-search-wrap"]}>
-        <SearchForm
-          searchKeyword={searchKeyword}
-          onSearch={(keyword) => {
-            setSearchKeyword(keyword);
-            handleSearch();
-          }}
-        />
+        <SearchForm onSearch={handleSearch} />
         <Dropdown
           onSortSelection={handleSortSelection}
-          selectedOption={selectedOption}
           sortOptions={sortOptions}
+          selectedOption={selectedOption}
         />
       </div>
       <ul className={styles["board-list"]}>
         {articles.length
           ? articles.map((article) => (
               <li key={article.id}>
-                <div className={styles["title-info"]}>
-                  <p className={styles.title}>{article.title}</p>
-                  <div className={styles["thumb-wrap"]}>
-                    <Image
-                      fill
-                      src={article.image || "/img/sample.png"}
-                      alt={`${article.id}번 게시글 이미지`}
-                    />
-                  </div>
-                </div>
-                <div className={styles["writer-info"]}>
-                  <div className={styles["profile-info"]}>
-                    <div className={styles["profile-wrap"]}>
-                      <Image src="/img/profile.png" alt="프로필 이미지" fill />
-                    </div>
-                    <div className={styles["nick-name"]}>
-                      {article.writer.nickname}
+                <Link href={`/boards/${article.id}`}>
+                  <div className={styles["title-info"]}>
+                    <p className={styles.title}>{article.title}</p>
+                    <div className={styles["thumb-wrap"]}>
+                      <Image
+                        fill
+                        src={article.image || "/img/sample.png"}
+                        alt={`${article.id}번 게시글 이미지`}
+                      />
                     </div>
                   </div>
-                  <div className={styles.date}>
-                    {formatDate(article.createdAt)}
+                  <div className={styles["writer-info"]}>
+                    <div className={styles["profile-info"]}>
+                      <div className={styles["profile-wrap"]}>
+                        <Image
+                          src="/img/profile.png"
+                          alt="프로필 이미지"
+                          fill
+                        />
+                      </div>
+                      <div className={styles["nick-name"]}>
+                        {article.writer.nickname}
+                      </div>
+                    </div>
+                    <div className={styles.date}>
+                      {formatDate(article.createdAt)}
+                    </div>
+                    <div className={styles.favorite}>
+                      <Icon type="heart" size="md" />
+                      <span className={styles.num}>{article.likeCount}</span>
+                    </div>
                   </div>
-                  <div className={styles.favorite}>
-                    <Icon type="heart" size="md" />
-                    <span className={styles.num}>{article.likeCount}</span>
-                  </div>
-                </div>
+                </Link>
               </li>
             ))
           : keyword && (
               <div className={styles["search-none"]}>
-                {keyword}로 검색된 결과가 없어요.
+                <div className={styles["img-wrap"]}>
+                  <Image
+                    src="/img/Img_reply_empty.png"
+                    alt="검색 결과 없음"
+                    fill
+                  />
+                </div>
+                <p>
+                  <b>"{keyword}"</b>로 검색된 결과가 없어요.
+                </p>
               </div>
             )}
       </ul>

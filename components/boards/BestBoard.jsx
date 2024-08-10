@@ -5,7 +5,7 @@ import Icon from "@/components/ui/Icon";
 import axios from "@/lib/axios";
 import useViewport from "@/hooks/useViewport";
 import Link from "next/link";
-import { formatDate } from "@/utils/formatDate";
+import { formatDate } from "@/lib/utils/formatDate";
 
 const getPageSize = () => {
   const width = window.innerWidth;

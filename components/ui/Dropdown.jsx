@@ -1,12 +1,16 @@
-// components/Dropdown.js
 import React, { useState } from "react";
 import styles from "./Dropdown.module.scss";
 
-function Dropdown({ selectedOption, onSortSelection, sortOptions }) {
+function Dropdown({ onSortSelection, selectedOption, sortOptions }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen((prevState) => !prevState);
+  };
+
+  const handleOptionClick = (option) => {
+    onSortSelection(option.value);
+    setMenuOpen(false);
   };
 
   return (
@@ -24,10 +28,7 @@ function Dropdown({ selectedOption, onSortSelection, sortOptions }) {
         {sortOptions.map((option) => (
           <li key={option.value}>
             <button
-              onClick={() => {
-                onSortSelection(option.key);
-                setMenuOpen(false);
-              }}
+              onClick={() => handleOptionClick(option)}
               className={styles["dropdown-item"]}
             >
               {option.label}
