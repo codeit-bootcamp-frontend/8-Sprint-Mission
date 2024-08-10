@@ -2,7 +2,7 @@ import { FormEvent, useRef } from 'react';
 import styles from './SearchForm.module.css';
 
 interface FormProps {
-  className: string;
+  className?: string;
   searchHandler: (value: string) => void;
 }
 
@@ -11,7 +11,7 @@ export default function SearchForm({ searchHandler, className }: FormProps) {
 
   const searchItemHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const enteredInputValue = inputValue.current.value;
+    const enteredInputValue = inputValue.current!.value;
     searchHandler(enteredInputValue);
   };
   return (
