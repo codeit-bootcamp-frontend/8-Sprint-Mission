@@ -86,7 +86,7 @@ const FooterWrap = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  max-width: 1160px;
+  max-width: 1200px;
   height: 160px;
   padding: 0 20px;
   padding-top: 30px;

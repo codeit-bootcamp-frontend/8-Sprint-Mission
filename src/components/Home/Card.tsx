@@ -38,7 +38,7 @@ const CardSection = styled.section<AlignType>`
   justify-content: ${(props) =>
     props.align === "left" ? "flex-start" : "flex-end"};
   width: 100%;
-  max-width: 1160px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 138px 20px;
 `;

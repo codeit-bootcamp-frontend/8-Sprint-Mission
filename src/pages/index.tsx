@@ -1,7 +1,7 @@
 import { LinkButton } from "@/styles/ButtonStyle";
-import Head from "next/head";
 import styled from "styled-components";
 import KeyVisualImage from "../../public/images/keyvisual.png";
+import BannerImage from "../../public/images/banner.png";
 import Card from "@/components/Home/Card";
 import CardImage1 from "../../public/images/card01.png";
 import CardImage2 from "../../public/images/card02.png";
@@ -94,7 +94,13 @@ export default function Home() {
         );
       })}
       <Banner>
-        <BannerWrap>배너여역</BannerWrap>
+        <BannerWrap>
+          <BannerTitle>
+            믿을 수 있는
+            <br />
+            판다마켓 중고 거래
+          </BannerTitle>
+        </BannerWrap>
       </Banner>
     </MainTag>
   );
@@ -120,12 +126,12 @@ const KeyVisual = styled.section`
 `;
 
 const KeyVisualWrap = styled.main`
-  width: 100%;
-  max-width: 1160px;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
   padding: 0 20px;
   margin: 0 auto;
 `;
@@ -137,6 +143,28 @@ const KeyVisualTitle = styled.h2`
   margin-bottom: 32px;
 `;
 
-const Banner = styled.section``;
+const Banner = styled.section`
+  width: 100%;
+  height: 540px;
+  padding-bottom: 100px;
+  background-image: url(${BannerImage.src});
+  background-position: 60% 100%;
+  background-size: 746px;
+  background-repeat: no-repeat;
+  background-color: #cfe5ff;
+`;
 
-const BannerWrap = styled.div``;
+const BannerWrap = styled.div`
+  display: flex;
+  align-items: flex-end;
+  max-width: 1200px;
+  height: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+`;
+
+const BannerTitle = styled.h2`
+  font-size: 4rem;
+  font-size: 700;
+  line-height: 1.5;
+`;
