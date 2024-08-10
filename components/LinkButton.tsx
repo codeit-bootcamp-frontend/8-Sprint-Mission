@@ -1,12 +1,12 @@
 import Link from "next/link";
-import styles from "./Button.module.css";
+import styles from "./LinkButton.module.css";
 
-interface ButtonProps {
+interface LinkButtonProps {
   text: string;
   href: string;
 }
 
-function Button({ href, text }: ButtonProps) {
+function LinkButton({ href, text }: LinkButtonProps) {
   return (
     <Link className={styles.button} href={href}>
       {text}
@@ -14,4 +14,4 @@ function Button({ href, text }: ButtonProps) {
   );
 }
 
-export default Button;
+export default LinkButton;
