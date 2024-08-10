@@ -3,8 +3,13 @@ import BestIconImage from "../../../public/images/i-best.png";
 import TestImg from "../../../public/images/test-img.png";
 import LikeImage from "../../../public/images/i-like.png";
 import Link from "next/link";
+import { ArticlesList } from "@/types/articleType";
 
-const BestBoardCard = () => {
+type BestBoardCardProp = {
+  bestArticle: ArticlesList;
+};
+
+const BestBoardCard = ({ bestArticle }: BestBoardCardProp) => {
   return (
     <BestCardWrap>
       <BestIcon>
@@ -12,19 +17,17 @@ const BestBoardCard = () => {
         <span>Best</span>
       </BestIcon>
       <BestCardContent>
-        <BestCardTitle href="">
-          맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
-        </BestCardTitle>
+        <BestCardTitle href="">{bestArticle.title}</BestCardTitle>
         <BestCardImage>
-          <img src={TestImg.src} alt="게시글 이미지" />
+          <img src={bestArticle.image} alt="게시글 이미지" />
         </BestCardImage>
       </BestCardContent>
       <BestCardInfo>
         <CardInfoLeft>
-          총명한판다
+          {bestArticle.writer.nickname}
           <span>
             <img src={LikeImage.src} alt="하트 이미지" />
-            9999+
+            {bestArticle.likeCount}
           </span>
         </CardInfoLeft>
         <CardInfoDate>2024.04.18</CardInfoDate>
@@ -33,14 +36,20 @@ const BestBoardCard = () => {
   );
 };
 
-export default function BestBoard() {
+type BestBoard = {
+  bestArticles: ArticlesList[];
+};
+
+export default function BestBoard({ bestArticles }: BestBoard) {
   return (
     <BestBoardWrap>
       <BoardTitle>베스트 게시글</BoardTitle>
       <BestBoardCardList>
-        <BestBoardCard />
-        <BestBoardCard />
-        <BestBoardCard />
+        {bestArticles.map((bestArticle) => {
+          return (
+            <BestBoardCard key={bestArticle.id} bestArticle={bestArticle} />
+          );
+        })}
       </BestBoardCardList>
     </BestBoardWrap>
   );

@@ -23,4 +23,5 @@ export type ArticlesQuery = {
   page: number;
   pageSize: number;
   orderBy: string;
+  keyword?: string;
 };

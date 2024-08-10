@@ -1,11 +1,11 @@
-import { Button } from "@/styles/ButtonStyle";
+import { Button, LinkButton } from "@/styles/ButtonStyle";
 import styled from "styled-components";
 import SearchImage from "../../../public/images/i-search.png";
-import TestImg from "../../../public/images/test-img.png";
 import LikeImage from "../../../public/images/i-like.png";
 import ProfileImage from "../../../public/images/i-profile.png";
 import { useState } from "react";
 import Link from "next/link";
+import { ArticlesList, ArticlesQuery } from "@/types/articleType";
 
 const SearchInput = () => {
   return (
@@ -15,15 +15,23 @@ const SearchInput = () => {
   );
 };
 
-const DropDownOrder = () => {
+type DropDownOrderProp = {
+  setArticleQuery: React.Dispatch<React.SetStateAction<ArticlesQuery>>;
+};
+
+const DropDownOrder = ({ setArticleQuery }: DropDownOrderProp) => {
   const ORDER_NEW = "최신순";
   const ORDER_LIKE = "좋아요순";
   const [dropText, setDropText] = useState<string>(ORDER_NEW);
   const [dropDisplay, setDropDisplay] = useState<boolean>(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    setDropText(e.currentTarget.textContent || "");
+  const handleClick = (order: string) => {
+    setDropText(order);
     setDropDisplay(false);
+    setArticleQuery((prev) => ({
+      ...prev,
+      orderBy: order === ORDER_NEW ? "recent" : "like",
+    }));
   };
 
   return (
@@ -36,54 +44,63 @@ const DropDownOrder = () => {
         {dropText}
       </p>
       <ul style={{ display: dropDisplay ? "block" : "none" }}>
-        <li onClick={handleClick}>{ORDER_NEW}</li>
-        <li onClick={handleClick}>{ORDER_LIKE}</li>
+        <li onClick={() => handleClick(ORDER_NEW)}>{ORDER_NEW}</li>
+        <li onClick={() => handleClick(ORDER_LIKE)}>{ORDER_LIKE}</li>
       </ul>
     </DropDownWrap>
   );
 };
 
-const AllBoardCard = () => {
+type AllBoardCardProp = {
+  article: ArticlesList;
+};
+
+const AllBoardCard = ({ article }: AllBoardCardProp) => {
   return (
     <AllCardWrap>
       <AllCardTop>
-        <AllCardTitle href="">
-          맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
+        <AllCardTitle href={`/board/${article.id}`}>
+          {article.title}
         </AllCardTitle>
         <AllCardImage>
-          <img src={TestImg.src} alt="게시글 이미지" />
+          <img src={article.image} alt="게시글 이미지" />
         </AllCardImage>
       </AllCardTop>
       <AllCardBottom>
         <AllCardInfoLeft>
           <img src={ProfileImage.src} alt="프로필 이미지" />
-          <p>총명한 판다</p>
+          <p>{article.writer.nickname}</p>
           <span>2024.04.16</span>
         </AllCardInfoLeft>
         <AllCardLike>
           <img src={LikeImage.src} alt="하트 이미지" />
-          9999+
+          {article.likeCount}
         </AllCardLike>
       </AllCardBottom>
     </AllCardWrap>
   );
 };
 
-export default function AllBoard() {
+type AllBoardProps = {
+  articles: ArticlesList[];
+  setArticleQuery: React.Dispatch<React.SetStateAction<ArticlesQuery>>;
+};
+
+export default function AllBoard({ articles, setArticleQuery }: AllBoardProps) {
   return (
     <AllBoardWrap>
       <AllBoardTitle>
         <h2>게시글</h2>
-        <Button>글쓰기</Button>
+        <LinkButton href="">글쓰기</LinkButton>
       </AllBoardTitle>
       <AllBoardSearch>
         <SearchInput />
-        <DropDownOrder />
+        <DropDownOrder setArticleQuery={setArticleQuery} />
       </AllBoardSearch>
       <AllBoardList>
-        <AllBoardCard />
-        <AllBoardCard />
-        <AllBoardCard />
+        {articles.map((article) => {
+          return <AllBoardCard key={article.id} article={article} />;
+        })}
       </AllBoardList>
     </AllBoardWrap>
   );
@@ -107,9 +124,10 @@ const AllBoardTitle = styled.div`
     font-weight: 700;
   }
 
-  button {
+  a {
     width: 88px;
     height: 42px;
+    padding-top: 2px;
   }
 `;
 
@@ -153,7 +171,6 @@ const DropDownWrap = styled.div`
   width: 100%;
   max-width: 130px;
   height: 42px;
-  /* padding: 0 20px; */
   border: 1px solid var(--gray200-color);
   border-radius: 12px;
 

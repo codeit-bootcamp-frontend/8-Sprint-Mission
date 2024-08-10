@@ -9,6 +9,7 @@ import ProfileImage from "../../../public/images/i-profile.png";
 export default function Header() {
   const router = useRouter();
   const { pathname } = router;
+  const startPathName = pathname.startsWith("/boards");
 
   const MENU_COLOR = {
     on: "#3692ff",
@@ -31,12 +32,9 @@ export default function Header() {
             <ul>
               <li>
                 <Link
-                  href="/board"
+                  href="/boards"
                   style={{
-                    color:
-                      pathname === "/board"
-                        ? MENU_COLOR.on
-                        : MENU_COLOR.default,
+                    color: startPathName ? MENU_COLOR.on : MENU_COLOR.default,
                   }}
                 >
                   자유게시판
@@ -48,7 +46,7 @@ export default function Header() {
             </ul>
           </HeaderNav>
         </HeaderLeft>
-        {pathname === "/board" ? (
+        {pathname === "/boards" ? (
           <MyPageButton href="">
             <img src={ProfileImage.src} alt="프로필 이미지" />
           </MyPageButton>
