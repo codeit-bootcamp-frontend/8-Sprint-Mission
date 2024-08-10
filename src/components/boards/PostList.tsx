@@ -17,8 +17,8 @@ export default function PostList() {
   }, [handleAllArticleLoad]);
 
   return (
-    <section>
-      <PostListHeader currentOrderOption={orderOption} onChangeOrder={setOrderOption} />
+    <section className="flex flex-col gap-[16px] md:gap-[24px]">
+      <PostListHeader currentOrderOption={orderOption} onOrderChange={setOrderOption} />
       <div className="flex flex-col gap-[24px]">
         {articles.map((article) => (
           <BasicPostCard key={article.id} article={article} />
