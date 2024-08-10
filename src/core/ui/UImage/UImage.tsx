@@ -1,6 +1,7 @@
 import { OptionalPick } from '@/src/lib/utils/OptionalPick';
 import styles from './UImage.module.scss';
 import { BasicType } from '@/src/types/BasicTypes';
+import clsx from 'clsx';
 
 type UImageProps = OptionalPick<
   BasicType,
@@ -11,7 +12,14 @@ type UImageProps = OptionalPick<
 export const UImage = ({ ...props }: UImageProps) => {
   return (
     <>
-      <img className={props.className} src={props.src} alt={props.src} />
+      <img
+        className={clsx(
+          { [styles['image--round']]: props.isRound },
+          props.className
+        )}
+        src={props.src}
+        alt={props.src}
+      />
     </>
   );
 };

@@ -1,0 +1,53 @@
+@import '../../../styles/global.scss';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dfdfdf;
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__homeLogo {
+    width: 153px;
+  }
+
+  &__menu {
+    margin: 0 15px;
+    text-decoration: none;
+  }
+
+  &__menuList {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  &__menuItem {
+    display: inline-block;
+    margin: 10px;
+    color: $gray-800;
+    @include Body2;
+
+    &--active {
+      color: $blue-100;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 0 24px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 0 200px;
+  }
+}
