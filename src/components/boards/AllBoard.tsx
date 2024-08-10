@@ -1,4 +1,4 @@
-import { Button, LinkButton } from "@/styles/ButtonStyle";
+import { LinkButton } from "@/styles/ButtonStyle";
 import styled from "styled-components";
 import SearchImage from "../../../public/images/i-search.png";
 import LikeImage from "../../../public/images/i-like.png";
@@ -7,19 +7,33 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArticlesList, ArticlesQuery } from "@/types/articleType";
 
-const SearchInput = () => {
+type SearchOrderProp = {
+  setArticleQuery: React.Dispatch<React.SetStateAction<ArticlesQuery>>;
+};
+
+const SearchInput = ({ setArticleQuery }: SearchOrderProp) => {
+  const [searchInput, setSearchInput] = useState<string>("");
+
   return (
     <SearchWrap>
-      <input type="search" placeholder="검색할 상품을 입력해주세요" />
+      <input
+        type="search"
+        value={searchInput}
+        onChange={(e) => {
+          setSearchInput(e.target.value);
+        }}
+        onKeyDown={(e) => {
+          e.key === "Enter"
+            ? setArticleQuery((prev) => ({ ...prev, keyword: searchInput }))
+            : "";
+        }}
+        placeholder="검색할 상품을 입력해주세요"
+      />
     </SearchWrap>
   );
 };
 
-type DropDownOrderProp = {
-  setArticleQuery: React.Dispatch<React.SetStateAction<ArticlesQuery>>;
-};
-
-const DropDownOrder = ({ setArticleQuery }: DropDownOrderProp) => {
+const DropDownOrder = ({ setArticleQuery }: SearchOrderProp) => {
   const ORDER_NEW = "최신순";
   const ORDER_LIKE = "좋아요순";
   const [dropText, setDropText] = useState<string>(ORDER_NEW);
@@ -94,7 +108,7 @@ export default function AllBoard({ articles, setArticleQuery }: AllBoardProps) {
         <LinkButton href="">글쓰기</LinkButton>
       </AllBoardTitle>
       <AllBoardSearch>
-        <SearchInput />
+        <SearchInput setArticleQuery={setArticleQuery} />
         <DropDownOrder setArticleQuery={setArticleQuery} />
       </AllBoardSearch>
       <AllBoardList>

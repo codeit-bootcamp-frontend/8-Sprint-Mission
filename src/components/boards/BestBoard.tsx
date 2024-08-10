@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import BestIconImage from "../../../public/images/i-best.png";
-import TestImg from "../../../public/images/test-img.png";
 import LikeImage from "../../../public/images/i-like.png";
 import Link from "next/link";
 import { ArticlesList } from "@/types/articleType";
