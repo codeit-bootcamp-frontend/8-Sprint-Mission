@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { ReactElement } from "react";
+import Head from "next/head";
 import Banner from "@/components/home/banner";
 import Layout from "@/pages/layout";
 

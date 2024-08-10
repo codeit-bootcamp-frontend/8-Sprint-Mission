@@ -15,7 +15,9 @@ export default function Banner({ top }: { top?: boolean; bottom?: boolean }) {
           {banner.title}
         </h1>
         {top && (
-          <button className='btn btn-primary sm:btn-large lg:self-end' onClick={() => router.push("/more")}>
+          <button
+            className='btn btn-primary sm:btn-large lg:self-end'
+            onClick={() => router.push("/more")}>
             구경하러 가기
           </button>
         )}

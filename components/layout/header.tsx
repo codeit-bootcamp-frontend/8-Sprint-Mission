@@ -9,8 +9,18 @@ export default function Header() {
         <picture
           className='flex justify-center w-full shadow-md cursor-pointe sm:w-auto sm:shadow-none'
           onClick={() => router.push("/")}>
-          <source media='(min-width: 48em)' srcSet={"ic_panda_market_sm.svg"} width={153} height={51} />
-          <source media='(min-width: 0)' srcSet={"ic_panda_market_typo.svg"} width={103} height={51} />
+          <source
+            media='(min-width: 48em)'
+            srcSet={"ic_panda_market_sm.svg"}
+            width={153}
+            height={51}
+          />
+          <source
+            media='(min-width: 0)'
+            srcSet={"ic_panda_market_typo.svg"}
+            width={103}
+            height={51}
+          />
           <img alt='판다마켓' />
         </picture>
         <nav className='sm:ms-[3%] sm:me-auto'>
@@ -27,7 +37,9 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <button className='btn btn-primary sm:btn-small sm:ml-2' onClick={() => router.push("/login")}>
+        <button
+          className='btn btn-primary sm:btn-small sm:ml-2'
+          onClick={() => router.push("/login")}>
           로그인
         </button>
       </header>
