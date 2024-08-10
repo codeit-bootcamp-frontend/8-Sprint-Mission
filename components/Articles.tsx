@@ -44,14 +44,15 @@ export default function Articles() {
     target["search"].value = '';
   }
 
+  const handlePageClick = (page: number) => {
+    setPage(page);
+    handleLoad(page, PAGE_SIZE, orderBy, keyword);
+  }
+
   useEffect(() => {
     setPage(1);
     handleLoad(1, PAGE_SIZE, orderBy, keyword);
   }, [PAGE_SIZE, orderBy, keyword]);
-
-  useEffect(() => {
-    handleLoad(page, PAGE_SIZE, orderBy, keyword);
-  }, [page]);
 
   useEffect(() => {
     document.addEventListener("click", () => setIsDropdownOpen(false));
@@ -132,7 +133,7 @@ export default function Articles() {
           </div>
         </li>
         {renderedPages.map((renderedPage) =>
-        <li className={`${styles.page} ${(renderedPage === page) ? styles.pageActive : ''}`} key={renderedPage} onClick={() => setPage(renderedPage)}>
+        <li className={`${styles.page} ${(renderedPage === page) ? styles.pageActive : ''}`} key={renderedPage} onClick={() => handlePageClick(renderedPage)}>
           {renderedPage}
         </li>
         )}
