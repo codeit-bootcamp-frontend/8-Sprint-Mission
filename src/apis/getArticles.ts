@@ -22,6 +22,7 @@ interface GetArticlesProps {
   page?: number;
   pageSize: number;
   orderBy?: orderOption;
+  keyword?: string;
 }
 
 interface Response {
@@ -33,8 +34,9 @@ export default async function getArticles({
   page = 1,
   pageSize,
   orderBy = "recent",
+  keyword = "",
 }: GetArticlesProps) {
-  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
+  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}}`;
   const res = await instance.get(`/articles?${query}`);
   const { list, totalCount }: Response = res.data;
 
