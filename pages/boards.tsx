@@ -12,7 +12,7 @@ export default function Boards() {
       <Header />
       <main className={styles.main}>
         <BestArticles mediaWidth={mediaWidth} />
-        <Articles />
+        <Articles mediaWidth={mediaWidth} />
       </main>
     </>
   )

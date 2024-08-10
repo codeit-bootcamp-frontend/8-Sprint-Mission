@@ -14,7 +14,9 @@ const WIDTH_PAGE_SIZE_PAIR: {
   none: 0,
 }
 
-export default function BestArticles({ mediaWidth }: { mediaWidth: "desktop" | "tablet" | "mobile" | "none" }) {
+type MediaWidthType = "desktop" | "tablet" | "mobile" | "none";
+
+export default function BestArticles({ mediaWidth }: { mediaWidth: MediaWidthType }) {
   const [articles, setArticles] = useState<Article[]>([]);
   const [pageSize, setPageSize] = useState(WIDTH_PAGE_SIZE_PAIR[mediaWidth]);
 

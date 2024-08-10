@@ -14,18 +14,30 @@ const ORDER_EN_KO_PAIR: {
   like: "좋아요순",
 }
 
+const WIDTH_PAGINATION_NUMBER_PAIR: {
+  [key: string]: number
+} = {
+  desktop: 10,
+  tablet: 5,
+  mobile: 3,
+  none: 0,
+}
+
 const PAGE_SIZE = 10;
 
-export default function Articles() {
+type MediaWidthType = "desktop" | "tablet" | "mobile" | "none";
+
+export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType }) {
   const [articles, setArticles] = useState<Article[]>([]);
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
   const [keyword, setKeyword] = useState('');
   const [totalPages, setTotalPages] = useState(1);
+  const [paginationNumber, setPaginationNumber] = useState(10);
 
   const { isDropdownOpen, handleDropdown } = useDropdownState();
 
-  const renderedPages = getRenderedPages(page, totalPages);
+  const renderedPages = getRenderedPages(page, totalPages, paginationNumber);
 
   const handleLoad = async (page: number, pageSize: number, orderBy: "recent" | "like", keyword: string) => {
     const result = await getArticles(page, pageSize, orderBy, keyword);
@@ -50,6 +62,10 @@ export default function Articles() {
     setPage(1);
     handleLoad(1, PAGE_SIZE, orderBy, keyword);
   }, [PAGE_SIZE, orderBy, keyword]);
+
+  useEffect(() => {
+    setPaginationNumber(WIDTH_PAGINATION_NUMBER_PAIR[mediaWidth]);
+  }, [mediaWidth]);
 
   return (
     <section className={styles.articlesSection}>
