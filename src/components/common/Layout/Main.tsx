@@ -1,9 +1,9 @@
-interface MainContainerProps {
+interface MainProps {
   children: React.ReactNode;
   className?: string;
 }
 
-function Main({ children, className }: MainContainerProps) {
+function Main({ children, className }: MainProps) {
   return (
     <main
       className={`${className} max-w-[1200px] pt-24 pb-12 mx-auto gap-6 flex flex-col font-pretendard 
