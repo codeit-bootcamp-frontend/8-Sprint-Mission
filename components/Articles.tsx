@@ -33,11 +33,10 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
   const [keyword, setKeyword] = useState('');
   const [totalPages, setTotalPages] = useState(1);
-  const [paginationNumber, setPaginationNumber] = useState(10);
 
   const { isDropdownOpen, handleDropdown } = useDropdownState();
 
-  const renderedPages = getRenderedPages(page, totalPages, paginationNumber);
+  const renderedPages = getRenderedPages(page, totalPages, WIDTH_PAGINATION_NUMBER_PAIR[mediaWidth]);
 
   const handleLoad = async (page: number, pageSize: number, orderBy: "recent" | "like", keyword: string) => {
     const result = await getArticles(page, pageSize, orderBy, keyword);
@@ -62,10 +61,6 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
     setPage(1);
     handleLoad(1, PAGE_SIZE, orderBy, keyword);
   }, [PAGE_SIZE, orderBy, keyword]);
-
-  useEffect(() => {
-    setPaginationNumber(WIDTH_PAGINATION_NUMBER_PAIR[mediaWidth]);
-  }, [mediaWidth]);
 
   return (
     <section className={styles.articlesSection}>
