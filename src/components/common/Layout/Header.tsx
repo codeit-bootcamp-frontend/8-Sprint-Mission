@@ -19,10 +19,11 @@ function Header() {
   }, []);
 
   return (
-    <header className="max-md:px-4 font-pretendard text-[18px] fixed flex bg-white border-y-[1px] w-full h-[70px] z-10 justify-between px-[200px] max-xl:px-6 max-md:px-4 max-md:text-base">
+    <header className="font-pretendard text-[18px] fixed flex bg-white border-y-[1px] w-full h-[70px] z-10 justify-between px-[200px] max-xl:px-6 max-md:px-4 max-md:text-base">
       <div className="flex flex-row content-center flex-wrap">
         <Link to="/" className="logo-link">
           <img
+            alt="판다마켓 로고"
             src={isMobile ? mobileLogo : logo}
             className={`bg-cover ${
               isMobile ? "object-none mr-2 mx-0" : "w-[153px] h-[51px]"
