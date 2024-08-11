@@ -15,8 +15,20 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "tailwind.config.js",
+    "next.config.js",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
