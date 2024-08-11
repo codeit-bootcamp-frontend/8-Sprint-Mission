@@ -4,6 +4,7 @@ import Article from "@/DTO/article";
 import { getArticles } from "@/pages/api/apis";
 import formatComparedTime from "@/lib/formatComparedTime";
 import styles from "./BestArticles.module.css";
+import useAsync from "@/lib/hooks/useAsync";
 
 const WIDTH_PAGE_SIZE_PAIR: {
   [key: string]: number
@@ -20,8 +21,10 @@ export default function BestArticles({ mediaWidth }: { mediaWidth: MediaWidthTyp
   const [articles, setArticles] = useState<Article[]>([]);
   const [pageSize, setPageSize] = useState(WIDTH_PAGE_SIZE_PAIR[mediaWidth]);
 
+  const { isPending, error, wrappedAsyncFunction: getArticlesAsync } = useAsync(getArticles)
+
   const handleLoad = async () => {
-    const result = await getArticles(1, pageSize, "like");
+    const result = await getArticlesAsync(1, pageSize, "like");
     if(!result) return;
     setArticles(result.list);
   }

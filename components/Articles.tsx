@@ -6,6 +6,7 @@ import Article from "@/DTO/article";
 import formatComparedTime from "@/lib/formatComparedTime";
 import getRenderedPages from "@/lib/getRenderedPages";
 import useDropdownState from "@/lib/hooks/useDropdownState";
+import useAsync from "@/lib/hooks/useAsync";
 
 const ORDER_EN_KO_PAIR: {
   [key: string]: string,
@@ -34,12 +35,13 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
   const [keyword, setKeyword] = useState('');
   const [totalPages, setTotalPages] = useState(1);
 
+  const { isPending, error, wrappedAsyncFunction: getArticlesAsync } = useAsync(getArticles);
   const { isDropdownOpen, handleDropdown } = useDropdownState();
 
   const renderedPages = getRenderedPages(page, totalPages, WIDTH_PAGINATION_NUMBER_PAIR[mediaWidth]);
 
   const handleLoad = async (page: number, pageSize: number, orderBy: "recent" | "like", keyword: string) => {
-    const result = await getArticles(page, pageSize, orderBy, keyword);
+    const result = await getArticlesAsync(page, pageSize, orderBy, keyword);
     if(!result) return;
     setArticles(result.list);
     setTotalPages(Math.floor(result.totalCount / pageSize) + 1);
