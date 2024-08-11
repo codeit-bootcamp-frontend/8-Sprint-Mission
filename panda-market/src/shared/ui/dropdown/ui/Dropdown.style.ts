@@ -7,9 +7,10 @@ export const Wrapper = styled.div`
 
 export const DownBtn = styled.button`
   display: flex;
+  width: 9.125rem;
   padding: 0.75rem 1.25rem;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.625rem;
 
   border-radius: 12px;
@@ -21,8 +22,8 @@ export const DownBtn = styled.button`
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   gap: 1.5rem;
   flex: 1 0 0;
   align-self: stretch;

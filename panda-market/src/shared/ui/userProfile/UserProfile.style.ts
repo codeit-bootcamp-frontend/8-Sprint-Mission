@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  width: 2.5rem;
-  height: 2.5rem;
+interface WrapperProps {
+  $width: string;
+  $height: string;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
   flex-shrink: 0;
 `;

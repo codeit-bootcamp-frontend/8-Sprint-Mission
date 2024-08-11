@@ -1,9 +1,15 @@
-import * as S from './UserProfile.style';
 import Profile from '@/shared/assets/icons/ic_profile/ic_profile.svg';
 
-export const UserProfile = () => {
+import * as S from './UserProfile.style';
+
+interface UserProfileProps {
+  width: string;
+  height: string;
+}
+
+export const UserProfile = ({ width, height }: UserProfileProps) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper $width={width} $height={height}>
       <Profile />
     </S.Wrapper>
   );

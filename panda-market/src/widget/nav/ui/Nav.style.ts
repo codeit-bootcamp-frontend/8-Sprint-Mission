@@ -15,6 +15,8 @@ export const Wrapper = styled.nav`
   border-bottom: 1px solid #dfdfdf;
   background: white;
 
+  z-index: 2;
+
   @media ${sizeTheme.tablet} {
     padding: 0 1.5rem;
   }
@@ -45,10 +47,4 @@ export const CategoryItem = styled.div`
   display: flex;
   padding: 1.3125rem 0.9375rem;
   gap: 0.625rem;
-`;
-
-export const UserProfile = styled.div`
-  width: 2.5rem;
-  height: 2.5rem;
-  flex-shrink: 0;
 `;

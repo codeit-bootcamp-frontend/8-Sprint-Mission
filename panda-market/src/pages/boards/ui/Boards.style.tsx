@@ -24,10 +24,3 @@ export const AllBoardsHeader = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
-export const SearchSection = styled.div`
-  display: flex;
-  width: 75rem;
-  justify-content: space-between;
-  align-items: center;
-`;

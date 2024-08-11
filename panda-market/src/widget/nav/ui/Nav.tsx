@@ -16,9 +16,8 @@ export const Nav = () => {
           <S.CategoryItem>중고마켓</S.CategoryItem>
         </Link>
       </S.Categories>
-      <S.UserProfile>
-        <UserProfile />
-      </S.UserProfile>
+
+      <UserProfile width="2.5rem" height="2.5rem" />
     </S.Wrapper>
   );
 };

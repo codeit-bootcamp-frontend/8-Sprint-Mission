@@ -26,7 +26,6 @@ export const ContentsWrapper = styled.div`
   align-items: stretch;
   width: 21rem;
   height: 9.5625rem;
-  flex-shrink: 0;
 `;
 
 export const Contents = styled.div`
