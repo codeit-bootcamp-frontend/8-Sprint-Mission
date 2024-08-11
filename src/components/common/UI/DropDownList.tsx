@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import arrowDownIcon from "assets/images/ic_arrow_down.png";
-import sortIcon from "assets/images/ic_sort.png";
+import arrowDownIc from "assets/icons/ic_arrow_down.png";
+import sortIc from "assets/icons/ic_sort.png";
 
 interface DropDownListProps {
   selectedCategory: string;
@@ -27,12 +27,12 @@ function DropDownList({
       >
         <span className="hidden md:block">{selectedCategory}</span>
         <img
-          src={sortIcon}
+          src={sortIc}
           alt="드롭다운 정렬 아이콘"
           className="block md:hidden  w-6 h-6 cursor-pointer"
         />
         <img
-          src={arrowDownIcon}
+          src={arrowDownIc}
           alt="드롭다운 화살표 아이콘"
           className="right-6 w-6 h-6 cursor-pointer max-md:hidden"
         />

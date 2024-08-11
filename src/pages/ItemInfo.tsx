@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../lib/hooks/useFetch";
-import heartIcon from "../assets/images/ic_heart.png";
+import heartIcon from "../assets/icons/ic_heart.png";
 import { getProductId } from "../core/api";
 import { INITIAL_PRODUCTID, DEFAULT_IMAGE_URL } from "../constants";
 import InquiryInput from "../components/Items/ItemInfo/InquiryInput";

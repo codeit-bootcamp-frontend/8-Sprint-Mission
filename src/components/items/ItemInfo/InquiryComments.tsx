@@ -5,7 +5,7 @@ import useFetch from "../../../lib/hooks/useFetch";
 import { countTime } from "../../../lib/utils/countTime";
 import { CommentResponse } from "DTO/comment";
 import ReturnButton from "components/common/UI/ReturnButton";
-import emptyInquiryImage from "assets/images/img_inquiry_empty.png";
+import emptyInquiryImg from "assets/images/img_inquiry_empty.png";
 
 interface InquiryCommentsProps {
   productId: number | undefined;
@@ -29,7 +29,7 @@ function InquiryComments({ productId, limit }: InquiryCommentsProps) {
         {comments.length === 0 ? (
           <li className="flex flex-col items-center gap-2">
             <img
-              src={emptyInquiryImage}
+              src={emptyInquiryImg}
               alt="빈 문의 내용"
               className="w-[196px] h-[196px]"
             />

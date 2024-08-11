@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import backIcon from "assets/images/ic_back.png";
+import backIc from "assets/icons/ic_back.png";
 
 interface ReturnButtonProps {
   buttonText: string;
@@ -23,7 +23,7 @@ function ReturnButton({ buttonText, onClick }: ReturnButtonProps) {
       onClick={handleClick}
     >
       {buttonText}
-      <img src={backIcon} className="h-6" alt="돌아가기 아이콘" />
+      <img src={backIc} className="h-6" alt="돌아가기 아이콘" />
     </button>
   );
 }

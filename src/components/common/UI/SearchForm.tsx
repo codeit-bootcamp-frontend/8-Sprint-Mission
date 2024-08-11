@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import searchIcon from "assets/images/ic_search.png";
+import searchIcon from "assets/icons/ic_search.png";
 
 interface SearchFormProps {
   divClassName?: string;

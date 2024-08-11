@@ -1,6 +1,6 @@
 import { Article } from "DTO/article";
 import LikeCount from "components/common/UI/LikeCount";
-import bestBadgeImage from "assets/images/img_badge.png";
+import bestBadgeImg from "assets/images/img_badge.png";
 
 interface BestPostCardProps {
   article: Article;
@@ -12,7 +12,7 @@ const BestPostCard = ({ article }: BestPostCardProps) => {
       key={article.id}
       className="w-full flex flex-col px-6 gap-[10px] pb-3 bg-gray-50 rounded-lg max-xl:gap-4"
     >
-      <img src={bestBadgeImage} className="w-[102px]" alt="베스트 뱃지" />
+      <img src={bestBadgeImg} className="w-[102px]" alt="베스트 뱃지" />
       <div className="flex justify-between gap-3 max-xl:gap-10 max-xl:flex-grow">
         <h2 className="text-xl text-gray-900 font-semibold">
           {article.content}

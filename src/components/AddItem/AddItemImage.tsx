@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, ChangeEvent } from "react";
-import plusIcon from "../../assets/images/ic_plus.png";
+import plusIc from "assets/icons/ic_plus.png";
 
 interface AddItemImageProps {
   image: File | null;
@@ -49,7 +49,11 @@ const AddItemImage: React.FC<AddItemImageProps> = ({
       <div className="item-img-wrap">
         <div className="upload-container">
           <div className="flex flex-col rounded-xl content-center justify-center gap-3 text-gray-400 bg-gray-100 h-[282px]">
-            <img src={plusIcon} className="w-12 h-12 mx-auto" />
+            <img
+              src={plusIc}
+              className="w-12 h-12 mx-auto"
+              alt="플러스 아이콘"
+            />
             <span className="text-center">이미지 등록</span>
           </div>
           <input
