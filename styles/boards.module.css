@@ -1,0 +1,34 @@
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--gray900);
+}
+.sectionTitle.best {
+  margin-bottom: 1.5rem;
+}
+
+.filterWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 744px) {
+  .section {
+    margin-bottom: 1.5rem;
+  }
+}

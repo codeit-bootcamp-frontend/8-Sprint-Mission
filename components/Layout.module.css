@@ -1,0 +1,10 @@
+.pageLayout {
+  width: 1200px;
+  margin: 94px auto;
+}
+
+@media (max-width: 744px) {
+  .pageLayout {
+    margin: 94px 24px;
+  }
+}

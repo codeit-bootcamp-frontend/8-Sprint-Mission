@@ -1,0 +1,26 @@
+.searchWrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 0.25rem;
+  width: 100%;
+  padding-top: 0.5625rem;
+  padding-bottom: 0.5625rem;
+  padding-left: 1rem;
+  border: 0px;
+  border-radius: 12px;
+  background-color: var(--gray100);
+}
+
+.searchInput {
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+}
+.searchInput::placeholder {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.625rem;
+  color: var(--gray400);
+}
