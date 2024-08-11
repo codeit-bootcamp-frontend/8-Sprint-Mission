@@ -3,17 +3,18 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: relative;
+  width: 100%;
+  margin-right: 1rem;
 `;
 
 export const Input = styled.input`
   display: flex;
   min-width: 20.3125rem;
-  width: 65.875rem;
+  width: 100%;
   padding: 0.56rem 1.25rem 0.56rem 2.75rem;
   justify-content: stretch;
   align-items: center;
   gap: 0.625rem;
-  flex-shrink: 0;
   border-radius: 12px;
   background: ${colors.secondary[100]};
   border: none;

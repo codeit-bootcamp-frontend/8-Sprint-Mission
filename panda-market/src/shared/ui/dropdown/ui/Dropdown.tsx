@@ -29,7 +29,7 @@ const DropdownContents = ({
           <S.Content
             key={e.id}
             $isLast={idx === contentList.length - 1}
-            data-name={e.item}
+            data-name={e.id}
           >
             {e.item}
           </S.Content>
@@ -59,6 +59,12 @@ export const Dropdown = ({
   const handleClick = () => {
     setIsOpen((prev) => !prev);
   };
+
+  const handleContentClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    onContentClick(e);
+    handleClose();
+  };
+
   return (
     <S.Wrapper ref={ref}>
       <S.DownBtn onClick={handleClick}>
@@ -72,7 +78,7 @@ export const Dropdown = ({
       <DropdownContents
         contentList={contentList}
         isOpen={isOpen}
-        onClick={onContentClick}
+        onClick={handleContentClick}
       />
     </S.Wrapper>
   );

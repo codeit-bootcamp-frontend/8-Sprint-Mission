@@ -6,14 +6,16 @@ export const useGetAllBoards = ({
   page,
   pageSize,
   orderBy,
-}: Omit<GetArticleRequest, 'keyword'>) => {
+  keyword,
+}: GetArticleRequest) => {
   return useQuery<ArticleResponse>({
-    queryKey: ['allBoards'],
+    queryKey: ['allBoards', keyword, page, pageSize, orderBy],
     queryFn: () =>
       getBoards({
         page,
         pageSize,
         orderBy,
+        keyword,
       }),
   });
 };
