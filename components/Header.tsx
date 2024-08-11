@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./Header.module.css";
 import Link from "next/link";
+import NavItem from "./NavItem";
 
 export default function Header() {
 
@@ -13,9 +14,9 @@ export default function Header() {
           </div>
         </Link>
         <ul className={styles.nav}>
-          <Link href="/boards" style={{ textDecoration: "none" }}>
-            <li className={styles.navItem}>자유게시판</li>
-          </Link>
+          <NavItem href="/boards">
+            자유게시판
+          </NavItem>
           <li className={styles.navItem}>중고마켓</li>
         </ul>
       </div>

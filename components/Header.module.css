@@ -58,6 +58,10 @@
           padding: 0 0.4rem;
         }
       }
+
+      .navItem.active {
+        color: var(--blue);
+      }
     }
   }
 }
