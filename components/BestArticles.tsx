@@ -77,6 +77,9 @@ export default function BestArticles({ mediaWidth }: { mediaWidth: MediaWidthTyp
           </div>
         )}
       </div>
+
+      {isPending && <p>loading...</p>}
+      {error && <p>An Error has occurred{error.message ? `: ${error.message}` : null}</p>}
     </section>
   )
 }

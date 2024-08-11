@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FormEvent, MouseEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import styles from "./Articles.module.css";
 import { getArticles } from "@/pages/api/apis";
 import Article from "@/DTO/article";
@@ -98,6 +98,8 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
         </div>
       </div>
 
+      {isPending && <p>loading...</p>}
+      {error && <p>An Error has occurred{error.message ? `: ${error.message}` : null}</p>}
       <ul className={styles.articlesList}>
         {articles.map(article => 
           <li className={styles.articlesListItem} key={article.id}>
@@ -128,6 +130,7 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
         )}
       </ul>
 
+      {articles.length > 0 &&
       <ul className={styles.pages}>
         <li className={styles.page}>
           <div className={styles.pageArrowContainer}>
@@ -145,6 +148,7 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
           </div>
         </li>
       </ul>
+      }
 
     </section>
   )
