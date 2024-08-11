@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ItemContainer from "./ItemContainer";
 import DropDownList from "../common/UI/DropDownList";
-import Pagination from "./Pagination";
+import Pagination from "components/common/UI/Pagination";
 import { getProducts } from "core/api";
 import useFetch from "lib/hooks/useFetch";
 import { useSearch } from "lib/hooks/useSearch";

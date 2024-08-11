@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AddItemImage from "../components/AddItem/AddItemImage";
 import AddItemDetails from "../components/AddItem/AddItemDetails";
 import AddItemTags from "../components/AddItem/AddItemTags";
+import Main from "components/common/Layout/Main";
 
 export interface ItemDetails {
   itemName: string;
@@ -45,7 +46,7 @@ function AddItem() {
   }, [itemDetails]);
 
   return (
-    <main className="font-pretendard max-w-[1200px] max-md:w-full max-xl:w-full pt-24 mx-auto gap-6 flex flex-col max-md:px-4 max-xl:px-6">
+    <Main>
       <h1 className="font-bold text-gray-800 text-xl">상품 등록하기</h1>
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <button
@@ -59,7 +60,7 @@ function AddItem() {
         <AddItemDetails details={itemDetails} setDetails={setItemDetails} />
         <AddItemTags initialTags={itemDetails.itemTags} />
       </form>
-    </main>
+    </Main>
   );
 }
 

@@ -1,13 +1,14 @@
 import React from "react";
 import BestPosts from "../components/Boards/BestPosts";
 import AllPosts from "../components/Boards/AllPosts";
+import Main from "components/common/Layout/Main";
 
 function Boards() {
   return (
-    <main className="flex flex-col gap-10 font-pretendard pt-24 w-[1200px] max-md:w-full max-xl:w-full m-auto mb-10 max-md:px-4 max-xl:px-6">
+    <Main>
       <BestPosts />
       <AllPosts />
-    </main>
+    </Main>
   );
 }
 

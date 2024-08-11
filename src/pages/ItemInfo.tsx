@@ -5,6 +5,7 @@ import heartIcon from "../assets/images/ic_heart.png";
 import { getProductId } from "../core/api";
 import { INITIAL_PRODUCTID, DEFAULT_IMAGE_URL } from "../constants";
 import InquiryInput from "../components/Items/ItemInfo/InquiryInput";
+import Main from "components/common/Layout/Main";
 
 function ItemInfo() {
   const { productId } = useParams<{ productId: string }>();
@@ -38,7 +39,7 @@ function ItemInfo() {
   }, [productData]);
 
   return (
-    <main className="font-pretendard flex flex-col max-w-[1200px] max-md:w-full max-xl:w-full pt-24 mx-auto gap-16 max-md:px-4 max-xl:px-6 ">
+    <Main>
       <section className="flex gap-6 max-md:flex max-md:flex-col max-md:content-center">
         <img
           className={`w-[486px] h-[486px] rounded-2xl block max-w-full  max-md:w-full max-md:h-full ${
@@ -79,7 +80,7 @@ function ItemInfo() {
         </div>
       </section>
       <InquiryInput productId={numericProductId} />
-    </main>
+    </Main>
   );
 }
 

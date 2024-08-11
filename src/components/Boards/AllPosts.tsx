@@ -9,7 +9,7 @@ import useFetch from "../../lib/hooks/useFetch";
 import { useSearch } from "lib/hooks/useSearch";
 import { usePagination } from "lib/hooks/usePagination";
 import useResize from "lib/hooks/useResize";
-import Pagination from "components/Items/Pagination";
+import Pagination from "components/common/UI/Pagination";
 import BasicPostCard from "components/Boards/UI/BasicPostCard";
 import NoSearchResult from "components/common/UI/NoSearchResult";
 
