@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Article, ArticleOrderBy } from './ArticleTypes';
 
 export type BasicType = {
   title: string;
@@ -21,9 +22,15 @@ export type BasicType = {
   keyword: string;
   placeholder: string;
   options: { key: string; value: string }[];
+  sortOptions: { key: ArticleOrderBy; label: string };
 
   // handler
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onSortSelection: (key: string) => void;
+  onSearch: (keyword: string) => void;
+
+  //
+  article: Article;
 };

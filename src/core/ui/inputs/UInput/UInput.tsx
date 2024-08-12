@@ -1,17 +1,20 @@
 import styles from './UInput.module.scss';
 
-import { OptionalPick } from '@/src/lib/utils/OptionalPick';
 import { BasicType } from '@/src/types/BasicTypes';
+import clsx from 'clsx';
 
 type UInputProps = Partial<
-  Pick<BasicType, 'placeholder' | 'keyword' | 'onChange' | 'onKeyDown'>
+  Pick<
+    BasicType,
+    'placeholder' | 'keyword' | 'onChange' | 'onKeyDown' | 'className'
+  >
 >;
 
 const UInput = ({ ...props }: UInputProps) => {
   return (
     <>
       <input
-        className={styles['input']}
+        className={clsx(styles['input'], props.className)}
         value={props.keyword}
         placeholder={props.placeholder || ''}
         onChange={props.onChange}
