@@ -1,0 +1,17 @@
+.main {
+  max-width: 124.8rem;
+  padding: 0 2.4rem 4rem;
+  margin: 9.4rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  @media (width <= 1199px) {
+    gap: 2.4rem;
+  }
+
+  @media (width <= 767px) {
+    margin: 8.6rem auto 0;
+    padding: 0 1.2rem 4rem;
+  }
+}
