@@ -6,7 +6,7 @@ interface SearchFormProps {
   onSearch: (keyword: string) => void;
 }
 
-function SearchForm({ onSearch }) {
+function SearchForm({ onSearch }: SearchFormProps) {
   const [keyword, setKeyword] = useState<string>("");
   const router = useRouter();
 
