@@ -1,0 +1,16 @@
+.search-form {
+  display: block;
+  width: 100%;
+  .search {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--gray400);
+    padding: 0 1em 0 2.8em;
+    height: 42px;
+    border-radius: 12px;
+    background: url("/img/icon/ic_search.svg") no-repeat center left 1em;
+    background-color: var(--gray100);
+  }
+}
