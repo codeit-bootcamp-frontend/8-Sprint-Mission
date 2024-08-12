@@ -12,7 +12,7 @@ import usePostList from "@/hooks/usePostList";
 
 interface OptionType {
   orderBy: string | string[] | undefined;
-  keyword: string | undefined;
+  keyword?: string | undefined;
 }
 
 interface AllPropsListProps {

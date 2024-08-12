@@ -1,14 +1,14 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from './PostList.module.css';
-import { PostListProps } from './@types/Post';
+import Link from "next/link";
+import Image from "next/image";
+import styles from "./PostList.module.css";
+import { PostListProps } from "./@types/Post";
 
 interface PostList {
   postList: PostListProps;
 }
 
 export default function PostList({ postList }: PostList) {
-  const convertDate = new Date(postList.createdAt).toLocaleDateString('ko-KR');
+  const convertDate = new Date(postList.createdAt).toLocaleDateString("ko-KR");
 
   return (
     <article>

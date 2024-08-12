@@ -1,4 +1,3 @@
-import axios from "@/lib/axios";
 import { useState, useEffect } from "react";
 import Section from "@/components/Section/Section";
 import BestPostList from "./BestPostList";
