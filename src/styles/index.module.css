@@ -1,0 +1,488 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 1200px;
+}
+
+.sectionBox {
+  display: flex;
+  height: 720px;
+  align-items: center;
+}
+
+.headerContentsBackground {
+  background-color: #cfe5ff;
+  background-image: url("/images/mainPage/Img_home_top.png");
+  background-position: 80% 100%;
+  background-size: 996px 447px;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.headerContent {
+  width: 1200px;
+  height: 540px;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.headerTextImage {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  z-index: 1;
+}
+
+.lookAroundLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 357px;
+  height: 56px;
+  background-color: var(--blue);
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  gap: 10px;
+  line-height: 24px;
+}
+.lookAroundLink:hover {
+  background-color: var(--blue2);
+}
+.lookAroundLink:active {
+  background-color: var(--blue3);
+}
+
+.slogan {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  margin: 0;
+  width: 300px;
+}
+
+.headerImage {
+  width: 996px;
+  height: 447px;
+  position: relative;
+  top: 46px;
+}
+
+.sectionImage {
+  position: relative;
+  width: 588px;
+  height: 444px;
+}
+
+.sectionWrapper {
+  gap: 64px;
+  display: flex;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.contentCategory {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.2px;
+  color: var(--blue);
+}
+
+.contentTitle {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: var(--gray700);
+}
+
+.contentText {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.8px;
+  color: var(--gray700);
+}
+
+.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.bottomContents {
+  margin-top: 200px;
+  width: 100vw;
+  height: 540px;
+  background-color: #cfe5ff;
+}
+.bottomContentsBackground {
+  background-color: #cfe5ff;
+  background-image: url("/images/mainPage/Img_home_bottom.png");
+  background-position: 80% 100%;
+  background-size: 996px 540px;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottomTextImage {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.bottomText {
+  position: relative;
+}
+
+.footerLinkBarBackground {
+  background-color: var(--gray900);
+  width: 100vw;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+}
+
+.footerLinkBar {
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  top: -30px;
+}
+.codeit {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.09px;
+  color: var(--gray400);
+}
+
+.privacyFaqBox {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.privacyFaqBox a {
+  color: var(--gray200);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.snsLinks {
+  display: flex;
+}
+
+.ulBox {
+  display: flex;
+}
+
+.ulBox > li {
+  display: inline-block;
+}
+
+.snsLinkMini {
+  width: 20px;
+  height: 20px;
+  margin-left: 12px;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .headerContentsBackground {
+    background-position: 52% 100%;
+    background-size: 996px 447px;
+    width: 100vw;
+    height: 771px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+  }
+  .headerContent {
+    width: 100vw;
+    height: 771px;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+  }
+  .headerTextImage {
+    justify-content: center;
+    align-items: center;
+    margin-top: 84px;
+  }
+  .slogan {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    line-height: 44.8px;
+  }
+  .headerTextImage > .slogan > br {
+    display: inline-block;
+    content: "";
+    padding: 0 2px;
+  }
+  .lookAroundLink {
+    width: 355px;
+    height: 60px;
+    font-size: 20px;
+  }
+  .sectionContainer {
+    padding: 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .sectionBox {
+    width: 696px;
+  }
+  .sectionWrapper {
+    height: auto;
+    display: flex;
+    width: 100%;
+    gap: 0px;
+    flex-direction: column;
+  }
+  .sectionImage {
+    position: relative;
+    width: 100%;
+    height: 524px;
+    margin-top: 64px;
+  }
+  .contents {
+    width: 100%;
+    gap: 20px;
+  }
+  .contentCategory {
+    font-size: 18px;
+    line-height: 22.4px;
+    margin-top: 20px;
+  }
+  .contentTitle {
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+  .contentTitle > br {
+    display: inline-block;
+    content: " ";
+    padding: 0 2px;
+  }
+
+  .contentText {
+    font-size: 18px;
+  }
+
+  .reverse > .sectionWrapper {
+    flex-direction: column-reverse;
+  }
+  .bottomContents {
+    margin-top: 64px;
+  }
+  .bottomContentsBackground {
+    background-position: 52% 100%;
+    background-size: 996px 540px;
+    width: 100vw;
+    height: 927px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bottomTextImage {
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-start;
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+  .bottomText {
+    margin-top: 201px;
+  }
+  .footerLinkBarBackground {
+    top: 385px;
+    position: relative;
+    width: 100%;
+  }
+  .codeit {
+    grid-area: c;
+  }
+  .privacyFaqBox {
+    grid-area: p;
+  }
+  .snsLinks {
+    grid-area: s;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sectionContainer {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .sectionBox {
+    width: 344px;
+    height: auto;
+  }
+  .sectionWrapper {
+    display: flex;
+    width: 100%;
+    gap: 0px;
+    flex-direction: column;
+  }
+
+  .headerContentsBackground {
+    background-position: 52% 100%;
+    background-size: 626.12px 281px;
+    width: 100vw;
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+  }
+  .headerContent {
+    width: 100vw;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+  }
+  .headerTextImage {
+    justify-content: center;
+    align-items: center;
+    margin-top: 48px;
+  }
+  .slogan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+  .lookAroundLink {
+    width: 154px;
+    height: 48px;
+    font-size: 16px;
+  }
+  .sectionBox {
+    gap: 0px;
+  }
+  .sectionImage {
+    position: relative;
+    width: 344px;
+    height: 259px;
+    margin-top: 64px;
+  }
+  .contents {
+    gap: 20px;
+    width: 100%;
+  }
+  .contentCategory {
+    font-size: 16px;
+    line-height: 22.4px;
+    margin-top: 20px;
+  }
+  .contentTitle {
+    font-size: 24px;
+    line-height: 33.6px;
+  }
+  .contentTitle > br {
+    display: inline-block;
+    content: " ";
+    padding: 0 2px;
+  }
+
+  .contentText {
+    font-size: 16px;
+  }
+  .reverse {
+    flex-direction: column;
+  }
+
+  .reverse > .sectionWrapper {
+    flex-direction: column-reverse;
+  }
+  .bottomContents {
+    margin-top: 64px;
+  }
+  .bottomContentsBackground {
+    background-position: 52% 100%;
+    background-size: 497.91px 269.95px;
+    width: 100vw;
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bottomTextImage {
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-start;
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+  .bottomText {
+    margin-top: 121px;
+  }
+  .footerLinkBarBackground {
+    position: relative;
+    width: 100%;
+  }
+  .footerLinkBar {
+    padding: 0 32px;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "p s"
+      "c c";
+  }
+  .codeit {
+    grid-area: c;
+  }
+  .privacyFaqBox {
+    grid-area: p;
+  }
+  .snsLinks {
+    grid-area: s;
+  }
+}

@@ -1,0 +1,51 @@
+.container {
+  padding: 16px 16px 24px 16px;
+}
+.mainBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0 40px;
+  margin: 70px auto 0px;
+}
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .container {
+    padding: 24px;
+  }
+  .mainBox {
+    width: 100%;
+  }
+  .footer {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .mainBox {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0 40px;
+    margin: 70px auto 0px;
+  }
+  .footerBox {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}

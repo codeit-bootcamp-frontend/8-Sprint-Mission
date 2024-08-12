@@ -1,0 +1,112 @@
+.bestItem {
+  max-width: 1200px;
+}
+
+.bestTitle {
+  margin: 24px 0 16px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray900);
+}
+
+.bestItemContainer {
+  display: flex;
+  gap: 24px;
+}
+
+.bestItemBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.BestItemImgBox {
+  position: relative;
+  width: 282px;
+  height: 282px;
+}
+
+.bestItemImg {
+  position: relative;
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+  filter: opacity(0.5) drop-shadow(0 0 0 #228b22);
+}
+
+.bestItemTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray800);
+}
+
+.bestItemPrice {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray800);
+}
+
+.bestItemFavorite {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray600);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .bestItemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 446px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    max-width: 744px;
+    gap: 24px;
+  }
+
+  .bestItemContainer :nth-child(n + 5) {
+    display: none;
+  }
+  .BestItemImgBox {
+    position: relative;
+    width: 343px;
+    height: 343px;
+  }
+  .bestItemImg {
+    width: 336px;
+    height: 336px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bestItem {
+    max-width: 460.95px;
+  }
+
+  .bestItemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 435px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    max-width: 744px;
+    gap: 24px;
+  }
+
+  .bestItemContainer :nth-child(n + 5) {
+    display: none;
+  }
+  .BestItemImgBox {
+    position: relative;
+    width: 343px;
+    height: 343px;
+  }
+  .bestItemImg {
+    width: 343px;
+    height: 343px;
+  }
+}

@@ -1,0 +1,116 @@
+.bestBoards {
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray800);
+  margin-bottom: 16px;
+}
+.list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 24px;
+}
+.itemCardContainer {
+  position: relative;
+  width: 100%;
+  height: 198px;
+  background-color: var(--gray50);
+  border-radius: 8px;
+}
+.bestClip {
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 0px 0px 16px 16px;
+  z-index: 2;
+  left: 24px;
+  top: 0;
+  position: absolute;
+  width: 102px;
+  height: 30px;
+  background-color: var(--blue);
+}
+.itemCardInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 46px 24px 16px;
+  height: 100%;
+}
+.infoTop {
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  width: 100%;
+  height: 100%;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  padding-right: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  color: var(--gray800);
+}
+.image {
+  position: relative;
+  background-color: #fff;
+  min-width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  border: 0.75px solid var(--gray200);
+}
+.infoBottom {
+  display: flex;
+  justify-content: space-between;
+}
+.nameAndHeart {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray600);
+  width: 100%;
+  align-items: center;
+}
+.likeButton {
+  gap: 4px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.date {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray400);
+}
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .bestBoards {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+  .itemCardContainer {
+    width: 340px;
+  }
+  .list {
+    gap: 16px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .bestBoards {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+  .itemCardContainer {
+    width: 384px;
+    height: 169px;
+  }
+}
