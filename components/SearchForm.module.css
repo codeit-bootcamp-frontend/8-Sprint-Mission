@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-content: center;
+  flex-grow: 1;
   gap: 0.25rem;
-  width: 100%;
   padding-top: 0.5625rem;
   padding-bottom: 0.5625rem;
   padding-left: 1rem;

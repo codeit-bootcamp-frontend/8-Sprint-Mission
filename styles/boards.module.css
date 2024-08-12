@@ -27,25 +27,6 @@
   width: 100%;
 }
 
-.emptyMessageWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.5rem;
-}
-
-.emptyMessageText {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1.5rem;
-  color: var(--gray400);
-}
-.emptyMessageText > span {
-  font-weight: bold;
-}
-
 @media (max-width: 744px) {
   .section {
     margin-bottom: 1.5rem;

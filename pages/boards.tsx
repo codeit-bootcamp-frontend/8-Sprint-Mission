@@ -6,7 +6,7 @@ import styles from "@/styles/boards.module.css";
 
 import LinkButton from "@/components/LinkButton";
 import SearchForm from "@/components/SearchForm";
-import Sort from "@/components/Sort";
+import Dropdown from "@/components/Dropdown";
 import BestArticleList from "@/components/BestArticleList/BestArticleList";
 import AllArticleList from "@/components/AllArticleList/AllArticleList";
 
@@ -14,15 +14,12 @@ function Board() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [bestArticles, setBestArticles] = useState<Article[]>([]);
   const [pageSize, setPageSize] = useState<number>(3);
+  const [option, setOption] = useState<string>("recent");
 
-  async function getArticles() {
-    const response = await axios.get("/articles");
-    setArticles(response.data.list ?? []);
-  }
-
-  useEffect(() => {
-    getArticles();
-  }, []);
+  const dropdownOptions = [
+    { label: "최신순", value: "recent" },
+    { label: "좋아요순", value: "like" },
+  ];
 
   useEffect(() => {
     const updatePageSize = () => {
@@ -52,6 +49,19 @@ function Board() {
     getBestArticles(pageSize);
   }, [pageSize]);
 
+  async function getArticles(option: string) {
+    const response = await axios.get(`/articles/?orderBy=${option}`);
+    setArticles(response.data.list ?? []);
+  }
+
+  useEffect(() => {
+    getArticles(option);
+  }, [option]);
+
+  const handleOptionChange = (value: string) => {
+    setOption(value);
+  };
+
   return (
     <main>
       <section className={styles.section}>
@@ -67,7 +77,10 @@ function Board() {
         </div>
         <div className={styles.filterWrapper}>
           <SearchForm />
-          <Sort setArticles={setArticles} />
+          <Dropdown
+            options={dropdownOptions}
+            onOptionChange={handleOptionChange}
+          />
         </div>
         <AllArticleList articles={articles} />
       </section>

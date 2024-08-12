@@ -25,7 +25,7 @@
 }
 
 .productImage {
-  border: 0 0 0 0.0625rem var(--gray200) inset;
+  box-shadow: 0 0 0 0.0625rem var(--gray200) inset;
   border-radius: 0.375rem;
 }
 

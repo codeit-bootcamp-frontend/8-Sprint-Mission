@@ -2,13 +2,10 @@ import { GetServerSidePropsContext } from "next";
 import { Article } from "@/types/article";
 import axios from "@/lib/axios";
 
-import styles from "@/styles/boards.module.css";
+import styles from "@/styles/search.module.css";
 import Image from "next/image";
 import replyEmptyImage from "@/assets/images/img_reply_empty.png";
 
-import LinkButton from "@/components/LinkButton";
-import SearchForm from "@/components/SearchForm";
-import Sort from "@/components/Sort";
 import AllArticleList from "@/components/AllArticleList/AllArticleList";
 import ReturnButton from "@/components/ReturnButton";
 
@@ -30,16 +27,10 @@ interface BoardProps {
 function Board({ keyword, articles }: BoardProps) {
   return (
     <main>
-      <section>
-        <div className={styles.titleWrapper}>
-          <h3 className={styles.sectionTitle}>게시글</h3>
-          <LinkButton href="" text="글쓰기" />
-        </div>
-        <div className={styles.filterWrapper}>
-          <SearchForm />
-          {/* <Sort setArticles={setArticles} /> */}
-        </div>
-
+      <section className={styles.section}>
+        <h3 className={styles.sectionTitle}>
+          &quot;{keyword}&ldquo; 검색 결과
+        </h3>
         {!!articles.length ? (
           <AllArticleList articles={articles} />
         ) : (
@@ -51,7 +42,7 @@ function Board({ keyword, articles }: BoardProps) {
               height={200}
             />
             <div className={styles.emptyMessageText}>
-              <span>"{keyword}"</span> 와 일치하는 게시글이 없어요
+              <span>&quot;{keyword}&ldquo;</span> 와 일치하는 게시글이 없어요
             </div>
           </div>
         )}
