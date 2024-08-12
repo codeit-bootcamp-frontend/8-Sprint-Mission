@@ -74,14 +74,26 @@ const PAGE_SIZES = {
   L: 10,
 };
 
-const getPageSize = (width) => {
+const getPageSize = (width: number) => {
   if (width < 600) return PAGE_SIZES.S;
   if (width < 1200) return PAGE_SIZES.M;
   return PAGE_SIZES.L;
 };
 
+type Props = {
+  createdAt: string;
+  favoriteCount: number;
+  ownerId: number;
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+  id: number;
+};
+
 function ItemList() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Props[]>([]);
   const [orderBy, setOrderBy] = useState("recent");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(PAGE_SIZES.L);
@@ -103,7 +115,7 @@ function ItemList() {
     };
   }, []);
 
-  const handleLoad = async (page, pageSize) => {
+  const handleLoad = async (page: number, pageSize: number) => {
     const result = await getProducts({ orderBy, page, pageSize });
     const product = result.list;
     setItems(product);

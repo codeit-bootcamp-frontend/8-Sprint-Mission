@@ -1,6 +1,6 @@
 import React from "react";
 
-function BestList({ items }) {
+function BestList() {
   return <div>베스트 상품</div>;
 }
 

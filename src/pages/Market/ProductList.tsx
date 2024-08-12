@@ -1,7 +1,21 @@
 import ProductListItem from "./ProductListItem";
 import "./ProductList.css";
 
-function ProductList({ items }) {
+type Props = {
+  items: {
+    createdAt: string;
+    favoriteCount: number;
+    ownerId: number;
+    images: string[];
+    tags: string[];
+    price: number;
+    description: string;
+    name: string;
+    id: number;
+  }[];
+};
+
+function ProductList({ items }: Props) {
   return (
     <ul className="list-container">
       {items.map((item) => (

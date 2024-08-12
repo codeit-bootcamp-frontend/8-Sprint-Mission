@@ -58,7 +58,21 @@ const StyledLikeCount = styled.p`
   margin: 0 4px;
 `;
 
-function ProductListItem({ item }) {
+type Props = {
+  item: {
+    createdAt: string;
+    favoriteCount: number;
+    ownerId: number;
+    images: string[];
+    tags: string[];
+    price: number;
+    description: string;
+    name: string;
+    id: number;
+  };
+};
+
+function ProductListItem({ item }: Props) {
   return (
     <StyledLink to={`/market/${item.id}`}>
       <StyledListItemContainer>
