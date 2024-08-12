@@ -126,7 +126,7 @@ function AllBoard({ initialArticles }: AllBoardProps) {
                   />
                 </div>
                 <p>
-                  <b>"{keyword}"</b>로 검색된 결과가 없어요.
+                  <b>&quot;{keyword}&quot;</b>로 검색된 결과가 없어요.
                 </p>
               </div>
             )}
