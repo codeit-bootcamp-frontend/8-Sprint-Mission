@@ -4,13 +4,7 @@ import AllBoard from "@/components/boards/AllBoard";
 import BestBoard from "@/components/boards/BestBoard";
 import { Article } from "@/types/article";
 
-interface GetStaticPropsResult {
-  initialArticles: Article[];
-}
-
-export const getStaticProps: GetStaticProps<
-  GetStaticPropsResult
-> = async () => {
+export const getStaticProps = async () => {
   try {
     const response = await axios.get<{ list: Article[] }>(
       `/articles?orderBy=recent`

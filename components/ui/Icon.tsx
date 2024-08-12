@@ -3,7 +3,7 @@ import styles from "./Icon.module.scss";
 
 type IconSize = "sm" | "md" | "lg";
 
-interface IconProps extends HTMLProps<HTMLElement> {
+interface IconProps {
   type: string;
   size: IconSize;
   className?: string;
