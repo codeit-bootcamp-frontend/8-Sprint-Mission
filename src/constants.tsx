@@ -23,4 +23,4 @@ export const INITIAL_COMMENTS: CommentResponse[] = [
   },
 ];
 
-export const defaultImageUrl = "https://example.com/...";
+export const DEFAULT_IMAGE_URL = "https://example.com/...";

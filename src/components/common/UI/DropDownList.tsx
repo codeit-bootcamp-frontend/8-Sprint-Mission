@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import arrowDownIcon from "../../assets/images/ic_arrow_down.png";
+import arrowDownIcon from "assets/images/ic_arrow_down.png";
+import sortIcon from "assets/images/ic_sort.png";
 
 interface DropDownListProps {
   selectedCategory: string;
@@ -10,25 +11,33 @@ function DropDownList({
   selectedCategory,
   setSelectedCategory,
 }: DropDownListProps) {
-  const [view, setView] = useState<boolean>(false);
+  const [isOpened, setIsOpened] = useState<boolean>(false);
   const categories = ["최신순", "인기순"];
 
   const selectCategory = (category: string) => {
     setSelectedCategory(category);
-    setView(false);
+    setIsOpened(false);
   };
 
   return (
-    <div className="relative pt-3 py-3 rounded-xl w-32 border-gray-200 bg-white border-solid border-2">
-      <button className="flex gap-3 px-5" onClick={(e) => setView(!view)}>
-        {selectedCategory}
+    <div className="relative max-md:w-[42px] max-md:h-[42px] max-md:pt-2 pt-3 py-3 rounded-xl w-32 border-gray-200 bg-white border-solid border-2">
+      <button
+        className="flex gap-3 px-5 max-md:px-2 "
+        onClick={(e) => setIsOpened(!isOpened)}
+      >
+        <span className="hidden md:block">{selectedCategory}</span>
+        <img
+          src={sortIcon}
+          alt="드롭다운 정렬 아이콘"
+          className="block md:hidden  w-6 h-6 cursor-pointer"
+        />
         <img
           src={arrowDownIcon}
           alt="드롭다운 화살표 아이콘"
-          className="right-6 w-6 h-6 cursor-pointer"
+          className="right-6 w-6 h-6 cursor-pointer max-md:hidden"
         />
       </button>
-      {view && (
+      {isOpened && (
         <ul className="absolute rounded-xl bg-white mt-4 text-center w-full  border-gray-200 border-solid border-2">
           {categories.map((category) => (
             <li
