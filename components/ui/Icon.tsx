@@ -7,6 +7,7 @@ interface IconProps extends HTMLProps<HTMLElement> {
   type: string;
   size: IconSize;
   className?: string;
+  alt?: string;
 }
 const Icon = ({ type, size = "md", className = "", ...props }: IconProps) => {
   const iconClass = [
