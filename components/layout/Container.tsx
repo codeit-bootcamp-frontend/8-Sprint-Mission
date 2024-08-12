@@ -1,6 +1,16 @@
 import styles from "./Container.module.scss";
 
-export default function Container({ className = "", page = false, children }) {
+interface ContainerProps {
+  className?: string;
+  page?: boolean;
+  children?: any;
+}
+
+export default function Container({
+  className = "",
+  page = false,
+  children,
+}: ContainerProps) {
   const classNames = `${styles.container} ${
     page ? styles.page : ""
   } ${className}`;

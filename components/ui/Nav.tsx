@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Nav.module.scss";
 
-function getLinkStyle(pathname, href) {
+function getLinkStyle(pathname: string, href: string): string {
   const isActive = pathname === href;
   const isAddItemPage = pathname === "/additem";
   return isActive || isAddItemPage ? styles.active : "";

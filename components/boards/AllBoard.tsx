@@ -9,13 +9,18 @@ import { useRouter } from "next/router";
 import axios from "@/lib/axios";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils/formatDate";
+import { Article } from "@/types/article";
 
-function AllBoard({ initialArticles }) {
-  const [orderBy, setOrderBy] = useState("recent");
-  const [articles, setArticles] = useState(initialArticles);
+interface AllBoardProps {
+  initialArticles: Article[];
+}
+
+function AllBoard({ initialArticles }: AllBoardProps) {
+  const [orderBy, setOrderBy] = useState<string>("recent");
+  const [articles, setArticles] = useState<Article[]>(initialArticles);
 
   const router = useRouter();
-  const keyword = router.query.q || "";
+  const keyword = (router.query.q as string) || "";
 
   const [selectedOption, setSelectedOption] = useState({
     value: "recent",
@@ -26,11 +31,11 @@ function AllBoard({ initialArticles }) {
     { value: "like", label: "인기순" },
   ];
 
-  const handleSortSelection = (sortOption) => {
+  const handleSortSelection = (sortOption: string) => {
     setOrderBy(sortOption);
   };
 
-  function handleSearch(searchKeyword) {
+  function handleSearch(searchKeyword: string) {
     const query = { ...router.query };
     if (searchKeyword.trim()) {
       query.q = searchKeyword;
@@ -47,7 +52,6 @@ function AllBoard({ initialArticles }) {
     const fetchArticles = async () => {
       let url = `/articles?orderBy=${orderBy}`;
       if (keyword.trim()) {
-        // encodeURIComponent는 공백이나 특수 문자 등 URL에 포함될 수 없는 문자열을 안전하게 전달할 수 있도록 인코딩하는 자바스크립트 함수예요.
         url += `&keyword=${encodeURIComponent(keyword)}`;
       }
       const response = await axios.get(url);

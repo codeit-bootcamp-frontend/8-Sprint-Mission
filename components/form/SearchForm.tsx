@@ -2,27 +2,31 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "./SearchForm.module.scss";
 
+interface SearchFormProps {
+  onSearch: (keyword: string) => void;
+}
+
 function SearchForm({ onSearch }) {
-  const [keyword, setKeyword] = useState("");
+  const [keyword, setKeyword] = useState<string>("");
   const router = useRouter();
 
-  function handleChange(e) {
-    setKeyword(e.target.value);
-  }
-
   useEffect(() => {
-    const currentKeyword = router.query.q || "";
+    const currentKeyword = (router.query.q as string) || "";
     setKeyword(currentKeyword);
   }, [router.query.q]);
 
-  function handleSubmit(e) {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!keyword) {
       return router.push("/boards");
     }
     onSearch(keyword);
     router.push(`/boards?q=${keyword}`);
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className={styles["search-form"]}>

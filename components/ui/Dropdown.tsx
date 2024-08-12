@@ -1,14 +1,29 @@
 import React, { useState } from "react";
 import styles from "./Dropdown.module.scss";
 
-function Dropdown({ onSortSelection, selectedOption, sortOptions }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+interface Option {
+  value: string;
+  label: string;
+}
+
+interface DropdownProps {
+  onSortSelection: (value: string) => void;
+  selectedOption: Option;
+  sortOptions: Option[];
+}
+
+function Dropdown({
+  onSortSelection,
+  selectedOption,
+  sortOptions,
+}: DropdownProps) {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setMenuOpen((prevState) => !prevState);
   };
 
-  const handleOptionClick = (option) => {
+  const handleOptionClick = (option: Option) => {
     onSortSelection(option.value);
     setMenuOpen(false);
   };

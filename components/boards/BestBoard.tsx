@@ -6,9 +6,9 @@ import axios from "@/lib/axios";
 import useViewport from "@/hooks/useViewport";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils/formatDate";
+import { Article } from "@/types/article";
 
-const getPageSize = () => {
-  const width = window.innerWidth;
+const getPageSize = (width: number): number => {
   switch (true) {
     case width < 768:
       return 1;
@@ -20,8 +20,8 @@ const getPageSize = () => {
 };
 
 function BestBoard() {
-  const [articles, setArticles] = useState([]);
-  const [pageSize, setPageSize] = useState(null);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [pageSize, setPageSize] = useState<number | null>(null);
   const viewportWidth = useViewport();
 
   useEffect(() => {
@@ -31,13 +31,12 @@ function BestBoard() {
     if (newPageSize !== pageSize) {
       setPageSize(newPageSize);
 
-      const fetchBestArticles = async (size) => {
+      const fetchBestArticles = async (size: number) => {
         try {
-          const response = await fetch(
-            `https://panda-market-api.vercel.app/articles?orderBy=like&pageSize=${size}`
+          const response = await axios.get(
+            `/articles?orderBy=like&pageSize=${size}`
           );
-          const data = await response.json();
-          setArticles(data.list);
+          setArticles(response.data.list);
         } catch (error) {
           console.error("Failed to fetch best articles:", error);
         }

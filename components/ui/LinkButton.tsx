@@ -1,5 +1,20 @@
+import React from "react";
 import Link from "next/link";
 import styles from "./LinkButton.module.scss";
+
+type ButtonSize = "sm" | "md" | "lg";
+
+type ButtonColor = "primary" | "secondary" | "tertiary";
+
+interface LinkButtonProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  className?: string;
+  size?: ButtonSize;
+  color?: ButtonColor;
+  disabled?: boolean;
+  href: string;
+  children: React.ReactNode;
+}
 
 export default function LinkButton({
   className = "",
@@ -9,8 +24,7 @@ export default function LinkButton({
   href,
   children,
   ...props
-}) {
-  // 템플릿 리터럴을 사용하여 클래스 이름 조합
+}: LinkButtonProps) {
   const linkClass = `
     ${styles.btn}
     ${styles[`btn-${size}`]}
