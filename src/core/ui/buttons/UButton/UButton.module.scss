@@ -1,73 +1,43 @@
-@import '/src/styles/global.scss';
-
-@mixin box-button-theme($theme: 'default') {
-  @if $theme == 'default' {
-    &:hover {
-      outline: 2px solid $Brown-50;
-      background: $Brown-40;
-    }
-
-    &:active {
-      background: $Brown-50;
-    }
-
-    &:disabled {
-      border: 1px solid $Brown-30;
-      background: $Brown-30;
-    }
-  } @else if $theme == 'light' {
-    border: 1px solid $Brown-40;
-    background: $Brown-10;
-    color: $Brown-40;
-
-    &:hover {
-      outline: 2px solid $Brown-40;
-      background: $Brown-10;
-    }
-
-    &:active {
-      background: $Brown-20;
-    }
-
-    &:disabled {
-      border: 1px solid $Brown-30;
-      background: $Brown-10;
-      color: $Brown-30;
-    }
-  }
-}
+@import '/src/styles/global.scss';
 
 .common-button {
   cursor: pointer;
 }
 
 .box-button {
-  @include Body3-Regular;
+  @include Body3;
   display: inline-flex;
   padding: 0.75rem 1.5rem;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid $Brown-40;
+  border: 0;
   border-radius: 0.5rem;
-  background: $Brown-40;
-  color: $Grayscale-10;
-  @include box-button-theme('default');
+  background: $blue-100;
+  color: $gray-10;
+
+  &:hover {
+    background: $blue-200;
+  }
+
+  &:active {
+    background: $blue-300;
+  }
+
+  &:disabled {
+    background: $gray-400;
+  }
 
   &--small {
-    @include Caption1-Regular;
+    @include Caption1;
     padding: 0.5rem 0.75rem;
     font-size: 0.875rem;
     line-height: 1.125rem;
   }
-
-  &--light {
-    @include box-button-theme('light');
-  }
 }
 
 .floating-button {
-  @include Body1-Regular;
+  @include Body1;
   @include Shadow(2);
   display: flex;
   width: 13rem;
@@ -79,16 +49,16 @@
   flex-shrink: 0;
   border: 0;
   border-radius: 12.5rem;
-  background: $Brown-40;
-  color: $Grayscale-10;
+  background: $blue-100;
+  color: $gray-10;
 
   &--small {
-    @include Caption1-Regular;
+    @include Caption1;
     margin: 0 0 0.56rem;
     width: 6.3rem;
     height: 2.1875rem;
     padding: 0.75rem 1.5rem;
-    color: $Grayscale-10;
+    color: $gray-10;
   }
 }
 
@@ -105,6 +75,6 @@
     @include Shadow(2);
   }
   &:active {
-    background-color: $Brown-30;
+    background-color: $blue-200;
   }
 }

@@ -1,27 +1,26 @@
 import styles from './BestArticleCard.module.scss';
 
-import { BasicType } from '@/src/types/BasicTypes';
 import Image from 'next/image';
 import icBest from '@/src/assets/images/icons/ic_medal.svg';
-import { formatUpdatedAt } from '@/src/lib/utils/\bDateUtil';
+import { formatUpdatedAt } from '@/src/lib/utils/DateUtil';
+import { Article } from '@/src/types/ArticleTypes';
 
-type BestArticleCardProps = Pick<
-  BasicType,
-  'title' | 'writer' | 'likeCount' | 'createdAt' | 'image' | 'id'
->;
+type BestArticleCardProps = {
+  article: Article;
+};
 
-const BestArticleCard = ({ ...props }: BestArticleCardProps) => {
+const BestArticleCard = ({ article }: BestArticleCardProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.parent}>
-        <div className={styles.date}>{formatUpdatedAt(props.createdAt)}</div>
+        <div className={styles.date}>{formatUpdatedAt(article.createdAt)}</div>
         <div className={styles.group}>
-          <div className={styles.title}>{props.title}</div>
+          <div className={styles.title}>{article.title}</div>
           <div className={styles.imageWrapper}>
             <Image
               className={styles.articleImage}
               alt="게시물 사진"
-              src="https://d21x3meyyr2jva.cloudfront.net/image_temp/1667192556000_%EB%85%B8%ED%8A%B8%EB%B6%81_%EB%A7%A5%EB%B6%81.png"
+              src={article.image}
               width={50}
               height={50}
             />
@@ -41,11 +40,11 @@ const BestArticleCard = ({ ...props }: BestArticleCardProps) => {
           </div>
         </div>
         <div className={styles.container}>
-          <div className={styles.div2}>{props.writer.nickname}</div>
+          <div className={styles.div2}>{article.writer.nickname}</div>
           <div className={styles.icHeartParent}>
             <div className={styles.icHeart} />
             <div className={styles.div2}>
-              {props.likeCount < 9999 ? props.likeCount : '9999+'}
+              {article.likeCount < 9999 ? article.likeCount : '9999+'}
             </div>
           </div>
         </div>

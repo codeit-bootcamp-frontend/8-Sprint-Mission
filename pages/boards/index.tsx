@@ -1,3 +1,4 @@
+import AllArticlesBoard from '@/src/components/board/AllArticlesBoard/AllArticlesBoard';
 import BestArticlesSection from '@/src/components/board/BestArticlesSection/BestArticlesSection';
 import BasicLayout from '@/src/components/layout/BasicLayout/BasicLayout';
 
@@ -6,6 +7,7 @@ const BoardPage = ({}) => {
     <>
       <BasicLayout>
         <BestArticlesSection />
+        <AllArticlesBoard />
       </BasicLayout>
     </>
   );

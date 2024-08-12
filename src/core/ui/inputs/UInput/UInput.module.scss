@@ -1,41 +1,17 @@
-.icSearchIcon {
-  width: 1.5rem;
-  position: relative;
-  height: 1.5rem;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.div {
-  width: 10.875rem;
-  position: relative;
-  line-height: 1.625rem;
-  display: inline-block;
-  height: 1.5rem;
-  flex-shrink: 0;
-}
-.icSearchParent {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.25rem;
-}
-.search {
-  width: 100%;
-  position: relative;
-  border-radius: 12px;
-  background-color: #f3f4f6;
-  height: 2.625rem;
-  overflow: hidden;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0.562rem 1.25rem 0.562rem 1rem;
-  box-sizing: border-box;
-  text-align: left;
-  font-size: 1rem;
-  color: #9ca3af;
-  font-family: Pretendard;
+@import '/src/styles/global.scss';
+
+.input {
+  border: none;
+  flex: 1;
+  background-color: inherit;
+  margin-left: 4px;
+
+  &::placeholder {
+    color: $gray-400;
+    @include Body3;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }

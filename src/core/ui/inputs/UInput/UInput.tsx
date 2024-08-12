@@ -1,18 +1,22 @@
-import { OptionalPick } from '@/src/lib/utils/OptionalPick';
 import styles from './UInput.module.scss';
+
+import { OptionalPick } from '@/src/lib/utils/OptionalPick';
 import { BasicType } from '@/src/types/BasicTypes';
 
-type UInputProps = OptionalPick<BasicType, '', ''>;
+type UInputProps = Partial<
+  Pick<BasicType, 'placeholder' | 'keyword' | 'onChange' | 'onKeyDown'>
+>;
 
-const UInput = ({}: UInputProps) => {
+const UInput = ({ ...props }: UInputProps) => {
   return (
     <>
-      <div className={styles.search}>
-        <div className={styles.icSearchParent}>
-          <img className={styles.icSearchIcon} alt="" src="ic_search.svg" />
-          <div className={styles.div}>검색할 상품을 입력해주세요</div>
-        </div>
-      </div>
+      <input
+        className={styles['input']}
+        value={props.keyword}
+        placeholder={props.placeholder || ''}
+        onChange={props.onChange}
+        onKeyDown={props.onKeyDown}
+      />
     </>
   );
 };

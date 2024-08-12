@@ -19,7 +19,6 @@ const UButton = ({
   handleClick,
   children,
   isDisalbed = false,
-  isLightTheme = false,
   isSmallButton = false,
 }: UButtonProps) => {
   return (
@@ -29,7 +28,6 @@ const UButton = ({
           styles['common-button'],
           {
             [styles['box-button']]: type === 'box',
-            [styles['box-button--light']]: type === 'box' && isLightTheme,
             [styles['box-button--small']]: type === 'box' && isSmallButton,
             [styles['floating-button']]: type === 'floating',
             [styles['floating-button--small']]:

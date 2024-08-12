@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from '@/src/styles/Home.module.scss';
+import { getArticles } from '@/src/lib/api/articleApi';
 
 export default function Home() {
   return (
