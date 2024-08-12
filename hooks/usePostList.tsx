@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 interface queryType {
   query: {
@@ -12,18 +12,28 @@ export default function usePostList<T>(
   getFn: (query: queryType) => Promise<T[]>,
   initialList: T[]
 ) {
+  const [loading, setLoading] = useState<Boolean>(false);
+  const [error, setError] = useState<string | null>(null);
   const [dataList, setDataList] = useState<T[]>(initialList);
   const fetchPost = async (query: queryType) => {
+    setLoading(true);
     try {
       const res = await getFn(query);
-      console.log(res);
       setDataList(res);
-    } catch (err) {
-      throw new Error("데이터를 불러오는데 실패했습니다.");
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('예기치 않은 오류가 발생했습니다.');
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
   return {
+    loading,
+    error,
     dataList,
     fetchPost,
   };
