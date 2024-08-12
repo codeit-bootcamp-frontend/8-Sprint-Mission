@@ -1,0 +1,154 @@
+@import '/src/styles/global.scss';
+
+.date {
+  position: absolute;
+  top: 8.5rem;
+  left: 12.5rem;
+  line-height: 1.5rem;
+}
+.title {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  line-height: 2rem;
+  font-weight: 600;
+  display: inline-block;
+  width: 16rem;
+}
+.articleImage {
+  position: absolute;
+  top: calc(50% - 22.29px);
+  left: calc(50% - 24px);
+  width: 3rem;
+  height: 2.788rem;
+  object-fit: cover;
+}
+.imageWrapper {
+  position: absolute;
+  top: 0rem;
+  left: 16.5rem;
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  box-sizing: border-box;
+  width: 4.5rem;
+  height: 4.5rem;
+  overflow: hidden;
+}
+.group {
+  position: absolute;
+  top: 2.875rem;
+  left: 0rem;
+  width: 21rem;
+  height: 4.5rem;
+  font-size: 1.25rem;
+  color: #1f2937;
+}
+.listCommunityicMedalChild {
+  position: absolute;
+  height: 43.75%;
+  width: 50%;
+  top: 18.75%;
+  right: 25%;
+  bottom: 37.5%;
+  left: 25%;
+  border-radius: 2.5px;
+  background-color: #fff;
+}
+.vectorIcon {
+  position: absolute;
+  height: 93.13%;
+  width: 77.5%;
+  top: 3.85%;
+  right: 11.22%;
+  bottom: 3.03%;
+  left: 11.28%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.listCommunityicMedal {
+  width: 1rem;
+  position: relative;
+  height: 1rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.best {
+  position: relative;
+  line-height: 1.625rem;
+  font-weight: 600;
+}
+.listCommunityicMedalParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.imgBadge {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  border-radius: 0px 0px 16px 16px;
+  background-color: #3692ff;
+  width: 6.375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.125rem 1.5rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #fff;
+}
+.div2 {
+  position: relative;
+  line-height: 1.5rem;
+}
+.icHeart {
+  width: 1rem;
+  position: relative;
+  height: 1rem;
+}
+.icHeartParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  color: #6b7280;
+}
+.container {
+  position: absolute;
+  top: 8.5rem;
+  left: 0rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  color: #4b5563;
+}
+.parent {
+  width: 21rem;
+  position: relative;
+  height: 9.563rem;
+}
+.card {
+  width: 24rem;
+  position: relative;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  height: 10.563rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0rem 1.5rem;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 0.875rem;
+  color: #9ca3af;
+  font-family: Pretendard;
+}

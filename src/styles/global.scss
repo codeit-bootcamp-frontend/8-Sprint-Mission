@@ -1,0 +1,112 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Actor&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ROKAF+Sans:wght@700&display=swap');
+
+$gray-900: #1b1d1f;
+$gray-800: #26282b;
+$gray-600: #454c53;
+$gray-500: #72787f;
+$gray-400: #9ea4a8;
+$gray-200: #e5e7eb;
+$gray-100: #e8ebed;
+$gray-50: #f7f7f8;
+$gray-10: #f3f4f6;
+$gray-heart: #4b5563;
+
+$blue-300: #1251aa;
+$blue-200: #1967d6;
+$blue-100: #3692ff;
+
+@mixin Shadow($pt: 1) {
+  @if $pt == 1 {
+    box-shadow: 0px 4px 4px 0px rgba(140, 140, 140, 0.25);
+  } @else if $pt == 2 {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  } @else if $pt == 3 {
+    box-shadow: 0px 16px 20px 0px rgba(48, 48, 48, 0.62);
+  }
+}
+
+@mixin H1 {
+  color: $Grayscale-60;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Pretendard, sans-serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@mixin H2 {
+  color: $Grayscale-60;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Pretendard, sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+@mixin H3 {
+  color: $Grayscale-60;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Pretendard, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+}
+
+@mixin Body1 {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Pretendard, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5625rem;
+}
+
+@mixin Body2 {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Pretendard, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+@mixin Body3 {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Pretendard, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375rem;
+}
+
+@mixin Body4 {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Pretendard, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+
+@mixin Caption1 {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Pretendard, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.125rem;
+}
+
+@mixin Caption2 {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Actor, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.125rem;
+}

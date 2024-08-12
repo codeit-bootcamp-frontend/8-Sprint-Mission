@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  width: 100%;
+  margin: 2.5rem 0 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchBar {
+  display: flex;
+  width: 100%;
+  margin: 0 0 1.5rem;
+  align-items: center;
+}
+
+.searchInput {
+}
+
+.sortingDropdown {
+  @media (min-width: 768px) {
+    width: 8.125rem;
+  }
+  width: 2.625rem;
+}
+
+.articleList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

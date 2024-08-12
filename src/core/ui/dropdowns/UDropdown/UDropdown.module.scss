@@ -1,0 +1,36 @@
+@import '/src/styles/global.scss';
+
+.dropdown {
+  &__wrapper {
+    position: relative;
+  }
+
+  &__button {
+    border: 1px solid $gray-200;
+    border-radius: 0.75rem;
+    padding: 0.56rem;
+  }
+
+  &__itemList {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: $gray-10;
+    border-radius: 0.5rem;
+    border: 1px solid $gray-200;
+    @include Shadow(1);
+    z-index: 99;
+  }
+
+  &__item {
+    padding: 0.75rem 2.75rem;
+    border-bottom: 1px solid $gray-200;
+    font-size: 1px;
+    color: $gray-400;
+    cursor: pointer;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

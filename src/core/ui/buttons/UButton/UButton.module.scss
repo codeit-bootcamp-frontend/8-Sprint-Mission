@@ -1,0 +1,80 @@
+@import '/src/styles/global.scss';
+
+.common-button {
+  cursor: pointer;
+}
+
+.box-button {
+  @include Body3;
+  display: inline-flex;
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: $blue-100;
+  color: $gray-10;
+
+  &:hover {
+    background: $blue-200;
+  }
+
+  &:active {
+    background: $blue-300;
+  }
+
+  &:disabled {
+    background: $gray-400;
+  }
+
+  &--small {
+    @include Caption1;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+}
+
+.floating-button {
+  @include Body1;
+  @include Shadow(2);
+  display: flex;
+  width: 13rem;
+  height: 3.375rem;
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 12.5rem;
+  background: $blue-100;
+  color: $gray-10;
+
+  &--small {
+    @include Caption1;
+    margin: 0 0 0.56rem;
+    width: 6.3rem;
+    height: 2.1875rem;
+    padding: 0.75rem 1.5rem;
+    color: $gray-10;
+  }
+}
+
+.round-button {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 12.5rem;
+
+  &:hover {
+    @include Shadow(2);
+  }
+  &:active {
+    background-color: $blue-200;
+  }
+}

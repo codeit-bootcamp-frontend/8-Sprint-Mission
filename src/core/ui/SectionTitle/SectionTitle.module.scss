@@ -1,0 +1,7 @@
+@import '/src/styles/global.scss';
+
+.title {
+  @include Body1;
+  color: $gray-900;
+  margin: 0 0 1.5rem;
+}

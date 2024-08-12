@@ -1,0 +1,17 @@
+@import '/src/styles/global.scss';
+
+.input {
+  border: none;
+  flex: 1;
+  background-color: inherit;
+  margin-left: 4px;
+
+  &::placeholder {
+    color: $gray-400;
+    @include Body3;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

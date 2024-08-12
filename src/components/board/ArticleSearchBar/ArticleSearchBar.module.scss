@@ -1,0 +1,14 @@
+@import '/src/styles/global.scss';
+
+.searchBar {
+  &__wrapper {
+    background-color: $gray-100;
+    border-radius: 0.75rem;
+    padding: 0.563rem 1rem;
+    flex: 1;
+  }
+
+  &__input {
+    margin-left: 0.25rem;
+  }
+}
