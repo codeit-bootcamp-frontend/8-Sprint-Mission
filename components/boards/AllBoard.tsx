@@ -32,6 +32,10 @@ function AllBoard({ initialArticles }: AllBoardProps) {
   ];
 
   const handleSortSelection = (sortOption: string) => {
+    const selected = sortOptions.find(
+      (option) => option.value === sortOption
+    ) || { value: "recent", label: "최신순" };
+    setSelectedOption(selected);
     setOrderBy(sortOption);
   };
 
