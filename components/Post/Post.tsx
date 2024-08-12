@@ -1,53 +1,52 @@
-import axios from '@/lib/axios';
-import { useRouter } from 'next/router';
-import { useState, useEffect, MouseEvent } from 'react';
-import PostList from './PostList';
-import Section from '@/components/Section/Section';
-import SearchForm from '../SearchForm/SearchForm';
-import SortOptions from '../DropDown/SortOptions';
-import styles from './Post.module.css';
-import LinkButton from '../Button/LinkButton';
-import { PostListProps } from './@types/Post';
+import { useRouter } from "next/router";
+import { useState, useEffect, MouseEvent } from "react";
+import PostList from "./PostList";
+import Section from "@/components/Section/Section";
+import SearchForm from "../SearchForm/SearchForm";
+import SortOptions from "../DropDown/SortOptions";
+import styles from "./Post.module.css";
+import LinkButton from "../Button/LinkButton";
+import { PostListProps } from "./@types/Post";
+import { getPostList } from "@/utils/api";
+import usePostList from "@/hooks/usePostList";
 
 interface OptionType {
   orderBy: string | string[] | undefined;
   keyword: string | undefined;
 }
 
-export default function Post() {
+interface AllPropsListProps {
+  initialPosts: PostListProps[];
+}
+
+export default function Post({ initialPosts }: AllPropsListProps) {
   const router = useRouter();
-  const query = router.query;
-  const [posts, setPosts] = useState<PostListProps[]>([]);
+  const { dataList: posts, fetchPost: getPost } = usePostList(
+    getPostList,
+    initialPosts
+  );
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [options, setOptions] = useState<OptionType>({
-    orderBy: 'recent',
-    keyword: '',
+    orderBy: "recent",
+    keyword: "",
   });
 
-  async function getPost() {
-    try {
-      const res = await axios.get(
-        `/articles?orderBy=${options.orderBy}&keyword=${options.keyword}`
-      );
-      const allPosts = res.data.list;
-      setPosts(allPosts);
-    } catch (err) {
-      throw new Error('데이터를 불러오는데 실패했습니다.');
-    }
-  }
-
   useEffect(() => {
-    getPost();
+    const query = {
+      orderBy: options.orderBy,
+      keyword: options.keyword,
+    };
+    getPost({ query });
   }, [options]);
 
   const showSortOptionHandler = () => {
-    setIsSortOpen(prev => !prev);
+    setIsSortOpen((prev) => !prev);
   };
 
   const sortHandler = (e: MouseEvent<HTMLButtonElement>) => {
     const sortType = e.currentTarget.dataset.type;
     router.push(`/boards?orderBy=${sortType}`);
-    setOptions(prevOption => ({
+    setOptions((prevOption) => ({
       ...prevOption,
       orderBy: sortType,
     }));
@@ -56,13 +55,13 @@ export default function Post() {
 
   const searchHandler = (keyword: string) => {
     router.push(`/boards?keyword=${keyword}`);
-    setOptions(prevOption => ({
+    setOptions((prevOption) => ({
       ...prevOption,
       keyword: keyword,
     }));
   };
 
-  const sortText = options.orderBy === 'recent' ? '최신순' : '좋아요순';
+  const sortText = options.orderBy === "recent" ? "최신순" : "좋아요순";
 
   return (
     <Section>
@@ -79,7 +78,7 @@ export default function Post() {
           sortText={sortText}
         />
       </div>
-      {posts.map(list => (
+      {posts.map((list) => (
         <PostList key={list.id} postList={list} />
       ))}
     </Section>
