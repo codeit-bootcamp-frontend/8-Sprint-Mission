@@ -4,8 +4,8 @@ export interface PostListProps {
   image: string;
   likeCount: number;
   title: string;
-  updatedAt?: string;
-  createdAt?: string;
+  updatedAt: string | Date;
+  createdAt: string | Date;
   writer: {
     id: number;
     nickname: string;
