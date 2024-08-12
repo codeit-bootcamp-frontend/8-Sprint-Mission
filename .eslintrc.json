@@ -1,3 +1,7 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    // 이미지 오류 무시
+    "@next/next/no-img-element": "off"
+  }
 }
