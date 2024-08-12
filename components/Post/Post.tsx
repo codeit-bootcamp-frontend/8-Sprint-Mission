@@ -1,14 +1,15 @@
-import { useRouter } from "next/router";
-import { useState, useEffect, MouseEvent } from "react";
-import PostList from "./PostList";
-import Section from "@/components/Section/Section";
-import SearchForm from "../SearchForm/SearchForm";
-import SortOptions from "../DropDown/SortOptions";
-import styles from "./Post.module.css";
-import LinkButton from "../Button/LinkButton";
-import { PostListProps } from "./@types/Post";
-import { getPostList } from "@/utils/api";
-import usePostList from "@/hooks/usePostList";
+import { useRouter } from 'next/router';
+import { useState, useEffect, MouseEvent } from 'react';
+import PostList from './PostList';
+import Section from '@/components/Section/Section';
+import SearchForm from '../SearchForm/SearchForm';
+import SortOptions from '../DropDown/SortOptions';
+import EllipsisLoading from '@/components/Loading/EllipsisLoading';
+import styles from './Post.module.css';
+import LinkButton from '../Button/LinkButton';
+import { PostListProps } from './@types/Post';
+import { getPostList } from '@/utils/api';
+import usePostList from '@/hooks/usePostList';
 
 interface OptionType {
   orderBy: string | string[] | undefined;
@@ -21,14 +22,16 @@ interface AllPropsListProps {
 
 export default function Post({ initialPosts }: AllPropsListProps) {
   const router = useRouter();
-  const { dataList: posts, fetchPost: getPost } = usePostList(
-    getPostList,
-    initialPosts
-  );
+  const {
+    loading,
+    error,
+    dataList: posts,
+    fetchPost: getPost,
+  } = usePostList(getPostList, initialPosts);
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [options, setOptions] = useState<OptionType>({
-    orderBy: "recent",
-    keyword: "",
+    orderBy: 'recent',
+    keyword: '',
   });
 
   useEffect(() => {
@@ -40,13 +43,13 @@ export default function Post({ initialPosts }: AllPropsListProps) {
   }, [options]);
 
   const showSortOptionHandler = () => {
-    setIsSortOpen((prev) => !prev);
+    setIsSortOpen(prev => !prev);
   };
 
   const sortHandler = (e: MouseEvent<HTMLButtonElement>) => {
     const sortType = e.currentTarget.dataset.type;
     router.push(`/boards?orderBy=${sortType}`);
-    setOptions((prevOption) => ({
+    setOptions(prevOption => ({
       ...prevOption,
       orderBy: sortType,
     }));
@@ -55,13 +58,17 @@ export default function Post({ initialPosts }: AllPropsListProps) {
 
   const searchHandler = (keyword: string) => {
     router.push(`/boards?keyword=${keyword}`);
-    setOptions((prevOption) => ({
+    setOptions(prevOption => ({
       ...prevOption,
       keyword: keyword,
     }));
   };
 
-  const sortText = options.orderBy === "recent" ? "최신순" : "좋아요순";
+  const sortText = options.orderBy === 'recent' ? '최신순' : '좋아요순';
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <Section>
@@ -78,9 +85,15 @@ export default function Post({ initialPosts }: AllPropsListProps) {
           sortText={sortText}
         />
       </div>
-      {posts.map((list) => (
-        <PostList key={list.id} postList={list} />
-      ))}
+      {loading ? (
+        <EllipsisLoading />
+      ) : (
+        <div>
+          {posts.map(list => (
+            <PostList key={list.id} postList={list} />
+          ))}
+        </div>
+      )}
     </Section>
   );
 }
