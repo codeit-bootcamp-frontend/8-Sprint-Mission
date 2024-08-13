@@ -2,6 +2,7 @@ import styled from "styled-components";
 import favorite from "@/images/favorite.png";
 import Image from "next/image";
 import { BoardItemType } from "@/pages/boards";
+import Link from "next/link";
 
 interface BoardItemProps {
   board: BoardItemType;
@@ -33,25 +34,37 @@ function BoardItem({ board }: BoardItemProps) {
   }
 
   return (
-    <Wrapper>
-      <TitleWrapper>
-        <BoardTitle>{board.title}</BoardTitle>
-        <Image src={board.image} alt="BestBoardImage" width={72} height={72} />
-      </TitleWrapper>
-
-      <WriterWrapper>
-        <span>
-          {board.writer.nickname} {formatDate(board.createdAt)}
-        </span>
-        <LikeWrapper>
-          <Image src={favorite} alt="favorite" />
-          <span> {board.likeCount}+</span>
-        </LikeWrapper>
-      </WriterWrapper>
-    </Wrapper>
+    <StyledLink href={`/boards/${board.id}`}>
+      <Wrapper>
+        <TitleWrapper>
+          <BoardTitle>{board.title}</BoardTitle>
+          <Image
+            src={board.image}
+            alt="BestBoardImage"
+            width={72}
+            height={72}
+          />
+        </TitleWrapper>
+        <WriterWrapper>
+          <span>
+            {board.writer.nickname} {formatDate(board.createdAt)}
+          </span>
+          <LikeWrapper>
+            <Image src={favorite} alt="favorite" />
+            <span> {board.likeCount}+</span>
+          </LikeWrapper>
+        </WriterWrapper>
+      </Wrapper>
+    </StyledLink>
   );
 }
-
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+  }
+`;
 const Wrapper = styled.div`
   width: 100%;
   height: 138px;

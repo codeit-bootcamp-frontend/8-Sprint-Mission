@@ -8,6 +8,7 @@ import { getArticles } from "@/pages/util/api";
 import { useEffect, useState } from "react";
 import BestBoardItemList from "@/components/bestboarditemlist";
 import BoardItemList from "@/components/boarditemlist";
+import Head from "next/head";
 
 export interface BoardItemType {
   id: number;
@@ -68,6 +69,9 @@ export default function Board() {
 
   return (
     <Container>
+      <Head>
+        <title>게시글</title>
+      </Head>
       <Title>Best 게시글</Title>
       <BestBoardItemList boards={bestBoards} />
       <ListContainer>
