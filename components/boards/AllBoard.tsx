@@ -58,8 +58,12 @@ function AllBoard({ initialArticles }: AllBoardProps) {
       if (keyword.trim()) {
         url += `&keyword=${encodeURIComponent(keyword)}`;
       }
-      const response = await axios.get(url);
-      setArticles(response.data.list);
+      try {
+        const response = await axios.get(url);
+        setArticles(response.data.list);
+      } catch (error) {
+        console.error("Failed to fetch articles:", error);
+      }
     };
 
     fetchArticles();

@@ -21,8 +21,9 @@ function SearchForm({ onSearch }: SearchFormProps) {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!keyword) {
-      return router.push("/boards");
+    if (!keyword.trim()) {
+      router.push("/boards");
+      return;
     }
     onSearch(keyword);
     router.push(`/boards?q=${keyword}`);
