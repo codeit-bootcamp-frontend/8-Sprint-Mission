@@ -1,0 +1,98 @@
+@import '../styles/config.scss';
+
+.card {
+  background-color: var(--gray50);
+  border-radius: 8px;
+
+  .badge {
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+  }
+
+  .wrap {
+    padding: 16px 24px;
+
+    .content {
+      display: flex;
+      gap: 8px;
+      min-height: 72px;
+
+      h3 {
+        font-size: 18px;
+        font-weight: 600;
+        flex: 1;
+
+        @include media($tablet) {
+          font-size: 20px;
+        }
+      }
+
+      .thumbnail {
+        background-color: #fff;
+        border: 1px solid var(--gray200);
+        width: 72px;
+        height: 72px;
+        border-radius: 8px;
+        padding: 12px;
+
+        .img {
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray600);
+      font-size: 14px;
+    }
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  @include media($tablet) {
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--gray800);
+
+    @include media($tablet) {
+      font-size: 28px;
+    }
+  }
+}
+
+.best_posts {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+
+  @include media($tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @include media($pc) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
