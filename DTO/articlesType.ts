@@ -1,6 +1,6 @@
 import Article from "@/DTO/article";
 
-export default interface Articles {
+export default interface ArticlesType {
   totalCount: number;
   list: Article[];
 }
