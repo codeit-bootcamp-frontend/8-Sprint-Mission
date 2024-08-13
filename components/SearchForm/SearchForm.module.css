@@ -1,0 +1,32 @@
+.searchContainer {
+  flex: 1 0;
+}
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  padding: 9px 16px;
+  width: 100%;
+  background: var(--color-gray100);
+  border-radius: 12px;
+}
+.inputWrapper > input {
+  width: 100%;
+  padding-left: 6px;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  outline: none;
+  border: none;
+  background: none;
+}
+.inputWrapper > button {
+  width: 24px;
+  height: 24px;
+  background: url(/images/icon/ic_search.png);
+}
+
+@media (max-width: 768px) {
+  .searchContainer {
+    width: 100%;
+    max-width: 100%;
+  }
+}
