@@ -3,6 +3,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import favorite from "@/images/favorite.png";
 import { BoardItemType } from "@/pages/boards";
+import Link from "next/link";
 
 interface BoardItemListProps {
   boards: BoardItemType[];
@@ -34,28 +35,30 @@ function BestBoardItem({ board }: BoardItemProps) {
   }
 
   return (
-    <Wrapper>
-      <Image src={Badge} alt="badge" />
-      <BoardWrapper>
-        <TitleWrapper>
-          <BoardTitle>{board.title}</BoardTitle>
-          <Image
-            src={board.image}
-            alt="BestBoardImage"
-            width={72}
-            height={72}
-          />
-        </TitleWrapper>
-        <WriterWrapper>
-          <WriterLeftElement>
-            {board.writer.nickname}
-            <Image src={favorite} alt="favorite" />
-            {board.likeCount}+
-          </WriterLeftElement>
-          <span>{formatDate(board.createdAt)}</span>
-        </WriterWrapper>
-      </BoardWrapper>
-    </Wrapper>
+    <StyledLink href={`/boards/${board.id}`}>
+      <Wrapper>
+        <Image src={Badge} alt="badge" />
+        <BoardWrapper>
+          <TitleWrapper>
+            <BoardTitle>{board.title}</BoardTitle>
+            <Image
+              src={board.image}
+              alt="BestBoardImage"
+              width={72}
+              height={72}
+            />
+          </TitleWrapper>
+          <WriterWrapper>
+            <WriterLeftElement>
+              {board.writer.nickname}
+              <Image src={favorite} alt="favorite" />
+              {board.likeCount}+
+            </WriterLeftElement>
+            <span>{formatDate(board.createdAt)}</span>
+          </WriterWrapper>
+        </BoardWrapper>
+      </Wrapper>
+    </StyledLink>
   );
 }
 
@@ -82,6 +85,14 @@ const BoardItemContainer = styled.div`
     > div:nth-child(3) {
       display: none;
     }
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: none;
   }
 `;
 
