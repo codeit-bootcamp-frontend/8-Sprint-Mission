@@ -1,7 +1,14 @@
 import { DeviceContext } from '@/contexts/DeviceContext';
 import { ArticlesQuery } from '@/pages/api/client';
 import Image from 'next/image';
-import { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react';
+import {
+  ChangeEvent,
+  FormEvent,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 type Props = {
   keyword: string;
@@ -10,7 +17,6 @@ type Props = {
   onChangeOrderBy: React.Dispatch<
     React.SetStateAction<ArticlesQuery['orderBy']>
   >;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 function BoardTitle({
@@ -18,15 +24,15 @@ function BoardTitle({
   orderBy,
   onChangeKeyword,
   onChangeOrderBy,
-  setIsLoading,
 }: Props) {
   const device = useContext(DeviceContext);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [mounted, setMounted] = useState<boolean>(false);
 
-  let orderName;
-  if (orderBy === 'recent') orderName = '최신순';
-  else orderName = '좋아요순';
+  const orderName = useMemo(() => {
+    if (orderBy === 'recent') return '최신순';
+    return '좋아요순';
+  }, [orderBy]);
 
   const handleIsOpen = () => {
     setIsOpen(p => !p);
@@ -39,16 +45,12 @@ function BoardTitle({
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(() => true);
   };
 
   const handleChangeOrderBy = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { currentTarget } = e;
     const order = currentTarget.dataset.order as ArticlesQuery['orderBy'];
-    onChangeOrderBy(prev => {
-      if (prev !== order) setIsLoading(() => true);
-      return order;
-    });
+    onChangeOrderBy(order);
   };
 
   useEffect(() => {
@@ -66,7 +68,7 @@ function BoardTitle({
           글쓰기
         </button>
       </div>
-      <div className="mt-[16px] flex gap-[13px]">
+      <div className="mt-4 flex gap-[13px]">
         <form className="relative flex grow" onSubmit={handleSubmit}>
           <label
             htmlFor="input_search"
@@ -81,7 +83,7 @@ function BoardTitle({
           </label>
           <input
             id="input_search"
-            className="w-full rounded-[8px] bg-secondary-100 py-[6px] pl-[40px] pr-[16px] placeholder:font-lg-16px-regular"
+            className="w-full rounded-[8px] bg-secondary-100 py-[6px] pl-[40px] pr-4 placeholder:font-lg-16px-regular"
             placeholder="검색할 상품을 입력해주세요"
             value={keyword}
             onChange={handleChange}
