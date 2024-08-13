@@ -36,7 +36,7 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
   const [totalPages, setTotalPages] = useState(1);
 
   const { isPending, error, wrappedAsyncFunction: getArticlesAsync } = useAsync(getArticles);
-  const { isDropdownOpen, handleDropdown } = useDropdownState();
+  const { dropdownState, handleDropdown } = useDropdownState();
 
   const renderedPages = getRenderedPages(page, totalPages, WIDTH_PAGINATION_NUMBER_PAIR[mediaWidth]);
 
@@ -79,7 +79,7 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
         <div className={styles.searchIconContainer}>
           <Image fill src="/images/ic_search.png" alt="검색" />
         </div>
-        <div className={styles.orderDropdownHandler} onClick={handleDropdown}>
+        <div className={styles.orderDropdownHandler} onClick={(e) => {handleDropdown(e, 1)}}>
           <span>{ORDER_EN_KO_PAIR[orderBy]}</span>
           <div className={styles.arrowDownImageContainer}>
             <Image fill src="/images/ic_arrow_down.png" alt="보기" />
@@ -87,7 +87,7 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
           <div className={styles.sortIconContainer}>
             <Image fill src="/images/ic_sort.svg" alt="보기" />
           </div>
-          <ul className={`${styles.dropdownList} ${isDropdownOpen ? '' : "hidden"}`}>
+          <ul className={`${styles.dropdownList} ${(dropdownState === 1) ? '' : "hidden"}`}>
             <li className={styles.dropdownListItem} onClick={() => setOrderBy("recent")}>
               {ORDER_EN_KO_PAIR["recent"]}
             </li>
