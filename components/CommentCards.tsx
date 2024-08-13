@@ -1,24 +1,14 @@
-import style from "@/components/CommentCard.module.css";
+import style from "@/components/CommentCards.module.css";
 import Best from "@/image/icons/ic_best.svg";
 import Heart from "@/image/icons/ic_heart.svg";
-
-interface Comment {
-  updateAt: string;
-  createdAt: string;
-  likeCount: number;
-  image: string;
-  content: string;
-  title: string;
-  nickname: string;
-  id: number;
-}
+import { Comment } from "@/api/types/comment";
 
 interface CommentProps {
   comments: Comment[];
   showBest?: boolean;
 }
 
-const CommentCard: React.FC<CommentProps> = ({
+const CommentCards: React.FC<CommentProps> = ({
   comments,
   showBest = false,
 }) => {
@@ -49,4 +39,4 @@ const CommentCard: React.FC<CommentProps> = ({
   );
 };
 
-export default CommentCard;
+export default CommentCards;

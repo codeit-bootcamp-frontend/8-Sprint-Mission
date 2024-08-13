@@ -26,7 +26,11 @@ const SearchForm = ({ initalValue = "" }) => {
         <h1>게시글</h1>
         <button>글쓰기</button>
         <form onSubmit={handleSubmit}>
+          <label htmlFor="search" className={style.sronly}>
+            게시글 검색
+          </label>
           <input
+            id="search"
             name="keyword"
             value={value}
             placeholder="검색할 상품을 입력해주세요"

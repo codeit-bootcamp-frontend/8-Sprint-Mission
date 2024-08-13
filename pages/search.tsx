@@ -3,18 +3,8 @@ import { useRouter } from "next/router";
 import BestComment from "@/components/BestComment";
 import SearchFrom from "@/components/SearchForm";
 import axios from "@/lib/axios";
-import CommentCard from "@/components/CommentCard";
-
-interface Comment {
-  updateAt: string;
-  createdAt: string;
-  likeCount: number;
-  image: string;
-  content: string;
-  title: string;
-  nickname: string;
-  id: number;
-}
+import CommentCard from "@/components/CommentCards";
+import { Comment } from "@/api/types/comment";
 
 const Search = () => {
   const [comment, setComment] = useState<Comment[]>([]);

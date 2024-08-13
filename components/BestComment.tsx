@@ -1,18 +1,8 @@
 import { useEffect, useState } from "react";
-import CommentCard from "./CommentCard";
+import CommentCard from "./CommentCards";
 import axios from "@/lib/axios";
 import style from "@/components/BestComment.module.css";
-
-interface Comment {
-  updateAt: string;
-  createdAt: string;
-  likeCount: number;
-  image: string;
-  content: string;
-  title: string;
-  nickname: string;
-  id: number;
-}
+import { Comment } from "@/api/types/comment";
 
 interface CommentList {
   list: Comment[];
@@ -56,11 +46,11 @@ const BestComment = () => {
   return (
     <div className={style.bestCommentContainer}>
       <h1 className={style.sectionTitle}>베트스 게시글</h1>
-      <div className={style.bestCommentsCard}>
+      <ul className={style.bestCommentsCard}>
         <li>
           <CommentCard comments={comment} showBest={true} />
         </li>
-      </div>
+      </ul>
     </div>
   );
 };

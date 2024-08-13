@@ -1,20 +1,10 @@
 import BestComment from "@/components/BestComment";
-import CommentCard from "@/components/CommentCard";
+import CommentCards from "@/components/CommentCards";
 import SearchFrom from "@/components/SearchForm";
 import style from "@/styles/Boards.module.css";
 import axios from "@/lib/axios";
 import { useEffect, useState } from "react";
-
-interface Comment {
-  updateAt: string;
-  createdAt: string;
-  likeCount: number;
-  image: string;
-  content: string;
-  title: string;
-  nickname: string;
-  id: number;
-}
+import { Comment } from "@/api/types/comment";
 
 const Board = () => {
   const [comment, setCommen] = useState<Comment[]>([]);
@@ -34,7 +24,7 @@ const Board = () => {
       <BestComment />
       <SearchFrom />
       <li>
-        <CommentCard comments={comment} showBest={false} />
+        <CommentCards comments={comment} showBest={false} />
       </li>
     </div>
   );
