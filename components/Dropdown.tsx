@@ -18,7 +18,7 @@ function Dropdown({ options, onOptionChange }: DropdownProps) {
   const [selectedValue, setSelectedValue] = useState<string>("최신순");
 
   const handleDropdownClick = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
   const handleOptionSelect = (value: string, label: string) => {
