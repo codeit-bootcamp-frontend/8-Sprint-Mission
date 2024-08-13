@@ -1,6 +1,6 @@
-import { OptionalPick } from '@/src/lib/utils/OptionalPick';
+import { OptionalPick } from '@lib/utils/OptionalPick';
 import styles from './UImage.module.scss';
-import { BasicType } from '@/src/types/BasicTypes';
+import { BasicType } from '@type/BasicTypes';
 import clsx from 'clsx';
 
 type UImageProps = OptionalPick<

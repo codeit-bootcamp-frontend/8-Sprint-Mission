@@ -2,8 +2,8 @@ import styles from './BasicArticleCard.module.scss';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { formatUpdatedAt } from '@/src/lib/utils/DateUtil';
-import { BasicType } from '@/src/types/BasicTypes';
+import { formatUpdatedAt } from '@lib/utils/DateUtil';
+import { BasicType } from '@type/BasicTypes';
 
 type BasicArticleCardProps = Pick<BasicType, 'article'>;
 

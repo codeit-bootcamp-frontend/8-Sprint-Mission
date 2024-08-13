@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { UImage } from '../../UImage/UImage';
-import Logo from '@/src/assets/images/logo/logo.svg';
+import Logo from '@assets/images/logo/logo.svg';
 
 import styles from './HeaderLogo.module.scss';
 

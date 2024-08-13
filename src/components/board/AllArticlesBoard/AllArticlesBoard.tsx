@@ -1,13 +1,13 @@
 import styles from './AllArticlesBoard.module.scss';
 
-import SectionTitle from '@/src/core/ui/SectionTitle/SectionTitle';
-import UButton from '@/src/core/ui/buttons/UButton/UButton';
+import SectionTitle from '@core/ui/SectionTitle/SectionTitle';
+import UButton from '@core/ui/buttons/UButton/UButton';
 import ArticleSearchBar from '../ArticleSearchBar/ArticleSearchBar';
-import UDropdown from '@/src/core/ui/dropdowns/UDropdown/UDropdown';
+import UDropdown from '@core/ui/dropdowns/UDropdown/UDropdown';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Article, ArticleOrderBy } from '@/src/types/ArticleTypes';
-import { getArticles } from '@/src/lib/api/articleApi';
+import { Article, ArticleOrderBy } from '@type/ArticleTypes';
+import { getArticles } from '@lib/api/articleApi';
 import BasicArticleCard from '../BasicArticleCard/BasicArticleCard';
 
 type AllArticlesBoardProps = { initArticles: Article[] };

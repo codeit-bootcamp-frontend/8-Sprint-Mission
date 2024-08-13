@@ -1,7 +1,4 @@
-import {
-  ArticleListRequest,
-  ArticleListResponse,
-} from '@/src/types/ArticleTypes';
+import { ArticleListRequest, ArticleListResponse } from '@type/ArticleTypes';
 import axiosInstance from './axios';
 
 export const getArticles = async ({ ...params }: ArticleListRequest) => {

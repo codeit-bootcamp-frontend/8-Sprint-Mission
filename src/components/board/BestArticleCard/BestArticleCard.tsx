@@ -1,9 +1,9 @@
 import styles from './BestArticleCard.module.scss';
 
 import Image from 'next/image';
-import icBest from '@/src/assets/images/icons/ic_medal.svg';
-import { formatUpdatedAt } from '@/src/lib/utils/DateUtil';
-import { Article } from '@/src/types/ArticleTypes';
+import icBest from '@assets/images/icons/ic_medal.svg';
+import { formatUpdatedAt } from '@lib/utils/DateUtil';
+import { Article } from '@type/ArticleTypes';
 
 type BestArticleCardProps = {
   article: Article;

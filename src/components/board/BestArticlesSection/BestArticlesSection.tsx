@@ -1,11 +1,11 @@
 import styles from './BestArticlesSection.module.scss';
 
 import BestArticleCard from '../BestArticleCard/BestArticleCard';
-import useViewport from '@/src/lib/hooks/useViewport';
+import useViewport from '@lib/hooks/useViewport';
 import { useEffect, useState } from 'react';
-import { Article } from '@/src/types/ArticleTypes';
-import { getArticles } from '@/src/lib/api/articleApi';
-import SectionTitle from '@/src/core/ui/SectionTitle/SectionTitle';
+import { Article } from '@type/ArticleTypes';
+import { getArticles } from '@lib/api/articleApi';
+import SectionTitle from '@core/ui/SectionTitle/SectionTitle';
 
 const getPageSize = (width: number) => {
   if (width < 768) {

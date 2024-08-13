@@ -1,8 +1,8 @@
 import styles from './UDropdown.module.scss';
 
 import { useState } from 'react';
-import { BasicType } from '@/src/types/BasicTypes';
-import IconSort from '@/src/assets/images/icons/ic_sort.svg';
+import { BasicType } from '@type/BasicTypes';
+import IconSort from '@assets/images/icons/ic_sort.svg';
 import Image from 'next/image';
 
 type UDropdownProps = Pick<BasicType, 'options' | 'onSortSelection'>;

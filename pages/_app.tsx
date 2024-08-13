@@ -1,7 +1,7 @@
 import 'normalize.css';
-import '@/src/styles/reset.css';
+import '@styles/reset.css';
 
-import Header from '@/src/components/layout/Header/Header';
+import Header from '@components/layout/Header/Header';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';

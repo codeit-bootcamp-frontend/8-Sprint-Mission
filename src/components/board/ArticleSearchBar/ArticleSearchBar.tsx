@@ -1,10 +1,10 @@
 import styles from './ArticleSearchBar.module.scss';
 
-import UInput from '@/src/core/ui/inputs/UInput/UInput';
-import IconSearch from '@/src/assets/images/icons/ic_search.svg';
+import UInput from '@core/ui/inputs/UInput/UInput';
+import IconSearch from '@assets/images/icons/ic_search.svg';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { BasicType } from '@/src/types/BasicTypes';
+import { BasicType } from '@type/BasicTypes';
 import Image from 'next/image';
 
 type ArticleSearchBarProps = Pick<BasicType, 'onSearch'>;

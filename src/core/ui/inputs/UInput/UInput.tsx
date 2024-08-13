@@ -1,6 +1,6 @@
 import styles from './UInput.module.scss';
 
-import { BasicType } from '@/src/types/BasicTypes';
+import { BasicType } from '@type/BasicTypes';
 import clsx from 'clsx';
 
 type UInputProps = Partial<
