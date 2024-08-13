@@ -1,0 +1,38 @@
+@import '../../styles/variables';
+
+.linkSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  & img:hover {
+    cursor: pointer;
+  }
+
+  @media #{$mobileSize} {
+    gap: 15px;
+  }
+}
+
+.link {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--cool-gray-600);
+
+  &:not(:last-child) {
+    margin-right: 32px;
+    @media #{$mobileSize} {
+      margin-right: 8px;
+    }
+  }
+
+  @media #{$mobileSize} {
+    font-size: 16px;
+  }
+}
+
+.matched {
+  color: var(--brand-blue);
+}

@@ -1,0 +1,9 @@
+// DEVICE_MAX_WIDTH
+$tabletMaxWidth: 1280;
+$mobileMaxWidth: 768;
+
+// MEDIA_QUERY_SIZE
+$desktopSize: '(min-width: #{$tabletMaxWidth}px)';
+$tabletSize: '(min-width: #{$mobileMaxWidth}px) and (max-width: #{$tabletMaxWidth}px)';
+$underTabletSize: '(max-width: #{$tabletMaxWidth}px)';
+$mobileSize: '(max-width: #{$mobileMaxWidth}px)';

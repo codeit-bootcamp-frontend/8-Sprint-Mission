@@ -1,0 +1,73 @@
+@import '../../styles/variables';
+
+.bestArticle {
+  width: 100%;
+  height: 169px;
+  padding: 0 24px 16px;
+  border-radius: 8px;
+  background-color: var(--cool-gray-50);
+
+  @media #{$underTabletSize} {
+    height: 198px;
+  }
+
+  & .bestArticleDeco {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    width: 102px;
+    height: 30px;
+    padding: 2px 24px;
+    border-radius: 0px 0px 16px 16px;
+    background-color: var(--brand-blue);
+    color: var(--white);
+  }
+
+  & .articleContent {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 18px;
+
+    word-break: keep-all;
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    color: var(--cool-gray-800);
+
+    @media #{$underTabletSize} {
+      margin-bottom: 40px;
+    }
+  }
+
+  & .articleInfo {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+    & .authorNameAndLikeCount {
+      display: flex;
+      gap: 8px;
+
+      & .authorName {
+        color: var(--cool-gray-600);
+      }
+
+      & .likeCount {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        color: var(--cool-gray-500);
+      }
+    }
+
+    & .createdAt {
+      color: var(--cool-gray-400);
+    }
+  }
+}
