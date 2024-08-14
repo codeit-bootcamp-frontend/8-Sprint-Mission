@@ -41,12 +41,16 @@ const getArticles = async ({
     orderBy: order,
     keyword,
   });
-  console.log('params: ', params.toString());
-  const { data } = await axiosInstance.get(
-    `/${ARTICLES_QUERY_KEY}?${params.toString()}`
-  );
 
-  return data;
+  try {
+    const { data } = await axiosInstance.get(
+      `/${ARTICLES_QUERY_KEY}?${params.toString()}`
+    );
+
+    return data;
+  } catch {
+    return { list: [], totalCount: 0 };
+  }
 };
 
 export default getArticles;
