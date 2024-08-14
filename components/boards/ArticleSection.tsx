@@ -4,6 +4,8 @@ import { useState } from 'react';
 import useToggle from '@/hooks/useToggle';
 import styles from './ArticleSection.module.scss';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import Button from '../@shared/Button';
 
 const ArticleManagement = dynamic(() => import('./ArticleManagement'), {
   ssr: false,
@@ -23,13 +25,11 @@ function ArticleSection({ initialArticleList }: ArticleSectionProps) {
   ) => {
     const { value } = (event.target as HTMLDivElement).dataset;
 
-    if (value) {
-      // dataset에 있는 데이터로 재정렬 요청 후 토글 닫기
-      const { list } = await getArticles({ order: value as orderType });
-      setArticleList(() => list);
-      setOrderBy(value as orderType);
-      toggleIsOpen();
-    }
+    // dataset에 있는 쿼리로 재정렬 요청 후 드롭다운 닫기
+    const { list } = await getArticles({ order: value as orderType });
+    setArticleList(() => list);
+    setOrderBy(value as orderType);
+    toggleIsOpen();
   };
 
   const handleSearchSubmit = async (
@@ -37,19 +37,26 @@ function ArticleSection({ initialArticleList }: ArticleSectionProps) {
   ) => {
     event.preventDefault();
     const { value } = (event.target as HTMLFormElement)['search'];
+    // 작성된 키워드로 검색 요청
     const { list } = await getArticles({ keyword: value });
 
     setArticleList(() => list);
   };
 
-  const handleIsOpenClick = () => {
+  const handleDropdownClick = () => {
     toggleIsOpen();
   };
 
   return (
     <section className={styles.articleSection}>
+      <div className={styles.titleAndButton}>
+        <h2>게시글</h2>
+        <Link href='/'>
+          <Button category={'large'}>글쓰기</Button>
+        </Link>
+      </div>
       <ArticleManagement
-        onIsOpenClick={handleIsOpenClick}
+        onDropdownClick={handleDropdownClick}
         onSearchSubmit={handleSearchSubmit}
         onOrderByClick={handleOrderByClick}
         isDropdownOpen={isOpen}

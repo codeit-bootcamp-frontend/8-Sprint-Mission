@@ -13,7 +13,7 @@ const orderByObject = {
 
 interface ArticleManagementProps {
   onSearchSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-  onIsOpenClick: () => void;
+  onDropdownClick: () => void;
   onOrderByClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   isDropdownOpen: boolean;
   orderBy: orderType;
@@ -21,7 +21,7 @@ interface ArticleManagementProps {
 
 function ArticleManagement({
   onSearchSubmit,
-  onIsOpenClick,
+  onDropdownClick: onIsOpenClick,
   onOrderByClick,
   isDropdownOpen,
   orderBy,

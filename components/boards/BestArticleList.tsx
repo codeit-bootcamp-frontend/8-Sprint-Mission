@@ -21,28 +21,16 @@ function BestArticleList() {
   return (
     <>
       <div className={styles.BestArticleList}>
-        {BestArticleList.map((bestArticle) => {
-          const {
-            id,
-            title,
-            writer: { nickname },
-            image,
-            likeCount,
-            createdAt,
-          } = bestArticle;
-
-          const createDate = createdAt.split('T')[0];
-          return (
-            <BestArticle
-              key={id}
-              title={title}
-              nickname={nickname}
-              imageUrl={image}
-              likeCount={likeCount}
-              createdAt={createDate}
-            />
-          );
-        })}
+        {BestArticleList.map((bestArticle) => (
+          <BestArticle
+            key={bestArticle.id}
+            title={bestArticle.title}
+            nickname={bestArticle.writer.nickname}
+            imageUrl={bestArticle.image}
+            likeCount={bestArticle.likeCount}
+            createdAt={bestArticle.createdAt.split('T')[0]}
+          />
+        ))}
       </div>
     </>
   );
