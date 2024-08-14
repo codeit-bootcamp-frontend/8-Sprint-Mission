@@ -22,7 +22,7 @@ function Button({
   return (
     <button
       className={classNames(styles.button, styles[category], {
-        [styles.disabled]: disabled
+        [styles.disabled]: disabled,
       })}
       type={type}
       onClick={onClick}

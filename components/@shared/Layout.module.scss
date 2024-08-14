@@ -7,7 +7,8 @@
   margin: 0 auto;
 
   padding: calc(var(--header-height) + 24px) 24px 24px 24px;
-  @media #{$mobileSize} {
+
+  @include mobile {
     padding: calc(var(--header-height) + 16px) 16px 16px 16px;
   }
 }

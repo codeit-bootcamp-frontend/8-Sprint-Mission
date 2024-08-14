@@ -17,11 +17,11 @@
   background-color: var(--white);
   border-bottom: 1px solid var(--border-gray);
 
-  @media #{$tabletSize} {
+  @include tablet {
     padding: 0 24px;
   }
 
-  @media #{$mobileSize} {
+  @include mobile {
     padding: 0 16px;
   }
 
@@ -29,7 +29,7 @@
     width: 128px;
     height: 48px;
 
-    @media #{$mobileSize} {
+    @include mobile {
       width: 60px;
     }
   }

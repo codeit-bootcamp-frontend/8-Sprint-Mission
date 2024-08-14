@@ -4,7 +4,7 @@
   display: flex;
   gap: 24px;
 
-  @media #{$tabletSize} {
+  @include tablet {
     gap: 16px;
   }
 }

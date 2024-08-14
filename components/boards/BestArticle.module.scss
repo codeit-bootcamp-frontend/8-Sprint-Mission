@@ -7,7 +7,7 @@
   border-radius: 8px;
   background-color: var(--cool-gray-50);
 
-  @media #{$underTabletSize} {
+  @include underTablet {
     height: 198px;
   }
 
@@ -42,7 +42,7 @@
       border: 1px solid var(--cool-gray-200);
     }
 
-    @media #{$underTabletSize} {
+    @include underTablet {
       margin-bottom: 40px;
     }
   }

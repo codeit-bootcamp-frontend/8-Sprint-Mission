@@ -47,10 +47,11 @@
 
   cursor: pointer;
 
-  @media #{$underTabletSize} {
+  @include underTablet {
     width: 120px;
   }
-  @media #{$mobileSize} {
+
+  @include mobile {
     width: 42px;
     border-radius: 12px;
   }

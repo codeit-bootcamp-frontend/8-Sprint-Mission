@@ -7,3 +7,27 @@ $desktopSize: '(min-width: #{$tabletMaxWidth}px)';
 $tabletSize: '(min-width: #{$mobileMaxWidth}px) and (max-width: #{$tabletMaxWidth}px)';
 $underTabletSize: '(max-width: #{$tabletMaxWidth}px)';
 $mobileSize: '(max-width: #{$mobileMaxWidth}px)';
+
+@mixin desktop {
+  @media screen and (min-width: #{$tabletMaxWidth}px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and ((min-width: #{$mobileMaxWidth}px) and (max-width: #{$tabletMaxWidth}px)) {
+    @content;
+  }
+}
+
+@mixin underTablet {
+  @media screen and (max-width: #{$tabletMaxWidth}px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: #{$mobileMaxWidth}px) {
+    @content;
+  }
+}
