@@ -3,6 +3,7 @@ import Image from "next/image";
 import DropDown from "./DropDown";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import axios from "@/pages/api/axios";
+import Link from "next/link";
 interface Item {
   id: number;
   title: string;
@@ -138,7 +139,9 @@ function NormalBoards() {
     <div className={S.normalBoardsContainer}>
       <div className={S.normalBoards}>
         <div className={S.post}>게시글</div>
-        <button className={S.postButton}>글쓰기</button>
+        <Link href="/addboard" className={S.postButton}>
+          글쓰기
+        </Link>
       </div>
       <div className={S.searchAndDropdown}>
         <form className={S.searchForm} onSubmit={handleSubmit}>

@@ -83,7 +83,7 @@ function BestBoards() {
   const [isLoading, setIsLoading] = useState(true);
 
   async function getBestBoards() {
-    const res = await axios.get("articles?page=1&pageSize=1&orderBy=like");
+    const res = await axios.get("articles?page=1&pageSize=3&orderBy=like");
     const nextProduct = res.data;
     setProduct(nextProduct);
   }

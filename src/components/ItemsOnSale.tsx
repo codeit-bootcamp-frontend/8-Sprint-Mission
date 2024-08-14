@@ -1,8 +1,9 @@
-import S from "@/components/ItemsOnSale.module.css";
-import DropDown from "@/components/DropDown";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import S from "@/components/ItemsOnSale.module.css";
+import DropDown from "@/components/DropDown";
 
 interface Item {
   favoriteCount: number;
@@ -83,9 +84,9 @@ function ItemsOnSale({ items, orderBy, handleOrderChange }: ItemsOnSaleProps) {
             />
             <input className={S.search} placeholder="검색할 상품을 입력해 주세요" />
           </div>
-          <a className={S.addItemBtn} href="additem">
+          <Link className={S.addItemBtn} href="additem">
             상품 등록하기
-          </a>
+          </Link>
           <DropDown
             className={S.dropDownBtn}
             orderBy={orderBy}
