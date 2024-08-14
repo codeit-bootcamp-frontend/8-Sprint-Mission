@@ -54,6 +54,10 @@
     border-width: 0;
     border-style: solid;
   }
+
+  body {
+    font-family: Pretendard;
+  }
 }
 
 @layer utilities {
