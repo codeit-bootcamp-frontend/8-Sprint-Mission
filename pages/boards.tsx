@@ -1,3 +1,11 @@
+import Header from "@/components/Header";
+
 export default function Boards() {
-  return <div>boards 페이지</div>;
+  return (
+    <div>
+      <Header />
+
+      <main>boards 페이지</main>
+    </div>
+  );
 }
