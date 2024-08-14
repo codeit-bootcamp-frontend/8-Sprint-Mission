@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next"
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { getArticle, getArticleComments } from "@/pages/api/apis";
 import ArticleType from "@/DTO/article";
 import CommentType from "@/DTO/commentType";
@@ -54,6 +54,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 export default function Article({ id, article, comments: initialComments, nextCursor: initialCursor }: ArticleProps) {
   const [comments, setComments] = useState(initialComments);
   const [nextCursor, setNextCursor] = useState(initialCursor);
+  const [commentForm, setCommentForm] = useState({ content: '' });
   const { isPending: isCommentsPending, error: commentsError, wrappedAsyncFunction: getArticleCommentsAsync } = useAsync(getArticleComments);
 
   const handleLoadMoreComments = async () => {
@@ -62,6 +63,12 @@ export default function Article({ id, article, comments: initialComments, nextCu
     const nextComments: CommentType[] = response.list ?? [];
     setComments((prev) => [...prev, ...nextComments]);
     setNextCursor(response.nextCursor);
+  }
+
+  const handleCommentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setCommentForm({
+      content: e.target.value
+    })
   }
 
   return (
@@ -92,9 +99,9 @@ export default function Article({ id, article, comments: initialComments, nextCu
           <div className={styles.commentSubmitContainer}>
             <label className={styles.commentSubmitLabel}>
               <span>댓글달기</span>
-              <textarea className={styles.commentSubmitInput} placeholder="댓글을 입력해주세요." />
+              <textarea value={commentForm.content} className={styles.commentSubmitInput} placeholder="댓글을 입력해주세요." onChange={handleCommentChange} />
             </label>
-            <button className={styles.commentSubmitButton}>등록</button>
+            <button className={styles.commentSubmitButton} disabled={commentForm.content.length <= 0}>등록</button>
           </div>
           <ul className={styles.commentsList}>
             {comments.map((comment) => 
