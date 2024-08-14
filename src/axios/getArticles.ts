@@ -1,4 +1,4 @@
-import instance from "./instance";
+import axiosInstance from "./instance";
 
 interface Writer {
   id: number;
@@ -40,7 +40,7 @@ export default async function getArticles({
   if (keyword) {
     query += `&keyword=${keyword}`;
   }
-  const res = await instance.get(`/articles?${query}`);
+  const res = await axiosInstance.get(`/articles?${query}`);
   const { list, totalCount }: Response = res.data;
 
   // 예외 처리 및 에러 처리 필요

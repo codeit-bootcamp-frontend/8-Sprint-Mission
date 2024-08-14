@@ -1,5 +1,5 @@
 import React from "react";
-import { orderOption } from "@/apis/getArticles";
+import { orderOption } from "@/axios/getArticles";
 import Dropdown from "../@shared/Dropdown";
 import SearchBar, { SearchBarProps } from "../@shared/SearchBar";
 import BlueButton from "../@shared/BlueButton";

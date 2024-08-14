@@ -1,5 +1,5 @@
 import PostListHeader from "./PostListHeader";
-import getArticles, { Article, orderOption } from "@/apis/getArticles";
+import getArticles, { Article, orderOption } from "@/axios/getArticles";
 import { useState, useEffect, useCallback } from "react";
 import BasicPostCard from "./BasicPostCard";
 

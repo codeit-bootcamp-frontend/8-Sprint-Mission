@@ -1,4 +1,4 @@
-import getArticles, { Article } from "@/apis/getArticles";
+import getArticles, { Article } from "@/axios/getArticles";
 import usePageSize from "@/hooks/usePageSize";
 import { useState, useEffect, useCallback } from "react";
 import BestPostCard from "./BestPostCard";

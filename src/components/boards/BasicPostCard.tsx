@@ -1,4 +1,4 @@
-import { Article } from "@/apis/getArticles";
+import { Article } from "@/axios/getArticles";
 import createDateStringWithDot from "@/utils/createDateStringWithDot";
 import Image from "next/image";
 import { useRouter } from "next/router";
