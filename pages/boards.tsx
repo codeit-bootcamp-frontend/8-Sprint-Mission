@@ -4,7 +4,7 @@ import axios from "@/lib/axios";
 
 import styles from "@/styles/boards.module.css";
 
-import LinkButton from "@/components/LinkButton";
+import LinkButton from "@/components/Buttons/LinkButton";
 import SearchForm from "@/components/SearchForm";
 import Dropdown from "@/components/Dropdown";
 import BestArticleList from "@/components/BestArticleList/BestArticleList";
@@ -40,7 +40,7 @@ function Board() {
 
   async function getBestArticles(pageSize: number) {
     const response = await axios.get(
-      `/articles/?orderBy=like&pageSize=${pageSize}`
+      `/articles/?orderBy=like&pageSize=${pageSize}`,
     );
     setBestArticles(response.data.list ?? []);
   }
@@ -73,7 +73,7 @@ function Board() {
       <section>
         <div className={styles.titleWrapper}>
           <h3 className={styles.sectionTitle}>게시글</h3>
-          <LinkButton href="" text="글쓰기" />
+          <LinkButton href="/addboard" text="글쓰기" />
         </div>
         <div className={styles.filterWrapper}>
           <SearchForm />

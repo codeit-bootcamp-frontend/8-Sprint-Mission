@@ -1,0 +1,41 @@
+interface Content {
+  name: string;
+  label: string;
+  placeholder: string;
+  isTextArea: boolean;
+}
+
+interface TextInputProps {
+  content: Content;
+}
+
+function TextInput({ content }: TextInputProps) {
+  const { name, label, placeholder, isTextArea } = content;
+
+  return (
+    <div className="mb-6 flex flex-col items-start justify-start">
+      <label className="mb-3 text-lg font-bold text-gray-800" htmlFor={name}>
+        {label}
+      </label>
+
+      {!isTextArea ? (
+        <input
+          className="w-full rounded-xl bg-gray-100 px-6 py-4"
+          id={name}
+          name={name}
+          type="text"
+          placeholder={placeholder}
+        />
+      ) : (
+        <textarea
+          className="h-72 w-full rounded-xl bg-gray-100 px-6 py-4"
+          id={name}
+          name={name}
+          placeholder={placeholder}
+        />
+      )}
+    </div>
+  );
+}
+
+export default TextInput;

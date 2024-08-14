@@ -7,7 +7,7 @@ import Image from "next/image";
 import replyEmptyImage from "@/assets/images/img_reply_empty.png";
 
 import AllArticleList from "@/components/AllArticleList/AllArticleList";
-import ReturnButton from "@/components/ReturnButton";
+import ReturnButton from "@/components/Buttons/ReturnButton";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { keyword } = context.query;

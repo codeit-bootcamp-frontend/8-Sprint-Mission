@@ -1,5 +1,69 @@
+import AddButton from "@/components/Buttons/AddButton";
+import TextInput from "@/components/Inputs/TextInput";
+import FileInput from "@/components/Inputs/FileInput";
+
 function AddBoard() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  const INPUT_CONTENTS = [
+    {
+      name: "title",
+      label: "*제목",
+      placeholder: "제목을 입력해주세요",
+      isTextArea: false,
+    },
+    {
+      name: "content",
+      label: "*내용",
+      placeholder: "내용을 입력해주세요",
+      isTextArea: true,
+    },
+  ];
+
+  // const [inputValues, setInputValues] = useState({
+  // });
+
+  // const handleValueChange = (name: string, value: string | File) => {
+  //   setInputValues((prevValues) => ({
+  //     ...prevValues,
+  //     [name]: value,
+  //   }));
+  // };
+
+  // const isFormComplete = useMemo(() => {
+  //   const { imgFile, ...restValues } = inputValues;
+  //   const isAllInputFill = Object.values(restValues).every(
+  //     (inputValue) => inputValue !== ""
+  //   );
+  //   return isAllInputFill;
+  // }, [inputValues]);
+
+  // const buttonClassName = isFormComplete
+  //   ? "add-item-button-active"
+  //   : "add-item-button";
+
+  return (
+    <main>
+      <div className="flex justify-between items-center mb-8">
+        <h3 className="font-bold text-xl text-gray-800">게시글 쓰기</h3>
+        <AddButton buttonText="등록" />
+      </div>
+      <section>
+        {INPUT_CONTENTS.map((content, index) => {
+          return (
+            <TextInput
+              key={index}
+              content={content}
+              // onChange={handleValueChange}
+            />
+          );
+        })}
+        <FileInput
+          name="image"
+          label="이미지"
+          // onChange={handleValueChange}
+        />
+      </section>
+    </main>
+  );
 }
 
 export default AddBoard;
