@@ -16,7 +16,7 @@ interface AllArticlesProps {
 
 export default function AllArticles({ initialArticles }: AllArticlesProps) {
   const router = useRouter();
-  const { query } = router;
+
   const [articles, setArticles] = useState<Article[]>(initialArticles);
   const [option, setOption] = useState<string>("recent");
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -39,12 +39,37 @@ export default function AllArticles({ initialArticles }: AllArticlesProps) {
   }
 
   useEffect(() => {
+    const initialKeyword = router.query.keyword || "";
+    if (typeof initialKeyword === "string") {
+      setSearchTerm(initialKeyword);
+    }
+
     getArticles(option, searchTerm);
+
+    // URL 쿼리 파라미터 업데이트
+    const query = { ...router.query, keyword: searchTerm.trim() || undefined };
+    if (searchTerm.trim()) {
+      query.keyword = searchTerm.trim();
+    } else {
+      delete query.keyword; // 검색어가 없으면 keyword 쿼리 삭제
+    }
+    router.replace(
+      {
+        pathname: router.pathname,
+        query,
+      },
+      undefined,
+      { shallow: true }
+    );
   }, [option, searchTerm]);
 
   //정렬 옵션 선택
   const handleOptionChange = (value: string) => {
     setOption(value);
+  };
+
+  const handleSearch = (searchTerm: string) => {
+    setSearchTerm(searchTerm);
   };
 
   if (!Array.isArray(articles) || articles.length === 0) {
@@ -62,7 +87,7 @@ export default function AllArticles({ initialArticles }: AllArticlesProps) {
         <div className={styles.writing}>글쓰기</div>
       </div>
       <div className={styles.searchForm}>
-        <SearchForm onSearch={setSearchTerm} />
+        <SearchForm onSearch={handleSearch} />
         <Dropdown
           options={options}
           selectedValue={option}
