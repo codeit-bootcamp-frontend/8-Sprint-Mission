@@ -5,6 +5,7 @@ import { getArticles } from "@/pages/api/apis";
 import formatComparedTime from "@/lib/formatComparedTime";
 import styles from "./BestArticles.module.css";
 import useAsync from "@/lib/hooks/useAsync";
+import Link from "next/link";
 
 const WIDTH_PAGE_SIZE_PAIR: {
   [key: string]: number
@@ -43,38 +44,40 @@ export default function BestArticles({ mediaWidth }: { mediaWidth: MediaWidthTyp
       <p className={styles.bestSectionLabel}>베스트 게시글</p>
       <div className={styles.articlesContainer}>
         {articles.map(article =>
-          <div className={styles.articleCard} key={article.id}>
-            
-            <div className={styles.bestBadge}>
-              <div className={styles.badgeImageContainer}>
-                <Image fill src="/images/ic_medal.png" alt="뱃지" />
+          <Link href={`/boards/${article.id}`} style={{ textDecoration: "none", width: "100%" }}>
+            <div className={styles.articleCard} key={article.id}>
+              
+              <div className={styles.bestBadge}>
+                <div className={styles.badgeImageContainer}>
+                  <Image fill src="/images/ic_medal.png" alt="뱃지" />
+                </div>
+                <span>Best</span>
               </div>
-              <span>Best</span>
-            </div>
 
-            <div className={styles.articleCardContent}>
-              <span>{article.title}</span>
-              <div className={styles.articleImageContainer}>
-                <Image fill src={article.image} alt="이미지" />
-              </div>
-            </div>
-
-            <div className={styles.articleCardFooter}>
-              <div className={styles.articleCardFooterInfo}>
-                <span>{article.writer.nickname}</span>
-                <div className={styles.likeyContainer}>
-                  <div className={styles.heartContainer}>
-                    <Image fill src="/images/ic_heart.png" alt="하트" />
-                  </div>
-                  <span>{(article.likeCount > 9999) ? "9999+" : article.likeCount}</span>
+              <div className={styles.articleCardContent}>
+                <span>{article.title}</span>
+                <div className={styles.articleImageContainer}>
+                  <Image fill src={article.image} alt="이미지" />
                 </div>
               </div>
-              <span className={styles.bestArticleDate}>
-                {formatComparedTime(article.createdAt)}
-              </span>
-            </div>
 
-          </div>
+              <div className={styles.articleCardFooter}>
+                <div className={styles.articleCardFooterInfo}>
+                  <span>{article.writer.nickname}</span>
+                  <div className={styles.likeyContainer}>
+                    <div className={styles.heartContainer}>
+                      <Image fill src="/images/ic_heart.png" alt="하트" />
+                    </div>
+                    <span>{(article.likeCount > 9999) ? "9999+" : article.likeCount}</span>
+                  </div>
+                </div>
+                <span className={styles.bestArticleDate}>
+                  {formatComparedTime(article.createdAt)}
+                </span>
+              </div>
+
+            </div>
+          </Link>
         )}
       </div>
 

@@ -7,6 +7,7 @@ import formatComparedTime from "@/lib/formatComparedTime";
 import getRenderedPages from "@/lib/getRenderedPages";
 import useDropdownState from "@/lib/hooks/useDropdownState";
 import useAsync from "@/lib/hooks/useAsync";
+import Link from "next/link";
 
 const ORDER_EN_KO_PAIR: {
   [key: string]: string,
@@ -102,31 +103,33 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
       {error && <p>An Error has occurred{error.message ? `: ${error.message}` : null}</p>}
       <ul className={styles.articlesList}>
         {articles.map(article => 
-          <li className={styles.articlesListItem} key={article.id}>
-            <div className={styles.articlesListItemContent}>
-              <span>{article.title}</span>
-              <div className={styles.articleImageContainer}>
-                <Image fill src={article.image} alt="이미지" />
-              </div>
-            </div>
-            <div className={styles.articlesListItemFooter}>
-              <div className={styles.articleWriter}>
-                <div className={styles.profileImageContainer}>
-                  <Image fill src="/images/ic_profile.png" alt="프로필" />
+          <Link href={`boards/${article.id}`} style={{ textDecoration: "none"}}>
+            <li className={styles.articlesListItem} key={article.id}>
+              <div className={styles.articlesListItemContent}>
+                <span>{article.title}</span>
+                <div className={styles.articleImageContainer}>
+                  <Image fill src={article.image} alt="이미지" />
                 </div>
-                <span>{article.writer.nickname}</span>
-                <span className={styles.articleDate}>
-                  {formatComparedTime(article.createdAt)}
-                </span>
               </div>
-              <div className={styles.likeyContainer}>
-                <div className={styles.heartContainer}>
-                  <Image fill src="/images/ic_heart.png" alt="하트" />
+              <div className={styles.articlesListItemFooter}>
+                <div className={styles.articleWriter}>
+                  <div className={styles.profileImageContainer}>
+                    <Image fill src="/images/ic_profile.png" alt="프로필" />
+                  </div>
+                  <span>{article.writer.nickname}</span>
+                  <span className={styles.articleDate}>
+                    {formatComparedTime(article.createdAt)}
+                  </span>
                 </div>
-                <span>{(article.likeCount > 9999) ? "9999+" : article.likeCount}</span>
+                <div className={styles.likeyContainer}>
+                  <div className={styles.heartContainer}>
+                    <Image fill src="/images/ic_heart.png" alt="하트" />
+                  </div>
+                  <span>{(article.likeCount > 9999) ? "9999+" : article.likeCount}</span>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+          </Link>
         )}
       </ul>
 
