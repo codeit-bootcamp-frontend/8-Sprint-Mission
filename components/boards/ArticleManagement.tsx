@@ -1,10 +1,10 @@
 import styles from './ArticleManagement.module.scss';
-import CustomImage from '../@shared/CustomImage';
 import { DEVICE_MAX_WIDTH } from '@/constants/mediaQuerySize';
 import sortIcon from '@/public/images/market/sort-icon.png';
 import dropDownIcon from '@/public/images/market/order-dropdown.png';
 import { orderType } from '@/apis/getArticles';
 import useWindowSize from '@/hooks/useWindowSize';
+import Image from 'next/image';
 
 const orderByObject = {
   recent: '최신순',
@@ -44,7 +44,7 @@ function ArticleManagement({
             {innerWidth > DEVICE_MAX_WIDTH.mobile && (
               <span>{orderByObject[orderBy]}</span>
             )}
-            <CustomImage
+            <Image
               src={
                 innerWidth > DEVICE_MAX_WIDTH.mobile ? dropDownIcon : sortIcon
               }

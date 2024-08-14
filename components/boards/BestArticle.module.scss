@@ -37,6 +37,11 @@
     line-height: 32px;
     color: var(--cool-gray-800);
 
+    img {
+      border-radius: 8px;
+      border: 1px solid var(--cool-gray-200);
+    }
+
     @media #{$underTabletSize} {
       margin-bottom: 40px;
     }

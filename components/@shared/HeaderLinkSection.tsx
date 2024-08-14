@@ -1,7 +1,6 @@
 import logoImg from '@/public/images/home/logoAndTypo.png';
 import typoImg from '@/public/images/home/typo.png';
 import Link from 'next/link';
-import CustomImage from './CustomImage';
 import { useRouter } from 'next/router';
 import useWindowSize from '@/hooks/useWindowSize';
 import {
@@ -13,6 +12,7 @@ import {
 import classNames from 'classnames';
 import styles from './HeaderLinkSection.module.scss';
 import { DEVICE_MAX_WIDTH } from '@/constants/mediaQuerySize';
+import Image from 'next/image';
 
 function HeaderLinkSection() {
   const { innerWidth } = useWindowSize();
@@ -23,7 +23,7 @@ function HeaderLinkSection() {
   return (
     <section className={classNames(styles.linkSection)}>
       <Link href={PATH_HOME}>
-        <CustomImage
+        <Image
           src={isWiderMobileSize ? logoImg : typoImg}
           alt={'로고 이미지'}
           height={isWiderMobileSize ? 51 : 40}
