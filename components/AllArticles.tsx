@@ -7,9 +7,17 @@ import Dropdown from "./Dropdown";
 import SearchForm from "./SearchForm";
 import formatDate from "@/utils/fomatDate";
 import Article from "@/types/types";
+import Spinner from "./Spinner";
+import { useRouter } from "next/router";
 
-export default function AllArticles() {
-  const [articles, setArticles] = useState<Article[]>([]);
+interface AllArticlesProps {
+  initialArticles: Article[];
+}
+
+export default function AllArticles({ initialArticles }: AllArticlesProps) {
+  const router = useRouter();
+  const { query } = router;
+  const [articles, setArticles] = useState<Article[]>(initialArticles);
   const [option, setOption] = useState<string>("recent");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
@@ -40,7 +48,11 @@ export default function AllArticles() {
   };
 
   if (!Array.isArray(articles) || articles.length === 0) {
-    return <p>게시글 없음</p>;
+    return (
+      <div className={styles.loading}>
+        <Spinner />
+      </div>
+    );
   }
 
   return (

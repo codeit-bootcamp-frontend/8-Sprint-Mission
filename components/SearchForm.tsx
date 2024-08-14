@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./SearchForm.module.css";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 interface SearchFormProps {
   initialValue?: string;
@@ -12,6 +13,7 @@ export default function SearchForm({
   onSearch,
 }: SearchFormProps) {
   const [value, setValue] = useState(initialValue);
+  const router = useRouter();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -20,6 +22,23 @@ export default function SearchForm({
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSearch(value);
+
+    const newQuery = { ...router.query };
+
+    if (value.trim() === "") {
+      delete newQuery.keyword;
+    }
+
+    newQuery.keyword = value;
+
+    router.push(
+      {
+        pathname: router.pathname,
+        query: newQuery,
+      },
+      undefined,
+      { shallow: true }
+    );
   };
 
   return (

@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
-import axios from "@/lib/axios";
 import Image from "next/image";
 import styles from "./BestArticles.module.css";
 import formatDate from "@/utils/fomatDate";
+import { useState, useEffect } from "react";
+import axios from "@/lib/axios";
 import Article from "@/types/types";
+import Spinner from "./Spinner";
 
 const getPageSize = () => {
   if (typeof window === "undefined") {
@@ -24,13 +25,13 @@ const getPageSize = () => {
 };
 
 export default function BestArticles() {
-  const [articles, setArticles] = useState<Article[]>([]);
   const [pageSize, setPageSize] = useState<number>(getPageSize());
+  const [articles, setArticles] = useState<Article[]>([]);
 
   async function getBestArticles(pageSize: number) {
     try {
       const res = await axios.get(
-        `/articles?page=1&pageSize=${pageSize}&orderBy=like`
+        `/articles?orderBy=like&pageSize=${pageSize}`
       );
       const nextArticles = res.data.results || res.data.list || [];
       setArticles(nextArticles);
@@ -43,6 +44,7 @@ export default function BestArticles() {
     const handleResize = () => {
       setPageSize(getPageSize());
     };
+
     if (typeof window !== "undefined")
       window.addEventListener("resize", handleResize);
     getBestArticles(pageSize);
@@ -53,7 +55,11 @@ export default function BestArticles() {
   }, [pageSize]);
 
   if (!Array.isArray(articles) || articles.length === 0) {
-    return <p>베스트 게시글 없음</p>;
+    return (
+      <div className={styles.loading}>
+        <Spinner />
+      </div>
+    );
   }
 
   return (
