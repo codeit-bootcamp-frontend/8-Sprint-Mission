@@ -30,6 +30,7 @@
   text-align: left;
   color: #1f2937;
   margin-bottom: 9px;
+  z-index: 1000;
 }
 
 .sortImage {
