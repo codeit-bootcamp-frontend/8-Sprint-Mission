@@ -2,10 +2,10 @@ import getArticles, { GetArticlesProps } from '@/apis/getArticles';
 import { ARTICLES_QUERY_KEY } from '@/constants/queryKeys';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
-const INITIAL_PAGE_SIZE = '10';
+const INITIAL_PAGE_SIZE = 10;
 
 const useArticlesQuery = ({
-  page = '1',
+  page = 1,
   order = 'recent',
   size = INITIAL_PAGE_SIZE,
   keyword = '',

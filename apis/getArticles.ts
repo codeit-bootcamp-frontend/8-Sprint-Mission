@@ -23,20 +23,27 @@ interface ArticlesResponse {
 }
 
 export interface GetArticlesProps {
-  page?: string;
+  page?: number;
+  size?: number;
   order?: orderType;
   keyword?: string;
-  size?: string;
 }
 
 const getArticles = async ({
-  page = '1',
+  page = 1,
   order = 'recent',
-  size = '10',
+  size = 10,
   keyword = '',
 }: GetArticlesProps): Promise<ArticlesResponse> => {
+  const params = new URLSearchParams({
+    page: page.toString(),
+    pageSize: size.toString(),
+    orderBy: order,
+    keyword,
+  });
+  console.log('params: ', params.toString());
   const { data } = await axiosInstance.get(
-    `/${ARTICLES_QUERY_KEY}?page=${page}&pageSize=${size}&orderBy=${order}&keyword=${keyword}`
+    `/${ARTICLES_QUERY_KEY}?${params.toString()}`
   );
 
   return data;

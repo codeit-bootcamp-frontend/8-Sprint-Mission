@@ -9,10 +9,10 @@ function BestArticleList() {
   const { innerWidth } = useWindowSize();
   const querySize =
     innerWidth > DEVICE_MAX_WIDTH.tablet // 태블릿 사이즈보다 크면 3개
-      ? '3'
+      ? 3
       : innerWidth > DEVICE_MAX_WIDTH.mobile // 태블릿 사이즈보다 작고 모바일 사이즈보다 크면 2개
-      ? '2'
-      : '1'; //그보다 작으면 1개
+      ? 2
+      : 1; //그보다 작으면 1개
 
   const {
     data: { list: BestArticleList },
