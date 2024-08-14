@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
-import styles from './UButton.module.scss';
+import styles from './UIButton.module.scss';
 
-type UButtonProps = {
+type UIButtonProps = {
   buttonTagType?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
   type: 'box' | 'floating' | 'round';
   className?: string;
@@ -12,7 +12,7 @@ type UButtonProps = {
   isSmallButton?: boolean;
 };
 
-const UButton = ({
+const UIButton = ({
   buttonTagType,
   type,
   className = '',
@@ -20,7 +20,7 @@ const UButton = ({
   children,
   isDisalbed = false,
   isSmallButton = false,
-}: UButtonProps) => {
+}: UIButtonProps) => {
   return (
     <>
       <button
@@ -46,4 +46,4 @@ const UButton = ({
   );
 };
 
-export default UButton;
+export default UIButton;

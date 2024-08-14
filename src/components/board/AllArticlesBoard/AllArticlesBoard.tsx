@@ -1,9 +1,9 @@
 import styles from './AllArticlesBoard.module.scss';
 
 import SectionTitle from '@core/ui/SectionTitle/SectionTitle';
-import UButton from '@core/ui/buttons/UButton/UButton';
+import UIButton from '@core/ui/buttons/UIButton/UIButton';
 import ArticleSearchBar from '../ArticleSearchBar/ArticleSearchBar';
-import UDropdown from '@core/ui/dropdowns/UDropdown/UDropdown';
+import UIDropdown from '@core/ui/dropdowns/UIDropdown/UIDropdown';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Article, ArticleOrderBy } from '@type/ArticleTypes';
@@ -53,11 +53,11 @@ const AllArticlesBoard = ({ ...props }: AllArticlesBoardProps) => {
     <>
       <div className={styles['header']}>
         <SectionTitle title="게시글" />
-        <UButton children={'글쓰기'} type="box" handleClick={() => {}} />
+        <UIButton children={'글쓰기'} type="box" handleClick={() => {}} />
       </div>
       <div className={styles['searchBar']}>
         <ArticleSearchBar onSearch={handleSearch} />
-        <UDropdown
+        <UIDropdown
           onSortSelection={handleSortSelection}
           options={[
             { key: 'recent', value: '최신순' },

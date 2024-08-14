@@ -1,16 +1,16 @@
-import styles from './UInput.module.scss';
+import styles from './UIInput.module.scss';
 
 import { BasicType } from '@type/BasicTypes';
 import clsx from 'clsx';
 
-type UInputProps = Partial<
+type UIInputProps = Partial<
   Pick<
     BasicType,
     'placeholder' | 'keyword' | 'onChange' | 'onKeyDown' | 'className'
   >
 >;
 
-const UInput = ({ ...props }: UInputProps) => {
+const UIInput = ({ ...props }: UIInputProps) => {
   return (
     <>
       <input
@@ -24,4 +24,4 @@ const UInput = ({ ...props }: UInputProps) => {
   );
 };
 
-export default UInput;
+export default UIInput;

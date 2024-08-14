@@ -1,6 +1,6 @@
 import styles from './ArticleSearchBar.module.scss';
 
-import UInput from '@core/ui/inputs/UInput/UInput';
+import UIInput from '@core/ui/inputs/UIInput/UIInput';
 import IconSearch from '@assets/images/icons/ic_search.svg';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -32,7 +32,7 @@ const ArticleSearchBar = ({ ...props }: ArticleSearchBarProps) => {
     <>
       <div className={styles['searchBar__wrapper']}>
         <Image src={IconSearch} alt="검색 아이콘" />
-        <UInput
+        <UIInput
           className={styles['searchBar__input']}
           keyword={keyword}
           onChange={handleInputChange}
