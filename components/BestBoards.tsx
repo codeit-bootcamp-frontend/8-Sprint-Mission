@@ -1,4 +1,4 @@
-import getArticles, { Article } from '@/pages/api/client';
+import getArticles, { Article } from '@/lib/axios';
 import { useContext, useEffect, useState } from 'react';
 import { DeviceContext } from '@/contexts/DeviceContext';
 import BestMedal from './boards/BestMedal';

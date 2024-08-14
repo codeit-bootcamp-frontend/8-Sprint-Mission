@@ -1,4 +1,4 @@
-import { Article } from '@/pages/api/client';
+import { Article } from '@/lib/axios';
 
 import dayjs from 'dayjs';
 import Image from 'next/image';

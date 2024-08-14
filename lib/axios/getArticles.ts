@@ -1,4 +1,4 @@
-import axios from 'axios';
+import instance from '.';
 
 export type Article = {
   id: number;
@@ -29,10 +29,6 @@ export type ArticlesQuery = {
 export type ArticlesRequest = {
   query?: ArticlesQuery;
 };
-
-const instance = axios.create({
-  baseURL: 'https://panda-market-api.vercel.app',
-});
 
 async function getArticles(params: ArticlesQuery): Promise<ArticlesResponse> {
   const res = await instance.get<ArticlesResponse>(`/articles`, {

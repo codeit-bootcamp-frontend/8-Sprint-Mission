@@ -1,4 +1,4 @@
-import getArticles, { Article, ArticlesQuery } from '@/pages/api/client';
+import getArticles, { Article, ArticlesQuery } from '@/lib/axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import RecentContent from './boards/MainContent';
 import RecentInfo from './boards/MainInfo';
