@@ -1,6 +1,6 @@
-import Article from "@/DTO/article";
+import ArticleType from "@/DTO/article";
 
 export default interface ArticlesType {
   totalCount: number;
-  list: Article[];
+  list: ArticleType[];
 }

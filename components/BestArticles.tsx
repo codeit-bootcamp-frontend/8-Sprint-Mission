@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Article from "@/DTO/article";
+import ArticleType from "@/DTO/article";
 import { getArticles } from "@/pages/api/apis";
 import formatComparedTime from "@/lib/formatComparedTime";
 import styles from "./BestArticles.module.css";
@@ -19,7 +19,7 @@ const WIDTH_PAGE_SIZE_PAIR: {
 type MediaWidthType = "desktop" | "tablet" | "mobile" | "none";
 
 export default function BestArticles({ mediaWidth }: { mediaWidth: MediaWidthType }) {
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<ArticleType[]>([]);
   const [pageSize, setPageSize] = useState(WIDTH_PAGE_SIZE_PAIR[mediaWidth]);
 
   const { isPending, error, wrappedAsyncFunction: getArticlesAsync } = useAsync(getArticles)

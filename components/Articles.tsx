@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
 import styles from "./Articles.module.css";
 import { getArticles } from "@/pages/api/apis";
-import Article from "@/DTO/article";
+import ArticleType from "@/DTO/article";
 import formatComparedTime from "@/lib/formatComparedTime";
 import getRenderedPages from "@/lib/getRenderedPages";
 import useDropdownState from "@/lib/hooks/useDropdownState";
@@ -30,7 +30,7 @@ const PAGE_SIZE = 10;
 type MediaWidthType = "desktop" | "tablet" | "mobile" | "none";
 
 export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType }) {
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<ArticleType[]>([]);
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
   const [keyword, setKeyword] = useState('');
