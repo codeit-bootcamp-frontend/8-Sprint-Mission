@@ -1,4 +1,3 @@
-import pandaIcon from "../public/logo.png";
 import styled from "styled-components";
 import Link from "next/link";
 import StyledCommonButton from "./Button";
@@ -41,7 +40,7 @@ function Nav() {
     <StyledNavContainer>
       <FrontNavContainer>
         <Link href="/">
-          <StyledLogo src={pandaIcon} alt="판다마켓 로고" />
+          <StyledLogo src="/image/logo.png" alt="판다마켓 로고" />
         </Link>
         <div>
           <StyledLink href="/market">자유게시판</StyledLink>
