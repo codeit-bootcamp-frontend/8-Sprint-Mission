@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { formatDate } from "@/utils/formatDate";
-import { Article } from "@/models/article";
+import { Article } from "@/types/article";
 
 import icMedal from "@/public/images/ic_medal.svg";
 import icHeart from "@/public/images/ic_heart.svg";

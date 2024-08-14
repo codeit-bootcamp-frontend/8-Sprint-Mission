@@ -23,5 +23,5 @@ export interface ArticleQuery {
   page: number;
   pageSize: number;
   orderBy: "like" | "recent";
-  keyword: string | null;
+  keyword?: string;
 }

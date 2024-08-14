@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { formatDate } from "@/utils/formatDate";
-import type { Article } from "@/models/article";
+import type { Article } from "@/types/article";
 
 import icHeart from "@/public/images/ic_heart.svg";
 import icProfile from "@/public/images/ic_profile.svg";

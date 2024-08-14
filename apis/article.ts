@@ -1,6 +1,6 @@
 import axios from "@/lib/axios";
-import { ArticleQuery } from "@/models/article";
-import { ArticleResponse } from "@/models/article";
+import { ArticleQuery } from "@/types/article";
+import { ArticleResponse } from "@/types/article";
 
 export const getArticleList = async ({
   page = 1,

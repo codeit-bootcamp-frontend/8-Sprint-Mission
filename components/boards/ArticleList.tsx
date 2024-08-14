@@ -21,7 +21,7 @@ export default function ArticleList() {
   const [nowOrderBy, setNowOrderBy] = useState<OrderByType>(INIT_ORDERS.recent);
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
 
-  const onClickDropDown = () => {
+  const toggleDropDown = () => {
     setIsOpenDropDown((prev) => !prev);
   };
 
@@ -32,7 +32,7 @@ export default function ArticleList() {
       orderBy: orderBy,
     }));
     setNowOrderBy(INIT_ORDERS[orderBy]);
-    setIsOpenDropDown((prev) => !prev);
+    toggleDropDown();
   };
 
   let debounceTimer: NodeJS.Timeout;
@@ -69,14 +69,14 @@ export default function ArticleList() {
         </div>
 
         <button
-          onClick={onClickDropDown}
+          onClick={toggleDropDown}
           className="flex-center h-[42px] w-[42px] rounded-xl border border-solid border-gray-200 md:hidden"
         >
           <Image src={icSortMobile} alt="정렬하기" />
         </button>
 
         <button
-          onClick={onClickDropDown}
+          onClick={toggleDropDown}
           className="hidden h-[42px] w-[130px] items-center justify-between rounded-xl border border-solid px-5 py-4 md:flex"
         >
           <span>{nowOrderBy}</span>
