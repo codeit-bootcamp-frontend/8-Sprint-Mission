@@ -35,11 +35,9 @@ const StyledLink = styled(Link)<StyledLinkProps>`
   font-size: 18px;
   font-weight: 700;
 
-  ${({ active }) =>
-    active &&
-    `
-    color: var(--blue-100); 
-  `}
+  &[data-active="true"] {
+    color: var(--blue-100);
+  }
 `;
 
 const StyledButton = styled(StyledCommonButton)`
@@ -58,10 +56,16 @@ function Nav() {
           <StyledLogo src="/image/logo.png" alt="판다마켓 로고" />
         </Link>
         <div>
-          <StyledLink href="/boards" active={router.pathname === "/boards"}>
+          <StyledLink
+            href="/boards"
+            data-active={router.pathname.startsWith("/boards")}
+          >
             자유게시판
           </StyledLink>
-          <StyledLink href="/market" active={router.pathname === "/market"}>
+          <StyledLink
+            href="/market"
+            data-active={router.pathname.startsWith("/market")}
+          >
             중고마켓
           </StyledLink>
         </div>
