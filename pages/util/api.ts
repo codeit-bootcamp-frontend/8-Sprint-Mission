@@ -24,6 +24,5 @@ export async function getArticleComment(articleId: string) {
   const response = await axios.get(`/articles/${articleId}/comments?limit=10`);
   const body = response.data.list ?? [];
 
-  console.log(body);
   return body;
 }

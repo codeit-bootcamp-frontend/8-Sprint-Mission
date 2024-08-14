@@ -2,16 +2,9 @@ import Badge from "@/images/badge.png";
 import Image from "next/image";
 import styled from "styled-components";
 import favorite from "@/images/favorite.png";
-import { BoardItemType } from "@/pages/boards";
+import { BoardItemProps, BoardItemListProps } from "@/interfaces/boardItem";
 import Link from "next/link";
-
-interface BoardItemListProps {
-  boards: BoardItemType[];
-}
-
-interface BoardItemProps {
-  board: BoardItemType;
-}
+import { FormatDate } from "@/pages/util/formatDate";
 
 export default function BestBoardItemList({ boards }: BoardItemListProps) {
   return (
@@ -24,16 +17,6 @@ export default function BestBoardItemList({ boards }: BoardItemListProps) {
 }
 
 function BestBoardItem({ board }: BoardItemProps) {
-  function formatDate(dateString: string) {
-    const date = new Date(dateString);
-
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // 월은 0부터 시작하므로 +1
-    const day = date.getDate().toString().padStart(2, "0");
-
-    return `${year}.${month}.${day}`;
-  }
-
   return (
     <StyledLink href={`/boards/${board.id}`}>
       <Wrapper>
@@ -41,12 +24,12 @@ function BestBoardItem({ board }: BoardItemProps) {
         <BoardWrapper>
           <TitleWrapper>
             <BoardTitle>{board.title}</BoardTitle>
-            <Image
+            {/* <Image
               src={board.image}
               alt="BestBoardImage"
               width={72}
               height={72}
-            />
+            /> */}
           </TitleWrapper>
           <WriterWrapper>
             <WriterLeftElement>
@@ -54,7 +37,7 @@ function BestBoardItem({ board }: BoardItemProps) {
               <Image src={favorite} alt="favorite" />
               {board.likeCount}+
             </WriterLeftElement>
-            <span>{formatDate(board.createdAt)}</span>
+            <span>{FormatDate(board.createdAt)}</span>
           </WriterWrapper>
         </BoardWrapper>
       </Wrapper>
