@@ -11,7 +11,7 @@ const post = {
     id: 1,
   },
   image: "https://dimg.donga.com/wps/NEWS/IMAGE/2021/12/09/110713388.1.jpg",
-  title: "맥북 어쩌구 팝니다!! 급처분해요",
+  title: "맥북 팝니다!! 급처분해요",
   id: 1,
 };
 

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const StyledInputContainer = styled.div`
-  width: 100%;
+  width: 1054px;
   height: 42px;
-  padding: 9px 20px 9px 16px;
+  padding-left: 10px;
   border-radius: 12px;
   background-color: #f3f4f6;
   border: none;
@@ -13,7 +13,7 @@ const StyledInputContainer = styled.div`
 `;
 
 const StyledInput = styled.input`
-  width: 100%;
+  width: 1030px;
   height: 40px;
   border: none;
   z-index: 1;
