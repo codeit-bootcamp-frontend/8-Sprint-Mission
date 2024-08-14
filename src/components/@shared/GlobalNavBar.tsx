@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import BlueButton from "./BlueButton";
 
 interface GlobalNavBarProps {
-  isMain: boolean;
   isLogin: boolean;
 }
 
@@ -13,9 +12,9 @@ const NAV_MENU_INFO = [
   { href: "/items", text: "중고마켓" },
 ];
 
-export default function GlobalNavBar({ isMain, isLogin }: GlobalNavBarProps) {
-  const router = useRouter();
-  const path = router.pathname;
+export default function GlobalNavBar({ isLogin }: GlobalNavBarProps) {
+  const { pathname } = useRouter();
+  const isMain = pathname === "/" ? true : false;
 
   return (
     <header className="sticky top-0 bg-gray h-[70px] z-10 border-solid border-b-[1px] border-header-under">
@@ -46,7 +45,7 @@ export default function GlobalNavBar({ isMain, isLogin }: GlobalNavBarProps) {
                   key={info.text}
                   href={info.href}
                   className={`h-full text-base font-bold md:text-[18px] md:px-[15px]
-                    ${path.includes(info.href) ? "text-brand-blue" : "text-gray-600"}`}
+                    ${pathname.includes(info.href) ? "text-brand-blue" : "text-gray-600"}`}
                 >
                   {info.text}
                 </Link>
