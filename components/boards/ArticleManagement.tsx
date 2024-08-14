@@ -28,6 +28,7 @@ function ArticleManagement({
 }: ArticleManagementProps) {
   const { innerWidth } = useWindowSize();
 
+  //TODO: 드롭다운 모듈화
   return (
     <>
       <div className={styles.inputAndDropdown}>
