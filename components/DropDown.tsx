@@ -9,11 +9,19 @@ const StyledBox = styled.select`
   border: 1px solid var(--gray-200);
 `;
 
-function DropDown() {
+interface DropDownProps {
+  onOrderChange: (orderBy: string) => void;
+}
+
+function DropDown({ onOrderChange }: DropDownProps) {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    onOrderChange(event.target.value);
+  };
+
   return (
     <>
       <label htmlFor="order"></label>
-      <StyledBox id="order" name="order">
+      <StyledBox onChange={handleChange}>
         <option value="recent">최신순</option>
         <option value="like">좋아요순</option>
       </StyledBox>

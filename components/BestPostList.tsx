@@ -1,19 +1,13 @@
 import Image from "next/image";
 import DateTrimmer from "@/utils/TimeTrimmer";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
+import axios from "@/lib/axios";
 
-const post = {
-  updatedAt: "2024-08-13T11:07:29.015Z",
-  createdAt: "2024-08-13T11:07:29.015Z",
-  likeCount: 100,
-  writer: {
-    nickname: "최영선",
-    id: 1,
-  },
-  image: "https://dimg.donga.com/wps/NEWS/IMAGE/2021/12/09/110713388.1.jpg",
-  title: "맥북 팝니다!! 급처분해요",
-  id: 1,
-};
+const Container = styled.div`
+  display: flex;
+  gap: 24px;
+`;
 
 const StyledTitle = styled.h1`
   font-size: 20px;
@@ -78,37 +72,78 @@ const StyledDate = styled.p`
   color: var(--gray-400);
 `;
 
+type Writer = {
+  nickname: string;
+  id: number;
+};
+
+type Article = {
+  updatedAt: string;
+  createdAt: string;
+  likeCount: number;
+  writer: Writer;
+  image: string;
+  title: string;
+  id: number;
+};
+
 function BestPostList() {
+  const [articles, setArticles] = useState<Article[]>([]);
+
+  async function getProducts() {
+    const query = {
+      orderBy: "like",
+      page: 1,
+      pageSize: 3,
+    };
+    const res = await axios.get(
+      `/articles?orderBy=${query.orderBy}&page=${query.page}&pageSize=${query.pageSize}`
+    );
+    const nextArticles = res.data.list;
+    setArticles(nextArticles);
+  }
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <>
       <StyledTitle>베스트 게시글</StyledTitle>
-      <StyledPostArea>
-        <Image
-          unoptimized={true}
-          width={102}
-          height={30}
-          src="/image/best_badge.png"
-          alt="베스트 게시글 뱃지"
-        />
-        <StyledTopArea>
-          <StyledPostTitle>{post.title}</StyledPostTitle>
-          <StyledImageWrapper src={post.image} alt="게시글 첨부 이미지" />
-        </StyledTopArea>
-        <StyledBottomArea>
-          <StyledBottomLeftArea>
-            <StyledNickname>{post.writer.nickname}</StyledNickname>
+      <Container>
+        {articles.map((article) => (
+          <StyledPostArea key={article.id}>
             <Image
               unoptimized={true}
-              width={15}
-              height={13}
-              src="/image/heart_inactive.png"
-              alt="좋아요 아이콘"
+              width={102}
+              height={30}
+              src="/image/best_badge.png"
+              alt="베스트 게시글 뱃지"
             />
-            <StyledLikeCount>{post.likeCount}</StyledLikeCount>
-          </StyledBottomLeftArea>
-          <StyledDate>{DateTrimmer(post.createdAt)}</StyledDate>
-        </StyledBottomArea>
-      </StyledPostArea>
+            <StyledTopArea>
+              <StyledPostTitle>{article.title}</StyledPostTitle>
+              <StyledImageWrapper
+                src={article.image}
+                alt="게시글 첨부 이미지"
+              />
+            </StyledTopArea>
+            <StyledBottomArea>
+              <StyledBottomLeftArea>
+                <StyledNickname>{article.writer.nickname}</StyledNickname>
+                <Image
+                  unoptimized={true}
+                  width={15}
+                  height={13}
+                  src="/image/heart_inactive.png"
+                  alt="좋아요 아이콘"
+                />
+                <StyledLikeCount>{article.likeCount}</StyledLikeCount>
+              </StyledBottomLeftArea>
+              <StyledDate>{DateTrimmer(article.createdAt)}</StyledDate>
+            </StyledBottomArea>
+          </StyledPostArea>
+        ))}
+      </Container>
     </>
   );
 }
