@@ -35,26 +35,24 @@ function FileInput({ value, name, onChange }: Props) {
   }, [value]);
 
   return (
-    <>
-      <label htmlFor="image-file">
+    <div className="flex gap-[10px]">
+      <label
+        htmlFor="image"
+        className="flex h-[168px] w-[168px] cursor-pointer flex-col items-center justify-center rounded-[8px] bg-secondary-100 py-[6px] placeholder:font-lg-16px-regular desktop:h-[282px] desktop:w-[282px]"
+      >
         <Image
           width={48}
           height={48}
           src="/icon/plus.png"
           alt="file input button"
         />
-        <p>이미지 등록</p>
+        <p className="text-secondary-400 font-lg-16px-regular">이미지 등록</p>
       </label>
       {preview && (
-        <div>
+        <div className="relative h-[168px] w-[168px] desktop:h-[282px] desktop:w-[282px]">
+          <Image className="bg-cover" fill src={preview} alt="preview" />
           <Image
-            className=""
-            width={282}
-            height={282}
-            src={preview}
-            alt="preview"
-          />
-          <Image
+            className="absolute right-3 top-3"
             width={22}
             height={24}
             onClick={handleFileInputCancel}
@@ -66,12 +64,12 @@ function FileInput({ value, name, onChange }: Props) {
       <input
         className="hidden"
         ref={fileInputRef}
-        id="image-file"
+        id="image"
         name="image"
         type="file"
         onChange={handleFileInputChange}
       />
-    </>
+    </div>
   );
 }
 

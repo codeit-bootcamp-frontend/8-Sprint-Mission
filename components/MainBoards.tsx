@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import getArticles, { Article, ArticlesQuery } from '@/lib/api/getArticles';
+import Link from 'next/link';
 import RecentContent from './boards/MainContent';
 import RecentInfo from './boards/MainInfo';
 import VerticalDivider from './elements/VerticalDivider';
@@ -44,12 +45,16 @@ function MainBoards() {
           const isLastArticle = i !== boards.length - 1;
           return (
             <>
-              <div key={board.id} className="w-full rounded-[8px] bg-[#FCFCFC]">
+              <Link
+                href={`/board/${board.id}`}
+                key={board.id}
+                className="w-full rounded-[8px] bg-[#FCFCFC]"
+              >
                 <div className="mt-[24px] pb-[24px]">
                   <RecentContent board={board} />
                   <RecentInfo board={board} />
                 </div>
-              </div>
+              </Link>
               {isLastArticle && <VerticalDivider />}
             </>
           );

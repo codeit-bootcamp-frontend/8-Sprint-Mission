@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { DeviceContext } from '@/contexts/DeviceContext';
 import getArticles, { Article } from '@/lib/api/getArticles';
+import Link from 'next/link';
 import BestMedal from './boards/BestMedal';
 import BestContent from './boards/BestContent';
 import BestInfo from './boards/BestInfo';
@@ -32,13 +33,17 @@ function BestBoards() {
       <h1 className="font-xl-20px-bold">베스트 게시글</h1>
       <div className="mb-[10px] mt-4 flex gap-4">
         {boards.map(board => (
-          <div key={board.id} className="w-full rounded-[8px] bg-secondary-50">
+          <Link
+            href={`/board/${board.id}`}
+            key={board.id}
+            className="w-full rounded-[8px] bg-secondary-50"
+          >
             <div className="px-6 pb-4">
               <BestMedal />
               <BestContent board={board} />
               <BestInfo board={board} />
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
