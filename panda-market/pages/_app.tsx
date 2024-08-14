@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-query';
 
 import { GlobalStyle, ResetStyle } from '@/app/styles';
-import { Nav } from '@/widget/nav';
+import { Nav } from '@/c_widget/nav';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
