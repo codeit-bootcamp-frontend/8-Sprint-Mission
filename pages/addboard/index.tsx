@@ -1,10 +1,11 @@
 import FileInput from '@/components/FileInput';
-import postArticle from '@/lib/axios/postArticle';
-import postSignIn from '@/lib/axios/postSignIn';
+import postArticle from '@/lib/api/postArticle';
+import postSignIn from '@/lib/api/postSignIn';
 import cn from '@/lib/utils';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import router from 'next/router';
 import { ArticleState, ArticleStateKey } from '@/types/Article';
+import postImageUpload from '@/lib/api/postImageUpload';
 
 const initialValue: ArticleState = {
   title: '',
@@ -34,9 +35,20 @@ function AddBoard() {
   };
 
   const fetchPostArticle = async () => {
-    const data = await postArticle(values, token);
-    if ('message' in data) return;
-    router.push('/boards');
+    const formData = new FormData();
+    formData.append('image', values.image as Blob);
+    if (token) {
+      const imgURL = await postImageUpload(formData, token!);
+      const data = await postArticle(
+        {
+          ...values,
+          image: imgURL,
+        },
+        token
+      );
+      if ('message' in data) return;
+      router.push('/boards');
+    }
   };
 
   const handlePostArticle = (e: FormEvent<HTMLFormElement>) => {

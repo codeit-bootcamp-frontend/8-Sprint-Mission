@@ -1,5 +1,5 @@
-import getArticles, { Article, ArticlesQuery } from '@/lib/axios';
 import React, { useCallback, useEffect, useState } from 'react';
+import getArticles, { Article, ArticlesQuery } from '@/lib/api/getArticles';
 import RecentContent from './boards/MainContent';
 import RecentInfo from './boards/MainInfo';
 import VerticalDivider from './elements/VerticalDivider';

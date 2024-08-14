@@ -1,5 +1,5 @@
 import { DeviceContext } from '@/contexts/DeviceContext';
-import { ArticlesQuery } from '@/lib/axios';
+import { ArticlesQuery } from '@/lib/api';
 import Image from 'next/image';
 import {
   ChangeEvent,

@@ -1,6 +1,6 @@
-import getArticles, { Article } from '@/lib/axios';
 import { useContext, useEffect, useState } from 'react';
 import { DeviceContext } from '@/contexts/DeviceContext';
+import getArticles, { Article } from '@/lib/api/getArticles';
 import BestMedal from './boards/BestMedal';
 import BestContent from './boards/BestContent';
 import BestInfo from './boards/BestInfo';
