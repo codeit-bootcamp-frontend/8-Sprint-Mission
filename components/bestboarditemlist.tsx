@@ -54,7 +54,7 @@ const BoardItemContainer = styled.div`
   @media (max-width: 744px) {
     grid-template-columns: repeat(2, 1fr);
 
-    & > div:nth-child(3) {
+    & > :nth-child(3) {
       display: none; /* 3번째 게시글을 숨김 */
     }
   }
@@ -62,10 +62,8 @@ const BoardItemContainer = styled.div`
   @media (max-width: 376px) {
     grid-template-columns: repeat(1, 1fr);
 
-    & > div:nth-child(2) {
-      display: none;
-    }
-    > div:nth-child(3) {
+    & > :nth-child(2),
+    > :nth-child(3) {
       display: none;
     }
   }
