@@ -33,21 +33,13 @@ function ArticleManagement({
     <>
       <div className={styles.inputAndDropdown}>
         <form onSubmit={onSearchSubmit}>
-          <input
-            name={'search'}
-            placeholder={'검색할 상품을 입력해주세요'}
-            autoComplete={'off'}
-          />
+          <input name={'search'} placeholder={'검색할 상품을 입력해주세요'} autoComplete={'off'} />
         </form>
         <div className={styles.dropdownWrapper}>
           <div className={styles.dropdownTrigger} onClick={onIsOpenClick}>
-            {innerWidth > DEVICE_MAX_WIDTH.mobile && (
-              <span>{orderByObject[orderBy]}</span>
-            )}
+            {innerWidth > DEVICE_MAX_WIDTH.mobile && <span>{orderByObject[orderBy]}</span>}
             <Image
-              src={
-                innerWidth > DEVICE_MAX_WIDTH.mobile ? dropDownIcon : sortIcon
-              }
+              src={innerWidth > DEVICE_MAX_WIDTH.mobile ? dropDownIcon : sortIcon}
               alt={'드롭다운 열기 아이콘'}
               height={24}
               width={24}
@@ -55,8 +47,8 @@ function ArticleManagement({
           </div>
           {isDropdownOpen && (
             <div className={styles.dropdown} onClick={onOrderByClick}>
-              <button data-value={'recent'}>최신순</button>
-              <button data-value={'like'}>좋아요순</button>
+              <button data-value={'recent'}>{orderByObject.recent}</button>
+              <button data-value={'like'}>{orderByObject.like}</button>
             </div>
           )}
         </div>

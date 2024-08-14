@@ -16,35 +16,27 @@ interface ArticleSectionProps {
 }
 
 function ArticleSection({ initialArticleList }: ArticleSectionProps) {
-  const [articleList, setArticleList] = useState(initialArticleList);
-  const [orderBy, setOrderBy] = useState<orderType>('recent');
-  const [isOpen, toggleIsOpen] = useToggle();
+  const [articleList, setArticleList] = useState(initialArticleList); // SSR로 받아온 게시글 리스트 초깃값
+  const [orderBy, setOrderBy] = useState<orderType>('recent'); // 게시글 정렬 기준
+  const [isOpen, toggleDropdown] = useToggle();
 
-  const handleOrderByClick = async (
-    event: React.MouseEvent<HTMLDivElement>
-  ) => {
+  const handleOrderByClick = async (event: React.MouseEvent<HTMLDivElement>) => {
     const { value } = (event.target as HTMLDivElement).dataset;
-
-    // dataset에 있는 쿼리로 재정렬 요청 후 드롭다운 닫기
-    const { list } = await getArticles({ order: value as orderType });
+    const { list } = await getArticles({ order: value as orderType }); // dataset에 있는 쿼리로 재정렬 요청 후 드롭다운 닫기
     setArticleList(() => list);
     setOrderBy(value as orderType);
-    toggleIsOpen();
+    toggleDropdown();
   };
 
-  const handleSearchSubmit = async (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSearchSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { value } = (event.target as HTMLFormElement)['search'];
-    // 작성된 키워드로 검색 요청
-    const { list } = await getArticles({ keyword: value });
-
+    const { list } = await getArticles({ keyword: value }); // 작성된 키워드로 검색 요청
     setArticleList(() => list);
   };
 
   const handleDropdownClick = () => {
-    toggleIsOpen();
+    toggleDropdown();
   };
 
   return (

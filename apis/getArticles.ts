@@ -43,10 +43,7 @@ const getArticles = async ({
   });
 
   try {
-    const { data } = await axiosInstance.get(
-      `/${ARTICLES_QUERY_KEY}?${params.toString()}`
-    );
-
+    const { data } = await axiosInstance.get(`/${ARTICLES_QUERY_KEY}?${params.toString()}`);
     return data;
   } catch {
     return { list: [], totalCount: 0 };
