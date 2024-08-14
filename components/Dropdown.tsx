@@ -12,7 +12,7 @@ const Dropdown = ({ options, selectedValue, onSelect }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   // 옵션 선택 시 실행되는 함수

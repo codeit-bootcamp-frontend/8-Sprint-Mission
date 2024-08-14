@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "@/lib/axios";
+import { fetchAllArticles } from "@/lib/api";
 import Image from "next/image";
 import styles from "./AllArticles.module.css";
 import LikeButton from "./LikeButton";
@@ -16,7 +16,6 @@ interface AllArticlesProps {
 
 export default function AllArticles({ initialArticles }: AllArticlesProps) {
   const router = useRouter();
-
   const [articles, setArticles] = useState<Article[]>(initialArticles);
   const [option, setOption] = useState<string>("recent");
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -26,16 +25,9 @@ export default function AllArticles({ initialArticles }: AllArticlesProps) {
     { label: "좋아요순", value: "like" },
   ];
 
-  async function getArticles(query: string, keyword: string) {
-    try {
-      const res = await axios.get(
-        `/articles?orderBy=${query}&keyword=${keyword}`
-      );
-      const nextArticles = res.data.results || res.data.list || [];
-      setArticles(nextArticles);
-    } catch (error) {
-      console.error("Failed to fetch articles", error);
-    }
+  async function getArticles(orderBy: string, keyword: string) {
+    const nextArticles: Article[] = await fetchAllArticles(orderBy, keyword);
+    setArticles(nextArticles);
   }
 
   useEffect(() => {
@@ -99,12 +91,12 @@ export default function AllArticles({ initialArticles }: AllArticlesProps) {
           <li key={article.id} className={styles.article}>
             <div className={styles.titleImage}>
               <div className={styles.title}>{article.title}</div>
-              <img
+              <Image
                 className={styles.image}
                 src={article.image}
                 alt="게시글 이미지"
-                width="72px"
-                height="72px"
+                width={72}
+                height={72}
               />
             </div>
             <div className={styles.writer}>

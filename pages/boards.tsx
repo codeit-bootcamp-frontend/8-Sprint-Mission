@@ -3,17 +3,12 @@ import AllArticles from "@/components/AllArticles";
 import BestArticles from "@/components/BestArticles";
 import { GetServerSideProps } from "next";
 import Article from "@/types/types";
-import axios from "axios";
+import { fetchArticles } from "@/lib/api";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   let allArticles = [];
-  try {
-    const res = await axios.get(`/articles?orderBy=recent`);
-    allArticles = res.data.results || res.data.list || [];
-  } catch (error) {
-    console.error("Failed to fetch all articles", error);
-  }
 
+  allArticles = await fetchArticles();
   return {
     props: {
       allArticles,

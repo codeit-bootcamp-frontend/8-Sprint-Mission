@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./BestArticles.module.css";
 import formatDate from "@/utils/fomatDate";
 import { useState, useEffect } from "react";
-import axios from "@/lib/axios";
+import { fetchBestArticles } from "@/lib/api";
 import Article from "@/types/types";
 import Spinner from "./Spinner";
 
@@ -28,26 +28,20 @@ export default function BestArticles() {
   const [pageSize, setPageSize] = useState<number>(getPageSize());
   const [articles, setArticles] = useState<Article[]>([]);
 
-  async function getBestArticles(pageSize: number) {
-    try {
-      const res = await axios.get(
-        `/articles?orderBy=like&pageSize=${pageSize}`
-      );
-      const nextArticles = res.data.results || res.data.list || [];
-      setArticles(nextArticles);
-    } catch (error) {
-      console.error("Failed to fetch best articles", error);
-    }
-  }
+  const getBestArticles = async (pageSize: number) => {
+    const nextArticles: Article[] = await fetchBestArticles(pageSize);
+    setArticles(nextArticles);
+  };
 
   useEffect(() => {
+    getBestArticles(pageSize);
+
     const handleResize = () => {
       setPageSize(getPageSize());
     };
 
     if (typeof window !== "undefined")
       window.addEventListener("resize", handleResize);
-    getBestArticles(pageSize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -79,12 +73,12 @@ export default function BestArticles() {
             </div>
             <div className={styles.content}>
               <div className={styles.title}>{article.title}</div>
-              <img
+              <Image
                 className={styles.image}
                 src={article.image}
                 alt="게시글 이미지"
-                width="72px"
-                height="72px"
+                width={72}
+                height={72}
               />
             </div>
             <div className={styles.writer}>
