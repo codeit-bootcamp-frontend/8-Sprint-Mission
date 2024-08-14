@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useCloseRef } from '@/f_shared/lib';
 
-import ArrowDown from '@/shared/assets/icons/ic_arrow_down/ic_arrow_down.svg';
+import ArrowDown from '@/f_shared/assets/icons/ic_arrow_down/ic_arrow_down.svg';
 
 import * as S from './Dropdown.style';
 

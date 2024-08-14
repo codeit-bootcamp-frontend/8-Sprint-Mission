@@ -1,4 +1,4 @@
-import Profile from '@/shared/assets/icons/ic_profile/ic_profile.svg';
+import Profile from '@/f_shared/assets/icons/ic_profile/ic_profile.svg';
 
 import * as S from './UserProfile.style';
 

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import bestBadge from '@/shared/assets/images/best_badge/img_badge@2x.png';
+import bestBadge from '@/f_shared/assets/images/best_badge/img_badge@2x.png';
 
 import * as S from './BestBadge.style';
 

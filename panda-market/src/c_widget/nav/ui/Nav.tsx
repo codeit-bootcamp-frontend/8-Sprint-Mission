@@ -1,7 +1,7 @@
 import { LargeLogo, UserProfile } from '@/f_shared/ui';
 
 import * as S from './Nav.style';
-import largeLogo1x from '@/shared/assets/images/logos/main_logo@1x.png';
+import largeLogo1x from '@/f_shared/assets/images/logos/main_logo@1x.png';
 import Link from 'next/link';
 
 export const Nav = () => {

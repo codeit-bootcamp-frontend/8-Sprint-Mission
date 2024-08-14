@@ -1,4 +1,4 @@
-import SearchIcon from '@/shared/assets/icons/ic_search/ic_search.svg';
+import SearchIcon from '@/f_shared/assets/icons/ic_search/ic_search.svg';
 
 import * as S from './Search.style';
 

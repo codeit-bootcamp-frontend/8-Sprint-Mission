@@ -4,7 +4,7 @@ import { Article } from '@/entities/articles';
 import { useDateForm } from '@/f_shared/lib';
 import { UserProfile } from '@/f_shared/ui';
 
-import LikeIcon from '@/shared/assets/icons/ic_heart/inactive_heart.svg';
+import LikeIcon from '@/f_shared/assets/icons/ic_heart/inactive_heart.svg';
 
 import * as S from './BoardItem.style';
 

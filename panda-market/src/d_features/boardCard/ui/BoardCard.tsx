@@ -3,8 +3,8 @@ import { BestBadge } from '@/f_shared/ui';
 import { Article } from '@/entities/articles';
 import { useDateForm } from '@/f_shared/lib';
 
-// import ActiveHeart from '@/shared/assets/icons/ic_heart/active_heart.svg';
-import InactiveHeart from '@/shared/assets/icons/ic_heart/inactive_heart.svg';
+// import ActiveHeart from '@/f_shared/assets/icons/ic_heart/active_heart.svg';
+import InactiveHeart from '@/f_shared/assets/icons/ic_heart/inactive_heart.svg';
 
 import * as S from './BoardCard.style';
 
