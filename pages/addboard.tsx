@@ -1,9 +1,10 @@
 import { useState, useMemo } from "react";
+import { useRouter } from "next/router";
+import axios from "@/lib/axios";
 
 import AddButton from "@/components/Buttons/AddButton";
 import TextInput from "@/components/Inputs/TextInput";
 import FileInput from "@/components/Inputs/FileInput";
-import axios from "@/lib/axios";
 
 const INPUT_CONTENTS = [
   {
@@ -26,6 +27,7 @@ function AddBoard() {
     title: "",
     content: "",
   });
+  const router = useRouter();
 
   const handleValueChange = (name: string, value: string | File) => {
     setFormValues((prevValues) => ({
@@ -43,33 +45,38 @@ function AddBoard() {
   }, [formValues]);
 
   async function postArticle() {
-    const accessToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInNjb3BlIjoiYWNjZXNzIiwiaWF0IjoxNzIzNzA4NzIwLCJleHAiOjE3MjM3MTA1MjAsImlzcyI6InNwLXBhbmRhLW1hcmtldCJ9.p9rMWoZywSRwY1JDVG0dky-_tTvrI6E471Oz-KWYmig";
+    const accessToken = "";
 
     const formData = new FormData();
     formData.append("image", formValues.image);
-    const imageResponse = await axios.post("/images/upload", formData, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    const imageURL = imageResponse.data.url;
+    try {
+      const imageResponse = await axios.post("/images/upload", formData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      const imageURL = imageResponse.data.url;
 
-    console.log("Image POST Succeed! ", imageURL);
-
-    const data = {
-      ...formValues,
-      image: imageURL,
-    };
-    const response = await axios.post(`/articles`, data, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-
-    console.log("Article POST Succeed! ", response.data);
-    // 성공하면 모든 값 초기화 및 자유게시판으로 돌아가기
+      const data = {
+        ...formValues,
+        image: imageURL,
+      };
+      await axios.post(`/articles`, data, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+    } catch (error) {
+      console.error("게시글 등록 중 오류가 발생했습니다: ", error);
+    } finally {
+      setFormValues({
+        image: "",
+        title: "",
+        content: "",
+      });
+      router.push("/boards");
+    }
   }
 
   return (
@@ -82,7 +89,7 @@ function AddBoard() {
           onClick={postArticle}
         />
       </div>
-      <section>
+      <form>
         {INPUT_CONTENTS.map((content, index) => {
           return (
             <TextInput
@@ -93,7 +100,7 @@ function AddBoard() {
           );
         })}
         <FileInput name="image" label="이미지" onChange={handleValueChange} />
-      </section>
+      </form>
     </main>
   );
 }

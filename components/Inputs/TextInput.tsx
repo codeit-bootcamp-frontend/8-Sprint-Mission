@@ -37,7 +37,7 @@ function TextInput({ content, onChange }: TextInputProps) {
         />
       ) : (
         <textarea
-          className="h-72 w-full rounded-xl bg-gray-100 px-6 py-4"
+          className="w-full rounded-xl bg-gray-100 px-6 py-4"
           id={name}
           name={name}
           placeholder={placeholder}
