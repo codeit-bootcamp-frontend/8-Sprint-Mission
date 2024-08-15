@@ -67,7 +67,18 @@ export async function postArticle(articleForm: ArticlePost, accessToken: string)
   return result;
 }
 
-export async function postArticleComment() {
+export async function postArticleComment(articleId: string, commentForm: { content: string }, accessToken: string) {
+  const formString = JSON.stringify(commentForm);
+  const response = await fetch(`${BASE_URL}/articles/${articleId}/comments`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${accessToken}`,
+      "Content-Type": "application/json"
+    },
+    body: formString
+  });
+  if(!response.ok) throw new Error(`postArticleComment api 실행중 오류 발생: ${response.status}`);
+  const result = await response.json();
 
-  return
+  return result;
 }

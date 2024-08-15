@@ -1,8 +1,8 @@
 import { GetServerSideProps } from "next"
 import Link from "next/link";
 import Image from "next/image";
-import { ChangeEvent, useState } from "react";
-import { getArticle, getArticleComments } from "@/pages/api/apis";
+import { ChangeEvent, MouseEvent, useState } from "react";
+import { getArticle, getArticleComments, postArticleComment } from "@/pages/api/apis";
 import ArticleType from "@/DTO/article";
 import CommentType from "@/DTO/commentType";
 import useAsync from "@/lib/hooks/useAsync";
@@ -71,6 +71,21 @@ export default function Article({ id, article, comments: initialComments, nextCu
     })
   }
 
+  const handleCommentSubmit = async () => {
+    const accessToken = localStorage.getItem("access_token") ?? '';
+    const result: CommentType = await postArticleComment(id, commentForm, accessToken);
+    if(!result) {
+      alert("댓글 등록 실패");
+      return;
+    }
+    setComments(prev => [result, ...prev]);
+  }
+
+  const handleCommentSubmitButtonClick = (e: MouseEvent) => {
+    e.preventDefault();
+    handleCommentSubmit();
+  }
+
   return (
     <>
       <main className={styles.main}>
@@ -101,7 +116,7 @@ export default function Article({ id, article, comments: initialComments, nextCu
               <span>댓글달기</span>
               <textarea value={commentForm.content} className={styles.commentSubmitInput} placeholder="댓글을 입력해주세요." onChange={handleCommentChange} />
             </label>
-            <button className={styles.commentSubmitButton} disabled={commentForm.content.length <= 0}>등록</button>
+            <button className={styles.commentSubmitButton} disabled={commentForm.content.length <= 0} onClick={handleCommentSubmitButtonClick}>등록</button>
           </div>
           <ul className={styles.commentsList}>
             {comments.map((comment) => 
