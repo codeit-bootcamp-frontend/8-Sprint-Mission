@@ -17,15 +17,10 @@ interface ArticleSectionProps {
 
 function ArticleSection({ initialArticleList }: ArticleSectionProps) {
   const [articleList, setArticleList] = useState(initialArticleList); // SSR로 받아온 게시글 리스트 초깃값
-  const [orderBy, setOrderBy] = useState<orderType>('recent'); // 게시글 정렬 기준
-  const [isOpen, toggleDropdown] = useToggle();
 
-  const handleOrderByClick = async (event: React.MouseEvent<HTMLDivElement>) => {
-    const { value } = (event.target as HTMLDivElement).dataset;
-    const { list } = await getArticles({ order: value as orderType }); // dataset에 있는 쿼리로 재정렬 요청 후 드롭다운 닫기
+  const handleOrderByClick = async (orderBy: string) => {
+    const { list } = await getArticles({ order: orderBy as orderType }); // dataset에 있는 쿼리로 재정렬 요청 후 드롭다운 닫기
     setArticleList(() => list);
-    setOrderBy(value as orderType);
-    toggleDropdown();
   };
 
   const handleSearchSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -33,10 +28,6 @@ function ArticleSection({ initialArticleList }: ArticleSectionProps) {
     const { value } = (event.target as HTMLFormElement)['search'];
     const { list } = await getArticles({ keyword: value }); // 작성된 키워드로 검색 요청
     setArticleList(() => list);
-  };
-
-  const handleDropdownClick = () => {
-    toggleDropdown();
   };
 
   return (
@@ -47,13 +38,7 @@ function ArticleSection({ initialArticleList }: ArticleSectionProps) {
           <Button category={'large'}>글쓰기</Button>
         </Link>
       </div>
-      <ArticleManagement
-        onDropdownClick={handleDropdownClick}
-        onSearchSubmit={handleSearchSubmit}
-        onOrderByClick={handleOrderByClick}
-        isDropdownOpen={isOpen}
-        orderBy={orderBy}
-      />
+      <ArticleManagement onSearchSubmit={handleSearchSubmit} onOrderByClick={handleOrderByClick} />
       <ArticleList articleList={articleList} />
     </section>
   );
