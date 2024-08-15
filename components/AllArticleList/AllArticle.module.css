@@ -1,4 +1,6 @@
 .article {
+  display: inline-block;
+  width: 100%;
   margin-top: 1.5rem;
   padding-bottom: 1.5rem;
   border-bottom: solid 0.0625rem var(--gray200);

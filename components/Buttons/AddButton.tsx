@@ -1,10 +1,13 @@
 interface AddButtonProps {
   buttonText: string;
+  isFormComplete: boolean;
 }
 
-function AddButton({ buttonText }: AddButtonProps) {
+function AddButton({ buttonText, isFormComplete = false }: AddButtonProps) {
+  let buttonClassNames = `rounded-lg px-6 py-2 text-gray-100 ${isFormComplete ? "bg-brand-blue" : "bg-gray-400"}`;
+
   return (
-    <button className="rounded-lg bg-gray-400 px-6 py-2 text-gray-100">
+    <button className={buttonClassNames} disabled={!isFormComplete}>
       {buttonText}
     </button>
   );

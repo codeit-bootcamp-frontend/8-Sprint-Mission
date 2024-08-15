@@ -28,23 +28,19 @@ function AddBoard() {
   //   }));
   // };
 
-  // const isFormComplete = useMemo(() => {
+  // const isFormComplete = () => {
   //   const { imgFile, ...restValues } = inputValues;
   //   const isAllInputFill = Object.values(restValues).every(
   //     (inputValue) => inputValue !== ""
   //   );
   //   return isAllInputFill;
-  // }, [inputValues]);
-
-  // const buttonClassName = isFormComplete
-  //   ? "add-item-button-active"
-  //   : "add-item-button";
+  // };
 
   return (
     <main>
-      <div className="flex justify-between items-center mb-8">
-        <h3 className="font-bold text-xl text-gray-800">게시글 쓰기</h3>
-        <AddButton buttonText="등록" />
+      <div className="mb-8 flex items-center justify-between">
+        <h3 className="text-xl font-bold text-gray-800">게시글 쓰기</h3>
+        <AddButton buttonText="등록" isFormComplete={true} />
       </div>
       <section>
         {INPUT_CONTENTS.map((content, index) => {

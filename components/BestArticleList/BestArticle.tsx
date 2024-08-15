@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import { Article } from "@/types/article";
 import formatDate from "@/lib/formatDate";
 import styles from "./BestArticle.module.css";
@@ -13,7 +14,7 @@ interface BestArticleProps {
 }
 
 function BestArticle({ article }: BestArticleProps) {
-  const { title, image, writer, likeCount, createdAt } = article;
+  const { id, title, image, writer, likeCount, createdAt } = article;
 
   const [isLikeClicked, setIsLikeClicked] = useState<boolean>(false);
 
@@ -22,7 +23,7 @@ function BestArticle({ article }: BestArticleProps) {
   };
 
   return (
-    <article className={styles.articleWrapper}>
+    <Link className={styles.articleWrapper} href={`/board/${id}`}>
       <Image
         className={styles.bestBadgeImage}
         src={bestBadge}
@@ -57,7 +58,7 @@ function BestArticle({ article }: BestArticleProps) {
         </div>
         <h5 className={styles.createdAt}>{formatDate(createdAt)}</h5>
       </div>
-    </article>
+    </Link>
   );
 }
 

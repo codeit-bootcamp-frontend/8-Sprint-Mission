@@ -1,5 +1,5 @@
 export interface Writer {
-  nickname: string;
+  nickname?: string;
   id: number;
 }
 

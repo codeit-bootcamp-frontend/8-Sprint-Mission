@@ -19,12 +19,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 }
 
-interface BoardProps {
+interface SearchBoardProps {
   keyword: string;
   articles: Article[];
 }
 
-function Board({ keyword, articles }: BoardProps) {
+function SearchBoard({ keyword, articles }: SearchBoardProps) {
   return (
     <main>
       <section className={styles.section}>
@@ -52,4 +52,4 @@ function Board({ keyword, articles }: BoardProps) {
   );
 }
 
-export default Board;
+export default SearchBoard;

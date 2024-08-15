@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Image from "next/image";
 import plusIcon from "@/assets/images/ic_plus.png";
+import deleteIcon from "@/assets/images/ic_X.png";
 
 interface FileInputProps {
   name: string;
@@ -13,11 +14,15 @@ function FileInput({ name, label }: FileInputProps) {
 
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-    const selectedImg = e.target.files[0];
-    const previewImg = URL.createObjectURL(selectedImg);
+    const selectedImage = e.target.files[0];
+    const previewImage = URL.createObjectURL(selectedImage);
 
-    // onChange(name, selectedImg);
-    setPreview(previewImg);
+    // onChange(name, selectedImage);
+    setPreview(previewImage);
+  };
+
+  const handleFileInputDelete = () => {
+    setPreview("");
   };
 
   return (
@@ -48,13 +53,24 @@ function FileInput({ name, label }: FileInputProps) {
       />
 
       {preview && (
-        <Image
-          className="ml-6 inline-block h-72 w-72 rounded-xl object-cover align-baseline"
-          src={preview}
-          alt="업로드한 이미지 미리보기"
-          width={282}
-          height={282}
-        />
+        <div className="relative inline-block">
+          <Image
+            className="ml-6 inline-block h-72 w-72 rounded-xl object-cover align-baseline"
+            src={preview}
+            alt="업로드한 이미지 미리보기"
+            width={282}
+            height={282}
+          />
+          <button onClick={handleFileInputDelete}>
+            <Image
+              className="absolute right-3 top-3"
+              src={deleteIcon}
+              alt="이미지 삭제 아이콘"
+              width={20}
+              height={20}
+            />
+          </button>
+        </div>
       )}
     </div>
   );

@@ -70,6 +70,7 @@ function Board() {
         </h3>
         <BestArticleList articles={bestArticles} />
       </section>
+
       <section>
         <div className={styles.titleWrapper}>
           <h3 className={styles.sectionTitle}>게시글</h3>
