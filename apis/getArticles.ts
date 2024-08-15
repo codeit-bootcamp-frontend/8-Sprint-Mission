@@ -22,7 +22,7 @@ interface ArticlesResponse {
   totalCount: number;
 }
 
-export interface GetArticlesProps {
+export interface GetArticlesParams {
   page?: number;
   size?: number;
   order?: orderType;
@@ -34,7 +34,7 @@ const getArticles = async ({
   order = 'recent',
   size = 10,
   keyword = '',
-}: GetArticlesProps): Promise<ArticlesResponse> => {
+}: GetArticlesParams): Promise<ArticlesResponse> => {
   const params = new URLSearchParams({
     page: page.toString(),
     pageSize: size.toString(),
