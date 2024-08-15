@@ -1,5 +1,5 @@
 import { ArticleResponse, GetArticleRequest } from '@/entities/articles';
-import { getBoards } from '@/entities/api';
+import { getBoards } from '@/entities/articles';
 import { useQuery } from '@tanstack/react-query';
 
 export const useBestBoards = ({
