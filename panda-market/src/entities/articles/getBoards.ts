@@ -1,6 +1,6 @@
-import { AxiosError, AxiosResponse } from 'axios';
-import { ArticleResponse, GetArticleRequest } from '@/entities/articles';
-import { instance } from '@/f_shared/api';
+import { AxiosResponse } from 'axios';
+import { ArticleResponse, GetArticleRequest } from '.';
+import { instance } from '@/entities/api';
 import { API_PATH } from '@/f_shared/config';
 
 export const getBoards = async ({

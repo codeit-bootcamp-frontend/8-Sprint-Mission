@@ -1,5 +1,5 @@
-import { Article } from '@/entities/articles/types';
-import { BoardCard } from '@/d_features/boardCard/ui';
+import { Article } from '@/entities/api';
+import { BoardCard } from '@/d_features/boards/boardCard';
 
 import * as S from './BoardCardList.style';
 

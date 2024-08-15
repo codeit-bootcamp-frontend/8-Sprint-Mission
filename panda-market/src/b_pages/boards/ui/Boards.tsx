@@ -1,6 +1,6 @@
-import { BoardCardList } from '@/d_features/boardCardList';
+import { BoardCardList } from '@/d_features/boards/boardCardList';
 import { useBestBoards } from '@/d_features/boards/getBestBoards';
-import { BoardFilter } from '@/d_features/boardFilter';
+import { BoardFilter } from '@/d_features/boards/boardFilter';
 
 import { SectionTitle } from '@/f_shared/ui/title';
 import { LinkSmall } from '@/f_shared/ui/buttons';

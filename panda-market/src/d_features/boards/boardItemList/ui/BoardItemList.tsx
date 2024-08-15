@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoardItem } from '@/d_features/boardItem/ui';
+import { BoardItem } from '@/d_features/boards/boardItem/ui';
 import { useFetchBoards } from '../lib';
 import { BoardDropdownContentType } from '@/f_shared/config';
 

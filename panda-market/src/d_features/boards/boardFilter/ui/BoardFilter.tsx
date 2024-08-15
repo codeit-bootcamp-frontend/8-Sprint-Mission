@@ -1,4 +1,4 @@
-import { BoardItemList } from '@/d_features/boardItemList';
+import { BoardItemList } from '@/d_features/boards/boardItemList';
 import { Dropdown } from '@/f_shared/ui/dropdown';
 import { BOARD_DROPDOWN_CONTENTS } from '@/f_shared/config';
 import { useSearch } from '@/f_shared/lib';

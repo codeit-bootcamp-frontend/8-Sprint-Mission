@@ -27,3 +27,9 @@ export interface ArticleResponse {
   list: Article[];
   totalCount: number;
 }
+
+export interface AddBoardParams {
+  title: string;
+  content: string;
+  image?: string;
+}

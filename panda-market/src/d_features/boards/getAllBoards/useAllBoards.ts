@@ -1,6 +1,5 @@
-import { ArticleResponse, GetArticleRequest } from '@/entities/articles';
-import { getBoards } from '@/f_shared/api';
 import { useQuery } from '@tanstack/react-query';
+import { ArticleResponse, GetArticleRequest, getBoards } from '@/entities/api';
 
 export const useGetAllBoards = ({
   page,
