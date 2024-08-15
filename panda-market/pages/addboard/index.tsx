@@ -1,5 +1,11 @@
+import { AddBoard } from '@/b_pages/addBoard/';
+
 const AddBoardPage = () => {
-  return <></>;
+  return (
+    <>
+      <AddBoard />
+    </>
+  );
 };
 
 export default AddBoardPage;

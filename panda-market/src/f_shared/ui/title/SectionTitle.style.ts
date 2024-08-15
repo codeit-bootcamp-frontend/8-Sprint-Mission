@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { colors, sizeTheme } from '../../config/styles';
 
 export const Title = styled.h1`
+  white-space: nowrap;
   color: ${colors.secondary[900]};
   font-size: 1.25rem;
   font-style: normal;

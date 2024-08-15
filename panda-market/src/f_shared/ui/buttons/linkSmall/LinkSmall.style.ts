@@ -8,7 +8,7 @@ interface LinkButtonProps {
   $border: string;
 }
 
-export const LinkButton = styled.a<LinkButtonProps>`
+export const LinkButton = styled.p<LinkButtonProps>`
   display: flex;
   width: 5.5rem;
   height: ${({ $size }) => ($size === '40' ? '2.625rem' : '3rem')};

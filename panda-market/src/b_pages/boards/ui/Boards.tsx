@@ -21,7 +21,7 @@ export const Boards = () => {
       <S.Section>
         <S.AllBoardsHeader>
           <SectionTitle>게시글</SectionTitle>
-          <LinkSmall $size="40" $style="default">
+          <LinkSmall $size="40" $style="default" targetHref="/addboard">
             글쓰기
           </LinkSmall>
         </S.AllBoardsHeader>
