@@ -4,3 +4,7 @@ export * from './title';
 export * from './userProfile';
 export * from './buttons';
 export * from './search';
+export * from './labels';
+export * from './inputs';
+export * from './textAreas';
+export * from './modal';
