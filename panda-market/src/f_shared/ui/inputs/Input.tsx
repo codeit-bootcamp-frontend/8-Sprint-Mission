@@ -8,10 +8,14 @@ interface InputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isValid: boolean;
+  name: string;
+  id: string;
 }
 
 export const Input = ({
   type = 'default',
+  id,
+  name,
   placeholder,
   value,
   onChange,
@@ -19,6 +23,8 @@ export const Input = ({
 }: InputProps) => {
   return (
     <S.Input
+      id={id}
+      name={name}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
