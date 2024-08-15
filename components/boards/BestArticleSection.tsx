@@ -1,10 +1,6 @@
 import { Suspense } from 'react';
 import styles from './BestArticleSection.module.scss';
-import dynamic from 'next/dynamic';
-
-const BestArticleList = dynamic(() => import('../boards/BestArticleList'), {
-  ssr: false,
-});
+import BestArticleList from './BestArticleList';
 
 function BestArticleSection() {
   return (

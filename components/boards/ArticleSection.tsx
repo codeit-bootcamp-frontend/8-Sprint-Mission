@@ -1,15 +1,12 @@
 import getArticles, { IArticle, orderType } from '@/apis/getArticles';
 import ArticleList from './ArticleList';
 import { useState } from 'react';
-import useToggle from '@/hooks/useToggle';
+import useToggle from '@/hooks/customs/useToggle';
 import styles from './ArticleSection.module.scss';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Button from '../@shared/Button';
-
-const ArticleManagement = dynamic(() => import('./ArticleManagement'), {
-  ssr: false,
-});
+import ArticleManagement from './ArticleManagement';
 
 interface ArticleSectionProps {
   initialArticleList: IArticle[];

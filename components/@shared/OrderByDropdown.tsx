@@ -3,9 +3,10 @@ import sortIcon from '@/public/images/market/sort-icon.png';
 import dropDownIcon from '@/public/images/market/order-dropdown.png';
 import { DEVICE_MAX_WIDTH } from '@/constants/mediaQuerySize';
 import Image from 'next/image';
-import useWindowSize from '@/hooks/useWindowSize';
-import useToggle from '@/hooks/useToggle';
+
+import useToggle from '@/hooks/customs/useToggle';
 import { useState } from 'react';
+import useInnerWidth from '@/hooks/customs/useInnerWidth';
 
 interface OrderByDropdownProps {
   onMenuClick: (orderBy: string) => void;
@@ -17,7 +18,7 @@ const orderByList = [
 ];
 
 function OrderByDropdown({ onMenuClick }: OrderByDropdownProps) {
-  const { innerWidth } = useWindowSize();
+  const innerWidth = useInnerWidth();
   const [isDropdownOpen, toggleDropdown] = useToggle();
   const [selectedItem, setSelectedItem] = useState(orderByList[0]);
 

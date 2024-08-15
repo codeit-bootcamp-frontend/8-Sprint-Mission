@@ -1,12 +1,12 @@
 import useArticlesQuery from '@/hooks/queries/useArticlesQuery';
 import BestArticle from './BestArticle';
 import styles from './BestArticleList.module.scss';
-import useWindowSize from '@/hooks/useWindowSize';
 import { DEVICE_MAX_WIDTH } from '@/constants/mediaQuerySize';
+import useInnerWidth from '@/hooks/customs/useInnerWidth';
 
 function BestArticleList() {
   // TODO: 커스텀 훅으로 분리시키기
-  const { innerWidth } = useWindowSize();
+  const innerWidth = useInnerWidth();
   const querySize =
     innerWidth > DEVICE_MAX_WIDTH.tablet // 태블릿 사이즈보다 크면 3개
       ? 3

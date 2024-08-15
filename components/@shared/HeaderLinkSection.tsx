@@ -2,20 +2,15 @@ import logoImg from '@/public/images/home/logoAndTypo.png';
 import typoImg from '@/public/images/home/typo.png';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import useWindowSize from '@/hooks/useWindowSize';
-import {
-  PATH_ADD_ITEM,
-  PATH_BOARDS,
-  PATH_HOME,
-  PATH_ITEMS,
-} from '@/constants/paths';
+import { PATH_ADD_ITEM, PATH_BOARDS, PATH_HOME, PATH_ITEMS } from '@/constants/paths';
 import classNames from 'classnames';
 import styles from './HeaderLinkSection.module.scss';
 import { DEVICE_MAX_WIDTH } from '@/constants/mediaQuerySize';
 import Image from 'next/image';
+import useInnerWidth from '@/hooks/customs/useInnerWidth';
 
 function HeaderLinkSection() {
-  const { innerWidth } = useWindowSize();
+  const innerWidth = useInnerWidth();
   const { pathname } = useRouter();
   const needLinkHeaderPaths = [PATH_BOARDS, PATH_ITEMS, PATH_ADD_ITEM];
   const isWiderMobileSize = innerWidth > DEVICE_MAX_WIDTH.mobile;
