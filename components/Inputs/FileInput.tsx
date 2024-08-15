@@ -7,9 +7,10 @@ import deleteIcon from "@/assets/images/ic_X.png";
 interface FileInputProps {
   name: string;
   label: string;
+  onChange: (name: string, value: string | File) => void;
 }
 
-function FileInput({ name, label }: FileInputProps) {
+function FileInput({ name, label, onChange }: FileInputProps) {
   const [preview, setPreview] = useState("");
 
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +18,7 @@ function FileInput({ name, label }: FileInputProps) {
     const selectedImage = e.target.files[0];
     const previewImage = URL.createObjectURL(selectedImage);
 
-    // onChange(name, selectedImage);
+    onChange(name, selectedImage);
     setPreview(previewImage);
   };
 

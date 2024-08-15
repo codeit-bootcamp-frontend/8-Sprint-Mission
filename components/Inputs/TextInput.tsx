@@ -7,10 +7,18 @@ interface Content {
 
 interface TextInputProps {
   content: Content;
+  onChange: (name: string, value: string | File) => void;
 }
 
-function TextInput({ content }: TextInputProps) {
+function TextInput({ content, onChange }: TextInputProps) {
   const { name, label, placeholder, isTextArea } = content;
+
+  const handleTextInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.currentTarget;
+    onChange(name, value);
+  };
 
   return (
     <div className="mb-6 flex flex-col items-start justify-start">
@@ -25,6 +33,7 @@ function TextInput({ content }: TextInputProps) {
           name={name}
           type="text"
           placeholder={placeholder}
+          onChange={handleTextInputChange}
         />
       ) : (
         <textarea
@@ -32,6 +41,7 @@ function TextInput({ content }: TextInputProps) {
           id={name}
           name={name}
           placeholder={placeholder}
+          onChange={handleTextInputChange}
         />
       )}
     </div>
