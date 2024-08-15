@@ -4681,6 +4681,7 @@ __metadata:
     react-dom: "npm:^18"
     react-hook-form: "npm:^7.52.2"
     styled-components: "npm:^6.1.12"
+    ts-pattern: "npm:^5.3.1"
     typescript: "npm:^5"
   languageName: unknown
   linkType: soft
@@ -5477,6 +5478,13 @@ __metadata:
   peerDependencies:
     typescript: ">=4.2.0"
   checksum: 10c0/f54a0ba9ed56ce66baea90a3fa087a484002e807f28a8ccb2d070c75e76bde64bd0f6dce98b3802834156306050871b67eec325cb4e918015a360a3f0868c77c
+  languageName: node
+  linkType: hard
+
+"ts-pattern@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "ts-pattern@npm:5.3.1"
+  checksum: 10c0/4d5082edb2d0a198a4f46abc834317fa2be616277be7721df71a93ea33180b85443ae2e92ff28a0cda51f038b5e347b35ad79936a55ed468e23268fbc48503a1
   languageName: node
   linkType: hard
 
