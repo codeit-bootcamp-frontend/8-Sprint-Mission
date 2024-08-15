@@ -4,7 +4,8 @@ import formatDate from "@/utils/fomatDate";
 import { useState, useEffect } from "react";
 import { fetchBestArticles } from "@/lib/api";
 import Article from "@/types/types";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
+import Link from "next/link";
 
 const getPageSize = () => {
   if (typeof window === "undefined") {
@@ -62,38 +63,40 @@ export default function BestArticles() {
       <ul className={styles.articleList}>
         {articles.map((article) => (
           <li key={article.id} className={styles.article}>
-            <div className={styles.bestImage}>
-              <Image
-                src="/ic_medal.png"
-                alt="메달 이미지"
-                width={16}
-                height={16}
-              />
-              <p>Best</p>
-            </div>
-            <div className={styles.content}>
-              <div className={styles.title}>{article.title}</div>
-              <Image
-                className={styles.image}
-                src={article.image}
-                alt="게시글 이미지"
-                width={72}
-                height={72}
-              />
-            </div>
-            <div className={styles.writer}>
-              <div className={styles.nickname}>{article.writer.nickname}</div>
-              <Image
-                src="/ic_heart.png"
-                width={16}
-                height={16}
-                alt="좋아요 아이콘"
-              />
-              <div className={styles.likeCount}>{article.likeCount}+</div>
-              <div className={styles.createdAt}>
-                {formatDate(article.createdAt)}
+            <Link className={styles.articleLink} href={`/boards/${article.id}`}>
+              <div className={styles.bestImage}>
+                <Image
+                  src="/ic_medal.png"
+                  alt="메달 이미지"
+                  width={16}
+                  height={16}
+                />
+                <p>Best</p>
               </div>
-            </div>
+              <div className={styles.content}>
+                <div className={styles.title}>{article.title}</div>
+                <Image
+                  className={styles.image}
+                  src={article.image}
+                  alt="게시글 이미지"
+                  width={72}
+                  height={72}
+                />
+              </div>
+              <div className={styles.writer}>
+                <div className={styles.nickname}>{article.writer.nickname}</div>
+                <Image
+                  src="/ic_heart.png"
+                  width={16}
+                  height={16}
+                  alt="좋아요 아이콘"
+                />
+                <div className={styles.likeCount}>{article.likeCount}+</div>
+                <div className={styles.createdAt}>
+                  {formatDate(article.createdAt)}
+                </div>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

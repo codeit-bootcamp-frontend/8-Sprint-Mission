@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { fetchAllArticles } from "@/lib/api";
 import Image from "next/image";
 import styles from "./AllArticles.module.css";
-import LikeButton from "./LikeButton";
-import Dropdown from "./Dropdown";
-import SearchForm from "./SearchForm";
+import LikeButton from "../LikeButton";
+import Dropdown from "../Dropdown";
+import SearchForm from "../SearchForm";
 import formatDate from "@/utils/fomatDate";
 import Article from "@/types/types";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface AllArticlesProps {
   initialArticles: Article[];
@@ -89,30 +90,32 @@ export default function AllArticles({ initialArticles }: AllArticlesProps) {
       <ul className={styles.articleList}>
         {articles.map((article) => (
           <li key={article.id} className={styles.article}>
-            <div className={styles.titleImage}>
-              <div className={styles.title}>{article.title}</div>
-              <Image
-                className={styles.image}
-                src={article.image}
-                alt="게시글 이미지"
-                width={72}
-                height={72}
-              />
-            </div>
-            <div className={styles.writer}>
-              <Image
-                src="/profile.png"
-                alt="프로필 이미지"
-                width={24}
-                height={24}
-              />
-              <div className={styles.nickname}>{article.writer.nickname}</div>
-              <div className={styles.createdAt}>
-                {formatDate(article.createdAt)}
+            <Link className={styles.articleLink} href={`/boards/${article.id}`}>
+              <div className={styles.titleImage}>
+                <div className={styles.title}>{article.title}</div>
+                <Image
+                  className={styles.image}
+                  src={article.image}
+                  alt="게시글 이미지"
+                  width={72}
+                  height={72}
+                />
               </div>
-              <LikeButton article={article} />
-            </div>
-            <hr className={styles.lineDivider} />
+              <div className={styles.writer}>
+                <Image
+                  src="/profile.png"
+                  alt="프로필 이미지"
+                  width={24}
+                  height={24}
+                />
+                <div className={styles.nickname}>{article.writer.nickname}</div>
+                <div className={styles.createdAt}>
+                  {formatDate(article.createdAt)}
+                </div>
+                <LikeButton article={article} />
+              </div>
+              <hr className={styles.lineDivider} />
+            </Link>
           </li>
         ))}
       </ul>

@@ -15,11 +15,11 @@ export default function SearchForm({
   const [value, setValue] = useState(initialValue);
   const router = useRouter();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSearch(value);
 
@@ -42,13 +42,13 @@ export default function SearchForm({
   };
 
   return (
-    <form className={styles.searchForm} onSubmit={handleSubmit}>
+    <form className={styles.searchForm} onSubmit={handleSearchSubmit}>
       <input
         className={styles.searchInput}
         name="q"
         value={value}
         placeholder="검색할 상품을 입력해주세요"
-        onChange={handleChange}
+        onChange={handleSearchChange}
       />
       <Image
         className={styles.searchImage}

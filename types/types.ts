@@ -8,3 +8,13 @@ export default interface Article {
     nickname: string;
   };
 }
+
+export default interface CommentType {
+  id: number;
+  content: string;
+  createdAt: Date;
+  updatedAt: Date;
+  writer: {
+    nickname: string;
+  };
+}

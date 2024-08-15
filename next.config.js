@@ -10,6 +10,24 @@ const nextConfig = {
       },
     ];
   },
+  redirects: async function redirects() {
+    return [
+      {
+        source: "/articles/:id",
+        destination: "/boards/:id",
+        permanent: true,
+      },
+    ];
+  },
+  redirects: async function redirects() {
+    return [
+      {
+        source: "/articles/:id/comments",
+        destination: "/boards/:id/comments",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     domains: ["localhost", "sprint-fe-project.s3.ap-northeast-2.amazonaws.com"],
     remotePatterns: [

@@ -2,6 +2,8 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import localFont from "next/font/local";
+import Navbar from "@/components/Navbar";
+import Container from "@/components/Container";
 
 const pretendard = localFont({
   src: "../fonts/PretendardVariable.woff2",
@@ -19,7 +21,10 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   `}</style>
       </Head>
-      <Component {...pageProps} />
+      <Navbar />
+      <Container page>
+        <Component {...pageProps} />
+      </Container>
     </>
   );
 }
