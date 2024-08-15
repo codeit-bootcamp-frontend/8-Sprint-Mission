@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, MouseEvent, useEffect, useState } from "react";
 import styles from "./Articles.module.css";
 import { getArticles } from "@/pages/api/apis";
 import ArticleType from "@/DTO/article";
@@ -8,6 +8,7 @@ import getRenderedPages from "@/lib/getRenderedPages";
 import useDropdownState from "@/lib/hooks/useDropdownState";
 import useAsync from "@/lib/hooks/useAsync";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const ORDER_EN_KO_PAIR: {
   [key: string]: string,
@@ -30,6 +31,8 @@ const PAGE_SIZE = 10;
 type MediaWidthType = "desktop" | "tablet" | "mobile" | "none";
 
 export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType }) {
+  const router = useRouter();
+  
   const [articles, setArticles] = useState<ArticleType[]>([]);
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
@@ -60,6 +63,11 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
     handleLoad(page, PAGE_SIZE, orderBy, keyword);
   }
 
+  const handleWriterButtonClick = (e: MouseEvent) => {
+    e.preventDefault();
+    router.push("/addboard");
+  }
+
   useEffect(() => {
     setPage(1);
     handleLoad(1, PAGE_SIZE, orderBy, keyword);
@@ -70,7 +78,7 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
 
       <div className={styles.articlesSectionHeader}>
         <span>게시글</span>
-        <button className={styles.writeButton}>글쓰기</button>
+        <button className={styles.writeButton} onClick={handleWriterButtonClick}>글쓰기</button>
       </div>
       
       <div className={styles.queryHandlersContainer}>

@@ -1,17 +1,21 @@
 import Image from "next/image"
+import { useRouter } from "next/router"
 import { ChangeEvent, MouseEvent, useEffect, useState } from "react"
+import { postArticle } from "@/pages/api/apis"
 import ArticlePost from "@/DTO/articlePost"
 import styles from "@/styles/Addboard.module.css"
 
 const INITIAL_FORM_DATA: ArticlePost = {
-  title: '',
-  content: '',
   image: '',
+  content: '',
+  title: '',
 }
 
 export default function Addboard() {
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [imageInputValue, setImageInputValue] = useState('');
+
+  const router = useRouter();
   
   const isButtonDisabled = (formData.title.length <= 0) || (formData.content.length <= 0)
 
@@ -39,6 +43,21 @@ export default function Addboard() {
     handleChange("image", '');
   }
 
+  const handleSubmit = async () => {
+    const accessToken = localStorage.getItem("access_token") ?? '';
+    const result = await postArticle(formData, accessToken);
+    if(!result) {
+      alert("게시글 등록 실패");
+      return;
+    }
+    router.push(`/boards/${result.id}`);
+  }
+
+  const handleSubmitButtonClick = (e: MouseEvent) => {
+    e.preventDefault();
+    handleSubmit();
+  }
+
   useEffect(() => {
     return (() => {
       URL.revokeObjectURL(formData.image);
@@ -49,7 +68,7 @@ export default function Addboard() {
     <main className={styles.addboardMain}>
       <div className={styles.addboardHead}>
         <h1 className={styles.addboardHeadTitle}>게시글 쓰기</h1>
-        <button className={styles.addboardButton} disabled={isButtonDisabled}>등록</button>
+        <button className={styles.addboardButton} disabled={isButtonDisabled} onClick={handleSubmitButtonClick}>등록</button>
       </div>
       <form className={styles.addboardForm}>
         <label className={styles.addboardFormLabel}>
