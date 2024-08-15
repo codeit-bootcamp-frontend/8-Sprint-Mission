@@ -1,14 +1,17 @@
-import { AddBoardHeader } from '@/c_widget/addBoard/header';
+import { AddBoardForm } from '@/c_widget/addBoard';
+import { ConfirmModal } from '@/f_shared/ui';
+
 import * as S from './AddBoard.style';
-import { AddBoardForm } from '@/c_widget/addBoard/forms';
+import { useModal } from '@/f_shared/lib';
 
 export const AddBoard = () => {
   return (
-    <S.Wrapper>
-      <S.Content>
-        <AddBoardHeader />
-        <AddBoardForm />
-      </S.Content>
-    </S.Wrapper>
+    <>
+      <S.Wrapper>
+        <S.Content>
+          <AddBoardForm />
+        </S.Content>
+      </S.Wrapper>
+    </>
   );
 };
