@@ -82,3 +82,18 @@ export async function postArticleComment(articleId: string, commentForm: { conte
 
   return result;
 }
+
+export async function uploadImage(image: File, accessToken: string) {
+  const response = await fetch(`${BASE_URL}/images/upload`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${accessToken}`,
+      "Content-Type": "multipart/form-data"
+    },
+    body: image
+  });
+  if(!response.ok) throw new Error(`uploadImage api 실행중 오류 발생: ${response.status}`);
+  const result = await response.json();
+
+  return result;
+}

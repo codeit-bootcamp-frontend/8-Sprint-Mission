@@ -78,6 +78,7 @@ export default function Article({ id, article, comments: initialComments, nextCu
       alert("댓글 등록 실패");
       return;
     }
+    setCommentForm({ content: '' });
     setComments(prev => [result, ...prev]);
   }
 
