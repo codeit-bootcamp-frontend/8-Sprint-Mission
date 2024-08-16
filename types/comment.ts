@@ -1,5 +1,5 @@
 export interface IWriter {
-  image: string;
+  image?: string;
   nickname?: string;
   id: number;
 }

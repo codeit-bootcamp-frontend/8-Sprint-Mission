@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import { Article } from "@/types/article";
 import { IComment } from "@/types/comment";
@@ -15,30 +15,38 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const article = articleResponse.data ?? [];
 
   const LIMIT = 10;
-  const commentsResponse = await axios.get(
+  const commentResponse = await axios.get(
     `/products/${id}/comments?limit=${LIMIT}`,
   );
-  const comments = commentsResponse.data.list ?? [];
+  const commentList = commentResponse.data.list ?? [];
 
   return {
     props: {
+      id,
       article,
-      comments,
+      commentList,
     },
   };
 }
 
 interface DetailBoardProps {
+  id: number;
   article: Article;
-  comments: IComment[];
+  commentList: IComment[];
 }
 
-function DetailBoard({ article, comments }: DetailBoardProps) {
+function DetailBoard({
+  id,
+  article,
+  commentList: initialCommentList,
+}: DetailBoardProps) {
+  const [commentList, setCommentList] = useState(initialCommentList);
+
   return (
     <div>
       <DetailArticle article={article} />
-      <AddComment />
-      <CommentList comments={comments} />
+      <AddComment id={id} setCommentList={setCommentList} />
+      <CommentList commentList={commentList} />
       <ReturnButton href="/boards" text="목록으로 돌아가기" />
     </div>
   );

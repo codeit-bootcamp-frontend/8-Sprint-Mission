@@ -7,7 +7,7 @@ interface Content {
 
 interface TextInputProps {
   content: Content;
-  onChange: (name: string, value: string | File) => void;
+  onChange: (name: string, value: string) => void;
 }
 
 function TextInput({ content, onChange }: TextInputProps) {

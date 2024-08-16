@@ -5,10 +5,10 @@ import Image from "next/image";
 import replayEmptyImage from "@/assets/images/img_reply_empty.png";
 
 interface CommentListProps {
-  comments: IComment[];
+  commentList: IComment[];
 }
 
-function CommentList({ comments }: CommentListProps) {
+function CommentList({ commentList: comments }: CommentListProps) {
   return (
     <div className="inquiry-wrapper">
       {!!comments.length ? (

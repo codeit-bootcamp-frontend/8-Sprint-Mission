@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import axios from "@/lib/axios";
+import { IComment } from "@/types/comment";
 
 import TextInput from "./Inputs/TextInput";
 import AddButton from "./Buttons/AddButton";
@@ -13,34 +14,48 @@ const INPUT_CONTENT = [
   },
 ];
 
-function AddComment() {
-  const [inputValue, setInputValue] = useState("");
+interface AddCommentProps {
+  id: number;
+  setCommentList: Dispatch<SetStateAction<IComment[]>>;
+}
 
-  const handleValueChange = (value: string) => {
-    setInputValue(value);
+function AddComment({ id, setCommentList }: AddCommentProps) {
+  const [inputValue, setInputValue] = useState({ content: "" });
+  const [isFormComplete, setIsFormComplete] = useState(false);
+
+  const handleValueChange = (name: string, value: string) => {
+    setInputValue((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+    setIsFormComplete(value.trim() !== "");
   };
 
-  const isFormComplete = useMemo(() => {
-    return inputValue !== "";
-  }, [inputValue]);
-
-  async function postArticle() {
+  async function postComment() {
     const accessToken = "";
 
+    let newComment: IComment;
     try {
-      await axios.post(`/articles`, inputValue, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
+      const response = await axios.post(
+        `/articles/${id}/comments`,
+        inputValue,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
         },
-      });
+      );
+
+      newComment = response.data ?? [];
+      console.log("post succeed: ", newComment);
+      setCommentList((prevCommentList) => [newComment, ...prevCommentList]);
     } catch (error) {
-      console.error("게시글 등록 중 오류가 발생했습니다: ", error);
-    } finally {
+      console.error("댓글 등록 중 오류가 발생했습니다: ", error);
     }
   }
 
   return (
-    <form>
+    <div>
       {INPUT_CONTENT.map((content, index) => {
         return (
           <TextInput
@@ -53,10 +68,44 @@ function AddComment() {
       <AddButton
         buttonText="등록"
         isFormComplete={isFormComplete}
-        onClick={postArticle}
+        onClick={postComment}
       />
-    </form>
+    </div>
   );
 }
 
 export default AddComment;
+
+// const [inputValue, setInputValue] = useState({
+//   content: "",
+// });
+// const [isFormComplete, setIsFormComplete] = useState(false);
+
+// const handleValueChange = (name: string, value: string) => {
+//   setInputValue((prevValues) => ({
+//     ...prevValues,
+//     [name]: value,
+//   }));
+//   setIsFormComplete(value.trim() !== "");
+// };
+
+// async function postComment() {
+//   const accessToken =
+//     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInNjb3BlIjoiYWNjZXNzIiwiaWF0IjoxNzIzNzczNzEzLCJleHAiOjE3MjM3NzU1MTMsImlzcyI6InNwLXBhbmRhLW1hcmtldCJ9.heZocGCQOejK4JPnWgWzJ438vW1sE2RAsj5d6ZHIhbc";
+
+//   let newComment: IComment;
+//   try {
+//     const data = {
+//       ...inputValue,
+//     };
+//     const response = await axios.post(`/articles/${id}/comments`, data, {
+//       headers: {
+//         Authorization: `Bearer ${accessToken}`,
+//       },
+//     });
+//     newComment = response.data ?? [];
+//     setCommentList((prevCommentList) => [newComment, ...prevCommentList]);
+//   } catch (error) {
+//     console.error("댓글 등록 중 오류가 발생했습니다: ", error);
+//   }
+// }

@@ -46,6 +46,7 @@ function AddBoard() {
 
   async function postArticle() {
     const accessToken = "";
+    let id: number;
 
     const formData = new FormData();
     formData.append("image", formValues.image);
@@ -62,11 +63,14 @@ function AddBoard() {
         ...formValues,
         image: imageURL,
       };
-      await axios.post(`/articles`, data, {
+      const response = await axios.post(`/articles`, data, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
+
+      id = response.data.id;
+      router.push(`/board/${id}`);
     } catch (error) {
       console.error("게시글 등록 중 오류가 발생했습니다: ", error);
     } finally {
@@ -75,7 +79,6 @@ function AddBoard() {
         title: "",
         content: "",
       });
-      router.push("/boards");
     }
   }
 
@@ -89,7 +92,7 @@ function AddBoard() {
           onClick={postArticle}
         />
       </div>
-      <form>
+      <div>
         {INPUT_CONTENTS.map((content, index) => {
           return (
             <TextInput
@@ -100,7 +103,7 @@ function AddBoard() {
           );
         })}
         <FileInput name="image" label="이미지" onChange={handleValueChange} />
-      </form>
+      </div>
     </main>
   );
 }
