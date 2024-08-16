@@ -1,4 +1,4 @@
-import { OrderByType } from '@/entities/articles/types';
+import { OrderByType } from '@/entities/articles';
 
 export const BOARD_DROPDOWN_CONTENTS = [
   { id: 'time', item: '최신순' },
