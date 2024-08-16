@@ -4,6 +4,14 @@
   margin-right: auto;
   margin-left: auto;
   padding-top: 70px;
+  @media (max-width: 1199px) {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+  @media (max-width: 767px) {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
 }
 
 .page.container {

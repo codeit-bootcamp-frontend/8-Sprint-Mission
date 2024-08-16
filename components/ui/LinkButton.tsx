@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import styles from "./LinkButton.module.scss";
+import styles from "./Button.module.scss";
 
 type ButtonSize = "sm" | "md" | "lg";
 

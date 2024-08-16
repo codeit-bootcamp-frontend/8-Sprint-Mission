@@ -1,0 +1,55 @@
+.input-label {
+  display: block;
+  font-size: 18px;
+  color: var(--gray800);
+  margin-bottom: 16px;
+  font-weight: 700;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+.image-add-wrap {
+  display: flex;
+  gap: 25px;
+  @media (max-width: 1200px) {
+    gap: 16px;
+  }
+  @media (max-width: 767px) {
+    gap: 8px;
+  }
+
+  .image-add-btn {
+    width: 282px;
+    aspect-ratio: 1/1;
+    font-size: 16px;
+    color: var(--gray400);
+    background-color: var(--gray100);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  .image-add-box {
+    position: relative;
+    width: 282px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 12px;
+    .ic_remove {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      transition: 0.2s ease;
+      cursor: pointer;
+      &:hover {
+        background-image: url("/img/ic_X_blue.svg");
+      }
+    }
+  }
+}

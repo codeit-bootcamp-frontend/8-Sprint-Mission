@@ -1,0 +1,23 @@
+.textarea {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  background: var(--gray100);
+  border-radius: 12px;
+  padding: 1em;
+  min-height: 56px;
+  border: 0;
+}
+.input-label {
+  display: block;
+  font-size: 18px;
+  color: var(--gray800);
+  margin-bottom: 16px;
+  font-weight: 700;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}

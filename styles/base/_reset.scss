@@ -101,7 +101,6 @@ img {
   width: 100%;
 }
 
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -112,4 +111,30 @@ img {
   clip-path: inset(50%);
   border: 0;
   clip: rect(0 0 0 0);
+}
+.input-group {
+  position: relative;
+  margin-bottom: 24px;
+}
+section {
+  margin: 24px auto;
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-right: auto;
+    }
+  }
+}
+//help
+.ml-auto {
+  margin-left: auto;
+}
+//form
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: 2px solid var(--primary);
 }
