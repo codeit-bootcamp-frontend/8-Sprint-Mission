@@ -7,6 +7,7 @@ import PostList from "@/components/PostList";
 import styled from "styled-components";
 import axios from "@/lib/axios";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const StyledContainer = styled.main`
   width: 1200px;
@@ -50,23 +51,28 @@ type Props = {
 };
 
 export default function PostListPage() {
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [articles, setArticles] = useState([]);
   const [orderBy, setOrderBy] = useState<string>("recent");
 
-  async function getProducts(orderBy: string) {
+  async function getProducts() {
     const query = {
       orderBy,
       page: 1,
       pageSize: 10,
+      keyword: searchQuery,
     };
-    const res = await axios.get(`/articles?orderBy=${query.orderBy}`);
+    const res = await axios.get(
+      `/articles?orderBy=${query.orderBy}&keyword=${query.keyword}`
+    );
     const nextArticles = res.data.list;
     setArticles(nextArticles);
   }
 
   useEffect(() => {
-    getProducts(orderBy);
-  }, [orderBy]);
+    getProducts();
+    console.log("Fetching products with:", { searchQuery, orderBy });
+  }, [orderBy, searchQuery]);
 
   return (
     <>
@@ -78,7 +84,7 @@ export default function PostListPage() {
           <StyledButton>글쓰기</StyledButton>
         </StyledArea>
         <StyledArea>
-          <SearchInput />
+          <SearchInput onSearch={setSearchQuery} />
           <DropDown onOrderChange={setOrderBy} />
         </StyledArea>
         <PostList articles={articles} />

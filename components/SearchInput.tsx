@@ -1,3 +1,4 @@
+import { ChangeEvent, FormEvent, useState } from "react";
 import styled from "styled-components";
 
 const StyledInputContainer = styled.div`
@@ -33,11 +34,35 @@ const StyledIcon = styled.img`
   height: 25px;
 `;
 
-function SearchInput() {
+interface SearchInputProps {
+  onSearch: (value: string) => void;
+}
+
+function SearchInput({ onSearch }: SearchInputProps) {
+  const [value, setValue] = useState<string>("");
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSearch(value);
+  };
+
+  console.log(value);
+
   return (
     <StyledInputContainer>
-      <StyledIcon src="/image/ic_search.png" alt="돋보기 아이콘" />
-      <StyledInput placeholder="검색할 상품을 입력하세요"></StyledInput>
+      <form onSubmit={handleSubmit}>
+        <StyledIcon src="/image/ic_search.png" alt="돋보기 아이콘" />
+        <StyledInput
+          name="q"
+          value={value}
+          onChange={handleChange}
+          placeholder="검색할 상품을 입력하세요"
+        ></StyledInput>
+      </form>
     </StyledInputContainer>
   );
 }
