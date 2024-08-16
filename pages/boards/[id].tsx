@@ -1,37 +1,57 @@
-import axios from "axios";
+import axios from "@/lib/axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { Comment } from "@/api/types/comment";
+import Heart from "@/image/icons/ic_heart.svg";
+import Profile from "@/image/icons/ic_profile.svg";
+import { useQuery } from "@tanstack/react-query";
+
+interface Writer {
+  id: string;
+  nickname: string;
+}
+
+interface Article extends Comment {
+  writer: Writer;
+}
+
+const getArticle = async (targetId: string | string[]) => {
+  const res = await axios.get(`/articles/${targetId}`);
+  return res.data;
+};
 
 const Article = () => {
-  const [article, setArticle] = useState<Comment>();
   const router = useRouter();
   const { id } = router.query;
 
-  async function getArticle(targetId: string | string[]) {
-    const res = await axios.get(`/article/${targetId}`);
-    const nextArticle = res.data;
-    setArticle(nextArticle);
-  }
+  const {
+    data: articles,
+    isLoading,
+    error,
+  } = useQuery<Article>({
+    queryKey: ["articles", id],
+    queryFn: () => getArticle(id as string),
+  });
 
-  useEffect(() => {
-    if (!id) return;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading comments</div>;
+  if (!articles) return <div>데이터 전송 안됨</div>;
 
-    getArticle(id);
-  }, [id]);
-
-  if (!article) return null;
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split("T")[0];
+  };
 
   return (
     <div>
-      <div>Article {id} page</div>
-
-      <h1>{article.title}d</h1>
-      <p>프로파일들어가야함</p>
-      <p>닉네임</p>
-      <p>작성날짜</p>
-      <p> 하트 이모티콘 + 하트 수</p>
-      <h2>title 들어가야함</h2>
+      <h1>{articles.title}</h1>
+      <Profile />
+      <p>{articles.writer.nickname}</p>
+      <p>{formatDate(articles.createdAt)}</p>
+      <div>
+        <Heart />
+        {articles.likeCount}
+      </div>
+      <h2>{articles.title}</h2>
 
       <form>
         <label htmlFor="comment">댓글달기</label>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://learn.codeit.kr/api/film-reviews";
+const API_URL = "https://panda-market-api.vercel.app";
 
 export const postArticle = async (body: FormData) => {
   try {

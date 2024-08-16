@@ -3,9 +3,9 @@ import CommentCards from "@/components/CommentCards";
 import SearchFrom from "@/components/SearchForm";
 import style from "@/styles/Boards.module.css";
 import axios from "@/lib/axios";
-import { useEffect, useState } from "react";
 import { Comment } from "@/api/types/comment";
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 
 const fetchComments = async () => {
   const res = await axios.get("/articles/");
@@ -30,7 +30,9 @@ const Board = () => {
       <BestComment />
       <SearchFrom />
       <li>
-        <CommentCards comments={comment} showBest={false} />
+        <Link href={`/boardrs/`}>
+          <CommentCards comments={comment} showBest={false} />
+        </Link>
       </li>
     </div>
   );
