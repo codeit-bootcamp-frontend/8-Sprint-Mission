@@ -1,21 +1,16 @@
 import Head from "next/head";
 import BestPost from "@/components/Post/BestPost";
 import Post from "@/components/Post/Post";
-import { PostListProps } from "@/components/Post/@types/Post";
 import { getPostList } from "@/utils/api";
-
-interface AllPropsListProps {
-  initialPosts: PostListProps[];
-}
+import { AllPropsListProps } from "@/components/Post/types/PostType";
 
 export async function getServerSideProps() {
   const query = {
-    orderBy: "recent",
-    keyword: "",
-    pageSize: 10,
+    orderBy: "recent" as "recent" | "like",
+    pageSize: 6,
   };
   const res = await getPostList({ query });
-  const posts = res;
+  const posts = res.list;
   return {
     props: {
       initialPosts: posts,
