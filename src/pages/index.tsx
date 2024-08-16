@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <GlobalNavBar isLogin />
+      <GlobalNavBar />
       <div className="text-4xl">
         <Link href="/boards">자유게시판</Link>
         <br />

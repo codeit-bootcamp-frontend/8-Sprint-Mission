@@ -3,18 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import BlueButton from "./BlueButton";
 
-interface GlobalNavBarProps {
-  isLogin: boolean;
-}
-
 const NAV_MENU_INFO = [
   { href: "/boards", text: "자유게시판" },
   { href: "/items", text: "중고마켓" },
 ];
 
-export default function GlobalNavBar({ isLogin }: GlobalNavBarProps) {
+export default function GlobalNavBar() {
   const { pathname } = useRouter();
   const isMain = pathname === "/" ? true : false;
+  const isLogin = !!localStorage.getItem("refresh_token");
 
   return (
     <header className="sticky top-0 bg-gray h-[70px] z-10 border-solid border-b-[1px] border-header-under">
@@ -63,9 +60,11 @@ export default function GlobalNavBar({ isLogin }: GlobalNavBarProps) {
             />
           ) : (
             <div className={isMain ? "w-[128px] h-[48px]" : "w-[88px] h-[42px]"}>
-              <BlueButton customStyle={isMain ? "text-[18px]" : "text-[16px]"} shape="default">
-                로그인
-              </BlueButton>
+              <Link href="/login">
+                <BlueButton customStyle={isMain ? "text-[18px]" : "text-[16px]"} shape="default">
+                  로그인
+                </BlueButton>
+              </Link>
             </div>
           )}
         </div>
