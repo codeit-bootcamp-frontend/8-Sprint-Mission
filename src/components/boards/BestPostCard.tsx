@@ -29,7 +29,7 @@ export default function BestPostCard({ article }: BestPostCardProps) {
               className="bg-gray rounded-[8px] border-solid border-[1px] border-gray-200"
               width={72}
               height={72}
-              src={article.image}
+              src={article.image || "/images/panda_logo.png"}
               alt="게시글 이미지"
             />
           </div>
