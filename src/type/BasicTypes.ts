@@ -23,10 +23,13 @@ export type BasicType = {
   placeholder: string;
   options: { key: string; value: string }[];
   sortOptions: { key: ArticleOrderBy; label: string };
+  file: File;
+  initialPreview: string;
 
   // handler
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeFile: (name: string, nextValue: File) => void;
   onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onSortSelection: (key: string) => void;
   onSearch: (keyword: string) => void;

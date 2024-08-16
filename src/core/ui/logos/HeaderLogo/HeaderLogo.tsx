@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { UImage } from '../../UImage/UImage';
+import { UImage } from '../../UIImage/UIImage';
 import Logo from '@assets/images/logo/logo.svg';
 
 import styles from './HeaderLogo.module.scss';
