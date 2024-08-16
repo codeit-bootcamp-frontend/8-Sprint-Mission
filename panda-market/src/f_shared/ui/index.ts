@@ -8,3 +8,4 @@ export * from './labels';
 export * from './inputs';
 export * from './textAreas';
 export * from './modal';
+export * from './image';
