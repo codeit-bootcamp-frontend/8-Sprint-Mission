@@ -19,6 +19,5 @@ export const useFetchBoards = ({
     pageSize,
     keyword,
   });
-  console.log(data);
   return { boardItemList: data?.list ?? [] };
 };
