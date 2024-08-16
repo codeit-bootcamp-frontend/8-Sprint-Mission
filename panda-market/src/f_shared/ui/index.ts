@@ -9,3 +9,5 @@ export * from './inputs';
 export * from './textAreas';
 export * from './modal';
 export * from './image';
+export * from './dropdown';
+export * from './image';
