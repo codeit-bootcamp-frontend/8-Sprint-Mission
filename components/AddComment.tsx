@@ -51,6 +51,10 @@ function AddComment({ id, setCommentList }: AddCommentProps) {
       setCommentList((prevCommentList) => [newComment, ...prevCommentList]);
     } catch (error) {
       console.error("댓글 등록 중 오류가 발생했습니다: ", error);
+    } finally {
+      setInputValue({
+        content: "",
+      });
     }
   }
 

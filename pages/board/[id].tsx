@@ -16,7 +16,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const LIMIT = 10;
   const commentResponse = await axios.get(
-    `/products/${id}/comments?limit=${LIMIT}`,
+    `/articles/${id}/comments?limit=${LIMIT}`,
   );
   const commentList = commentResponse.data.list ?? [];
 
