@@ -7,7 +7,7 @@ export const BoardDetailComments = () => {
   return (
     <S.Wrapper>
       <CommentForm />
-      <BoardComments />
+      <BoardComments commentList={[]} />
     </S.Wrapper>
   );
 };
