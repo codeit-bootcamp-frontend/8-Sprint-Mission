@@ -71,7 +71,9 @@ const AllArticles = () => {
     <>
       <div className={styles.articleHeader}>
         <h1 className={styles.articleTitle}>게시글</h1>
-        <button className={styles.writeButton}>글쓰기</button>
+        <Link href="/addBoard" className={styles.writeButton}>
+          글쓰기
+        </Link>
       </div>
       <div className={styles.articleSearch}>
         <div className={styles.articleInputBox}>
