@@ -2,6 +2,7 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import GlobalStyle from "@/styles/GlobalStyle";
 import ThumbnailImage from "../../public/images/thumbnail.png";
+import "@/styles/global.css";
 
 import type { AppProps } from "next/app";
 import Head from "next/head";
