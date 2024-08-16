@@ -1,5 +1,5 @@
 import React from "react";
-import { orderOption } from "@/axios/articles";
+import { OrderOption } from "@/axios/articles";
 import Dropdown from "../@shared/Dropdown";
 import SearchBar, { SearchBarProps } from "../@shared/SearchBar";
 import BlueButton from "../@shared/BlueButton";
@@ -7,8 +7,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 interface PostListHeader extends SearchBarProps {
-  currentOrderOption: orderOption;
-  onOrderChange: React.Dispatch<React.SetStateAction<orderOption>>;
+  currentOrderOption: OrderOption;
+  onOrderChange: React.Dispatch<React.SetStateAction<OrderOption>>;
 }
 
 const ORDER_ITEM_DICT = {
