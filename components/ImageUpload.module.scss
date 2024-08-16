@@ -1,0 +1,90 @@
+@import '../styles/config.scss';
+
+.input {
+  display: flex;
+  gap: 12px;
+}
+
+.title {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.imageUpload {
+  display: flex;
+  gap: 8px;
+}
+
+.uploadButton {
+  background-color: var(--gray100);
+  color: var(--gray400);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--gray50);
+  }
+}
+
+.imagePreview,
+.testImage {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.uploadButton,
+.imagePreview {
+  width: calc(100%);
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+}
+
+.test {
+  position: relative;
+  background-color: red;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.hiddenFile {
+  display: none;
+}
+
+@include media($tablet) {
+  .title {
+    font-size: 18px;
+  }
+
+  .imageUpload {
+    gap: 18px;
+  }
+
+  .uploadButton,
+  .imagePreview {
+    width: 168px;
+  }
+}
+
+@include media($pc) {
+  .imageUpload {
+    gap: 24px;
+  }
+
+  .uploadButton,
+  .imagePreview {
+    width: 282px;
+  }
+}

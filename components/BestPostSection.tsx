@@ -5,11 +5,11 @@ import useViewport from '@/hooks/useViewport';
 import Image from 'next/image';
 import Link from 'next/link';
 
-function BestPostCard({ article }: { article: Article }) {
+function BestPost({ article }: { article: Article }) {
   return (
-    <Link className={s.card} href={`/boards/${article.id}`}>
+    <Link className={s.card} href={`/board/${article.id}`}>
       <div className={s.badge}>
-        <Image src={badge} alt='베스트 게시글' />
+        <Image src={badge} alt='베스트 게시글' width={102} height={30} />
       </div>
 
       <div className={s.wrap}>
@@ -45,7 +45,7 @@ function getPageSize(width: number) {
   return width < TABLET ? 1 : width < PC ? 2 : 3;
 }
 
-function BestPost() {
+function BestPostSection() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [pageSize, setPageSize] = useState<number | null>(null);
 
@@ -82,11 +82,11 @@ function BestPost() {
 
       <div className={s.best_posts}>
         {articles.map((article) => (
-          <BestPostCard key={`best-article-${article.id}`} article={article} />
+          <BestPost key={`best-article-${article.id}`} article={article} />
         ))}
       </div>
     </div>
   );
 }
 
-export default BestPost;
+export default BestPostSection;

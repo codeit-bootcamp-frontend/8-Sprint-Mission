@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import s from './DropdownMenu.module.scss';
-import sortIcon from '@/public/svg/ic_sort.svg';
-import Image from 'next/image';
+import SortIcon from '@/public/svg/ic_sort.svg';
 
 type dropdownMenu = {
   onSortSelection: (sortOption: ArticleSortOption) => void;
@@ -18,7 +17,7 @@ function DropdownMenu({ onSortSelection, sortOptions }: dropdownMenu) {
   return (
     <div className={s.wrap}>
       <button type='button' className={s.dropdown} onClick={toggleDropdown}>
-        <Image src={sortIcon} alt='정렬' />
+        <SortIcon alt='정렬' />
       </button>
 
       {isDropdownVisible && (

@@ -1,6 +1,6 @@
-import s from '@/styles/boards.module.scss';
-import BestPost from '@/components/BestPost';
-import AllPost from '@/components/AllPost';
+import s from '@/styles/Boards.module.scss';
+import BestPostSection from '@/components/BestPostSection';
+import AllPostSection from '@/components/AllPostSection';
 
 export async function getStaticProps() {
   const response = await fetch(`https://panda-market-api.vercel.app/articles?orderBy=recent`);
@@ -19,9 +19,11 @@ type Boards = {
 
 function Boards({ initialArticles }: Boards) {
   return (
-    <div className={s.container}>
-      <BestPost />
-      <AllPost initialArticles={initialArticles} />
+    <div>
+      <div className={s.container}>
+        <BestPostSection />
+        <AllPostSection initialArticles={initialArticles} />
+      </div>
     </div>
   );
 }

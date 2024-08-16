@@ -1,0 +1,43 @@
+@import '../../styles/config.scss';
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+
+  @include media($tablet) {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+.textArea {
+  height: 282px;
+  resize: none;
+}
+
+.input,
+.textArea {
+  background-color: var(--gray100);
+  color: var(--gray800);
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 24px;
+
+  &:focus {
+    outline-color: var(--blue);
+  }
+
+  &::placeholder {
+    color: var(--gray400);
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 26px;
+  }
+}

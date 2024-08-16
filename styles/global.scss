@@ -1,3 +1,5 @@
+@import 'config';
+
 :root {
   --gray900: #111827;
   --gray800: #1f2937;
@@ -34,10 +36,13 @@ button,
 input,
 textarea,
 select {
+  background-color: inherit;
+
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
   color: inherit;
+
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -68,6 +73,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: 8px;
 
   &:hover {
     background-color: var(--hover);

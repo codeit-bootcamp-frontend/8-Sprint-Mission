@@ -1,32 +1,37 @@
 @import '../styles/config.scss';
 
-.content {
-  display: flex;
-  gap: 8px;
-  min-height: 72px;
+.wrap {
+  border-bottom: 1px solid var(--gray200);
+  padding-bottom: 24px;
 
-  h3 {
-    font-size: 18px;
-    font-weight: 600;
-    flex: 1;
+  .content {
+    display: flex;
+    min-height: 72px;
+    gap: 8px;
 
-    @include media($tablet) {
-      font-size: 20px;
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      flex: 1;
+
+      @include media($tablet) {
+        font-size: 20px;
+      }
     }
-  }
 
-  .thumbnail {
-    background-color: #fff;
-    border: 1px solid var(--gray200);
-    width: 72px;
-    height: 72px;
-    border-radius: 8px;
-    padding: 12px;
+    .thumbnail {
+      background-color: #fff;
+      border: 1px solid var(--gray200);
+      width: 72px;
+      height: 72px;
+      border-radius: 8px;
+      padding: 12px;
 
-    .img {
-      width: 100%;
-      height: 100%;
-      position: relative;
+      .img {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
     }
   }
 }
@@ -81,4 +86,10 @@
     font-weight: bold;
     cursor: pointer;
   }
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
