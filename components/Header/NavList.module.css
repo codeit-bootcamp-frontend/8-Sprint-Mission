@@ -1,0 +1,17 @@
+.navList > ul {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+}
+.navList > ul > li {
+  text-align: center;
+  padding: 24px 15px;
+}
+.navList > ul > li > a {
+  display: inline-block;
+  width: 78px;
+  font-weight: 700;
+}
+.navList > ul > li > a.active {
+  color: var(--color-blue);
+}
