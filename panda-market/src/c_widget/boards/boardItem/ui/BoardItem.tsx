@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import { Article } from '@/entities/articles';
 import { useDateForm } from '@/f_shared/lib';
 import { UserProfile } from '@/f_shared/ui';
@@ -7,6 +5,7 @@ import { UserProfile } from '@/f_shared/ui';
 import LikeIcon from '@/f_shared/assets/icons/ic_heart/inactive_heart.svg';
 
 import * as S from './BoardItem.style';
+import { Img } from '@/f_shared/ui/image';
 
 type BoardItemProps = Pick<
   Article,
@@ -23,6 +22,7 @@ export const BoardItem = ({
   updatedAt,
 }: BoardItemProps) => {
   const { formDate } = useDateForm({ dateTime: updatedAt });
+
   return (
     <S.Wrapper>
       <S.ContentContainer>
@@ -30,7 +30,7 @@ export const BoardItem = ({
           {title.length > 36 ? title.slice(0, 35) + '...' : title}
         </S.Content>
         <S.ImageWrapper>
-          <Image src={image} alt="게시글 이미지" fill />
+          <Img src={image} alt="게시글 이미지" />
         </S.ImageWrapper>
       </S.ContentContainer>
       <S.SubContentContainer>
