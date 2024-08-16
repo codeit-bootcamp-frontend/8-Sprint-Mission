@@ -68,7 +68,7 @@ const DropdownBtn = ({ mode, children, onClick }: DropdownBtnProps) => {
 
 interface DropdownProps {
   mode?: DropdownMode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   contentList: Content[];
   onContentClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }

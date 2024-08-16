@@ -28,6 +28,9 @@ export const DownKebab = styled.button`
   justify-content: center;
   align-items: center;
 
+  border: none;
+  background: none;
+
   cursor: pointer;
 `;
 
