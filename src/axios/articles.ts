@@ -9,7 +9,7 @@ export interface Article {
   id: number;
   title: string;
   content: string;
-  image: string;
+  image: string | null;
   likeCount: number;
   writer: Writer;
   createdAt: string;
@@ -64,7 +64,7 @@ export async function getArticleByID({ articleId }: GetArticleByIDProps) {
   }
 }
 
-interface PostArticleProps {
+export interface PostArticleProps {
   image: string | null;
   content: string;
   title: string;
@@ -72,7 +72,12 @@ interface PostArticleProps {
 
 export async function postArticle({ image, content, title }: PostArticleProps) {
   try {
-    const res = await axiosInstance.post("/articles", { image, content, title });
+    let res;
+    if (image) {
+      res = await axiosInstance.post("/articles", { image, content, title });
+    } else {
+      res = await axiosInstance.post("/articles", { content, title });
+    }
     const postedArticle: Article = res.data;
     return postedArticle;
   } catch (error) {

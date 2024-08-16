@@ -23,34 +23,37 @@ const onRequest = (config: InternalAxiosRequestConfig) => {
  */
 const onErrorResponse = async (error: AxiosError | Error) => {
   if (axios.isAxiosError(error)) {
-    const { status, data } = error.response as AxiosResponse;
+    const { status, data, config } = error.response as AxiosResponse;
 
     switch (status) {
       case 400: {
         alert("입력한 정보가 올바르지 않습니다.");
+        break;
       }
 
       case 401: {
-        if (data.message === "jwt expired") {
-          const refreshToken = localStorage.getItem("refresh_token");
+        const refreshToken = localStorage.getItem("refresh_token");
 
-          if (refreshToken) {
+        if (refreshToken) {
+          if (data.message === "jwt expired") {
             const res = await axiosInstance.post("/auth/refresh-token", { refreshToken });
-
             const { accessToken } = res.data;
+
             localStorage.setItem("access_token", accessToken);
+
+            config.headers["Authorization"] = `Bearer ${accessToken}`;
+            return axiosInstance(config);
+          } else if (data.message === "jwt malformed") {
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("refresh_token");
+            alert("세션이 올바르지 않습니다. 다시 로그인 해주세요.");
+            window.location.href = "/login";
           } else {
-            // alert("로그인이 만료되었습니다. 다시 로그인 해주세요.");
-            // window.location.href = '/login';
+            console.log(data.message);
           }
-        } else if (data.message === "jwt malformed") {
-          // localStorage.removeItem("access_token");
-          // localStorage.removeItem("refresh_token");
-          // alert("세션이 올바르지 않습니다. 다시 로그인 해주세요.")
-          // window.location.href = "/login";
         } else {
-          // alert("로그인이 필요합니다.");
-          // window.location.href = "/login";
+          alert("로그인이 필요합니다.");
+          window.location.href = "/login";
         }
         break;
       }
