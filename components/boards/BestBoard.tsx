@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import styles from "./BestBoard.module.scss";
-import Icon from "@/components/ui/Icon";
+import Link from "next/link";
+import Image from "next/image";
 import axios from "@/lib/axios";
 import useViewport from "@/hooks/useViewport";
-import Link from "next/link";
+import Icon from "@/components/ui/Icon";
 import { formatDate } from "@/lib/utils/formatDate";
 import { Article } from "@/types/article";
 
@@ -22,7 +22,18 @@ const getPageSize = (width: number): number => {
 function BestBoard() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [pageSize, setPageSize] = useState<number | null>(null);
+
   const viewportWidth = useViewport();
+  const fetchBestArticles = async (size: number) => {
+    try {
+      const response = await axios.get(
+        `/articles?orderBy=like&pageSize=${size}`
+      );
+      setArticles(response.data.list);
+    } catch (error) {
+      console.error("Failed to fetch best articles:", error);
+    }
+  };
 
   useEffect(() => {
     if (viewportWidth === 0) return;
@@ -30,18 +41,6 @@ function BestBoard() {
 
     if (newPageSize !== pageSize) {
       setPageSize(newPageSize);
-
-      const fetchBestArticles = async (size: number) => {
-        try {
-          const response = await axios.get(
-            `/articles?orderBy=like&pageSize=${size}`
-          );
-          setArticles(response.data.list);
-        } catch (error) {
-          console.error("Failed to fetch best articles:", error);
-        }
-      };
-
       fetchBestArticles(newPageSize);
     }
   }, [viewportWidth, pageSize]);

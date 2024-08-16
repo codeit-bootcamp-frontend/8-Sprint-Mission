@@ -4,7 +4,7 @@ import styles from "./LinkButton.module.scss";
 
 type ButtonSize = "sm" | "md" | "lg";
 
-type ButtonColor = "primary" | "secondary" | "tertiary";
+type ButtonColor = "primary" | "secondary";
 
 interface LinkButtonProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -28,14 +28,24 @@ export default function LinkButton({
   const linkClass = `
     ${styles.btn}
     ${styles[`btn-${size}`]}
-    ${styles[`btn-${color}`]}
-    ${disabled ? styles["btn-disabled"] : ""}
+    ${styles[`btn-${color}`]} 
     ${className}
   `.trim();
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (disabled) {
+      e.preventDefault(); // Prevent the default action
+    }
+  };
+
   return (
     <Link href={href} legacyBehavior>
-      <a className={linkClass} {...props} aria-disabled={disabled}>
+      <a
+        className={linkClass}
+        {...props}
+        aria-disabled={disabled}
+        onClick={handleClick}
+      >
         {children}
       </a>
     </Link>
