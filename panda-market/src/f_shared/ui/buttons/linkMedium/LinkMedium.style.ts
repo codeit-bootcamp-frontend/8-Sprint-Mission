@@ -1,12 +1,6 @@
 import { colors } from '@/f_shared/config';
 import styled from 'styled-components';
 
-interface LinkButtonProps {
-  $color: string;
-  $bgColor: string;
-  $border: string;
-}
-
 export const LinkButton = styled.div`
   display: flex;
   width: 15rem;
@@ -22,6 +16,7 @@ export const LinkButton = styled.div`
 
   color: ${colors.coolGray[100]};
   text-align: center;
+  white-space: nowrap;
 
   /* pretendard/2lg-18px-semibold */
   font-size: 1.125rem;
