@@ -35,6 +35,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/styled-components", "npm:5.1.34"],\
           ["axios", "npm:1.7.3"],\
+          ["dayjs", "npm:1.11.12"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:14.2.5"],\
           ["next", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:14.2.5"],\
@@ -4360,6 +4361,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["dayjs", [\
+      ["npm:1.11.12", {\
+        "packageLocation": "../../.yarn/berry/cache/dayjs-npm-1.11.12-ce23245b6e-10c0.zip/node_modules/dayjs/",\
+        "packageDependencies": [\
+          ["dayjs", "npm:1.11.12"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["debug", [\
       ["npm:3.2.7", {\
         "packageLocation": "../../.yarn/berry/cache/debug-npm-3.2.7-754e818c7a-10c0.zip/node_modules/debug/",\
@@ -6642,6 +6652,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/styled-components", "npm:5.1.34"],\
           ["axios", "npm:1.7.3"],\
+          ["dayjs", "npm:1.11.12"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:14.2.5"],\
           ["next", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:14.2.5"],\
