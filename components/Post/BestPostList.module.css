@@ -16,7 +16,6 @@
   background: var(--color-blue);
 }
 .badgeContainer span {
-  line-height: 2.6rem;
   font-size: 1.6rem;
   font-weight: 400;
   color: #fff;
