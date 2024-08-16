@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-type InputValues = {
+export interface InputValues {
   title: string;
   content: string;
   image: File | null;
-};
+}
 
 const INITIAL_VALUES = {
   title: '',
