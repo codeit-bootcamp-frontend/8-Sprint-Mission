@@ -1,22 +1,21 @@
 import PrimaryButton from "@/components/primarybutton";
 import styled from "styled-components";
 import Head from "next/head";
-import Image from "next/image";
-import plusIcon from "@/images/ic_plus.svg";
 import { useState, ChangeEvent, useEffect } from "react";
-
-interface articleType {
-  title: string;
-  content: string;
-  image: string;
-}
+import FileInput from "@/components/fileinput";
+import { articleType } from "@/interfaces/article";
+import { postArticle } from "./util/api";
+import router from "next/router";
 
 export default function AddBoard() {
   const [articleValue, setArticleValue] = useState<articleType>({
-    title: "",
+    image:
+      "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/3/1721991786504/31563.png",
     content: "",
-    image: "1",
+    title: "",
   });
+
+  const [fileImage, setFileImage] = useState<File | null>(null);
 
   const [disabled, setDisabled] = useState(true);
 
@@ -28,10 +27,24 @@ export default function AddBoard() {
     setArticleValue((prev) => ({ ...prev, content: e.target.value }));
   };
 
+  const handleImageChange = (file: File | null) => {
+    //  setArticleValue((prev) => ({ ...prev, image: file }));
+    setFileImage(file);
+  };
+
+  const handleSubmit = async () => {
+    const result = await postArticle(articleValue);
+    console.log(result);
+    if (!result) {
+      console.log("게시물 등록 중 오류 발생:");
+    }
+    router.push(`/boards/${result.id}`);
+  };
+
   useEffect(() => {
     const { title, content, image } = articleValue;
 
-    if (title && content && image) {
+    if (title && content) {
       setDisabled(false);
     } else {
       setDisabled(true);
@@ -45,7 +58,9 @@ export default function AddBoard() {
       </Head>
       <ListContainer>
         <Title>게시물 쓰기</Title>
-        <PrimaryButton disabled={disabled}>등록</PrimaryButton>
+        <PrimaryButton disabled={disabled} onClick={handleSubmit}>
+          등록
+        </PrimaryButton>
       </ListContainer>
       <SubTitle>*제목</SubTitle>
       <Input
@@ -61,15 +76,12 @@ export default function AddBoard() {
         onChange={handleContentChange}
       />
       <SubTitle>*이미지</SubTitle>
-      <ImagePostWrapper>
-        <Image src={plusIcon} alt="imagePlus" />
-        이미지 등록
-      </ImagePostWrapper>
+      <FileInput value={fileImage} onChange={handleImageChange} />
     </Container>
   );
 }
 
-const Container = styled.div`
+const Container = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -117,17 +129,4 @@ const TextArea = styled.textarea`
   font-weight: 400;
   line-height: 26px;
   padding: 16px 24px;
-`;
-
-const ImagePostWrapper = styled.div`
-  width: 282px;
-  height: 282px;
-  border-radius: 12px;
-  background-color: #f3f4f6;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  color: #9ca3af;
 `;

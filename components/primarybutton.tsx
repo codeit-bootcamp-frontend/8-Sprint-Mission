@@ -1,14 +1,16 @@
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 import styled from "styled-components";
 
 interface ButtonProps {
   children?: ReactNode;
   disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function PrimaryButton({
   children,
   disabled: disabled = false,
+  onClick,
 }: ButtonProps) {
   return <Button disabled={disabled}>{children}</Button>;
 }

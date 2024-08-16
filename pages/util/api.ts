@@ -1,4 +1,5 @@
 import axios from "@/lib/axios";
+import { articleType } from "@/interfaces/article";
 
 export async function getArticles(
   page: number,
@@ -9,6 +10,20 @@ export async function getArticles(
     `/articles?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`
   );
   const body = response.data.list ?? [];
+
+  return body;
+}
+
+export async function postArticle(articleValue: articleType) {
+  const accessToken = "";
+  const formString = JSON.stringify(articleValue);
+  const response = await axios.post(`/articles`, formString, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+  });
+  const body = response.data;
 
   return body;
 }
