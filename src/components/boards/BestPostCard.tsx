@@ -1,4 +1,4 @@
-import { Article } from "@/axios/getArticles";
+import { Article } from "@/axios/articles";
 import createDateStringWithDot from "@/utils/createDateStringWithDot";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +11,7 @@ interface BestPostCardProps {
 export default function BestPostCard({ article }: BestPostCardProps) {
   const { pathname } = useRouter();
   return (
-    <Link href={`/${pathname}/${article.id}`} className="w-full h-full">
+    <Link href={`${pathname}/${article.id}`} className="w-full h-full">
       <article className="relative w-full h-full px-[24px] pb-[16px] xl:pb-[9px] pt-[46px] bg-gray-50 rounded-[8px]">
         <Image
           className="absolute top-0 left-[32px]"

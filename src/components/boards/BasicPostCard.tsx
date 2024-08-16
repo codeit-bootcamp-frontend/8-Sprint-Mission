@@ -1,4 +1,4 @@
-import { Article } from "@/axios/getArticles";
+import { Article } from "@/axios/articles";
 import createDateStringWithDot from "@/utils/createDateStringWithDot";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -11,7 +11,7 @@ interface BasicPostCardProps {
 export default function BasicPostCard({ article }: BasicPostCardProps) {
   const { pathname } = useRouter();
   return (
-    <Link href={`/${pathname}/${article.id}`} className="w-full h-full">
+    <Link href={`${pathname}/${article.id}`} className="w-full h-full">
       <article className="flex flex-col border-solid border-b-[1px] border-gray-200 gap-[16px] h-[138px] pb-[24px]">
         <div className="flex justify-between">
           <p className="text-gray-800 font-semibold text-[18px] md:text-[20px]">{article.title}</p>
