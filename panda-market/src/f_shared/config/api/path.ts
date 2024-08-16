@@ -11,6 +11,9 @@ export const API_PATH = {
   },
   articlePath: {
     default: '/articles',
+    detail(id: number | string) {
+      return `${this.default}/${id}`;
+    },
     like(id: number) {
       return `${this.default}/${id}/like`;
     },

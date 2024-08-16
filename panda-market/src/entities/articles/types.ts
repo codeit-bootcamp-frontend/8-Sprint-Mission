@@ -33,3 +33,7 @@ export interface AddBoardParams {
   content: string;
   image?: string;
 }
+
+export interface BoardDetailParams {
+  boardItemId: string | number;
+}
