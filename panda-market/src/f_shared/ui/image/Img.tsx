@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { match } from 'ts-pattern';
 
 import DefaultLargeImg from '@/f_shared/assets/images/default_item/default_large.png';
@@ -14,7 +14,7 @@ interface ImgProps {
 }
 
 export const Img = ({ src, alt, width, height }: ImgProps) => {
-  const [isError, setIsError] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(() => src === '' || !src);
   const imageErrorType: ImageErrorType = {
     type: !isError ? 'success' : 'default',
   };
