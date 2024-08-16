@@ -1,12 +1,5 @@
-import { MouseEvent } from 'react';
-import styles from './SortOptions.module.css';
-
-interface SortOptionProps {
-  isOpen: boolean;
-  sortText: string;
-  sortHandler: (e: MouseEvent<HTMLButtonElement>) => void;
-  showOptions: () => void;
-}
+import styles from "./SortOptions.module.css";
+import { SortOptionProps, SortOptionType } from "./types/DropDownType";
 
 export default function SortOptions({
   isOpen,
@@ -17,7 +10,7 @@ export default function SortOptions({
   return (
     <div className={styles.sortContainer}>
       <div className={styles.sortList} onClick={showOptions}>
-        <p>{sortText}</p>
+        <p>{SortOptionType[sortText]}</p>
         <i className={styles.sortArrowIcon} />
       </div>
       {isOpen && (
@@ -25,12 +18,12 @@ export default function SortOptions({
           <ul>
             <li>
               <button data-type="recent" onClick={sortHandler}>
-                최신순
+                {SortOptionType.recent}
               </button>
             </li>
             <li>
               <button data-type="like" onClick={sortHandler}>
-                좋아요순
+                {SortOptionType.like}
               </button>
             </li>
           </ul>
