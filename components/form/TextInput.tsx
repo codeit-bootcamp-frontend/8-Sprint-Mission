@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./TextInput.module.scss";
+
 // Props의 타입 정의
 interface TextInputProps {
   label: string;
@@ -9,24 +10,26 @@ interface TextInputProps {
   placeholder?: string;
 }
 
-const TextInput: React.FC<TextInputProps> = ({
+function TextInput({
   label,
   name,
   value,
   onChange,
   placeholder,
-}) => (
-  <div className="input-group">
-    <label className={styles["input-label"]}>{label}</label>
-    <input
-      className={styles["input"]}
-      type="text"
-      name={name}
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-    />
-  </div>
-);
+}: TextInputProps) {
+  return (
+    <div className="input-group">
+      <label className={styles["input-label"]}>{label}</label>
+      <input
+        className={styles["input"]}
+        type="text"
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
+    </div>
+  );
+}
 
 export default TextInput;

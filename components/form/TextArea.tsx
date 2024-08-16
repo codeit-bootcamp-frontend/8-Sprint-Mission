@@ -1,35 +1,36 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import styles from "./TextArea.module.scss";
 
-// Props 타입 정의
 interface TextAreaProps {
   label: string;
   name: string;
-  value: string;
-  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   placeholder?: string;
   rows?: number;
 }
 
-const TextArea: React.FC<TextAreaProps> = ({
+function TextArea({
   label,
   name,
   value,
   onChange,
   placeholder,
   rows,
-}) => (
-  <div className="input-group">
-    <label className={styles["input-label"]}>{label}</label>
-    <textarea
-      className={styles["textarea"]}
-      name={name}
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      rows={rows}
-    ></textarea>
-  </div>
-);
+}: TextAreaProps) {
+  return (
+    <div className="input-group">
+      <label className={styles["input-label"]}>{label}</label>
+      <textarea
+        className={styles["textarea"]}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        rows={rows}
+      ></textarea>
+    </div>
+  );
+}
 
 export default TextArea;
