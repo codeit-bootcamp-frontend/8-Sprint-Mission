@@ -1,16 +1,37 @@
 import { ContentInput, TitleInput, ImageInput } from '@/d_features/addBoard';
-import { useModal } from '@/f_shared/lib';
 import { BtnSmall, ConfirmModal, SectionTitle } from '@/f_shared/ui';
+import { useModal } from '@/f_shared/lib';
+import { useFormValidation, useInputValue } from '../lib';
 
 import * as S from './AddBoardForm.style';
-import { useInputValue } from '../lib';
+import { useAddBoard } from '@/d_features/addBoard/lib';
+import { useImageUpload } from '@/d_features/imageUpload';
 
 export const AddBoardForm = () => {
-  const { isOpen, onClose, handleOpen, handleConfirm, handleCancel } = useModal(
-    {},
-  );
+  const imageMutation = useImageUpload();
+  const boardMutation = useAddBoard();
   const { inputValues, handleInputValuesChange, handleImageDelete } =
     useInputValue();
+  const { validation } = useFormValidation({ inputValues });
+  const apihandle = () => {
+    if (inputValues.image) {
+      imageMutation.mutate({ image: inputValues.image });
+      const imageUrl = imageMutation.data;
+      // boardMutation.mutate({
+      //   title: inputValues.title,
+      //   content: inputValues.content,
+      //   image: imageUrl,
+      // });
+    } else {
+      boardMutation.mutate({
+        title: inputValues.title,
+        content: inputValues.content,
+      });
+    }
+  };
+  const { isOpen, onClose, handleOpen, handleConfirm, handleCancel } = useModal(
+    { confirmFn: apihandle },
+  );
 
   const handleSubmit = (e: React.MouseEvent<HTMLFormElement, MouseEvent>) => {
     e.preventDefault();
@@ -25,7 +46,7 @@ export const AddBoardForm = () => {
           <BtnSmall
             $size="40"
             $style="default"
-            isDisabled={false}
+            isDisabled={!validation}
             onClick={handleOpen}
           >
             등록
