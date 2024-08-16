@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BlueButton from "./BlueButton";
+import React from "react";
 
 const NAV_MENU_INFO = [
   { href: "/boards", text: "자유게시판" },
@@ -11,7 +12,11 @@ const NAV_MENU_INFO = [
 export default function GlobalNavBar() {
   const { pathname } = useRouter();
   const isMain = pathname === "/" ? true : false;
-  const isLogin = !!localStorage.getItem("refresh_token");
+  const [isLogin, setIsLogin] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsLogin(!!localStorage.getItem("refresh_token"));
+  }, []);
 
   return (
     <header className="sticky top-0 bg-gray h-[70px] z-10 border-solid border-b-[1px] border-header-under">
