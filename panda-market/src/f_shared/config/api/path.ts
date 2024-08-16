@@ -22,7 +22,7 @@ export const API_PATH = {
     return this.productPath.default;
   },
   get images() {
-    return this.imagesPath.default;
+    return this.imagesPath.default + '/upload';
   },
   get comment() {
     return this.commentPath.default;
