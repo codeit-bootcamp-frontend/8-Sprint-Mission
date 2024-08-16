@@ -20,6 +20,17 @@ export const DownBtn = styled.button`
   cursor: pointer;
 `;
 
+export const DownKebab = styled.button`
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.3125rem 0rem 0.375rem 0rem;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
