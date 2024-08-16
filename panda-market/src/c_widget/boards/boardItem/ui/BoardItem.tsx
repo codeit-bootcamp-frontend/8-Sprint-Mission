@@ -21,7 +21,11 @@ export const BoardItem = ({
   writerNickname,
   updatedAt,
 }: BoardItemProps) => {
-  const { formDate } = useDateForm({ dateTime: updatedAt });
+  const { formedDate } = useDateForm({
+    dateStr: updatedAt,
+    formType: 'format',
+    formatStr: 'YYYY.MM.DD',
+  });
 
   return (
     <S.Wrapper>
@@ -37,7 +41,7 @@ export const BoardItem = ({
         <S.ProfileContainer>
           <UserProfile width="1.5rem" height="1.5rem" />
           <S.Nickname>{writerNickname}</S.Nickname>
-          <S.CreatedAt>{formDate}</S.CreatedAt>
+          <S.CreatedAt>{formedDate}</S.CreatedAt>
         </S.ProfileContainer>
         <S.LikeContainer>
           <S.LikeIconWrapper>

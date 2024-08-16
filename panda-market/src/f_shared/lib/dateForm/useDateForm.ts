@@ -1,12 +1,34 @@
-type DateFormParams = {
-  dateTime: string;
-};
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
+import relativetime from 'dayjs/plugin/relativeTime';
+
+type DateFormat = 'format' | 'fromNow';
+
+interface DateFormParams {
+  dateStr: string;
+  formType: DateFormat;
+  formatStr?: string;
+}
 
 export const useDateForm = ({
-  dateTime,
-}: DateFormParams): { formDate: string } => {
-  const date = new Date(dateTime);
+  dateStr,
+  formType,
+  formatStr = '',
+}: DateFormParams) => {
+  dayjs.locale('ko');
+  dayjs.extend(relativetime);
+  let formedDate = '';
+  switch (formType) {
+    case 'format':
+      formedDate = dayjs(dateStr).format(formatStr);
+      break;
+    case 'fromNow':
+      formedDate = dayjs(dateStr).fromNow();
+      break;
 
-  const formDate = `${date.getFullYear()}. ${date.getMonth()}. ${date.getDay()}`;
-  return { formDate };
+    default:
+      formedDate = 'form type error';
+      break;
+  }
+  return { formedDate };
 };

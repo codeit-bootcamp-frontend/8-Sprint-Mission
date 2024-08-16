@@ -1,4 +1,4 @@
-import { BtnLike, useDayForm, UserProfile } from '@/f_shared';
+import { BtnLike, useDateForm, UserProfile } from '@/f_shared';
 import { Dropdown } from '@/f_shared/ui/dropdown';
 
 import * as S from './BoardItemContent.style';
@@ -19,7 +19,7 @@ export const BoardItemContent = ({
   writerName,
   createdAt,
 }: BoardItemContent) => {
-  const { formedDate } = useDayForm({
+  const { formedDate } = useDateForm({
     dateStr: createdAt,
     formType: 'format',
     formatStr: 'YYYY.MM.DD',

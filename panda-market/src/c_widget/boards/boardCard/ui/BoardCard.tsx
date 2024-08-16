@@ -22,7 +22,11 @@ export const BoardCard = ({
   writerNickname,
   createdAt,
 }: BoardCardProps) => {
-  const { formDate } = useDateForm({ dateTime: createdAt });
+  const { formedDate } = useDateForm({
+    dateStr: createdAt,
+    formType: 'format',
+    formatStr: 'YYYY.MM.DD',
+  });
   return (
     <S.Wrapper>
       <S.ContentsWrapper>
@@ -43,7 +47,7 @@ export const BoardCard = ({
             </S.LikeIcon>
             <S.LikeCount>{likeCount}</S.LikeCount>
           </S.LikeWrapper>
-          <S.CreatedAt>{formDate}</S.CreatedAt>
+          <S.CreatedAt>{formedDate}</S.CreatedAt>
         </S.SubContents>
       </S.ContentsWrapper>
     </S.Wrapper>
