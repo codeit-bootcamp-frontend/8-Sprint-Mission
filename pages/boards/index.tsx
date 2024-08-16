@@ -5,19 +5,25 @@ import style from "@/styles/Boards.module.css";
 import axios from "@/lib/axios";
 import { useEffect, useState } from "react";
 import { Comment } from "@/api/types/comment";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchComments = async () => {
+  const res = await axios.get("/articles/");
+  return res.data.list;
+};
 
 const Board = () => {
-  const [comment, setCommen] = useState<Comment[]>([]);
+  const {
+    data: comment = [],
+    isLoading,
+    error,
+  } = useQuery<Comment[]>({
+    queryKey: ["comment"],
+    queryFn: fetchComments,
+  });
 
-  async function getComment() {
-    const res = await axios.get("/articles/");
-    const nextComment = res.data.list;
-    setCommen(nextComment);
-  }
-
-  useEffect(() => {
-    getComment();
-  }, []);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading comments</div>;
 
   return (
     <div className={style.container}>

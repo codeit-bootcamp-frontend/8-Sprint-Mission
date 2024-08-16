@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import DropDown from "./DropDown";
 import style from "@/components/SearchForm.module.css";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const SearchForm = ({ initalValue = "" }) => {
   const router = useRouter();
@@ -24,7 +25,9 @@ const SearchForm = ({ initalValue = "" }) => {
     <>
       <div className={style.commentcontiner}>
         <h1>게시글</h1>
-        <button>글쓰기</button>
+        <Link href={"/addboards"}>
+          <button>글쓰기</button>
+        </Link>
         <form onSubmit={handleSubmit}>
           <label htmlFor="search" className={style.sronly}>
             게시글 검색

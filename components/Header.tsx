@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
         <nav>
           <ul className={style.headusedmarket}>
-            <Link href="/Boards">
+            <Link href="/boards">
               <li className={style.usedmarket}>자유게시판</li>
             </Link>
             <li className={style.usedmarket}>

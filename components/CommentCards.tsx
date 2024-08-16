@@ -15,7 +15,7 @@ const CommentCards: React.FC<CommentProps> = ({
   return (
     <>
       {comments.map((comments) => (
-        <div className={style.cardcontainer}>
+        <div key={comments.id} className={style.cardcontainer}>
           {showBest && <Best className={style.besticon} />}
           <div className={style.sectioncontent}>
             <p className={style.commentcontent}>{comments.content}</p>
