@@ -5,7 +5,6 @@ export const useSearch = () => {
   const [keyword, setKeyword] = useState<string>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(searchValue);
     setSearchValue(e.target.value);
   };
 
