@@ -1,9 +1,8 @@
-import { BoardDetail } from '@/b_pages/boards';
+import { BoardDetail } from '@/b_pages/boardDetail';
 import { Article } from '@/entities';
 import { getBoardDetail } from '@/entities/articles/getBoardDetail';
 import { BoardDetailContext } from '@/f_shared/config';
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
-import { createContext, useContext, useState } from 'react';
+import { GetServerSidePropsContext } from 'next';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
