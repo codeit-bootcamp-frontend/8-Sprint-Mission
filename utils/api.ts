@@ -2,19 +2,20 @@ import axios from "@/lib/axios";
 
 interface queryProps {
   query: {
-    orderBy?: string | string[] | undefined;
-    keyword?: string | number;
+    orderBy?: "recent" | "like";
+    keyword?: string;
     pageSize?: string | number;
+    page?: number;
   };
 }
 
 export async function getPostList({ query }: queryProps) {
-  const { orderBy, keyword, pageSize } = query;
+  const { orderBy, keyword, pageSize, page } = query;
   const res = await axios.get(
-    `/articles?orderBy=${orderBy ?? "recent"}&keyword=${
-      keyword ?? ""
-    }&pageSize=${pageSize ?? 10}`
+    `/articles?orderBy=${orderBy}&keyword=${keyword ?? ""}&pageSize=${
+      pageSize ?? 6
+    }&page=${page ?? 1}`
   );
-  const postList = res.data.list;
+  const postList = res.data;
   return postList;
 }
