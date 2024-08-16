@@ -53,8 +53,8 @@ function SearchInput({ onSearch }: SearchInputProps) {
   console.log(value);
 
   return (
-    <StyledInputContainer>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
+      <StyledInputContainer>
         <StyledIcon src="/image/ic_search.png" alt="돋보기 아이콘" />
         <StyledInput
           name="q"
@@ -62,8 +62,8 @@ function SearchInput({ onSearch }: SearchInputProps) {
           onChange={handleChange}
           placeholder="검색할 상품을 입력하세요"
         ></StyledInput>
-      </form>
-    </StyledInputContainer>
+      </StyledInputContainer>
+    </form>
   );
 }
 
