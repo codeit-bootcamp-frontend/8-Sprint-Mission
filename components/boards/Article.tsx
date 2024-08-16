@@ -1,35 +1,61 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import styles from "./Article.module.scss";
 import Image from "next/image";
 import Icon from "@/components/ui/Icon";
+import axios from "@/lib/axios";
+import { Article as ArticleType } from "@/types/article";
+import { formatDate } from "@/lib/utils/formatDate";
 
-function Article() {
+interface ArticleProps {
+  id: number;
+}
+
+function Article({ id }: ArticleProps) {
+  const [article, setArticle] = useState<ArticleType | null>(null);
+
+  const fetchArticle = async (articleId: number) => {
+    try {
+      const response = await axios.get(`/articles/${articleId}`);
+      setArticle(response.data);
+    } catch (error) {
+      console.error("Failed to fetch the article:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (id) {
+      fetchArticle(id);
+    }
+  }, [id]);
+
+  if (!article) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <article className={styles.article}>
-      <h3 className={styles["article-title"]}>
-        맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
-      </h3>
+      <h3 className={styles["article-title"]}>{article.title}</h3>
       <div className={styles["writer-info"]}>
         <div className={styles["profile-info"]}>
           <div className={styles["profile-wrap"]}>
             <Image
-              src="/img/profile.png"
+              src={article.image || "/img/profile.png"}
               alt="프로필 이미지"
               className={styles["profile-image"]}
               fill
             />
           </div>
-          <div className={styles["nick-name"]}>총명한 판다</div>
+          <div className={styles["nick-name"]}>{article.writer.nickname}</div>
         </div>
-        <div className={styles.date}>2024. 04. 16</div>
+        <div className={styles.date}>{formatDate(article.createdAt)}</div>
         <div className={styles.divided}></div>
         <button className={styles["btn-favorite"]}>
           <Icon type="heart" size="md" />
-          123
+          {article.likeCount}
         </button>
       </div>
       <div className={styles["article-content"]}>
-        <p>맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?</p>
+        <p>{article.content}</p>
       </div>
     </article>
   );

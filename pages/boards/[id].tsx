@@ -3,16 +3,16 @@ import { useRouter } from "next/router";
 import Article from "@/components/boards/Article";
 import Inquery from "@/components/inquery/Inquery";
 
-const board = () => {
+const Board = () => {
   const router = useRouter();
   const { id } = router.query;
 
   return (
     <>
-      <Article />
+      <Article id={id} />
       <Inquery />
     </>
   );
 };
 
-export default board;
+export default Board;
