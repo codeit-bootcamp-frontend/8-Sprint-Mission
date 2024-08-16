@@ -1,11 +1,13 @@
+import ArticleSection from "@/components/Boards/ArticleSection";
+import BestArticleSection from "@/components/Boards/BestArticleSection";
 import Header from "@/components/Header";
 
 export default function Boards() {
   return (
     <div>
       <Header />
-
-      <main>boards 페이지</main>
+      <BestArticleSection />
+      <ArticleSection />
     </div>
   );
 }
