@@ -27,9 +27,9 @@ export default function SearchForm({
 
     if (value.trim() === "") {
       delete newQuery.keyword;
+    } else {
+      newQuery.keyword = value;
     }
-
-    newQuery.keyword = value;
 
     router.push(
       {

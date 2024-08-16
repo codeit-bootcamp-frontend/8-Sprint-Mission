@@ -32,37 +32,20 @@ export default function AllArticles({ initialArticles }: AllArticlesProps) {
   }
 
   useEffect(() => {
+    // URL 쿼리에서 검색어를 가져와 상태를 업데이트
     const initialKeyword = router.query.keyword || "";
     if (typeof initialKeyword === "string") {
       setSearchTerm(initialKeyword);
     }
+  }, [router.query.keyword]);
 
+  useEffect(() => {
     getArticles(option, searchTerm);
-
-    // URL 쿼리 파라미터 업데이트
-    const query = { ...router.query, keyword: searchTerm.trim() || undefined };
-    if (searchTerm.trim()) {
-      query.keyword = searchTerm.trim();
-    } else {
-      delete query.keyword; // 검색어가 없으면 keyword 쿼리 삭제
-    }
-    router.replace(
-      {
-        pathname: router.pathname,
-        query,
-      },
-      undefined,
-      { shallow: true }
-    );
   }, [option, searchTerm]);
 
   //정렬 옵션 선택
   const handleOptionChange = (value: string) => {
     setOption(value);
-  };
-
-  const handleSearch = (searchTerm: string) => {
-    setSearchTerm(searchTerm);
   };
 
   if (!Array.isArray(articles) || articles.length === 0) {
@@ -80,7 +63,7 @@ export default function AllArticles({ initialArticles }: AllArticlesProps) {
         <div className={styles.writing}>글쓰기</div>
       </div>
       <div className={styles.searchForm}>
-        <SearchForm onSearch={handleSearch} />
+        <SearchForm onSearch={setSearchTerm} />
         <Dropdown
           options={options}
           selectedValue={option}
