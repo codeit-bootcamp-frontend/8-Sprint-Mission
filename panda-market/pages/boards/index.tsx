@@ -1,7 +1,7 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 
 import { Boards } from '@/b_pages/boards';
-import { getBoards } from '@/entities/api';
+import { getBoards } from '@/entities/articles';
 
 const queryClient = new QueryClient();
 
