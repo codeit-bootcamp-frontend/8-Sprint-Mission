@@ -1,4 +1,4 @@
-import { colors } from '@/f_shared/config';
+import { colors } from '@/f_shared';
 
 import styled from 'styled-components';
 
@@ -23,7 +23,8 @@ export const Header = styled.div`
 
 export const TitleContainer = styled.div`
   display: flex;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   align-self: stretch;
   gap: 0.5rem;
 `;

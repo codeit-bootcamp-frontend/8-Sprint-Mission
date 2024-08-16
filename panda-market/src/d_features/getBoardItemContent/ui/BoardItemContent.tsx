@@ -1,6 +1,8 @@
 import { BtnLike, useDayForm, UserProfile } from '@/f_shared';
+import { Dropdown } from '@/f_shared/ui/dropdown';
 
 import * as S from './BoardItemContent.style';
+import { ITEM_DROPDOWN_CONTENTS } from '@/f_shared/config/dropdown/itemDropdown';
 
 interface BoardItemContent {
   title: string;
@@ -27,6 +29,11 @@ export const BoardItemContent = ({
       <S.Header>
         <S.TitleContainer>
           <S.Title>{title}</S.Title>
+          <Dropdown
+            mode="kebab"
+            contentList={ITEM_DROPDOWN_CONTENTS}
+            onContentClick={() => {}}
+          />
         </S.TitleContainer>
         <S.WriterContainer>
           <S.WriterInfo>
