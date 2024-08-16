@@ -18,6 +18,7 @@ export const ContentInput = ({
     <S.Wrapper>
       <Label htmlFor="content">*내용</Label>
       <TextArea
+        mode="valid"
         id="content"
         name="content"
         value={value}
