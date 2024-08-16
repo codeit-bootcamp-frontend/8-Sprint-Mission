@@ -43,7 +43,7 @@ function Inquery() {
           </li>
         </ul>
         <LinkButton
-          href="/login"
+          href="/boards"
           size="lg"
           color="primary"
           style={{
