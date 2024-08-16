@@ -1,6 +1,7 @@
 import S from "@/components/BestBoards.module.css";
 import axios from "@/pages/api/axios";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 interface Item {
@@ -23,6 +24,10 @@ interface BestItemProps {
 
 function Product(item: Item) {
   const { id, title, content, image, likeCount, createdAt, updatedAt, writer } = item;
+  const router = useRouter();
+  const onImgClick = (id: number) => {
+    router.push(`/board/${id}`);
+  };
 
   function formatDate(dateString: string): string {
     const date = new Date(dateString);
@@ -41,7 +46,7 @@ function Product(item: Item) {
   const formattedCreatedAtDate = formatDate(createdAt);
 
   return (
-    <div className={S.itemCardContainer}>
+    <div className={S.itemCardContainer} onClick={() => onImgClick(id)}>
       <div className={S.bestClip}>
         <Image
           width={16}
@@ -55,7 +60,12 @@ function Product(item: Item) {
         <div className={S.infoTop}>
           <div className={S.title}>{title}</div>
           <div className={S.image}>
-            <Image fill src={image} className={S.image} alt="아이템 이미지" />
+            <Image
+              fill
+              src={image || `/images/icon/ic_null_user_profile_image.png`}
+              className={S.image}
+              alt="아이템 이미지"
+            />
           </div>
         </div>
         <div className={S.infoBottom}>

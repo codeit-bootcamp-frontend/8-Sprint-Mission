@@ -4,6 +4,7 @@ import DropDown from "./DropDown";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import axios from "@/pages/api/axios";
 import Link from "next/link";
+import { useRouter } from "next/router";
 interface Item {
   id: number;
   title: string;
@@ -25,6 +26,10 @@ interface NormalItemProps {
 
 function Product(item: Item) {
   const { id, title, content, image, likeCount, createdAt, updatedAt, writer } = item;
+  const router = useRouter();
+  const onImgClick = (id: number) => {
+    router.push(`/board/${id}`);
+  };
 
   function formatDate(dateString: string): string {
     const date = new Date(dateString);
@@ -44,11 +49,16 @@ function Product(item: Item) {
 
   return (
     <>
-      <div className={S.itemCardInfo}>
+      <div className={S.itemCardInfo} onClick={() => onImgClick(id)}>
         <div className={S.infoTop}>
           <div className={S.title}>{title}</div>
           <div className={S.image}>
-            <Image fill src={image} className={S.image} alt="아이템 이미지" />
+            <Image
+              fill
+              src={image || `/images/icon/ic_null_user_profile_image.png`}
+              className={S.image}
+              alt="아이템 이미지"
+            />
           </div>
         </div>
         <div className={S.infoBottom}>
@@ -118,12 +128,9 @@ function NormalBoards() {
   }
 
   useEffect(() => {
-    getBoards();
-  }, []);
-
-  useEffect(() => {
+    getBoards(orderBy);
     setIsLoading(false);
-  }, [product]);
+  }, [orderBy]);
 
   if (isLoading) {
     return <div>Loading...</div>;
