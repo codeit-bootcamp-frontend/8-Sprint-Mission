@@ -40,6 +40,14 @@ export const WriterContainer = styled.div`
   gap: 0.5rem;
 `;
 
+export const ProfileContainer = styled.div`
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 30px;
+  overflow: hidden;
+`;
+
 export const WriterInfo = styled.div`
   display: flex;
   flex-direction: column;

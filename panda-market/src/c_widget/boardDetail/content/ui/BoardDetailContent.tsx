@@ -3,9 +3,9 @@ import { BoardItemContent } from '@/d_features/getBoardItemContent';
 import { BoardDetailContext } from '@/f_shared';
 
 export const BoardDetailContent = () => {
-  const ctx = useContext(BoardDetailContext);
+  const { boardData } = useContext(BoardDetailContext);
 
-  const { title, content, createdAt, likeCount, writer } = ctx!;
+  const { title, content, createdAt, likeCount, writer } = boardData;
 
   return (
     <>

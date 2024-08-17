@@ -23,12 +23,9 @@ export const CommentItem = ({
       <S.CommentContainer>
         <S.CommentContent>{content}</S.CommentContent>
         <S.WriterContainer>
-          <Img
-            src={writer.image ?? ''}
-            alt="프로필 이미지"
-            height={40}
-            width={40}
-          />
+          <S.ProfileContainer>
+            <Img src={writer.image ?? ''} alt="프로필 이미지" />
+          </S.ProfileContainer>
           <S.WriterInfo>
             <S.WriterName>{writer.nickname}</S.WriterName>
             <S.CreatedAt>{formedDate}</S.CreatedAt>

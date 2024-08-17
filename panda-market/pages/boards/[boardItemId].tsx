@@ -1,28 +1,42 @@
-import { BoardDetail } from '@/b_pages/boardDetail';
-import { Article } from '@/entities';
-import { getBoardDetail } from '@/entities/articles/getBoardDetail';
-import { BoardDetailContext } from '@/f_shared/config';
 import { GetServerSidePropsContext } from 'next';
+import { BoardDetail } from '@/b_pages/boardDetail';
+import {
+  Article,
+  getBoardDetail,
+  getBoardComments,
+  ArticleCommentsResponse,
+} from '@/entities';
+import { BoardDetailContext } from '@/f_shared/config';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
   const { boardItemId } = context.query;
-  const data = await getBoardDetail({ boardItemId: `${boardItemId}` });
+  const boardData = await getBoardDetail({ boardItemId: `${boardItemId}` });
+  const boardComments = await getBoardComments({
+    articleId: `${boardItemId}`,
+    limit: 3,
+  });
+  console.log(boardComments);
   return {
     props: {
-      data,
+      boardData,
+      boardComments,
     },
   };
 };
 
 interface BoardItemDetailProps {
-  data: Article;
+  boardData: Article;
+  boardComments: ArticleCommentsResponse;
 }
 
-const BoardItemDetailPage = ({ data }: BoardItemDetailProps) => {
+const BoardItemDetailPage = ({
+  boardData,
+  boardComments,
+}: BoardItemDetailProps) => {
   return (
-    <BoardDetailContext.Provider value={data}>
+    <BoardDetailContext.Provider value={{ boardData, boardComments }}>
       <BoardDetail />
     </BoardDetailContext.Provider>
   );
