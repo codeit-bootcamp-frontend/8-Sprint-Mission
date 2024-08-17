@@ -24,37 +24,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
 }
 
-interface PostDetailPageProps {
-  article: Article;
-  commentsRes: ArticleCommentsResponse;
-}
-
-export default function PostDetailPage({ article, commentsRes }: PostDetailPageProps) {
-  const { nextCursor, list } = commentsRes;
-  const [comments, setComments] = React.useState(list);
-  const [cursor, setCursor] = React.useState(nextCursor);
-
-  return (
-    <>
-      <GlobalNavBar />
-      <main className="mx-[16px] my-[24px] md:mx-[24px] xl:mx-auto xl:w-[1200px]">
-        <PostDetail article={article} />
-        <PostCommentForm />
-        {comments.length !== 0 ? (
-          <ul className="flex flex-col gap-[16px] md:gap-[24px]">
-            {comments.map((comment) => (
-              <PostCommentCard key={comment.id} comment={comment} />
-            ))}
-          </ul>
-        ) : (
-          <NoComments />
-        )}
-        <BackToBoardsPageButton />
-      </main>
-    </>
-  );
-}
-
 function NoComments() {
   return (
     <div className="w-[151px] h-[208px] mx-auto">
@@ -74,5 +43,36 @@ function BackToBoardsPageButton() {
         <Image width={24} height={24} src="/images/ic_back_arrow.svg" alt="돌아가기 아이콘" />
       </BlueButton>
     </Link>
+  );
+}
+
+interface PostDetailPageProps {
+  article: Article;
+  commentsRes: ArticleCommentsResponse;
+}
+
+export default function PostDetailPage({ article, commentsRes }: PostDetailPageProps) {
+  const { nextCursor, list } = commentsRes;
+  const [comments, setComments] = React.useState(list);
+  const [cursor, setCursor] = React.useState(nextCursor);
+
+  return (
+    <>
+      <GlobalNavBar />
+      <main className="mx-[16px] my-[24px] md:mx-[24px] xl:mx-auto xl:w-[1200px]">
+        <PostDetail article={article} />
+        <PostCommentForm onChangeComments={setComments} />
+        {comments.length !== 0 ? (
+          <ul className="flex flex-col gap-[16px] md:gap-[24px]">
+            {comments.map((comment) => (
+              <PostCommentCard key={comment.id} comment={comment} />
+            ))}
+          </ul>
+        ) : (
+          <NoComments />
+        )}
+        <BackToBoardsPageButton />
+      </main>
+    </>
   );
 }

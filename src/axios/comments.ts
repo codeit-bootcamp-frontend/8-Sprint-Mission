@@ -41,6 +41,6 @@ interface PostArticleCommentProps {
 }
 
 export async function postArticleComment({ articleId, content }: PostArticleCommentProps) {
-  const res = await axiosInstance.post(`/articles/${articleId}`, { content });
+  const res = await axiosInstance.post(`/articles/${articleId}/comments`, { content });
   return res.data as Comment;
 }

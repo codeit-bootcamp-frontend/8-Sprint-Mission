@@ -1,8 +1,15 @@
 import BlueButton from "@/components/@shared/BlueButton";
 import GrayTextarea from "@/components/@shared/inputs/GrayTextarea";
+import { useRouter } from "next/router";
 import React from "react";
+import { Comment, postArticleComment } from "@/axios/comments";
 
-export default function PostCommentForm() {
+interface PostCommentFormProps {
+  onChangeComments: React.Dispatch<React.SetStateAction<Comment[]>>;
+}
+
+export default function PostCommentForm({ onChangeComments }: PostCommentFormProps) {
+  const { query } = useRouter();
   const [currentContent, setCurrentContent] = React.useState("");
 
   const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -13,6 +20,17 @@ export default function PostCommentForm() {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    try {
+      const postedComment = await postArticleComment({
+        articleId: Number(query.id),
+        content: currentContent,
+      });
+
+      onChangeComments((prevComments) => [postedComment, ...prevComments]);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
