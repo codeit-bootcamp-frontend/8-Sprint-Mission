@@ -62,7 +62,7 @@ export default function AddBoard() {
           name="title"
           value={values.title}
           onChange={handleInputChange}
-          placeholder="상품명을 입력해주세요"
+          placeholder="제목을 입력해주세요"
         />
         <label htmlFor="input-description" className={styles.label}>
           *내용
@@ -72,7 +72,7 @@ export default function AddBoard() {
           name="description"
           value={values.description}
           onChange={handleInputChange}
-          placeholder="상품 소개를 입력해주세요"
+          placeholder="내용을 입력해주세요"
         />
       </form>
       <div className={styles.imgForm}>
