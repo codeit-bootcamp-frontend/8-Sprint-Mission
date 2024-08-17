@@ -1,3 +1,6 @@
+/**
+ * string 형태의 date를 받아서 현재로 부터 경과된 시간이 얼마나 되는지 string으로 return하는 함수
+ */
 const elapsedTimeCalc = (comparedDate: string) => {
   const currentDate = new Date();
   const specificDate = new Date(comparedDate);
