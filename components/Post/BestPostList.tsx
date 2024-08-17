@@ -1,34 +1,46 @@
-import Link from "next/link";
-import Image from "next/image";
-import styles from "./BestPostList.module.css";
-import { IPostList } from "./types/PostType";
+import Link from 'next/link';
+import Image from 'next/image';
+import { PostListProps } from './types/Post';
+import styles from './BestPostList.module.css';
 
-export default function BestPostList({ postList }: IPostList) {
-  const convertDate = new Date(postList.createdAt).toLocaleDateString("ko-KR");
+interface BestPostList {
+  postList: PostListProps;
+}
+
+export default function BestPostList({ postList }: BestPostList) {
+  const convertDate = new Date(postList.createdAt)
+    .toLocaleDateString('ko-KR')
+    .slice(0, -1);
 
   return (
     <article className={styles.postListContainer}>
-      <Link href="/">
+      <Link href={`/board/${postList.id}`}>
         <div className={styles.badgeContainer}>
           <div className={styles.medalIcon}>
-            <Image
-              fill
-              src="/images/icon/medal@2x.png"
-              alt="메달 아이콘"
-              sizes="width : 16px, height : 16px"
-            />
+            <Image fill src="/images/icon/medal@2x.png" alt="메달 아이콘" />
           </div>
           <span>Best</span>
         </div>
         <div className={styles.titleContainer}>
           <h2 className={styles.postTitle}>{postList.title}</h2>
           <div className={styles.postImage}>
-            <Image
-              fill
-              src={postList.image}
-              alt="게시글 이미지"
-              sizes="width : 74px, height : 74px"
-            />
+            {postList.image ? (
+              <Image
+                width={74}
+                height={74}
+                src={postList.image}
+                alt="게시글 이미지"
+                objectFit="contain"
+              />
+            ) : (
+              <Image
+                width={74}
+                height={74}
+                src="/images/img_default@2x.png"
+                alt="게시글 이미지"
+                objectFit="contain"
+              />
+            )}
           </div>
         </div>
         <div className={styles.writerContainer}>
@@ -39,7 +51,6 @@ export default function BestPostList({ postList }: IPostList) {
                 fill
                 src="/images/icon/heart_Icon.png"
                 alt="좋아요 아이콘"
-                sizes="width : 16px, height : 16px"
               />
             </span>
             <span className={styles.likeCount}>{postList.likeCount}</span>
