@@ -1,11 +1,13 @@
 import { InputChangeEvent } from "@/types/alias";
+import { ChangeEvent } from "react";
 
 interface TextAreaProps {
   label: string;
   placeholder: string;
   name: string;
   value?: string;
-  onChange: (e: InputChangeEvent) => void;
+  className?: string;
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 export default function TextArea({
@@ -14,6 +16,7 @@ export default function TextArea({
   label,
   value,
   onChange,
+  className,
 }: TextAreaProps) {
   return (
     <div className="flex flex-col pb-6">
@@ -21,7 +24,7 @@ export default function TextArea({
         {label}
       </label>
       <textarea
-        className="rounded-xl border-none bg-gray-100 px-6 py-4 outline-none h-[200px]"
+        className={`rounded-xl border-none bg-gray-100 px-6 py-4 outline-none  resize-none ${className}`}
         onChange={onChange}
         placeholder={placeholder}
         name={name}

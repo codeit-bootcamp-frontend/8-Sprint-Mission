@@ -18,7 +18,6 @@ export default function FileInput({
   image,
   onChange,
 }: FileInputProps) {
-  console.log(image);
   return (
     <div className="flex flex-col pb-6 relative">
       <label className="pb-4 text-lg font-bold" htmlFor={name}>

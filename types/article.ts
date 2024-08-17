@@ -25,3 +25,26 @@ export interface ArticleQuery {
   orderBy: "like" | "recent";
   keyword?: string;
 }
+
+export interface CommentWriter extends Writer {
+  image: string;
+}
+
+export interface ArticleComment {
+  writer: CommentWriter;
+  updatedAt: string;
+  createdAt: string;
+  content: string;
+  id: number;
+}
+
+export interface CommentResponse {
+  nextCursor: number | null;
+  list: ArticleComment[];
+}
+
+export interface GetCommentParam {
+  articleId: number;
+  limit: number;
+  cursor: number | null;
+}

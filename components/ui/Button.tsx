@@ -2,9 +2,9 @@ import { MouseEvent } from "react";
 
 type ButtonProps = {
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
-  className: string;
+  className?: string;
   children: string;
-  activeBtn: boolean;
+  activeBtn?: boolean;
 };
 
 export default function Button({
@@ -20,7 +20,7 @@ export default function Button({
       onClick={(e) => {
         onClick(e);
       }}
-      className={`${className} ${activeColor}`}
+      className={`rounded-lg flex-center text-white ${className} ${activeColor}`}
     >
       {children}
     </button>

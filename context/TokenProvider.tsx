@@ -8,11 +8,11 @@ import {
   useState,
 } from "react";
 
-export interface Context {
+export interface Token {
   accessToken: string;
   refreshToken: string;
   setAccessToken: Dispatch<SetStateAction<string>>;
-  onClickSignIn: () => void;
+  requestToken: () => void;
 }
 
 const tempAuth = {
@@ -20,12 +20,12 @@ const tempAuth = {
   password: "12341234",
 };
 
-export const TokenContext = createContext<Context | null>(null);
+export const TokenContext = createContext<Token | null>(null);
 
 const TokenProvider = ({ children }: PropsWithChildren) => {
   const [accessToken, setAccessToken] = useState("");
   const [refreshToken, setRefreshToken] = useState("");
-  const onClickSignIn = async () => {
+  const requestToken = async () => {
     const res = await postSignIn(tempAuth);
     const newAccessToken = res.accessToken;
     const newRefreshToken = res.refreshToken;
@@ -33,7 +33,7 @@ const TokenProvider = ({ children }: PropsWithChildren) => {
     setRefreshToken(newRefreshToken);
   };
   const value = useMemo(() => {
-    return { accessToken, refreshToken, setAccessToken, onClickSignIn };
+    return { accessToken, refreshToken, setAccessToken, requestToken };
   }, [accessToken]);
 
   return (

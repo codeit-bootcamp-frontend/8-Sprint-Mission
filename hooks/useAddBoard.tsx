@@ -1,4 +1,10 @@
-import { ChangeEvent, MouseEvent, useContext, useState } from "react";
+import {
+  ChangeEvent,
+  MouseEvent,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 import type { InputChangeEvent } from "@/types/alias";
 import { postNewArticle, postUploadImage } from "@/apis/addBoard";
@@ -12,6 +18,7 @@ const INIT_ADD_BOARD_INPUT = {
 
 const useAddBoard = () => {
   const [inputValues, setInputValues] = useState(INIT_ADD_BOARD_INPUT);
+  const [isInputValid, setIsInputValid] = useState(false);
   const { accessToken } = useContext(TokenContext) as Context;
   const router = useRouter();
 
@@ -27,7 +34,14 @@ const useAddBoard = () => {
         break;
     }
   };
-
+  const validInputValues = () => {
+    const values = Object.values(inputValues);
+    if (values.every((value) => value.trim() !== "")) {
+      setIsInputValid(true);
+    } else {
+      setIsInputValid(false);
+    }
+  };
   const onChangeFileInput = async (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) {
       return;
@@ -39,11 +53,24 @@ const useAddBoard = () => {
 
   const onSubmitForm = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    if (!isInputValid) {
+      return;
+    }
     postNewArticle({ data: inputValues, token: accessToken });
     router.push("/boards");
   };
 
-  return { onChangeInput, inputValues, onSubmitForm, onChangeFileInput };
+  useEffect(() => {
+    validInputValues();
+  }, [inputValues.content, inputValues.image, inputValues.title]);
+
+  return {
+    onChangeInput,
+    inputValues,
+    onSubmitForm,
+    onChangeFileInput,
+    isInputValid,
+  };
 };
 
 export default useAddBoard;

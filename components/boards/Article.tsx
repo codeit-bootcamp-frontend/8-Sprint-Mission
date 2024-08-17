@@ -19,7 +19,7 @@ export default function Article({ articles, setTarget }: Props) {
           <li
             ref={index === articles.length - 1 ? setTarget : null}
             key={`${article.id}+${index}`}
-            className=" bg-gray-50 px-2 pb-6 pt-1 mt-5 border-b shadow-md rounded-xl border-gray-200"
+            className=" bg-gray-50 px-2 pb-6 pt-2 mt-5 border-b shadow-md rounded-xl border-gray-200 h-[136px]"
           >
             <Link
               href={`/boards/${article.id}`}
@@ -27,13 +27,15 @@ export default function Article({ articles, setTarget }: Props) {
             >
               <div className="flex justify-between gap-10">
                 <div className="font-semibold text-lg">{article.content}</div>
-                <Image
-                  className="rounded-lg border border-gray-200 max-h-[72px]"
-                  width={72}
-                  height={72}
-                  src={article.image}
-                  alt="게시글 이미지"
-                />
+                {article.image && (
+                  <Image
+                    className="rounded-lg border border-gray-200 max-h-[72px]"
+                    width={72}
+                    height={72}
+                    src={article.image}
+                    alt="게시글 이미지"
+                  />
+                )}
               </div>
               <div className="text-sm gap-2 flex justify-between pt-4">
                 <Image
