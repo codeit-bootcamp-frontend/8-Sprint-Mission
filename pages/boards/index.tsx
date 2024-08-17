@@ -1,12 +1,12 @@
-import Head from "next/head";
-import BestPost from "@/components/Post/BestPost";
-import Post from "@/components/Post/Post";
-import { getPostList } from "@/utils/api";
-import { AllPropsListProps } from "@/components/Post/types/PostType";
+import Head from 'next/head';
+import BestPost from '@/components/Post/BestPost';
+import AllPost from '@/components/Post/AllPost';
+import { getPostList } from '@/utils/api';
+import { AllPropsListProps } from '@/components/Post/types/PostType';
 
 export async function getServerSideProps() {
   const query = {
-    orderBy: "recent" as "recent" | "like",
+    orderBy: 'recent' as 'recent' | 'like',
     pageSize: 6,
   };
   const res = await getPostList({ query });
@@ -28,7 +28,7 @@ export default function Board({ initialPosts }: AllPropsListProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BestPost />
-      <Post initialPosts={initialPosts} />
+      <AllPost initialPosts={initialPosts} />
     </>
   );
 }
