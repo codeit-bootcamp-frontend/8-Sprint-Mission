@@ -30,7 +30,9 @@ function TextInput({ onInputChange }: TextInputProps) {
         >
           *내용
         </label>
-        <GrayTextarea onChange={onInputChange} id="content" placeholder="내용을 입력해주세요" />
+        <div className="h-[200px] md:h-[282px]">
+          <GrayTextarea onChange={onInputChange} id="content" placeholder="내용을 입력해주세요" />
+        </div>
       </div>
     </>
   );
