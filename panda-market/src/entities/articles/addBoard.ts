@@ -4,10 +4,15 @@ import { AddBoardParams, Article } from './types';
 
 export const addBoard = async ({ title, content, image }: AddBoardParams) => {
   const data = image ? { title, content, image } : { title, content };
-  const accessToken = process.env.ACCESS_TOKEN;
-  return await instance.post<Article>(API_PATH.article, JSON.stringify(data), {
-    headers: {
-      accessToken,
-    },
-  });
+  const accessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN;
+  return await instance
+    .post<Article>(API_PATH.article, JSON.stringify(data), {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+    .then((res) => res.data)
+    .catch((e) => {
+      throw new Error(e);
+    });
 };

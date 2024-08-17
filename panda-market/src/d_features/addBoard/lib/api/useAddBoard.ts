@@ -7,8 +7,5 @@ export const useAddBoard = () => {
     mutationKey: [QUERY_KEYS.BOARD.ADD],
     mutationFn: ({ title, content, image }: AddBoardParams) =>
       addBoard({ title, content, image }),
-    onSuccess(data) {
-      console.log(data);
-    },
   });
 };

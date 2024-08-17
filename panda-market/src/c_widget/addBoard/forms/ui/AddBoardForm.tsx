@@ -1,32 +1,47 @@
-import { ContentInput, TitleInput, ImageInput } from '@/d_features/addBoard';
-import { BtnSmall, ConfirmModal, SectionTitle } from '@/f_shared/ui';
-import { useModal } from '@/f_shared/lib';
+import { useRouter } from 'next/router';
+import {
+  ContentInput,
+  TitleInput,
+  ImageInput,
+  useAddBoard,
+} from '@/d_features/addBoard';
+import { useImageUpload } from '@/d_features/imageUpload';
+import { ROUTER_PATH, useModal } from '@/f_shared';
+import { BtnSmall, ConfirmModal, SectionTitle } from '@/f_shared';
 import { useFormValidation, useInputValue } from '../lib';
 
 import * as S from './AddBoardForm.style';
-import { useAddBoard } from '@/d_features/addBoard/lib';
-import { useImageUpload } from '@/d_features/imageUpload';
 
 export const AddBoardForm = () => {
   const imageMutation = useImageUpload();
   const boardMutation = useAddBoard();
+  const router = useRouter();
   const { inputValues, handleInputValuesChange, handleImageDelete } =
     useInputValue();
   const { validation } = useFormValidation({ inputValues });
-  const apihandle = () => {
+
+  const apihandle = async () => {
     if (inputValues.image) {
-      imageMutation.mutate({ image: inputValues.image });
-      const imageUrl = imageMutation.data;
-      // boardMutation.mutate({
-      //   title: inputValues.title,
-      //   content: inputValues.content,
-      //   image: imageUrl,
-      // });
+      await imageMutation
+        .mutateAsync({
+          image: inputValues.image,
+        })
+        .then(async (res) => {
+          await boardMutation
+            .mutateAsync({
+              title: inputValues.title,
+              content: inputValues.content,
+              image: res?.url,
+            })
+            .then((res) => router.push(ROUTER_PATH.BOARD.detail(res.id)));
+        });
     } else {
-      boardMutation.mutate({
-        title: inputValues.title,
-        content: inputValues.content,
-      });
+      await boardMutation
+        .mutateAsync({
+          title: inputValues.title,
+          content: inputValues.content,
+        })
+        .then((res) => router.push(ROUTER_PATH.BOARD.detail(res.id)));
     }
   };
   const { isOpen, onClose, handleOpen, handleConfirm, handleCancel } = useModal(
