@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import FileInput from "@/components/FileInput";
 import styles from "./addboard.module.css";
+// import { useRouter } from "next/router";
 
 interface AddBoardState {
   title: string;
@@ -14,6 +15,7 @@ export default function AddBoard() {
     description: "",
     imgFile: null,
   });
+  // const router = useRouter();
 
   const handleFormValuesChange = (name: keyof AddBoardState, value: any) => {
     setValues((preValues) => ({
@@ -31,6 +33,10 @@ export default function AddBoard() {
 
   const isSubmitDisabled = !values.title || !values.description;
 
+  // const handleButtonClick = () => {
+  //   if (!isSubmitDisabled) router.push(`/${id}`);
+  // };
+
   return (
     <>
       <div className={styles.writingWrapper}>
@@ -41,6 +47,7 @@ export default function AddBoard() {
             !isSubmitDisabled ? styles.active : ""
           }`}
           disabled={isSubmitDisabled}
+          // onClick={handleButtonClick}
         >
           등록
         </button>
