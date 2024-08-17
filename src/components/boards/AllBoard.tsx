@@ -15,7 +15,7 @@ export default function AllBoard({ articles, setArticleQuery }: AllBoardProps) {
     <AllBoardWrap>
       <AllBoardTitle>
         <h2>게시글</h2>
-        <LinkButton href="">글쓰기</LinkButton>
+        <LinkButton href="/addboard">글쓰기</LinkButton>
       </AllBoardTitle>
       <AllBoardSearch>
         <BoardSearch setArticleQuery={setArticleQuery} />
