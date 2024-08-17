@@ -6,7 +6,7 @@ type btnStyle = 'outline' | 'default';
 type btnSize = '40' | '48';
 
 interface BtnSmallProps {
-  onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   children: React.ReactNode;
   $size: btnSize;
   $style: btnStyle;
