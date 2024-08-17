@@ -1,20 +1,26 @@
+import { TextareaHTMLAttributes } from 'react';
+import {
+  FieldValues,
+  UseFormRegister,
+  UseFormRegisterReturn,
+} from 'react-hook-form';
 import { match } from 'ts-pattern';
 
 import * as S from './TextArea.style';
 
-type TextAreaType = 'valid' | 'default';
+type TextAreaType = 'valid' | 'default' | 'hookForm';
 
-interface TextAreaProps {
-  value: string;
+interface TextAreaProps<T extends FieldValues>
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   mode?: TextAreaType;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  placeholder: string;
   isValid?: boolean;
-  id: string;
-  name: string;
+  register?: UseFormRegisterReturn;
 }
 
-type TextAreaMatchType = { type: 'valid' } | { type: 'default' };
+type TextAreaMatchType =
+  | { type: 'valid' }
+  | { type: 'default' }
+  | { type: 'hookForm' };
 
 export const TextArea = ({
   mode = 'default',
@@ -23,12 +29,17 @@ export const TextArea = ({
   name,
   onChange,
   placeholder,
+  register,
   isValid = true,
-}: TextAreaProps) => {
+}: TextAreaProps<FieldValues>) => {
   const textareaMatch: TextAreaMatchType = { type: mode };
   const TextAreaContent = match(textareaMatch)
+    .with({ type: 'hookForm' }, () => (
+      <S.TextArea {...register} placeholder={placeholder} $isValid={isValid} />
+    ))
     .with({ type: 'valid' }, () => (
       <S.TextArea
+        // {...register?(name)}
         id={id}
         name={name}
         value={value}
