@@ -38,14 +38,12 @@ export const BoardComments = ({ commentList }: BoardCommentsProps) => {
       <>
         {commentList.map((e) => {
           return (
-            <>
-              <CommentItem
-                key={e.id}
-                content={e.content}
-                createdAt={e.createdAt}
-                writer={e.writer}
-              />
-            </>
+            <CommentItem
+              key={e.id}
+              content={e.content}
+              createdAt={e.createdAt}
+              writer={e.writer}
+            />
           );
         })}
       </>
