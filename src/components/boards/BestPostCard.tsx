@@ -22,16 +22,17 @@ export default function BestPostCard({ article }: BestPostCardProps) {
         />
         <div className="flex flex-col gap-[40px] xl:gap-[18px]">
           <div className="flex justify-between">
-            <p className="text-gray-800 font-semibold text-[18px] xl:text-[20px]">
+            <p className="text-gray-800 font-semibold text-[18px] xl:text-[20px] truncate">
               {article.title}
             </p>
-            <Image
-              className="bg-gray rounded-[8px] border-solid border-[1px] border-gray-200"
-              width={72}
-              height={72}
-              src={article.image || "/images/panda_logo.png"}
-              alt="게시글 이미지"
-            />
+            <div className="relative w-[72px] h-[72px] flex-shrink-0">
+              <Image
+                className="bg-gray rounded-[8px] border-solid border-[1px] border-gray-200"
+                fill
+                src={article.image || "/images/panda_logo.png"}
+                alt="게시글 이미지"
+              />
+            </div>
           </div>
           <div className="flex justify-between">
             <div className="flex gap-[8px]">

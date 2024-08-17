@@ -103,6 +103,7 @@ export default function AddBoard() {
         setArticleValues((prevArticleValues) => ({ ...prevArticleValues, image: imgUrl }));
       } catch (error) {
         console.log(error);
+        return;
       }
     }
 
