@@ -31,7 +31,7 @@ export default function AddBoardPage() {
     router.push("/boards");
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 

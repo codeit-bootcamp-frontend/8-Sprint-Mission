@@ -24,12 +24,12 @@ export default function BoardPage() {
   // Best 게시글
   useEffect(() => {
     const handleLoad = async (option: ArticlesQuery) => {
-      setLoading(true);
       try {
+        setLoading(true);
         const { list } = await getArticles(option);
         setBestArticles(list);
       } catch (err) {
-        setError(error);
+        setError("데이터를 가져오는데 실패했습니다.");
       } finally {
         setLoading(false);
       }
@@ -56,11 +56,19 @@ export default function BoardPage() {
   }, [articleQuery]);
 
   if (loading) {
-    return <h1>데이터를 불러오고 있습니다.</h1>;
+    return (
+      <div className="flex justify-center items-center h-lvh">
+        <h1>데이터를 불러오고 있습니다.</h1>
+      </div>
+    );
   }
 
   if (error) {
-    return <h1>Error: {error}</h1>;
+    return (
+      <div className="flex justify-center items-center h-lvh">
+        <h1>Error: {error}</h1>
+      </div>
+    );
   }
 
   return (

@@ -16,7 +16,7 @@ export default function BestBoardCard({ bestArticle }: BestBoardCardProp) {
         <span>Best</span>
       </BestIcon>
       <BestCardContent>
-        <BestCardTitle href="">{bestArticle.title}</BestCardTitle>
+        <BestCardTitle>{bestArticle.title}</BestCardTitle>
         <BestCardImage>
           <img src={bestArticle.image} alt="게시글 이미지" />
         </BestCardImage>
@@ -74,7 +74,7 @@ const BestCardContent = styled.div`
   margin-bottom: 18px;
 `;
 
-const BestCardTitle = styled(Link)`
+const BestCardTitle = styled.h3`
   display: inline-block;
   width: 80%;
   font-size: 2rem;

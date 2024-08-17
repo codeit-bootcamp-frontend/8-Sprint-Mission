@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import LikeImage from "../../../public/images/i-like.png";
 import ProfileImage from "../../../public/images/i-profile.png";
-import Link from "next/link";
-import { ArticlesList, ArticlesQuery } from "@/types/articleType";
+import { ArticlesList } from "@/types/articleType";
 
 type AllBoardCardProp = {
   article: ArticlesList;
@@ -12,9 +11,7 @@ export default function AllBoardCard({ article }: AllBoardCardProp) {
   return (
     <AllCardWrap>
       <AllCardTop>
-        <AllCardTitle href={`/board/${article.id}`}>
-          {article.title}
-        </AllCardTitle>
+        <AllCardTitle>{article.title}</AllCardTitle>
         <AllCardImage>
           <img src={article.image} alt="게시글 이미지" />
         </AllCardImage>
@@ -52,14 +49,10 @@ const AllCardTop = styled.div`
   margin-bottom: 16px;
 `;
 
-const AllCardTitle = styled(Link)`
+const AllCardTitle = styled.h3`
   font-size: 2rem;
   font-weight: 600;
   padding-top: 5px;
-
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 const AllCardImage = styled.div`

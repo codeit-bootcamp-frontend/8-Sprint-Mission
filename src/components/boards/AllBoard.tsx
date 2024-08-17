@@ -4,6 +4,7 @@ import { ArticlesList, ArticlesQuery } from "@/types/articleType";
 import AllBoardCard from "./AllBoardCard";
 import BoardSearch from "./BoardSearch";
 import BoardOrder from "./BoardOrder";
+import Link from "next/link";
 
 export type AllBoardProps = {
   articles: ArticlesList[];
@@ -23,7 +24,11 @@ export default function AllBoard({ articles, setArticleQuery }: AllBoardProps) {
       </AllBoardSearch>
       <AllBoardList>
         {articles.map((article) => {
-          return <AllBoardCard key={article.id} article={article} />;
+          return (
+            <Link key={article.id} href={`boards/${article.id}`}>
+              <AllBoardCard article={article} />
+            </Link>
+          );
         })}
       </AllBoardList>
     </AllBoardWrap>

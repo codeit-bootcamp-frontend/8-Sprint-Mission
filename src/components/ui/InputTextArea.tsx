@@ -4,14 +4,17 @@ import { SetStateAction } from "react";
 interface InputTextAreaProps {
   content: InputTextType;
   value: string;
+  height?: string;
   setTextareaText: React.Dispatch<SetStateAction<string>>;
 }
 
 export default function InputTextArea({
   content,
   value,
+  height,
   setTextareaText,
 }: InputTextAreaProps) {
+  const heightClass = height ? `h-[104px]` : `h-[282px]`;
   return (
     <div className="mb-[24px]">
       <label
@@ -21,7 +24,7 @@ export default function InputTextArea({
         {content.label}
       </label>
       <textarea
-        className="w-full h-[282px] text-[16px] rounded-[12px] py-[16px] px-[24px] bg-gray-100"
+        className={`w-full ${heightClass} text-[16px] rounded-[12px] py-[16px] px-[24px] bg-gray-100 resize-none`}
         id={content.id}
         value={value}
         placeholder={content.placeholder}

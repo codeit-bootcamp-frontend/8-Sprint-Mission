@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ArticlesList } from "@/types/articleType";
 import BestBoardCard from "./BestBoardCard";
+import Link from "next/link";
 
 type BestBoard = {
   bestArticles: ArticlesList[];
@@ -13,7 +14,13 @@ export default function BestBoard({ bestArticles }: BestBoard) {
       <BestBoardCardList>
         {bestArticles.map((bestArticle) => {
           return (
-            <BestBoardCard key={bestArticle.id} bestArticle={bestArticle} />
+            <Link
+              className="w-full"
+              href={`boards/${bestArticle.id}`}
+              key={bestArticle.id}
+            >
+              <BestBoardCard bestArticle={bestArticle} />
+            </Link>
           );
         })}
       </BestBoardCardList>
