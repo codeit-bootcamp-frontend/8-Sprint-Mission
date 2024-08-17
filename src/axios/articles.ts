@@ -55,12 +55,12 @@ interface GetArticleByIDProps {
 }
 
 export async function getArticleByID({ articleId }: GetArticleByIDProps) {
+  const res = await axiosInstance.get(`/articles/${articleId}`);
   try {
-    const res = await axiosInstance.get(`/articles/${articleId}`);
     const article: Article = res.data;
     return article;
-  } catch (error) {
-    return null;
+  } catch {
+    throw new Error("게시글 응답이 올바르지 않습니다.");
   }
 }
 

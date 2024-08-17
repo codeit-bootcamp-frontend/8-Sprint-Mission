@@ -1,18 +1,12 @@
 import axiosInstance from "./instance";
 
-interface GetArticleCommentsProps {
-  productId: number;
-  limit: number;
-  cursor?: number;
-}
-
 interface Writer {
   id: number;
   image: string;
   nickname: string;
 }
 
-interface Comment {
+export interface Comment {
   id: number;
   content: string;
   updatedAt: string;
@@ -20,23 +14,33 @@ interface Comment {
   writer: Writer;
 }
 
-interface ArticleCommentsResponse {
-  nextCursor: number;
+interface GetArticleCommentsProps {
+  articleId: number;
+  limit: number;
+  cursor?: number;
+}
+
+export interface ArticleCommentsResponse {
+  nextCursor: number | null;
   list: Comment[];
 }
 
-export async function getArticleComments({ productId, limit, cursor }: GetArticleCommentsProps) {
-  const query = `limit=${limit}&cursor=${cursor}`;
-  const res = await axiosInstance.get(`/products/${productId}/comments?${query}`);
+export async function getArticleComments({ articleId, limit, cursor }: GetArticleCommentsProps) {
+  let query = `limit=${limit}`;
+  if (cursor) {
+    query += `&cursor=${cursor}`;
+  }
+  const res = await axiosInstance.get(`/articles/${articleId}/comments?${query}`);
   const { nextCursor, list }: ArticleCommentsResponse = res.data;
   return { nextCursor, list };
 }
 
 interface PostArticleCommentProps {
-  productId: number;
+  articleId: number;
   content: string;
 }
-export async function postArticleComment({ productId, content }: PostArticleCommentProps) {
-  const res = await axiosInstance.post(`/${productId}`);
+
+export async function postArticleComment({ articleId, content }: PostArticleCommentProps) {
+  const res = await axiosInstance.post(`/articles/${articleId}`, { content });
   return res.data as Comment;
 }
