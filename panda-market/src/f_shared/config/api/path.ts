@@ -2,7 +2,18 @@ export const API_PATH = {
   usersPath: { default: '/users' },
   productPath: { default: '/products' },
   imagesPath: { default: '/images' },
-  commentPath: { default: '/comment' },
+  commentPath: {
+    default: '/comments',
+    products(id: string | number) {
+      return `/products/${id}${this.default}`;
+    },
+    articles(id: string | number) {
+      return `/articles/${id}${this.default}`;
+    },
+    detail(id: string | number) {
+      return `${this.default}/${id}`;
+    },
+  },
   authPath: {
     default: '/auth',
     signUp: '/auth/signUp',

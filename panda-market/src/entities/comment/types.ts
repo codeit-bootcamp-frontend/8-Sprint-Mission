@@ -9,7 +9,7 @@ export interface Comment {
 }
 
 export interface GetArticleCommentsQuery {
-  productId: number;
+  articleId: number | string;
   limit: number;
   cursor?: number;
 }
@@ -17,4 +17,9 @@ export interface GetArticleCommentsQuery {
 export interface ArticleCommentsResponse {
   nextCursor: number | null;
   list: Comment[];
+}
+
+export interface CreateArticleCommentsData {
+  articleId: number | string;
+  content: string;
 }
