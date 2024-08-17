@@ -1,6 +1,6 @@
 import { API_PATH } from '@/f_shared';
 import { instance } from '../instance';
-import { CreateArticleCommentsData } from './types';
+import { Comment, CreateArticleCommentsData } from './types';
 
 export const createBoardComments = async ({
   articleId,
@@ -9,11 +9,15 @@ export const createBoardComments = async ({
   const apiData = { content };
   const accessToken = sessionStorage.getItem('userInfo');
   return await instance
-    .post(API_PATH.commentPath.articles(articleId), JSON.stringify(apiData), {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
+    .post<Comment>(
+      API_PATH.commentPath.articles(articleId),
+      JSON.stringify(apiData),
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
       },
-    })
+    )
     .then((res) => res)
     .catch((e) => {
       console.log(e);
