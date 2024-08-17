@@ -9,11 +9,9 @@ type ImageErrorType = { type: 'success' } | { type: 'default' };
 interface ImgProps {
   src: string;
   alt: string;
-  width?: number;
-  height?: number;
 }
 
-export const Img = ({ src, alt, width, height }: ImgProps) => {
+export const Img = ({ src, alt }: ImgProps) => {
   const [isError, setIsError] = useState<boolean>(() => src === '' || !src);
   const imageErrorType: ImageErrorType = {
     type: !isError ? 'success' : 'default',
@@ -21,23 +19,10 @@ export const Img = ({ src, alt, width, height }: ImgProps) => {
 
   const ImgContent = match(imageErrorType)
     .with({ type: 'success' }, () => (
-      <Image
-        src={src}
-        alt={alt}
-        onError={() => setIsError(true)}
-        fill
-        width={width}
-        height={height}
-      />
+      <Image src={src} alt={alt} onError={() => setIsError(true)} fill />
     ))
     .with({ type: 'default' }, () => (
-      <Image
-        src={DefaultLargeImg}
-        alt={alt}
-        fill
-        width={width}
-        height={height}
-      />
+      <Image src={DefaultLargeImg} alt={alt} fill />
     ))
     .exhaustive();
   return <>{ImgContent}</>;
