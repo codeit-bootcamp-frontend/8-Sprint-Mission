@@ -1,13 +1,13 @@
-import Link from "next/link";
-import styles from "./LinkButton.module.css";
-import { LinkButtonProps } from "./types/ButtonType";
+import Link from 'next/link';
+import styles from './LinkButton.module.css';
+import { LinkButtonProps } from './types/ButtonType';
 
 export default function LinkButton({
-  href = "#",
-  type = "button",
-  btnName = "버튼",
+  href,
+  type = 'button',
+  btnName = '버튼',
   isActive = false,
-  className = "",
+  className = '',
 }: LinkButtonProps) {
   if (href) {
     return (
