@@ -12,10 +12,5 @@ export const useImageUpload = () => {
   return useMutation({
     mutationKey: [QUERY_KEYS.IMAGE.UPLOAD],
     mutationFn: ({ image }: ImageUploadParams) => uploadImage({ image }),
-    onSuccess: (data, variable, context) => {
-      console.log(data);
-      console.log(variable);
-      console.log(context);
-    },
   });
 };
