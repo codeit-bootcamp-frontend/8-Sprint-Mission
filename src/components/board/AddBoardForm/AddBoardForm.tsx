@@ -6,15 +6,33 @@ import UIInputLabel from '@core/ui/inputs/UIInputLabel/UIInputLabel';
 import UIInput from '@core/ui/inputs/UIInput/UIInput';
 import UITextarea from '@core/ui/inputs/UITextarea/UITextarea';
 import UIImageInput from '@core/ui/inputs/UIImageInput/UIImageInput';
-import useAddImageFile from '@lib/hooks/useAddImageFile';
+import useArticleForm from '@lib/hooks/useArticleForm';
 
 type AddBoardFormProps = {};
 
 const AddBoardForm = ({ ...props }: AddBoardFormProps) => {
-  const { imageFile, initialPreview, setInitialPreview, handleImageChange } =
-    useAddImageFile();
+  const {
+    setTitle,
+    setContent,
+    submitArticle,
+    imageFile,
+    initialPreview,
+    handleImageChange,
+  } = useArticleForm();
 
-  const handleSubmit = () => {};
+  const handleChangeTitleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+
+  const handleChangeContentInput = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setContent(e.target.value);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === 'Enter') e.preventDefault();
+  };
 
   return (
     <>
@@ -23,7 +41,7 @@ const AddBoardForm = ({ ...props }: AddBoardFormProps) => {
           <SectionTitle title="게시글 쓰기" />
           <UIButton
             children={'등록'}
-            handleClick={handleSubmit}
+            handleClick={submitArticle}
             type="box"
             buttonTagType="submit"
             isDisabled={false}
@@ -34,16 +52,16 @@ const AddBoardForm = ({ ...props }: AddBoardFormProps) => {
           <UIInputLabel text="*제목" />
           <UIInput
             placeholder="제목을 입력해주세요"
-            onKeyDown={() => {}}
-            onChange={() => {}}
+            onKeyDown={handleKeyDown}
+            onChange={handleChangeTitleInput}
           />
         </div>
         <div className={styles['form__input']}>
           <UIInputLabel text="*내용" />
           <UITextarea
             placeholder="내용을 입력해주세요"
-            onTextareaKeyDown={() => {}}
-            onTextareaChange={() => {}}
+            onTextareaKeyDown={handleKeyDown}
+            onTextareaChange={handleChangeContentInput}
           />
         </div>
         <div className={styles['form__input']}>

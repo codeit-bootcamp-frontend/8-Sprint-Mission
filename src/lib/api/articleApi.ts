@@ -22,6 +22,7 @@ export const getArticles = async ({ ...params }: ArticleListRequest) => {
 };
 
 export const addArticle = async ({ ...params }: AddArticleRequest) => {
+  if (!params) return;
   try {
     const response = await axiosInstance<Article>({
       method: 'POST',
