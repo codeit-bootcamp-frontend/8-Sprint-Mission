@@ -5,6 +5,7 @@ import InputTextArea from "../../components/ui/InputTextArea";
 import InputFileImage from "@/components/ui/InputFileImage";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 type StyledButtonProps = {
   active?: boolean;
@@ -25,6 +26,7 @@ const TEXTAREA_CONTENT = {
 export default function AddBoardPage() {
   const [inputText, setInputText] = useState<string>("");
   const [textareaText, setTextareaText] = useState<string>("");
+  const [inputImage, setInputImage] = useState<string>("");
   const router = useRouter();
 
   const handleRouteClick = () => {
@@ -40,15 +42,14 @@ export default function AddBoardPage() {
       <form onSubmit={handleSubmit}>
         <div className="flex justify-between items-center">
           <h2 className="text-[20px] font-bold mb-[32px]">게시글 쓰기</h2>
-          {inputText && textareaText ? (
-            <StyledButton active={true} onClick={handleRouteClick}>
-              등록
-            </StyledButton>
-          ) : (
-            <StyledButton disabled active={false}>
-              등록
-            </StyledButton>
-          )}
+
+          <StyledButton
+            type="submit"
+            disabled={inputText === "" || textareaText === "" ? true : false}
+            onClick={handleRouteClick}
+          >
+            등록
+          </StyledButton>
         </div>
         <InputText
           content={INPUT_CONTENT}
@@ -69,6 +70,9 @@ export default function AddBoardPage() {
 const StyledButton = styled(Button)<StyledButtonProps>`
   width: 74px;
   height: 42px;
-  background-color: ${(props) =>
-    props.active ? "var(--blue-color)" : "var(--gray400-color)"};
+  background-color: var(--blue-color);
+
+  &:disabled {
+    background-color: var(--gray400-color);
+  }
 `;

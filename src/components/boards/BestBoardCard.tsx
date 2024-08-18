@@ -9,6 +9,7 @@ type BestBoardCardProp = {
 };
 
 export default function BestBoardCard({ bestArticle }: BestBoardCardProp) {
+  const date = new Date(bestArticle.createdAt);
   return (
     <BestCardWrap>
       <BestIcon>
@@ -29,7 +30,7 @@ export default function BestBoardCard({ bestArticle }: BestBoardCardProp) {
             {bestArticle.likeCount}
           </span>
         </CardInfoLeft>
-        <CardInfoDate>2024.04.18</CardInfoDate>
+        <CardInfoDate>{date.toLocaleDateString()}</CardInfoDate>
       </BestCardInfo>
     </BestCardWrap>
   );

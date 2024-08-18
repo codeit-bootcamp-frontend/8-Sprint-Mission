@@ -8,6 +8,7 @@ type AllBoardCardProp = {
 };
 
 export default function AllBoardCard({ article }: AllBoardCardProp) {
+  const date = new Date(article.createdAt);
   return (
     <AllCardWrap>
       <AllCardTop>
@@ -20,7 +21,7 @@ export default function AllBoardCard({ article }: AllBoardCardProp) {
         <AllCardInfoLeft>
           <img src={ProfileImage.src} alt="프로필 이미지" />
           <p>{article.writer.nickname}</p>
-          <span>2024.04.16</span>
+          <span>{date.toLocaleDateString()}</span>
         </AllCardInfoLeft>
         <AllCardLike>
           <img src={LikeImage.src} alt="하트 이미지" />

@@ -8,6 +8,13 @@ type CommentCardProps = {
 };
 
 export default function CommentCard({ comment }: CommentCardProps) {
+  const nowDate = new Date();
+  const date = new Date(comment.createdAt);
+
+  const diff = nowDate.getTime() - date.getTime();
+
+  const diffDate = Math.floor(diff / (1000 * 60 * 60));
+
   return (
     <div className="mb-[24px] pt-[5px] pr-[5px] pb-[12px] bg-[#FCFCFC] border-b border-gray-200">
       <div className="flex justify-between items-center mb-[24px]">
@@ -29,7 +36,7 @@ export default function CommentCard({ comment }: CommentCardProps) {
             {comment.writer.nickname}
           </p>
           <span className="text-[12px] font-normal text-gray-400">
-            1시간 전
+            {diffDate}시간 전
           </span>
         </div>
       </div>
