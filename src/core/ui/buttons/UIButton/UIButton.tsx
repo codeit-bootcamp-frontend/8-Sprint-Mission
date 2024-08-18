@@ -3,7 +3,7 @@ import styles from './UIButton.module.scss';
 
 type UIButtonProps = {
   buttonTagType?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
-  type: 'box' | 'floating' | 'round';
+  type: 'box' | 'floating' | 'round' | 'like';
   className?: string;
   handleClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   children: React.ReactNode;
@@ -33,6 +33,7 @@ const UIButton = ({
             [styles['floating-button--small']]:
               type === 'floating' && isSmallButton,
             [styles['round-button']]: type === 'round',
+            [styles['like-button']]: type === 'like',
           },
           className
         )}

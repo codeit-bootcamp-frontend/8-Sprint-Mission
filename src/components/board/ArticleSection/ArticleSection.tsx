@@ -35,7 +35,7 @@ const ArticleSection = ({ article }: ArticleSectionProps) => {
                 : '2024.01.02'}
             </p>
             <VerticalLine />
-            <UIButton className={styles['article__likeButton']} type="floating">
+            <UIButton className={styles['article__likeButton']} type="like">
               <UIImage
                 className={styles['article__heartIcon']}
                 src={IconHeart}
