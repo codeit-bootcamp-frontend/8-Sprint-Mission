@@ -9,6 +9,12 @@ const nextConfig = {
         port: "",
         pathname: "/Sprint_Mission/user/**",
       },
+      {
+        protocol: "https",
+        hostname: "flexible.img.hani.co.kr",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
