@@ -1,3 +1,4 @@
+import AddBoardForm from '@components/board/AddBoardForm/AddBoardForm';
 import BasicLayout from '@components/layout/BasicLayout/BasicLayout';
 
 type AddBoardPageProps = {};
@@ -5,7 +6,9 @@ type AddBoardPageProps = {};
 const AddBoardPage = ({}: AddBoardPageProps) => {
   return (
     <>
-      <BasicLayout></BasicLayout>
+      <BasicLayout>
+        <AddBoardForm />
+      </BasicLayout>
     </>
   );
 };

@@ -7,7 +7,7 @@ type UIButtonProps = {
   className?: string;
   handleClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   children: React.ReactNode;
-  isDisalbed?: boolean;
+  isDisabled?: boolean;
   isLightTheme?: boolean;
   isSmallButton?: boolean;
 };
@@ -18,7 +18,7 @@ const UIButton = ({
   className = '',
   handleClick,
   children,
-  isDisalbed = false,
+  isDisabled = false,
   isSmallButton = false,
 }: UIButtonProps) => {
   return (
@@ -37,7 +37,7 @@ const UIButton = ({
           className
         )}
         onClick={handleClick}
-        disabled={isDisalbed}
+        disabled={isDisabled}
         type={buttonTagType}
       >
         {children}

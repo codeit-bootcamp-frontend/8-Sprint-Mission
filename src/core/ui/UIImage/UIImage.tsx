@@ -1,15 +1,16 @@
+import styles from './UIImage.module.scss';
+
 import { OptionalPick } from '@lib/utils/OptionalPick';
-import styles from './UImage.module.scss';
 import { BasicType } from '@type/BasicTypes';
 import clsx from 'clsx';
 
-type UImageProps = OptionalPick<
+type UIImageProps = OptionalPick<
   BasicType,
   'src',
   'alt' | 'className' | 'isRound'
 >;
 
-export const UImage = ({ ...props }: UImageProps) => {
+const UIImage = ({ ...props }: UIImageProps) => {
   return (
     <>
       <img
@@ -23,3 +24,5 @@ export const UImage = ({ ...props }: UImageProps) => {
     </>
   );
 };
+
+export default UIImage;

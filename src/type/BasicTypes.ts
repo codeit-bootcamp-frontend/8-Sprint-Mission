@@ -23,14 +23,18 @@ export type BasicType = {
   placeholder: string;
   options: { key: string; value: string }[];
   sortOptions: { key: ArticleOrderBy; label: string };
-  file: File;
+  file: File | null;
   initialPreview: string;
+  text: string;
+  isTextarea: boolean;
 
   // handler
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onChangeFile: (name: string, nextValue: File) => void;
+  onTextareaChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChangeFile: (name: string, nextValue: File | null) => void;
   onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onTextareaKeyDown: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
   onSortSelection: (key: string) => void;
   onSearch: (keyword: string) => void;
 

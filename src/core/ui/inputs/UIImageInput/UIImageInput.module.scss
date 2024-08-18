@@ -1,3 +1,5 @@
+@import '/src/styles/global.scss';
+
 .wrapper-btn-input-image-file {
   display: flex;
   justify-content: start;
@@ -9,7 +11,7 @@
   height: 168px;
   margin: 0 8px 0 0;
   border-radius: 12px;
-  background-color: var(--gray-100);
+  background-color: $gray-100;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +38,7 @@
 }
 
 .text-btn-input-image-file {
-  color: var(--gray-400);
+  color: $gray-400;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

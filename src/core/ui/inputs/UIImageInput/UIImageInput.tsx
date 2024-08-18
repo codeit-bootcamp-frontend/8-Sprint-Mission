@@ -1,10 +1,13 @@
 import styles from './UIImageInput.module.scss';
 
-import clsx from 'clsx';
 import { BasicType } from '@type/BasicTypes';
 import { useEffect, useRef, useState } from 'react';
-import imgDefault from '@assets/images/image/img_default.png';
 import { OptionalPick } from '@lib/utils/OptionalPick';
+import IconX from '@assets/images/icons/ic_x.svg';
+import IconUnion from '@assets/images/icons/ic_plus.svg';
+import UIImage from '@core/ui/UIImage/UIImage';
+import Image from 'next/image';
+import clsx from 'clsx';
 
 type UIImageInputProps = OptionalPick<
   BasicType,
@@ -14,11 +17,11 @@ type UIImageInputProps = OptionalPick<
 
 const UIImageInput = ({ ...props }: UIImageInputProps) => {
   const [preview, setPreview] = useState(props.initialPreview);
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const nextValue: File = e.target.files[0];
-    props.onChangeFile(props.name || '', nextValue);
+    const target = e.target as HTMLInputElement;
+    if (target.files) props.onChangeFile(props.name || '', target.files[0]);
   };
 
   const handleClearClick = () => {
@@ -26,35 +29,46 @@ const UIImageInput = ({ ...props }: UIImageInputProps) => {
     if (!inputNode) return;
 
     inputNode.value = '';
-    props.onChangeFile(name, null);
+    props.onChangeFile(props.name || '', null);
   };
 
   useEffect(() => {
-    if (!value) return;
-    const nextPreview = URL.createObjectURL(value);
+    if (!props.file) return;
+    const nextPreview = URL.createObjectURL(props.file);
     setPreview(nextPreview);
 
     return () => {
-      setPreview(initialPreview);
+      setPreview(props.initialPreview);
       URL.revokeObjectURL(nextPreview);
     };
-  }, [value, initialPreview]);
+  }, [props.file, props.initialPreview]);
 
   return (
     <>
-      <div className={`wrapper-btn-input-image-file ${className}`}>
+      <div
+        className={clsx(
+          styles['wrapper-btn-input-image-file'],
+          props.className
+        )}
+      >
         {/* 추가 버튼 */}
-        <label htmlFor="input-image-file" className="card-input-image-file">
-          <div className="wrapper-content-btn-input-image-file">
-            <IconUnion
-              className="icon-union-input-image-file"
+        <label
+          htmlFor="input-image-file"
+          className={styles['card-input-image-file']}
+        >
+          <div className={styles['wrapper-content-btn-input-image-file']}>
+            <Image
+              src={IconUnion}
+              className={styles['icon-union-input-image-file']}
               alt="이미지 등록 버튼"
             />
-            <div className="text-btn-input-image-file">이미지 등록</div>
+            <div className={styles['text-btn-input-image-file']}>
+              이미지 등록
+            </div>
           </div>
         </label>
         <input
-          className="input-image-file"
+          className={styles['input-image-file']}
           type="file"
           id="input-image-file"
           name="imgFile"
@@ -62,21 +76,23 @@ const UIImageInput = ({ ...props }: UIImageInputProps) => {
           ref={inputRef}
         />
         {/* 미리보기 이미지 */}
-        {value && (
+        {props.file && (
           <>
-            <div className="card-input-image-file">
-              <img
-                src={preview || imgDefault}
-                className="img-preview-input-image-file"
+            <div className={styles['card-input-image-file']}>
+              <UIImage
+                src={preview}
+                className={styles['img-preview-input-image-file']}
                 alt="상품 미리보기"
+                isRound={false}
               />
             </div>
             <button
-              className="btn-deelete-input-image-file"
+              className={styles['btn-delete-input-image-file']}
               onClick={handleClearClick}
             >
-              <IconX
-                className="icon-delete-input-image-file"
+              <Image
+                src={IconX}
+                className={styles['icon-delete-input-image-file']}
                 alt="선택 해제 버튼"
               />
             </button>
