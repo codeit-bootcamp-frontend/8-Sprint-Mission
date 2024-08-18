@@ -1,0 +1,52 @@
+@import '/src/styles/global.scss';
+
+.article {
+  width: 100%;
+  gap: 1rem;
+
+  &__header {
+    width: 100%;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+  }
+
+  &__avatar {
+    background-color: $gray-200;
+    margin: 0 1rem 0 0;
+  }
+
+  &__nickname {
+    margin: 0 0.5rem 0 0;
+    @include Body4;
+    color: $gray-600;
+  }
+
+  &__date {
+    margin: 0 2rem 0 0;
+    @include Body4;
+    color: $gray-400;
+  }
+
+  &__likeButton {
+    margin: 0 0 0 2rem;
+    padding: 0.25rem 0.75rem;
+    border: 0.06rem solid $gray-200;
+    background-color: $white;
+    box-shadow: none;
+    @include Body3;
+    color: $gray-500;
+  }
+
+  &__heartIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__content {
+  }
+}

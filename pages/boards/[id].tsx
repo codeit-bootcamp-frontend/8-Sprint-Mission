@@ -1,9 +1,7 @@
-import AllArticlesBoard from '@components/board/AllArticlesBoard/AllArticlesBoard';
-import BestArticlesSection from '@components/board/BestArticlesSection/BestArticlesSection';
+import ArticleSection from '@components/board/ArticleSection/ArticleSection';
 import BasicLayout from '@components/layout/BasicLayout/BasicLayout';
-import { getArticle, getArticles } from '@lib/api/articleApi';
-import { Article } from '@type/ArticleTypes';
-import { error } from 'console';
+import { getArticle } from '@lib/api/articleApi';
+import { Article, ArticleDetailResponse } from '@type/ArticleTypes';
 import { GetServerSideProps } from 'next';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -31,14 +29,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 type BoardDetailPageProps = {
-  initArticle: Article;
+  initArticle: ArticleDetailResponse;
 };
 
 const BoardDetailPage = ({ initArticle }: BoardDetailPageProps) => {
   return (
     <>
       <BasicLayout>
-        {/* <AllArticlesBoard initArticle={initArticle} /> */}
+        <ArticleSection article={initArticle} />
       </BasicLayout>
     </>
   );

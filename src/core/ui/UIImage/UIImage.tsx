@@ -7,8 +7,8 @@ import Image from 'next/image';
 
 type UIImageProps = OptionalPick<
   BasicType,
-  'src',
-  'alt' | 'className' | 'isRound'
+  'alt' | 'className' | 'isRound',
+  'src'
 >;
 
 const UIImage = ({ ...props }: UIImageProps) => {
@@ -20,7 +20,7 @@ const UIImage = ({ ...props }: UIImageProps) => {
           props.className
         )}
         src={props.src || ''}
-        alt={props.alt}
+        alt={props.alt || ''}
         width={50}
         height={50}
       />

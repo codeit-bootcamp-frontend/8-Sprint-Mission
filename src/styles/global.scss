@@ -17,6 +17,8 @@ $blue-300: #1251aa;
 $blue-200: #1967d6;
 $blue-100: #3692ff;
 
+$white: #fff;
+
 @mixin Shadow($pt: 1) {
   @if $pt == 1 {
     box-shadow: 0px 4px 4px 0px rgba(140, 140, 140, 0.25);
