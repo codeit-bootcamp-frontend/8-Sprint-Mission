@@ -18,13 +18,17 @@
   gap: 0.5rem;
 }
 .addBoardBtn {
-  background-color: var(--gray-400);
+  background-color: var(--blue);
   font-size: 1rme;
   font-weight: 600;
   line-height: 1.2rem;
   padding: 0.7rem 1.5rem;
   border-radius: 0.5rem;
   color: #ffffff;
+}
+.addBoardBtn:disabled {
+  cursor: default;
+  background-color: var(--gray-400);
 }
 
 .addBoardLabel {
