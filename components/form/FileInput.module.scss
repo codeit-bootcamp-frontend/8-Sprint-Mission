@@ -53,3 +53,12 @@
     }
   }
 }
+.btn-delete {
+  position: absolute;
+  background: transparent;
+  width: 25px;
+  right: 5px;
+  top: 5px;
+  &:hover {
+  }
+}
