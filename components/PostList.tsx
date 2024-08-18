@@ -92,7 +92,12 @@ function PostList({ articles }: Props) {
         <StyledPostArea key={article.id}>
           <StyledArea>
             <StyledPostTitle>{article.title}</StyledPostTitle>
-            <StyledImageWrapper src={article.image} alt="게시글 첨부 이미지" />
+            <StyledImageWrapper
+              src={
+                article.image ? article.image : "/image/product_img_default.png"
+              }
+              alt="게시글 첨부 이미지"
+            />
           </StyledArea>
           <StyledArea>
             <StyledBottomLeftArea>

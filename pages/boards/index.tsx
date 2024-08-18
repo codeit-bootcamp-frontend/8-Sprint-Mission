@@ -7,7 +7,6 @@ import PostList from "@/components/PostList";
 import styled from "styled-components";
 import axios from "@/lib/axios";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 
 const StyledContainer = styled.main`
   width: 1200px;
@@ -31,39 +30,66 @@ const StyledArea = styled.div`
   justify-content: space-between;
 `;
 
-type Writer = {
-  nickname: string;
+interface Article {
   id: number;
-};
-
-type Article = {
-  updatedAt: string;
-  createdAt: string;
-  likeCount: number;
-  writer: Writer;
-  image: string;
   title: string;
-  id: number;
-};
+  content: string;
+  image: string;
+  writer: {
+    nickname: string;
+    id: number;
+  };
+  createdAt: string;
+  updatedAt: string;
+  likeCount: number;
+}
 
-type Props = {
-  articles: Article[];
-};
+interface PostListPageProps {
+  initialArticles: Article[];
+  initialOrderBy: string;
+  initialSearchQuery: string;
+}
 
-export default function PostListPage() {
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [articles, setArticles] = useState([]);
-  const [orderBy, setOrderBy] = useState<string>("recent");
+export async function getServerSideProps(context: any) {
+  const { orderBy = "recent", keyword = "" } = context.query;
+
+  const query = {
+    orderBy,
+    page: 1,
+    pageSize: 30,
+    keyword,
+  };
+  const res = await axios.get(
+    `/articles?orderBy=${query.orderBy}&keyword=${query.keyword}`
+  );
+  const initialArticles = res.data.list;
+  return {
+    props: {
+      initialArticles,
+      initialOrderBy: orderBy,
+      initialSearchQuery: keyword,
+    },
+  };
+}
+
+export default function PostListPage({
+  initialArticles,
+  initialOrderBy,
+  initialSearchQuery,
+}: PostListPageProps) {
+  const [searchQuery, setSearchQuery] = useState<string>(initialSearchQuery);
+  const [articles, setArticles] = useState<Article[]>(initialArticles);
+  const [orderBy, setOrderBy] = useState<string>(initialOrderBy);
 
   async function getProducts() {
     const query = {
       orderBy,
       page: 1,
-      pageSize: 10,
+      pageSize: 30,
       keyword: searchQuery,
     };
     const res = await axios.get(
-      `/articles?orderBy=${query.orderBy}&keyword=${query.keyword}`
+      `/articles?orderBy=${query.orderBy}&page=${query.page}&pageSize=${query.pageSize}&keyword=${query.keyword}`
     );
     const nextArticles = res.data.list;
     setArticles(nextArticles);
@@ -71,7 +97,6 @@ export default function PostListPage() {
 
   useEffect(() => {
     getProducts();
-    console.log("Fetching products with:", { searchQuery, orderBy });
   }, [orderBy, searchQuery]);
 
   return (
