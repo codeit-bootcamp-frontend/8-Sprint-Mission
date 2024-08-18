@@ -8,9 +8,7 @@ import UITextarea from '@core/ui/inputs/UITextarea/UITextarea';
 import UIImageInput from '@core/ui/inputs/UIImageInput/UIImageInput';
 import useArticleForm from '@lib/hooks/useArticleForm';
 
-type AddBoardFormProps = {};
-
-const AddBoardForm = ({ ...props }: AddBoardFormProps) => {
+const AddBoardForm = () => {
   const {
     setTitle,
     setContent,
