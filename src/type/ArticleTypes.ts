@@ -29,3 +29,10 @@ export type AddArticleRequest = Pick<Article, 'image' | 'content' | 'title'>;
 export type ArticleDetailResponse = Article & Pick<BasicType, 'isLiked'>;
 
 export type ArticleDetailRequest = { articleId: number };
+
+export type AddArticleCommentRequest = Pick<BasicType, 'content'>;
+
+export type ArticleComment = Pick<
+  BasicType,
+  'writer' | 'updatedAt' | 'createdAt' | 'content' | 'id'
+>;

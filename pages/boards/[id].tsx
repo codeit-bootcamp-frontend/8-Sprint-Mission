@@ -1,3 +1,4 @@
+import ArticleCommentForm from '@components/board/ArticleCommentForm/ArticleCommentForm';
 import ArticleSection from '@components/board/ArticleSection/ArticleSection';
 import BasicLayout from '@components/layout/BasicLayout/BasicLayout';
 import { getArticle } from '@lib/api/articleApi';
@@ -37,6 +38,7 @@ const BoardDetailPage = ({ initArticle }: BoardDetailPageProps) => {
     <>
       <BasicLayout>
         <ArticleSection article={initArticle} />
+        <ArticleCommentForm />
       </BasicLayout>
     </>
   );

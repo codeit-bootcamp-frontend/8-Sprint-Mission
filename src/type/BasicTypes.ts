@@ -10,7 +10,7 @@ export type BasicType = {
   createdAt: Date;
   image: string;
   content: string;
-  writer: { id: number; nickname: string };
+  writer: { id: number; nickname: string; image?: string };
   isRound: boolean;
   src: string | StaticImport;
   alt: string;
