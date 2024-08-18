@@ -49,6 +49,15 @@
     font-weight: 300;
     font-size: 18px;
   }
+  .article-image-wrap {
+    position: relative;
+    max-width: 600px;
+    height: 600px;
+    margin: 20px 0;
+    img {
+      object-fit: contain;
+    }
+  }
 }
 .btn-favorite {
   display: inline-flex;

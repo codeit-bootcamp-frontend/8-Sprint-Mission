@@ -41,24 +41,20 @@
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 12px;
-    .ic_remove {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      transition: 0.2s ease;
-      cursor: pointer;
-      &:hover {
-        background-image: url("/img/ic_X_blue.svg");
-      }
+    img {
+      object-fit: cover;
     }
   }
 }
 .btn-delete {
   position: absolute;
   background: transparent;
-  width: 25px;
-  right: 5px;
-  top: 5px;
+  width: 24px;
+  height: 24px;
+  right: 10px;
+  top: 10px;
+  background: url("/img/icon/ic_X.svg") no-repeat center center;
   &:hover {
+    background-image: url("/img/icon/ic_X_blue.svg");
   }
 }

@@ -35,12 +35,7 @@ export default function Button({
   `.trim();
 
   return (
-    <button
-      className={buttonClass}
-      {...props}
-      type={type}
-      aria-disabled={disabled}
-    >
+    <button className={buttonClass} {...props} type={type} disabled={disabled}>
       {children}
     </button>
   );

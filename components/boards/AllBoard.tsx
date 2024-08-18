@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import axios from "@/lib/axios";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils/formatDate";
-import { Article } from "@/types/article";
+import { Article } from "@/types/articleTypes";
 
 interface AllBoardProps {
   initialArticles: Article[];

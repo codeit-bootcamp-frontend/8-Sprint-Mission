@@ -3,30 +3,19 @@ import Image from "next/image";
 import styles from "./FileInput.module.scss";
 import Icon from "@/components/ui/Icon";
 
-// Props 타입 정의
 interface FileInputProps {
   label: string;
-  name: string;
-  value: File | null; // File 객체 또는 null
-  onChange: (name: string, file: File | null) => void; // 파일 변경 시 호출되는 콜백 함수
+  imagePreviewUrl: string;
+  onImageChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onImageDelete: () => void;
 }
 
-function FileInput({ label, name, value, onChange }: FileInputProps) {
-  const [imagePreviewUrl, setImagePreviewUrl] = useState("");
-
-  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
-
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setImagePreviewUrl(imageUrl);
-    }
-  };
-
-  const handleDelete = () => {
-    setImagePreviewUrl("");
-  };
-
+function FileInput({
+  label,
+  imagePreviewUrl,
+  onImageChange,
+  onImageDelete,
+}: FileInputProps) {
   return (
     <div className="input-group">
       <label className={styles["input-label"]}>{label}</label>
@@ -39,7 +28,7 @@ function FileInput({ label, name, value, onChange }: FileInputProps) {
             id="image-upload"
             className="sr-only"
             type="file"
-            onChange={handleImageChange}
+            onChange={onImageChange}
             accept="image/*"
           />
           <Icon type="plus" size="lg" />
@@ -47,15 +36,13 @@ function FileInput({ label, name, value, onChange }: FileInputProps) {
         </label>
         {imagePreviewUrl && (
           <div className={styles["image-add-box"]}>
-            <Image src={imagePreviewUrl} alt="상품 이미지" fill />
+            <Image src={imagePreviewUrl} alt="이미지" fill />
             <button
               type="button"
-              onClick={handleDelete}
+              onClick={onImageDelete}
               className={styles["btn-delete"]}
               aria-label="이미지 제거 버튼"
-            >
-              <Icon type="remove" size="md" />
-            </button>
+            />
           </div>
         )}
       </div>

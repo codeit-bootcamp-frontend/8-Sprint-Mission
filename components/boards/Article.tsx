@@ -3,7 +3,7 @@ import styles from "./Article.module.scss";
 import Image from "next/image";
 import Icon from "@/components/ui/Icon";
 import axios from "@/lib/axios";
-import { Article as ArticleType } from "@/types/article";
+import { Article as ArticleType } from "@/types/articleTypes";
 import { formatDate } from "@/lib/utils/formatDate";
 
 interface ArticleProps {
@@ -12,7 +12,6 @@ interface ArticleProps {
 
 function Article({ id }: ArticleProps) {
   const [article, setArticle] = useState<ArticleType | null>(null);
-
   const fetchArticle = async (articleId: number) => {
     try {
       const response = await axios.get(`/articles/${articleId}`);
@@ -39,7 +38,7 @@ function Article({ id }: ArticleProps) {
         <div className={styles["profile-info"]}>
           <div className={styles["profile-wrap"]}>
             <Image
-              src={article.image || "/img/profile.png"}
+              src="/img/profile.png"
               alt="프로필 이미지"
               className={styles["profile-image"]}
               fill
@@ -51,11 +50,22 @@ function Article({ id }: ArticleProps) {
         <div className={styles.divided}></div>
         <button className={styles["btn-favorite"]}>
           <Icon type="heart" size="md" />
+
           {article.likeCount}
         </button>
       </div>
       <div className={styles["article-content"]}>
         <p>{article.content}</p>
+        {article.image && (
+          <div className={styles["article-image-wrap"]}>
+            <Image
+              src={article.image}
+              alt="게시글 이미지"
+              className={styles["article-image"]}
+              fill
+            />
+          </div>
+        )}
       </div>
     </article>
   );

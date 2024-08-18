@@ -2,7 +2,7 @@ import React from "react";
 import axios from "@/lib/axios";
 import AllBoard from "@/components/boards/AllBoard";
 import BestBoard from "@/components/boards/BestBoard";
-import { Article } from "@/types/article";
+import { Article } from "@/types/articleTypes";
 
 export const getStaticProps = async () => {
   try {

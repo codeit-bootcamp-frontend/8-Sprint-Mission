@@ -6,7 +6,7 @@ import axios from "@/lib/axios";
 import useViewport from "@/hooks/useViewport";
 import Icon from "@/components/ui/Icon";
 import { formatDate } from "@/lib/utils/formatDate";
-import { Article } from "@/types/article";
+import { Article } from "@/types/articleTypes";
 
 const getPageSize = (width: number): number => {
   switch (true) {
