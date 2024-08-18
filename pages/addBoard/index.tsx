@@ -3,8 +3,10 @@ import styles from "./addBoard.module.css";
 import plusIcon from "@/public/images/icons/ic_plus.svg";
 import Image from "next/image";
 import { AddArticle } from "@/types/types";
+import { useRouter } from "next/router";
 
 const AddBoard = () => {
+  const router = useRouter();
   const [values, setValues] = useState<AddArticle>({
     title: "",
     content: "",
@@ -38,11 +40,16 @@ const AddBoard = () => {
     updateFormValues(name as keyof AddArticle, value);
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push("/boards");
+  };
+
   useEffect(() => {
     isDisabledCheck();
   }, [isDisabledCheck]);
   return (
-    <form className={styles.addBoardForm}>
+    <form className={styles.addBoardForm} onSubmit={handleSubmit}>
       <div className={styles.addBoardHeader}>
         <h1> 게시글 쓰기</h1>
         <button className={styles.addBoardBtn} disabled={isDisabledSubmit}>
