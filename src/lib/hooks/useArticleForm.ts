@@ -1,7 +1,9 @@
 import { addArticle } from '@lib/api/articleApi';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const useArticleForm = () => {
+  const router = useRouter();
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
   const [image, setImage] = useState<string>('');
@@ -9,7 +11,11 @@ const useArticleForm = () => {
   const [initialPreview, setInitialPreview] = useState<string>();
 
   const submitArticle = async () => {
-    await addArticle({ content: content, image: image, title: title });
+    await addArticle({ content: content, image: image, title: title }).then(
+      (res) => {
+        router.reload();
+      }
+    );
   };
 
   const handleImageChange = (name: string, file: File | null) => {

@@ -5,7 +5,7 @@ type UIButtonProps = {
   buttonTagType?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
   type: 'box' | 'floating' | 'round';
   className?: string;
-  handleClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  handleClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   children: React.ReactNode;
   isDisabled?: boolean;
   isLightTheme?: boolean;
