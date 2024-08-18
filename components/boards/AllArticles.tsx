@@ -1,36 +1,47 @@
-import axios from "@/lib/axios";
 import Image from "next/image";
-import { Article, ArticlesResponse } from "@/types/types";
+import { Article, ArticlesResponse, GetArticles } from "@/types/types";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import profileIcon from "@/public/images/icons/ic_profile.svg";
 import heartIcon from "@/public/images/icons/ic_heart.svg";
 import searchIcon from "@/public/images/icons/ic_search.svg";
+import emptyImage from "@/public/images/icons/emptyImage.png";
 
 import styles from "./AllArticles.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { getArticles } from "@/lib/articleApi";
 
 const AllArticles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [order, setOrder] = useState<string>("recent");
+  const [orderBy, setOrderBy] = useState<GetArticles["orderBy"]>("recent");
   const [searchKeyword, setSearchKeyword] = useState<string>("");
 
   const router = useRouter();
   const keyword = (router.query.keyword as string) || "";
 
-  useEffect(() => {
-    const getAllArticles = async () => {
-      let params = `/articles?page=1&pageSize=10&orderBy=${order}`;
-      if (keyword.trim()) {
-        params += `&keyword=${encodeURIComponent(keyword)}`;
-      }
-      const res = await axios.get<ArticlesResponse>(params);
-      const articles = res.data;
-      setArticles(articles.list);
-    };
+  const getAllArticles = async ({
+    page,
+    pageSize,
+    orderBy,
+    keyword,
+  }: GetArticles) => {
+    const encodedKeyword = keyword?.trim()
+      ? encodeURIComponent(keyword)
+      : undefined;
 
-    getAllArticles();
-  }, [order, keyword]);
+    const result = await getArticles({
+      page,
+      pageSize,
+      orderBy,
+      keyword: encodedKeyword,
+    });
+
+    setArticles(result.list);
+  };
+
+  useEffect(() => {
+    getAllArticles({ page: 1, pageSize: 10, orderBy, keyword });
+  }, [keyword, orderBy]);
 
   useEffect(() => {
     setSearchKeyword(keyword);
@@ -45,7 +56,7 @@ const AllArticles = () => {
   };
 
   const handleOrderChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setOrder(e.target.value);
+    setOrderBy(e.target.value as "recent" | "like");
   };
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -99,7 +110,7 @@ const AllArticles = () => {
       <div className={styles.articleList}>
         {articles.map((article) => {
           return (
-            <Link href={`/boards/${article.id}`} key={article.id}>
+            <Link href={`/board/${article.id}`} key={article.id}>
               <div className={styles.articleCard}>
                 <div className={styles.articleCardContents}>
                   <p className={styles.articleCardTitle}>{article.title}</p>
@@ -107,7 +118,9 @@ const AllArticles = () => {
                     <div className={styles.imageWrapper}>
                       <Image
                         fill
-                        src={article.image}
+                        src={
+                          article.image === null ? emptyImage : article.image
+                        }
                         alt={`${article.id}번 게시글 이미지`}
                         style={{ objectFit: "contain" }}
                       />

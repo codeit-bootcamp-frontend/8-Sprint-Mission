@@ -1,23 +1,24 @@
-import axios from "@/lib/axios";
 import Image from "next/image";
-import { Article, ArticlesResponse } from "@/types/types";
+import { Article, ArticlesResponse, GetArticles } from "@/types/types";
 import { useEffect, useState } from "react";
 import medalIcon from "@/public/images/icons/ic_medal.svg";
 import heartIcon from "@/public/images/icons/ic_heart.svg";
 import styles from "./BestArticles.module.css";
 import Link from "next/link";
+import { getArticles } from "@/lib/articleApi";
 
 const BestArticles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
-  const getBestArticles = async () => {
-    const res = await axios.get<ArticlesResponse>(
-      `/articles?page=1&pageSize=3&orderBy=like`
-    );
-    const articles = res.data;
-    setArticles(articles.list);
+  const fetchBestArticles = async ({
+    page,
+    pageSize,
+    orderBy,
+  }: GetArticles) => {
+    const result = await getArticles({ page, pageSize, orderBy });
+    setArticles(result.list);
   };
   useEffect(() => {
-    getBestArticles();
+    fetchBestArticles({ page: 1, pageSize: 3, orderBy: "like" });
   }, []);
   const dateFormat = (date: Date) => {
     const newDate = new Date(date);
@@ -33,7 +34,7 @@ const BestArticles = () => {
       <div className={styles.articleSection}>
         {articles.map((article) => {
           return (
-            <Link href={`/boards/${article.id}`} key={article.id}>
+            <Link href={`/board/${article.id}`} key={article.id}>
               <div className={styles.articleCard}>
                 <div className={styles.bestMark}>
                   <Image src={medalIcon} alt="medalIcon" />
