@@ -44,3 +44,9 @@ export interface CommentWriter {
   nickname: string;
   image: string;
 }
+
+export interface AddArticle {
+  title: string;
+  content: string;
+  image: File | null;
+}
