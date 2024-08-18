@@ -90,10 +90,11 @@ const UIImageInput = ({ ...props }: UIImageInputProps) => {
               className={styles['btn-delete-input-image-file']}
               onClick={handleClearClick}
             >
-              <Image
+              <UIImage
                 src={IconX}
                 className={styles['icon-delete-input-image-file']}
                 alt="선택 해제 버튼"
+                isRound={false}
               />
             </button>
           </>

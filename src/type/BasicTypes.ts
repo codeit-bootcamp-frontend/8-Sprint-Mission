@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Article, ArticleOrderBy } from './ArticleTypes';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export type BasicType = {
   title: string;
@@ -11,7 +12,7 @@ export type BasicType = {
   content: string;
   writer: { id: number; nickname: string };
   isRound: boolean;
-  src: string;
+  src: string | StaticImport;
   alt: string;
   className: string;
   likeCount: number;

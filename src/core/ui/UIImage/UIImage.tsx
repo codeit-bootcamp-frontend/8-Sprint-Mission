@@ -3,6 +3,7 @@ import styles from './UIImage.module.scss';
 import { OptionalPick } from '@lib/utils/OptionalPick';
 import { BasicType } from '@type/BasicTypes';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 type UIImageProps = OptionalPick<
   BasicType,
@@ -13,13 +14,15 @@ type UIImageProps = OptionalPick<
 const UIImage = ({ ...props }: UIImageProps) => {
   return (
     <>
-      <img
+      <Image
         className={clsx(
           { [styles['image--round']]: props.isRound },
           props.className
         )}
-        src={props.src}
-        alt={props.src}
+        src={props.src || ''}
+        alt={props.alt}
+        width={50}
+        height={50}
       />
     </>
   );

@@ -6,10 +6,14 @@ import UIInputLabel from '@core/ui/inputs/UIInputLabel/UIInputLabel';
 import UIInput from '@core/ui/inputs/UIInput/UIInput';
 import UITextarea from '@core/ui/inputs/UITextarea/UITextarea';
 import UIImageInput from '@core/ui/inputs/UIImageInput/UIImageInput';
+import useAddImageFile from '@lib/hooks/useAddImageFile';
 
 type AddBoardFormProps = {};
 
 const AddBoardForm = ({ ...props }: AddBoardFormProps) => {
+  const { imageFile, initialPreview, setInitialPreview, handleImageChange } =
+    useAddImageFile();
+
   const handleSubmit = () => {};
 
   return (
@@ -44,7 +48,12 @@ const AddBoardForm = ({ ...props }: AddBoardFormProps) => {
         </div>
         <div className={styles['form__input']}>
           <UIInputLabel text="*이미지" />
-          <UIImageInput onChangeFile={() => {}} />
+          <UIImageInput
+            onChangeFile={handleImageChange}
+            initialPreview={initialPreview}
+            file={imageFile}
+            name="imgFile"
+          />
         </div>
       </form>
     </>
