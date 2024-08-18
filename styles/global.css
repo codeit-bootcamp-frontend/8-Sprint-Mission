@@ -34,7 +34,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 200px;
+  padding: 0 16px;
   background-color: #ffffff;
   border-bottom: 1px solid #dfdfdf;
 }
@@ -45,12 +45,19 @@ main {
 
 footer {
   background-color: #111827;
-  color: #9ca3af;
+  padding: 32px;
+  font-size: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 200px 108px 200px;
-  font-size: 16px;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+#copyright {
+  order: 3;
+  flex-basis: 100%;
+  color: #9ca3af;
 }
 
 #footerMenu {
@@ -77,13 +84,7 @@ img {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-}
-
-h1 {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 56px;
-  letter-spacing: 0.02em;
+  padding: 0 16px;
 }
 
 button {
@@ -124,12 +125,55 @@ button {
 }
 
 .pill-button {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   border-radius: 999px;
-  padding: 16px 126px;
+  padding: 14.5px 33.5px;
 }
 
 .full-width {
   width: 100%;
+}
+
+.break-on-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 0 24px;
+  }
+
+  .wrapper {
+    padding: 0 24px;
+  }
+
+  .pill-button {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 16px 126px;
+  }
+
+  footer {
+    padding: 32px 104px 108px 104px;
+  }
+
+  #copyright {
+    flex-basis: auto;
+    order: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  header {
+    padding: 0 200px;
+  }
+
+  .break-on-desktop {
+    display: inline;
+  }
+
+  footer {
+    padding: 32px 200px 108px 200px;
+  }
 }

@@ -17,15 +17,10 @@
 
   <body>
     <div class="auth-container">
-      <div class="logo-home-button-wrapper">
-        <a href="/">
-          <img
-            src="/images/logo/panda-market-logo.png"
-            alt="판다마켓이미지로고"
-            width="396"
-          />
-        </a>
-      </div>
+      <a href="/" class="logo-home-button"
+        ><img src="images/logo/panda-market-logo.png" alt="판다마켓 홈"
+      /></a>
+
       <form method="post">
         <div class="input-item">
           <label for="email">이메일</label>
@@ -46,34 +41,33 @@
               placeholder="비밀번호를 입력해 주세요"
             />
             <img
-              class="toggle-password"
-              src="./images/icon/EyeClose.svg"
+              src="images/icon/EyeClose.svg"
               alt="비밀번호 숨김"
+              class="toggle-password"
             />
           </div>
         </div>
-        <button class="button pill-button full-width" type="submit">
+
+        <button type="submit" class="button pill-button full-width">
           로그인
         </button>
       </form>
 
       <div class="social-login-container">
-        <h>간편 로그인하기</h>
+        <h3>간편 로그인하기</h3>
         <div class="social-login-buttons-container">
-          <a href="https://www.google.com/" target="_blank">
-            <img
-              src="./images/social/GoogleIcon.svg"
+          <a href="https://www.google.com/" target="_blank"
+            ><img
+              src="images/social/GoogleIcon.svg"
               alt="구글 로그인"
               width="42"
-            />
-          </a>
-          <a href="https://www.kakaocorp.com/page/" target="_blank">
-            <img
-              src="./images/social/KakaoIcon.svg"
+          /></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank"
+            ><img
+              src="images/social/KakaoIcon.svg"
               alt="카카오톡 로그인"
               width="42"
-            />
-          </a>
+          /></a>
         </div>
       </div>
 
