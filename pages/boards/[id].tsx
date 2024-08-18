@@ -10,7 +10,7 @@ const Board = () => {
   return (
     <>
       <Article id={id} />
-      <Inquery />
+      <Inquery id={id} />
     </>
   );
 };
