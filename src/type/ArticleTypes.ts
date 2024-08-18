@@ -28,9 +28,9 @@ export type AddArticleRequest = Pick<Article, 'image' | 'content' | 'title'>;
 
 export type ArticleDetailResponse = Article & Pick<BasicType, 'isLiked'>;
 
-export type ArticleDetailRequest = { articleId: number };
+export type ArticleDetailRequest = Pick<BasicType, 'articleId'>;
 
-export type AddArticleCommentRequest = Pick<BasicType, 'content'>;
+export type AddArticleCommentRequest = Pick<BasicType, 'content' | 'articleId'>;
 
 export type ArticleComment = Pick<
   BasicType,

@@ -29,6 +29,7 @@ export type BasicType = {
   text: string;
   isTextarea: boolean;
   isLiked: boolean;
+  articleId: number;
 
   // handler
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;

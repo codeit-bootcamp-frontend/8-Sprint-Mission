@@ -5,6 +5,8 @@ import {
   Article,
   ArticleDetailRequest,
   ArticleDetailResponse,
+  AddArticleCommentRequest,
+  ArticleComment,
 } from '@type/ArticleTypes';
 import axiosInstance from './axios';
 
@@ -19,7 +21,7 @@ export const getArticles = async ({ ...params }: ArticleListRequest) => {
       return response;
     }
   } catch (error) {
-    console.error('server error: ', error);
+    console.error('error: ', error);
   }
 };
 
@@ -33,7 +35,7 @@ export const getArticle = async ({ ...params }: ArticleDetailRequest) => {
       return response;
     }
   } catch (error) {
-    console.error('server error: ', error);
+    console.error('error: ', error);
   }
 };
 
@@ -49,6 +51,21 @@ export const addArticle = async ({ ...params }: AddArticleRequest) => {
       return response;
     }
   } catch (error) {
-    console.error('server error: ', error);
+    console.error('error: ', error);
+  }
+};
+
+export const addArticleComment = async ({
+  ...params
+}: AddArticleCommentRequest) => {
+  try {
+    const response = await axiosInstance<ArticleComment>({
+      method: 'POST',
+      url: `/articles/${params.articleId}/comments`,
+      data: { content: params.content },
+    });
+    if (response.status === 200) return response;
+  } catch (error) {
+    console.error('error: ', error);
   }
 };
