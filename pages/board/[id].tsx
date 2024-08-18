@@ -7,6 +7,8 @@ import { Article, CommentsResponse } from "@/types/types";
 import styles from "./board.module.css";
 import profileIcon from "@/public/images/icons/ic_profile.svg";
 import heartIcon from "@/public/images/icons/ic_heart.svg";
+import backIcon from "@/public/images/icons/ic_back.svg";
+import Link from "next/link";
 
 const DetailBoard = () => {
   const router = useRouter();
@@ -66,24 +68,27 @@ const DetailBoard = () => {
         <hr className={styles.horizontalLine} />
         <h3 className={styles.articleContent}>{article?.content}</h3>
       </div>
-      <form>
-        <label htmlFor="commentTextarea">댓글달기</label>
+      <form className={styles.commentForm}>
+        <label htmlFor="commentTextarea" className={styles.commentLabel}>
+          댓글달기
+        </label>
         <textarea
           name="comment"
           id="commentTextarea"
+          className={styles.commentTextarea}
           placeholder="댓글을 입력해주세요"
         />
-        <button>등록</button>
+        <button className={styles.commentSubmitBtn}>등록</button>
       </form>
       <div>
         {comments?.list.map((comment) => {
           return (
-            <div key={comment.id}>
-              <div>
+            <div className={styles.comment} key={comment.id}>
+              <div className={styles.commentContentSection}>
                 <span>{comment.content}</span>
                 <Image src={kebabIcon} alt="kebabIcon" />
               </div>
-              <div>
+              <div className={styles.commentWriter}>
                 <Image
                   src={
                     comment.writer.image ? comment.writer.image : profileIcon
@@ -93,13 +98,21 @@ const DetailBoard = () => {
                   height={32}
                 />
                 <div>
-                  <p>{comment.writer.nickname}</p>
-                  <p>{comment.createdAt}</p>
+                  <p className={styles.writerNickname}>
+                    {comment.writer.nickname}
+                  </p>
+                  <p className={styles.writerTime}>{comment.createdAt}</p>
                 </div>
               </div>
             </div>
           );
         })}
+      </div>
+      <div className={styles.backSection}>
+        <Link href="/boards" className={styles.backBtn}>
+          <span>목록으로 돌아가기</span>
+          <Image src={backIcon} alt="backIcon" />
+        </Link>
       </div>
     </>
   );
