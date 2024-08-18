@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { Article, ArticleOrderBy } from '@type/ArticleTypes';
 import { getArticles } from '@lib/api/articleApi';
 import BasicArticleCard from '../BasicArticleCard/BasicArticleCard';
+import Link from 'next/link';
 
 type AllArticlesBoardProps = { initArticles: Article[] };
 
@@ -53,7 +54,9 @@ const AllArticlesBoard = ({ ...props }: AllArticlesBoardProps) => {
     <>
       <div className={styles['header']}>
         <SectionTitle title="게시글" />
-        <UIButton children={'글쓰기'} type="box" handleClick={() => {}} />
+        <Link href={'/addboard'}>
+          <UIButton children={'글쓰기'} type="box" handleClick={() => {}} />
+        </Link>
       </div>
       <div className={styles['searchBar']}>
         <ArticleSearchBar onSearch={handleSearch} />
