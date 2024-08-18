@@ -69,11 +69,13 @@ function AddComment({ id, setCommentList }: AddCommentProps) {
           />
         );
       })}
-      <AddButton
-        buttonText="등록"
-        isFormComplete={isFormComplete}
-        onClick={postComment}
-      />
+      <div className="text-right">
+        <AddButton
+          buttonText="등록"
+          isFormComplete={isFormComplete}
+          onClick={postComment}
+        />
+      </div>
     </div>
   );
 }

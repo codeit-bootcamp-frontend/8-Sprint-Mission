@@ -8,6 +8,7 @@ import Image from "next/image";
 import profileImage from "@/assets/images/img_profile.png";
 import likeIconFull from "@/assets/images/ic_heart_full.png";
 import likeIconEmpty from "@/assets/images/ic_heart_empty.png";
+import defaultProductImage from "@/assets/images/img_product_empty.png";
 
 interface AllArticleProps {
   article: Article;
@@ -15,8 +16,8 @@ interface AllArticleProps {
 
 function AllArticle({ article }: AllArticleProps) {
   const { id, title, image, writer, likeCount, createdAt } = article;
-
   const [isLikeClicked, setIsLikeClicked] = useState<boolean>(false);
+  const productImage = image || defaultProductImage;
 
   const handleLikeButtonClick = () => {
     setIsLikeClicked((prevIsLikeClicked) => !prevIsLikeClicked);
@@ -28,7 +29,7 @@ function AllArticle({ article }: AllArticleProps) {
         <h4 className={styles.title}>{title}</h4>
         <Image
           className={styles.productImage}
-          src={image}
+          src={productImage}
           alt="상품 이미지"
           width={72}
           height={72}

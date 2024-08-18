@@ -44,8 +44,12 @@ function DetailBoard({
 
   return (
     <div>
-      <DetailArticle article={article} />
-      <AddComment id={id} setCommentList={setCommentList} />
+      <div className="mb-8">
+        <DetailArticle article={article} />
+      </div>
+      <div className="mb-10">
+        <AddComment id={id} setCommentList={setCommentList} />
+      </div>
       <CommentList commentList={commentList} />
       <ReturnButton href="/boards" text="목록으로 돌아가기" />
     </div>
