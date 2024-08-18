@@ -6,10 +6,12 @@
 
   &__header {
     width: 100%;
+    margin: 0 0 1rem;
   }
 
   &__meta {
     display: flex;
+    margin: 0 0 1rem;
     flex-direction: row;
     justify-content: start;
     align-items: center;
@@ -47,6 +49,12 @@
     height: 2rem;
   }
 
+  &__contentWrapper {
+    margin: 1.5rem 0 0;
+  }
+
   &__content {
+    @include Body2;
+    color: $gray-800;
   }
 }

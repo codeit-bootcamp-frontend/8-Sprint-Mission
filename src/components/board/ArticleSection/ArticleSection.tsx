@@ -46,7 +46,12 @@ const ArticleSection = ({ article }: ArticleSectionProps) => {
           </div>
           <HorizontalLine />
         </div>
-        <div></div>
+        <div className={styles['article__contentWrapper']}>
+          <p className={styles['article__content']}>
+            {article.content ||
+              '맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?'}
+          </p>
+        </div>
       </div>
     </>
   );
