@@ -18,7 +18,7 @@ const useArticleForm = () => {
 
   useEffect(() => {
     setImage(
-      'https://www.cnet.com/a/img/resize/63164aed1c819325f515756528001de66fb32125/hub/2023/04/26/df7eabee-9cbb-4196-bdfa-96ab61794591/samsung-galaxy-book-3-ultra-02.jpg?auto=webp&fit=crop&height=675&width=1200'
+      'https://flexible.img.hani.co.kr/flexible/normal/640/427/imgdb/original/2023/1226/20231226501610.jpg'
     );
   }, []);
 

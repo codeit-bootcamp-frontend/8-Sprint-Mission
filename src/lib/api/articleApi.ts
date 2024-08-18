@@ -27,7 +27,7 @@ export const addArticle = async ({ ...params }: AddArticleRequest) => {
     const response = await axiosInstance<Article>({
       method: 'POST',
       url: '/articles',
-      params: params,
+      data: params,
     });
     if (response.status === 200) {
       return response;

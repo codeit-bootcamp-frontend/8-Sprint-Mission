@@ -43,7 +43,7 @@ const AddBoardForm = ({ ...props }: AddBoardFormProps) => {
             children={'등록'}
             handleClick={submitArticle}
             type="box"
-            buttonTagType="submit"
+            buttonTagType="button"
             isDisabled={false}
             isSmallButton={false}
           />
