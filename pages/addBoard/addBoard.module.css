@@ -1,0 +1,87 @@
+.addBoardForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.addBoardHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.addBoardHeader h1 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+.addBoardInputSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.addBoardBtn {
+  background-color: var(--gray-400);
+  font-size: 1rme;
+  font-weight: 600;
+  line-height: 1.2rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  color: #ffffff;
+}
+
+.addBoardLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.7rem;
+}
+.addBoardInput {
+  margin: 0.5rem 0;
+  background-color: var(--gray-100);
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.8rem;
+  resize: none;
+  border: none;
+  outline: none;
+}
+.addBoardInput::placeholder {
+  font-size: 1rem;
+  color: var(--gray-400);
+}
+.addBoardTextarea {
+  padding: 16px 24px;
+  background-color: rgb(243, 244, 246);
+  color: rgb(31, 41, 55);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+  height: 200px;
+  resize: none;
+}
+.addBoardTextarea::placeholder {
+  font-size: 1rem;
+  color: var(--gray-400);
+}
+.fileInputLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-size: 2rem;
+  color: var(--gray-400);
+  width: 17rem;
+  height: 17rem;
+  border-radius: 0.8rem;
+  background-color: var(--gray-100);
+  cursor: pointer;
+}
+.fileInputLabel span {
+  font-size: 1rem;
+}
+.fileInputSection {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
