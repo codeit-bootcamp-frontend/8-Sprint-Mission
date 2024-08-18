@@ -38,7 +38,7 @@ const BoardDetailPage = ({ initArticle }: BoardDetailPageProps) => {
     <>
       <BasicLayout>
         <ArticleSection article={initArticle} />
-        <ArticleCommentForm />
+        <ArticleCommentForm articleId={initArticle.id} />
       </BasicLayout>
     </>
   );

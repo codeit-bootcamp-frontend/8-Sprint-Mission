@@ -1,11 +1,20 @@
-import UIInputLabel from '@core/ui/inputs/UIInputLabel/UIInputLabel';
 import styles from './ArticleCommentForm.module.scss';
+
+import UIInputLabel from '@core/ui/inputs/UIInputLabel/UIInputLabel';
 import UITextarea from '@core/ui/inputs/UITextarea/UITextarea';
 import UIButton from '@core/ui/buttons/UIButton/UIButton';
 import useArticleCommentForm from '@lib/hooks/useArticleCommentForm';
+import { BasicType } from '@type/BasicTypes';
+import { useEffect } from 'react';
 
-const ArticleCommentForm = () => {
-  const { setComment, addComment: submitComment } = useArticleCommentForm();
+type ArticleCommentFormProps = Pick<BasicType, 'articleId'>;
+
+const ArticleCommentForm = ({ ...props }: ArticleCommentFormProps) => {
+  const {
+    setComment,
+    setArticleId,
+    addComment: submitComment,
+  } = useArticleCommentForm();
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setComment(e.target.value);
@@ -14,6 +23,10 @@ const ArticleCommentForm = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') e.preventDefault();
   };
+
+  useEffect(() => {
+    setArticleId(props.articleId);
+  }, []);
 
   return (
     <>
