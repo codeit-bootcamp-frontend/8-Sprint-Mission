@@ -4,11 +4,12 @@ import FileInput from "@/components/form/FileInput";
 import TextArea from "@/components/form/TextArea";
 import TextInput from "@/components/form/TextInput";
 import Button from "@/components/ui/Button";
+import axios from "@/lib/axios";
 
 function AddBoard() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [imagePreviewUrl, setImagePreviewUrl] = useState<string>("");
+  const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
 
   const router = useRouter();
 
@@ -26,11 +27,20 @@ function AddBoard() {
     setImagePreviewUrl("");
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
     try {
-      console.log("등록"); // 디버깅을 위한 콘솔 로그
-      router.push("/boards");
+      const data = {
+        title,
+        content,
+        imageUrl: imagePreviewUrl || "",
+      };
+
+      const response = await axios.post("/articles", data);
+      const id = response.data.id;
+
+      router.push(`/board/${id}`);
     } catch (error) {
       console.error("폼 제출 중 오류 발생:", error);
     }
