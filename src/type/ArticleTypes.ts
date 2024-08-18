@@ -3,14 +3,14 @@ import { BasicType } from './BasicTypes';
 
 export type Article = OptionalPick<
   BasicType,
-  'id',
   | 'updatedAt'
   | 'createdAt'
   | 'writer'
   | 'title'
   | 'content'
   | 'image'
-  | 'likeCount'
+  | 'likeCount',
+  'id'
 >;
 
 export type ArticleListResponse = Pick<BasicType, 'totalCount'> & {
@@ -25,3 +25,7 @@ export type ArticleListRequest = Pick<
 > & { orderBy: ArticleOrderBy };
 
 export type AddArticleRequest = Pick<Article, 'image' | 'content' | 'title'>;
+
+export type ArticleDetailResponse = Article & Pick<BasicType, 'isLiked'>;
+
+export type ArticleDetailRequest = { articleId: number };

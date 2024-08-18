@@ -3,6 +3,8 @@ import {
   ArticleListResponse,
   AddArticleRequest,
   Article,
+  ArticleDetailRequest,
+  ArticleDetailResponse,
 } from '@type/ArticleTypes';
 import axiosInstance from './axios';
 
@@ -12,6 +14,20 @@ export const getArticles = async ({ ...params }: ArticleListRequest) => {
       method: 'GET',
       url: '/articles',
       params: params,
+    });
+    if (response.status == 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error('server error: ', error);
+  }
+};
+
+export const getArticle = async ({ ...params }: ArticleDetailRequest) => {
+  try {
+    const response = await axiosInstance<ArticleDetailResponse>({
+      method: 'GET',
+      url: `/articles/${params.articleId}`,
     });
     if (response.status == 200) {
       return response;

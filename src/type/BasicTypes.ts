@@ -28,6 +28,7 @@ export type BasicType = {
   initialPreview: string;
   text: string;
   isTextarea: boolean;
+  isLiked: boolean;
 
   // handler
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
