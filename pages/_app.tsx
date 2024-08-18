@@ -14,12 +14,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Head>
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css"
-          />
-        </Head>
         <Header />
         <Component {...pageProps} />
         <ReactQueryDevtools initialIsOpen={false} />
