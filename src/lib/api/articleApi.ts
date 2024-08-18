@@ -1,4 +1,9 @@
-import { ArticleListRequest, ArticleListResponse } from '@type/ArticleTypes';
+import {
+  ArticleListRequest,
+  ArticleListResponse,
+  AddArticleRequest,
+  Article,
+} from '@type/ArticleTypes';
 import axiosInstance from './axios';
 
 export const getArticles = async ({ ...params }: ArticleListRequest) => {
@@ -9,6 +14,21 @@ export const getArticles = async ({ ...params }: ArticleListRequest) => {
       params: params,
     });
     if (response.status == 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error('server error: ', error);
+  }
+};
+
+export const addArticle = async ({ ...params }: AddArticleRequest) => {
+  try {
+    const response = await axiosInstance<Article>({
+      method: 'POST',
+      url: '/articles',
+      params: params,
+    });
+    if (response.status === 200) {
       return response;
     }
   } catch (error) {

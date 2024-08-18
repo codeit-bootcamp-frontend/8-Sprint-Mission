@@ -23,3 +23,5 @@ export type ArticleListRequest = Pick<
   BasicType,
   'page' | 'pageSize' | 'keyword'
 > & { orderBy: ArticleOrderBy };
+
+export type AddArticleRequest = Pick<Article, 'image' | 'content' | 'title'>;
