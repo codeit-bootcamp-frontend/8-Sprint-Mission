@@ -1,0 +1,50 @@
+@import '/src/styles/global.scss';
+
+.card {
+  display: flex;
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.75rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-bottom: 1px solid $gray-200;
+  background-color: $gray-10;
+
+  &__contentWrapper {
+  }
+
+  &__content {
+    @include Body4;
+    color: $gray-800;
+    word-break: keep-all;
+  }
+
+  &__metaWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  &__profileImageWrapper {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__profileImage {
+    background-color: $gray-200;
+  }
+
+  &__writerWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nickname {
+    @include Caption1;
+    color: $gray-600;
+  }
+
+  &__date {
+    @include Caption1;
+    color: $gray-400;
+  }
+}
