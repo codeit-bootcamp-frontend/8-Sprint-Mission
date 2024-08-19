@@ -2,9 +2,9 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./style/AllCard.css";
 import ItemCard from "./ItemCard";
-import { ItemContext } from "../../../context/ItemContext";
+import { ProductContext } from "../../../context/ProductContext";
 
-interface Item {
+interface product {
   id: number;
   name: string;
   price: number;
@@ -15,23 +15,23 @@ interface Item {
   tags: string;
 }
 
-type sort = "createdAt" | "favoriteCount";
+type sort = "latest" | "favorite ";
 
 function AllCard() {
-  const [order, setOrder] = useState<sort>("createdAt");
-  const itemList = useContext(ItemContext) as Item[];
+  const [order, setOrder] = useState<sort>("latest");
+  const itemList = useContext(ProductContext) as product[];
 
   const sortedItems = [...itemList].sort((a, b) => {
-    if (order === "createdAt") {
+    if (order === "latest") {
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-    } else if (order === "favoriteCount") {
+    } else if (order === "favorite ") {
       return b.favoriteCount - a.favoriteCount;
     }
     return 0;
   });
 
-  const handleNewestClick = () => setOrder("createdAt");
-  const handleBestClick = () => setOrder("favoriteCount");
+  const handleNewestClick = () => setOrder("latest");
+  const handleBestClick = () => setOrder("favorite ");
 
   return (
     <div>

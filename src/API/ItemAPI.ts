@@ -9,14 +9,14 @@ interface Produect {
   tags: string;
 }
 
-interface ProduectList {
+interface ProduectResponse {
   list: Produect[];
 }
 
 export async function getProducts(
   pageSize = 10,
   orderBy = "recent"
-): Promise<ProduectList> {
+): Promise<ProduectResponse> {
   const query = `pageSize=${pageSize}&orderBy=${orderBy}`;
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?${query}`

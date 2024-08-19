@@ -1,21 +1,22 @@
 interface comment {
+  images: string;
+  nickname: string;
   id: number;
   name: string;
   content: string;
   createdAt: string;
-  images: string;
-  nickname: string;
   updatedAt: number;
 }
 
-interface commentList {
+interface commentResponse {
   list: comment[];
+  nextCursor: number;
 }
 
 export async function getComments(
   productId = 9,
   limit = 5
-): Promise<commentList> {
+): Promise<commentResponse> {
   const path = `/products/${productId}/comments?`;
   const query = `limit=${limit}`;
   const response = await fetch(

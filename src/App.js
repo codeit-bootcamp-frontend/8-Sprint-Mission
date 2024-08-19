@@ -5,11 +5,11 @@ import AddItemPage from "./pages/AddItemPage/AddItemPage.tsx";
 import MarketPage from "./pages/MarketPage/MarketPage.tsx";
 import ProductDetail from "./pages/MarketPage/components/ProductDetail.tsx";
 
-import { ItemProvider } from "../src/context/ItemContext.tsx";
+import { ProductProvider } from "./context/ProductContext.tsx";
 
 function App() {
   return (
-    <ItemProvider>
+    <ProductProvider>
       <BrowserRouter>
         <div>
           <Header />
@@ -21,7 +21,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-    </ItemProvider>
+    </ProductProvider>
   );
 }
 

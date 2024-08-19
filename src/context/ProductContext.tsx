@@ -12,13 +12,15 @@ interface Product {
   tags: string;
 }
 
-interface ItemProviderPropt {
+interface ProductProviderPropt {
   children: ReactNode;
 }
 
-export const ItemContext = createContext<Product[]>([]);
+export const ProductContext = createContext<Product[]>([]);
 
-export const ItemProvider: React.FC<ItemProviderPropt> = ({ children }) => {
+export const ProductProvider: React.FC<ProductProviderPropt> = ({
+  children,
+}) => {
   const [itemList, setItemList] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -34,6 +36,8 @@ export const ItemProvider: React.FC<ItemProviderPropt> = ({ children }) => {
   }, []);
 
   return (
-    <ItemContext.Provider value={itemList}>{children}</ItemContext.Provider>
+    <ProductContext.Provider value={itemList}>
+      {children}
+    </ProductContext.Provider>
   );
 };
