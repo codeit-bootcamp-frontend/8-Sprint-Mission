@@ -9,12 +9,14 @@ import profileIcon from "@/public/images/icons/ic_profile.svg";
 import heartIcon from "@/public/images/icons/ic_heart.svg";
 import backIcon from "@/public/images/icons/ic_back.svg";
 import Link from "next/link";
+import useDateFormat from "@/lib/hooks/useDateFormat";
 
 const DetailBoard = () => {
   const router = useRouter();
   const { id } = router.query;
   const [article, setArticle] = useState<Article>();
   const [comments, setComments] = useState<CommentsResponse>();
+  const { format: dateFormat } = useDateFormat();
 
   const fetchArticle = async (articleId: number) => {
     const result = await getArticle(articleId);
@@ -32,14 +34,6 @@ const DetailBoard = () => {
       fetchComments(Number(id), 5);
     }
   }, [id]);
-
-  const dateFormat = (date: Date) => {
-    const newDate = new Date(date);
-    const formatDate = `${newDate.getFullYear()}.${String(
-      newDate.getMonth() + 1
-    ).padStart(2, "0")}.${String(newDate.getDate()).padStart(2, "0")}`;
-    return formatDate;
-  };
 
   return (
     <>
