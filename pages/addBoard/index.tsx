@@ -12,16 +12,9 @@ const AddBoard = () => {
     content: "",
     image: null,
   });
-  const [isDisabledSubmit, setIsDisabledSubmit] = useState(true);
 
-  const isDisabledCheck = useCallback(() => {
-    const { title, content } = values;
-    if (title && content) {
-      setIsDisabledSubmit(false);
-    } else {
-      setIsDisabledSubmit(true);
-    }
-  }, [values]);
+  const { title, content } = values;
+  const canSubmit = title && content;
 
   const updateFormValues = (
     name: keyof AddArticle,
@@ -45,14 +38,11 @@ const AddBoard = () => {
     router.push("/boards");
   };
 
-  useEffect(() => {
-    isDisabledCheck();
-  }, [isDisabledCheck]);
   return (
     <form className={styles.addBoardForm} onSubmit={handleSubmit}>
       <div className={styles.addBoardHeader}>
         <h1> 게시글 쓰기</h1>
-        <button className={styles.addBoardBtn} disabled={isDisabledSubmit}>
+        <button className={styles.addBoardBtn} disabled={!canSubmit}>
           등록
         </button>
       </div>
