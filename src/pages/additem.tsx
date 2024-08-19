@@ -23,7 +23,7 @@ function AddItem() {
   const [preview, setPreview] = useState("");
   const [tagInput, setTagInput] = useState("");
   const [pass, setPass] = useState(false);
-  console.log(values);
+
   // 이미지 삭제
   const onClickImageDelete = () => {
     setValues((prevValues) => ({
@@ -70,7 +70,7 @@ function AddItem() {
     setTagInput(e.target.value);
   };
 
-  // 등록 버튼 클릭 시 제출
+  // TODO: 스프린트 미션에 API POST 관련 기능 요구 시 추가 예정, 현재는 테스트를 위한 코드
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(values);
@@ -103,7 +103,6 @@ function AddItem() {
       return;
     }
     const image = values.images;
-    console.log(image);
 
     if (!(image instanceof File)) {
       console.error("Expected a File object but got:", image);

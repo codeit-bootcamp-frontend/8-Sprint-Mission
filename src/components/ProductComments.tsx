@@ -33,10 +33,9 @@ function ProductComments() {
     setValues(value);
   };
 
-  // 테스트를 위해 추가한 동작
+  // TODO: 스프린트 미션에 API POST 관련 기능 요구 시 추가 예정, 현재는 테스트를 위한 코드
   const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(values);
   };
 
   // 댓글 작성한 시간 변환 함수

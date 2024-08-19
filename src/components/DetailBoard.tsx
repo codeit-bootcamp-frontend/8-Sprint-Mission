@@ -44,15 +44,15 @@ function Product() {
       const res = await axios.get(`/articles/${id}`);
       const nextProduct = res.data;
       setProduct(nextProduct);
+      setLoading(false);
     } catch (error) {
-      console.error(`유효하지 않은 주소입니다.`);
+      alert(`유효하지 않은 주소입니다.`);
       router.replace(`/board`);
     }
   }
 
   useEffect(() => {
     getProduct(id);
-    setLoading(false);
   }, [id]);
 
   if (loading) {
