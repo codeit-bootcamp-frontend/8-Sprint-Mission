@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<{ isLoginPage: boolean }>`
     html,
     body {
     margin: 0;
@@ -9,13 +9,20 @@ const GlobalStyle = createGlobalStyle`
     align-items: center; 
     }
 
+
+
     #__next {
-    padding: 94px 360px;
+    padding: ${({ isLoginPage }) =>
+      isLoginPage ? "231px 640px" : "94px 360px"};
     width: 100%;
+
     @media (max-width: 744px) {
-        padding: 94px 24px;
+      padding: ${({ isLoginPage }) =>
+        isLoginPage ? "192px 52px" : "94px 24px"};
     }
-    }
+  }
+
+    
 
     a {
   
@@ -24,6 +31,9 @@ const GlobalStyle = createGlobalStyle`
     * {
     box-sizing: border-box;
     }
+
+
+    
 
 `;
 
