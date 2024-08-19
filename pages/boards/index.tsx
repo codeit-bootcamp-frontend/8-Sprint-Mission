@@ -1,5 +1,3 @@
-
-
 import BestArticleList from "@/components/boards/BestArticleList";
 import ArticleList from "@/components/boards/ArticleList";
 

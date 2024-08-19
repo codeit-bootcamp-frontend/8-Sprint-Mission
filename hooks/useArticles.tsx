@@ -1,12 +1,12 @@
 import { getArticleList } from "@/apis/article";
-import type { Article, ArticleQuery, ArticleResponse } from "@/models/article";
+import type { Article, ArticleQuery, ArticleResponse } from "@/types/article";
 import { useEffect, useState } from "react";
 
 const DEFAULT_QUERY_PARAMS: ArticleQuery = {
   page: 1,
   pageSize: 5,
   orderBy: "recent",
-  keyword: null,
+  keyword: "",
 };
 const useArticles = () => {
   const [queryParams, setQueryParams] = useState(DEFAULT_QUERY_PARAMS);
@@ -15,14 +15,11 @@ const useArticles = () => {
   const loadArticles = async () => {
     setIsLoading(true);
     try {
-      const nextArticles: ArticleResponse = await getArticleList({
+      const data: ArticleResponse = await getArticleList({
         ...queryParams,
       });
 
-      setArticles((prev: Article[]): Article[] => [
-        ...prev,
-        ...nextArticles.list,
-      ]);
+      setArticles((prev: Article[]): Article[] => [...prev, ...data.list]);
     } catch (err) {
       console.log(err);
     } finally {

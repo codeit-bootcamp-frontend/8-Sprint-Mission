@@ -8,6 +8,7 @@ import icGlasses from "@/public/images/ic_glasses.svg";
 import icSort from "@/public/images/ic_sort.svg";
 import icSortMobile from "@/public/images/ic_sortmobile.svg";
 import DropDown from "@/components/ui/DropDown";
+import Link from "next/link";
 
 const INIT_ORDERS = {
   recent: "최신순",
@@ -21,7 +22,7 @@ export default function ArticleList() {
   const [nowOrderBy, setNowOrderBy] = useState<OrderByType>(INIT_ORDERS.recent);
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
 
-  const onClickDropDown = () => {
+  const toggleDropDown = () => {
     setIsOpenDropDown((prev) => !prev);
   };
 
@@ -32,7 +33,7 @@ export default function ArticleList() {
       orderBy: orderBy,
     }));
     setNowOrderBy(INIT_ORDERS[orderBy]);
-    setIsOpenDropDown((prev) => !prev);
+    toggleDropDown();
   };
 
   let debounceTimer: NodeJS.Timeout;
@@ -54,13 +55,22 @@ export default function ArticleList() {
     <div className="pt-10">
       <div className="flex justify-between ">
         <span className="font-bold text-lg">게시글</span>
-        <button className="btn order-1 h-[42px] w-[88px] font-semibold">
+        <Link
+          href="/addboard"
+          className="btn order-1 h-[42px] w-[88px] font-semibold"
+        >
           글쓰기
-        </button>
+        </Link>
       </div>
       <div className="flex relative pt-6 gap-4">
         <div className=" flex basis-72 gap-1.5 rounded-xl bg-slate-100 px-4 py-[9px]  grow">
-          <Image src={icGlasses} width={15} height={15} alt="게시글 검색" />
+          <Image
+            src={icGlasses}
+            className="w-[15px] h-[15px]"
+            width={15}
+            height={15}
+            alt="게시글 검색"
+          />
           <input
             onChange={onChangeKeyword}
             placeholder="검색할 상품을 입력해주세요"
@@ -69,14 +79,14 @@ export default function ArticleList() {
         </div>
 
         <button
-          onClick={onClickDropDown}
+          onClick={toggleDropDown}
           className="flex-center h-[42px] w-[42px] rounded-xl border border-solid border-gray-200 md:hidden"
         >
           <Image src={icSortMobile} alt="정렬하기" />
         </button>
 
         <button
-          onClick={onClickDropDown}
+          onClick={toggleDropDown}
           className="hidden h-[42px] w-[130px] items-center justify-between rounded-xl border border-solid px-5 py-4 md:flex"
         >
           <span>{nowOrderBy}</span>

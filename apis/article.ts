@@ -1,6 +1,11 @@
 import axios from "@/lib/axios";
-import { ArticleQuery } from "@/models/article";
-import { ArticleResponse } from "@/models/article";
+import {
+  Article,
+  ArticleQuery,
+  CommentResponse,
+  GetCommentParam,
+} from "@/types/article";
+import { ArticleResponse } from "@/types/article";
 
 export const getArticleList = async ({
   page = 1,
@@ -15,4 +20,24 @@ export const getArticleList = async ({
   );
   const { list, totalCount }: ArticleResponse = res.data;
   return { list, totalCount };
+};
+
+export const getArticlesById = async (articleId: number) => {
+  const res = await axios.get(`/articles/${articleId}`);
+  const { data }: { data: Article } = res;
+  return data;
+};
+
+export const getArticleComment = async ({
+  articleId,
+  limit = 5,
+  cursor,
+}: GetCommentParam) => {
+  const res = await axios.get(
+    `/articles/${articleId}/comments?limit=${limit}${
+      cursor ? `&cursor=${cursor}` : ""
+    }`
+  );
+  const { data }: { data: CommentResponse } = res;
+  return data;
 };
