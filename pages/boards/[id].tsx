@@ -3,6 +3,8 @@ import Image from "next/image";
 import DateTrimmer from "@/utils/TimeTrimmer";
 import styled from "styled-components";
 import Nav from "@/components/Nav";
+import Button from "@/components/Button";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 const articleDetail = {
   updatedAt: "2024-08-19T13:38:33.168Z",
@@ -31,12 +33,23 @@ const StyledArea = styled.div`
   gap: 30px;
 `;
 
+const StyledButton = styled(Button)`
+  font-size: 16px;
+  font-weight: 700;
+`;
+
+const StyledTopSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0;
+`;
+
 const StyledPostArea = styled.div`
   width: 100%;
   height: 138px;
   padding: 0;
   border-radius: 8px;
-  background-color: var(--gray-20);
   border-bottom: 1px solid var(--gray-200);
   margin-top: 24px;
 `;
@@ -115,6 +128,7 @@ const StyledContent = styled.p`
   font-size: 18px;
   font-weight: 400;
   color: var(--gray-800);
+  margin-bottom: 20px;
 `;
 
 const StyledTitle = styled.p`
@@ -143,6 +157,28 @@ type Props = {
 };
 
 function ArticleDetailPage() {
+  const [commentValue, setCommentValue] = useState({ comment: "" });
+
+  const handleChange = (name: string, value: string | null) => {
+    setCommentValue((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(commentValue);
+  };
+
+  const checkAllInputsFilled = () => {
+    return commentValue.comment !== "";
+  };
   return (
     <>
       <Nav />
@@ -184,13 +220,20 @@ function ArticleDetailPage() {
           alt="게시글 첨부 이미지"
         />
         <StyledContent>{articleDetail.content}</StyledContent>
-        <StyledTitle>댓글달기</StyledTitle>
-        <label htmlFor="item-detail" />
-        <StyledTextArea
-          id="content"
-          name="content"
-          placeholder="댓글을 입력해주세요"
-        />
+        <form onSubmit={handleSubmit}>
+          <StyledTopSection>
+            <StyledTitle>댓글달기</StyledTitle>
+            <StyledButton disabled={!checkAllInputsFilled()}>등록</StyledButton>
+          </StyledTopSection>
+          <label htmlFor="comment" />
+          <StyledTextArea
+            id="comment"
+            name="comment"
+            value={commentValue.comment}
+            placeholder="댓글을 입력해주세요"
+            onChange={handleInputChange}
+          />
+        </form>
         <ArticleCommentList />
       </StyledContainer>
     </>
