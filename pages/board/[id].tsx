@@ -94,7 +94,9 @@ const DetailBoard = () => {
                   <p className={styles.writerNickname}>
                     {comment.writer.nickname}
                   </p>
-                  <p className={styles.writerTime}>{comment.createdAt}</p>
+                  <p className={styles.writerTime}>
+                    {comment.createdAt ? dateFormat(comment.createdAt) : ""}
+                  </p>
                 </div>
               </div>
             </div>

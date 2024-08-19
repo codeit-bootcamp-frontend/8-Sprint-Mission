@@ -34,14 +34,12 @@ export interface CommentsResponse {
 export interface Comment {
   id: number;
   content: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
   writer: CommentWriter;
 }
 
-export interface CommentWriter {
-  id: number;
-  nickname: string;
+export interface CommentWriter extends Writer {
   image: string;
 }
 
