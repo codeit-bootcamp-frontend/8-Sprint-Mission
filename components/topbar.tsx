@@ -1,4 +1,3 @@
-import PrimaryButton from "./primarybutton";
 import pandaLogo from "@/images/logo.png";
 import mobilePandaLogo from "@/images/mobilelogo.png";
 import userIcon from "@/images/user.png";
@@ -12,7 +11,13 @@ export default function Topbar() {
       <LeftElement>
         <Link href="/">
           <LogoWrapper>
-            <Image src={pandaLogo} alt="Panda Logo" className="desktop" />
+            <Image
+              src={pandaLogo}
+              alt="Panda Logo"
+              className="desktop"
+              width={153}
+              height={51}
+            />
             <Image
               src={mobilePandaLogo}
               alt="Mobile Panda Logo"
