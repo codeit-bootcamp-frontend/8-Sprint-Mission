@@ -1,5 +1,4 @@
-import { Article } from '@/lib/api';
-
+import { Article } from '@/types/Article';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';

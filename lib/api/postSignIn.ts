@@ -6,10 +6,7 @@ async function postSignIn(
     password: 'password',
   }
 ) {
-  const headers = {
-    'Content-Type': 'application/json',
-  };
-  const res = await instance.post('/auth/signIn', body, { headers });
+  const res = await instance.post('/auth/signIn', body);
   const { accessToken } = res.data;
   return accessToken;
 }

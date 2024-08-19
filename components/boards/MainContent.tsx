@@ -1,4 +1,4 @@
-import { Article } from '@/lib/api';
+import { Article } from '@/types/Article';
 import Image from 'next/image';
 import React from 'react';
 
@@ -16,7 +16,7 @@ function RecentContent({ board }: Props) {
         <Image
           className="aspect-square w-full rounded-[20px]"
           fill
-          src={board.image}
+          src={board.image ?? ''}
           alt="best article"
         />
       </div>

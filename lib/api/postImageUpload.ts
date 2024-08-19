@@ -1,9 +1,8 @@
 import instance from '.';
 
-async function postImageUpload(formData: FormData, token: string) {
+async function postImageUpload(formData: FormData) {
   const headers = {
     'Content-Type': 'multipart/form-data',
-    Authorization: `Bearer ${token}`,
   };
   const res = await instance.post('/images/upload', formData, {
     headers,

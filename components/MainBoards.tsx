@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import getArticles, { Article, ArticlesQuery } from '@/lib/api/getArticles';
 import Link from 'next/link';
+import { Article, GetArticlesQuery } from '@/types/Article';
+import getArticles from '@/lib/api/getArticles';
 import RecentContent from './boards/MainContent';
 import RecentInfo from './boards/MainInfo';
 import VerticalDivider from './elements/VerticalDivider';
@@ -9,7 +10,7 @@ import BoardTitle from './boards/BoardTitle';
 function MainBoards() {
   const [boards, setBoards] = useState<Article[]>([]);
   const [keyword, setKeyword] = useState<string>('');
-  const [orderBy, setOrderBy] = useState<ArticlesQuery['orderBy']>('recent');
+  const [orderBy, setOrderBy] = useState<GetArticlesQuery['orderBy']>('recent');
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchArticles = useCallback(async () => {

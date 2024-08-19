@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { DeviceContext } from '@/contexts/DeviceContext';
-import getArticles, { Article } from '@/lib/api/getArticles';
+import getArticles from '@/lib/api/getArticles';
 import Link from 'next/link';
+import { Article } from '@/types/Article';
 import BestMedal from './boards/BestMedal';
 import BestContent from './boards/BestContent';
 import BestInfo from './boards/BestInfo';

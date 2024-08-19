@@ -1,22 +1,16 @@
 import FileInput from '@/components/FileInput';
 import postArticle from '@/lib/api/postArticle';
-import postSignIn from '@/lib/api/postSignIn';
-import cn from '@/lib/utils';
-import {
-  ChangeEvent,
-  FormEvent,
-  ReactElement,
-  useEffect,
-  useState,
-} from 'react';
+import { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
 import router from 'next/router';
-import { ArticleState, ArticleStateKey } from '@/types/Article';
+import { ArticleForm, ArticleFormKey } from '@/types/Article';
 import postImageUpload from '@/lib/api/postImageUpload';
 import InputElement from '@/components/elements/InputElement';
 import TextAreaElement from '@/components/elements/TextAreaElement';
 import NavLayout from '@/layouts/NavLayout';
+import MainContainer from '@/components/container/MainContainer';
+import SubmitButton from '@/components/elements/button/SubmitButton';
 
-const initialValue: ArticleState = {
+const initialValue: ArticleForm = {
   title: '',
   content: '',
   image: null,
@@ -24,13 +18,12 @@ const initialValue: ArticleState = {
 
 function AddBoard() {
   const [values, setValues] = useState(initialValue);
-  const [token, setToken] = useState<string | null>(null);
   const { title, content, image } = values;
 
   const allValueExist = title && content && image;
   const validationSubmit = allValueExist;
 
-  const onChange = (name: string, value: ArticleState[ArticleStateKey]) => {
+  const onChange = (name: string, value: ArticleForm[ArticleFormKey]) => {
     setValues(prev => ({
       ...prev,
       [name]: value,
@@ -40,7 +33,7 @@ function AddBoard() {
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const name = e.target.name as keyof ArticleState;
+    const name = e.target.name as keyof ArticleForm;
     const { value } = e.target;
     onChange(name, value);
   };
@@ -48,18 +41,13 @@ function AddBoard() {
   const fetchPostArticle = async () => {
     const formData = new FormData();
     formData.append('image', values.image as Blob);
-    if (token) {
-      const imgURL = await postImageUpload(formData, token!);
-      const data = await postArticle(
-        {
-          ...values,
-          image: imgURL,
-        },
-        token
-      );
-      if ('message' in data) return;
-      router.push('/boards');
-    }
+    const imgURL = await postImageUpload(formData);
+    const data = await postArticle({
+      ...values,
+      image: imgURL,
+    });
+    if ('message' in data) return;
+    router.push('/boards');
   };
 
   const handlePostArticle = (e: FormEvent<HTMLFormElement>) => {
@@ -69,16 +57,8 @@ function AddBoard() {
     }
   };
 
-  useEffect(() => {
-    const handleSignIn = async () => {
-      const accessToken = await postSignIn();
-      setToken(accessToken);
-    };
-    handleSignIn();
-  }, []);
-
   return (
-    <main className="mx-auto mb-[200px] mt-[86px] w-full max-w-[1200px]">
+    <MainContainer>
       <form
         onSubmit={handlePostArticle}
         className="mx-4 flex flex-col gap-6 font-lg-14px-bold tablet:mx-6"
@@ -87,15 +67,7 @@ function AddBoard() {
           <h1 className="text-[20px] font-bold leading-[23.87px]">
             상품 등록하기
           </h1>
-          <button
-            className={cn(
-              'rounded-[8px] bg-secondary-400 px-[23px] py-[11.5px] text-[16px] font-semibold leading-[19.09px] text-white',
-              validationSubmit && 'bg-primary-100'
-            )}
-            type="submit"
-          >
-            등록
-          </button>
+          <SubmitButton isActive={!!validationSubmit}>등록</SubmitButton>
         </div>
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-3">
@@ -124,7 +96,7 @@ function AddBoard() {
           </div>
         </div>
       </form>
-    </main>
+    </MainContainer>
   );
 }
 
