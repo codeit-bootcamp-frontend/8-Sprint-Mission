@@ -1,0 +1,20 @@
+@import '../styles/config.scss';
+
+.main {
+  margin-top: var(--header-height);
+  padding: 16px;
+
+  @include media($tablet) {
+    padding: 16px 24px;
+  }
+
+  @include media($pc) {
+    margin: var(--header-height) auto;
+    padding: 24px;
+    max-width: 1248px;
+  }
+}
+
+.auth {
+  max-width: 1248px;
+}

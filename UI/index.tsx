@@ -1,21 +1,22 @@
 import { ReactNode } from 'react';
-import Header from './Header';
+import s from './UI.module.scss';
+import GNB from './layout/GNB';
 import { useRouter } from 'next/router';
 
 type layout = {
   children: ReactNode;
 };
 
-function Layout({ children }: layout) {
+function UI({ children }: layout) {
   const router = useRouter();
   const isAuthPage = router.pathname === ('/login' || '/signup');
 
   return (
     <>
-      {!isAuthPage && <Header />}
-      <main style={!isAuthPage ? { marginTop: 'var(--header-height)' } : {}}>{children}</main>
+      {!isAuthPage && <GNB />}
+      <main className={!isAuthPage ? s.main : s.auth}>{children}</main>
     </>
   );
 }
 
-export default Layout;
+export default UI;

@@ -1,0 +1,37 @@
+@import 'config';
+
+.addPost {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  @include media($tablet) {
+    margin-bottom: 32px;
+  }
+
+  > h1 {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 32px;
+    color: var(--gray800);
+  }
+
+  > button {
+    @include button;
+    padding: 8px 23px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+  }
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include media($tablet) {
+    gap: 24px;
+  }
+}

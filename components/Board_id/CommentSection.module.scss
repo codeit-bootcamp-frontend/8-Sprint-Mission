@@ -1,0 +1,63 @@
+@import '../../styles/config.scss';
+
+.commentInput {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  margin-bottom: 24px;
+
+  @include media($tablet) {
+    margin-bottom: 32px;
+  }
+
+  @include media($pc) {
+    margin-bottom: 40px;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    color: var(--gray900);
+  }
+
+  textarea {
+    background-color: var(--gray100);
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    height: 104px;
+    resize: none;
+
+    &::placeholder {
+      color: var(--gray400);
+      font-size: 14px;
+      line-height: 24px;
+
+      @include media($tablet) {
+        font-size: 16px;
+      }
+    }
+
+    &:focus {
+      outline-color: var(--blue);
+    }
+  }
+
+  > button {
+    @include button;
+    align-self: flex-end;
+
+    padding: 8px;
+    width: 74px;
+
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+
+    @include media($tablet) {
+      font-size: 16px;
+    }
+  }
+}
