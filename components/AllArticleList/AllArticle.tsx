@@ -1,33 +1,35 @@
 import { useState } from "react";
+import Link from "next/link";
 import { Article } from "@/types/article";
 import formatDate from "@/lib/formatDate";
 import styles from "./AllArticle.module.css";
 
 import Image from "next/image";
 import profileImage from "@/assets/images/img_profile.png";
-import likeImageFull from "@/assets/images/ic_heart_full.png";
-import likeImageEmpty from "@/assets/images/ic_heart_empty.png";
+import likeIconFull from "@/assets/images/ic_heart_full.png";
+import likeIconEmpty from "@/assets/images/ic_heart_empty.png";
+import defaultProductImage from "@/assets/images/img_product_empty.png";
 
 interface AllArticleProps {
   article: Article;
 }
 
 function AllArticle({ article }: AllArticleProps) {
-  const { title, image, writer, likeCount, createdAt } = article;
-
+  const { id, title, image, writer, likeCount, createdAt } = article;
   const [isLikeClicked, setIsLikeClicked] = useState<boolean>(false);
+  const productImage = image || defaultProductImage;
 
   const handleLikeButtonClick = () => {
-    setIsLikeClicked(!isLikeClicked);
+    setIsLikeClicked((prevIsLikeClicked) => !prevIsLikeClicked);
   };
 
   return (
-    <article className={styles.article}>
+    <Link className={styles.article} href={`/board/${id}`}>
       <div className={styles.articleHeader}>
         <h4 className={styles.title}>{title}</h4>
         <Image
           className={styles.productImage}
-          src={image}
+          src={productImage}
           alt="상품 이미지"
           width={72}
           height={72}
@@ -49,7 +51,7 @@ function AllArticle({ article }: AllArticleProps) {
           <button onClick={handleLikeButtonClick}>
             <Image
               className={styles.likeIcon}
-              src={isLikeClicked ? likeImageFull : likeImageEmpty}
+              src={isLikeClicked ? likeIconFull : likeIconEmpty}
               alt="좋아요 아이콘"
               width={24}
               height={24}
@@ -58,7 +60,7 @@ function AllArticle({ article }: AllArticleProps) {
           <h5 className={styles.likeCount}>{likeCount}</h5>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 

@@ -1,4 +1,6 @@
 .article {
+  display: inline-block;
+  width: 100%;
   margin-top: 1.5rem;
   padding-bottom: 1.5rem;
   border-bottom: solid 0.0625rem var(--gray200);
@@ -20,7 +22,7 @@
 }
 
 .productImage {
-  border: 0 0 0 0.0625rem var(--gray100) inset;
+  box-shadow: 0 0 0 0.0625rem var(--gray100) inset;
   border-radius: 0.5rem;
 }
 
