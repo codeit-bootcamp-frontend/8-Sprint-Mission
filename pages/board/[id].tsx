@@ -21,17 +21,16 @@ const DetailBoard = () => {
     setArticle(result);
   };
 
-  useEffect(() => {
-    id && fetchArticle(Number(id));
-  }, [id]);
-
   const fetchComments = async (articleId: number, limit: number) => {
     const result = await getComments(articleId, limit);
     setComments(result);
   };
 
   useEffect(() => {
-    id && fetchComments(Number(id), 5);
+    if (id) {
+      fetchArticle(Number(id));
+      fetchComments(Number(id), 5);
+    }
   }, [id]);
 
   const dateFormat = (date: Date) => {
