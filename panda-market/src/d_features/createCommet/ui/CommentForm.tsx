@@ -19,7 +19,7 @@ export const CommentForm = () => {
       })
       .then((res) => {
         router.reload();
-        return res;
+        // return res;
       });
   };
 
@@ -29,7 +29,7 @@ export const CommentForm = () => {
         <S.Label htmlFor="boardComment">댓글달기</S.Label>
 
         <TextArea
-          mode="hookForm"
+          mode="default"
           register={register('boardComment', { required: true })}
           placeholder="댓글을 입력해주세요."
         />
@@ -37,7 +37,7 @@ export const CommentForm = () => {
       <BtnSmall
         $size="40"
         $style="default"
-        onClick={handleSubmit(onSubmit)}
+        // onClick={handleSubmit(onSubmit)}
         isDisabled={!isValid}
       >
         등록

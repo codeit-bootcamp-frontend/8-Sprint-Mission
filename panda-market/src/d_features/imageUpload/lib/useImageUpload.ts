@@ -1,7 +1,7 @@
 import { uploadImage } from '@/entities';
-import { ImageUploadParams } from '@/entities/image/types';
+import { ImageResponse, ImageUploadParams } from '@/entities/image/types';
 import { QUERY_KEYS } from '@/f_shared/config';
-import { useMutation } from '@tanstack/react-query';
+import { DefaultError, useMutation } from '@tanstack/react-query';
 
 interface ImageUploadProps {
   onSuccess: () => void;
@@ -9,8 +9,27 @@ interface ImageUploadProps {
 }
 
 export const useImageUpload = () => {
-  return useMutation({
+  const mutate = useMutation({
     mutationKey: [QUERY_KEYS.IMAGE.UPLOAD],
     mutationFn: ({ image }: ImageUploadParams) => uploadImage({ image }),
   });
+
+  return async ({
+    image,
+    onSuccess,
+    onError,
+  }: ImageUploadParams & {
+    onSuccess: (data: ImageResponse) => void;
+    onError: (error: DefaultError) => void;
+  }) => {
+    return await mutate.mutateAsync(
+      { image },
+      {
+        onSuccess: (data) => {
+          onSuccess(data!);
+        },
+        onError,
+      },
+    );
+  };
 };

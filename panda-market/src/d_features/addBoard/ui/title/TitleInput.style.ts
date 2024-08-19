@@ -15,7 +15,7 @@ interface ErrorMessageProps {
 
 export const ErrorMessage = styled.p<ErrorMessageProps>`
   visibility: ${({ $isValid }) => ($isValid ? 'hidden' : 'visible')};
-
+  height: 1.5rem;
   color: ${colors.error};
 
   /* pretendard/lg-14px-semibold */

@@ -7,7 +7,7 @@ interface ButtonProps {
   $size: BtnImgSize;
 }
 
-export const Button = styled.button<ButtonProps>`
+export const ButtonLabel = styled.label<ButtonProps>`
   width: ${({ $size }) => ($size === 'small' ? '10.5rem' : '17.625rem')};
   height: ${({ $size }) => ($size === 'small' ? '10.5rem' : '17.625rem')};
   padding: ${({ $size }) =>
@@ -24,7 +24,7 @@ export const Button = styled.button<ButtonProps>`
   }
 `;
 
-export const ButtonContent = styled.div`
+export const ButtonLabelContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +46,5 @@ export const HiddenInput = styled.input`
   width: 0;
   height: 0;
   padding: 0;
-  overflow: hidden;
   border: 0;
 `;

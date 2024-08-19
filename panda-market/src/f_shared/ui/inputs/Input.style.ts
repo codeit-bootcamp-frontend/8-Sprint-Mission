@@ -1,4 +1,4 @@
-import { colors } from '@/f_shared/config';
+import { colors } from '@/f_shared';
 import styled from 'styled-components';
 
 interface InputProps {

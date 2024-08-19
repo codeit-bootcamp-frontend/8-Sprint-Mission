@@ -2,12 +2,18 @@ import { useState } from 'react';
 import { match } from 'ts-pattern';
 
 import { usePreview } from '../../lib';
-import { BtnImgSize } from '@/f_shared/ui/';
-import { BtnImg, Label } from '@/f_shared/ui';
+import { BtnImgSize, BtnImg, Label } from '@/f_shared';
+// import { BtnImg, Label } from '@/f_shared/ui';
 
 import XIcon from '@/f_shared/assets/icons/ic_x/ic_X.svg';
 
 import * as S from './ImageInput.style';
+import {
+  FieldValues,
+  UseFormRegisterReturn,
+  UseFormSetValue,
+  UseFormWatch,
+} from 'react-hook-form';
 
 interface PreviewProps {
   preview?: string;
@@ -49,20 +55,30 @@ const PreviewContents = ({ preview = '', size, onDelete }: PreviewProps) => {
 };
 
 interface ImageInputProps {
-  value: File | null;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  register: UseFormRegisterReturn;
+  watch: UseFormWatch<FieldValues>;
+  name: string;
+  // setValue: UseFormSetValue<FieldValues>;
+  // value: File | null;
+  // onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onDelete: () => void;
 }
 
-export const ImageInput = ({ value, onChange, onDelete }: ImageInputProps) => {
+export const ImageInput = ({
+  register,
+  onDelete,
+  watch,
+  name,
+}: ImageInputProps) => {
   const [size, setSize] = useState<BtnImgSize>('default');
+  const value = watch(name);
   const { preview } = usePreview({ value });
 
   return (
     <S.Wrapper>
-      <Label htmlFor="image">이미지</Label>
+      <Label htmlFor="itemImage">이미지</Label>
       <S.ImageContainer>
-        <BtnImg size={size} onChange={onChange} id="image" name="image" />
+        <BtnImg id={name} size={size} register={register} />
         <PreviewContents preview={preview} size={size} onDelete={onDelete} />
       </S.ImageContainer>
     </S.Wrapper>

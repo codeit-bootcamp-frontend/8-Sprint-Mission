@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
 import {
   ContentInput,
   TitleInput,
@@ -6,85 +6,82 @@ import {
   useAddBoard,
 } from '@/d_features/addBoard';
 import { useImageUpload } from '@/d_features/imageUpload';
-import { ROUTER_PATH, useModal } from '@/f_shared';
-import { BtnSmall, ConfirmModal, SectionTitle } from '@/f_shared';
-import { useFormValidation, useInputValue } from '../lib';
+import { useModal, BtnSmall, ConfirmModal, SectionTitle } from '@/f_shared';
 
 import * as S from './AddBoardForm.style';
 
 export const AddBoardForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    getValues,
+    setValue,
+    formState: { errors, isValid },
+  } = useForm({ mode: 'all' });
   const imageMutation = useImageUpload();
   const boardMutation = useAddBoard();
-  const router = useRouter();
-  const { inputValues, handleInputValuesChange, handleImageDelete } =
-    useInputValue();
-  const { validation } = useFormValidation({ inputValues });
 
-  const apihandle = async () => {
-    if (inputValues.image) {
-      await imageMutation
-        .mutateAsync({
-          image: inputValues.image,
-        })
-        .then(async (res) => {
-          await boardMutation
-            .mutateAsync({
-              title: inputValues.title,
-              content: inputValues.content,
-              image: res?.url,
-            })
-            .then((res) => router.push(ROUTER_PATH.BOARD.detail(res.id)));
-        });
+  const apihandle = () => {
+    const title = getValues<string>('title');
+    const content = getValues<string>('content');
+    const itemImage = getValues('picture');
+    const boardApi = boardMutation({ title, content });
+    if (itemImage) {
+      imageMutation({
+        image: itemImage[0],
+        onSuccess: (data) => {
+          boardApi({ image: data.url });
+        },
+        onError: () => {
+          boardApi({});
+        },
+      });
     } else {
-      await boardMutation
-        .mutateAsync({
-          title: inputValues.title,
-          content: inputValues.content,
-        })
-        .then((res) => router.push(ROUTER_PATH.BOARD.detail(res.id)));
+      boardApi({});
     }
   };
   const { isOpen, onClose, handleOpen, handleConfirm, handleCancel } = useModal(
-    { confirmFn: apihandle },
+    {
+      confirmFn: () => {
+        apihandle();
+      },
+    },
   );
-
-  const handleSubmit = (e: React.MouseEvent<HTMLFormElement, MouseEvent>) => {
-    e.preventDefault();
-    handleOpen();
-  };
-
   return (
     <>
-      <S.Form onSubmit={handleSubmit}>
+      <S.Form onSubmit={handleSubmit(() => handleConfirm())}>
         <S.HeaderWrapper>
           <SectionTitle>게시글 쓰기</SectionTitle>
           <BtnSmall
             $size="40"
             $style="default"
-            isDisabled={!validation}
+            isDisabled={!isValid}
             onClick={handleOpen}
           >
             등록
           </BtnSmall>
         </S.HeaderWrapper>
         <TitleInput
-          value={inputValues.title}
-          onChange={handleInputValuesChange}
-          isValid={true}
-          errorMessage="필수 사항입니다."
+          register={register('title', {
+            required: '필수 사항입니다.',
+            maxLength: 50,
+          })}
+          errorMessage={errors.title?.message?.toString()}
         />
 
         <ContentInput
-          value={inputValues.content}
-          onChange={handleInputValuesChange}
-          isValid={true}
-          errorMessage="필수 사항입니다."
+          register={register('content', { required: '필수 사항입니다.' })}
+          errorMessage={errors.content?.message?.toString()}
         />
-
+        {/* <input type="file" {...register('picture')} /> */}
         <ImageInput
-          value={inputValues.image}
-          onChange={handleInputValuesChange}
-          onDelete={handleImageDelete}
+          register={register('picture')}
+          watch={watch}
+          name="picture"
+          onDelete={() => {
+            setValue('picture', null);
+          }}
         />
       </S.Form>
       <ConfirmModal

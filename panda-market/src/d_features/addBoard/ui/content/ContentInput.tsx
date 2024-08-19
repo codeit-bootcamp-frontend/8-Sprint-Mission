@@ -1,32 +1,26 @@
-import { Label, TextArea } from '@/f_shared/ui';
+import { UseFormRegisterReturn } from 'react-hook-form';
+import { Label, TextArea } from '@/f_shared';
+
 import * as S from './ContentInput.style';
 
 interface ContentInputProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  isValid: boolean;
+  register: UseFormRegisterReturn;
   errorMessage?: string;
 }
 
-export const ContentInput = ({
-  value,
-  onChange,
-  isValid,
-  errorMessage = '',
-}: ContentInputProps) => {
+export const ContentInput = ({ errorMessage, register }: ContentInputProps) => {
   return (
     <S.Wrapper>
       <Label htmlFor="content">*내용</Label>
       <TextArea
+        register={register}
         mode="valid"
-        id="content"
-        name="content"
-        value={value}
-        onChange={onChange}
-        isValid={isValid}
+        isValid={errorMessage ? false : true}
         placeholder="내용을 입력해주세요"
       />
-      <S.ErrorMessage $isValid={isValid}>{errorMessage}</S.ErrorMessage>
+      <S.ErrorMessage $isValid={errorMessage ? false : true}>
+        {errorMessage}
+      </S.ErrorMessage>
     </S.Wrapper>
   );
 };

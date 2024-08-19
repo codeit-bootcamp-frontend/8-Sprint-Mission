@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
 interface PreviewProps {
-  value: File | null;
+  value: File[] | null;
 }
 
 export const usePreview = ({ value }: PreviewProps) => {
   const [preview, setPreview] = useState<string>('');
 
   useEffect(() => {
-    if (!value) return;
-    const nextPreview = URL.createObjectURL(value);
+    if (!value || value.length < 1) return;
+    const nextPreview = URL.createObjectURL(value[0]);
     setPreview(nextPreview);
 
     return () => {

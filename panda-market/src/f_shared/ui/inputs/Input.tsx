@@ -1,32 +1,26 @@
+import { UseFormRegisterReturn } from 'react-hook-form';
+
 import * as S from './Input.style';
 
 type InputMode = 'default' | 'sort';
 
-interface InputProps {
-  type?: InputMode;
-  placeholder: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  mode?: InputMode;
   isValid: boolean;
-  name: string;
-  id: string;
+  register: UseFormRegisterReturn;
 }
 
 export const Input = ({
-  type = 'default',
-  id,
-  name,
+  type,
+  mode = 'default',
+  register,
   placeholder,
-  value,
-  onChange,
   isValid,
 }: InputProps) => {
   return (
     <S.Input
-      id={id}
-      name={name}
-      value={value}
-      onChange={onChange}
+      type={type}
+      {...register}
       placeholder={placeholder}
       $isValid={isValid}
     />

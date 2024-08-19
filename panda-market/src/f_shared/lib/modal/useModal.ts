@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import { useCloseRef } from '../close';
 
-interface ModalControlProps {
+interface ModalControlProps<T = React.MouseEvent<HTMLElement, MouseEvent>> {
   cancelFn?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
-  confirmFn?: <T = HTMLElement>(e: React.MouseEvent<T, MouseEvent>) => void;
+  confirmFn?: (e?: React.MouseEvent<T, MouseEvent>) => void;
 }
 
-export const useModal = ({
+export const useModal = <T = HTMLElement>({
   cancelFn = () => {},
   confirmFn = () => {},
-}: ModalControlProps) => {
+}: ModalControlProps<T>) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onClose = () => {
@@ -21,8 +20,8 @@ export const useModal = ({
     setIsOpen(false);
   };
 
-  const handleConfirm = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    confirmFn(e);
+  const handleConfirm = (e?: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    confirmFn();
     setIsOpen(false);
   };
 
