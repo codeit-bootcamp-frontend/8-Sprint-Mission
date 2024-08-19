@@ -24,7 +24,7 @@ export const CommentItem = ({
         <S.CommentContent>{content}</S.CommentContent>
         <S.WriterContainer>
           <S.ProfileContainer>
-            <Img src={writer.image ?? ''} alt="프로필 이미지" />
+            <Img imgType="profile" src={writer.image} alt="프로필" />
           </S.ProfileContainer>
           <S.WriterInfo>
             <S.WriterName>{writer.nickname}</S.WriterName>

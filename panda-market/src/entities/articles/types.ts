@@ -1,3 +1,5 @@
+import { UserInfo } from '../auth';
+
 export type OrderByType = 'recent' | 'like';
 
 export interface GetArticleRequest {
@@ -7,18 +9,13 @@ export interface GetArticleRequest {
   keyword?: string;
 }
 
-interface Writer {
-  nickname: string;
-  id: number;
-}
-
 export interface Article {
   id: number;
   title: string;
   content: string;
   image: string;
   likeCount: number;
-  writer: Writer;
+  writer: Pick<UserInfo, 'id' | 'nickname' | 'image'>;
   updatedAt: string;
   createdAt: string;
 }

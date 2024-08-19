@@ -12,7 +12,7 @@ export const BoardDetailContent = () => {
       <BoardItemContent
         title={title}
         content={content}
-        writerName={writer?.nickname}
+        writer={writer}
         createdAt={createdAt}
         likeCount={likeCount}
       />

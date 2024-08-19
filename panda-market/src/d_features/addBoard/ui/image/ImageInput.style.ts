@@ -1,4 +1,4 @@
-import { BtnImgSize } from '@/f_shared/ui';
+import { BtnImgSize } from '@/f_shared';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`

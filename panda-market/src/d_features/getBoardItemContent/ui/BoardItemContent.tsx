@@ -1,14 +1,19 @@
-import { BtnLike, useDateForm, UserProfile } from '@/f_shared';
-import { Dropdown } from '@/f_shared/ui/dropdown';
+import { Comment } from '@/entities';
+import {
+  BtnLike,
+  Dropdown,
+  Img,
+  ITEM_DROPDOWN_CONTENTS,
+  useDateForm,
+} from '@/f_shared';
 
 import * as S from './BoardItemContent.style';
-import { ITEM_DROPDOWN_CONTENTS } from '@/f_shared/config/dropdown/itemDropdown';
 
 interface BoardItemContent {
   title: string;
   content: string;
   likeCount: number;
-  writerName: string;
+  writer: Comment['writer'];
   createdAt: string;
 }
 
@@ -16,7 +21,7 @@ export const BoardItemContent = ({
   title,
   content,
   likeCount,
-  writerName,
+  writer,
   createdAt,
 }: BoardItemContent) => {
   const { formedDate } = useDateForm({
@@ -37,8 +42,10 @@ export const BoardItemContent = ({
         </S.TitleContainer>
         <S.WriterContainer>
           <S.WriterInfo>
-            <UserProfile height="2.5rem" width="2.5rem" />
-            <S.WriterName>{writerName}</S.WriterName>
+            <S.ProfileContainer>
+              <Img imgType="profile" src={writer.image} alt="프로필" />
+            </S.ProfileContainer>
+            <S.WriterName>{writer.nickname}</S.WriterName>
             <S.CreatedAt>{formedDate}</S.CreatedAt>
           </S.WriterInfo>
           <BtnLike likeCount={likeCount} onClick={() => {}} />

@@ -24,7 +24,7 @@ export const BoardItemList = React.memo(
                 likeCount={e.likeCount}
                 title={e.title}
                 updatedAt={e.updatedAt}
-                writerNickname={e.writer.nickname}
+                writer={e.writer}
               />
             </Link>
           );

@@ -1,7 +1,7 @@
 export interface UserInfo {
   id: number;
   nickname: string;
-  image?: string | null;
+  image?: string;
   email: string;
   createdAt: string;
   updatedAt: string;

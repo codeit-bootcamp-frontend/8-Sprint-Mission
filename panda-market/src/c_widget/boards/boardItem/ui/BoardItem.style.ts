@@ -45,7 +45,9 @@ export const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  border-radius: 0.375rem;
+
+  overflow: hidden;
+  border-radius: 6px;
   border: 1px solid ${colors.coolGray[200]};
   background-color: ${colors.white};
 `;
@@ -65,9 +67,11 @@ export const ProfileContainer = styled.div`
 `;
 
 export const ProfileImageWrapper = styled.div`
+  position: relative;
   width: 1.5rem;
   height: 1.5rem;
   flex-shrink: 0;
+  overflow: hidden;
 `;
 
 export const Nickname = styled.p`
