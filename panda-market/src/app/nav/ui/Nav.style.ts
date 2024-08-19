@@ -34,8 +34,13 @@ export const Categories = styled.div`
   flex-shrink: 2;
 `;
 
-export const CategoryItem = styled.div`
-  color: ${colors.secondary[600]};
+interface CategoryItemProps {
+  $isSelected: boolean;
+}
+
+export const CategoryItem = styled.p<CategoryItemProps>`
+  color: ${({ $isSelected }) =>
+    $isSelected ? colors.primary[100] : colors.secondary[600]};
   /* pretendard/2lg-18px-bold */
   font-family: Pretendard;
   font-size: 1.125rem;
@@ -47,4 +52,8 @@ export const CategoryItem = styled.div`
   display: flex;
   padding: 1.3125rem 0.9375rem;
   gap: 0.625rem;
+
+  &:hover {
+    color: ${colors.primary[100]};
+  }
 `;

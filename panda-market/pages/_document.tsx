@@ -29,8 +29,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>판다마켓</title>
           <meta property="og:title" content="판다마켓" />
           <meta
             property="og:description"
