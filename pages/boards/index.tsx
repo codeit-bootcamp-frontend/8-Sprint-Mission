@@ -7,6 +7,7 @@ import PostList from "@/components/PostList";
 import styled from "styled-components";
 import axios from "@/lib/axios";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const StyledContainer = styled.main`
   width: 1200px;
@@ -23,6 +24,11 @@ const StyledTitle = styled.h1`
 const StyledButton = styled(Button)`
   font-size: 16px;
   font-weight: 700;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: var(--gray-50);
 `;
 
 const StyledArea = styled.div`
@@ -106,7 +112,9 @@ export default function PostListPage({
         <BestPostList />
         <StyledArea>
           <StyledTitle>게시글</StyledTitle>
-          <StyledButton>글쓰기</StyledButton>
+          <StyledButton>
+            <StyledLink href={"/addboard"}>글쓰기</StyledLink>
+          </StyledButton>
         </StyledArea>
         <StyledArea>
           <SearchInput onSearch={setSearchQuery} />

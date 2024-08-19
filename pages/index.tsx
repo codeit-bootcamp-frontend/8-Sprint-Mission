@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import FileInputTest from "../components/FileInputTest";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,7 @@ export default function Home() {
       </Head>
       <main>홈페이지</main>
       <Link href="/boards">자유게시판으로 가기</Link>
+      <FileInputTest />
     </>
   );
 }

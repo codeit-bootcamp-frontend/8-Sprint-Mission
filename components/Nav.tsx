@@ -58,7 +58,10 @@ function Nav() {
         <div>
           <StyledLink
             href="/boards"
-            data-active={router.pathname.startsWith("/boards")}
+            data-active={
+              router.pathname.startsWith("/boards") ||
+              router.pathname.startsWith("/addboard")
+            }
           >
             자유게시판
           </StyledLink>
