@@ -1,9 +1,6 @@
 import Image from "next/image";
-import SearchInput from "./SearchInput";
 import DateTrimmer from "@/utils/TimeTrimmer";
 import styled from "styled-components";
-import DropDown from "./DropDown";
-import Button from "./Button";
 
 const StyledArea = styled.div`
   display: flex;
