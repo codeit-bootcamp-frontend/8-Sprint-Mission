@@ -1,12 +1,14 @@
 import Image from "next/image";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, MouseEvent, useEffect, useState } from "react";
 import styles from "./Articles.module.css";
 import { getArticles } from "@/pages/api/apis";
-import Article from "@/DTO/article";
+import ArticleType from "@/DTO/article";
 import formatComparedTime from "@/lib/formatComparedTime";
 import getRenderedPages from "@/lib/getRenderedPages";
 import useDropdownState from "@/lib/hooks/useDropdownState";
 import useAsync from "@/lib/hooks/useAsync";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const ORDER_EN_KO_PAIR: {
   [key: string]: string,
@@ -29,14 +31,16 @@ const PAGE_SIZE = 10;
 type MediaWidthType = "desktop" | "tablet" | "mobile" | "none";
 
 export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType }) {
-  const [articles, setArticles] = useState<Article[]>([]);
+  const router = useRouter();
+  
+  const [articles, setArticles] = useState<ArticleType[]>([]);
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
   const [keyword, setKeyword] = useState('');
   const [totalPages, setTotalPages] = useState(1);
 
   const { isPending, error, wrappedAsyncFunction: getArticlesAsync } = useAsync(getArticles);
-  const { isDropdownOpen, handleDropdown } = useDropdownState();
+  const { dropdownState, handleDropdown } = useDropdownState();
 
   const renderedPages = getRenderedPages(page, totalPages, WIDTH_PAGINATION_NUMBER_PAIR[mediaWidth]);
 
@@ -59,6 +63,11 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
     handleLoad(page, PAGE_SIZE, orderBy, keyword);
   }
 
+  const handleWriterButtonClick = (e: MouseEvent) => {
+    e.preventDefault();
+    router.push("/addboard");
+  }
+
   useEffect(() => {
     setPage(1);
     handleLoad(1, PAGE_SIZE, orderBy, keyword);
@@ -69,7 +78,7 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
 
       <div className={styles.articlesSectionHeader}>
         <span>게시글</span>
-        <button className={styles.writeButton}>글쓰기</button>
+        <button className={styles.writeButton} onClick={handleWriterButtonClick}>글쓰기</button>
       </div>
       
       <div className={styles.queryHandlersContainer}>
@@ -79,7 +88,7 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
         <div className={styles.searchIconContainer}>
           <Image fill src="/images/ic_search.png" alt="검색" />
         </div>
-        <div className={styles.orderDropdownHandler} onClick={handleDropdown}>
+        <div className={styles.orderDropdownHandler} onClick={(e) => {handleDropdown(e, 1)}}>
           <span>{ORDER_EN_KO_PAIR[orderBy]}</span>
           <div className={styles.arrowDownImageContainer}>
             <Image fill src="/images/ic_arrow_down.png" alt="보기" />
@@ -87,7 +96,7 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
           <div className={styles.sortIconContainer}>
             <Image fill src="/images/ic_sort.svg" alt="보기" />
           </div>
-          <ul className={`${styles.dropdownList} ${isDropdownOpen ? '' : "hidden"}`}>
+          <ul className={`${styles.dropdownList} ${(dropdownState === 1) ? '' : "hidden"}`}>
             <li className={styles.dropdownListItem} onClick={() => setOrderBy("recent")}>
               {ORDER_EN_KO_PAIR["recent"]}
             </li>
@@ -102,31 +111,33 @@ export default function Articles({ mediaWidth }: { mediaWidth: MediaWidthType })
       {error && <p>An Error has occurred{error.message ? `: ${error.message}` : null}</p>}
       <ul className={styles.articlesList}>
         {articles.map(article => 
-          <li className={styles.articlesListItem} key={article.id}>
-            <div className={styles.articlesListItemContent}>
-              <span>{article.title}</span>
-              <div className={styles.articleImageContainer}>
-                <Image fill src={article.image} alt="이미지" />
-              </div>
-            </div>
-            <div className={styles.articlesListItemFooter}>
-              <div className={styles.articleWriter}>
-                <div className={styles.profileImageContainer}>
-                  <Image fill src="/images/ic_profile.png" alt="프로필" />
+          <Link href={`boards/${article.id}`} style={{ textDecoration: "none"}}>
+            <li className={styles.articlesListItem} key={article.id}>
+              <div className={styles.articlesListItemContent}>
+                <span>{article.title}</span>
+                <div className={styles.articleImageContainer}>
+                  <Image fill src={article.image} alt="이미지" />
                 </div>
-                <span>{article.writer.nickname}</span>
-                <span className={styles.articleDate}>
-                  {formatComparedTime(article.createdAt)}
-                </span>
               </div>
-              <div className={styles.likeyContainer}>
-                <div className={styles.heartContainer}>
-                  <Image fill src="/images/ic_heart.png" alt="하트" />
+              <div className={styles.articlesListItemFooter}>
+                <div className={styles.articleWriter}>
+                  <div className={styles.profileImageContainer}>
+                    <Image fill src="/images/ic_profile.png" alt="프로필" />
+                  </div>
+                  <span>{article.writer.nickname}</span>
+                  <span className={styles.articleDate}>
+                    {formatComparedTime(article.createdAt)}
+                  </span>
                 </div>
-                <span>{(article.likeCount > 9999) ? "9999+" : article.likeCount}</span>
+                <div className={styles.likeyContainer}>
+                  <div className={styles.heartContainer}>
+                    <Image fill src="/images/ic_heart.png" alt="하트" />
+                  </div>
+                  <span>{(article.likeCount > 9999) ? "9999+" : article.likeCount}</span>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+          </Link>
         )}
       </ul>
 

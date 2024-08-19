@@ -1,12 +1,9 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { ReactNode } from "react";
 import styles from "./Header.module.css";
 
-export default function NavItem({ href, children }: { href: string, children: ReactNode }) {
-  const router = useRouter();
-
-  const isOnPath = (router.pathname === href) || (router.pathname.slice(0, href.length + 1) === (href + '/'));
+export default function NavItem({ href, pathname, children }: { href: string, pathname:string, children: ReactNode }) {
+  const isOnPath = (pathname === href) || (pathname.slice(0, href.length + 1) === (href + '/'));
 
   return (
     <Link href={href} style={{ textDecoration: "none" }}>

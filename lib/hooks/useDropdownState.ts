@@ -1,43 +1,25 @@
-import { useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 
 function useDropdownState() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isDropdownClicked, setIsDropdownClicked] = useState(false);
-  const [isDocumentClicked, setIsDocumentClicked] = useState(false);
+  const [dropdownState, setDropdownState] = useState(0);
 
-  const handleDropdown = () => {
-    setIsDropdownClicked(true);
-  }
-
-  const handleDocumentClick = () => {
-    setIsDocumentClicked(true);
-  }
-
-  useEffect(() => {
-    document.addEventListener("click", handleDocumentClick);
-
-    return (() => {
-      document.addEventListener("click", handleDocumentClick);
-    })
-  }, []);
-
-  useEffect(() => {
-    if(isDropdownClicked) setIsDropdownOpen(!isDropdownOpen);
-  }, [isDropdownClicked]);
-
-  useEffect(() => {
-    if(!isDocumentClicked) return;
-    
-    if(isDropdownClicked) {
-      setIsDropdownClicked(false);
-      setIsDocumentClicked(false);
+  const handleDropdown = (e: SyntheticEvent, dropdownNum: number) => {
+    e.stopPropagation();
+    if(dropdownState === 0) {
+      setDropdownState(dropdownNum);
       return;
     }
-    setIsDropdownOpen(false);
-    setIsDocumentClicked(false);
-  }, [isDocumentClicked]);
+    setDropdownState(0);
+  }
 
-  return { isDropdownOpen, handleDropdown };
+  useEffect(() => {
+    window.addEventListener("click", () => setDropdownState(0));
+    return (() => {
+      window.removeEventListener("click", () => setDropdownState(0));
+    })
+  });
+
+  return { dropdownState, handleDropdown };
 }
 
 export default useDropdownState;
