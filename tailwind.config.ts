@@ -31,6 +31,7 @@ const config: Config = {
         "blue-hover": "#1967d6",
         "blue-active": "#1251aa",
         "header-under": "#dfdfdf",
+        "comment-bg": "#fcfcfc",
       },
     },
   },

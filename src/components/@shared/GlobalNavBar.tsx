@@ -2,20 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BlueButton from "./BlueButton";
-
-interface GlobalNavBarProps {
-  isMain: boolean;
-  isLogin: boolean;
-}
+import React from "react";
 
 const NAV_MENU_INFO = [
   { href: "/boards", text: "자유게시판" },
   { href: "/items", text: "중고마켓" },
 ];
 
-export default function GlobalNavBar({ isMain, isLogin }: GlobalNavBarProps) {
-  const router = useRouter();
-  const path = router.pathname;
+export default function GlobalNavBar() {
+  const { pathname } = useRouter();
+  const isMain = pathname === "/" ? true : false;
+  const [isLogin, setIsLogin] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsLogin(!!localStorage.getItem("refresh_token"));
+  }, []);
 
   return (
     <header className="sticky top-0 bg-gray h-[70px] z-10 border-solid border-b-[1px] border-header-under">
@@ -46,7 +47,7 @@ export default function GlobalNavBar({ isMain, isLogin }: GlobalNavBarProps) {
                   key={info.text}
                   href={info.href}
                   className={`h-full text-base font-bold md:text-[18px] md:px-[15px]
-                    ${path.includes(info.href) ? "text-brand-blue" : "text-gray-600"}`}
+                    ${pathname.includes(info.href) ? "text-brand-blue" : "text-gray-600"}`}
                 >
                   {info.text}
                 </Link>
@@ -64,9 +65,11 @@ export default function GlobalNavBar({ isMain, isLogin }: GlobalNavBarProps) {
             />
           ) : (
             <div className={isMain ? "w-[128px] h-[48px]" : "w-[88px] h-[42px]"}>
-              <BlueButton customStyle={isMain ? "text-[18px]" : "text-[16px]"} shape="default">
-                로그인
-              </BlueButton>
+              <Link href="/login">
+                <BlueButton customStyle={isMain ? "text-[18px]" : "text-[16px]"} shape="default">
+                  로그인
+                </BlueButton>
+              </Link>
             </div>
           )}
         </div>

@@ -1,11 +1,11 @@
 import PostListHeader from "./PostListHeader";
-import getArticles, { Article, orderOption } from "@/apis/getArticles";
+import { Article, OrderOption, getArticles } from "@/axios/articles";
 import { useState, useEffect, useCallback } from "react";
 import BasicPostCard from "./BasicPostCard";
 
 export default function PostList() {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [orderOption, setOrderOption] = useState<orderOption>("recent");
+  const [orderOption, setOrderOption] = useState<OrderOption>("recent");
   const [currentKeyword, setCurrentKeyword] = useState("");
 
   const handleAllArticleLoad = useCallback(async () => {
