@@ -1,11 +1,11 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { LargeLogo, UserProfile, ROUTER_PATH } from '@/f_shared';
 
 import largeLogo1x from '@/f_shared/assets/images/logos/main_logo@1x.png';
 
 import * as S from './Nav.style';
-import { useRouter } from 'next/router';
 
 export const Nav = () => {
   const router = useRouter();
