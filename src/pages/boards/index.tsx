@@ -18,15 +18,20 @@ export default function BoardPage() {
     pageSize: 3,
     orderBy: "like",
   });
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Best 게시글
   useEffect(() => {
     const handleLoad = async (option: ArticlesQuery) => {
       try {
+        setLoading(true);
         const { list } = await getArticles(option);
         setBestArticles(list);
-      } catch (error) {
-        console.error("Error Messages: " + error);
+      } catch (err) {
+        setError("데이터를 가져오는데 실패했습니다.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -35,17 +40,36 @@ export default function BoardPage() {
 
   // 전체 게시글
   useEffect(() => {
+    setLoading(true);
     const handleLoad = async (option: ArticlesQuery) => {
       try {
         const { list } = await getArticles(option);
         setArticles(list);
-      } catch (error) {
-        console.error("Error Messages: " + error);
+      } catch (err) {
+        setError(error);
+      } finally {
+        setLoading(false);
       }
     };
 
     handleLoad(articleQuery);
   }, [articleQuery]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-lvh">
+        <h1>데이터를 불러오고 있습니다.</h1>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-lvh">
+        <h1>Error: {error}</h1>
+      </div>
+    );
+  }
 
   return (
     <BoardWrap>

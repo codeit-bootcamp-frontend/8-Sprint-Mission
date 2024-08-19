@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-interface LinkButtonProps {
+type LinkButtonProps = {
   radius?: boolean;
-}
+};
 
 export const Button = styled.button`
   width: 130px;
