@@ -29,15 +29,9 @@ function BestItems({ item }: BestItemsProps) {
   };
 
   return (
-    <div className={S.bestItemBox}>
+    <div className={S.bestItemBox} onClick={() => onImgClick(id)}>
       <div className={S.BestItemImgBox}>
-        <Image
-          className={S.bestItemImg}
-          src={images[0]}
-          alt={name}
-          onClick={() => onImgClick(id)}
-          fill
-        />
+        <Image className={S.bestItemImg} src={images[0]} alt={name} fill />
       </div>
       <div className={S.bestItemTitle}>{name}</div>
       <div className={S.bestItemPrice}>{won}원</div>

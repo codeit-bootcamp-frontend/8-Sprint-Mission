@@ -1,8 +1,9 @@
-import S from "@/components/ItemsOnSale.module.css";
-import DropDown from "@/components/DropDown";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import S from "@/components/ItemsOnSale.module.css";
+import DropDown from "@/components/DropDown";
 
 interface Item {
   favoriteCount: number;
@@ -24,7 +25,7 @@ interface ItemsOnSaleProps {
   handleOrderChange: (order: string) => void;
 }
 
-function BestItems({ item }: BestItemsProps) {
+function SaleItems({ item }: BestItemsProps) {
   const { favoriteCount, images, price, name, id } = item;
   const router = useRouter();
   const won = price.toLocaleString("ko-KR");
@@ -32,15 +33,9 @@ function BestItems({ item }: BestItemsProps) {
     router.push(`/items/${id}`);
   };
   return (
-    <div className={S.saleItemBox}>
+    <div className={S.saleItemBox} onClick={() => onImgClick(id)}>
       <div className={S.saleItemImgBox}>
-        <Image
-          fill
-          className={S.saleItemImg}
-          src={images[0]}
-          alt={name}
-          onClick={() => onImgClick(id)}
-        />
+        <Image fill className={S.saleItemImg} src={images[0]} alt={name} />
       </div>
       <div className={S.saleItemTitle}>{name}</div>
       <div className={S.saleItemPrice}>{won}원</div>
@@ -83,9 +78,9 @@ function ItemsOnSale({ items, orderBy, handleOrderChange }: ItemsOnSaleProps) {
             />
             <input className={S.search} placeholder="검색할 상품을 입력해 주세요" />
           </div>
-          <a className={S.addItemBtn} href="additem">
+          <Link className={S.addItemBtn} href="additem">
             상품 등록하기
-          </a>
+          </Link>
           <DropDown
             className={S.dropDownBtn}
             orderBy={orderBy}
@@ -96,7 +91,7 @@ function ItemsOnSale({ items, orderBy, handleOrderChange }: ItemsOnSaleProps) {
       <ul className={S.saleItemContainer}>
         {cutItems.map((item) => (
           <li key={item.id}>
-            <BestItems item={item} />
+            <SaleItems item={item} />
           </li>
         ))}
       </ul>

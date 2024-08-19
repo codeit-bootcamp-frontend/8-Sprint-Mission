@@ -1,30 +1,47 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import { getApiProductsComments } from "@/pages/api/getApi";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import S from "@/components/ProductComments.module.css";
-
-const PLACEHOLDERTEXT =
-  "개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.";
+import S from "@/components/DetailBoardComments.module.css";
+import axios from "@/pages/api/axios";
+const PLACEHOLDERTEXT = "댓글을 입력해 주세요";
 
 interface ButtonProps {
   $pass?: boolean;
 }
 
-interface ItemsListType<T> {
-  list: T[];
+interface ItemsListType {
+  id: number;
+  content: string;
+  createdAt: string;
+  writer: {
+    id: number;
+    nickname: string;
+    image: string;
+  };
 }
 
-function ProductComments() {
-  const router = useRouter();
-  const id = router.query["id"];
-  const [items, setItems] = useState<ItemsListType<any>>({ list: [] });
+function DetailBoardComments() {
+  const [comments, setComments] = useState<ItemsListType[]>([]);
   const [loading, setLoading] = useState(true);
   const [values, setValues] = useState("");
   const [pass, setPass] = useState(false);
+  const router = useRouter();
+  const id = Number(router.query["id"]);
+
+  // 게시판 댓글 데이터 가져오기
+  async function getProduct(id: number) {
+    const res = await axios.get(`/articles/${id}/comments?limit=50`);
+    const nextComments = res.data.list;
+    console.log(nextComments);
+    setComments(nextComments);
+  }
+  useEffect(() => {
+    getProduct(id);
+    setLoading(false);
+  }, [id]);
 
   const onClickReturn = () => {
-    router.push(`/items`);
+    router.push(`/boards`);
   };
 
   // 댓글 인풋의 입력값 파악
@@ -55,28 +72,11 @@ function ProductComments() {
       return <div>{UploadDate}</div>;
     }
     if (minutegap > 60) {
-      return <div>{hourgap}시간 전;</div>;
+      return <div>{hourgap}시간 전</div>;
     } else {
       return <div>{minutegap}분 전</div>;
     }
   };
-
-  // 상품 댓글 데이터 가져오기
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (id) {
-          const result = await getApiProductsComments(id);
-          setItems(result);
-        }
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [id]);
 
   // 입력값 감지 후 조건 충족 시 등록 버튼 활성화
   useEffect(() => {
@@ -111,8 +111,8 @@ function ProductComments() {
             </button>
           </div>
           <div className={S.commentContainer}>
-            {items.list ? (
-              items.list.map((item) => (
+            {comments.length > 0 ? (
+              comments.map((item) => (
                 <div key={item.id} className={S.commentBox}>
                   <div className={S.comment}>
                     <p className={S.commentText}>{item.content}</p>
@@ -125,7 +125,7 @@ function ProductComments() {
                   </div>
                   <div className={S.user}>
                     <Image
-                      src={item.writer.image}
+                      src={item.writer.image || `/images/icon/ic_null_user_profile_image.png`}
                       alt="사용자 프로필 이미지"
                       className={S.userProfileImage}
                       width={40}
@@ -133,7 +133,7 @@ function ProductComments() {
                     />
                     <div className={S.userInfo}>
                       <p className={S.userName}>{item.writer.nickname}</p>
-                      <div className={S.timeAgo}>{getTimegap(item.updatedAt)}</div>
+                      <div className={S.timeAgo}>{getTimegap(item.createdAt)}</div>
                     </div>
                   </div>
                 </div>
@@ -141,12 +141,14 @@ function ProductComments() {
             ) : (
               <div className={S.emptyComment}>
                 <Image
-                  src="/images/logo/gray_panda.png"
+                  src="/images/logo/gary_no_comment.png"
                   alt="댓글이 없는 경우 이미지"
                   width={200}
                   height={200}
                 />
-                아직 문의가 없습니다.
+                아직 댓글이 없어요,
+                <br />
+                지금 댓글을 달아보세요!
               </div>
             )}
           </div>
@@ -167,4 +169,4 @@ function ProductComments() {
   );
 }
 
-export default ProductComments;
+export default DetailBoardComments;

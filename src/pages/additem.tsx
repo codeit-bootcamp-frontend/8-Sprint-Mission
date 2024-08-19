@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import S from "@/styles/addItem.module.css";
+import S from "@/styles/addBoard.module.css";
 import Image from "next/image";
 
 interface FormValues {

@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import BestItem from "@/components/BestItem";
 import ItemsOnSale from "@/components/ItemsOnSale";
-import NavBar from "@/components/NavBar";
 import S from "@/styles/items.module.css";
 import { getApi, getApiOrderBy } from "@/pages/api/getApi";
 import PaginationBar from "@/components/PaginationBar";
@@ -105,7 +104,6 @@ function Items() {
       fetchDataOnResize(orderBy, page);
     } catch (error) {
       console.error(error);
-    } finally {
     }
   };
 
@@ -128,8 +126,12 @@ function Items() {
   // 첫 렌더링 시 fetch 함수 동작
   useEffect(() => {
     setPageWidth(window.innerWidth);
+    setLoading(true);
+  }, []);
+
+  useEffect(() => {
     fetchDataOnResize();
-  }, [fetchDataOnResize]);
+  }, [loading]);
 
   // 로딩 시 출력 화면
   if (loading) {
