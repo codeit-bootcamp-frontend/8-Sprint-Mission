@@ -21,7 +21,7 @@ export default function Topbar() {
           </LogoWrapper>
         </Link>
         <ButtonWrapper>
-          <Link href="/">
+          <Link href="/boards">
             <ListButton>자유게시판</ListButton>
           </Link>
           <Link href="/">

@@ -1,16 +1,22 @@
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 import styled from "styled-components";
 
 interface ButtonProps {
   children?: ReactNode;
+  disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function PrimaryButton({ children }: ButtonProps) {
-  return <Button>{children}</Button>;
+export default function PrimaryButton({
+  children,
+  disabled: disabled = false,
+  onClick,
+}: ButtonProps) {
+  return <Button disabled={disabled}>{children}</Button>;
 }
 
-const Button = styled.button`
-  background-color: #3692ff;
+const Button = styled.button<{ disabled: boolean }>`
+  background-color: ${({ disabled }) => (disabled ? "#9CA3AF" : "#3692ff")};
   border-radius: 8px;
   padding: 12px 20px;
   font-size: 16px;

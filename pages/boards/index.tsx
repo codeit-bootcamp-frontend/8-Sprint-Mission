@@ -8,22 +8,9 @@ import { getArticles } from "@/pages/util/api";
 import { useEffect, useState } from "react";
 import BestBoardItemList from "@/components/bestboarditemlist";
 import BoardItemList from "@/components/boarditemlist";
-
-export interface BoardItemType {
-  id: number;
-  title: string;
-  content: string;
-  image: string;
-  likeCount: number;
-  createdAt: string;
-  updatedAt: string;
-  writer: WriterType;
-}
-
-interface WriterType {
-  id: number;
-  nickname: number;
-}
+import Head from "next/head";
+import { BoardItemType } from "@/interfaces/boardItem";
+import Link from "next/link";
 
 export default function Board() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,11 +55,16 @@ export default function Board() {
 
   return (
     <Container>
+      <Head>
+        <title>게시글</title>
+      </Head>
       <Title>Best 게시글</Title>
       <BestBoardItemList boards={bestBoards} />
       <ListContainer>
         <Title>게시글</Title>
-        <PrimaryButton>글쓰기</PrimaryButton>
+        <Link href={"/addboard"}>
+          <PrimaryButton>글쓰기</PrimaryButton>
+        </Link>
       </ListContainer>
       <ListContainer>
         <Input

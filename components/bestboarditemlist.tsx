@@ -2,15 +2,9 @@ import Badge from "@/images/badge.png";
 import Image from "next/image";
 import styled from "styled-components";
 import favorite from "@/images/favorite.png";
-import { BoardItemType } from "@/pages/boards";
-
-interface BoardItemListProps {
-  boards: BoardItemType[];
-}
-
-interface BoardItemProps {
-  board: BoardItemType;
-}
+import { BoardItemProps, BoardItemListProps } from "@/interfaces/boardItem";
+import Link from "next/link";
+import { FormatDate } from "@/pages/util/formatDate";
 
 export default function BestBoardItemList({ boards }: BoardItemListProps) {
   return (
@@ -23,39 +17,31 @@ export default function BestBoardItemList({ boards }: BoardItemListProps) {
 }
 
 function BestBoardItem({ board }: BoardItemProps) {
-  function formatDate(dateString: string) {
-    const date = new Date(dateString);
-
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // 월은 0부터 시작하므로 +1
-    const day = date.getDate().toString().padStart(2, "0");
-
-    return `${year}.${month}.${day}`;
-  }
-
   return (
-    <Wrapper>
-      <Image src={Badge} alt="badge" />
-      <BoardWrapper>
-        <TitleWrapper>
-          <BoardTitle>{board.title}</BoardTitle>
-          <Image
-            src={board.image}
-            alt="BestBoardImage"
-            width={72}
-            height={72}
-          />
-        </TitleWrapper>
-        <WriterWrapper>
-          <WriterLeftElement>
-            {board.writer.nickname}
-            <Image src={favorite} alt="favorite" />
-            {board.likeCount}+
-          </WriterLeftElement>
-          <span>{formatDate(board.createdAt)}</span>
-        </WriterWrapper>
-      </BoardWrapper>
-    </Wrapper>
+    <StyledLink href={`/boards/${board.id}`}>
+      <Wrapper>
+        <Image src={Badge} alt="badge" />
+        <BoardWrapper>
+          <TitleWrapper>
+            <BoardTitle>{board.title}</BoardTitle>
+            {/* <Image
+              src={board.image}
+              alt="BestBoardImage"
+              width={72}
+              height={72}
+            /> */}
+          </TitleWrapper>
+          <WriterWrapper>
+            <WriterLeftElement>
+              {board.writer.nickname}
+              <Image src={favorite} alt="favorite" />
+              {board.likeCount}+
+            </WriterLeftElement>
+            <span>{FormatDate(board.createdAt)}</span>
+          </WriterWrapper>
+        </BoardWrapper>
+      </Wrapper>
+    </StyledLink>
   );
 }
 
@@ -68,7 +54,7 @@ const BoardItemContainer = styled.div`
   @media (max-width: 744px) {
     grid-template-columns: repeat(2, 1fr);
 
-    & > div:nth-child(3) {
+    & > :nth-child(3) {
       display: none; /* 3번째 게시글을 숨김 */
     }
   }
@@ -76,12 +62,18 @@ const BoardItemContainer = styled.div`
   @media (max-width: 376px) {
     grid-template-columns: repeat(1, 1fr);
 
-    & > div:nth-child(2) {
+    & > :nth-child(2),
+    > :nth-child(3) {
       display: none;
     }
-    > div:nth-child(3) {
-      display: none;
-    }
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: none;
   }
 `;
 
