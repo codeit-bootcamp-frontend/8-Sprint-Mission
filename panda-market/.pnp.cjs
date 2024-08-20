@@ -35,13 +35,16 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/styled-components", "npm:5.1.34"],\
           ["axios", "npm:1.7.3"],\
+          ["dayjs", "npm:1.11.12"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:14.2.5"],\
           ["next", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:14.2.5"],\
           ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:18.3.1"],\
+          ["react-hook-form", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:7.52.2"],\
           ["styled-components", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:6.1.12"],\
+          ["ts-pattern", "npm:5.3.1"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
         "linkType": "SOFT"\
@@ -4358,6 +4361,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["dayjs", [\
+      ["npm:1.11.12", {\
+        "packageLocation": "../../.yarn/berry/cache/dayjs-npm-1.11.12-ce23245b6e-10c0.zip/node_modules/dayjs/",\
+        "packageDependencies": [\
+          ["dayjs", "npm:1.11.12"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["debug", [\
       ["npm:3.2.7", {\
         "packageLocation": "../../.yarn/berry/cache/debug-npm-3.2.7-754e818c7a-10c0.zip/node_modules/debug/",\
@@ -6640,13 +6652,16 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/styled-components", "npm:5.1.34"],\
           ["axios", "npm:1.7.3"],\
+          ["dayjs", "npm:1.11.12"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:14.2.5"],\
           ["next", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:14.2.5"],\
           ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:18.3.1"],\
+          ["react-hook-form", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:7.52.2"],\
           ["styled-components", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:6.1.12"],\
+          ["ts-pattern", "npm:5.3.1"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
         "linkType": "SOFT"\
@@ -6872,6 +6887,28 @@ const RAW_RUNTIME_STATE =
           ["loose-envify", "npm:1.4.0"],\
           ["react", "npm:18.3.1"],\
           ["scheduler", "npm:0.23.2"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-hook-form", [\
+      ["npm:7.52.2", {\
+        "packageLocation": "../../.yarn/berry/cache/react-hook-form-npm-7.52.2-7602393eb2-10c0.zip/node_modules/react-hook-form/",\
+        "packageDependencies": [\
+          ["react-hook-form", "npm:7.52.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:7.52.2", {\
+        "packageLocation": "./.yarn/__virtual__/react-hook-form-virtual-6e5912e591/3/.yarn/berry/cache/react-hook-form-npm-7.52.2-7602393eb2-10c0.zip/node_modules/react-hook-form/",\
+        "packageDependencies": [\
+          ["react-hook-form", "virtual:05dd5d022b463fefbf208793ab83a58e9e5d0e1402f145c3d2315b0507b0b2b8060f0d07e9326d5b7ed88c9c520341cb729782a9297be5aa0cc303b77010b17f#npm:7.52.2"],\
+          ["@types/react", "npm:18.3.3"],\
+          ["react", "npm:18.3.1"]\
         ],\
         "packagePeers": [\
           "@types/react",\
@@ -7560,6 +7597,15 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/typescript",\
           "typescript"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["ts-pattern", [\
+      ["npm:5.3.1", {\
+        "packageLocation": "../../.yarn/berry/cache/ts-pattern-npm-5.3.1-5f66f2def4-10c0.zip/node_modules/ts-pattern/",\
+        "packageDependencies": [\
+          ["ts-pattern", "npm:5.3.1"]\
         ],\
         "linkType": "HARD"\
       }]\

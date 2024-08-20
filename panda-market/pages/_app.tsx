@@ -6,13 +6,17 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 
-import { GlobalStyle, ResetStyle } from '@/app/styles';
-import { Nav } from '@/widget/nav';
+import { GlobalStyle, ResetStyle, Nav } from '@/app';
+import Head from 'next/head';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>판다마켓</title>
+      </Head>
       <QueryClientProvider client={queryClient}>
         <HydrationBoundary state={pageProps.dehydratedState}>
           <ResetStyle />
