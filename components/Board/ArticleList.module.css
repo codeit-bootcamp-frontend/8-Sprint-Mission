@@ -1,0 +1,12 @@
+.articleList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  padding: 0;
+  gap: 24px;
+}
+
+.Image {
+  width: 300;
+  height: 300;
+}
