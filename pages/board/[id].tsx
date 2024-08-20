@@ -1,33 +1,30 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { getPost, getPostComment } from '@/utils/api';
 import PostDetail from '@/components/Post/PostDetail';
 import PostComment from '@/components/PostComment/PostComment';
-import { PostTypes } from '@/components/Post/types/PostType';
+import useDataList from '@/hooks/useDataList';
 
 export default function Post() {
-  const [post, setPost] = useState<PostTypes>();
-  const [comment, setComment] = useState();
+  const { dataList: post, fetchPost: getDetailPost } = useDataList<any>(
+    getPost,
+    null
+  );
+  const { dataList: comment, fetchPost: getComment } = useDataList<any>(
+    getPostComment,
+    []
+  );
+
   const router = useRouter();
   const { id } = router.query;
 
-  const getDetailPost = async (id: string | string[] | undefined) => {
-    const res = await getPost(id);
-    setPost(res);
-  };
-
-  const getComment = async (id: string | string[] | undefined) => {
+  useEffect(() => {
     const query = {
       limit: 10,
     };
-    const { list } = await getPostComment({ query }, id);
-    setComment(list);
-    console.log(list);
-  };
-
-  useEffect(() => {
-    getComment(id);
+    if (!id) return;
+    getComment({ query }, id);
     getDetailPost(id);
   }, [id]);
 
