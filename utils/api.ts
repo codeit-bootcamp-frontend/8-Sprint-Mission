@@ -41,3 +41,17 @@ export async function getPostComment(
   const post = res.data;
   return post;
 }
+
+export async function postNewArticleComment(
+  id: string | string[] | undefined,
+  data,
+  token
+) {
+  const res = await axios.post(`/articles/${id}/comments`, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const post = res.data;
+  return post;
+}
