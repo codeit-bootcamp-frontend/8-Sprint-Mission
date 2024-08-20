@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState, useContext } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { useRouter } from 'next/router';
 import Section from '../Section/Section';
 import Input from '../Input/Input';
@@ -7,7 +7,6 @@ import TextArea from '../Input/TextArea';
 import LinkButton from '../Button/LinkButton';
 import axios from '@/lib/axios';
 import styles from './AddPost.module.css';
-import AuthContext from '@/lib/store/authContext';
 import { FormChangeType, InputChangeType } from './types/AddPostType';
 
 const INITIAL_POST_VALUE = {
@@ -19,10 +18,9 @@ const INITIAL_POST_VALUE = {
 export default function AddPost() {
   const [postFormData, setPostFormData] = useState(INITIAL_POST_VALUE);
   const { title, content, image } = postFormData;
-  const { token } = useContext(AuthContext);
   const router = useRouter();
-
   const isActive = title.trim() !== '' && content.trim() !== '';
+  const token = localStorage.getItem('token');
 
   const fetchNewPostData = async () => {
     try {
@@ -47,8 +45,7 @@ export default function AddPost() {
         },
       });
 
-      console.log(res.data, imageRes.data);
-      router.push('/boards');
+      router.push(`/board/${res.data.id}`);
     } catch (error) {
       console.log(error.message);
     }

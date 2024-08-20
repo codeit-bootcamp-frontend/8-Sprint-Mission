@@ -6,12 +6,13 @@ interface Props {
 }
 
 interface AuthContextProps {
-  token: string;
+  isLoggedIn: boolean;
 }
 
 const AuthContext = createContext<AuthContextProps | null>(null);
 
 export const AuthProvider = ({ children }: Props) => {
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [token, setToken] = useState<string>('');
   const user = {
     email: process.env.NEXT_PUBLIC_USER_EMAIL,
@@ -20,18 +21,27 @@ export const AuthProvider = ({ children }: Props) => {
   const getLogin = async () => {
     try {
       const res = await axios.post(`/auth/signIn`, user);
+      setIsLoggedIn(true);
       setToken(res.data.accessToken);
     } catch (error) {
-      console.log(error.message);
+      if (error instanceof Error) {
+        console.log(error.message);
+      }
     }
   };
+
+  if (isLoggedIn) {
+    localStorage.setItem('token', token);
+  }
 
   useEffect(() => {
     getLogin();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ token }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ isLoggedIn }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
