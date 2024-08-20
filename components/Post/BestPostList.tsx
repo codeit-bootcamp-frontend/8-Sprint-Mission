@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { PostListProps } from './types/Post';
+import { PostListProps } from './types/PostType';
 import styles from './BestPostList.module.css';
 
 interface BestPostList {
@@ -30,7 +30,6 @@ export default function BestPostList({ postList }: BestPostList) {
                 height={74}
                 src={postList.image}
                 alt="게시글 이미지"
-                objectFit="contain"
               />
             ) : (
               <Image
@@ -38,7 +37,6 @@ export default function BestPostList({ postList }: BestPostList) {
                 height={74}
                 src="/images/img_default@2x.png"
                 alt="게시글 이미지"
-                objectFit="contain"
               />
             )}
           </div>
