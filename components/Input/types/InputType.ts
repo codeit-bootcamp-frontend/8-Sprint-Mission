@@ -20,7 +20,6 @@ interface TextAreaInputProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string;
   className?: string;
-  variant: string;
   label?: string;
   changeValue: (name: string, value: string) => void;
 }
