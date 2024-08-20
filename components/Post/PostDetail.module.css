@@ -11,7 +11,7 @@
 .profileContainer {
   display: flex;
   align-items: center;
-  gap: 3.2rem;
+  gap: 6.4rem;
   padding-bottom: 1.6rem;
   margin-bottom: 2.4rem;
   border-bottom: 1px solid var(--color-gray200);
@@ -24,11 +24,11 @@
 }
 .userProfile::after {
   position: absolute;
-  content: "";
+  content: '';
   width: 1px;
   height: 34px;
   top: 3px;
-  right: -16px;
+  right: -32px;
   background: var(--color-gray200);
 }
 .writerNickName {
