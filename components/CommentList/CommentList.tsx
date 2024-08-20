@@ -14,9 +14,9 @@ function CommentList({ commentList: comments }: CommentListProps) {
       {!!comments.length ? (
         <ul className="comment-lists">
           {comments.map((comment: IComment) => (
-            <div key={comment.id}>
+            <li key={comment.id}>
               <Comment comment={comment} />
-            </div>
+            </li>
           ))}
         </ul>
       ) : (
