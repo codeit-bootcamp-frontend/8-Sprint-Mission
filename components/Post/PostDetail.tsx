@@ -1,14 +1,16 @@
-import Section from "../Section/Section";
-import Image from "next/image";
-import { PostTypes } from "./types/PostType";
-import styles from "./PostDetail.module.css";
+import Section from '../Section/Section';
+import Image from 'next/image';
+import { PostTypes } from './types/PostType';
+import styles from './PostDetail.module.css';
 
 interface PostDetailType {
   post: PostTypes;
 }
 
 export default function PostDetail({ post }: PostDetailType) {
-  const convertDate = new Date(post.createdAt).toLocaleDateString("ko-KR");
+  const convertDate = new Date(post.createdAt)
+    .toLocaleDateString('ko-KR')
+    .slice(0, -1);
   return (
     <Section>
       <div className={styles.detailContainer}>
