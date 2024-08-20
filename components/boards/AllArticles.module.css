@@ -1,6 +1,7 @@
 .allArticles {
   margin: 24px auto;
   width: 1200px;
+  position: relative;
 }
 
 .allArticlesTitle {
@@ -40,10 +41,20 @@
 .articleList {
   list-style-type: none;
   padding: 0;
+  position: absolute;
+  top: 132px;
+  left: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .article {
   margin-top: 24px;
+  background-color: #fcfcfc;
+}
+
+.articleLink {
+  text-decoration: none;
 }
 
 .titleImage {

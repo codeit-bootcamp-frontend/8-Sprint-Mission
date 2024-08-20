@@ -1,0 +1,57 @@
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #1f2937;
+  margin: 0;
+}
+
+.profile {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.writer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nickname {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #4b5563;
+  margin: 0;
+}
+
+.time {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.emptyImg {
+  margin: 40px auto 16px;
+}
+
+.emptyTitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+  color: #9ca3af;
+  margin: 16px auto 48px;
+}

@@ -26,6 +26,10 @@
   background-color: var(--cool-gray-50);
 }
 
+.articleLink {
+  text-decoration: none;
+}
+
 .bestImage {
   width: 102px;
   height: 30px;

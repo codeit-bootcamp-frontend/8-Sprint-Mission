@@ -1,0 +1,82 @@
+.writingWrapper {
+  width: 1200px;
+  margin: 94px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.writing {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+  color: #1f2937;
+}
+
+.button {
+  width: 74px;
+  height: 42px;
+  padding: 12px 23px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--cool-gray-400);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boardForm {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin: 32px auto 24px;
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  color: #1f2937;
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+
+.title,
+.description {
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--cool-gray-100);
+  color: var(--cool-gray-800);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  padding: 16px 24px;
+}
+
+.title,
+.description::placeholder {
+  color: var(--cool-gray-400);
+}
+
+.description {
+  height: 282px;
+}
+
+.button.active {
+  background-color: #3692ff;
+}
+
+.imgForm {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin: 24px auto 0;
+}

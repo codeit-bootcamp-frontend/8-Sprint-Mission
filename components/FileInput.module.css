@@ -1,0 +1,48 @@
+.fileWrapper {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
+  position: relative;
+}
+
+.file {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+}
+
+.plusIcon {
+  position: relative;
+  top: 99px;
+  left: 117px;
+}
+
+.iconTitle {
+  position: absolute;
+  top: 159px;
+  left: 104px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.preview {
+  border: none;
+  border-radius: 12px;
+}
+
+.button {
+  background: none;
+  border: none;
+}
+
+.XIcon {
+  position: absolute;
+  left: 556px;
+  top: 8px;
+}
