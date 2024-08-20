@@ -12,19 +12,8 @@ interface PostListProps {
   };
 }
 
-interface PostTypes {
-  id: number;
-  title: string;
-  content: string;
-  updatedAt?: string | Date;
-  createdAt: string | Date;
-  image: string;
+interface PostTypes extends PostListProps {
   isLiked: boolean;
-  likeCount: number;
-  writer: {
-    id: string;
-    nickname: string;
-  };
 }
 
 interface OptionType {
