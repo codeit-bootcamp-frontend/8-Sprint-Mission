@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import axios from "@/lib/axios";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils/formatDate";
-import { Article } from "@/types/article";
+import { Article } from "@/types/articleTypes";
 
 interface AllBoardProps {
   initialArticles: Article[];
@@ -73,7 +73,7 @@ function AllBoard({ initialArticles }: AllBoardProps) {
     <section className={styles["all-board-wrap"]}>
       <div className={styles["section-header"]}>
         <h2 className={styles.title}>게시글</h2>
-        <LinkButton href="#" size="sm" color="primary">
+        <LinkButton href="/addboard" size="sm" color="primary">
           글쓰기
         </LinkButton>
       </div>

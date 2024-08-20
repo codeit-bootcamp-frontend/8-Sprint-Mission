@@ -3,12 +3,6 @@
   max-width: 1200px;
   margin: 26px auto;
   padding-bottom: 20px;
-  @media (max-width: 1199px) {
-    padding: 0 24px;
-  }
-  @media (max-width: 767px) {
-    padding: 0 16px;
-  }
   .title {
     grid-area: title;
     font-size: 20px;

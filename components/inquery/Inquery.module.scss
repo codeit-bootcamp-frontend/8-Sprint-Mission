@@ -1,0 +1,36 @@
+.inquiry-list {
+  ul {
+    li {
+      border-bottom: 1px solid var(--gray200);
+      margin-bottom: 16px;
+      .comment {
+        padding: 0.5em 0;
+      }
+      .profile-info {
+        display: flex;
+        gap: 8px;
+        padding: 1.5em 0;
+        .profile-wrap {
+          position: relative;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+      .profile-id {
+        font-size: 14px;
+        color: var(--gray600);
+        line-height: 1.4;
+      }
+      .time-log {
+        font-size: 12px;
+        color: var(--gray400);
+        line-height: 1.4;
+      }
+    }
+  }
+}
