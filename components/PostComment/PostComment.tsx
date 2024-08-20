@@ -1,10 +1,10 @@
-import Image from "next/image";
-import CommentList from "./CommentList";
-import { CommentType } from "./types/CommentType";
-import Section from "../Section/Section";
-import CommnetForm from "./CommentForm";
-import styles from "./PostComment.module.css";
-import Link from "next/link";
+import Image from 'next/image';
+import CommentList from './CommentList';
+import { CommentType } from './types/CommentType';
+import Section from '../Section/Section';
+import CommnetForm from './CommentForm';
+import styles from './PostComment.module.css';
+import Link from 'next/link';
 
 interface CommentListType {
   comment: CommentType;
@@ -13,8 +13,8 @@ interface CommentListType {
 export default function PostComment({ comment }: CommentListType) {
   const commentList = comment.length ? (
     <div>
-      {comment.map((list) => (
-        <CommentList comment={list} />
+      {comment.map(list => (
+        <CommentList key={list.id} comment={list} />
       ))}
     </div>
   ) : (
