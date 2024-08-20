@@ -50,9 +50,7 @@ function DetailBoard({
       <div className="mb-10">
         <AddComment id={id} setCommentList={setCommentList} />
       </div>
-      {/* <div className="flex items-center justify-center"> */}
       <CommentList commentList={commentList} />
-      {/* </div> */}
       <ReturnButton href="/boards" text="목록으로 돌아가기" />
     </div>
   );

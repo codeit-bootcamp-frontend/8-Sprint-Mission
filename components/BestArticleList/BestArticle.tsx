@@ -56,7 +56,7 @@ function BestArticle({ article }: BestArticleProps) {
             <h5 className={styles.likeCount}>{likeCount}</h5>
           </div>
         </div>
-        <h5 className={styles.createdAt}>{formatDate(createdAt)}</h5>
+        <h5 className={styles.createdAt}>{formatDate(new Date(createdAt))}</h5>
       </div>
     </Link>
   );

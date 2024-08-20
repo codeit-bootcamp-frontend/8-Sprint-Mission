@@ -45,7 +45,9 @@ function AllArticle({ article }: AllArticleProps) {
             height={24}
           />
           <h5 className={styles.nickname}>{writer.nickname}</h5>
-          <h5 className={styles.createdAt}>{formatDate(createdAt)}</h5>
+          <h5 className={styles.createdAt}>
+            {formatDate(new Date(createdAt))}
+          </h5>
         </div>
         <div className={styles.likeWrapper}>
           <button onClick={handleLikeButtonClick}>

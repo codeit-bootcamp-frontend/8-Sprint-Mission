@@ -47,7 +47,7 @@ function DetailArticle({ article }: DetailArticleProps) {
                 {writer.nickname || "Anonymous"}
               </h5>
               <h5 className="text-sm font-normal text-gray-400">
-                {formatDate(createdAt)}
+                {formatDate(new Date(createdAt))}
               </h5>
             </div>
           </div>
