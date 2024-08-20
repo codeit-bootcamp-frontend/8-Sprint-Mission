@@ -6,6 +6,7 @@ import {
 } from "@/types/types";
 import axios from "@/lib/axios";
 import { AxiosResponse } from "axios";
+import { API_ENDPOINTS } from "@/lib/address";
 
 export const getArticles = async ({
   page,
@@ -14,12 +15,9 @@ export const getArticles = async ({
   keyword,
 }: GetArticles): Promise<ArticlesResponse> => {
   try {
-    const orderByQuery = orderBy ? `&orderBy=${orderBy}` : "";
-    const keywordQuery = keyword ? `&keyword=${keyword}` : "";
-
     const res: AxiosResponse<ArticlesResponse> =
       await axios.get<ArticlesResponse>(
-        `/articles?page=${page}&pageSize=${pageSize}${orderByQuery}${keywordQuery}`
+        API_ENDPOINTS.getArticles(page, pageSize, orderBy, keyword)
       );
 
     if (res.status !== 200) {
@@ -35,7 +33,7 @@ export const getArticles = async ({
 
 export const getArticle = async (articleId: number): Promise<Article> => {
   try {
-    const res = await axios.get<Article>(`/articles/${articleId}`);
+    const res = await axios.get<Article>(API_ENDPOINTS.getArticle(articleId));
     if (res.status !== 200) throw new Error("getArticle api 오류");
     const result = res.data;
     return result;
@@ -51,7 +49,7 @@ export const getComments = async (
 ): Promise<CommentsResponse> => {
   try {
     const res = await axios.get<CommentsResponse>(
-      `articles/${articleId}/comments?limit=${limit}`
+      API_ENDPOINTS.getComments(articleId, limit)
     );
 
     if (res.status !== 200) {
