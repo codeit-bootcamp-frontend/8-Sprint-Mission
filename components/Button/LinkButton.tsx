@@ -1,23 +1,13 @@
-import { ReactNode } from 'react';
 import Link from 'next/link';
 import styles from './LinkButton.module.css';
-
-type ButtonType = 'button' | 'submit' | 'reset';
-
-interface LinkButtonProps {
-  href?: string;
-  type?: ButtonType;
-  btnName?: ReactNode;
-  isActive?: boolean;
-  className?: string;
-}
+import { LinkButtonProps } from './types/ButtonType';
 
 export default function LinkButton({
   href,
-  type,
-  btnName,
-  isActive,
-  className,
+  type = 'button',
+  btnName = '버튼',
+  isActive = false,
+  className = '',
 }: LinkButtonProps) {
   if (href) {
     return (
@@ -30,14 +20,12 @@ export default function LinkButton({
   }
 
   return (
-    <>
-      <button
-        className={`${styles.button} ${className}`}
-        disabled={isActive}
-        type={type}
-      >
-        {btnName}
-      </button>
-    </>
+    <button
+      className={`${styles.button} ${className}`}
+      disabled={isActive}
+      type={type}
+    >
+      {btnName}
+    </button>
   );
 }

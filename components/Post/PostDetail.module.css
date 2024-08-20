@@ -1,0 +1,64 @@
+.detailContainer {
+  padding-top: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+.detailTitle {
+  margin-bottom: 1.6rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  gap: 6.4rem;
+  padding-bottom: 1.6rem;
+  margin-bottom: 2.4rem;
+  border-bottom: 1px solid var(--color-gray200);
+}
+.userProfile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.userProfile::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 34px;
+  top: 3px;
+  right: -32px;
+  background: var(--color-gray200);
+}
+.writerNickName {
+  margin-left: 8px;
+  font-size: 1.4rem;
+  color: var(--color-gray600);
+}
+
+.writerDate {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-gray400);
+}
+.likeContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border: 1px solid var(--color-gray200);
+  border-radius: 35px;
+}
+.likeCount {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-gray500);
+}
+
+.content {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  color: var(--color-gray800);
+}

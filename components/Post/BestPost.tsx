@@ -3,33 +3,32 @@ import Section from '@/components/Section/Section';
 import BestPostList from './BestPostList';
 import EllipsisLoading from '@/components/Loading/EllipsisLoading';
 import styles from './BestPost.module.css';
-import { PostListProps } from './@types/Post';
+import { PostListProps } from './types/PostType';
 import { getPostList } from '@/utils/api';
-import usePostList from '@/hooks/usePostList';
+import useDataList from '@/hooks/useDataList';
 
 const DEVICE_SIZE = {
   tablet: 1028,
   mobile: 768,
 };
 
-function getBestPostSize() {
-  if (typeof window === 'undefined') return 3;
-  if (window.innerWidth <= DEVICE_SIZE.mobile) {
-    return 1;
-  } else if (window.innerWidth <= DEVICE_SIZE.tablet) {
-    return 2;
-  } else return 3;
-}
-
 export default function BestPost() {
   const [pageSize, setPageSize] = useState<number>(getBestPostSize());
-
   const {
     loading,
     error,
     dataList: bestposts,
     fetchPost: getBestPost,
-  } = usePostList<PostListProps>(getPostList, []);
+  } = useDataList<PostListProps>(getPostList, []);
+
+  function getBestPostSize() {
+    if (typeof window === 'undefined') return 3;
+    if (window.innerWidth <= DEVICE_SIZE.mobile) {
+      return 1;
+    } else if (window.innerWidth <= DEVICE_SIZE.tablet) {
+      return 2;
+    } else return 3;
+  }
 
   useEffect(() => {
     const query = {

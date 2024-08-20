@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { PostListProps } from './@types/Post';
+import { PostListProps } from './types/PostType';
 import styles from './BestPostList.module.css';
 
 interface BestPostList {
@@ -8,11 +8,13 @@ interface BestPostList {
 }
 
 export default function BestPostList({ postList }: BestPostList) {
-  const convertDate = new Date(postList.createdAt).toLocaleDateString('ko-KR');
+  const convertDate = new Date(postList.createdAt)
+    .toLocaleDateString('ko-KR')
+    .slice(0, -1);
 
   return (
     <article className={styles.postListContainer}>
-      <Link href="/">
+      <Link href={`/board/${postList.id}`}>
         <div className={styles.badgeContainer}>
           <div className={styles.medalIcon}>
             <Image fill src="/images/icon/medal@2x.png" alt="메달 아이콘" />
@@ -22,7 +24,21 @@ export default function BestPostList({ postList }: BestPostList) {
         <div className={styles.titleContainer}>
           <h2 className={styles.postTitle}>{postList.title}</h2>
           <div className={styles.postImage}>
-            <Image fill src={postList.image} alt="게시글 이미지" />
+            {postList.image ? (
+              <Image
+                width={74}
+                height={74}
+                src={postList.image}
+                alt="게시글 이미지"
+              />
+            ) : (
+              <Image
+                width={74}
+                height={74}
+                src="/images/img_default@2x.png"
+                alt="게시글 이미지"
+              />
+            )}
           </div>
         </div>
         <div className={styles.writerContainer}>

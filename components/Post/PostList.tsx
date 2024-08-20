@@ -1,23 +1,41 @@
-import Link from "next/link";
-import Image from "next/image";
-import styles from "./PostList.module.css";
-import { PostListProps } from "./@types/Post";
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from './PostList.module.css';
+import { PostListProps } from './types/PostType';
 
 interface PostList {
   postList: PostListProps;
 }
 
 export default function PostList({ postList }: PostList) {
-  const convertDate = new Date(postList.createdAt).toLocaleDateString("ko-KR");
+  const convertDate = new Date(postList.createdAt)
+    .toLocaleDateString('ko-KR')
+    .slice(0, -1);
 
   return (
     <article>
-      <Link href="/">
+      <Link href={`/board/${postList.id}`}>
         <div className={styles.postListContainer}>
           <div className={styles.titleContainer}>
             <h2 className={styles.postTitle}>{postList.title}</h2>
             <div className={styles.postImage}>
-              <Image fill src={postList.image} alt="게시글 이미지" />
+              {postList.image ? (
+                <Image
+                  fill
+                  src={postList.image}
+                  alt="게시글 이미지"
+                  sizes="width : 72px, height : 72px"
+                  objectFit="contain"
+                />
+              ) : (
+                <Image
+                  fill
+                  src="/images/img_default@2x.png"
+                  alt="게시글 이미지"
+                  sizes="width : 72px, height : 72px"
+                  objectFit="contain"
+                />
+              )}
             </div>
           </div>
           <div className={styles.writerContainer}>
