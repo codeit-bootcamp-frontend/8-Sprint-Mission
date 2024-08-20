@@ -19,7 +19,8 @@ export default function Header() {
         <div className={styles.headerLeft}>
           <div className={styles.headerLogo}>
             <Link className={styles.Logo} href="/" aria-label="홈으로 이동">
-              <Image src={Logo} alt="판다마켓 로고" width={153} />
+              <Logo />
+              {/* <Image src={Logo} alt="판다마켓 로고" width={153} /> */}
             </Link>
           </div>
 

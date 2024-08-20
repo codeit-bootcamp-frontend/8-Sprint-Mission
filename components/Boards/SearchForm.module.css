@@ -1,0 +1,22 @@
+.searchForm {
+  display: flex;
+  padding: 9px 20px 9px 16px;
+  gap: 10px;
+  border-radius: 12px;
+
+  background: #f3f4f6;
+}
+
+.searchInput {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
+  border: none;
+  /* outline: none; */
+  width: 400px;
+  background-color: #f3f4f6;
+
+  color: #9ca3af;
+}

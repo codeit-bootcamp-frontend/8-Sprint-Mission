@@ -1,42 +1,21 @@
 import { useEffect, useState } from "react";
 import styles from "@/components/Boards/BestArticleSection.module.css";
+import axios from "@/lib/axios";
 
 export default function BestArticleSection() {
-  //   const [articles, setArticles] = useState();
+  // const [articles, setArticles] = useState<Product[]>([]);
 
-  //   //   const viewportWidth = useViewport();
-
-  //   useEffect(() => {
-  //     // if (viewportWidth === 0) return;
-
-  //     const fetchBestArticles = async (size: number) => {
-  //       try {
-  //         const response = await fetch(
-  //           `https://panda-market-api.vercel.app/articles?orderBy=like&pageSize=${size}`
-  //         );
-  //         const data: ArticleListResponse = await response.json();
-  //         setArticles(data.list);
-  //       } catch (error) {
-  //         console.error("Failed to fetch best articles:", error);
-  //       }
-  //       fetchBestArticles(newPageSize);
-  //     };
-  //   }, []);
+  // async function getProducts(){
+  //   const res = await axios.get("/products");
+  //   const nextProducts = res.data.results;
+  //   setArticles(nextProducts);
+  // }
 
   return (
     <div>
       <div className={styles.bestArticleHeader}>
         <span className={styles.bestArticleTitle}>베스트 게시글</span>
       </div>
-
-      {/* <div className={bestArticleMainContainer}>
-        {articles.map((article) => (
-          <div className={bestArticleMain}
-            key={`best-article-${article.id}`}
-            article={article}
-          />
-        ))}
-      </div> */}
     </div>
   );
 }
