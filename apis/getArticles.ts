@@ -22,24 +22,32 @@ interface ArticlesResponse {
   totalCount: number;
 }
 
-export interface GetArticlesProps {
-  page?: string;
+export interface GetArticlesParams {
+  page?: number;
+  size?: number;
   order?: orderType;
   keyword?: string;
-  size?: string;
 }
 
 const getArticles = async ({
-  page = '1',
+  page = 1,
   order = 'recent',
-  size = '10',
+  size = 10,
   keyword = '',
-}: GetArticlesProps): Promise<ArticlesResponse> => {
-  const { data } = await axiosInstance.get(
-    `/${ARTICLES_QUERY_KEY}?page=${page}&pageSize=${size}&orderBy=${order}&keyword=${keyword}`
-  );
+}: GetArticlesParams): Promise<ArticlesResponse> => {
+  const params = new URLSearchParams({
+    page: page.toString(),
+    pageSize: size.toString(),
+    orderBy: order,
+    keyword,
+  });
 
-  return data;
+  try {
+    const { data } = await axiosInstance.get(`/${ARTICLES_QUERY_KEY}?${params.toString()}`);
+    return data;
+  } catch {
+    return { list: [], totalCount: 0 };
+  }
 };
 
 export default getArticles;

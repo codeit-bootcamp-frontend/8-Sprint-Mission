@@ -1,3 +1,5 @@
+@import './reset.css';
+
 :root {
   /* palette */
   --cool-gray: #374151;

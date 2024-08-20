@@ -1,0 +1,68 @@
+@import '/styles/variables';
+
+.dropdownWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  position: relative;
+  height: 42px;
+  width: 130px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  border-radius: 12px;
+
+  color: var(--cool-gray-800);
+  background-color: var(--white);
+  border: 1px solid var(--cool-gray-200);
+
+  cursor: pointer;
+
+  @include underTablet {
+    width: 120px;
+  }
+
+  @include mobile {
+    width: 42px;
+    border-radius: 12px;
+  }
+}
+
+.dropdownTrigger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & span {
+    width: 66px;
+  }
+}
+
+.dropdownMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  width: 130px;
+  height: 84px;
+  top: 46px;
+  right: 0;
+  border-radius: 12px;
+
+  background-color: var(--white);
+  border: 1px solid var(--cool-gray-200);
+
+  & li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--cool-gray-200);
+    }
+  }
+}

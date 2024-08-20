@@ -10,7 +10,7 @@
     cursor: pointer;
   }
 
-  @media #{$mobileSize} {
+  @include mobile {
     gap: 15px;
   }
 }
@@ -21,15 +21,16 @@
   line-height: 26px;
   color: var(--cool-gray-600);
 
-  &:not(:last-child) {
-    margin-right: 32px;
-    @media #{$mobileSize} {
-      margin-right: 8px;
-    }
+  @include mobile {
+    font-size: 16px;
   }
 
-  @media #{$mobileSize} {
-    font-size: 16px;
+  &:not(:last-child) {
+    margin-right: 32px;
+
+    @include mobile {
+      margin-right: 8px;
+    }
   }
 }
 

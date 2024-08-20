@@ -7,7 +7,7 @@
   border-radius: 8px;
   background-color: var(--cool-gray-50);
 
-  @media #{$underTabletSize} {
+  @include underTablet {
     height: 198px;
   }
 
@@ -37,7 +37,12 @@
     line-height: 32px;
     color: var(--cool-gray-800);
 
-    @media #{$underTabletSize} {
+    img {
+      border-radius: 8px;
+      border: 1px solid var(--cool-gray-200);
+    }
+
+    @include underTablet {
       margin-bottom: 40px;
     }
   }

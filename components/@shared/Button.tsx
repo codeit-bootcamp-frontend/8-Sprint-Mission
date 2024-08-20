@@ -12,17 +12,11 @@ interface ButtonProps {
   type?: 'submit' | 'button' | 'reset';
 }
 
-function Button({
-  children,
-  category = 'medium',
-  onClick,
-  type,
-  disabled = false,
-}: ButtonProps) {
+function Button({ children, category = 'medium', onClick, type, disabled = false }: ButtonProps) {
   return (
     <button
       className={classNames(styles.button, styles[category], {
-        [styles.disabled]: disabled
+        [styles.disabled]: disabled,
       })}
       type={type}
       onClick={onClick}

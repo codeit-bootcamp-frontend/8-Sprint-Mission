@@ -1,13 +1,11 @@
-.articleSection {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+.bestArticleSection {
+  min-height: 257px;
 }
 
 .titleAndButton {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  margin-bottom: 24px;
 
   & button {
     width: 88px;
