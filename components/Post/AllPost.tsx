@@ -8,7 +8,7 @@ import EllipsisLoading from '@/components/Loading/EllipsisLoading';
 import styles from './AllPost.module.css';
 import LinkButton from '@/components/Button/LinkButton';
 import { getPostList } from '@/utils/api';
-import usePostList from '@/hooks/usePostList';
+import useDataList from '@/hooks/useDataList';
 import { AllPropsListProps, OptionType } from './types/PostType';
 
 export default function Post({ initialPosts }: AllPropsListProps) {
@@ -18,7 +18,7 @@ export default function Post({ initialPosts }: AllPropsListProps) {
     error,
     dataList: posts,
     fetchPost: getPost,
-  } = usePostList(getPostList, initialPosts);
+  } = useDataList(getPostList, initialPosts);
 
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [options, setOptions] = useState<OptionType>({
@@ -31,9 +31,10 @@ export default function Post({ initialPosts }: AllPropsListProps) {
     const query = {
       orderBy: options.orderBy,
       pageSize: options.pageSize,
+      keyword: options.keyword,
     };
     getPost({ query });
-  }, [options.orderBy, options.pageSize]);
+  }, [options.orderBy, options.pageSize, options.keyword]);
 
   const showSortOptionHandler = () => {
     setIsSortOpen(prev => !prev);

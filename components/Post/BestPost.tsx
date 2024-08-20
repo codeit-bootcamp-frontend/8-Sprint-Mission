@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import Section from "@/components/Section/Section";
-import BestPostList from "./BestPostList";
-import EllipsisLoading from "@/components/Loading/EllipsisLoading";
-import styles from "./BestPost.module.css";
-import { PostListProps } from "./types/PostType";
-import { getPostList } from "@/utils/api";
-import usePostList from "@/hooks/usePostList";
+import { useState, useEffect } from 'react';
+import Section from '@/components/Section/Section';
+import BestPostList from './BestPostList';
+import EllipsisLoading from '@/components/Loading/EllipsisLoading';
+import styles from './BestPost.module.css';
+import { PostListProps } from './types/PostType';
+import { getPostList } from '@/utils/api';
+import useDataList from '@/hooks/useDataList';
 
 const DEVICE_SIZE = {
   tablet: 1028,
@@ -19,10 +19,10 @@ export default function BestPost() {
     error,
     dataList: bestposts,
     fetchPost: getBestPost,
-  } = usePostList<PostListProps>(getPostList, []);
+  } = useDataList<PostListProps>(getPostList, []);
 
   function getBestPostSize() {
-    if (typeof window === "undefined") return 3;
+    if (typeof window === 'undefined') return 3;
     if (window.innerWidth <= DEVICE_SIZE.mobile) {
       return 1;
     } else if (window.innerWidth <= DEVICE_SIZE.tablet) {
@@ -32,7 +32,7 @@ export default function BestPost() {
 
   useEffect(() => {
     const query = {
-      orderBy: "like",
+      orderBy: 'like',
       pageSize: getBestPostSize(),
     };
     getBestPost({ query });
@@ -42,7 +42,7 @@ export default function BestPost() {
     const updatePageSize = () => {
       const newPageSize = getBestPostSize();
       const query = {
-        orderBy: "like",
+        orderBy: 'like',
         pageSize: newPageSize,
       };
       if (newPageSize !== pageSize) {
@@ -50,9 +50,9 @@ export default function BestPost() {
         getBestPost({ query });
       }
     };
-    window.addEventListener("resize", updatePageSize);
+    window.addEventListener('resize', updatePageSize);
     return () => {
-      window.removeEventListener("resize", updatePageSize);
+      window.removeEventListener('resize', updatePageSize);
     };
   }, [pageSize]);
 
@@ -67,7 +67,7 @@ export default function BestPost() {
         <EllipsisLoading />
       ) : (
         <div className={styles.container}>
-          {bestposts.map((list) => (
+          {bestposts.map(list => (
             <BestPostList key={list.id} postList={list} />
           ))}
         </div>
