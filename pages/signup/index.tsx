@@ -2,14 +2,41 @@ import { ReactElement, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Layout from "@/components/Layout";
+import EasyLogin from "@/components/EasyLogin/EasyLogin";
+import TextInput from "@/components/Inputs/TextInput";
 
 import Image from "next/image";
 import logoIcon from "@/assets/images/ic_logo_icon.png";
 import logoText from "@/assets/images/ic_logo_text.png";
 import passwordHideIcon from "@/assets/images/ic_password_hide.png";
 import passwordShowIcon from "@/assets/images/ic_password_show.png";
-import googleIcon from "@/assets/images/ic_google.png";
-import kakaoIcon from "@/assets/images/ic_kakao.png";
+
+const INPUT_CONTENT = [
+  {
+    name: "email",
+    label: "이메일",
+    type: "email",
+    placeholder: "이메일을 입력해주세요",
+  },
+  {
+    name: "nickname",
+    label: "닉네임",
+    type: "text",
+    placeholder: "닉네임을 입력해주세요",
+  },
+  {
+    name: "password",
+    label: "비밀번호",
+    type: "password",
+    placeholder: "비밀번호를 입력해주세요",
+  },
+  {
+    name: "passwordCheck",
+    label: "비밀번호 확인",
+    type: "password",
+    placeholder: "비밀번호를 다시 한 번 입력해주세요",
+  },
+];
 
 function SignUp() {
   const [isPasswordShow, setIsPasswordShow] = useState(false);
@@ -22,6 +49,21 @@ function SignUp() {
     setIsPasswordCheckShow(
       (prevIsPasswordCheckShow) => !prevIsPasswordCheckShow,
     );
+  };
+
+  const [formValues, setFormValues] = useState({
+    email: "",
+    nickname: "",
+    password: "",
+    passwordCheck: "",
+  });
+  // const [isFormComplete, setIsFormComplete] = useState(false);
+  const handleValueChange = (name: string, value: string) => {
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+    // setIsFormComplete(value.trim() !== "");
   };
 
   return (
@@ -50,9 +92,8 @@ function SignUp() {
             </Link>
           </header>
 
-          <div className="signup-container">
-            <form action="">
-              <div className="form-content">
+          <form action="">
+            {/* <div className="form-content">
                 <label htmlFor="email">이메일</label>
                 <input
                   id="input-email"
@@ -130,39 +171,24 @@ function SignUp() {
                   </button>
                 </div>
                 <div className="error-message password-check"></div>
-              </div>
+              </div> */}
 
-              <button
-                className="form-signup-btn"
-                type="button"
-                value="회원가입"
-              >
-                회원가입
-              </button>
-            </form>
+            {INPUT_CONTENT.map((content, index) => {
+              return (
+                <TextInput
+                  key={index}
+                  content={content}
+                  onChange={handleValueChange}
+                />
+              );
+            })}
 
-            <div className="login-easy">
-              간편 로그인하기
-              <div className="login-easy-sns">
-                <Link href="https://www.google.com/">
-                  <Image
-                    src={googleIcon}
-                    alt="구글 아이콘"
-                    width={42}
-                    height={42}
-                  />
-                </Link>
-                <Link href="https://www.kakaocorp.com/page/">
-                  <Image
-                    src={kakaoIcon}
-                    alt="카카오톡 아이콘"
-                    width={42}
-                    height={42}
-                  />
-                </Link>
-              </div>
-            </div>
-          </div>
+            <button className="form-signup-btn" type="button" value="회원가입">
+              회원가입
+            </button>
+          </form>
+
+          <EasyLogin />
 
           <div className="login">
             이미 회원이신가요?

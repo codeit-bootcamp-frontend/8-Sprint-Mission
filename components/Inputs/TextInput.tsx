@@ -1,8 +1,8 @@
 interface Content {
   name: string;
   label: string;
+  type: string;
   placeholder: string;
-  isTextArea: boolean;
 }
 
 interface TextInputProps {
@@ -11,7 +11,7 @@ interface TextInputProps {
 }
 
 function TextInput({ content, onChange }: TextInputProps) {
-  const { name, label, placeholder, isTextArea } = content;
+  const { name, label, type, placeholder } = content;
 
   const handleTextInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -26,20 +26,20 @@ function TextInput({ content, onChange }: TextInputProps) {
         {label}
       </label>
 
-      {!isTextArea ? (
-        <input
-          className="w-full rounded-xl bg-gray-100 px-6 py-4"
-          id={name}
-          name={name}
-          type="text"
-          placeholder={placeholder}
-          onChange={handleTextInputChange}
-        />
-      ) : (
+      {type === "textarea" ? (
         <textarea
           className="w-full rounded-xl bg-gray-100 px-6 py-4"
           id={name}
           name={name}
+          placeholder={placeholder}
+          onChange={handleTextInputChange}
+        />
+      ) : (
+        <input
+          className="w-full rounded-xl bg-gray-100 px-6 py-4"
+          id={name}
+          name={name}
+          type={type}
           placeholder={placeholder}
           onChange={handleTextInputChange}
         />

@@ -10,14 +10,14 @@ const INPUT_CONTENTS = [
   {
     name: "title",
     label: "*제목",
+    type: "text",
     placeholder: "제목을 입력해주세요",
-    isTextArea: false,
   },
   {
     name: "content",
     label: "*내용",
+    type: "textarea",
     placeholder: "내용을 입력해주세요",
-    isTextArea: true,
   },
 ];
 
