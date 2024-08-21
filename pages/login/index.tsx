@@ -6,6 +6,8 @@ import logoIcon from "@/assets/images/ic_logo_icon.png";
 import logoText from "@/assets/images/ic_logo_text.png";
 import passwordHideIcon from "@/assets/images/ic_password_hide.png";
 import passwordShowIcon from "@/assets/images/ic_password_show.png";
+import googleIcon from "@/assets/images/ic_google.png";
+import kakaoIcon from "@/assets/images/ic_kakao.png";
 
 function Home() {
   const [isPasswordShow, setIsPasswordShow] = useState(false);
@@ -17,7 +19,7 @@ function Home() {
   return (
     <main>
       <header>
-        <Link className="flex items-center justify-center gap-2" href="/">
+        <Link className="flex items-center justify-center gap-6" href="/">
           <Image
             className="logo-img"
             src={logoIcon}
@@ -85,7 +87,7 @@ function Home() {
           <div className="login-easy-sns">
             <Link href="https://www.google.com/">
               <Image
-                src="../asset/icon/ic_google.png"
+                src={googleIcon}
                 alt="구글 아이콘"
                 width={42}
                 height={42}
@@ -93,7 +95,7 @@ function Home() {
             </Link>
             <a href="https://www.kakaocorp.com/page/">
               <Image
-                src="../asset/icon/ic_kakao.png"
+                src={kakaoIcon}
                 alt="카카오톡 아이콘"
                 width={42}
                 height={42}
