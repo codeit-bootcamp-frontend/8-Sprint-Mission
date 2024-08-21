@@ -1,26 +1,26 @@
 import { clsx } from 'clsx';
-import styles from './UButton.module.scss';
+import styles from './UIButton.module.scss';
 
-type UButtonProps = {
+type UIButtonProps = {
   buttonTagType?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
-  type: 'box' | 'floating' | 'round';
+  type: 'box' | 'floating' | 'round' | 'like';
   className?: string;
-  handleClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  handleClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   children: React.ReactNode;
-  isDisalbed?: boolean;
+  isDisabled?: boolean;
   isLightTheme?: boolean;
   isSmallButton?: boolean;
 };
 
-const UButton = ({
+const UIButton = ({
   buttonTagType,
   type,
   className = '',
   handleClick,
   children,
-  isDisalbed = false,
+  isDisabled = false,
   isSmallButton = false,
-}: UButtonProps) => {
+}: UIButtonProps) => {
   return (
     <>
       <button
@@ -33,11 +33,12 @@ const UButton = ({
             [styles['floating-button--small']]:
               type === 'floating' && isSmallButton,
             [styles['round-button']]: type === 'round',
+            [styles['like-button']]: type === 'like',
           },
           className
         )}
         onClick={handleClick}
-        disabled={isDisalbed}
+        disabled={isDisabled}
         type={buttonTagType}
       >
         {children}
@@ -46,4 +47,4 @@ const UButton = ({
   );
 };
 
-export default UButton;
+export default UIButton;

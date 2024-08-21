@@ -1,0 +1,50 @@
+@import '/src/styles/global.scss';
+
+.article {
+  width: 100%;
+  gap: 1rem;
+
+  &__header {
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+
+  &__meta {
+    display: flex;
+    margin: 0 0 1rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__avatar {
+    background-color: $gray-200;
+    margin: 0 1rem 0 0;
+  }
+
+  &__nickname {
+    margin: 0 0.5rem 0 0;
+    @include Body4;
+    color: $gray-600;
+  }
+
+  &__date {
+    margin: 0 2rem 0 0;
+    @include Body4;
+    color: $gray-400;
+  }
+
+  &__heartIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__contentWrapper {
+    margin: 1.5rem 0 0;
+  }
+
+  &__content {
+    @include Body2;
+    color: $gray-800;
+  }
+}

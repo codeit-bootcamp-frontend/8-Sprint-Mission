@@ -24,6 +24,6 @@ export const formatUpdatedAt = (dateString: Date) => {
   } else if (diffInDays < 7) {
     return `${diffInDays}일 전`;
   } else {
-    return format(date, 'yyyy.MM.dd hh:mm a');
+    return format(date, 'yyyy.MM.dd');
   }
 };

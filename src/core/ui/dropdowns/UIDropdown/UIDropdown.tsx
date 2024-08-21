@@ -1,13 +1,13 @@
-import styles from './UDropdown.module.scss';
+import styles from './UIDropdown.module.scss';
 
 import { useState } from 'react';
-import { BasicType } from '@/src/types/BasicTypes';
-import IconSort from '@/src/assets/images/icons/ic_sort.svg';
+import { BasicType } from '@type/BasicTypes';
+import IconSort from '@assets/images/icons/ic_sort.svg';
 import Image from 'next/image';
 
-type UDropdownProps = Pick<BasicType, 'options' | 'onSortSelection'>;
+type UIDropdownProps = Pick<BasicType, 'options' | 'onSortSelection'>;
 
-const UDropdown = ({ ...props }: UDropdownProps) => {
+const UIDropdown = ({ ...props }: UIDropdownProps) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
 
   const toggleDropdownVisible = () => {
@@ -42,4 +42,4 @@ const UDropdown = ({ ...props }: UDropdownProps) => {
   );
 };
 
-export default UDropdown;
+export default UIDropdown;

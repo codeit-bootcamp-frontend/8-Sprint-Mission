@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import clsx from 'clsx';
 import Image from 'next/image';
-import imgPandaMarketLogo from '@/src/assets/images/logo/logo.svg';
-import imgProfile from '@/src/assets/images/icons/ic_profile.svg';
+import imgPandaMarketLogo from '@assets/images/logo/logo.svg';
+import imgProfile from '@assets/images/icons/ic_profile.svg';
 
 const Header = ({}) => {
   const { pathname } = useRouter();

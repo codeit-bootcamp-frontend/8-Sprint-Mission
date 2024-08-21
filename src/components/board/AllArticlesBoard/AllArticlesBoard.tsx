@@ -1,14 +1,15 @@
 import styles from './AllArticlesBoard.module.scss';
 
-import SectionTitle from '@/src/core/ui/SectionTitle/SectionTitle';
-import UButton from '@/src/core/ui/buttons/UButton/UButton';
+import SectionTitle from '@core/ui/SectionTitle/SectionTitle';
+import UIButton from '@core/ui/buttons/UIButton/UIButton';
 import ArticleSearchBar from '../ArticleSearchBar/ArticleSearchBar';
-import UDropdown from '@/src/core/ui/dropdowns/UDropdown/UDropdown';
+import UIDropdown from '@core/ui/dropdowns/UIDropdown/UIDropdown';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Article, ArticleOrderBy } from '@/src/types/ArticleTypes';
-import { getArticles } from '@/src/lib/api/articleApi';
+import { Article, ArticleOrderBy } from '@type/ArticleTypes';
+import { getArticles } from '@lib/api/articleApi';
 import BasicArticleCard from '../BasicArticleCard/BasicArticleCard';
+import Link from 'next/link';
 
 type AllArticlesBoardProps = { initArticles: Article[] };
 
@@ -53,11 +54,13 @@ const AllArticlesBoard = ({ ...props }: AllArticlesBoardProps) => {
     <>
       <div className={styles['header']}>
         <SectionTitle title="게시글" />
-        <UButton children={'글쓰기'} type="box" handleClick={() => {}} />
+        <Link href={'/addboard'}>
+          <UIButton children={'글쓰기'} type="box" handleClick={() => {}} />
+        </Link>
       </div>
       <div className={styles['searchBar']}>
         <ArticleSearchBar onSearch={handleSearch} />
-        <UDropdown
+        <UIDropdown
           onSortSelection={handleSortSelection}
           options={[
             { key: 'recent', value: '최신순' },

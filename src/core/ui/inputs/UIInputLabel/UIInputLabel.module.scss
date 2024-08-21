@@ -1,0 +1,6 @@
+@import '/src/styles/global.scss';
+
+.label {
+  @include Body2;
+  color: $gray-900;
+}

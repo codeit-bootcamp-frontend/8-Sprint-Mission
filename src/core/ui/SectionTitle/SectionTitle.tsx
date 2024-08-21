@@ -1,4 +1,4 @@
-import { BasicType } from '@/src/types/BasicTypes';
+import { BasicType } from '@type/BasicTypes';
 import styles from './SectionTitle.module.scss';
 
 type SectionTitleProps = Pick<BasicType, 'title'>;

@@ -1,8 +1,8 @@
-import AllArticlesBoard from '@/src/components/board/AllArticlesBoard/AllArticlesBoard';
-import BestArticlesSection from '@/src/components/board/BestArticlesSection/BestArticlesSection';
-import BasicLayout from '@/src/components/layout/BasicLayout/BasicLayout';
-import { getArticles } from '@/src/lib/api/articleApi';
-import { Article } from '@/src/types/ArticleTypes';
+import AllArticlesBoard from '@components/board/AllArticlesBoard/AllArticlesBoard';
+import BestArticlesSection from '@components/board/BestArticlesSection/BestArticlesSection';
+import BasicLayout from '@components/layout/BasicLayout/BasicLayout';
+import { getArticles } from '@lib/api/articleApi';
+import { Article } from '@type/ArticleTypes';
 import { error } from 'console';
 import { GetServerSideProps } from 'next';
 

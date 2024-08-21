@@ -1,4 +1,4 @@
-import { BasicType } from '@/src/types/BasicTypes';
+import { BasicType } from '@type/BasicTypes';
 import styles from './BasicLayout.module.scss';
 
 type BasicLayout = Partial<Pick<BasicType, 'children'>>;

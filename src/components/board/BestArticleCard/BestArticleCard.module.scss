@@ -1,4 +1,4 @@
-@import '/src/styles/global.scss';
+@import '/src/styles/global.scss';
 
 .date {
   position: absolute;
@@ -6,6 +6,7 @@
   left: 12.5rem;
   line-height: 1.5rem;
 }
+
 .title {
   position: absolute;
   top: 0rem;
@@ -15,6 +16,7 @@
   display: inline-block;
   width: 16rem;
 }
+
 .articleImage {
   position: absolute;
   top: calc(50% - 22.29px);
@@ -23,6 +25,7 @@
   height: 2.788rem;
   object-fit: cover;
 }
+
 .imageWrapper {
   position: absolute;
   top: 0rem;
@@ -35,7 +38,8 @@
   height: 4.5rem;
   overflow: hidden;
 }
-.group {
+
+.content {
   position: absolute;
   top: 2.875rem;
   left: 0rem;
@@ -44,6 +48,7 @@
   font-size: 1.25rem;
   color: #1f2937;
 }
+
 .listCommunityicMedalChild {
   position: absolute;
   height: 43.75%;
@@ -55,10 +60,9 @@
   border-radius: 2.5px;
   background-color: #fff;
 }
-.vectorIcon {
-  position: absolute;
-  height: 93.13%;
-  width: 77.5%;
+
+.bestIcon {
+  // position: absolute;
   top: 3.85%;
   right: 11.22%;
   bottom: 3.03%;
@@ -67,6 +71,7 @@
   overflow: hidden;
   max-height: 100%;
 }
+
 .listCommunityicMedal {
   width: 1rem;
   position: relative;
@@ -74,11 +79,13 @@
   overflow: hidden;
   flex-shrink: 0;
 }
-.best {
-  position: relative;
+
+.bestText {
+  // position: relative;
   line-height: 1.625rem;
   font-weight: 600;
 }
+
 .listCommunityicMedalParent {
   display: flex;
   flex-direction: row;
@@ -86,31 +93,39 @@
   justify-content: center;
   gap: 0.25rem;
 }
-.imgBadge {
+
+.bestBadge {
   position: absolute;
-  top: 0rem;
+  top: -2.825rem;
   left: 0rem;
   border-radius: 0px 0px 16px 16px;
   background-color: #3692ff;
   width: 6.375rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 0.125rem 1.5rem;
-  box-sizing: border-box;
   font-size: 1rem;
   color: #fff;
 }
-.div2 {
+
+.author {
   position: relative;
   line-height: 1.5rem;
 }
+
+.likeCount {
+  position: relative;
+  line-height: 1.5rem;
+}
+
 .icHeart {
   width: 1rem;
   position: relative;
   height: 1rem;
 }
+
 .icHeartParent {
   display: flex;
   flex-direction: row;
@@ -119,7 +134,8 @@
   gap: 0.25rem;
   color: #6b7280;
 }
-.container {
+
+.footer {
   position: absolute;
   top: 8.5rem;
   left: 0rem;
@@ -130,11 +146,13 @@
   gap: 0.5rem;
   color: #4b5563;
 }
-.parent {
+
+.header {
   width: 21rem;
   position: relative;
   height: 9.563rem;
 }
+
 .card {
   width: 24rem;
   position: relative;

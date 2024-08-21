@@ -1,0 +1,18 @@
+@import '/src/styles/global.scss';
+
+.input {
+  height: 3.5rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: $gray-100;
+
+  &::placeholder {
+    color: $gray-400;
+    @include Body3;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
