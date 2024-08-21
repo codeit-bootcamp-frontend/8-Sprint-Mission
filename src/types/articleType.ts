@@ -7,12 +7,14 @@ export type ArticlesList = {
   id: number;
   title: string;
   content: string;
-  image?: string;
+  image?: string | null;
   likeCount: number;
   createdAt: string;
   updatedAt: string;
   writer: Writer;
 };
+
+export type ArticlesAdd = Pick<ArticlesList, "title" | "content" | "image">;
 
 export type Articles = {
   list: ArticlesList[];
