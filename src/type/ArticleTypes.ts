@@ -1,7 +1,6 @@
-import { OptionalPick } from '../lib/utils/OptionalPick';
 import { BasicType } from './BasicTypes';
 
-export type Article = OptionalPick<
+export type Article = Pick<
   BasicType,
   | 'updatedAt'
   | 'createdAt'
@@ -9,8 +8,8 @@ export type Article = OptionalPick<
   | 'title'
   | 'content'
   | 'image'
-  | 'likeCount',
-  'id'
+  | 'likeCount'
+  | 'id'
 >;
 
 export type ArticleListResponse = Pick<BasicType, 'totalCount'> & {

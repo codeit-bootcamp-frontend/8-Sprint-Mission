@@ -6,7 +6,10 @@ import {
   differenceInSeconds,
 } from 'date-fns';
 
-export const formatUpdatedAt = (dateString: Date) => {
+export const formatUpdatedAt = (dateString: Date | undefined) => {
+  if (!dateString) {
+    return '';
+  }
   const date = new Date(dateString);
   const now = new Date();
 

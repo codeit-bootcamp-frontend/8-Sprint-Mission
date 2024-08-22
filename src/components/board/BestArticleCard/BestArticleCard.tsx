@@ -23,7 +23,7 @@ const BestArticleCard = ({ article }: BestArticleCardProps) => {
           <Image
             className={styles.articleImage}
             alt={`${article.title} 관련 이미지`}
-            src={article.image}
+            src={article.image || ''}
             width={50}
             height={50}
           />
@@ -41,7 +41,7 @@ const BestArticleCard = ({ article }: BestArticleCardProps) => {
       </main>
       <div className={styles.footer}>
         <address className={styles.author}>
-          <span className={styles.authorName}>{article.writer.nickname}</span>
+          <span className={styles.authorName}>{article.writer?.nickname}</span>
         </address>
         <div className={styles.icHeartParent}>
           <div className={styles.icHeart} />
