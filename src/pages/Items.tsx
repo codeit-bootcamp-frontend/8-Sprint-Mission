@@ -1,6 +1,5 @@
-import React from "react";
-import AllItemsContainer from "components/items/AllItemsContainer";
-import BestItemsContainer from "components/items/BestItemsContainer";
+import AllItemsContainer from "components/Items/AllItemsContainer";
+import BestItemsContainer from "components/Items/BestItemsContainer";
 import Main from "components/@shared/Layout/Main";
 
 function Items() {
