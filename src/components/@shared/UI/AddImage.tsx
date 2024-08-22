@@ -57,7 +57,7 @@ const AddImage = ({
       return () => URL.revokeObjectURL(objectUrl);
     } else {
       setPreviewImgUrl(null);
-      setSelectedImage(staticImageData); // image가 없을 때 staticImageData로 설정
+      setSelectedImage(staticImageData);
     }
   }, [image, staticImageData]);
 

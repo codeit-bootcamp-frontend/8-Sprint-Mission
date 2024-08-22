@@ -1,4 +1,3 @@
-"use client";
 import { useEffect } from "react";
 import countPageItems from "lib/utils/countPageItems";
 
