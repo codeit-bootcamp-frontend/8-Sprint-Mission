@@ -1,22 +1,22 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getArticleId } from "core/articleApi";
-import { ArticleId } from "DTO/article";
-import { INITIAL_ARTICLE_ID } from "../constants";
+import { getArticleId } from "core/api/articleApi";
+import { ArticleId } from "core/dtos/articleDTO";
+import { INITIAL_ARTICLE_ID } from "core/constants/initialValues";
 import Main from "components/@shared/Layout/Main";
 import LikeCount from "components/@shared/UI/LikeCount";
-import useFetch from "lib/hooks/useFetch";
+import useApiGet from "lib/hooks/useApiGet";
 import Comments from "components/@shared/UI/Comments";
 import defaultProfileImg from "assets/icons/ic_profile.png";
 import TextareaInput from "components/@shared/UI/form/TextareaInput";
 import FormButton from "components/@shared/UI/form/FormButton";
-import useFormSubmit from "lib/hooks/useFormSubmit";
 import Form from "components/@shared/UI/form/Form";
+import { useForm, Controller } from "react-hook-form";
 
 function ArticleInfo() {
   const { articleId } = useParams();
 
-  const { data: articleIdData } = useFetch<ArticleId>(
+  const { data: articleIdData } = useApiGet<ArticleId>(
     getArticleId,
     { articleId: Number(articleId) },
     INITIAL_ARTICLE_ID
@@ -24,11 +24,15 @@ function ArticleInfo() {
 
   const isLoading = !articleIdData || articleIdData.id === 0;
 
-  const { isFormValid, formValues, handleInputChange, handleSubmit } =
-    useFormSubmit();
+  const { control, handleSubmit, reset } = useForm({
+    defaultValues: {
+      comment: "",
+    },
+  });
 
-  const onSubmit = (formValues: { [key: string]: string }) => {
-    console.log("댓글 제출:", formValues);
+  const onSubmit = async (data: { comment: string }) => {
+    console.log("댓글 제출:", data.comment);
+    reset();
   };
 
   return (
@@ -60,15 +64,20 @@ function ArticleInfo() {
         <div className="border-2 border-gray-100" />
         <p>{articleIdData.content}</p>
       </section>
-      <Form onSubmit={(e) => handleSubmit(e, onSubmit)} className="relative">
-        <TextareaInput
-          htmlFor="comment"
-          title="댓글달기"
-          placeholder="댓글을 입력하세요."
-          onChange={handleInputChange}
-          className="mb-20"
+      <Form onSubmit={handleSubmit(onSubmit)} className="relative">
+        <Controller
+          name="comment"
+          control={control}
+          render={({ field }) => (
+            <TextareaInput
+              htmlFor="comment"
+              title="댓글달기"
+              placeholder="댓글을 입력하세요."
+              className="mb-20"
+            />
+          )}
         />
-        <FormButton isFormValid={isFormValid} className="top-36 " />
+        <FormButton isFormValid={true} className="top-36 " />
         {!isLoading && (
           <Comments id={articleIdData.id} type="article" category="댓글" />
         )}

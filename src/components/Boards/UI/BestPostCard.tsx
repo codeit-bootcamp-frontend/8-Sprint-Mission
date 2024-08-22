@@ -1,7 +1,7 @@
-import { Article } from "DTO/article";
+import { Article } from "core/dtos/articleDTO";
 import LikeCount from "components/@shared/UI/LikeCount";
 import bestBadgeImg from "assets/images/img_badge.png";
-import { DEFAULT_ITEM_IMAGE } from "../../../constants";
+import { DEFAULT_ITEM_IMAGE } from "core/constants/defaultImages";
 
 interface BestPostCardProps {
   article: Article;

@@ -5,7 +5,7 @@ import AddImage from "components/@shared/UI/AddImage";
 import Form from "components/@shared/UI/form/Form";
 import FormButton from "components/@shared/UI/form/FormButton";
 import TextareaInput from "components/@shared/UI/form/TextareaInput";
-import { DEFAULT_IMAGE_URL } from "../constants";
+import { DEFAULT_IMAGE_URL } from "core/constants/defaultImages";
 
 interface FormValues {
   title: string;
@@ -48,7 +48,10 @@ function AddBoard() {
     <Main className="relative">
       <Form onSubmit={handleSubmit(onSubmit)}>
         <h1 className="font-bold text-gray-800 text-xl mb-8">게시글 쓰기</h1>
-        <FormButton isFormValid={!!watch("title") && !!watch("content")} />
+        <FormButton
+          className="absolute top-24 right-0 w-[74px] h-[42px] max-xl:right-6 max-md:right-4 rounded-lg"
+          isFormValid={!!watch("title") && !!watch("content")}
+        />
         <Controller
           name="title"
           control={control}

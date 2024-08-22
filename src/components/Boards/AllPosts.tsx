@@ -5,9 +5,9 @@ import DropDownList from "components/@shared/UI/DropDownList";
 import SearchForm from "components/@shared/UI/SearchForm";
 import Button from "components/@shared/UI/Button";
 import ReturnButton from "components/@shared/UI/ReturnButton";
-import { getArticles } from "core/articleApi";
-import { ArticleResponse } from "DTO/article";
-import useFetch from "lib/hooks/useFetch";
+import { getArticles } from "core/api/articleApi";
+import { ArticleResponse } from "core/dtos/articleDTO";
+import useApiGet from "lib/hooks/useApiGet";
 import { useSearch } from "lib/hooks/useSearch";
 import { usePagination } from "lib/hooks/usePagination";
 import useResize from "lib/hooks/useResize";
@@ -21,7 +21,7 @@ function AllPosts() {
 
   useResize(setPageSize, { mobile: 4, tablet: 6, pc: 10 });
 
-  const { data: articlesData } = useFetch<ArticleResponse>(
+  const { data: articlesData } = useApiGet<ArticleResponse>(
     getArticles,
     {
       page: 1,
@@ -69,7 +69,7 @@ function AllPosts() {
       </div>
       <ul className="flex flex-col gap-6">
         {filteredResults.length === 0 ? (
-          <li className="mt-12 flex flex-col items-center justify-center gap-2 ">
+          <li className=" mt-12 flex flex-col items-center justify-center gap-2 ">
             <NoSearchResult category="게시글" />
             <ReturnButton buttonText="전체 게시글 보기" onClick={handleReset} />
           </li>

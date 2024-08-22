@@ -1,9 +1,10 @@
 import React from "react";
-import { getProductComments, getArticleComments } from "core/commentApi";
-import { INITIAL_COMMENTS, DEFAULT_PROFILE_ICON } from "../../../constants";
-import useFetch from "lib/hooks/useFetch";
+import { getProductComments, getArticleComments } from "core/api/commentApi";
+import { INITIAL_COMMENTS } from "core/constants/initialValues";
+import { DEFAULT_PROFILE_ICON } from "core/constants/defaultImages";
+import useApiGet from "lib/hooks/useApiGet";
 import { countTime } from "lib/utils/countTime";
-import { CommentResponse, Comment } from "DTO/comment";
+import { CommentResponse, Comment } from "core/dtos/commentDTO";
 import ReturnButton from "components/@shared/UI/ReturnButton";
 import emptyInquiryImg from "assets/images/img_inquiry_empty.png";
 import { hasFinalConsonant } from "lib/utils/hasFinalConsonant";
@@ -17,7 +18,7 @@ interface CommentsProps {
 }
 
 function Comments({ id, type, limit = 5, category }: CommentsProps) {
-  const { data: commentsData } = useFetch<CommentResponse>(
+  const { data: commentsData } = useApiGet<CommentResponse>(
     type === "product" ? getProductComments : getArticleComments,
     { id, limit },
     INITIAL_COMMENTS

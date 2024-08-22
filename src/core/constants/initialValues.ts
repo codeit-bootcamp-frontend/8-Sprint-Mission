@@ -1,7 +1,5 @@
-import { CommentResponse } from "DTO/comment";
-import { ArticleId } from "DTO/article";
-import defalutItemImg from "assets/images/img_item_default.png";
-import defalutProfileIc from "assets/icons/ic_profile.png";
+import { CommentResponse } from "core/dtos/commentDTO";
+import { ArticleId } from "core/dtos/articleDTO";
 
 export const INITIAL_PRODUCTID = {
   createdAt: "",
@@ -45,9 +43,3 @@ export const INITIAL_ARTICLE_ID: ArticleId = {
   title: "",
   id: 0,
 };
-
-export const DEFAULT_IMAGE_URL = "https://example.com/...";
-
-export const DEFAULT_ITEM_IMAGE = defalutItemImg;
-
-export const DEFAULT_PROFILE_ICON = defalutProfileIc;

@@ -1,6 +1,6 @@
-import { fetchFromApi, BASE_URL } from "./fetchFromApi";
-import { ArticleResponse } from "DTO/article";
-import { Article } from "DTO/article";
+import { getFromApi, BASE_URL } from "./apiService";
+import { ArticleResponse } from "core/dtos/articleDTO";
+import { Article } from "core/dtos/articleDTO";
 
 // 전체 아티클 가져오기
 interface GetArticlesParams {
@@ -18,7 +18,7 @@ export async function getArticles(
     orderBy: params.orderBy,
   }).toString();
   const url = `${BASE_URL}/articles?${query}`;
-  return fetchFromApi<ArticleResponse>(url);
+  return getFromApi<ArticleResponse>(url);
 }
 
 // 특정 아티클 가져오기
@@ -30,5 +30,5 @@ export async function getArticleId({
   articleId,
 }: GetArticleIdParams): Promise<Article> {
   const url = `${BASE_URL}/articles/${articleId}`;
-  return fetchFromApi<Article>(url);
+  return getFromApi<Article>(url);
 }

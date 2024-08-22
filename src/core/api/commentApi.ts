@@ -1,5 +1,5 @@
-import { CommentResponse } from "DTO/comment";
-import { fetchFromApi, BASE_URL } from "./fetchFromApi";
+import { CommentResponse } from "core/dtos/commentDTO";
+import { getFromApi, BASE_URL } from "./apiService";
 
 async function getComments(
   basePath: string,
@@ -8,7 +8,7 @@ async function getComments(
 ): Promise<CommentResponse> {
   const query = new URLSearchParams({ limit: limit.toString() }).toString();
   const url = `${BASE_URL}/${basePath}/${id}/comments?${query}`;
-  return fetchFromApi<CommentResponse>(url);
+  return getFromApi<CommentResponse>(url);
 }
 
 export async function getProductComments({

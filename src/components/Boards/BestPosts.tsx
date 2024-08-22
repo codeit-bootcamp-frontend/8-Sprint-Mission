@@ -1,15 +1,15 @@
 "use client";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import useFetch from "lib/hooks/useFetch";
-import { getArticles } from "core/articleApi";
-import { ArticleResponse } from "DTO/article";
+import useApiGet from "lib/hooks/useApiGet";
+import { getArticles } from "core/api/articleApi";
+import { ArticleResponse } from "core/dtos/articleDTO";
 import BestPostCard from "components/Boards/UI/BestPostCard";
 import useResize from "lib/hooks/useResize";
 
 function Bestarticles() {
   const [pageSize, setPageSize] = useState<number>(3);
-  const { data: articlesData } = useFetch<ArticleResponse>(
+  const { data: articlesData } = useApiGet<ArticleResponse>(
     getArticles,
     {
       page: 1,

@@ -1,7 +1,7 @@
-import { Product } from "DTO/product";
-import { fetchFromApi, BASE_URL } from "./fetchFromApi";
+import { Product } from "core/dtos/productDTO";
+import { getFromApi, BASE_URL } from "./apiService";
 
-// 제품 목록 가져오기
+// 전체 제품 가져오기
 interface GetProductsParams {
   page: string;
   pageSize: string;
@@ -15,7 +15,7 @@ export async function getProducts(params: GetProductsParams) {
     orderBy: params.orderBy,
   }).toString();
   const url = `${BASE_URL}/products?${query}`;
-  return fetchFromApi<any>(url);
+  return getFromApi<any>(url);
 }
 
 // 특정 제품 가져오기
@@ -27,5 +27,5 @@ export async function getProductId({
   productId,
 }: GetProductIdParams): Promise<Product> {
   const url = `${BASE_URL}/products/${productId}`;
-  return fetchFromApi<Product>(url);
+  return getFromApi<Product>(url);
 }

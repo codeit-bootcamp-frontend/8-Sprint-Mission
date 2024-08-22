@@ -5,7 +5,7 @@
     "jsx": "react-jsx",
     "module": "commonjs",
     "baseUrl": "./src",
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "typeRoots": ["./node_modules/@types", "src/core/types"],
     "allowJs": true,
     "noEmit": true,
     "isolatedModules": true,

@@ -1,6 +1,6 @@
-import { Article } from "DTO/article";
+import { Article } from "core/dtos/articleDTO";
 import LikeCount from "components/@shared/UI/LikeCount";
-import { DEFAULT_ITEM_IMAGE } from "../../../constants";
+import { DEFAULT_ITEM_IMAGE } from "core/constants/defaultImages";
 
 interface BasicPostCardProps {
   article: Article;
