@@ -20,7 +20,7 @@ function DropDownList({
   };
 
   return (
-    <div className="relative max-md:w-[42px] max-md:h-[42px] max-md:pt-2 pt-3 py-3 rounded-xl w-32 border-gray-200 bg-white border-solid border-2">
+    <div className="relative z-10 max-md:w-[42px] max-md:h-[42px] max-md:pt-2 pt-3 py-3 rounded-xl w-32 border-gray-200 bg-white border-solid border-2">
       <button
         className="flex gap-3 px-5 max-md:px-2 "
         onClick={(e) => setIsOpened(!isOpened)}
