@@ -3,16 +3,19 @@ export interface Writer {
   nickname: string;
 }
 
-export interface Article {
+export interface ArticleId {
   id: number;
   image?: string;
-  count: string;
   content: string;
   title: string;
   likeCount: number;
   createdAt: string;
   updatedAt?: string;
   writer: Writer;
+}
+
+export interface Article extends ArticleId {
+  count: string;
 }
 
 export interface ArticleResponse {

@@ -1,4 +1,5 @@
 import { Product } from "DTO/product";
+import { Article } from "DTO/article";
 import { CommentResponse } from "DTO/comment";
 import { ArticleResponse } from "DTO/article";
 
@@ -48,21 +49,30 @@ export async function getProductId({
 }
 
 // 제품의 댓글 가져오기
-interface GetProductCommentsParams {
-  productId: number;
+interface GetCommentsParams {
+  id: number;
   limit?: number;
 }
 
 export async function getProductComments({
-  productId,
-  limit = 3,
-}: GetProductCommentsParams): Promise<CommentResponse[]> {
+  id,
+  limit = 5,
+}: GetCommentsParams): Promise<CommentResponse> {
   const query = new URLSearchParams({ limit: limit.toString() }).toString();
-  const url = `${BASE_URL}/products/${productId}/comments?${query}`;
-  return fetchFromApi<CommentResponse[]>(url);
+  const url = `${BASE_URL}/products/${id}/comments?${query}`;
+  return fetchFromApi<CommentResponse>(url);
 }
 
-// 아티클 목록 가져오기
+export async function getArticleComments({
+  id,
+  limit = 5,
+}: GetCommentsParams): Promise<CommentResponse> {
+  const query = new URLSearchParams({ limit: limit.toString() }).toString();
+  const url = `${BASE_URL}/articles/${id}/comments?${query}`;
+  return fetchFromApi<CommentResponse>(url);
+}
+
+// 아티클 가져오기
 interface GetArticlesParams {
   page: string;
   pageSize: string;
@@ -79,4 +89,16 @@ export async function getArticles(
   }).toString();
   const url = `${BASE_URL}/articles?${query}`;
   return fetchFromApi<ArticleResponse>(url);
+}
+
+// 특정 아티클 가져오기
+interface GetArticleIdParams {
+  articleId: number;
+}
+
+export async function getArticleId({
+  articleId,
+}: GetArticleIdParams): Promise<Article> {
+  const url = `${BASE_URL}/articles/${articleId}`;
+  return fetchFromApi<Article>(url);
 }

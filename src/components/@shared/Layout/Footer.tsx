@@ -24,17 +24,35 @@ function Footer({ className }: FooterProps) {
         <ul className="flex flex-row gap-3">
           <li>
             <Link to="https://www.facebook.com/">
-              <img alt="페이스북 아이콘" src={facebookIc} className="h-5 w-5" />
+              <img
+                alt="페이스북 아이콘"
+                src={facebookIc}
+                className="h-5 w-5"
+                width={20}
+                height={20}
+              />
             </Link>
           </li>
           <li>
             <Link to="https://x.com/">
-              <img alt="트위터 아이콘" src={twitterIc} className="h-5 w-5" />
+              <img
+                alt="트위터 아이콘"
+                src={twitterIc}
+                className="h-5 w-5"
+                width={20}
+                height={20}
+              />
             </Link>
           </li>
           <li>
             <Link to="https://www.youtube.com/">
-              <img alt="유튜브 아이콘" src={youtubeIc} className="h-5 w-5" />
+              <img
+                alt="유튜브 아이콘"
+                src={youtubeIc}
+                className="h-5 w-5"
+                width={20}
+                height={20}
+              />
             </Link>
           </li>
           <li>
@@ -43,6 +61,8 @@ function Footer({ className }: FooterProps) {
                 alt="인스타그램 아이콘"
                 src={instagramIc}
                 className="h-5 w-5"
+                width={20}
+                height={20}
               />
             </Link>
           </li>

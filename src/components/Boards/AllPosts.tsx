@@ -1,17 +1,19 @@
+"use client";
 import { useState } from "react";
-import DropDownList from "components/common/UI/DropDownList";
-import SearchForm from "components/common/UI/SearchForm";
-import Button from "components/common/UI/Button";
-import ReturnButton from "components/common/UI/ReturnButton";
-import { getArticles } from "../../core/api";
-import { ArticleResponse } from "../../DTO/article";
-import useFetch from "../../lib/hooks/useFetch";
+import { Link } from "react-router-dom";
+import DropDownList from "components/@shared/UI/DropDownList";
+import SearchForm from "components/@shared/UI/SearchForm";
+import Button from "components/@shared/UI/Button";
+import ReturnButton from "components/@shared/UI/ReturnButton";
+import { getArticles } from "core/api";
+import { ArticleResponse } from "DTO/article";
+import useFetch from "lib/hooks/useFetch";
 import { useSearch } from "lib/hooks/useSearch";
 import { usePagination } from "lib/hooks/usePagination";
 import useResize from "lib/hooks/useResize";
-import Pagination from "components/common/UI/Pagination";
+import Pagination from "components/@shared/UI/Pagination";
 import BasicPostCard from "components/Boards/UI/BasicPostCard";
-import NoSearchResult from "components/common/UI/NoSearchResult";
+import NoSearchResult from "components/@shared/UI/NoSearchResult";
 
 function AllPosts() {
   const [selectedCategory, setSelectedCategory] = useState<string>("최신순");
@@ -50,7 +52,7 @@ function AllPosts() {
     <section className="flex flex-col gap-6 ">
       <div className="flex flex-row justify-between h-[42px] items-center">
         <h1 className="text-gray-900 font-bold text-xl">게시글</h1>
-        <Button buttonText="글쓰기" />
+        <Button buttonText="글쓰기" to="/addBoard" className="h-full" />
       </div>
       <div className="flex flex-row gap-3 max-xl:mt-12">
         <SearchForm
@@ -73,7 +75,9 @@ function AllPosts() {
           </li>
         ) : (
           filteredResults.map((article) => (
-            <BasicPostCard key={article.id} article={article} />
+            <Link key={article.id} to={`/boards/${article.id}`}>
+              <BasicPostCard key={article.id} article={article} />
+            </Link>
           ))
         )}
       </ul>

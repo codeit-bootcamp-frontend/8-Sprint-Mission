@@ -1,8 +1,8 @@
 import React from "react";
-import Main from "components/common/Layout/Main";
+import Main from "components/@shared/Layout/Main";
 import { Link } from "react-router-dom";
 import logo from "assets/images/logo_pandamarket.png";
-import Button from "components/common/UI/Button";
+import Button from "components/@shared/UI/Button";
 import kakaoIc from "assets/icons/ic_kakao.png";
 import googleIc from "assets/icons/ic_google.png";
 import visiblityOnIc from "assets/icons/ic_visibility_on.png";

@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "components/common/Layout/Main";
+import Main from "components/@shared/Layout/Main";
 
 function NotFound() {
   return (

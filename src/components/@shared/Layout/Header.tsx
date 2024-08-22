@@ -1,18 +1,21 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "assets/images/logo_pandamarket.png";
 import mobileLogo from "assets/images/logo_pandamarket_name.png";
-import Button from "components/common/UI/Button";
+import Button from "components/@shared/UI/Button";
 
 function Header() {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
-
-  const handleResize = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+
     window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -26,8 +29,10 @@ function Header() {
             alt="판다마켓 로고"
             src={isMobile ? mobileLogo : logo}
             className={`bg-cover ${
-              isMobile ? "object-none mr-2 mx-0" : "w-[153px] h-[51px]"
+              isMobile ? "object-none mr-2 mx-0" : ""
             } mx-5`}
+            width={isMobile ? 100 : 153}
+            height={isMobile ? 40 : 51}
           />
         </Link>
         <ul className="flex flex-row content-center font-bold w-[218px] max-md:w-auto max-md:gap-2 max-md:justify-between justify-around text-gray-600 flex-wrap">

@@ -29,12 +29,16 @@ function DropDownList({
         <img
           src={sortIc}
           alt="드롭다운 정렬 아이콘"
-          className="block md:hidden  w-6 h-6 cursor-pointer"
+          className="block md:hidden cursor-pointer"
+          width={24}
+          height={24}
         />
         <img
           src={arrowDownIc}
           alt="드롭다운 화살표 아이콘"
-          className="right-6 w-6 h-6 cursor-pointer max-md:hidden"
+          className="right-6 cursor-pointer max-md:hidden"
+          width={24}
+          height={24}
         />
       </button>
       {isOpened && (

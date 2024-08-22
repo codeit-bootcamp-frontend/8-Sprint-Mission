@@ -1,15 +1,17 @@
 import React, { ChangeEvent, useState } from "react";
-import { Tag } from "../../pages/AddItem";
+import TextareaInput from "components/@shared/UI/form/TextareaInput";
+import { Tag } from "pages/AddItem";
+import grayXIc from "assets/icons/ic_X_gray.png";
 
 const AddItemTags: React.FC<{ initialTags: Tag[] }> = ({ initialTags }) => {
   const [tags, setTags] = useState<Tag[]>(initialTags);
   const [tagInput, setTagInput] = useState<string>("");
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setTagInput(e.target.value);
   };
 
-  const handleAddTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleAddTag = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && tagInput.trim()) {
       e.preventDefault();
       setTags([...tags, { id: Date.now(), name: tagInput.trim() }]);
@@ -22,28 +24,30 @@ const AddItemTags: React.FC<{ initialTags: Tag[] }> = ({ initialTags }) => {
   };
 
   return (
-    <div className="item-detail-container">
-      <label className="font-bold text-gray-800 text-lg">태그</label>
-      <input
-        className="item-detail-input"
-        type="text"
-        placeholder="태그를 입력해주세요"
+    <>
+      <TextareaInput
+        title="태그"
+        htmlFor="itemTag"
         value={tagInput}
         onChange={handleInputChange}
         onKeyDown={handleAddTag}
+        placeholder="태그를 입력해주세요"
+        className="h-[56px]"
       />
-      <ul className="tags">
+      <ul className="flex felx-row gap-3">
         {tags.map((tag) => (
-          <li key={tag.id} className="tag-item">
-            {tag.name}
-            <button
-              className="ic-delete-gray"
-              onClick={() => handleRemoveTag(tag.id)}
-            />
+          <li
+            key={tag.id}
+            className="bg-gray-100 flex gap-2 rounded-[26px] px-3 py-[6px] mt-[14px] text-gray-900"
+          >
+            #{tag.name}
+            <button onClick={() => handleRemoveTag(tag.id)}>
+              <img src={grayXIc} alt="삭제 아이콘" width={22} height={24} />
+            </button>
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

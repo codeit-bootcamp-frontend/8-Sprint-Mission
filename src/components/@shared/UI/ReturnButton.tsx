@@ -13,7 +13,7 @@ function ReturnButton({ buttonText, onClick }: ReturnButtonProps) {
     if (onClick) {
       onClick(); // onClick이 있을 경우 호출
     } else {
-      navigate(-1); // 기본 동작
+      navigate(-1);
     }
   };
 
@@ -23,7 +23,7 @@ function ReturnButton({ buttonText, onClick }: ReturnButtonProps) {
       onClick={handleClick}
     >
       {buttonText}
-      <img src={backIc} className="h-6" alt="돌아가기 아이콘" />
+      <img src={backIc} alt="돌아가기 아이콘" width={24} height={24} />
     </button>
   );
 }

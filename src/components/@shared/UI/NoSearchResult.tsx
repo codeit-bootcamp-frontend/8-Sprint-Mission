@@ -7,11 +7,7 @@ interface NoSearchResultProps {
 const NoSearchResult = ({ category }: NoSearchResultProps) => {
   return (
     <>
-      <img
-        src={emptyReplyImg}
-        alt="검색 결과 없음"
-        className="w-[196px] h-[196px]"
-      />
+      <img src={emptyReplyImg} alt="검색 결과 없음" width={196} height={196} />
       <p className="text-gray-400">검색된 {category}이 없어요.</p>
     </>
   );

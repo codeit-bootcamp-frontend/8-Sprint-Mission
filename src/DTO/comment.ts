@@ -8,10 +8,14 @@ export interface CommentRequest {
   content: string;
 }
 
-export interface CommentResponse {
+export interface Comment {
   writer: CommentWriter;
   updatedAt: string;
   createdAt: string;
   content: string;
   id: number;
+}
+
+export interface CommentResponse {
+  list: Comment[];
 }

@@ -1,4 +1,6 @@
+"use client";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import useFetch from "lib/hooks/useFetch";
 import { getArticles } from "core/api";
 import { ArticleResponse } from "DTO/article";
@@ -22,10 +24,12 @@ function Bestarticles() {
   return (
     <section className="flex flex-col gap-6">
       <h1 className="text-gray-900 font-bold text-xl">베스트 게시물</h1>
-      <ul className="flex flex-row gap-6 max-xl:w-full max-xl:gap-4 max-xl:h-[246px]">
+      <ul className="flex flex-row gap-6 max-xl:w-full max-xl:gap-4">
         {articlesData.list.length > 0 ? (
           articlesData.list.map((article) => (
-            <BestPostCard key={article.id} article={article} />
+            <Link key={article.id} to={`/boards/${article.id}`}>
+              <BestPostCard key={article.id} article={article} />
+            </Link>
           ))
         ) : (
           <li>게시물이 없습니다.</li>
