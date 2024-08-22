@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getArticleId } from "core/api";
+import { getArticleId } from "core/articleApi";
 import { ArticleId } from "DTO/article";
 import { INITIAL_ARTICLE_ID } from "../constants";
 import Main from "components/@shared/Layout/Main";

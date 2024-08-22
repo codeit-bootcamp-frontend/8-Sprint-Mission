@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "lib/hooks/useFetch";
 import heartIcon from "assets/icons/ic_heart.png";
-import { getProductId } from "core/api";
+import { getProductId } from "core/productApi";
 import { INITIAL_PRODUCTID, DEFAULT_ITEM_IMAGE } from "../constants";
 import TextareaInput from "components/@shared/UI/form/TextareaInput";
 import Comments from "components/@shared/UI/Comments";

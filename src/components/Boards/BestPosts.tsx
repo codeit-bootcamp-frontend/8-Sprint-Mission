@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useFetch from "lib/hooks/useFetch";
-import { getArticles } from "core/api";
+import { getArticles } from "core/articleApi";
 import { ArticleResponse } from "DTO/article";
 import BestPostCard from "components/Boards/UI/BestPostCard";
 import useResize from "lib/hooks/useResize";

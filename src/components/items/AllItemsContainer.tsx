@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ItemContainer from "./ItemContainer";
 import DropDownList from "../@shared/UI/DropDownList";
 import Pagination from "components/@shared/UI/Pagination";
-import { getProducts } from "core/api";
+import { getProducts } from "core/productApi";
 import useFetch from "lib/hooks/useFetch";
 import { useSearch } from "lib/hooks/useSearch";
 import { usePagination } from "lib/hooks/usePagination";

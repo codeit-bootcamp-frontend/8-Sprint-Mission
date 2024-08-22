@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import ItemContainer from "./ItemContainer";
-import { getProducts } from "core/api";
+import { getProducts } from "core/productApi";
 import useFetch from "lib/hooks/useFetch";
 import countPageItems from "lib/utils/countPageItems";
 import { ProductResponse } from "DTO/product";

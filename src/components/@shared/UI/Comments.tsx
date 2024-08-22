@@ -1,5 +1,5 @@
 import React from "react";
-import { getProductComments, getArticleComments } from "core/api";
+import { getProductComments, getArticleComments } from "core/commentApi";
 import { INITIAL_COMMENTS, DEFAULT_PROFILE_ICON } from "../../../constants";
 import useFetch from "lib/hooks/useFetch";
 import { countTime } from "lib/utils/countTime";
@@ -67,7 +67,7 @@ function Comments({ id, type, limit = 5, category }: CommentsProps) {
                   </span>
                 </div>
               </div>
-              <line className="border-2 border-gray-100" />
+              <div className="border-2 border-gray-100" />
             </li>
           ))
         )}

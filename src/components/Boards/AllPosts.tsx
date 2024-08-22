@@ -5,7 +5,7 @@ import DropDownList from "components/@shared/UI/DropDownList";
 import SearchForm from "components/@shared/UI/SearchForm";
 import Button from "components/@shared/UI/Button";
 import ReturnButton from "components/@shared/UI/ReturnButton";
-import { getArticles } from "core/api";
+import { getArticles } from "core/articleApi";
 import { ArticleResponse } from "DTO/article";
 import useFetch from "lib/hooks/useFetch";
 import { useSearch } from "lib/hooks/useSearch";
