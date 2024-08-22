@@ -1,7 +1,6 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Product } from "DTO/product";
-import { DEFAULT_ITEM_IMAGE } from "../../constants";
+import { Product } from "core/dtos/productDTO";
+import { DEFAULT_ITEM_IMAGE } from "core/constants/defaultImages";
 import LikeCount from "components/@shared/UI/LikeCount";
 
 const ItemContainer = ({ item }: { item: Product }) => {
@@ -15,14 +14,14 @@ const ItemContainer = ({ item }: { item: Product }) => {
 
   return (
     <figure className="flex flex-col gap-4">
-      <img
-        src={imageUrl}
-        alt={item.name}
-        className="object-cover cursor-pointer"
-        onClick={() => handleItemClick(item.id)}
-        width={221}
-        height={221}
-      />
+      <div className="aspect-w-1 aspect-h-1 z-0">
+        <img
+          src={imageUrl}
+          alt={item.name}
+          className="object-cover cursor-pointer rounded-2xl"
+          onClick={() => handleItemClick(item.id)}
+        />
+      </div>
       <div className="flex flex-col gap-[6px] text-gray-800">
         <h2
           className="text-[0.8rem] cursor-pointer"

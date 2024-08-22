@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "lib/hooks/useFetch";
+import useApiGet from "lib/hooks/useApiGet";
 import heartIcon from "assets/icons/ic_heart.png";
-import { getProductId } from "core/productApi";
-import { INITIAL_PRODUCTID, DEFAULT_ITEM_IMAGE } from "../constants";
+import { getProductId } from "core/api/productApi";
+import { INITIAL_PRODUCTID } from "core/constants/initialValues";
+import { DEFAULT_ITEM_IMAGE } from "core/constants/defaultImages";
 import TextareaInput from "components/@shared/UI/form/TextareaInput";
 import Comments from "components/@shared/UI/Comments";
 import Main from "components/@shared/Layout/Main";
@@ -11,7 +12,7 @@ import Main from "components/@shared/Layout/Main";
 function ItemInfo() {
   const { productId } = useParams();
 
-  const { data: productData = INITIAL_PRODUCTID } = useFetch(
+  const { data: productData = INITIAL_PRODUCTID } = useApiGet(
     getProductId,
     {
       productId,
@@ -81,7 +82,7 @@ function ItemInfo() {
           </div>
         </div>
       </section>
-      <line className="border-2 border-gray-100 mb-6" />
+      <div className="border-2 border-gray-100 mb-6" />
       <TextareaInput
         htmlFor="comments"
         title="문의하기"

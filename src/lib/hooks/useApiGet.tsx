@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 type ApiCallFunction<T> = (params: any) => Promise<T>;
 
-function useFetch<T>(
+function useApiGet<T>(
   apiCall: ApiCallFunction<T>,
   requestParams: any,
   initialValue: T
@@ -27,4 +27,4 @@ function useFetch<T>(
   return { data };
 }
 
-export default useFetch;
+export default useApiGet;

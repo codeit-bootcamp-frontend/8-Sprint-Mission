@@ -1,14 +1,13 @@
-"use client";
 import React, { useState } from "react";
 import ItemContainer from "./ItemContainer";
 import DropDownList from "../@shared/UI/DropDownList";
 import Pagination from "components/@shared/UI/Pagination";
-import { getProducts } from "core/productApi";
-import useFetch from "lib/hooks/useFetch";
+import { getProducts } from "core/api/productApi";
+import useApiGet from "lib/hooks/useApiGet";
 import { useSearch } from "lib/hooks/useSearch";
 import { usePagination } from "lib/hooks/usePagination";
 import useResize from "lib/hooks/useResize";
-import { ProductResponse } from "DTO/product";
+import { ProductResponse } from "core/dtos/productDTO";
 import SearchForm from "components/@shared/UI/SearchForm";
 import ReturnButton from "components/@shared/UI/ReturnButton";
 import Button from "components/@shared/UI/Button";
@@ -18,7 +17,7 @@ function AllItemsContainer() {
   const [selectedCategory, setSelectedCategory] = useState<string>("최신순");
   const [pageSize, setPageSize] = useState<number>(10);
 
-  const { data: productsData } = useFetch<ProductResponse>(
+  const { data: productsData } = useApiGet<ProductResponse>(
     getProducts,
     {
       page: 1,
