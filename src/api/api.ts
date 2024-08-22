@@ -4,9 +4,7 @@ import {
   ArticlesQuery,
 } from "@/types/articleType";
 import { ArticlesCommentQuery } from "@/types/commentType";
-import axios from "axios";
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import { axiosInstance } from "./axiosInstance";
 
 export const getArticles = async ({
   page = 1,
@@ -16,10 +14,10 @@ export const getArticles = async ({
 }: ArticlesQuery) => {
   try {
     const query = `/articles?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
-    const response = await axios.get(`${BASE_URL}${query}`);
+    const response = await axiosInstance.get(query);
     return response.data;
   } catch (err) {
-    console.error("Error Messages: " + err);
+    console.error("게시글 데이터 가져오기 오류");
   }
 };
 
@@ -27,10 +25,10 @@ export const getArticlesDetail = async ({
   articleId = 0,
 }: ArticlesDetailQuery) => {
   try {
-    const response = await axios.get(`${BASE_URL}/articles/${articleId}`);
+    const response = await axiosInstance.get(`/articles/${articleId}`);
     return response.data;
   } catch (err) {
-    console.error("Error Messages: " + err);
+    console.error("게시글 상세 데이터 가져오기 오류");
   }
 };
 
@@ -41,16 +39,16 @@ export const getArticlesComment = async ({
 }: ArticlesCommentQuery) => {
   try {
     const query = `/articles/${articleId}/comments?limit=${limit}&cursor=${cursor}`;
-    const response = await axios.get(`${BASE_URL}${query}`);
+    const response = await axiosInstance.get(query);
     return response.data;
   } catch (err) {
-    console.error("Error Messages: " + err);
+    console.error("게시글 댓글 데이터 가져오기 오류");
   }
 };
 
 export const postLogin = async () => {
   try {
-    const response = await axios.post(`${BASE_URL}/auth/signIn`, {
+    const response = await axiosInstance.post(`/auth/signIn`, {
       email: "dang96@email.com",
       password: "92089208",
     });
@@ -59,7 +57,7 @@ export const postLogin = async () => {
     localStorage.setItem("token", token);
     return token;
   } catch (err) {
-    console.error("Error Messages: " + err);
+    console.error("로그인 토큰 가져오기 오류");
   }
 };
 
@@ -74,19 +72,14 @@ export const postArticlesImage = async (file: File) => {
   formData.append("image", file);
 
   try {
-    const response = await axios.post(`${BASE_URL}/images/upload`, formData, {
+    const response = await axiosInstance.post("/images/upload", formData, {
       headers: {
-        Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",
       },
     });
     return response.data.url;
   } catch (err) {
-    if (axios.isAxiosError(err)) {
-      console.error("Error Messages: ", err.response?.data || err.message);
-    } else {
-      console.error("Error Messages: ", err);
-    }
+    console.error("이미지 전송 오류");
   }
 };
 
@@ -98,25 +91,15 @@ export const postArticles = async ({ image, content, title }: ArticlesAdd) => {
     return;
   }
 
+  const defaultImg = image || "http://via.placeholder.com/500.jpg/";
+
   try {
-    const response = await axios.post(
-      `${BASE_URL}/articles`,
-      {
-        image,
-        content,
-        title,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await axiosInstance.post("/articles", {
+      image: defaultImg,
+      content,
+      title,
+    });
   } catch (err) {
-    if (axios.isAxiosError(err)) {
-      console.error("Error Messages: ", err.response?.data || err.message);
-    } else {
-      console.error("Error Messages: ", err);
-    }
+    console.error("게시글 작성 오류");
   }
 };

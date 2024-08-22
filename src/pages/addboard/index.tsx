@@ -35,14 +35,13 @@ export default function AddBoardPage() {
 
     postArticles({ image, content, title });
 
-    // handleRouteClick();
+    router.push("/boards");
   };
 
   useEffect(() => {
     const handleLoad = async () => {
       try {
         const data = await postLogin();
-        // console.log(data);
         return data;
       } catch (err) {
         console.error("에러임" + err);
