@@ -26,7 +26,7 @@ function Header() {
           </li>
         </ul>
       </div>
-      <Link href="/" className={styles.loginBtn}>
+      <Link href="/login" className={styles.loginBtn}>
         로그인
       </Link>
     </header>
