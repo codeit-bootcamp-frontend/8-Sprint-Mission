@@ -3,5 +3,5 @@ export interface User {
   nickname: string;
   createdAt: string;
   updatedAt: string;
-  images?: string | null;
+  image?: string | undefined;
 }
