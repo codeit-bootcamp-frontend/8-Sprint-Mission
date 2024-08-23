@@ -47,7 +47,6 @@ function AuthForm({ onSubmit, isSignUp }: AuthFormProps) {
   );
 
   const handleFormSubmit = async (data: any) => {
-    console.log("전송된 데이터:", data);
     await postData(data);
     onSubmit(data);
   };
