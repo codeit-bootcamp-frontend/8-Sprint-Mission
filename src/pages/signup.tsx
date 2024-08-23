@@ -4,7 +4,7 @@ import Link from "next/link";
 import InputText from "@/components/ui/InputText";
 import GoogleImage from "../../public/images/i-google.png";
 import KakaoImage from "../../public/images/i-kakao.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LinkButton } from "@/styles/ButtonStyle";
 import styled from "styled-components";
 
@@ -72,6 +72,19 @@ export default function SignUpPage() {
   const [signUpPasswordCheckType, setSignUpPasswordCheckType] =
     useState<string>("password");
   const [linkActive, setLinkActive] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (
+      signUpEmail &&
+      signUpNickname &&
+      signUpPassword &&
+      signUpPasswordCheck
+    ) {
+      setLinkActive(true);
+    } else {
+      setLinkActive(false);
+    }
+  }, [signUpEmail, signUpNickname, signUpPassword, signUpPasswordCheck]);
 
   return (
     <div>
