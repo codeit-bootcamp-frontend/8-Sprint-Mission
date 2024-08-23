@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import logo from "assets/images/logo_pandamarket.png";
 import mobileLogo from "assets/images/logo_pandamarket_name.png";
 import Button from "components/@shared/UI/Button";
+import UserProfile from "../UI/UserProfile";
 
 function Header() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,6 +21,11 @@ function Header() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    setAccessToken(token);
   }, []);
 
   return (
@@ -51,7 +58,11 @@ function Header() {
           </li>
         </ul>
       </div>
-      <Button buttonText="로그인" to="/signIn" className="h-[51px] my-auto" />
+      {accessToken ? (
+        <UserProfile />
+      ) : (
+        <Button buttonText="로그인" to="/signIn" className="h-[51px] my-auto" />
+      )}
     </header>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { getProductComments, getArticleComments } from "core/api/commentApi";
 import { INITIAL_COMMENTS } from "core/constants/initialValues";
-import { DEFAULT_PROFILE_ICON } from "core/constants/defaultImages";
+import { DEFAULT_PROFILE_IMAGE } from "core/constants/defaultImages";
 import useApiGet from "lib/hooks/useApiGet";
 import { countTime } from "lib/utils/countTime";
 import { CommentResponse, Comment } from "core/dtos/commentDTO";
@@ -54,7 +54,7 @@ function Comments({ id, type, limit = 5, category }: CommentsProps) {
               </div>
               <div className="flex gap-2 items-center pb-3">
                 <img
-                  src={comment.writer.image || DEFAULT_PROFILE_ICON}
+                  src={comment.writer.image || DEFAULT_PROFILE_IMAGE}
                   alt="작성자 프로필 이미지"
                   width={40}
                   height={40}
