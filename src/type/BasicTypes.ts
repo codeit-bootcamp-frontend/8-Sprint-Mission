@@ -15,6 +15,7 @@ export type BasicType = {
   src: string | StaticImport;
   alt: string;
   className: string;
+  wrapperClassName: string;
   likeCount: number;
   children: ReactNode;
   totalCount: number;

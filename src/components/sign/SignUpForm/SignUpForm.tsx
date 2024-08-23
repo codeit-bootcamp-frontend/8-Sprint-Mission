@@ -32,7 +32,7 @@ const SignUpForm = ({}: SignUpFormProps) => {
         <UIButton
           className={styles['form__submitButton']}
           type="floating"
-          isNoShadow={true}
+          hasNoShadow={true}
         >
           회원가입
         </UIButton>

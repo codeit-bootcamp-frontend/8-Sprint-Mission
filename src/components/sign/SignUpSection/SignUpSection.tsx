@@ -4,6 +4,7 @@ import logo from '@assets/images/logo/bigLogo.png';
 import Link from 'next/link';
 import Image from 'next/image';
 import SignUpForm from '../SignUpForm/SignUpForm';
+import SNSLogin from '../SNSLogin/SNSLogin';
 
 type SignUpSectionProps = {};
 
@@ -15,6 +16,7 @@ const SignUpSection = ({}: SignUpSectionProps) => {
           <Image className={styles['signUp__logo']} src={logo} alt="로고" />
         </Link>
         <SignUpForm />
+        <SNSLogin />
       </div>
     </div>
   );

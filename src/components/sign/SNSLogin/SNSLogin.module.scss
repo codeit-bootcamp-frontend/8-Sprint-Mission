@@ -1,0 +1,32 @@
+@import '/src/styles/global.scss';
+
+.snsLogin {
+  display: flex;
+  width: 100%;
+  margin: 1.5rem 0;
+  padding: 1rem 1.4375rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $blue-10;
+  border-radius: 0.5rem;
+
+  &__title {
+    @include Body3;
+    color: $gray-800;
+  }
+
+  &__buttonsWrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__snsGoogle {
+    background-color: white;
+  }
+
+  &__snsKakao {
+    background-color: $yellow-100;
+  }
+}
