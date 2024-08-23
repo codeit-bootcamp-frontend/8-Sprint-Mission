@@ -23,11 +23,7 @@ export async function signUpUser({
       password,
       passwordConfirmation,
     });
-    const { accessToken, refreshToken } = res.data;
-
-    localStorage.setItem("access_token", accessToken);
-    localStorage.setItem("refresh_token", refreshToken);
-    window.location.href = "/";
+    return res.data;
   } catch (error) {
     console.error(error);
   }
