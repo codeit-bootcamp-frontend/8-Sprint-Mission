@@ -8,7 +8,7 @@ import {
   AddArticleCommentRequest,
   ArticleComment,
 } from '@type/ArticleTypes';
-import axiosInstance from './axios';
+import { axiosInstance } from './axios';
 
 export const getArticles = async ({ ...params }: ArticleListRequest) => {
   try {

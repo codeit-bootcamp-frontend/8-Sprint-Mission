@@ -34,6 +34,8 @@ export type BasicType = {
   articleId: number;
   inputType: React.InputHTMLAttributes<HTMLInputElement>['type'];
   email: string;
+  password: string;
+  passwordConfirmation: string;
   accessToken: string | null;
   refreshToken: string | null;
 
