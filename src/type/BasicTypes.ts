@@ -6,6 +6,7 @@ export type BasicType = {
   title: string;
   id: number;
   name: string;
+  nickname: string;
   updatedAt: Date;
   createdAt: Date;
   image: string;
@@ -32,6 +33,9 @@ export type BasicType = {
   isLiked: boolean;
   articleId: number;
   inputType: React.InputHTMLAttributes<HTMLInputElement>['type'];
+  email: string;
+  accessToken: string | null;
+  refreshToken: string | null;
 
   // handler
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
