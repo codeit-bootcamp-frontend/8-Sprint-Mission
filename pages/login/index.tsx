@@ -2,6 +2,8 @@ import { ReactElement, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import axios from "@/lib/axios";
 import { FormValues } from "@/types/formValues";
 import Layout from "@/components/Layout";
 import EasyLogin from "@/components/EasyLogin/EasyLogin";
@@ -50,8 +52,32 @@ function Login() {
     setIsPasswordShow((prevIsPasswordShow) => !prevIsPasswordShow);
   };
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
+  const router = useRouter();
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    try {
+      const response = await axios.post("/auth/signIn", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const userData = response.data ?? [];
+      console.log("signIn succeed: ", userData);
+
+      if (userData.accessToken && userData.refreshToken) {
+        const userToken = {
+          id: userData.user.id,
+          accessToken: userData.accessToken,
+          refreshToken: userData.refreshToken,
+        };
+
+        localStorage.setItem("user_information", JSON.stringify(userToken));
+      }
+      // TODO: toast 메시지 - 로그인 완료
+      router.push("/");
+    } catch (error) {
+      console.error("회원가입 중 오류가 발생했습니다: ", error);
+    }
   };
 
   return (

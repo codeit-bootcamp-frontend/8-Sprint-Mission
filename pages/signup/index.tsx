@@ -2,6 +2,7 @@ import { ReactElement, useRef, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import axios from "@/lib/axios";
 import { FormValues } from "@/types/formValues";
 
@@ -13,7 +14,6 @@ import logoIcon from "@/assets/images/ic_logo_icon.png";
 import logoText from "@/assets/images/ic_logo_text.png";
 import passwordHideIcon from "@/assets/images/ic_password_hide.png";
 import passwordShowIcon from "@/assets/images/ic_password_show.png";
-import { useRouter } from "next/router";
 
 const VALID_EMAIL_PATTERN = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 const INPUT_CONTENT = [
@@ -82,7 +82,6 @@ function SignUp() {
   }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log(data);
     try {
       const response = await axios.post(`/auth/signUp`, data, {
         headers: {
