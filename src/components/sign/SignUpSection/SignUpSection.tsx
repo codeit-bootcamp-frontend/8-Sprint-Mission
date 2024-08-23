@@ -17,6 +17,9 @@ const SignUpSection = ({}: SignUpSectionProps) => {
         </Link>
         <SignUpForm />
         <SNSLogin />
+        <p>
+          이미 회원이신가요? <Link href={'/login'}>로그인</Link>
+        </p>
       </div>
     </div>
   );
