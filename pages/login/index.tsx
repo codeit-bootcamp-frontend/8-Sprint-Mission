@@ -44,13 +44,16 @@ function Login() {
   const isFormCompleted = email && password;
   const isButtonDisabled = !isFormCompleted || isSubmitting;
 
+  const types = ["password", "text"];
   const [isPasswordShow, setIsPasswordShow] = useState(false);
   const handlePasswordShowButtonClick = () => {
-    setIsPasswordShow((prevIsPasswordShow) => !prevIsPasswordShow);
+    setIsPasswordShow((prev) => !prev);
   };
 
   const router = useRouter();
 
+  // TODO: interceptor
+  // TODO: refresh
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const response = await axios.post("/auth/signIn", data, {
@@ -59,7 +62,6 @@ function Login() {
         },
       });
       const userData = response.data ?? [];
-      console.log("signIn succeed: ", userData);
 
       if (userData.accessToken && userData.refreshToken) {
         const userToken = {
@@ -67,7 +69,6 @@ function Login() {
           accessToken: userData.accessToken,
           refreshToken: userData.refreshToken,
         };
-
         localStorage.setItem("user_information", JSON.stringify(userToken));
       }
       // TODO: toast 메시지 - 로그인 완료
@@ -125,7 +126,7 @@ function Login() {
               <input
                 className="w-full rounded-xl bg-gray-100 px-6 py-4"
                 id="password"
-                type="password"
+                type={!isPasswordShow ? types[0] : types[1]}
                 placeholder="비밀번호를 입력해주세요"
                 {...register("password", { required: true, minLength: 8 })}
                 autoComplete="current-password"

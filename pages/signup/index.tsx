@@ -59,11 +59,11 @@ function SignUp() {
   const isPasswordValid = password === passwordConfirmation;
   const isButtonDisabled = !isFormCompleted || !isPasswordValid || isSubmitting;
 
+  const types = ["password", "text"];
   const [isPasswordShow, setIsPasswordShow] = useState(false);
   const handlePasswordShowButtonClick = () => {
     setIsPasswordShow((prev) => !prev);
   };
-
   const [isPasswordConfirmationShow, setIsPasswordConfirmationShow] =
     useState(false);
   const handlePasswordConfirmationShowButtonClick = () => {
@@ -88,7 +88,6 @@ function SignUp() {
         },
       });
       const userData = response.data ?? [];
-      console.log("signUp succeed: ", userData);
 
       if (userData.accessToken && userData.refreshToken) {
         const userToken = {
@@ -96,7 +95,6 @@ function SignUp() {
           accessToken: userData.accessToken,
           refreshToken: userData.refreshToken,
         };
-
         localStorage.setItem("user_information", JSON.stringify(userToken));
       }
       // TODO: toast 메시지 - 회원가입 완료
@@ -175,7 +173,7 @@ function SignUp() {
               <input
                 className="w-full rounded-xl bg-gray-100 px-6 py-4"
                 id="password"
-                type="password"
+                type={!isPasswordShow ? types[0] : types[1]}
                 placeholder="비밀번호를 입력해주세요"
                 {...register("password", { required: true, minLength: 8 })}
                 autoComplete="current-password"
@@ -212,7 +210,7 @@ function SignUp() {
               <input
                 className="w-full rounded-xl bg-gray-100 px-6 py-4"
                 id="passwordConfirmation"
-                type="password"
+                type={!isPasswordConfirmationShow ? types[0] : types[1]}
                 placeholder="비밀번호를 다시 한 번 입력해주세요"
                 {...register("passwordConfirmation", {
                   required: true,
