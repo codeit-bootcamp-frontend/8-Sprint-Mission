@@ -32,7 +32,7 @@ function LoginPage() {
       if (accessToken) {
         localStorage.setItem("accessToken", accessToken);
         console.log("Access Token 로컬스토리지에 저장");
-      }
+      } //
 
       setValue(INITIAL_VALUES);
       console.log("전송 성공");
