@@ -12,7 +12,12 @@ type UIInputProps = Partial<
     | 'onKeyDown'
     | 'className'
     | 'inputType'
-  >
+  > & {
+    id?: BasicType['inputId'];
+    name?: BasicType['inputName'];
+    ref?: BasicType['inputRef'];
+    onBlur?: BasicType['inputRef'];
+  }
 >;
 
 const UIInput = ({ ...props }: UIInputProps) => {
