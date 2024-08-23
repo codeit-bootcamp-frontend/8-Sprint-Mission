@@ -9,6 +9,8 @@
   --gray-100: #f3f4f6;
   --gray-50: #f9fafb;
   --blue: #3692ff;
+  --hover-blue: #1967d6;
+  --active-blue: #1251aa;
   --red: #f74747;
 }
 * {
@@ -63,6 +65,25 @@ header {
   position: sticky;
   width: 100%;
   top: 0;
-  margin-bottom: 1rem;
   z-index: 1;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--gray-900);
+  width: 100%;
+  padding: 32px 200px 100px 200px;
+  font-size: 16px;
+}
+@media (max-width: 1199px) and (min-width: 768px) {
+  header {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 375px) {
+  header {
+    padding: 0 1rem;
+  }
 }
