@@ -25,8 +25,8 @@ export default function Article({ articles, setTarget }: Props) {
               href={`/boards/${article.id}`}
               className="flex h-full flex-col justify-between"
             >
-              <div className="flex justify-between gap-10">
-                <div className="font-semibold text-lg">{article.content}</div>
+              <div className="flex justify-between gap-10 overflow-ellipsis overflow-hidden whitespace-nowrap">
+                <div className="font-semibold text-lg ">{article.content}</div>
                 {article.image && (
                   <Image
                     className="rounded-lg border border-gray-200 max-h-[72px]"

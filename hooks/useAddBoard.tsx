@@ -1,5 +1,6 @@
 import {
   ChangeEvent,
+  FormEvent,
   MouseEvent,
   useContext,
   useEffect,
@@ -8,7 +9,7 @@ import {
 
 import type { InputChangeEvent } from "@/types/alias";
 import { postNewArticle, postUploadImage } from "@/apis/addBoard";
-import { Context, TokenContext } from "@/context/TokenProvider";
+
 import { useRouter } from "next/router";
 const INIT_ADD_BOARD_INPUT = {
   image: "",
@@ -19,7 +20,6 @@ const INIT_ADD_BOARD_INPUT = {
 const useAddBoard = () => {
   const [inputValues, setInputValues] = useState(INIT_ADD_BOARD_INPUT);
   const [isInputValid, setIsInputValid] = useState(false);
-  const { accessToken } = useContext(TokenContext) as Context;
   const router = useRouter();
 
   const onChangeInput = (e: InputChangeEvent) => {
@@ -47,7 +47,7 @@ const useAddBoard = () => {
       return;
     }
     const data = e.target.files[0];
-    const res = await postUploadImage({ data, token: accessToken });
+    const res = await postUploadImage({ data });
     setInputValues((prev) => ({ ...prev, image: res.url }));
   };
 
@@ -56,7 +56,7 @@ const useAddBoard = () => {
     if (!isInputValid) {
       return;
     }
-    postNewArticle({ data: inputValues, token: accessToken });
+    postNewArticle({ data: inputValues });
     router.push("/boards");
   };
 

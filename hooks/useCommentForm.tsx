@@ -1,18 +1,10 @@
 import { postArticleComment } from "@/apis/comment";
-import { Token, TokenContext } from "@/context/TokenProvider";
 import { useRouter } from "next/router";
-import {
-  ChangeEvent,
-  MouseEvent,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 
 export default function useCommentForm() {
   const [value, setValue] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const { accessToken } = useContext(TokenContext) as Token;
   const router = useRouter();
   const { id } = router.query;
 
@@ -26,7 +18,6 @@ export default function useCommentForm() {
     }
     await postArticleComment({
       articleId: parseInt(id),
-      token: accessToken,
       data: value,
     });
     setValue("");
