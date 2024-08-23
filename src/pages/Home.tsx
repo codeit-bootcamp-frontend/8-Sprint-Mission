@@ -20,6 +20,7 @@ function Home() {
               <div className="flex flex-row items-center justify-center w-60">
                 <Button
                   buttonText="구경하러 가기"
+                  to="/items"
                   className="rounded-3xl w-full py-4  max-md:px-[71px] max-md:py-3"
                 />
               </div>
