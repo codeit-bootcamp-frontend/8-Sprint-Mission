@@ -3,8 +3,11 @@ import Image from 'next/image';
 import VerticalDivider from '@/components/elements/VerticalDivider';
 import Link from 'next/link';
 import { DeviceContext } from '@/contexts/DeviceContext';
+import { useAuth } from '@/contexts/AuthProvider';
+import Button from '../elements/button/Button';
 
 function Header({ children }: PropsWithChildren) {
+  const { user } = useAuth();
   const [mount, setMount] = useState<boolean>(false);
   const device = useContext(DeviceContext);
 
@@ -36,12 +39,18 @@ function Header({ children }: PropsWithChildren) {
           <div className="flex grow gap-[8px] font-lg-16px-bold tablet:gap-[20px]">
             {children}
           </div>
-          <Image
-            width={40}
-            height={40}
-            src="/initial_profile.png"
-            alt="profile"
-          />
+          {mount && user ? (
+            <Image
+              width={40}
+              height={40}
+              src="/initial_profile.png"
+              alt="profile"
+            />
+          ) : (
+            <Link href="/login">
+              <Button disabled={false}>로그인</Button>
+            </Link>
+          )}
         </div>
       </div>
       <VerticalDivider />
