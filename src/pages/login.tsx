@@ -1,111 +1,89 @@
-import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 import Image from "next/image";
+import S from "@/styles/login.module.css";
+import axios from "@/pages/api/axios";
+import { useEffect } from "react";
+
+interface FormData {
+  email: string;
+  password: string;
+}
 function Login() {
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, isSubmitted, errors },
+  } = useForm<FormData>();
+  const router = useRouter();
+
+  async function getAccessToken(data: FormData) {
+    try {
+      const res = await axios.post("/auth/signIn", data);
+      const token = res.data.accessToken;
+      localStorage.setItem("accessToken", token);
+      router.replace("/");
+    } catch (error) {
+      alert("토큰 가져오기 실패");
+      router.replace("/login");
+    }
+  }
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token) router.replace("/");
+  }, [router]);
+
   return (
-    <>
-      <header>
-        <div className="logo">
-          <Link href="/">
-            <Image src="/image/logo.png" alt="판다마켓 로고" width="396" height="132" />
-          </Link>
-        </div>
-      </header>
-      <main>
-        <form className="signup" id="loginForm">
-          <div className="input-container">
-            <div className="input-box">
-              <label>이메일</label>
-              <input
-                type="email"
-                placeholder="이메일을 입력해주세요"
-                className="input-text"
-                id="email"
-              />
-              <div className="error-message">이메일을 입력해주세요</div>
-              <div className="condition-message">잘못된 이메일 형식입니다.</div>
-            </div>
-            <div className="input-box">
-              <label>닉네임</label>
-              <input
-                type="text"
-                placeholder="닉네임을 입력해주세요"
-                className="input-text"
-                id="name"
-              />
-              <div className="error-message">닉네임을 입력해주세요</div>
-            </div>
-            <div className="input-box">
-              <label>비밀번호</label>
-              <input
-                type="password"
-                placeholder="비밀번호를 입력해주세요"
-                className="input-text"
-                id="password"
-              />
-              <div className="error-message">비밀번호를 입력해주세요</div>
-              <div className="condition-message">비밀번호를 8자 이상 입력해주세요.</div>
-              <Image
-                src="/images/icon/btn_icon/ic_visibilty_off.png"
-                alt="visibilty-on-off-icon"
-                width={24}
-                height={24}
-                className="visibilty"
-                id="passwordEye"
-              />
-            </div>
-            <div className="input-box">
-              <label>비밀번호 확인</label>
-              <input
-                type="password"
-                placeholder="비밀번호를 다시 한 번 입력해주세요"
-                className="input-text"
-                id="checkPassword"
-              />
-              <div className="condition-message">비밀번호가 일치하지 않습니다.</div>
-              <Image
-                src="/images/icon/btn_icon/ic_visibilty_off.png"
-                alt="visibilty-on-off-icon"
-                width={24}
-                height={24}
-                className="visibilty"
-                id="checkPasswordEye"
-              />
-            </div>
-          </div>
-          <button className="login-btn">회원가입</button>
-          <div className="easy-login-background">
-            <div className="easy-login-container">
-              <span className="easy-login-text">간편 로그인하기</span>
-              <div className="easy-login-link-box">
-                <Link href="https://www.google.com/" className="image-link">
-                  <Image
-                    src="/image/icon/ic_google.png"
-                    alt="google-icon"
-                    className="mini-image"
-                    width={42}
-                    height={42}
-                  />
-                </Link>
-                <Link href="https://www.kakaocorp.com/page" className="image-link">
-                  <Image
-                    src="/image/icon/ic_kakao.png"
-                    alt="kakao-icon"
-                    className="mini-image"
-                    width={42}
-                    height={42}
-                  />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </form>
-      </main>
-      <footer>
-        <div className="sign-up-text">
-          <span>이미 회원이신가요?</span> <a href="./login.html">로그인</a>
-        </div>
-      </footer>
-    </>
+    <div className={S.container}>
+      <div className={S.LogoImageWrapper}>
+        <Image src="/images/logo/logo.png" fill alt="판다마켓 로고" priority />
+      </div>
+      <form noValidate className={S.formContainer} onSubmit={handleSubmit(getAccessToken)}>
+        <label htmlFor="email">이메일</label>
+        <input
+          id="email"
+          className={S.inputBox}
+          type="email"
+          placeholder="이메일을 입력해주세요"
+          {...register("email", {
+            required: "이메일을 입력해주세요",
+            pattern: {
+              value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+              message: "잘못된 이메일 형식입니다",
+            },
+          })}
+          aria-invalid={isSubmitted ? (errors.email ? "true" : "false") : undefined}
+        />
+        {errors.email && (
+          <small role="alert" className={S.errorMessage}>
+            {String(errors.email.message)}
+          </small>
+        )}
+        <label htmlFor="password">비밀번호</label>
+        <input
+          id="password"
+          className={S.inputBox}
+          type="password"
+          placeholder="비밀번호를 입력해주세요"
+          {...register("password", {
+            required: "비밀번호를 입력해주세요",
+            minLength: {
+              value: 8,
+              message: "비밀번호를 8자 이상 입력해주세요",
+            },
+          })}
+          aria-invalid={isSubmitted ? (errors.password ? "true" : "false") : undefined}
+        />
+        {errors.password && (
+          <small role="alert" className={S.errorMessage}>
+            {String(errors.password.message)}
+          </small>
+        )}
+        <button type="submit" disabled={isSubmitting}>
+          로그인
+        </button>
+      </form>
+    </div>
   );
 }
 

@@ -7,6 +7,7 @@ const nextConfig = {
       "images.samsung.com",
       "example.com",
       "flexible.img.hani.co.kr",
+      "via.placeholder.com",
     ],
   },
 };
