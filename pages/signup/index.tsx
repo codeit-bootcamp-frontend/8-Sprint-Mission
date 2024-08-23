@@ -2,7 +2,9 @@ import { ReactElement, useRef, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 import Head from "next/head";
+import axios from "@/lib/axios";
 import { FormValues } from "@/types/formValues";
+
 import Layout from "@/components/Layout";
 import EasyLogin from "@/components/EasyLogin/EasyLogin";
 
@@ -11,6 +13,7 @@ import logoIcon from "@/assets/images/ic_logo_icon.png";
 import logoText from "@/assets/images/ic_logo_text.png";
 import passwordHideIcon from "@/assets/images/ic_password_hide.png";
 import passwordShowIcon from "@/assets/images/ic_password_show.png";
+import { useRouter } from "next/router";
 
 const VALID_EMAIL_PATTERN = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 const INPUT_CONTENT = [
@@ -33,7 +36,7 @@ const INPUT_CONTENT = [
     placeholder: "비밀번호를 입력해주세요",
   },
   {
-    name: "passwordCheck",
+    name: "passwordConfirmation",
     label: "비밀번호 확인",
     type: "password",
     placeholder: "비밀번호를 다시 한 번 입력해주세요",
@@ -51,29 +54,58 @@ function SignUp() {
   const email = watch("email");
   const nickname = watch("nickname");
   const password = watch("password");
-  const passwordCheck = watch("passwordCheck");
+  const passwordConfirmation = watch("passwordConfirmation");
 
-  const isFormCompleted = email && nickname && password && passwordCheck;
-  const isPasswordValid = password === passwordCheck;
+  const isFormCompleted = email && nickname && password && passwordConfirmation;
+  const isPasswordValid = password === passwordConfirmation;
   const isButtonDisabled = !isFormCompleted || !isPasswordValid || isSubmitting;
 
   const [isPasswordShow, setIsPasswordShow] = useState(false);
   const handlePasswordShowButtonClick = () => {
-    setIsPasswordShow((prevIsPasswordShow) => !prevIsPasswordShow);
+    setIsPasswordShow((prev) => !prev);
   };
 
-  const [isPasswordCheckShow, setIsPasswordCheckShow] = useState(false);
-  const handlePasswordCheckShowButtonClick = () => {
-    setIsPasswordCheckShow(
-      (prevIsPasswordCheckShow) => !prevIsPasswordCheckShow,
-    );
+  const [isPasswordConfirmationShow, setIsPasswordConfirmationShow] =
+    useState(false);
+  const handlePasswordConfirmationShowButtonClick = () => {
+    setIsPasswordConfirmationShow((prev) => !prev);
   };
 
   const currentPassword = useRef<string>();
   currentPassword.current = watch("password");
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const router = useRouter();
+  const isSignedUp = !!localStorage.getItem("user_information");
+  if (isSignedUp) {
+    // TODO: toast 메시지 - 회원가입 내역 존재
+    router.push(`/login`);
+  }
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     console.log(data);
+    try {
+      const response = await axios.post(`/auth/signUp`, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const userData = response.data ?? [];
+      console.log("signUp succeed: ", userData);
+
+      if (userData.accessToken && userData.refreshToken) {
+        const userToken = {
+          id: userData.user.id,
+          accessToken: userData.accessToken,
+          refreshToken: userData.refreshToken,
+        };
+
+        localStorage.setItem("user_information", JSON.stringify(userToken));
+      }
+      // TODO: toast 메시지 - 회원가입 완료
+      router.push(`/login`);
+    } catch (error) {
+      console.error("회원가입 중 오류가 발생했습니다: ", error);
+    }
   };
 
   return (
@@ -190,16 +222,16 @@ function SignUp() {
             <div className="mb-6 flex flex-col items-start justify-start">
               <label
                 className="mb-3 text-lg font-bold text-gray-800"
-                htmlFor="passwordCheck"
+                htmlFor="passwordConfirmation"
               >
                 비밀번호 확인
               </label>
               <input
                 className="w-full rounded-xl bg-gray-100 px-6 py-4"
-                id="passwordCheck"
+                id="passwordConfirmation"
                 type="password"
                 placeholder="비밀번호를 다시 한 번 입력해주세요"
-                {...register("passwordCheck", {
+                {...register("passwordConfirmation", {
                   required: true,
                   validate: (value) => value === currentPassword.current,
                 })}
@@ -209,42 +241,35 @@ function SignUp() {
                 className="password-show-btn"
                 type="button"
                 value="비밀번호 보이거나 가리기"
-                onClick={handlePasswordCheckShowButtonClick}
+                onClick={handlePasswordConfirmationShowButtonClick}
               >
                 <Image
                   className="password-show-icon"
                   src={
-                    isPasswordCheckShow ? passwordShowIcon : passwordHideIcon
+                    isPasswordConfirmationShow
+                      ? passwordShowIcon
+                      : passwordHideIcon
                   }
                   alt="비밀번호를 보여주는 눈 모양 아이콘"
                   width={24}
                   height={24}
                 />
               </button>
-              {errors.passwordCheck &&
-                errors.passwordCheck.type === "validate" && (
+              {errors.passwordConfirmation &&
+                errors.passwordConfirmation.type === "validate" && (
                   <p>비밀번호가 일치하지 않습니다</p>
                 )}
             </div>
 
             <button
-              className="form-login-btn"
+              className="bg-brand-blue disabled:bg-gray-400"
               type="submit"
-              value="로그인"
-              disabled={isSubmitting}
+              value="회원가입"
+              disabled={isButtonDisabled}
             >
-              로그인
+              회원가입
             </button>
           </form>
-
-          <button
-            className="bg-brand-blue disabled:bg-gray-400"
-            type="button"
-            value="회원가입"
-            disabled={isButtonDisabled}
-          >
-            회원가입
-          </button>
 
           <EasyLogin />
 
