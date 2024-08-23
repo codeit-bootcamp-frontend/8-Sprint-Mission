@@ -5,7 +5,8 @@ type ApiCallFunction<T> = (url: string, data: any) => Promise<T>;
 function useApiPost<T>(
   apiCall: ApiCallFunction<T>,
   url: string,
-  initialValue: T
+  initialValue: T,
+  onSuccess?: (result: T) => void
 ) {
   const [data, setData] = useState<T>(initialValue);
   const [error, setError] = useState<string | null>(null);
@@ -17,8 +18,10 @@ function useApiPost<T>(
       const result = await apiCall(url, requestData);
       setData(result);
       setError(null);
+      if (onSuccess) {
+        onSuccess(result);
+      }
     } catch (error) {
-      console.error("POST 요청 실패:", error);
       setError("데이터 전송 실패");
     } finally {
       setLoading(false);

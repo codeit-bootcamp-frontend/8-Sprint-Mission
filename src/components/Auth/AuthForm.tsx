@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Form from "components/@shared/UI/form/Form";
 import AuthInput from "./UI/AuthInput";
 import FormButton from "components/@shared/UI/form/FormButton";
 import VisibilityToggle from "./UI/VisibilityToggle";
+import { BASE_URL, postToApi } from "core/api/apiService";
+import useApiPost from "lib/hooks/useApiPost";
+import { AuthSignIn, AuthSignUp, AuthResponse } from "core/dtos/authDTO";
+import { INITIAL_AUTH_RESPONSE } from "core/constants/initialValues";
 
 interface AuthFormProps {
-  onSubmit: (data: any) => void;
-  isSignUp?: boolean; // 회원가입 여부
+  onSubmit: (data: AuthSignUp | AuthSignIn) => void;
+  isSignUp?: boolean;
 }
 
 function AuthForm({ onSubmit, isSignUp }: AuthFormProps) {
@@ -21,8 +26,34 @@ function AuthForm({ onSubmit, isSignUp }: AuthFormProps) {
     mode: "onChange",
   });
 
+  const navigate = useNavigate();
+
+  const handleAuthSuccess = (result: AuthResponse) => {
+    if (isSignUp) {
+      console.log("회원가입 성공:", result);
+      navigate("/signIn");
+    } else {
+      console.log("로그인 성공:", result);
+      localStorage.setItem("accessToken", result.accessToken);
+      navigate("/");
+    }
+  };
+
+  const { postData } = useApiPost(
+    postToApi,
+    `${BASE_URL}/auth/${isSignUp ? "signUp" : "signIn"}`,
+    INITIAL_AUTH_RESPONSE,
+    handleAuthSuccess
+  );
+
+  const handleFormSubmit = async (data: any) => {
+    console.log("전송된 데이터:", data);
+    await postData(data);
+    onSubmit(data);
+  };
+
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(handleFormSubmit)}>
       <AuthInput
         id="email"
         type="text"
@@ -46,7 +77,13 @@ function AuthForm({ onSubmit, isSignUp }: AuthFormProps) {
           label="닉네임"
           register={register}
           errors={errors.nickname}
-          validation={{ required: "닉네임을 입력해주세요." }}
+          validation={{
+            required: "닉네임을 입력해주세요.",
+            maxLength: {
+              value: 20,
+              message: "닉네임은 20자를 초과할 수 없습니다.",
+            },
+          }}
         />
       )}
       <div className="relative">
@@ -60,8 +97,8 @@ function AuthForm({ onSubmit, isSignUp }: AuthFormProps) {
           validation={{
             required: "비밀번호를 입력해주세요.",
             minLength: {
-              value: 6,
-              message: "비밀번호는 최소 6자 이상이어야 합니다.",
+              value: 8,
+              message: "비밀번호는 최소 8자 이상이어야 합니다.",
             },
           }}
         />
@@ -70,12 +107,12 @@ function AuthForm({ onSubmit, isSignUp }: AuthFormProps) {
       {isSignUp && (
         <div className="relative">
           <AuthInput
-            id="confirmPassword"
+            id="passwordConfirmation"
             type={isPasswordVisible ? "text" : "password"}
             placeholder="비밀번호를 다시 입력해주세요"
             label="비밀번호 확인"
             register={register}
-            errors={errors.confirmPassword}
+            errors={errors.passwordConfirmation}
             validation={{
               required: "비밀번호를 다시 입력해주세요.",
               validate: (value: string) =>
