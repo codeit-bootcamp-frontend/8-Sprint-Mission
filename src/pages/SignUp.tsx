@@ -6,9 +6,7 @@ import { AuthSignUp, AuthSignIn } from "core/dtos/authDTO";
 import HomeLogo from "components/@shared/UI/HomeLogo";
 
 function SignUp() {
-  const onSubmit = (data: AuthSignUp | AuthSignIn) => {
-    console.log("회원가입 폼 데이터", data);
-  };
+  const onSubmit = (data: AuthSignUp | AuthSignIn) => {};
 
   return (
     <Main className="flex flex-col gap-10 w-[640px] max-xl:w-[640px]">

@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { getArticleId } from "core/api/articleApi";
 import { ArticleId } from "core/dtos/articleDTO";
@@ -7,7 +6,7 @@ import Main from "components/@shared/Layout/Main";
 import LikeCount from "components/@shared/UI/LikeCount";
 import useApiGet from "lib/hooks/useApiGet";
 import Comments from "components/@shared/UI/Comments";
-import defaultProfileImg from "assets/icons/ic_profile.png";
+import { DEFAULT_PROFILE_IMAGE } from "core/constants/defaultImages";
 import TextareaInput from "components/@shared/UI/form/TextareaInput";
 import FormButton from "components/@shared/UI/form/FormButton";
 import Form from "components/@shared/UI/form/Form";
@@ -45,7 +44,7 @@ function ArticleInfo() {
           <div className="flex flex-row gap-4 items-center">
             <img
               alt="작성자 프로필 이미지"
-              src={defaultProfileImg}
+              src={DEFAULT_PROFILE_IMAGE}
               width={40}
               height={40}
               className="rounded-full"

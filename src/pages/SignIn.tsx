@@ -6,9 +6,7 @@ import QuickLogin from "components/Auth/QuickLogin";
 import { AuthSignIn } from "core/dtos/authDTO";
 
 function SignIn() {
-  const onSubmit = (data: AuthSignIn) => {
-    console.log("로그인 폼 데이터", data);
-  };
+  const onSubmit = (data: AuthSignIn) => {};
 
   return (
     <Main className="flex flex-col gap-10 w-[640px] max-xl:w-[640px]">
