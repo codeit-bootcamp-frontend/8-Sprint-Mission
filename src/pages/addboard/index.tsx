@@ -15,6 +15,7 @@ type StyledButtonProps = {
 const INPUT_CONTENT = {
   id: "title",
   label: "*제목",
+  type: "text",
   placeholder: "제목을 입력해주세요.",
 };
 

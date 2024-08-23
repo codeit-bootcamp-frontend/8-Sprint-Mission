@@ -22,7 +22,7 @@ export default function InputText({
       <input
         className="w-full h-[56px] text-[16px] rounded-[12px] px-[24px] bg-gray-100"
         id={content.id}
-        type="text"
+        type={content.type}
         value={value}
         placeholder={content.placeholder}
         onChange={(e) => setInputText(e.target.value)}
