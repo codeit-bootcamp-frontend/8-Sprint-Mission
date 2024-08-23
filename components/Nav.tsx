@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LinkButton from "./Buttons/LinkButton";
@@ -12,6 +12,13 @@ import profileImage from "@/assets/images/img_profile.png";
 function Nav() {
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const pathname = usePathname();
+
+  if (typeof window !== "undefined") {
+    const isSignedIn = !!localStorage.getItem("user_information");
+    useEffect(() => {
+      setIsLogin(isSignedIn);
+    }, [isSignedIn]);
+  }
 
   return (
     <nav className={styles.nav}>
