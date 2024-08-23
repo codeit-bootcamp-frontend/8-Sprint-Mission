@@ -55,7 +55,10 @@ function AddItem() {
     <Main className="relative">
       <h1 className="font-bold text-gray-800 text-xl">상품 등록하기</h1>
       <Form onSubmit={handleSubmit}>
-        <FormButton isFormValid={isFormValid} />
+        <FormButton
+          className="absolute top-24 right-0 w-[74px] h-[42px] max-xl:right-6 max-md:right-4 rounded-lg"
+          isFormValid={isFormValid}
+        />
         <AddImage
           title="상품 이미지"
           image={uploadedImage}
