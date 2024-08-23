@@ -7,11 +7,10 @@ import axios from "@/lib/axios";
 import { FormValues } from "@/types/formValues";
 
 import Layout from "@/components/Layout";
+import BigLogo from "@/components/BigLogo";
 import EasyLogin from "@/components/EasyLogin/EasyLogin";
 
 import Image from "next/image";
-import logoIcon from "@/assets/images/ic_logo_icon.png";
-import logoText from "@/assets/images/ic_logo_text.png";
 import passwordHideIcon from "@/assets/images/ic_password_hide.png";
 import passwordShowIcon from "@/assets/images/ic_password_show.png";
 
@@ -115,22 +114,7 @@ function SignUp() {
       <Layout>
         <main>
           <header>
-            <Link className="flex items-center justify-center gap-6" href="/">
-              <Image
-                className="logo-img"
-                src={logoIcon}
-                alt="판다마켓 로고 이미지"
-                width={104}
-                height={104}
-              />
-              <Image
-                className="logo-img"
-                src={logoText}
-                alt="판다마켓 로고 이미지"
-                width={266}
-                height={90}
-              />
-            </Link>
+            <BigLogo />
           </header>
 
           <form onSubmit={handleSubmit(onSubmit)}>
