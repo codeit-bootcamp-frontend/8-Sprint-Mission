@@ -1,24 +1,18 @@
 import Main from "components/@shared/Layout/Main";
 import { Link } from "react-router-dom";
 import AuthForm from "components/Auth/AuthForm";
-import logo from "assets/images/logo_pandamarket.png";
+import HomeLogo from "components/@shared/UI/HomeLogo";
 import QuickLogin from "components/Auth/QuickLogin";
-
-interface SignInForm {
-  email: string;
-  password: string;
-}
+import { AuthSignIn } from "core/dtos/authDTO";
 
 function SignIn() {
-  const onSubmit = (data: SignInForm) => {
-    console.log(data);
+  const onSubmit = (data: AuthSignIn) => {
+    console.log("로그인 폼 데이터", data);
   };
 
   return (
     <Main className="flex flex-col gap-10 w-[640px] max-xl:w-[640px]">
-      <Link to="/" className="flex justify-center">
-        <img src={logo} alt="판다마켓 로고" />
-      </Link>
+      <HomeLogo />
       <div className="flex flex-col gap-6 text-lg text-neutral-900">
         <AuthForm onSubmit={onSubmit} isSignUp={false} />
         <QuickLogin />
