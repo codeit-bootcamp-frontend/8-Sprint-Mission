@@ -43,3 +43,16 @@ export const INITIAL_ARTICLE_ID: ArticleId = {
   title: "",
   id: 0,
 };
+
+export const INITIAL_AUTH_RESPONSE = {
+  accessToken: "",
+  refreshToken: "",
+  user: {
+    id: "",
+    email: "",
+    image: null,
+    nickname: "",
+    updatedAt: "",
+    createdAt: "",
+  },
+};
