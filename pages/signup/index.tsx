@@ -8,6 +8,7 @@ import { FormValues } from "@/types/formValues";
 
 import Layout from "@/components/Layout";
 import BigLogo from "@/components/BigLogo";
+import FormButton from "@/components/Buttons/FormButton";
 import EasyLogin from "@/components/EasyLogin/EasyLogin";
 
 import Image from "next/image";
@@ -110,8 +111,8 @@ function SignUp() {
         <title>판다마켓 - 회원가입</title>
       </Head>
       <Layout>
-        <main>
-          <header>
+        <main className="m-auto max-w-[40rem]">
+          <header className="mb-10">
             <BigLogo />
           </header>
 
@@ -170,28 +171,29 @@ function SignUp() {
               >
                 비밀번호
               </label>
-              <input
-                className="w-full rounded-xl bg-gray-100 px-6 py-4"
-                id="password"
-                type={!isPasswordShow ? types[0] : types[1]}
-                placeholder="비밀번호를 입력해주세요"
-                {...register("password", { required: true, minLength: 8 })}
-                autoComplete="current-password"
-              />
-              <button
-                className="password-show-btn"
-                type="button"
-                value="비밀번호 보이거나 가리기"
-                onClick={handlePasswordShowButtonClick}
-              >
-                <Image
-                  className="password-show-icon"
-                  src={isPasswordShow ? passwordShowIcon : passwordHideIcon}
-                  alt="비밀번호를 보여주는 눈 모양 아이콘"
-                  width={24}
-                  height={24}
+              <div className="relative w-full">
+                <input
+                  className="w-full rounded-xl bg-gray-100 px-6 py-4"
+                  id="password"
+                  type={!isPasswordShow ? types[0] : types[1]}
+                  placeholder="비밀번호를 입력해주세요"
+                  {...register("password", { required: true, minLength: 8 })}
+                  autoComplete="current-password"
                 />
-              </button>
+                <button
+                  className="absolute right-6 top-4"
+                  type="button"
+                  value="비밀번호 보이거나 가리기"
+                  onClick={handlePasswordShowButtonClick}
+                >
+                  <Image
+                    src={isPasswordShow ? passwordShowIcon : passwordHideIcon}
+                    alt="비밀번호를 보여주는 눈 모양 아이콘"
+                    width={24}
+                    height={24}
+                  />
+                </button>
+              </div>
               {errors.password && errors.password.type === "required" && (
                 <p>비밀번호를 입력해주세요</p>
               )}
@@ -207,56 +209,53 @@ function SignUp() {
               >
                 비밀번호 확인
               </label>
-              <input
-                className="w-full rounded-xl bg-gray-100 px-6 py-4"
-                id="passwordConfirmation"
-                type={!isPasswordConfirmationShow ? types[0] : types[1]}
-                placeholder="비밀번호를 다시 한 번 입력해주세요"
-                {...register("passwordConfirmation", {
-                  required: true,
-                  validate: (value) => value === currentPassword.current,
-                })}
-                autoComplete="new-password"
-              />
-              <button
-                className="password-show-btn"
-                type="button"
-                value="비밀번호 보이거나 가리기"
-                onClick={handlePasswordConfirmationShowButtonClick}
-              >
-                <Image
-                  className="password-show-icon"
-                  src={
-                    isPasswordConfirmationShow
-                      ? passwordShowIcon
-                      : passwordHideIcon
-                  }
-                  alt="비밀번호를 보여주는 눈 모양 아이콘"
-                  width={24}
-                  height={24}
+              <div className="relative w-full">
+                <input
+                  className="w-full rounded-xl bg-gray-100 px-6 py-4"
+                  id="passwordConfirmation"
+                  type={!isPasswordConfirmationShow ? types[0] : types[1]}
+                  placeholder="비밀번호를 다시 한 번 입력해주세요"
+                  {...register("passwordConfirmation", {
+                    required: true,
+                    validate: (value) => value === currentPassword.current,
+                  })}
+                  autoComplete="new-password"
                 />
-              </button>
+                <button
+                  className="absolute right-6 top-4"
+                  type="button"
+                  value="비밀번호 보이거나 가리기"
+                  onClick={handlePasswordConfirmationShowButtonClick}
+                >
+                  <Image
+                    src={
+                      isPasswordConfirmationShow
+                        ? passwordShowIcon
+                        : passwordHideIcon
+                    }
+                    alt="비밀번호를 보여주는 눈 모양 아이콘"
+                    width={24}
+                    height={24}
+                  />
+                </button>
+              </div>
               {errors.passwordConfirmation &&
                 errors.passwordConfirmation.type === "validate" && (
                   <p>비밀번호가 일치하지 않습니다</p>
                 )}
             </div>
 
-            <button
-              className="bg-brand-blue disabled:bg-gray-400"
-              type="submit"
-              value="회원가입"
-              disabled={isButtonDisabled}
-            >
-              회원가입
-            </button>
+            <FormButton isButtonDisabled={isButtonDisabled} text="회원가입" />
           </form>
 
           <EasyLogin />
 
-          <div className="login">
-            이미 회원이신가요?
-            <Link className="login-link" href="/login/">
+          <div className="text-center font-medium text-gray-800">
+            이미 회원이신가요?&nbsp;
+            <Link
+              className="font-medium text-brand-blue underline"
+              href="/login/"
+            >
               로그인
             </Link>
           </div>
