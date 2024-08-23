@@ -10,3 +10,23 @@
   text-align: left;
   color: #111827;
 }
+
+.bestArticleCardContainer {
+  width: 384px;
+  height: 169px;
+
+  padding: 0px 24px 0px 24px;
+  gap: 10px;
+  border-radius: 8px;
+
+  background: #f9fafb;
+}
+
+.bestArticleCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+
+  background: #f9fafb;
+}
