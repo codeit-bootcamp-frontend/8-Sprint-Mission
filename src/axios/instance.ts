@@ -27,7 +27,7 @@ const onErrorResponse = async (error: AxiosError | Error) => {
 
     switch (status) {
       case 400: {
-        alert("입력한 정보가 올바르지 않습니다.");
+        alert(data.message);
         break;
       }
 

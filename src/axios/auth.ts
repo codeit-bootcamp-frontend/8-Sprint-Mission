@@ -29,18 +29,14 @@ export async function signUpUser({
     localStorage.setItem("refresh_token", refreshToken);
     window.location.href = "/";
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
 export async function logInUser({ email, password }: LogInUserProps) {
   try {
     const res = await axiosInstance.post("/auth/signIn", { email, password });
-    const { accessToken, refreshToken } = res.data;
-
-    localStorage.setItem("access_token", accessToken);
-    localStorage.setItem("refresh_token", refreshToken);
-    window.location.href = "/";
+    return res.data;
   } catch (error) {
     console.log(error);
   }

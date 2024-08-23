@@ -32,6 +32,7 @@ const config: Config = {
         "blue-active": "#1251aa",
         "header-under": "#dfdfdf",
         "comment-bg": "#fcfcfc",
+        "blue-login": "#e6f2ff",
       },
     },
   },
