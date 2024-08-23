@@ -11,7 +11,7 @@ const NAV_MENU_INFO = [
 
 export default function GlobalNavBar() {
   const { pathname } = useRouter();
-  const isMain = pathname === "/" ? true : false;
+  const isMain = pathname === "/";
   const [isLogin, setIsLogin] = React.useState(false);
 
   React.useEffect(() => {
