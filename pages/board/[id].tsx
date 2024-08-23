@@ -1,6 +1,6 @@
 import { getArticle, getComments } from "@/lib/articleApi";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import kebabIcon from "@/public/images/icons/ic_kebab.svg";
 import Image from "next/image";
 import { Article, CommentsResponse } from "@/types/types";
@@ -16,6 +16,7 @@ const DetailBoard = () => {
   const { id } = router.query;
   const [article, setArticle] = useState<Article>();
   const [comments, setComments] = useState<CommentsResponse>();
+  const [commentValue, setCommentValue] = useState("");
   const { format: dateFormat } = useDateFormat();
 
   const fetchArticle = async (articleId: number) => {
@@ -26,6 +27,10 @@ const DetailBoard = () => {
   const fetchComments = async (articleId: number, limit: number) => {
     const result = await getComments(articleId, limit);
     setComments(result);
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setCommentValue(e.target.value);
   };
 
   useEffect(() => {
@@ -40,7 +45,7 @@ const DetailBoard = () => {
       <div className={styles.articleDetail}>
         <div className={styles.articleHeader}>
           <h2 className={styles.articleTitle}>{article?.title}</h2>
-          <Image src={kebabIcon} alt="kebabIcon" />
+          <Image src={kebabIcon} alt="kebabIcon" width={24} height={24} />
         </div>
         <div className={styles.writerSection}>
           <div className={styles.writer}>
@@ -70,8 +75,15 @@ const DetailBoard = () => {
           id="commentTextarea"
           className={styles.commentTextarea}
           placeholder="댓글을 입력해주세요"
+          value={commentValue}
+          onChange={handleChange}
         />
-        <button className={styles.commentSubmitBtn}>등록</button>
+        <button
+          className={styles.commentSubmitBtn}
+          disabled={commentValue ? false : true}
+        >
+          등록
+        </button>
       </form>
       <div>
         {comments?.list.map((comment) => {
