@@ -1,0 +1,41 @@
+.globalHeader {
+  padding-left: 200px;
+  padding-right: 200px;
+
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 70px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+}
+
+.navLinksContainer {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--gray-600);
+}
+
+.navLinks {
+  color: #4b5563;
+}
+.navLinks a:hover {
+  color: var(--blue);
+}
