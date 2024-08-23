@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FieldValues, useForm } from 'react-hook-form';
 
 import useSignUp from 'lib/hooks/auth/useSignUp';
-import localStorageTools from 'lib/localStorage/localStorage';
+import localStorageTools from 'lib/localStorage/localStorageTools';
 import usePasswordVisibility from 'lib/hooks/usePasswordVisibility';
 import { StorageNameOfUserInfo } from 'core/config/context/AuthContext';
 
@@ -12,7 +12,6 @@ import BtnLarge from 'core/buttons/BtnLarge';
 import * as S from '../styles';
 
 const SignUpForm = () => {
-  const { getInfo } = localStorageTools();
   const navigator = useNavigate();
   const {
     register,
@@ -22,12 +21,12 @@ const SignUpForm = () => {
     watch,
   } = useForm({ mode: 'onBlur' });
   const {
-    ref: passwordRef,
+    isVisible: passwordVisble,
     icon: passwordIcon,
     handlePasswordVisibility: handlePasswordView,
   } = usePasswordVisibility();
   const {
-    ref: passwordConfirmRef,
+    isVisible: passwordConfirmVisible,
     icon: passwordConfirmIcon,
     handlePasswordVisibility: handlePasswordConfirmView,
   } = usePasswordVisibility();
@@ -45,11 +44,12 @@ const SignUpForm = () => {
   };
 
   useEffect(() => {
+    const { getInfo } = localStorageTools();
     const userInfo = getInfo(StorageNameOfUserInfo);
     if (userInfo?.accessToken) {
       navigator('/');
     }
-  }, []);
+  }, [navigator]);
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
@@ -77,18 +77,13 @@ const SignUpForm = () => {
         <S.Input
           {...register('nickname', {
             max: 20,
-            minLength: {
-              value: 1,
-              message: '닉네임을 입력해주세요.',
-            },
+            required: '닉네임을 입력해주세요.',
             pattern: {
               value: /^[a-zA-Z0-9]*$/i,
               message: '영문, 숫자만 가능합니다.',
             },
           })}
-          name="nickname"
           $isValid={false}
-          id="nickname"
           placeholder="닉네임을 입력해주세요"
         />
         <S.ErrorMessage
@@ -100,6 +95,7 @@ const SignUpForm = () => {
         <S.InputWrapper>
           <S.Input
             {...register('password', {
+              required: '비밀번호를 입력해주세요',
               minLength: {
                 value: 8,
                 message: '8자 이상 입력해주세요.',
@@ -111,8 +107,7 @@ const SignUpForm = () => {
                   '영문 대/소문자, 숫자, 특수문자(!,@,#,$,%,^,&,*) 필수입니다.',
               },
             })}
-            type="password"
-            // ref={passwordRef}
+            type={passwordVisble ? 'text' : 'password'}
             $isValid={false}
             placeholder="비밀번호를 입력해주세요"
           />
@@ -127,15 +122,14 @@ const SignUpForm = () => {
         <S.InputWrapper>
           <S.Input
             {...register('passwordConfirmation', {
-              required: true,
+              required: '확인을 위해 비밀번호를 한 번 더 입력해주세요.',
               validate: (password: string) => {
                 if (watch('password') !== password) {
                   return '비밀번호가 일치하지 않습니다.';
                 }
               },
             })}
-            type="password"
-            // ref={passwordConfirmRef}
+            type={passwordConfirmVisible ? 'text' : 'password'}
             $isValid={false}
             placeholder="비밀번호를 다시 한 번 입력해주세요"
           />
@@ -151,7 +145,7 @@ const SignUpForm = () => {
       <BtnLarge
         bgColor={isValid ? 'var(--main-color)' : 'var(--gray-400)'}
         color={'var(--font-button)'}
-        // disabled={!isValid}
+        disabled={!isValid}
       >
         회원가입
       </BtnLarge>

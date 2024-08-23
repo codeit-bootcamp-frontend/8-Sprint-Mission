@@ -1,5 +1,5 @@
 import { UserInfo } from 'lib/api/types';
-import localStorageTools from 'lib/localStorage/localStorage';
+import localStorageTools from 'lib/localStorage/localStorageTools';
 import { createContext, useEffect, useState } from 'react';
 import { NonUndefined } from 'react-hook-form';
 
@@ -34,7 +34,6 @@ interface AuthProviderProps {
 export const StorageNameOfUserInfo = 'userInformation';
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
-  const { getInfo } = localStorageTools();
   const [isLoggedin, setIsLoggedined] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<UserInfo['user'] | null>(null);
 
@@ -58,6 +57,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   useEffect(() => {
+    const { getInfo } = localStorageTools();
     const userInfo = getInfo(StorageNameOfUserInfo);
     if (userInfo) {
       setUserInfo(userInfo.user);

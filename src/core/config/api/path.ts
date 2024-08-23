@@ -1,4 +1,4 @@
-type AuthPath = 'signin' | 'signup' | 'refresh';
+export type AuthPath = 'signin' | 'signup' | 'refresh';
 
 export const API_PATH = {
   AUTH: {

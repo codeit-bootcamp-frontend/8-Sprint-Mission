@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FieldValues, useForm } from 'react-hook-form';
 
 import useSignIn from 'lib/hooks/auth/useSignIn';
-import localStorageTools from 'lib/localStorage/localStorage';
+import localStorageTools from 'lib/localStorage/localStorageTools';
 import usePasswordVisibility from 'lib/hooks/usePasswordVisibility';
 import { StorageNameOfUserInfo } from 'core/config/context/AuthContext';
 
@@ -21,9 +21,10 @@ const SignInForm = () => {
     formState: { errors, isValid },
     setError,
   } = useForm({ mode: 'onBlur' });
+
   const signInMutate = useSignIn({ setError });
 
-  const { ref, icon, handlePasswordVisibility } = usePasswordVisibility();
+  const { isVisible, icon, handlePasswordVisibility } = usePasswordVisibility();
 
   const onSubmit = (newValues: FieldValues) => {
     const { email, password } = newValues;
@@ -39,6 +40,7 @@ const SignInForm = () => {
       navigator('/');
     }
   }, []);
+
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
       <S.Container>
@@ -66,8 +68,12 @@ const SignInForm = () => {
           <S.Input
             {...register('password', {
               required: '비밀번호를 입력해주세요.',
+              minLength: {
+                value: 8,
+                message: '8자 이상 입력해주세요.',
+              },
             })}
-            type="password"
+            type={isVisible ? 'text' : 'password'}
             $isValid={false}
             placeholder="비밀번호를 입력해주세요"
           />

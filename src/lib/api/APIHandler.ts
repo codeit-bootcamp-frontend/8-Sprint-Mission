@@ -1,3 +1,5 @@
+import { StorageNameOfUserInfo } from 'core/config/context/AuthContext';
+import localStorageTools from 'lib/localStorage/localStorageTools';
 import {
   ErrorMessage,
   RefreshTokenDto,
@@ -6,20 +8,21 @@ import {
 } from './types';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || '';
-
+const { setInfo, getInfo } = localStorageTools();
 class APIHandler {
   private baseUrl?: string;
-  private accessToken?: string;
-  private refreshToken?: string;
+  private user?: UserInfo['user'];
+  private accessToken?: UserInfo['accessToken'];
+  private refreshToken?: UserInfo['refreshToken'];
 
   constructor(baseUrl: string) {
-    const userInfoStr = localStorage.getItem('userInfo');
+    const userInfo = getInfo('userInfo');
 
     this.baseUrl = baseUrl;
-    if (userInfoStr) {
-      const userInfo: UserInfo = JSON.parse(userInfoStr);
-      this.accessToken = userInfo.accessToken;
-      this.refreshToken = userInfo.refreshToken;
+    if (userInfo) {
+      this.user = userInfo['user'];
+      this.accessToken = userInfo['accessToken'];
+      this.refreshToken = userInfo['refreshToken'];
     }
   }
 
@@ -27,7 +30,7 @@ class APIHandler {
     response: Response,
     options?: RequestInit,
   ) => {
-    let data;
+    let data: T | ErrorType | undefined;
     switch (response.status) {
       case 200:
         data = response.json() as T;
@@ -50,6 +53,7 @@ class APIHandler {
             if (!refreshedData) return;
             if ('accessToken' in refreshedData) {
               const newAccessToken = refreshedData?.accessToken;
+
               const _options: RequestInit = {
                 ...options,
                 headers: {
@@ -57,11 +61,19 @@ class APIHandler {
                   Authentication: `Bearer ${newAccessToken}`,
                 },
               };
-              return await fetch(response.url, _options)
-                .then((res) => res.json() as T)
-                .catch((error) => {
-                  Promise.reject(error);
-                });
+              const newResponse = await fetch(response.url, _options);
+
+              if (newResponse.ok) {
+                const newUserInfo = {
+                  user: this.user,
+                  accessToken: this.accessToken,
+                  refreshToken: this.refreshToken,
+                };
+                setInfo(StorageNameOfUserInfo, newUserInfo);
+                return newResponse.json() as T;
+              } else {
+                return newResponse.json() as ErrorType;
+              }
             }
           } catch (error) {
             Promise.reject(error);
@@ -97,19 +109,8 @@ class APIHandler {
     };
 
     try {
-      return await fetch(`${this.baseUrl}/${path}`, _options).then((res) => {
-        switch (res.status) {
-          case 200:
-            return res.json() as T;
-          case 201:
-            return res.json() as T;
-          case 400:
-            return res.json() as ErrorType;
-
-          default:
-            throw new Error('알 수 없는 에러입니다.');
-        }
-      });
+      const response = await fetch(`${this.baseUrl}/${path}`, _options);
+      return this.dataHandler<T, ErrorType>(response);
     } catch (error) {
       Promise.reject(error);
     }

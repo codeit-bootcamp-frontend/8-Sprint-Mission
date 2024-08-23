@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { FieldValues, UseFormSetError } from 'react-hook-form';
 import { QueryKey } from 'core/config/api/queryKey';
 import { signUp, SignUpDto } from 'lib/api/auth';
-import localStorageTools from 'lib/localStorage/localStorage';
+import localStorageTools from 'lib/localStorage/localStorageTools';
 import { StorageNameOfUserInfo } from 'core/config/context/AuthContext';
 
 interface SignUpControlerParams {
