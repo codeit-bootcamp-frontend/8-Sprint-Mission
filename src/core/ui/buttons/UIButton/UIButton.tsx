@@ -10,6 +10,7 @@ type UIButtonProps = {
   isDisabled?: boolean;
   isLightTheme?: boolean;
   isSmallButton?: boolean;
+  isNoShadow?: boolean;
 };
 
 const UIButton = ({
@@ -20,6 +21,7 @@ const UIButton = ({
   children,
   isDisabled = false,
   isSmallButton = false,
+  isNoShadow = false,
 }: UIButtonProps) => {
   return (
     <>
@@ -32,6 +34,8 @@ const UIButton = ({
             [styles['floating-button']]: type === 'floating',
             [styles['floating-button--small']]:
               type === 'floating' && isSmallButton,
+            [styles['floating-button--noShadow']]:
+              type === 'floating' && isNoShadow,
             [styles['round-button']]: type === 'round',
             [styles['like-button']]: type === 'like',
           },

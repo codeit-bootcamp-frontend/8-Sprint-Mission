@@ -30,6 +30,7 @@ export type BasicType = {
   isTextarea: boolean;
   isLiked: boolean;
   articleId: number;
+  inputType: React.InputHTMLAttributes<HTMLInputElement>['type'];
 
   // handler
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;

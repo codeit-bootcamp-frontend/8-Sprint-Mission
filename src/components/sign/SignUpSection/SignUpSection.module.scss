@@ -6,6 +6,13 @@
   flex-direction: column;
   align-items: center;
 
+  &__formWrapper {
+    display: flex;
+    width: 40rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__logo {
     width: 12.375rem;
     height: 4.125rem;

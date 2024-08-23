@@ -6,7 +6,12 @@ import clsx from 'clsx';
 type UIInputProps = Partial<
   Pick<
     BasicType,
-    'placeholder' | 'keyword' | 'onChange' | 'onKeyDown' | 'className'
+    | 'placeholder'
+    | 'keyword'
+    | 'onChange'
+    | 'onKeyDown'
+    | 'className'
+    | 'inputType'
   >
 >;
 
@@ -15,6 +20,7 @@ const UIInput = ({ ...props }: UIInputProps) => {
     <>
       <input
         className={clsx(styles['input'], props.className)}
+        type={props.inputType}
         value={props.keyword}
         placeholder={props.placeholder || ''}
         onChange={props.onChange}

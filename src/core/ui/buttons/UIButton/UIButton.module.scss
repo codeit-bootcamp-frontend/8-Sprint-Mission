@@ -48,7 +48,7 @@
   gap: 0.5rem;
   flex-shrink: 0;
   border: 0;
-  border-radius: 12.5rem;
+  border-radius: 2.5rem;
   background: $blue-100;
   color: $gray-10;
 
@@ -59,6 +59,10 @@
     height: 2.1875rem;
     padding: 0.75rem 1.5rem;
     color: $gray-10;
+  }
+
+  &--noShadow {
+    box-shadow: none;
   }
 }
 
