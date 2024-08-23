@@ -1,11 +1,14 @@
 import BasicLayout from '@components/layout/BasicLayout/BasicLayout';
+import SignInSection from '@components/sign/SignInSection/SignInSection';
 
 type LoginPageProps = {};
 
 const LoginPage = ({}: LoginPageProps) => {
   return (
     <>
-      <BasicLayout></BasicLayout>
+      <BasicLayout>
+        <SignInSection />
+      </BasicLayout>
     </>
   );
 };
