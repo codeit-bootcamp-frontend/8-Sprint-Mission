@@ -64,6 +64,11 @@
   &--noShadow {
     box-shadow: none;
   }
+
+  &--disabled {
+    background-color: $gray-400;
+    cursor: default;
+  }
 }
 
 .like-button {

@@ -32,6 +32,8 @@ const UIButton = ({
             [styles['box-button']]: type === 'box',
             [styles['box-button--small']]: type === 'box' && isSmallButton,
             [styles['floating-button']]: type === 'floating',
+            [styles['floating-button--disabled']]:
+              type === 'floating' && isDisabled,
             [styles['floating-button--small']]:
               type === 'floating' && isSmallButton,
             [styles['floating-button--noShadow']]:

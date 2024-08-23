@@ -1,16 +1,18 @@
 import styles from './SignUpForm.module.scss';
 
 import UIButton from '@core/ui/buttons/UIButton/UIButton';
-import { useForm } from 'react-hook-form';
+import { FieldErrors, useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 import Input from '@core/ui/inputs/Input/Input';
 import { AddUserRequest } from '@type/AuthTypes';
+import { useEffect } from 'react';
 
 const SignUpForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isValid, isDirty, isSubmitting, isSubmitSuccessful },
     control,
   } = useForm<AddUserRequest>();
 
@@ -18,11 +20,21 @@ const SignUpForm = () => {
     console.log(data);
   };
 
+  const onError = (errors: FieldErrors<AddUserRequest>) => {
+    console.log(errors);
+  };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
+
   return (
     <>
       <form
         className={styles['form']}
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit, onError)}
         noValidate
       >
         <Input
@@ -90,6 +102,7 @@ const SignUpForm = () => {
           className={styles['form__submitButton']}
           type="floating"
           hasNoShadow={true}
+          isDisabled={!isDirty || !isValid || isSubmitting}
         >
           회원가입
         </UIButton>
