@@ -4,6 +4,7 @@ import Image from "next/image";
 import { BoardItemProps, BoardItemListProps } from "@/interfaces/boardItem";
 import Link from "next/link";
 import { FormatDate } from "@/pages/util/formatDate";
+import defaultImage from "@/images/img_default.png";
 
 export default function BoardItemList({ boards }: BoardItemListProps) {
   return (
@@ -22,7 +23,7 @@ function BoardItem({ board }: BoardItemProps) {
         <TitleWrapper>
           <BoardTitle>{board.title}</BoardTitle>
           <Image
-            src={board.image}
+            src={board.image || defaultImage}
             alt="BestBoardImage"
             width={72}
             height={72}

@@ -1,3 +1,4 @@
+import { ChangeEventHandler, FocusEventHandler } from "react";
 import styled from "styled-components";
 
 interface InputType {
@@ -5,6 +6,9 @@ interface InputType {
   name: string;
   type: string;
   placeholder: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
+  hasError?: boolean;
 }
 
 export default function PrimaryInput({
@@ -12,11 +16,24 @@ export default function PrimaryInput({
   name,
   type,
   placeholder,
+  onChange,
+  onBlur,
+  hasError,
 }: InputType) {
-  return <Input id={id} name={name} type={type} placeholder={placeholder} />;
+  return (
+    <Input
+      id={id}
+      name={name}
+      type={type}
+      placeholder={placeholder}
+      onChange={onChange}
+      onBlur={onBlur}
+      hasError={hasError}
+    />
+  );
 }
 
-const Input = styled.input`
+const Input = styled.input<{ hasError?: boolean }>`
   width: 100%;
   border-radius: 12px;
   padding: 16px 24px;
@@ -24,5 +41,5 @@ const Input = styled.input`
   color: #9ca3af;
   font-size: 16px;
   font-weight: 400;
-  border: none;
+  border: ${({ hasError }) => (hasError ? "1px solid red" : "none")};
 `;

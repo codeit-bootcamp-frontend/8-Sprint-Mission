@@ -5,6 +5,7 @@ import favorite from "@/images/favorite.png";
 import { BoardItemProps, BoardItemListProps } from "@/interfaces/boardItem";
 import Link from "next/link";
 import { FormatDate } from "@/pages/util/formatDate";
+import defaultImage from "@/images/img_default.png";
 
 export default function BestBoardItemList({ boards }: BoardItemListProps) {
   return (
@@ -24,12 +25,12 @@ function BestBoardItem({ board }: BoardItemProps) {
         <BoardWrapper>
           <TitleWrapper>
             <BoardTitle>{board.title}</BoardTitle>
-            {/* <Image
-              src={board.image}
+            <Image
+              src={board.image || defaultImage}
               alt="BestBoardImage"
               width={72}
               height={72}
-            /> */}
+            />
           </TitleWrapper>
           <WriterWrapper>
             <WriterLeftElement>

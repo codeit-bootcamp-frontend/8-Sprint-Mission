@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle<{ isLoginPage: boolean }>`
+const GlobalStyle = createGlobalStyle<{
+  isLoginPage: boolean;
+  isLandingPage: boolean;
+}>`
     html,
     body {
     margin: 0;
@@ -12,14 +15,18 @@ const GlobalStyle = createGlobalStyle<{ isLoginPage: boolean }>`
 
 
     #__next {
-    padding: ${({ isLoginPage }) =>
-      isLoginPage ? "231px 640px" : "94px 360px"};
-    width: 100%;
+
+    padding: ${({ isLoginPage, isLandingPage }) => {
+      if (isLandingPage) return "0";
+      return isLoginPage ? "231px 640px" : "94px 360px";
+    }};
 
     @media (max-width: 744px) {
-      padding: ${({ isLoginPage }) =>
-        isLoginPage ? "192px 52px" : "94px 24px"};
-    }
+      padding: ${({ isLoginPage, isLandingPage }) => {
+        if (isLandingPage) return "0";
+        return isLoginPage ? "192px 52px" : "94px 24px";
+      }}
+    };
   }
 
     

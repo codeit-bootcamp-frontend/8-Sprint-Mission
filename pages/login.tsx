@@ -1,58 +1,91 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import PrimaryInput from "@/components/primaryinput";
 import pandaLogo from "@/images/logo.png";
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
-import eyeIcon from "@/images/ic_eyeopen.svg";
+import eyeTextIcon from "@/images/ic_eyeopen.svg";
+import eyePasswordIcon from "@/images/ic_eyeclose.svg";
+import kakaoIcon from "@/images/ic_kakao.png";
+import googleIcon from "@/images/ic_google.png";
+import { signInUser } from "./util/api";
+import { UserInfo } from "@/interfaces/user";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [loginInfo, setLoginInfo] = useState<UserInfo>({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState<UserInfo>({
+    email: "",
+    password: "",
+  });
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setLoginInfo((prev) => ({ ...prev, email: e.target.value }));
+    setError((prev) => ({ ...prev, email: "" }));
+  };
+
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setLoginInfo((prev) => ({ ...prev, password: e.target.value }));
+    setError((prev) => ({ ...prev, password: "" }));
+  };
 
   const togglePasswordType = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setShowPassword((prev) => !prev);
   };
+
+  const handleLoginButton = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    await signInUser(loginInfo);
+  };
+
   return (
     <LoginContainer>
       <Image src={pandaLogo} alt="logo" width={396} height={132} />
       <InputWrapper>
         <InputLabel>이메일</InputLabel>
-
         <PrimaryInput
           id="email"
           name="email"
           type="email"
           placeholder="이메일을 입력해주세요"
+          onChange={handleEmailChange}
         />
       </InputWrapper>
 
       <InputWrapper>
         <InputLabel>비밀번호</InputLabel>
-
         <PrimaryInput
           id="password"
           name="password"
           type={showPassword ? "text" : "password"}
           placeholder="비밀번호를 입력해주세요"
+          onChange={handlePasswordChange}
         />
         <VisibleButton onClick={togglePasswordType}>
-          <Image src={eyeIcon} alt="" />
+          {showPassword ? (
+            <Image src={eyeTextIcon} alt="textType" />
+          ) : (
+            <Image src={eyePasswordIcon} alt="textType" />
+          )}
         </VisibleButton>
       </InputWrapper>
 
-      <LoginButton>로그인</LoginButton>
+      <LoginButton onClick={handleLoginButton}>로그인</LoginButton>
 
       <SimpleLoginWrapper>
-        <SimpleLoginLabel>간편로그인하기</SimpleLoginLabel>
-        <div>
+        <SimpleLoginLabel>간편 로그인하기</SimpleLoginLabel>
+        <SimpleLinkWrapper>
           <Link href="http://www.google.com">
-            <img src="/img/Component 2.png" alt="구글" />
+            <Image src={googleIcon} alt="구글" />
           </Link>
           <Link href="https://www.kakaocorp.com/page/">
-            <img src="/img/Component 3.png" alt="카카오톡" />
+            <Image src={kakaoIcon} alt="카카오톡" />
           </Link>
-        </div>
+        </SimpleLinkWrapper>
       </SimpleLoginWrapper>
 
       <SignupWrapper>
@@ -117,6 +150,11 @@ const SimpleLoginWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+const SimpleLinkWrapper = styled.div`
+  display: flex;
+  gap: 16px;
 `;
 
 const SimpleLoginLabel = styled.span`

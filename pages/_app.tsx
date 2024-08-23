@@ -7,13 +7,16 @@ import { useRouter } from "next/router";
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  const isLoginPage = router.pathname === "/login";
+  const isLoginPage =
+    router.pathname === "/login" || router.pathname === "/signup";
+
+  const isLandingPage = router.pathname === "/";
   return (
     <>
       <Head>
         <title>판다마켓</title>
       </Head>
-      <GlobalStyle isLoginPage={isLoginPage} />
+      <GlobalStyle isLoginPage={isLoginPage} isLandingPage={isLandingPage} />
       {!isLoginPage && <Topbar />}
       <Component {...pageProps} />
     </>

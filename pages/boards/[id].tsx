@@ -1,6 +1,10 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, useEffect, useState } from "react";
-import { getArticleComment, getArticleId } from "../util/api";
+import {
+  getArticleComment,
+  getArticleId,
+  postArticleComment,
+} from "../util/api";
 import { BoardItemType } from "@/interfaces/boardItem";
 import styled from "styled-components";
 import Image from "next/image";
@@ -55,6 +59,11 @@ export default function Board() {
     setCommentContent(e.target.value);
   };
 
+  const handleCommentClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (typeof id === "string") await postArticleComment(id, commentContent);
+  };
+
   return (
     <Container>
       <TitleWrapper>
@@ -78,7 +87,9 @@ export default function Board() {
         onChange={handleCommentChange}
       ></CommentTextarea>
       <ButtonWrapper>
-        <PrimaryButton disabled={disabled}>등록</PrimaryButton>
+        <PrimaryButton disabled={disabled} onClick={handleCommentClick}>
+          등록
+        </PrimaryButton>
       </ButtonWrapper>
       <CommentItemList comments={comment} />
       <BackButtonWrapper>
