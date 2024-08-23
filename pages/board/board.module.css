@@ -82,12 +82,16 @@
 .commentSubmitBtn {
   align-self: flex-end;
   color: #fff;
-  background-color: var(--gray-400);
+  background-color: var(--blue);
   padding: 0.6rem 1.4rem;
   border-radius: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.7rem;
+}
+.commentSubmitBtn:disabled {
+  cursor: default;
+  background-color: var(--gray-400);
 }
 .comment {
   display: flex;
