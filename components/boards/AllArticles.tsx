@@ -82,7 +82,7 @@ const AllArticles = () => {
       </div>
       <div className={styles.articleSearch}>
         <div className={styles.articleInputBox}>
-          <Image src={searchIcon} alt="searchIcon" />
+          <Image src={searchIcon} alt="searchIcon" width={24} height={24} />
           <input
             type="text"
             className={styles.articleInput}
@@ -111,7 +111,8 @@ const AllArticles = () => {
                   <div className={styles.articleThumbnail}>
                     <div className={styles.imageWrapper}>
                       <Image
-                        fill
+                        width={48}
+                        height={48}
                         src={
                           article.image === null ? emptyImage : article.image
                         }
@@ -123,12 +124,22 @@ const AllArticles = () => {
                 </div>
                 <div className={styles.articleCardInfo}>
                   <div className={styles.articleCardInfoContents}>
-                    <Image src={profileIcon} alt="profileIcon" />
+                    <Image
+                      src={profileIcon}
+                      alt="profileIcon"
+                      width={24}
+                      height={24}
+                    />
                     <span>{article.writer.nickname}</span>
                     <span>{dateFormat(article.createdAt)}</span>
                   </div>
                   <div className={styles.articleCardLikeCount}>
-                    <Image src={heartIcon} alt="heartIcon" />
+                    <Image
+                      src={heartIcon}
+                      alt="heartIcon"
+                      width={24}
+                      height={24}
+                    />
                     <span>{article.likeCount}</span>
                   </div>
                 </div>
