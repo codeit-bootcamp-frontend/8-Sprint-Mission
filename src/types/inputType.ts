@@ -3,4 +3,5 @@ export type InputTextType = {
   label: string;
   type?: string;
   placeholder: string;
+  isViewButton?: boolean;
 };

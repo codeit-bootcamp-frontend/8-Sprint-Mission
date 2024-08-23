@@ -39,29 +39,27 @@ import styled from "styled-components";
 const INPUT_CONTENT_EMAIL = {
   id: "email",
   label: "이메일",
-  type: "email",
   placeholder: "이메일을 입력해주세요.",
 };
 
 const INPUT_CONTENT_NICKNAME = {
   id: "nickname",
   label: "닉네임",
-  type: "text",
   placeholder: "닉네임을 입력해주세요.",
 };
 
 const INPUT_CONTENT_PASSWORD = {
   id: "password",
   label: "비밀번호",
-  type: "password",
   placeholder: "비밀번호를 입력해주세요.",
+  isViewButton: true,
 };
 
 const INPUT_CONTENT_PASSWORD_CHECK = {
   id: "password",
   label: "비밀번호 확인",
-  type: "password",
   placeholder: "비밀번호를 다시 한 번 입력해주세요.",
+  isViewButton: true,
 };
 
 export default function SignUpPage() {
@@ -69,6 +67,10 @@ export default function SignUpPage() {
   const [signUpNickname, setSignUpNickName] = useState<string>("");
   const [signUpPassword, setSignUpPassword] = useState<string>("");
   const [signUpPasswordCheck, setSignUpPasswordCheck] = useState<string>("");
+  const [signUpPasswordType, setSignUpPasswordType] =
+    useState<string>("password");
+  const [signUpPasswordCheckType, setSignUpPasswordCheckType] =
+    useState<string>("password");
   const [linkActive, setLinkActive] = useState<boolean>(false);
 
   return (
@@ -91,11 +93,15 @@ export default function SignUpPage() {
         />
         <InputText
           content={INPUT_CONTENT_PASSWORD}
+          type={signUpPasswordType}
+          setType={setSignUpPasswordType}
           value={signUpPassword}
           setInputText={setSignUpPassword}
         />
         <InputText
           content={INPUT_CONTENT_PASSWORD_CHECK}
+          type={signUpPasswordCheckType}
+          setType={setSignUpPasswordCheckType}
           value={signUpPasswordCheck}
           setInputText={setSignUpPasswordCheck}
         />

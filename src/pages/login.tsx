@@ -20,11 +20,14 @@ const INPUT_CONTENT_PASSWORD = {
   label: "비밀번호",
   type: "password",
   placeholder: "비밀번호를 입력해주세요.",
+  isViewButton: true,
 };
 
 export default function LoginPage() {
   const [loginEmail, setLoginEmail] = useState<string>("");
   const [loginPassword, setLoginPassword] = useState<string>("");
+  const [loginPasswordType, setLoginPasswordType] =
+    useState<string>("password");
   const [linkActive, setLinkActive] = useState<boolean>(false);
 
   return (
@@ -43,6 +46,8 @@ export default function LoginPage() {
         <InputText
           content={INPUT_CONTENT_PASSWORD}
           value={loginPassword}
+          type={loginPasswordType}
+          setType={setLoginPasswordType}
           setInputText={setLoginPassword}
         />
         <StyledLinkButton href="" radius={true} isDisabled={linkActive}>
