@@ -36,6 +36,8 @@
   list-style-type: none;
   font-size: 18px;
   font-weight: 700;
+  text-decoration-line: none;
+  color: #000000;
 }
 
 @media (max-width: 768px) {
