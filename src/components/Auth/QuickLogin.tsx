@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import kakaoIc from "assets/icons/ic_kakao.png";
 import googleIc from "assets/icons/ic_google.png";
 
-const QuickLogin: React.FC = () => {
+function QuickLogin() {
   return (
     <div className="bg-blue-50 flex justify-between rounded-lg py-4 px-[23px]">
       <p className="font-medium text-base flex items-center">간편 로그인하기</p>
@@ -29,6 +29,6 @@ const QuickLogin: React.FC = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default QuickLogin;
