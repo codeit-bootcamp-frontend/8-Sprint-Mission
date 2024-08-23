@@ -24,20 +24,9 @@ function SignUp() {
     try {
       await axios.post("/auth/signUp", data);
       router.replace("/login");
-    } catch (error: any) {
-      let errorMessage = "회원가입 실패"; // 기본 메시지
-
-      // 서버에서 반환된 메시지를 확인
-      if (error.response) {
-        if (error.response.data.message) {
-          errorMessage = error.response.data.message; // "이미 사용중인 이메일입니다."
-        }
-        if (error.response.data.details && error.response.data.details.email) {
-          errorMessage = error.response.data.details.email.message; // 구체적인 이메일 오류 메시지
-        }
-      }
-
-      alert(errorMessage); // 사용자에게 에러 메시지 표시
+    } catch (error) {
+      alert("회원가입 실패");
+      console.error(error);
       router.replace("/signup");
     }
   }

@@ -25,6 +25,7 @@ function Login() {
       router.replace("/");
     } catch (error) {
       alert("토큰 가져오기 실패");
+      console.error(error);
       router.replace("/login");
     }
   }
