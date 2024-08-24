@@ -1,0 +1,130 @@
+.container {
+  position: relative;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+/* container */
+
+.wrapper {
+  padding-bottom: 138px;
+}
+
+.wrapper.bottom {
+  padding: 0;
+}
+/* wrapper */
+
+.bannerContainer {
+  position: relative;
+  overflow: hidden;
+  background: url(../../assets/images/banner.png), #cfe5ff;
+  background-repeat: no-repeat;
+  background-position: right calc(48% - 220px) bottom 0px;
+}
+
+.banner {
+  height: 540px;
+}
+
+.bannerTitle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+}
+
+.bannerTitle > .title {
+  padding-bottom: 32px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: var(--color-gray700);
+}
+.bannerTitle > .visitBtn {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px 124px;
+  border-radius: 40px;
+  background-color: var(--color-blue);
+  color: #ffffff;
+}
+/* banenr */
+
+.contents {
+  margin: 138px 0;
+}
+
+.itemList {
+  display: flex;
+  align-items: center;
+  gap: 0 64px;
+}
+
+.itemList.reverse {
+  flex-direction: row-reverse;
+}
+
+.itemList.reverse.alignRight > .info {
+  text-align: right;
+}
+
+.info > .infoTitle {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  color: var(--color-gray700);
+}
+
+.topLine {
+  display: inline-block;
+  padding-bottom: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.2px;
+  color: var(--color-blue);
+}
+
+.bottomLine {
+  display: inline-block;
+  padding-top: 24px;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1.28px;
+  line-height: 28.8px;
+  color: var(--color-gray700);
+}
+
+/* main  */
+
+.commentContainer {
+  position: relative;
+  overflow: hidden;
+  background: url(../../assets/images/comment.png), #cfe5ff;
+  background-repeat: no-repeat;
+  background-position: right calc(48% - 220px) bottom 0px;
+}
+.comment {
+  height: 540px;
+}
+.commentTitle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+}
+.commentTitle > .title {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 56px;
+  color: var(--color-gray700);
+}
+
+/* bottom */
