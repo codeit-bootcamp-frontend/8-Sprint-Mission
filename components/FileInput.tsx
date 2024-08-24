@@ -48,7 +48,10 @@ function FileInput({ name, value, onChange }: Props) {
       <StyledLabel>이미지</StyledLabel>
       <StyledFileArea>
         <StyledFileInputBox>
+          <label htmlFor="imgFile" />
           <StyledFileInput
+            id="imgFile"
+            name="imgFile"
             type="file"
             accept="image/png, image/jpeg"
             onChange={handleChange}
