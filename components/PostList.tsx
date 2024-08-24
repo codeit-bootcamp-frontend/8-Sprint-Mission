@@ -94,9 +94,12 @@ function PostList({ articles }: Props) {
               <StyledImageWrapper
                 src={
                   article.image
-                    ? article.image
+                    ? encodeURI(article.image)
                     : "/image/product_img_default.png"
                 }
+                onError={(e) => {
+                  e.currentTarget.src = "/image/product_img_default.png";
+                }}
                 alt="게시글 첨부 이미지"
               />
             </StyledArea>

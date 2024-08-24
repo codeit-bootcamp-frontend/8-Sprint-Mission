@@ -249,7 +249,14 @@ function ArticleDetailPage() {
           </StyledArea>
         </StyledPostArea>
         <StyledImageWrapper
-          src={Detail.image ? Detail.image : "/image/product_img_default.png"}
+          src={
+            Detail.image
+              ? encodeURI(Detail.image)
+              : "/image/product_img_default.png"
+          }
+          onError={(e) => {
+            e.currentTarget.src = "/image/product_img_default.png";
+          }}
           alt="게시글 첨부 이미지"
         />
         <StyledContent>{Detail.content}</StyledContent>
