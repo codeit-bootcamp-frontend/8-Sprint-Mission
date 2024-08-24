@@ -1,43 +1,25 @@
-import { useState, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { HeaderProps } from "../@types/Header";
+import { useState, useContext } from "react";
+import { NavLink } from "react-router-dom";
 import LinkButton from "../Button/LinkButton";
-import NAVIGATION_LIST from "../../utils/NAVIGATION_LIST";
 import styles from "./Header.module.css";
 import logo from "../../assets/images/logo.png";
 import mobileLogo from "../../assets/images/mobile_logo.png";
 import profileImg from "../../assets/images/profile@2.png";
+import AuthContext from "../../store/AuthContext";
+import NavList from "../NavList/NavList";
 
 export default function Header() {
-  const location = useLocation();
-  const [tempLogin, setTempLogin] = useState<boolean>(false);
+  const authCtx = useContext(AuthContext);
+  const [isOpenLogout, setIsOpenLogout] = useState<boolean>(false);
 
-  const getLocationActive = ({ isActive, to }: HeaderProps) => {
-    const activeMenu =
-      (location.pathname === "/items" || location.pathname === "/additem") &&
-      (to === "items" || to === "additem");
-
-    if (activeMenu) return styles.active;
-
-    return isActive ? styles.active : undefined;
+  const handleLogout = () => {
+    authCtx.logout();
+    setIsOpenLogout(false);
   };
 
-  useEffect(() => {
-    setTempLogin(location.pathname === "/additem");
-  }, [location]);
-
-  const navList = NAVIGATION_LIST.map((list) => (
-    <li key={list.name}>
-      <NavLink
-        to={list.path}
-        className={({ isActive }) =>
-          getLocationActive({ isActive, to: list.path })
-        }
-      >
-        {list.name}
-      </NavLink>
-    </li>
-  ));
+  const handleOpenLogout = () => {
+    setIsOpenLogout((prevIsOpen) => !prevIsOpen);
+  };
 
   return (
     <header className={styles.header}>
@@ -52,19 +34,24 @@ export default function Header() {
             </NavLink>
           </div>
           <div className={styles.navList}>
-            <ul>{navList}</ul>
+            <NavList />
           </div>
         </div>
-        {tempLogin ? (
-          <Link to="/">
+        {authCtx.isLoggedIn ? (
+          <div onClick={handleOpenLogout}>
             <img
               className={styles.profile}
               src={profileImg}
               alt="사용자 프로필"
-            ></img>
-          </Link>
+            />
+          </div>
         ) : (
           <LinkButton to="/signin" btnName="로그인" />
+        )}
+        {isOpenLogout && (
+          <div onClick={handleLogout} className={styles.logoutContainer}>
+            <button className={styles.logoutBtn}>로그아웃</button>
+          </div>
         )}
       </div>
     </header>
