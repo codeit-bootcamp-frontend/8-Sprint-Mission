@@ -1,0 +1,32 @@
+.navList > ul {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+}
+.navList > ul > li {
+  text-align: center;
+  padding: 24px 15px;
+}
+.navList > ul > li > a {
+  display: inline-block;
+  width: 78px;
+  font-weight: 700;
+}
+.navList > ul > li > a.active {
+  color: var(--color-blue);
+}
+
+@media (max-width: 768px) {
+  .navList > ul {
+    font-size: 1.6rem;
+  }
+  .navList > ul > li {
+    padding: 0 8px 0 0;
+  }
+  .navList > ul > li:last-child {
+    padding: 0;
+  }
+  .navList > ul > li > a {
+    width: 100%;
+  }
+}
