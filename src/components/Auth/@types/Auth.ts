@@ -4,7 +4,7 @@ interface LoginInitialValue {
 }
 
 interface RegisterInitialValue extends LoginInitialValue {
-  nickName: string;
+  nickname: string;
   passwordCheck: string;
 }
 

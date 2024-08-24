@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import LoginMenu from "./LoginMenu";
 import AuthHeader from "./AuthHeader";
 import Section from "../../ui/Section/Section";
@@ -6,17 +7,42 @@ import Input from "../../ui/FormComponents/Input";
 import LinkButton from "../../ui/Button/LinkButton";
 import styles from "./Auth.module.css";
 import { RegisterInitialValue, ChangeValueType } from "./@types/Auth";
+import { signUp } from "../../utils/http";
+import AuthContext from "../../store/AuthContext";
 
 const INITIAL_VALUE: RegisterInitialValue = {
   email: "",
-  nickName: "",
+  nickname: "",
   password: "",
   passwordCheck: "",
 };
 
 export default function Register() {
+  const navigate = useNavigate();
   const [formValue, setFormValue] =
     useState<RegisterInitialValue>(INITIAL_VALUE);
+  const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    if (authCtx.isLoggedIn) {
+      navigate("/");
+    }
+  }, [authCtx.isLoggedIn]);
+
+  const handleRegister = async () => {
+    try {
+      const res = await signUp(formValue);
+      console.log(res);
+      navigate("/signin");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSubmitRegister = (e) => {
+    e.preventDefault();
+    handleRegister();
+  };
 
   const handleChangeFormValue: ChangeValueType = (name, value) => {
     setFormValue((prevData) => ({
@@ -29,7 +55,7 @@ export default function Register() {
     <Section>
       <AuthHeader />
       <div className={styles.container}>
-        <form>
+        <form onSubmit={handleSubmitRegister}>
           <Input
             id="email"
             type="email"
@@ -40,9 +66,9 @@ export default function Register() {
             changeValue={handleChangeFormValue}
           />
           <Input
-            id="nickName"
+            id="nickname"
             type="text"
-            name="nickName"
+            name="nickname"
             label="닉네임"
             placeholder="닉네임을 입력해주세요"
             className={styles.inputBox}

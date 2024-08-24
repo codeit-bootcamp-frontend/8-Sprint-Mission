@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import AuthHeader from "./AuthHeader";
 import LoginMenu from "./LoginMenu";
 import Section from "../../ui/Section/Section";
@@ -6,6 +6,8 @@ import Input from "../../ui/FormComponents/Input";
 import LinkButton from "../../ui/Button/LinkButton";
 import styles from "./Auth.module.css";
 import { LoginInitialValue, ChangeValueType } from "./@types/Auth";
+import AuthContext from "../../store/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_VALUE: LoginInitialValue = {
   email: "",
@@ -14,6 +16,22 @@ const INITIAL_VALUE: LoginInitialValue = {
 
 export default function Register() {
   const [formValue, setFormValue] = useState<LoginInitialValue>(INITIAL_VALUE);
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (authCtx.isLoggedIn) {
+      navigate("/");
+    }
+  }, [authCtx.isLoggedIn]);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const successs = await authCtx.login(formValue);
+    if (successs) {
+      navigate("/");
+    }
+  };
 
   const handleChangeFormValue: ChangeValueType = (name, value) => {
     setFormValue((prevData) => ({
@@ -26,7 +44,7 @@ export default function Register() {
     <Section>
       <AuthHeader />
       <div className={styles.container}>
-        <form>
+        <form onSubmit={handleLogin}>
           <Input
             id="email"
             type="email"
