@@ -9,21 +9,6 @@ import { useRouter } from "next/router";
 import axios from "@/lib/axios";
 import Link from "next/link";
 
-// const articleDetail = {
-//   updatedAt: "2024-08-19T13:38:33.168Z",
-//   createdAt: "2024-08-19T13:38:33.168Z",
-//   likeCount: 20,
-//   writer: {
-//     nickname: "최영선",
-//     id: 3,
-//   },
-//   image: "https://dimg.donga.com/wps/NEWS/IMAGE/2021/12/09/110713388.1.jpg",
-//   content:
-//     "도저히 맥북을 계속 사용할 형편이 안 되어 처분하고 레노버 노트북 사려고 합니다.. 60만원에 팝니다 네고 없습니다. 6개월 사용했고, 코딩할 떄밖에 안 썼습니다.",
-//   title: "맥북 급처분합니다! 연락주세요!!!",
-//   id: 1,
-// };
-
 const StyledContainer = styled.main`
   width: 1200px;
   margin: auto;

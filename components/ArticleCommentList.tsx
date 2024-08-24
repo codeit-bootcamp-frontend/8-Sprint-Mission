@@ -2,20 +2,7 @@ import FormatRelativeTime from "@/utils/FormatRelativeTime";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "@/lib/axios";
-import { useRouter } from "next/router";
 import Image from "next/image";
-
-const comment = {
-  writer: {
-    image: "/image/product_img_default.png",
-    nickname: "송경민",
-    id: 12,
-  },
-  updatedAt: "2024-08-19T13:44:29.935Z",
-  createdAt: "2024-08-19T13:44:29.935Z",
-  content: "잔기스 있나요?",
-  id: 1,
-};
 
 const StyledSection = styled.section`
   margin-top: 100px;
