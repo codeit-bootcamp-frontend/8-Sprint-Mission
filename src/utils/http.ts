@@ -53,3 +53,36 @@ export async function getCommentList(id: number) {
   const { list } = await response.json();
   return list;
 }
+
+export async function signUp(data) {
+  const userData = {
+    email: data.email,
+    nickname: data.nickname,
+    password: data.password,
+    passwordConfirmation: data.passwordCheck,
+  };
+  const response = await fetch(`${BASE_URL}/auth/signUp`, {
+    method: "POST",
+    body: JSON.stringify(userData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  console.log(response);
+}
+
+export async function signIn(data) {
+  const userData = {
+    email: data.email,
+    password: data.password,
+  };
+  const response = await fetch(`${BASE_URL}/auth/signIn`, {
+    method: "POST",
+    body: JSON.stringify(userData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const user = await response.json();
+  return user;
+}
