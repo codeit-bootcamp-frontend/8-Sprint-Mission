@@ -64,6 +64,10 @@ const StyledDate = styled.p`
   color: var(--gray-400);
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 type Writer = {
   nickname: string;
   id: number;
@@ -87,7 +91,7 @@ function PostList({ articles }: Props) {
   return (
     <>
       {articles.map((article) => (
-        <Link href={`/boards/${article.id}`} key={article.id}>
+        <StyledLink href={`/boards/${article.id}`} key={article.id}>
           <StyledPostArea>
             <StyledArea>
               <StyledPostTitle>{article.title}</StyledPostTitle>
@@ -127,7 +131,7 @@ function PostList({ articles }: Props) {
               </StyledBottomRightArea>
             </StyledArea>
           </StyledPostArea>
-        </Link>
+        </StyledLink>
       ))}
     </>
   );
