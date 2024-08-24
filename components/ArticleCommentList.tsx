@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "@/lib/axios";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const comment = {
   writer: {
@@ -59,6 +60,13 @@ const StyledTime = styled.div`
   margin: 0;
 `;
 
+const StyledEmptyComment = styled.p`
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--gray-400);
+`;
+
 interface Comment {
   writer: {
     image: string;
@@ -87,13 +95,22 @@ function ArticleCommentList({ id }: any) {
 
   useEffect(() => {
     getArticleComments();
-  }, []);
+  }, [id]);
 
-  if (!comment) {
+  if (comments.length === 0) {
     return (
-      <div className="empty-comment">
-        <img src="/image/img_inquiry_empty.png" alt="No comments" />
-        <p>아직 문의가 없습니다.</p>
+      <div className="empty-comment" style={{ textAlign: "center" }}>
+        <Image
+          unoptimized={true}
+          width={140}
+          height={140}
+          src="/image/img_comment_empty.png"
+          alt="No comments"
+        />
+        <StyledEmptyComment>
+          아직 댓글이 없어요,
+          <br /> 지금 댓글을 달아보세요!
+        </StyledEmptyComment>
       </div>
     );
   }

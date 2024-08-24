@@ -119,6 +119,7 @@ const StyledTextArea = styled.textarea`
   border-radius: 12px;
   border: none;
   resize: none;
+  margin-bottom: 100px;
   &:focus {
     outline: 1px solid var(--blue-100);
   }
@@ -150,7 +151,7 @@ const StyledBackButton = styled(Button)`
   padding: 0 20px;
   border-radius: 40px;
   display: flex;
-  margin: 30px auto;
+  margin: 50px auto;
 `;
 
 const StyledButtonText = styled.p`
