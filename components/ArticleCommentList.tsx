@@ -1,5 +1,8 @@
 import FormatRelativeTime from "@/utils/FormatRelativeTime";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import axios from "@/lib/axios";
+import { useRouter } from "next/router";
 
 const comment = {
   writer: {
@@ -68,7 +71,24 @@ interface Comment {
   id: number;
 }
 
-function ArticleCommentList() {
+function ArticleCommentList({ id }: any) {
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  async function getArticleComments() {
+    const query = {
+      limit: 10,
+    };
+    const res = await axios.get(
+      `/articles/${id}/comments?limit=${query.limit}`
+    );
+    const nextComments = res.data.list;
+    setComments(nextComments);
+  }
+
+  useEffect(() => {
+    getArticleComments();
+  }, []);
+
   if (!comment) {
     return (
       <div className="empty-comment">
@@ -81,18 +101,27 @@ function ArticleCommentList() {
     <div>
       <StyledSection>
         <StyledList>
-          <StyledListItem key={comment.id}>
-            <StyledContent>{comment.content}</StyledContent>
-            <StyledBottomSection>
-              <StyledWriterImg src={comment.writer.image} alt="프로필 이미지" />
-              <StyledInfo>
-                <StyledNickname>{comment.writer.nickname}</StyledNickname>
-                <StyledTime>
-                  <FormatRelativeTime time={comment.updatedAt} />
-                </StyledTime>
-              </StyledInfo>
-            </StyledBottomSection>
-          </StyledListItem>
+          {comments.map((comment) => (
+            <StyledListItem key={comment.id}>
+              <StyledContent>{comment.content}</StyledContent>
+              <StyledBottomSection>
+                <StyledWriterImg
+                  src={
+                    comment.writer.image
+                      ? comment.writer.image
+                      : "/image/profile_img_none.png"
+                  }
+                  alt="프로필 이미지"
+                />
+                <StyledInfo>
+                  <StyledNickname>{comment.writer.nickname}</StyledNickname>
+                  <StyledTime>
+                    <FormatRelativeTime time={comment.updatedAt} />
+                  </StyledTime>
+                </StyledInfo>
+              </StyledBottomSection>
+            </StyledListItem>
+          ))}
         </StyledList>
       </StyledSection>
     </div>
