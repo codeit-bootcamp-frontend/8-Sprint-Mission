@@ -23,6 +23,11 @@
     width: 153px;
   }
 
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
   &__login-link-button {
     display: flex;
   }
@@ -30,6 +35,7 @@
   &__profile {
     right: 40px;
     top: 20px;
+    margin: 0 0 0 1rem;
     border-radius: 50%;
     background-color: $gray-200;
   }
