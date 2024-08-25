@@ -14,4 +14,5 @@ export const API_ENDPOINTS = {
   getComments: (articleId: number, limit: number): string =>
     `/articles/${articleId}/comments?limit=${limit}`,
   addUser: "/auth/signUp",
+  loginUser: "/auth/signIn",
 };
