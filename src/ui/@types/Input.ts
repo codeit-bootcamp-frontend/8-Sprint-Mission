@@ -1,4 +1,10 @@
 import { InputHTMLAttributes, TextareaHTMLAttributes } from "react";
+import { UseFormRegister, RegisterOptions } from "react-hook-form";
+
+type FormRules = {
+  email: string;
+  password: string;
+};
 
 interface FileInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
@@ -12,8 +18,13 @@ interface FileInputProps extends InputHTMLAttributes<HTMLInputElement> {
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   id: string;
+  name: string;
   className: string;
-  changeValue: (name: string, value: string) => void;
+  hideBtn?: boolean;
+  register?: UseFormRegister<any>;
+  rules?: RegisterOptions<FormRules>;
+  errorMsg?: string;
+  changeValue?: (name: string, value: string) => void;
 }
 
 interface Tag {
