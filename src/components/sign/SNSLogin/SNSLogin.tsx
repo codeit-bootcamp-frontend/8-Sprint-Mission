@@ -2,8 +2,6 @@ import styles from './SNSLogin.module.scss';
 
 import logoKakao from '@assets/images/image/logo_kakao_talk.svg';
 import logoGoogle from '@assets/images/image/logo_google.png';
-import UIButton from '@core/ui/buttons/UIButton/UIButton';
-import Image from 'next/image';
 import UIIcon from '@core/ui/UIIcon/UIIcon';
 
 type SNSLoginProps = {};

@@ -6,9 +6,12 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import imgPandaMarketLogo from '@assets/images/logo/logo.svg';
 import imgProfile from '@assets/images/icons/ic_profile.svg';
+import { useAuthStore } from '@store/useAuthStore';
+import UIButton from '@core/ui/buttons/UIButton/UIButton';
 
 const Header = ({}) => {
-  const { pathname } = useRouter();
+  const { pathname, push } = useRouter();
+  const { accessToken } = useAuthStore();
 
   return (
     <header className={styles['navbar']}>
@@ -40,13 +43,35 @@ const Header = ({}) => {
           </Link>
         </nav>
       </div>
-      <Link href="/signin" id="login-link-button" className="button">
-        <Image
-          className={styles['navbar__profile']}
-          src={imgProfile}
-          alt="프로필"
-        />
-      </Link>
+      {accessToken && (
+        <Link
+          href="/addboard"
+          id="login-link-button"
+          className="button navbar__login-link-button"
+        >
+          <Image
+            className={styles['navbar__profile']}
+            src={imgProfile}
+            alt="프로필"
+          />
+        </Link>
+      )}
+      {!accessToken && (
+        <div
+          id="login-link-button"
+          className="button navbar__login-link-button"
+        >
+          <UIButton
+            className={styles['navbar__profile']}
+            type="box"
+            handleClick={() => {
+              push('login');
+            }}
+          >
+            로그인
+          </UIButton>
+        </div>
+      )}
     </header>
   );
 };
