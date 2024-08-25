@@ -20,7 +20,6 @@ export default function AddForm() {
             <PlusIcon className={styles.plusIcon} />
             이미지 등록
           </div>
-          {/* <p className={styles.addImageWord}>이미지 등록</p> */}
         </div>
       </div>
     </div>
