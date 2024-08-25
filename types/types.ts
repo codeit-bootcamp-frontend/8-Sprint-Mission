@@ -48,3 +48,10 @@ export interface AddArticle {
   content: string;
   image: File | null;
 }
+
+export interface AddUserRequest {
+  email: string;
+  nickname: string;
+  password: string;
+  passwordConfirmation: string;
+}
