@@ -6,4 +6,8 @@ export type AddUserRequest = Pick<
   'email' | 'nickname' | 'password' | 'passwordConfirmation'
 >;
 
+export type SignInUserRequest = Pick<BasicType, 'email' | 'password'>;
+
 export type AddUserResponse = AuthState;
+
+export type SignInUserResponse = AuthState;
