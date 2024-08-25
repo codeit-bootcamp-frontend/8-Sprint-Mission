@@ -1,0 +1,97 @@
+.login {
+  max-width: 40rem;
+  width: 100%;
+  margin: 3rem auto;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.loginInputBox {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  color: var(--gray-800);
+}
+
+.loginInput {
+  width: 100%;
+  height: 3.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  border: none;
+  border-radius: 0.7rem;
+  background-color: var(--gray-100);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.loginInput:focus {
+  border: 1px solid var(--brand-blue);
+}
+
+.loginInput::placeholder {
+  color: var(--gray-400);
+}
+
+.loginBtn {
+  width: 100%;
+  background-color: var(--gray-400);
+  border-radius: 2.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  text-align: center;
+  padding: 1rem 0;
+  border: none;
+}
+
+.oauthLogin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--light-blue);
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.oauthLogin span {
+  font-size: 1rem;
+  color: var(--gray-800);
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+.oauthLoginIcon {
+  width: 2rem;
+}
+
+.oauthLoginIcons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.signup {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.1rem;
+}
+
+.signup a {
+  text-decoration: underline;
+  color: var(--blue);
+}
+
+.loginPasswordBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
