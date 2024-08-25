@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styles from "@/components/Boards/BestArticleSection.module.css";
 import Image from "next/image";
 import axios from "@/lib/axios";
+import { format } from "date-fns";
 
 type Article = {
   updatedAt: Date;
@@ -78,7 +79,7 @@ export default function BestArticleSection() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [pageSize, setPageSize] = useState<number | null>(null);
   const router = useRouter();
-  const { id } = router.query;
+  // const { id } = router.query;
 
   // async function getProduct(articleId: number) {
   //   const res = await axios.get(`articles/${articleId}`);
@@ -135,22 +136,28 @@ export default function BestArticleSection() {
             <div>
               <Image
                 unoptimized={true}
-                src="/assets/images/bestBadge.svg"
+                src="/assets/images/bestBadge.png"
                 width={102}
                 height={30}
                 alt="베스트 뱃지"
               />
             </div>
             <div className={styles.bestArticleCard}>
-              <span>{article.title}</span>
+              <span className={styles.cardTitle}>{article.title}</span>
               {/* <span>{article.content}</span> */}
               <Image
+                className={styles.bestArticleImage}
                 src={article.image}
                 width={72}
                 height={72}
                 alt={`${article.title} 이미지`}
               />
             </div>
+            <div>
+              <div>{article.writer.nickname}</div>
+              <div>{article.likeCount}</div>
+            </div>
+            <div>{format(new Date(article.createdAt), "yyyy. MM. dd")}</div>
           </div>
         ))}
       </div>

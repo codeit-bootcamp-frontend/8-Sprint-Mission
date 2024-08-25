@@ -30,3 +30,23 @@
 
   background: #f9fafb;
 }
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+
+  color: #1f2937;
+  background: #f9fafb;
+}
+
+.bestArticleImage {
+  width: 72px;
+  height: 72px;
+  left: 264px;
+  padding: 13.71px 12px 13.71px 12px;
+  border-radius: 6px;
+
+  border: 1px solid #e5e7eb;
+}
