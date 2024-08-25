@@ -8,10 +8,16 @@ import imgPandaMarketLogo from '@assets/images/logo/logo.svg';
 import imgProfile from '@assets/images/icons/ic_profile.svg';
 import { useAuthStore } from '@store/useAuthStore';
 import UIButton from '@core/ui/buttons/UIButton/UIButton';
+import { useEffect, useState } from 'react';
 
 const Header = ({}) => {
   const { pathname, push } = useRouter();
   const { accessToken } = useAuthStore();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <header className={styles['navbar']}>
@@ -43,7 +49,7 @@ const Header = ({}) => {
           </Link>
         </nav>
       </div>
-      {accessToken && (
+      {isClient && accessToken && (
         <Link
           href="/addboard"
           id="login-link-button"
@@ -56,7 +62,7 @@ const Header = ({}) => {
           />
         </Link>
       )}
-      {!accessToken && (
+      {isClient && !accessToken && (
         <div
           id="login-link-button"
           className="button navbar__login-link-button"
