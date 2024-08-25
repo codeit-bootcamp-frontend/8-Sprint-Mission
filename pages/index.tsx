@@ -1,5 +1,12 @@
+import { ReactElement } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
+
+import Nav from "@/components/Nav";
+import Layout from "@/components/Layout";
+import IntroCard from "@/components/IntroCard";
+
 import headerImage from "@/assets/images/Img_home_top.png";
 import pandaWithTShirtImage from "@/assets/images/Img_home_01.png";
 import readingGlassImage from "@/assets/images/Img_home_02.png";
@@ -8,6 +15,30 @@ import facebookIcon from "@/assets/images/ic_facebook.png";
 import twitterIcon from "@/assets/images/ic_twitter.png";
 import youtubeIcon from "@/assets/images/ic_youtube.png";
 import instagramIcon from "@/assets/images/ic_instagram.png";
+
+const CARD_LIST = [
+  {
+    label: "Hot item",
+    title: "인기 상품을 확인해 보세요",
+    content: "가장 HOT한 중고거래 물품을 판다 마켓에서 확인해 보세요",
+    image: pandaWithTShirtImage,
+    alt: "판다가 반팔티를 보고 있는 이미지",
+  },
+  {
+    label: "Search",
+    title: "구매를 원하는 상품을 검색하세요",
+    content: "구매하고 싶은 물품은 검색해서 쉽게 찾아보세요",
+    image: readingGlassImage,
+    alt: "돋보기로 물음표를 보는 이미지",
+  },
+  {
+    label: "Register",
+    title: "판매를 원하는 상품을 등록하세요",
+    content: "어떤 물건이든 판매하고 싶은 상품을 쉽게 등록하세요",
+    image: fileOfProductImage,
+    alt: "상품 파일이 담긴 폴더를 고르는 이미지",
+  },
+];
 
 const SNS_LIST = [
   {
@@ -34,119 +65,82 @@ const SNS_LIST = [
 
 function Home() {
   return (
-    <main>
-      <header>
-        <div className="header-wrapper">
-          <h1 className="title">
-            일상의 모든 물건을 <br className="onlyPC" />
-            거래해 보세요
-          </h1>
-          <Link className="header-link" href="/items">
-            구경하러 가기
-          </Link>
+    <>
+      <Head>
+        <title>판다마켓</title>
+      </Head>
+      <Nav />
+      <main className="mt-[4.375rem]">
+        <header className="relative h-[33.75rem] bg-[#cfe5ff]">
+          <div className="absolute bottom-0 m-auto flex max-w-[75rem] items-center justify-start">
+            <div className="flex flex-col items-start justify-start">
+              <h1 className="text-[2.5rem] font-bold text-gray-700">
+                일상의 모든 물건을 거래해 보세요
+              </h1>
+              <Link
+                className="w-full rounded-full bg-brand-blue p-3 text-center text-xl font-semibold text-gray-50"
+                href="/items"
+              >
+                구경하러 가기
+              </Link>
+            </div>
+            <Image
+              className="h-auto w-auto"
+              src={headerImage}
+              alt="판다가 손 흔드는 이미지"
+              width={746}
+              height={340}
+            />
+          </div>
+        </header>
+
+        <div className="main-wrapper">
+          {CARD_LIST.map((content, index) => {
+            return <IntroCard key={index} data={content} />;
+          })}
         </div>
-      </header>
 
-      <div className="main-wrapper">
-        <section>
-          <Image
-            className="section-img hot-item"
-            src={pandaWithTShirtImage}
-            alt="판다가 반팔티를 보고 있는 이미지"
-            width={588}
-            height={444}
-          />
-          <div className="section-content hot-item">
-            <p className="section-content-label hot-item">Hot item</p>
-            <h1 className="title hot-item">
-              인기 상품을 <br className="onlyPC" />
-              확인해 보세요
-            </h1>
-            <h2 className="section-content-description hot-item">
-              가장 HOT한 중고거래 물품을 <br />
-              판다 마켓에서 확인해 보세요
-            </h2>
-          </div>
-        </section>
-
-        <section>
-          <div className="section-content search">
-            <p className="section-content-label search">Search</p>
-            <h1 className="title search">
-              구매를 원하는 <br className="onlyPC" />
-              상품을 검색하세요
-            </h1>
-            <h2 className="section-content-description search">
-              구매하고 싶은 물품은 검색해서 <br />
-              쉽게 찾아보세요
-            </h2>
-          </div>
-          <Image
-            className="section-img search"
-            src={readingGlassImage}
-            alt="돋보기로 물음표를 보는 이미지"
-            width={588}
-            height={444}
-          />
-        </section>
-
-        <section>
-          <Image
-            className="section-img register"
-            src={fileOfProductImage}
-            alt="상품 파일이 담긴 폴더를 고르는 이미지"
-            width={588}
-            height={444}
-          />
-          <div className="section-content register">
-            <p className="section-content-label register">Register</p>
-            <h1 className="title register">
-              판매를 원하는 <br className="onlyPC" />
-              상품을 등록하세요
-            </h1>
-            <h2 className="section-content-description register">
-              어떤 물건이든 판매하고 싶은 상품을 <br />
-              쉽게 등록하세요
-            </h2>
-          </div>
-        </section>
-      </div>
-
-      <div className="banner">
-        <div className="banner-wrapper">
+        <div className="bg-[#cfe5ff]">
           <h1 className="title">
             믿을 수 있는 <br />
             판다마켓 중고거래
           </h1>
         </div>
-      </div>
 
-      <footer>
-        <div className="footer-wrapper">
-          <div className="footer-copyright">©codeit - 2024</div>
-          <div className="footer-menu">
-            <Link className="footer-menu-link" href="/privacy">
-              Privacy Policy
-            </Link>
-            <Link className="footer-menu-link" href="/faq">
-              FAQ
-            </Link>
-          </div>
+        <footer className="h-40 bg-gray-900">
+          <div className="m-auto flex max-w-[75rem] flex-shrink items-center justify-evenly pt-8">
+            <div className="text-base font-normal text-gray-400">
+              ©codeit - 2024
+            </div>
+            <div className="flex items-center justify-center gap-[1.875rem] text-base font-normal text-gray-200">
+              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/faq">FAQ</Link>
+            </div>
 
-          <div className="footer-sns">
-            {SNS_LIST.map((sns, index) => {
-              const { link, icon, alt } = sns;
-              return (
-                <Link key={index} href={link} target="_blank">
-                  <Image src={icon} alt={`${alt} 아이콘`} />
-                </Link>
-              );
-            })}
+            <div className="flex items-center justify-center gap-3">
+              {SNS_LIST.map((sns, index) => {
+                const { link, icon, alt } = sns;
+                return (
+                  <Link key={index} href={link} target="_blank">
+                    <Image
+                      src={icon}
+                      alt={`${alt} 아이콘`}
+                      width={20}
+                      height={20}
+                    />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </footer>
-    </main>
+        </footer>
+      </main>
+    </>
   );
 }
 
 export default Home;
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <>{page}</>;
+};
