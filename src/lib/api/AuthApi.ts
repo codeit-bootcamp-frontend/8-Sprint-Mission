@@ -9,10 +9,9 @@ export const addUser = async ({ ...params }: AddUserRequest) => {
       url: '/auth/signUp',
       data: params,
     });
-    if (response.status === 200) {
-      return response;
-    }
+    return response;
   } catch (error) {
     console.error('error: ', error);
+    throw error;
   }
 };

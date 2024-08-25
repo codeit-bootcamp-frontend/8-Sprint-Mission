@@ -6,8 +6,11 @@ import { DevTool } from '@hookform/devtools';
 import Input from '@core/ui/inputs/Input/Input';
 import { AddUserRequest } from '@type/AuthTypes';
 import { useEffect } from 'react';
+import useSignUp from '@lib/hooks/auth/useSignUp';
 
 const SignUpForm = () => {
+  const { signUp } = useSignUp();
+
   const {
     register,
     handleSubmit,
@@ -18,6 +21,7 @@ const SignUpForm = () => {
 
   const onSubmit = (data: AddUserRequest) => {
     console.log(data);
+    signUp(data);
   };
 
   const onError = (errors: FieldErrors<AddUserRequest>) => {
