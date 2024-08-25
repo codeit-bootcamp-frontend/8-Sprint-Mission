@@ -130,21 +130,19 @@ export default function BestArticleSection() {
         <span className={styles.bestArticleTitle}>베스트 게시글</span>
       </div>
 
-      <div className={styles.bestArticleCardContainer}>
+      <div className={styles.allContainer}>
         {articles.map((article) => (
-          <div key={article.id}>
-            <div>
-              <Image
-                unoptimized={true}
-                src="/assets/images/bestBadge.png"
-                width={102}
-                height={30}
-                alt="베스트 뱃지"
-              />
-            </div>
+          <div key={article.id} className={styles.bestArticleCardContainer}>
+            <Image
+              unoptimized={true}
+              src="/assets/images/bestBadge.png"
+              width={102}
+              height={30}
+              alt="베스트 뱃지"
+            />
+
             <div className={styles.bestArticleCard}>
               <span className={styles.cardTitle}>{article.title}</span>
-              {/* <span>{article.content}</span> */}
               <Image
                 className={styles.bestArticleImage}
                 src={article.image}
@@ -153,11 +151,13 @@ export default function BestArticleSection() {
                 alt={`${article.title} 이미지`}
               />
             </div>
-            <div>
-              <div>{article.writer.nickname}</div>
-              <div>{article.likeCount}</div>
+            <div className={styles.bestArticleFooter}>
+              <div className={styles.bestArticleInform}>
+                <div>{article.writer.nickname}</div>
+                <div>{article.likeCount}</div>
+              </div>
+              <div>{format(new Date(article.createdAt), "yyyy. MM. dd")}</div>
             </div>
-            <div>{format(new Date(article.createdAt), "yyyy. MM. dd")}</div>
           </div>
         ))}
       </div>
