@@ -7,9 +7,11 @@ import Input from '@core/ui/inputs/Input/Input';
 import { AddUserRequest } from '@type/AuthTypes';
 import { useEffect } from 'react';
 import useSignUp from '@lib/hooks/auth/useSignUp';
+import { useRouter } from 'next/router';
 
 const SignUpForm = () => {
-  const { signUp } = useSignUp();
+  const { signUp, isSuccess } = useSignUp();
+  const router = useRouter();
 
   const {
     register,
@@ -32,7 +34,10 @@ const SignUpForm = () => {
     if (isSubmitSuccessful) {
       reset();
     }
-  }, [isSubmitSuccessful, reset]);
+    if (isSuccess) {
+      router.replace('/login');
+    }
+  }, [isSubmitSuccessful, reset, isSuccess]);
 
   return (
     <>
