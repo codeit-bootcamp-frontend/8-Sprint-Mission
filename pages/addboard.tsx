@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useState, ChangeEvent, useEffect } from "react";
 import FileInput from "@/components/fileinput";
 import { articleType } from "@/interfaces/article";
-import { postArticle } from "./util/api";
+import { postArticle, postImage } from "./util/api";
 import router from "next/router";
 
 export default function AddBoard() {
@@ -16,6 +16,7 @@ export default function AddBoard() {
   });
 
   const [fileImage, setFileImage] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<String | null>("");
 
   const [disabled, setDisabled] = useState(true);
 
@@ -32,9 +33,20 @@ export default function AddBoard() {
     setFileImage(file);
   };
 
-  const handleSubmit = async () => {
+  const handlePreviewChange = (preview: string | null) => {
+    setImagePreview(preview);
+
+    console.log(imagePreview);
+  };
+
+  useEffect(() => {
+    console.log(imagePreview);
+  }, [imagePreview]);
+
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     const result = await postArticle(articleValue);
-    console.log(result);
+    console.log(articleValue);
     if (!result) {
       console.log("게시물 등록 중 오류 발생:");
     }
@@ -76,7 +88,11 @@ export default function AddBoard() {
         onChange={handleContentChange}
       />
       <SubTitle>*이미지</SubTitle>
-      <FileInput value={fileImage} onChange={handleImageChange} />
+      <FileInput
+        value={fileImage}
+        fileChange={handleImageChange}
+        previewChange={handlePreviewChange}
+      />
     </Container>
   );
 }

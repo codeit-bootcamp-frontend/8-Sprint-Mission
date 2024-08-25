@@ -2,6 +2,7 @@ import axios from "@/lib/axios";
 import { AxiosError } from "axios";
 import { articleType } from "@/interfaces/article";
 import { UserInfo } from "@/interfaces/user";
+import { comment } from "stylis";
 
 export async function getArticles(
   page: number,
@@ -16,15 +17,33 @@ export async function getArticles(
   return body;
 }
 
-export async function postArticle(articleValue: articleType) {
-  const accessToken = localStorage.getItem("access_token");
+export async function postImage(image: string) {
+  const formDataForSubmit = new FormData();
+  formDataForSubmit.append("image", image);
 
-  const response = await axios.post(`/articles`, articleValue, {
+  const response = await axios.post(`images/upload`, formDataForSubmit, {
     headers: {
-      Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
   });
+  const { url } = response.data;
+
+  return url;
+}
+
+export async function postArticle({ image, title, content }: articleType) {
+  const accessToken = localStorage.getItem("access_token");
+
+  const response = await axios.post(
+    `/articles`,
+    { image, title, content },
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
   const body = response.data;
 
   return body;

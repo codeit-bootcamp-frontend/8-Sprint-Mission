@@ -61,7 +61,16 @@ export default function Board() {
 
   const handleCommentClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (typeof id === "string") await postArticleComment(id, commentContent);
+    if (typeof id === "string") {
+      await postArticleComment(id, commentContent);
+
+      // 댓글 등록 후 상태 업데이트
+      const updatedComments = await getArticleComment(id);
+      setComment(updatedComments);
+
+      // 댓글 입력 필드 초기화
+      setCommentContent("");
+    }
   };
 
   return (
@@ -85,6 +94,7 @@ export default function Board() {
       <CommentTextarea
         placeholder="댓글을 입력해주세요."
         onChange={handleCommentChange}
+        value={commentContent}
       ></CommentTextarea>
       <ButtonWrapper>
         <PrimaryButton disabled={disabled} onClick={handleCommentClick}>

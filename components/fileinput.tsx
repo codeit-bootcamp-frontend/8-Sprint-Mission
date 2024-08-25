@@ -4,14 +4,15 @@ import styled from "styled-components";
 import Image from "next/image";
 import plusIcon from "@/images/ic_plus.svg";
 import { FileInputType } from "@/interfaces/article";
+import { postImage } from "@/pages/util/api";
 
-function FileInput({ value, onChange }: FileInputType) {
+function FileInput({ value, fileChange, previewChange }: FileInputType) {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const nextValue = e.target.files ? e.target.files[0] : null;
-    onChange(nextValue);
+    fileChange(nextValue);
   };
 
   const handleClearClick = () => {
@@ -22,7 +23,7 @@ function FileInput({ value, onChange }: FileInputType) {
     inputNode.value = "";
 
     setPreview(null);
-    onChange(null);
+    fileChange(null);
   };
 
   useEffect(() => {
@@ -31,7 +32,8 @@ function FileInput({ value, onChange }: FileInputType) {
     const nextpreview = URL.createObjectURL(value);
 
     setPreview(nextpreview);
-    console.log(nextpreview);
+    previewChange(nextpreview);
+    // console.log(nextpreview);
 
     // 메모리 누수를 방지하기 위해 URL 객체를 해제
     return () => {
