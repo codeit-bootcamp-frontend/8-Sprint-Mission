@@ -1,9 +1,17 @@
 import BasicLayout from '@components/layout/BasicLayout/BasicLayout';
 import SignUpSection from '@components/sign/SignUpSection/SignUpSection';
+import { useAuthStore } from '@store/useAuthStore';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-type SignUpPageProps = {};
+const SignUpPage = () => {
+  const router = useRouter();
+  const { accessToken } = useAuthStore();
 
-const SignUpPage = ({}: SignUpPageProps) => {
+  useEffect(() => {
+    if (accessToken) router.replace('/');
+  }, [accessToken]);
+
   return (
     <>
       <BasicLayout>
