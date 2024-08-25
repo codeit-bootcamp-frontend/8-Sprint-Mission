@@ -49,9 +49,27 @@ export interface AddArticle {
   image: File | null;
 }
 
-export interface AddUserRequest {
+export interface LoginUserRequest {
   email: string;
-  nickname: string;
   password: string;
+}
+
+export interface AddUserRequest extends LoginUserRequest {
+  nickname: string;
   passwordConfirmation: string;
+}
+
+export interface AuthResponse {
+  accessToken: string;
+  refreshToken: string;
+  user: User;
+}
+
+export interface User {
+  id: number;
+  email: string;
+  image: null;
+  nickname: string;
+  updatedAt: string;
+  createdAt: string;
 }
