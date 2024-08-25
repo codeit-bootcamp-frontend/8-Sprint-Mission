@@ -1,13 +1,8 @@
 import { useState, useEffect, createContext } from "react";
 import { signIn } from "../utils/http";
+import { AuthContextType, LoginType } from "./types/AuthContextType";
 
-interface AuthCotextType {
-  isLoggedIn: boolean;
-  login: (data: { email: string; password: string }) => Promise<boolean>;
-  logout: () => void;
-}
-
-const AuthContext = createContext<AuthCotextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,8 +14,7 @@ export const AuthContextProvider = ({ children }) => {
     }
   }, []);
 
-  const loginHandler = async (data) => {
-    setIsLoggedIn(true);
+  const loginHandler = async (data: LoginType) => {
     try {
       const res = await signIn(data);
       if (res.accessToken) {
@@ -28,9 +22,13 @@ export const AuthContextProvider = ({ children }) => {
         localStorage.setItem("token", res.accessToken);
         return true;
       }
-      return false;
+
+      if (res.error || res.message) {
+        alert(res.message);
+        return false;
+      }
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       return false;
     }
   };
