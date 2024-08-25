@@ -40,7 +40,7 @@
 
 .loginBtn {
   width: 100%;
-  background-color: var(--gray-400);
+  background-color: var(--blue);
   border-radius: 2.5rem;
   color: #ffffff;
   font-weight: 600;
@@ -49,6 +49,9 @@
   text-align: center;
   padding: 1rem 0;
   border: none;
+}
+.loginBtn:disabled {
+  background-color: var(--gray-400);
 }
 
 .oauthLogin {
@@ -89,9 +92,6 @@
   text-decoration: underline;
   color: var(--blue);
 }
-
-.loginPasswordBox {
-  position: relative;
-  display: flex;
-  align-items: center;
+.errorMessage {
+  color: var(--red);
 }
