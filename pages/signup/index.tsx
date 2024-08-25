@@ -29,12 +29,18 @@ const Signup = () => {
   const onSubmit = async (data: AddUserRequest) => {
     try {
       await signupUser(data);
-      router.push("/login");
+      router.replace("/login");
     } catch (error) {
       alert("이메일 중복");
+      router.replace("/signup");
     }
   };
   const isPasswordMismatch = password !== passwordConfirmation;
+
+  useEffect(() => {
+    const getAccessToken = localStorage.getItem("accessToken");
+    if (getAccessToken) router.replace("/");
+  }, [router]);
 
   useEffect(() => {
     trigger();
