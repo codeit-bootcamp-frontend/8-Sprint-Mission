@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { ItemContext } from "../../../context/ItemContext";
+import { ProductContext } from "../../../context/ProductContext";
 import { ReactComponent as HeartIcon } from "../../../images/icons/ic_heart.svg";
 import { ReactComponent as SeeMoreIcon } from "../../../images/icons/ic_seemore.svg";
 
 function DetailCard() {
   const { id } = useParams<{ id: string }>();
-  const itemList = useContext(ItemContext);
+  const itemList = useContext(ProductContext);
 
   if (!id) {
     return <h2>Invalid ID</h2>;

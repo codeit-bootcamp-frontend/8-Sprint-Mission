@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: "pretendard";
+}
+
+.Loginheader img {
+  width: 396px;
+  height: 132px;
+  margin: 60px auto 40px;
+}
+@media (max-width: 400px) {
+  .Loginheader img {
+    width: 198px;
+    height: 66px;
+    margin: 24px auto 24px;
+  }
+}
+
+body {
+  text-align: center;
+}
+
+.LoginMain {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 640px;
+  height: 430px;
+  margin: 0 auto;
+}
+@media (max-width: 400px) {
+  .LoginMain {
+    gap: 16px;
+    width: 343px;
+    height: 250px;
+  }
+}
+
+.signupemail,
+.signuppassword,
+.login {
+  width: 640px;
+  height: 56px;
+  border: none;
+}
+@media (max-width: 400px) {
+  input,
+  .login {
+    width: 343px;
+    height: 56px;
+  }
+}
+
+.loginLabel {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.71px;
+  margin-bottom: 16px;
+}
+@media (max-width: 400px) {
+  .loginLabel {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.48px;
+    margin-bottom: 8px;
+  }
+}
+
+.signupemail,
+.signuppassword {
+  background-color: #f3f4f6;
+  border-radius: 12px;
+}
+
+.password {
+  position: relative;
+}
+
+.signupemail:focus {
+  outline: 1px solid #3182f6;
+}
+
+.errormessage {
+  color: red;
+  display: none;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.inputerror {
+  border: 2px solid red;
+}
+
+.signuppassword:focus {
+  outline: 1px solid #3182f6;
+}
+
+.passwordicon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 53px;
+  right: 25px;
+  background-color: #f3f4f6;
+}
+
+.login {
+  background: #9ca3af;
+  padding: 16px 124px 16px 124px;
+  border-radius: 40px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.easylogin {
+  background: #e6f2ff;
+  width: 640px;
+  height: 74px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 393px;
+}
+@media (max-width: 400px) {
+  .easylogin {
+    gap: 95px;
+    width: 344px;
+    padding: 13px 0px;
+  }
+}
+
+.LoginFrom {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.LoginFrom ::placeholder {
+  padding: 16px 24px;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.easyloginicon {
+  display: flex;
+  gap: 16px;
+}
+
+.footer {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.footer a {
+  color: #3182f6;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.login:hover {
+  background-color: #3692ff;
+}

@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import { getComments } from "../../../API/CommentsAPI";
 
 interface comment {
+  images: string;
+  nickname: string;
   id: number;
   name: string;
   content: string;
   createdAt: string;
-  images: string;
-  nickname: string;
   updatedAt: number;
 }
 

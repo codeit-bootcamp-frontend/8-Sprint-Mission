@@ -14,7 +14,8 @@ function FileInput({ name, value, onChange }: FileInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const nextValue = e.target.files ? e.target.files[0] : null;
+    const nextValue =
+      e.target.files && e.target.files.length > 0 ? e.target.files[0] : null;
     onChange(name, nextValue);
   };
 
@@ -40,7 +41,6 @@ function FileInput({ name, value, onChange }: FileInputProps) {
 
   return (
     <div className="fileInput-container">
-      <img src={preview} alt="" className="inputImage" />
       <input
         id="imgFile"
         type="file"
@@ -48,10 +48,14 @@ function FileInput({ name, value, onChange }: FileInputProps) {
         onChange={handleChange}
         ref={inputRef}
       />
+
       {value && (
-        <button onClick={handleClearClick} className="button">
-          <img src={xbutton} alt="취소버튼" />
-        </button>
+        <>
+          <button onClick={handleClearClick} className="button">
+            <img src={xbutton} alt="취소버튼" />
+          </button>
+          <img src={preview} alt="" className="inputImage" />
+        </>
       )}
     </div>
   );
