@@ -1,6 +1,6 @@
 import { getArticle, getComments } from "@/lib/articleApi";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import kebabIcon from "@/public/images/icons/ic_kebab.svg";
 import Image from "next/image";
 import { Article, CommentsResponse } from "@/types/types";
@@ -9,45 +9,43 @@ import profileIcon from "@/public/images/icons/ic_profile.svg";
 import heartIcon from "@/public/images/icons/ic_heart.svg";
 import backIcon from "@/public/images/icons/ic_back.svg";
 import Link from "next/link";
+import useDateFormat from "@/lib/hooks/useDateFormat";
 
 const DetailBoard = () => {
   const router = useRouter();
   const { id } = router.query;
   const [article, setArticle] = useState<Article>();
   const [comments, setComments] = useState<CommentsResponse>();
+  const [commentValue, setCommentValue] = useState("");
+  const { format: dateFormat } = useDateFormat();
 
   const fetchArticle = async (articleId: number) => {
     const result = await getArticle(articleId);
     setArticle(result);
   };
 
-  useEffect(() => {
-    id && fetchArticle(Number(id));
-  }, [id]);
-
   const fetchComments = async (articleId: number, limit: number) => {
     const result = await getComments(articleId, limit);
     setComments(result);
   };
 
-  useEffect(() => {
-    id && fetchComments(Number(id), 5);
-  }, [id]);
-
-  const dateFormat = (date: Date) => {
-    const newDate = new Date(date);
-    const formatDate = `${newDate.getFullYear()}.${String(
-      newDate.getMonth() + 1
-    ).padStart(2, "0")}.${String(newDate.getDate()).padStart(2, "0")}`;
-    return formatDate;
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setCommentValue(e.target.value);
   };
+
+  useEffect(() => {
+    if (id) {
+      fetchArticle(Number(id));
+      fetchComments(Number(id), 5);
+    }
+  }, [id]);
 
   return (
     <>
       <div className={styles.articleDetail}>
         <div className={styles.articleHeader}>
           <h2 className={styles.articleTitle}>{article?.title}</h2>
-          <Image src={kebabIcon} alt="kebabIcon" />
+          <Image src={kebabIcon} alt="kebabIcon" width={24} height={24} />
         </div>
         <div className={styles.writerSection}>
           <div className={styles.writer}>
@@ -77,8 +75,15 @@ const DetailBoard = () => {
           id="commentTextarea"
           className={styles.commentTextarea}
           placeholder="댓글을 입력해주세요"
+          value={commentValue}
+          onChange={handleChange}
         />
-        <button className={styles.commentSubmitBtn}>등록</button>
+        <button
+          className={styles.commentSubmitBtn}
+          disabled={commentValue ? false : true}
+        >
+          등록
+        </button>
       </form>
       <div>
         {comments?.list.map((comment) => {
@@ -101,7 +106,9 @@ const DetailBoard = () => {
                   <p className={styles.writerNickname}>
                     {comment.writer.nickname}
                   </p>
-                  <p className={styles.writerTime}>{comment.createdAt}</p>
+                  <p className={styles.writerTime}>
+                    {comment.createdAt ? dateFormat(comment.createdAt) : ""}
+                  </p>
                 </div>
               </div>
             </div>

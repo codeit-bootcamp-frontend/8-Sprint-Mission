@@ -10,11 +10,13 @@ import styles from "./AllArticles.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { getArticles } from "@/lib/articleApi";
+import useDateFormat from "@/lib/hooks/useDateFormat";
 
 const AllArticles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [orderBy, setOrderBy] = useState<GetArticles["orderBy"]>("recent");
   const [searchKeyword, setSearchKeyword] = useState<string>("");
+  const { format: dateFormat } = useDateFormat();
 
   const router = useRouter();
   const keyword = (router.query.keyword as string) || "";
@@ -46,14 +48,6 @@ const AllArticles = () => {
   useEffect(() => {
     setSearchKeyword(keyword);
   }, [keyword]);
-
-  const dateFormat = (date: Date) => {
-    const newDate = new Date(date);
-    const formatDate = `${newDate.getFullYear()}.${String(
-      newDate.getMonth() + 1
-    ).padStart(2, "0")}.${String(newDate.getDate()).padStart(2, "0")}`;
-    return formatDate;
-  };
 
   const handleOrderChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setOrderBy(e.target.value as "recent" | "like");
@@ -88,7 +82,7 @@ const AllArticles = () => {
       </div>
       <div className={styles.articleSearch}>
         <div className={styles.articleInputBox}>
-          <Image src={searchIcon} alt="searchIcon" />
+          <Image src={searchIcon} alt="searchIcon" width={24} height={24} />
           <input
             type="text"
             className={styles.articleInput}
@@ -117,7 +111,8 @@ const AllArticles = () => {
                   <div className={styles.articleThumbnail}>
                     <div className={styles.imageWrapper}>
                       <Image
-                        fill
+                        width={48}
+                        height={48}
                         src={
                           article.image === null ? emptyImage : article.image
                         }
@@ -129,12 +124,22 @@ const AllArticles = () => {
                 </div>
                 <div className={styles.articleCardInfo}>
                   <div className={styles.articleCardInfoContents}>
-                    <Image src={profileIcon} alt="profileIcon" />
+                    <Image
+                      src={profileIcon}
+                      alt="profileIcon"
+                      width={24}
+                      height={24}
+                    />
                     <span>{article.writer.nickname}</span>
                     <span>{dateFormat(article.createdAt)}</span>
                   </div>
                   <div className={styles.articleCardLikeCount}>
-                    <Image src={heartIcon} alt="heartIcon" />
+                    <Image
+                      src={heartIcon}
+                      alt="heartIcon"
+                      width={24}
+                      height={24}
+                    />
                     <span>{article.likeCount}</span>
                   </div>
                 </div>

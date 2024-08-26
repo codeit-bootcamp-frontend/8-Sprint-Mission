@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "@/public/images/logo/logo.svg";
 import LogoTitle from "@/public/images/logo/logoTitle.svg";
 import styles from "./header.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import profileImg from "@/public/images/icons/ic_profile.svg";
 
 function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
+
   return (
     <header>
       <div className={styles.headerLinkBox}>
@@ -26,9 +38,13 @@ function Header() {
           </li>
         </ul>
       </div>
-      <Link href="/" className={styles.loginBtn}>
-        로그인
-      </Link>
+      {isLoggedIn ? (
+        <Image src={profileImg} alt="profileImg" width={40} />
+      ) : (
+        <Link href="/login" className={styles.loginBtn}>
+          로그인
+        </Link>
+      )}
     </header>
   );
 }

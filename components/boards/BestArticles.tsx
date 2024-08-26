@@ -8,6 +8,7 @@ import Link from "next/link";
 import { getArticles } from "@/lib/articleApi";
 
 const BestArticles = () => {
+  const MAX_COUNT = 9999;
   const [articles, setArticles] = useState<Article[]>([]);
   const fetchBestArticles = async ({
     page,
@@ -58,8 +59,8 @@ const BestArticles = () => {
                     <span>{article.writer.nickname}</span>
                     <div className={styles.articleLike}>
                       <Image src={heartIcon} alt="heart-icon" />
-                      {article.likeCount > 9999
-                        ? 9999 + "+"
+                      {article.likeCount > MAX_COUNT
+                        ? MAX_COUNT + "+"
                         : article.likeCount}
                     </div>
                   </div>

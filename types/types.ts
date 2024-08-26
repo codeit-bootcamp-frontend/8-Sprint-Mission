@@ -34,14 +34,12 @@ export interface CommentsResponse {
 export interface Comment {
   id: number;
   content: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
   writer: CommentWriter;
 }
 
-export interface CommentWriter {
-  id: number;
-  nickname: string;
+export interface CommentWriter extends Writer {
   image: string;
 }
 
@@ -49,4 +47,29 @@ export interface AddArticle {
   title: string;
   content: string;
   image: File | null;
+}
+
+export interface LoginUserRequest {
+  email: string;
+  password: string;
+}
+
+export interface AddUserRequest extends LoginUserRequest {
+  nickname: string;
+  passwordConfirmation: string;
+}
+
+export interface AuthResponse {
+  accessToken: string;
+  refreshToken: string;
+  user: User;
+}
+
+export interface User {
+  id: number;
+  email: string;
+  image: null;
+  nickname: string;
+  updatedAt: string;
+  createdAt: string;
 }

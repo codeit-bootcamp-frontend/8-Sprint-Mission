@@ -33,3 +33,7 @@
   line-height: 1.3rem;
   color: #4b5563;
 }
+.headerLinkBox ul li a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
