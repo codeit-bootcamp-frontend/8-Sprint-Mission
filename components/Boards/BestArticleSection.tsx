@@ -31,60 +31,10 @@ const getPageSize = (width: number): number => {
   }
 };
 
-// const BestArticleCard = ({ article }: { article: Article }) => {
-//   const dateString = format(new Date(article.createdAt), "yyyy. MM. dd");
-
-//   return (
-//     <Link href={`/boards/${article.id}`} className={styles.cardContainer}>
-//       <div className={styles.bestSticker}>
-//         <Image
-//           src="/images/icons/ic_medal.svg"
-//           alt="베스트 게시글"
-//           width={20}
-//           height={20}
-//         />
-//         Best
-//       </div>
-
-//       <div className={styles.contentWrapper}>
-//         <div className={styles.mainContent}>
-//           <h3 className={styles.articleTitle}>{article.title}</h3>
-//           {article.image && (
-//             <div className={styles.articleThumbnail}>
-//               <div className={styles.imageWrapper}>
-//                 <Image
-//                   fill
-//                   src={article.image}
-//                   alt={`${article.id}번 게시글 이미지`}
-//                   style={{ objectFit: "contain" }}
-//                 />
-//               </div>
-//             </div>
-//           )}
-//         </div>
-
-//         <div className={styles.articleInfo}>
-//           <div className={styles.articleInfoDiv}>
-//             {article.writer.nickname}
-//             <LikeCountDisplay count={article.likeCount} fontSize={14} />
-//           </div>
-//           <div className={styles.timestamp}>{dateString}</div>
-//         </div>
-//       </div>
-//     </Link>
-//   );
-// };
-
 export default function BestArticleSection() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [pageSize, setPageSize] = useState<number | null>(null);
   const router = useRouter();
-  // const { id } = router.query;
-
-  // async function getProduct(articleId: number) {
-  //   const res = await axios.get(`articles/${articleId}`);
-  //   const nextProducts = res.data.list;
-  //   setArticles(nextProducts);
 
   const useViewport = () => {
     const [width, setWidth] = useState(0);
