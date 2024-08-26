@@ -1,0 +1,69 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 113px;
+}
+.paginationList {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.paginationNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-weight: 600;
+  font-size: 1.6rem;
+  background: none;
+  border: 1px solid var(--color-gray200);
+  color: var(--color-gray500);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.paginationNum.active {
+  color: #fff;
+  border: 0;
+  background: var(--color-blue);
+}
+
+.btnPrev,
+.btnNext {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0 4px;
+  background: #fff;
+  border: 1px solid var(--color-gray200);
+  border-radius: 40px;
+  cursor: pointer;
+}
+.btnPrev::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  background: url(../../assets/images/btn_arrow.png) no-repeat center;
+}
+.btnNext::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  background: url(../../assets/images/btn_arrow.png) no-repeat center;
+  transform: rotate(180deg);
+}
+.btnPrev:disabled,
+.btnNext:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
