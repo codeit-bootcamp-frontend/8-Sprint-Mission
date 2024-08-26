@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 type LinkButtonProps = {
   radius?: boolean;
+  isDisabled?: boolean;
 };
 
 export const Button = styled.button`

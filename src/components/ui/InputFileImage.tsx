@@ -2,20 +2,29 @@ import Image from "next/image";
 import AddIcon from "../../../public/images/i-plus.png";
 import CloseIcon from "../../../public/images/i-close.png";
 import { useRef, useState } from "react";
+import { postArticlesImage } from "@/api/api";
 
-export default function InputFileImage() {
+export type InputFileImageProps = {
+  setImage: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export default function InputFileImage({ setImage }: InputFileImageProps) {
   const FileInputRef = useRef<HTMLInputElement | null>(null);
-  const [addImage, setAddImage] = useState<string | null>(null);
+  const [addImage, setAddImage] = useState<string | undefined>("");
 
-  const handleImageChange = () => {
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = FileInputRef.current?.files?.[0];
 
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setAddImage(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+      setAddImage(URL.createObjectURL(file));
+
+      try {
+        const imgUrl = await postArticlesImage(file);
+        setImage(imgUrl);
+        console.log(imgUrl);
+      } catch (err) {
+        console.error("Error Messages: " + err);
+      }
     }
   };
 
@@ -23,7 +32,7 @@ export default function InputFileImage() {
     if (FileInputRef.current) {
       FileInputRef.current.value = "";
     }
-    setAddImage(null);
+    setAddImage("");
   };
 
   return (
