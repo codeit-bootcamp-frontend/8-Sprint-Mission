@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import axios from "@/lib/axios";
 import { IComment } from "@/types/comment";
+import { API_PATH } from "@/lib/path";
 
 import TextInput from "./Inputs/TextInput";
 import AddButton from "./Buttons/AddButton";
@@ -37,7 +38,7 @@ function AddComment({ id, setCommentList }: AddCommentProps) {
     let newComment: IComment;
     try {
       const response = await axios.post(
-        `/articles/${id}/comments`,
+        API_PATH.articleComments(id),
         inputValue,
         {
           headers: {
@@ -47,7 +48,6 @@ function AddComment({ id, setCommentList }: AddCommentProps) {
       );
 
       newComment = response.data ?? [];
-      console.log("post succeed: ", newComment);
       setCommentList((prevCommentList) => [newComment, ...prevCommentList]);
     } catch (error) {
       console.error("댓글 등록 중 오류가 발생했습니다: ", error);

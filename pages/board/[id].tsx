@@ -3,6 +3,7 @@ import { GetServerSidePropsContext } from "next";
 import { Article } from "@/types/article";
 import { IComment } from "@/types/comment";
 import axios from "@/lib/axios";
+import { API_PATH } from "@/lib/path";
 
 import DetailArticle from "@/components/DetailArticle";
 import AddComment from "@/components/AddComment";
@@ -11,18 +12,25 @@ import ReturnButton from "@/components/Buttons/ReturnButton";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { id } = context.params || {};
-  const articleResponse = await axios.get(`/articles/${id}`);
+  const articleId = Array.isArray(id) ? id[0] : id;
+
+  if (!articleId) {
+    return {
+      notFound: true,
+    };
+  }
+  const articleResponse = await axios.get(API_PATH.articleById(articleId));
   const article = articleResponse.data ?? [];
 
   const LIMIT = 10;
   const commentResponse = await axios.get(
-    `/articles/${id}/comments?limit=${LIMIT}`,
+    API_PATH.articleCommentsWithLimit(articleId, LIMIT),
   );
   const commentList = commentResponse.data.list ?? [];
 
   return {
     props: {
-      id,
+      articleId,
       article,
       commentList,
     },

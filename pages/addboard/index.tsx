@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { useRouter } from "next/router";
 import axios from "@/lib/axios";
+import { API_PATH } from "@/lib/path";
 
 import AddButton from "@/components/Buttons/AddButton";
 import TextInput from "@/components/Inputs/TextInput";
@@ -51,7 +52,7 @@ function AddBoard() {
     const formData = new FormData();
     formData.append("image", formValues.image);
     try {
-      const imageResponse = await axios.post("/images/upload", formData, {
+      const imageResponse = await axios.post(API_PATH.image(), formData, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "multipart/form-data",
@@ -63,7 +64,7 @@ function AddBoard() {
         ...formValues,
         image: imageURL,
       };
-      const response = await axios.post(`/articles`, data, {
+      const response = await axios.post(API_PATH.articles(), data, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

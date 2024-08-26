@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Article } from "@/types/article";
 import axios from "@/lib/axios";
+import { API_PATH } from "@/lib/path";
 
 import styles from "@/styles/boards.module.css";
 
@@ -39,9 +40,7 @@ function Board() {
   }, []);
 
   async function getBestArticles(pageSize: number) {
-    const response = await axios.get(
-      `/articles/?orderBy=like&pageSize=${pageSize}`,
-    );
+    const response = await axios.get(API_PATH.articles("like", pageSize));
     setBestArticles(response.data.list ?? []);
   }
 
@@ -50,7 +49,7 @@ function Board() {
   }, [pageSize]);
 
   async function getArticles(option: string) {
-    const response = await axios.get(`/articles/?orderBy=${option}`);
+    const response = await axios.get(API_PATH.articles(option, 10));
     setArticles(response.data.list ?? []);
   }
 

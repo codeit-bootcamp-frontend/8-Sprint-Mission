@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import axios from "@/lib/axios";
 import { FormValues } from "@/types/formValues";
+import { API_PATH } from "@/lib/path";
 
 import Layout from "@/components/Layout";
 import BigLogo from "@/components/BigLogo";
@@ -83,7 +84,7 @@ function SignUp() {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      const response = await axios.post(`/auth/signUp`, data, {
+      const response = await axios.post(API_PATH.signUp(), data, {
         headers: {
           "Content-Type": "application/json",
         },
