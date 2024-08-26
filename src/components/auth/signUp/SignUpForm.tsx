@@ -1,96 +1,156 @@
-import { useState } from "react";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FieldValues, useForm } from 'react-hook-form';
 
-import usePasswordVisibility from "lib/hooks/usePasswordVisibility";
-import useValidate, { InputValue } from "lib/hooks/useValidate";
-import BtnLarge from "core/buttons/BtnLarge";
+import useSignUp from 'lib/hooks/auth/useSignUp';
+import localStorageTools from 'lib/localStorage/localStorageTools';
+import usePasswordVisibility from 'lib/hooks/usePasswordVisibility';
+import { StorageNameOfUserInfo } from 'core/config/context/AuthContext';
 
-import { Container, ErrorMessage, Form, Input, InputWrapper, Label, Icon } from "../styles";
+import BtnLarge from 'core/buttons/BtnLarge';
 
-const INITIAL_VALUE = {
-    email: '',
-    nickname: '',
-    password: '',
-    passwordConfirm: '',
-}
+import * as S from '../styles';
 
 const SignUpForm = () => {
-    const [value, setValue] = useState<InputValue>(INITIAL_VALUE);
-    const {ref:passwordRef,icon:passwordIcon, handlePasswordVisibility:handlePasswordView} = usePasswordVisibility();
-    const {ref:passwordConfirmRef, icon:passwordConfirmIcon, handlePasswordVisibility:handlePasswordConfirmView} = usePasswordVisibility();
+  const navigator = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    setError,
+    watch,
+  } = useForm({ mode: 'onBlur' });
+  const {
+    isVisible: passwordVisble,
+    icon: passwordIcon,
+    handlePasswordVisibility: handlePasswordView,
+  } = usePasswordVisibility();
+  const {
+    isVisible: passwordConfirmVisible,
+    icon: passwordConfirmIcon,
+    handlePasswordVisibility: handlePasswordConfirmView,
+  } = usePasswordVisibility();
 
-    const {errorMessage, isValidate} = useValidate({mode: "signup", value});
+  const signUpMutate = useSignUp({ setError });
 
-    const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        const target = e.target as HTMLInputElement;
-        
-        switch (target.name) {
-            case 'email':
-                setValue((prev) => ({
-                    ...prev,
-                    email: target.value,
-                }))
-                break;
-            case 'nickname':
-                setValue((prev) => ({
-                    ...prev,
-                    nickname: target.value,
-                }))
-                break;
-            case 'password':
-                setValue((prev) => ({
-                    ...prev,
-                    password: target.value,
-                }))
-                break;
-            case 'passwordConfirm':
-                setValue((prev) => ({
-                    ...prev,
-                    passwordConfirm: target.value,
-                }))
-                break;
-            default:
-                break;
-        }
+  const onSubmit = (values: FieldValues) => {
+    const { email, nickname, password, passwordConfirmation } = values;
+    signUpMutate.mutateAsync({
+      email,
+      nickname,
+      password,
+      passwordConfirmation,
+    });
+  };
+
+  useEffect(() => {
+    const { getInfo } = localStorageTools();
+    const userInfo = getInfo(StorageNameOfUserInfo);
+    if (userInfo?.accessToken) {
+      navigator('/');
     }
+  }, [navigator]);
 
-    const handleSubmit = (e:React.MouseEvent<HTMLFormElement, MouseEvent>) => {
-        e.preventDefault();
-        if (isValidate) {
-
-        }
-    }
-
-    return (
-        <Form onSubmit={handleSubmit}>
-            <Container>
-                <Label htmlFor="email">이메일</Label>
-                <Input type="email" name="email" value={value.email} onChange={handleChange} id="email" placeholder="이메일을 입력해주세요"/>
-                <ErrorMessage>{errorMessage.email}</ErrorMessage>
-            </Container>
-            <Container>
-                <Label htmlFor="nickname">닉네임</Label>
-                <Input type="nickname" name="nickname" value={value.nickname} onChange={handleChange} id="nickname" placeholder="닉네임을 입력해주세요"/>
-                <ErrorMessage>{errorMessage.nickname}</ErrorMessage>
-            </Container>
-            <Container>
-                <Label htmlFor="password">비밀번호</Label>
-                <InputWrapper>
-                    <Input ref={passwordRef} type="password" id="password" value={value.password} onChange={handleChange} name="password" placeholder="비밀번호를 입력해주세요"/>
-                    <Icon src={passwordIcon} onClick={handlePasswordView}/>
-                </InputWrapper>
-                <ErrorMessage>{errorMessage.password}</ErrorMessage>
-            </Container>
-            <Container>
-                <Label htmlFor="password-confirm">비밀번호 확인</Label>
-                <InputWrapper>
-                    <Input ref={passwordConfirmRef} type="password" id="passwordConfirm" value={value.passwordConfirm} onChange={handleChange} name="passwordConfirm" placeholder="비밀번호를 다시 한 번 입력해주세요"/>
-                    <Icon src={passwordConfirmIcon} onClick={handlePasswordConfirmView}/>
-                </InputWrapper>
-                <ErrorMessage>{errorMessage.passwordConfirm}</ErrorMessage>
-            </Container>
-            <BtnLarge bgColor={isValidate ?  'var(--main-color)':'var(--gray-400)' } color={'var(--font-button)'} disabled={!isValidate} >회원가입</BtnLarge>
-        </Form>
-    );
-}
+  return (
+    <S.Form onSubmit={handleSubmit(onSubmit)}>
+      <S.Container>
+        <S.Label htmlFor="email">이메일</S.Label>
+        <S.Input
+          {...register('email', {
+            required: '이메일을 입력해주세요.',
+            pattern: {
+              value:
+                /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
+              message: '잘못된 형식입니다.',
+            },
+          })}
+          type="email"
+          $isValid={isValid}
+          placeholder="이메일을 입력해주세요"
+        />
+        <S.ErrorMessage
+          $isValid={errors.email === undefined}
+        >{`${errors.email?.message}`}</S.ErrorMessage>
+      </S.Container>
+      <S.Container>
+        <S.Label htmlFor="nickname">닉네임</S.Label>
+        <S.Input
+          {...register('nickname', {
+            max: 20,
+            required: '닉네임을 입력해주세요.',
+            pattern: {
+              value: /^[a-zA-Z0-9]*$/i,
+              message: '영문, 숫자만 가능합니다.',
+            },
+          })}
+          $isValid={false}
+          placeholder="닉네임을 입력해주세요"
+        />
+        <S.ErrorMessage
+          $isValid={errors.nickname === undefined}
+        >{`${errors.nickname?.message}`}</S.ErrorMessage>
+      </S.Container>
+      <S.Container>
+        <S.Label htmlFor="password">비밀번호</S.Label>
+        <S.InputWrapper>
+          <S.Input
+            {...register('password', {
+              required: '비밀번호를 입력해주세요',
+              minLength: {
+                value: 8,
+                message: '8자 이상 입력해주세요.',
+              },
+              pattern: {
+                value:
+                  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*]).{8,}$/i,
+                message:
+                  '영문 대/소문자, 숫자, 특수문자(!,@,#,$,%,^,&,*) 필수입니다.',
+              },
+            })}
+            type={passwordVisble ? 'text' : 'password'}
+            $isValid={false}
+            placeholder="비밀번호를 입력해주세요"
+          />
+          <S.Icon src={passwordIcon} onClick={handlePasswordView} />
+        </S.InputWrapper>
+        <S.ErrorMessage
+          $isValid={errors.password === undefined}
+        >{`${errors.password?.message}`}</S.ErrorMessage>
+      </S.Container>
+      <S.Container>
+        <S.Label htmlFor="passwordConfirmation">비밀번호 확인</S.Label>
+        <S.InputWrapper>
+          <S.Input
+            {...register('passwordConfirmation', {
+              required: '확인을 위해 비밀번호를 한 번 더 입력해주세요.',
+              validate: (password: string) => {
+                if (watch('password') !== password) {
+                  return '비밀번호가 일치하지 않습니다.';
+                }
+              },
+            })}
+            type={passwordConfirmVisible ? 'text' : 'password'}
+            $isValid={false}
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
+          />
+          <S.Icon
+            src={passwordConfirmIcon}
+            onClick={handlePasswordConfirmView}
+          />
+        </S.InputWrapper>
+        <S.ErrorMessage
+          $isValid={errors.passwordConfirmation === undefined}
+        >{`${errors.passwordConfirmation?.message}`}</S.ErrorMessage>
+      </S.Container>
+      <BtnLarge
+        bgColor={isValid ? 'var(--main-color)' : 'var(--gray-400)'}
+        color={'var(--font-button)'}
+        disabled={!isValid}
+      >
+        회원가입
+      </BtnLarge>
+    </S.Form>
+  );
+};
 
 export default SignUpForm;

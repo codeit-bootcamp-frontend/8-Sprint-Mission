@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import BtnSmall from "../../core/buttons/BtnSmall";
+import { Link } from 'react-router-dom';
+import BtnSmall from '../../core/buttons/BtnSmall';
 
 interface LoginBtnProps {
   onClick: () => void;
@@ -7,7 +7,7 @@ interface LoginBtnProps {
 
 const LoginBtn = ({ onClick }: LoginBtnProps) => {
   return (
-    <Link to="/signIn">
+    <Link to="/login">
       <BtnSmall onClick={onClick} disabled={false}>
         로그인
       </BtnSmall>

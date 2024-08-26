@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 interface LargeButtonProps {
   $bgColor: string | null;
@@ -15,6 +15,9 @@ const LargeButton = styled.button<LargeButtonProps>`
   border: 0;
   cursor: pointer;
   border-radius: 4rem;
+  &:disabled {
+    cursor: inherit;
+  }
 `;
 
 interface BtnLargeProps {
@@ -24,7 +27,12 @@ interface BtnLargeProps {
   disabled?: boolean;
 }
 
-const BtnLarge = ({ bgColor, color, disabled=false, children }: BtnLargeProps) => {
+const BtnLarge = ({
+  bgColor,
+  color,
+  disabled = false,
+  children,
+}: BtnLargeProps) => {
   return (
     <LargeButton $bgColor={bgColor} $color={color} disabled={disabled}>
       {children}
