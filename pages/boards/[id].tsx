@@ -1,6 +1,10 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, useEffect, useState } from "react";
-import { getArticleComment, getArticleId } from "../util/api";
+import {
+  getArticleComment,
+  getArticleId,
+  postArticleComment,
+} from "../util/api";
 import { BoardItemType } from "@/interfaces/boardItem";
 import styled from "styled-components";
 import Image from "next/image";
@@ -55,6 +59,20 @@ export default function Board() {
     setCommentContent(e.target.value);
   };
 
+  const handleCommentClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (typeof id === "string") {
+      await postArticleComment(id, commentContent);
+
+      // 댓글 등록 후 상태 업데이트
+      const updatedComments = await getArticleComment(id);
+      setComment(updatedComments);
+
+      // 댓글 입력 필드 초기화
+      setCommentContent("");
+    }
+  };
+
   return (
     <Container>
       <TitleWrapper>
@@ -76,9 +94,12 @@ export default function Board() {
       <CommentTextarea
         placeholder="댓글을 입력해주세요."
         onChange={handleCommentChange}
+        value={commentContent}
       ></CommentTextarea>
       <ButtonWrapper>
-        <PrimaryButton disabled={disabled}>등록</PrimaryButton>
+        <PrimaryButton disabled={disabled} onClick={handleCommentClick}>
+          등록
+        </PrimaryButton>
       </ButtonWrapper>
       <CommentItemList comments={comment} />
       <BackButtonWrapper>

@@ -12,7 +12,11 @@ export default function PrimaryButton({
   disabled: disabled = false,
   onClick,
 }: ButtonProps) {
-  return <Button disabled={disabled}>{children}</Button>;
+  return (
+    <Button disabled={disabled} onClick={onClick}>
+      {children}
+    </Button>
+  );
 }
 
 const Button = styled.button<{ disabled: boolean }>`

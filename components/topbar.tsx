@@ -1,18 +1,48 @@
-import PrimaryButton from "./primarybutton";
 import pandaLogo from "@/images/logo.png";
 import mobilePandaLogo from "@/images/mobilelogo.png";
 import userIcon from "@/images/user.png";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
+import { isLoggedIn } from "@/pages/util/api";
+import { useEffect, useState } from "react";
+import PrimaryButton from "./primarybutton";
 
 export default function Topbar() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isLoggedIn() == true) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  }, [isLogin]);
+
+  const handleLogClick = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const handleLogoutClick = () => {
+    setIsLogin(false);
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    window.location.href = "/login"; // 로그아웃 후 리다이렉션
+  };
+
   return (
     <TopbarHeader>
       <LeftElement>
         <Link href="/">
           <LogoWrapper>
-            <Image src={pandaLogo} alt="Panda Logo" className="desktop" />
+            <Image
+              src={pandaLogo}
+              alt="Panda Logo"
+              className="desktop"
+              width={153}
+              height={51}
+            />
             <Image
               src={mobilePandaLogo}
               alt="Mobile Panda Logo"
@@ -29,8 +59,18 @@ export default function Topbar() {
           </Link>
         </ButtonWrapper>
       </LeftElement>
-      <Image src={userIcon} alt="userIcon" />
-      {/* <PrimaryButton>로그인</PrimaryButton> */}
+      {isLogin ? (
+        <LogOutWrapper onClick={handleLogClick}>
+          <Image src={userIcon} alt="userIcon" />
+          {isOpen && (
+            <LogOutButton onClick={handleLogoutClick}>로그아웃</LogOutButton>
+          )}
+        </LogOutWrapper>
+      ) : (
+        <Link href="/login">
+          <PrimaryButton>로그인</PrimaryButton>
+        </Link>
+      )}
     </TopbarHeader>
   );
 }
@@ -98,4 +138,22 @@ const LogoWrapper = styled.div`
       display: block;
     }
   }
+`;
+
+const LogOutWrapper = styled.div`
+  position: relative;
+`;
+
+const LogOutButton = styled.button`
+  position: absolute;
+  width: 139px;
+  height: 51px;
+  border: solid 1px #d1d5db;
+  border-radius: 8px;
+  padding: 16px 0;
+  margin-top: 50px;
+  margin-left: -130px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #ffffff;
 `;
