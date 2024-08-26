@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import plusIcon from "@/assets/images/ic_plus.png";
@@ -25,6 +25,14 @@ function FileInput({ name, label, onChange }: FileInputProps) {
   const handleFileInputDelete = () => {
     setPreview("");
   };
+
+  useEffect(() => {
+    return () => {
+      if (preview) {
+        URL.revokeObjectURL(preview);
+      }
+    };
+  }, [preview]);
 
   return (
     <div className="file-input-wrapper">

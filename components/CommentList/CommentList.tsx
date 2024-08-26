@@ -14,9 +14,9 @@ function CommentList({ commentList: comments }: CommentListProps) {
       {!!comments.length ? (
         <ul className="comment-lists">
           {comments.map((comment: IComment) => (
-            <div key={comment.id}>
+            <li key={comment.id}>
               <Comment comment={comment} />
-            </div>
+            </li>
           ))}
         </ul>
       ) : (
@@ -24,12 +24,12 @@ function CommentList({ commentList: comments }: CommentListProps) {
         <div className="flex flex-col items-center justify-center">
           <Image
             src={replayEmptyImage}
-            alt="아직 문의가 없습니다"
+            alt="아직 댓글이 없습니다"
             width={200}
             height={200}
           />
           <div className="text-base font-normal text-gray-400">
-            아직 문의가 없습니다.
+            아직 댓글이 없습니다.
           </div>
         </div>
       )}
