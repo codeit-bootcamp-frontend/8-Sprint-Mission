@@ -33,8 +33,10 @@
 }
 
 .writeForm {
-  display: grid;
-  gap: 12px;
+  /* display: grid; */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .titleInput {

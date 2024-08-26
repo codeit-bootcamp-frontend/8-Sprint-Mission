@@ -20,8 +20,8 @@
 .bestArticleCardContainer {
   display: flex;
   flex-direction: column;
-  /* width: 384px;
-  height: 169px; */
+  width: 384px;
+  height: 169px;
 
   padding: 0px 24px 16px 24px;
   /* gap: 10px; */
