@@ -1,0 +1,25 @@
+@import '/src/styles/global.scss';
+
+.signUp {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  &__formWrapper {
+    display: flex;
+    width: 40rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 12.375rem;
+    height: 4.125rem;
+
+    @media (min-width: 768px) {
+      width: 24.75rem;
+      height: 8.25rem;
+    }
+  }
+}

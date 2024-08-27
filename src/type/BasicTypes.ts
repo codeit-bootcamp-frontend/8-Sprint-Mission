@@ -1,11 +1,13 @@
-import { ReactNode } from 'react';
+import { ReactNode, RefCallback } from 'react';
 import { Article, ArticleOrderBy } from './ArticleTypes';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { RefCallBack } from 'react-hook-form';
 
 export type BasicType = {
   title: string;
   id: number;
   name: string;
+  nickname: string;
   updatedAt: Date;
   createdAt: Date;
   image: string;
@@ -15,6 +17,7 @@ export type BasicType = {
   src: string | StaticImport;
   alt: string;
   className: string;
+  wrapperClassName: string;
   likeCount: number;
   children: ReactNode;
   totalCount: number;
@@ -30,6 +33,17 @@ export type BasicType = {
   isTextarea: boolean;
   isLiked: boolean;
   articleId: number;
+  inputType: React.InputHTMLAttributes<HTMLInputElement>['type'];
+  email: string;
+  password: string;
+  passwordConfirmation: string;
+  accessToken: string | null;
+  refreshToken: string | null;
+  inputId: string;
+  inputName: string;
+  inputRef: RefCallBack;
+  label: string;
+  errorMessage: string;
 
   // handler
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
@@ -40,6 +54,7 @@ export type BasicType = {
   onTextareaKeyDown: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
   onSortSelection: (key: string) => void;
   onSearch: (keyword: string) => void;
+  onInputBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
 
   //
   article: Article;

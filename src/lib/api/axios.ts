@@ -1,8 +1,9 @@
 import axios, { InternalAxiosRequestConfig } from 'axios';
-import { cookies } from 'next/headers';
+
+const BASE_URL = 'https://panda-market-api.vercel.app';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://panda-market-api.vercel.app',
+  baseURL: BASE_URL,
 });
 
 axiosInstance.interceptors.request.use(
@@ -25,4 +26,17 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-export default axiosInstance;
+axiosInstance.interceptors.response.use(
+  (res) => res,
+  async (error) => {
+    const originalRequest = error.config;
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      await axiosInstance.post('/auth/refresh-token', undefined);
+      originalRequest._retry = true;
+      return axiosInstance(originalRequest);
+    }
+    return Promise.reject(error);
+  }
+);
+
+export { axiosInstance };
