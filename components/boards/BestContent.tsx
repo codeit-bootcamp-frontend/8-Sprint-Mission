@@ -1,4 +1,4 @@
-import { Article } from '@/pages/api/client';
+import { Article } from '@/lib/api';
 import Image from 'next/image';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 
 function BestContent({ board }: Props) {
   return (
-    <div className="flex justify-between pt-[16px]">
+    <div className="flex justify-between pt-4">
       <h1 className="text-secondary-800 font-2lg-18px-semibold desktop:font-xl-20px-semibold">
         {board.title}
       </h1>

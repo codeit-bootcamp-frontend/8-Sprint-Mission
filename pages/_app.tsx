@@ -1,3 +1,5 @@
+import AuthProvider from '@/contexts/AuthProvider';
+import DeviceProvider from '@/contexts/DeviceContext';
 import '@/styles/globals.css';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
@@ -21,10 +23,15 @@ type AppPropsWithLayout = AppProps & {
 
 function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? (page => page);
+
   return (
-    <div className={`${pretandard.variable}`}>
-      {getLayout(<Component {...pageProps} />)}
-    </div>
+    <AuthProvider>
+      <DeviceProvider>
+        <div className={`${pretandard.variable}`}>
+          {getLayout(<Component {...pageProps} />)}
+        </div>
+      </DeviceProvider>
+    </AuthProvider>
   );
 }
 

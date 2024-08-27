@@ -1,63 +1,65 @@
-import getArticles, { Article, ArticlesQuery } from '@/pages/api/client';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { Article, GetArticlesQuery } from '@/types/Article';
+import getArticles from '@/lib/api/getArticles';
 import RecentContent from './boards/MainContent';
 import RecentInfo from './boards/MainInfo';
 import VerticalDivider from './elements/VerticalDivider';
 import BoardTitle from './boards/BoardTitle';
 
 function MainBoards() {
-  const router = useRouter();
   const [boards, setBoards] = useState<Article[]>([]);
   const [keyword, setKeyword] = useState<string>('');
-  const [orderBy, setOrderBy] = useState<ArticlesQuery['orderBy']>('recent');
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [orderBy, setOrderBy] = useState<GetArticlesQuery['orderBy']>('recent');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleLoad = useCallback(async () => {
+  const fetchArticles = useCallback(async () => {
     const query = {
       page: 1,
       pageSize: 6,
       orderBy,
       keyword,
     };
-    const { list } = await getArticles(query);
-    router.push({
-      query,
-    });
-    setBoards(() => list);
-  }, [keyword, orderBy, router]);
+    if (isLoading === false) {
+      setIsLoading(true);
+      const { list } = await getArticles(query);
+      setIsLoading(false);
+      setBoards(list);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [keyword, orderBy]);
 
   useEffect(() => {
-    if (isLoading === true) {
-      handleLoad();
-      setIsLoading(() => false);
-    }
-  }, [isLoading, keyword, orderBy, handleLoad]);
-
-  if (!boards) return null;
+    fetchArticles();
+  }, [fetchArticles]);
 
   return (
-    <div className="mx-auto mt-[70px] max-w-[343px] pt-[16px] tablet:max-w-[696px] desktop:max-w-[1200px]">
+    <div className="mx-auto mt-[70px] max-w-[343px] pt-4 tablet:max-w-[696px] desktop:max-w-[1200px]">
       <BoardTitle
         keyword={keyword}
         orderBy={orderBy}
         onChangeKeyword={setKeyword}
         onChangeOrderBy={setOrderBy}
-        setIsLoading={setIsLoading}
       />
-      <div className="mb-[10px] mt-[16px]">
-        {boards &&
-          boards.map((board, i) => (
+      <div className="mb-[10px] mt-4">
+        {boards.map((board, i) => {
+          const isLastArticle = i !== boards.length - 1;
+          return (
             <>
-              <div key={board.id} className="w-full rounded-[8px] bg-[#FCFCFC]">
+              <Link
+                href={`/board/${board.id}`}
+                key={board.id}
+                className="w-full rounded-[8px] bg-[#FCFCFC]"
+              >
                 <div className="mt-[24px] pb-[24px]">
                   <RecentContent board={board} />
                   <RecentInfo board={board} />
                 </div>
-              </div>
-              {i !== boards.length - 1 && <VerticalDivider />}
+              </Link>
+              {isLastArticle && <VerticalDivider />}
             </>
-          ))}
+          );
+        })}
       </div>
     </div>
   );

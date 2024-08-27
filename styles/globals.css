@@ -54,6 +54,15 @@
     border-width: 0;
     border-style: solid;
   }
+
+  body {
+    font-family: Pretendard;
+    color: #1f2937;
+  }
+
+  textarea {
+    resize: none;
+  }
 }
 
 @layer utilities {
