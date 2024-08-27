@@ -1,5 +1,6 @@
 import React from "react";
-import { ItemDetails } from "../../pages/AddItem";
+import { ItemDetails } from "pages/AddItem";
+import TextareaInput from "../@shared/UI/form/TextareaInput";
 
 interface AddItemDetailsProps {
   details: ItemDetails;
@@ -21,54 +22,32 @@ const AddItemDetails: React.FC<AddItemDetailsProps> = ({
   };
 
   return (
-    <section className="item-details">
-      <div className="item-detail-container">
-        <label htmlFor="itemName" className="font-bold text-gray-800 text-lg">
-          상품명
-        </label>
-        <input
-          className="item-detail-input"
-          type="text"
-          id="itemName"
-          name="itemName"
-          placeholder="상품명을 입력해주세요"
-          value={details.itemName}
-          onChange={handleDetailsChange}
-        />
-      </div>
-
-      <div className="item-detail-container">
-        <label
-          htmlFor="itemDesciption"
-          className="font-bold text-gray-800 text-lg"
-        >
-          상품 소개
-        </label>
-        <textarea
-          className="item-detail-input"
-          id="itemDescription"
-          name="itemDescription"
-          placeholder="상품 소개를 입력해주세요"
-          value={details.itemDescription}
-          onChange={handleDetailsChange}
-        />
-      </div>
-
-      <div className="item-detail-container">
-        <label htmlFor="itemPrice" className="font-bold text-gray-800 text-lg">
-          판매가격
-        </label>
-        <input
-          className="item-detail-input"
-          type="text"
-          id="itemPrice"
-          name="itemPrice"
-          placeholder="판매 가격을 입력해주세요"
-          value={details.itemPrice}
-          onChange={handleDetailsChange}
-        />
-      </div>
-    </section>
+    <>
+      <TextareaInput
+        htmlFor="itemName"
+        title="상품명"
+        placeholder="상품명을 입력해주세요"
+        value={details.itemName}
+        onChange={handleDetailsChange}
+        className="h-14"
+      />
+      <TextareaInput
+        htmlFor="itemDesciption"
+        title="상품 소개"
+        placeholder="상품 소개를 입력해주세요"
+        value={details.itemDescription}
+        onChange={handleDetailsChange}
+        className="h-[282px]"
+      />
+      <TextareaInput
+        htmlFor="itemPrice"
+        title="판매가격"
+        placeholder="판매 가격을 입력해주세요"
+        value={details.itemPrice}
+        onChange={handleDetailsChange}
+        className="h-14"
+      />
+    </>
   );
 };
 

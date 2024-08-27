@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import AddItemImage from "../components/AddItem/AddItemImage";
-import AddItemDetails from "../components/AddItem/AddItemDetails";
-import AddItemTags from "../components/AddItem/AddItemTags";
-import Main from "components/common/Layout/Main";
+import AddImage from "components/@shared/UI/AddImage";
+import AddItemDetails from "components/AddItem/AddItemDetails";
+import AddItemTags from "components/AddItem/AddItemTags";
+import Main from "components/@shared/Layout/Main";
+import Form from "components/@shared/UI/form/Form";
+import FormButton from "components/@shared/UI/form/FormButton";
 
 export interface ItemDetails {
   itemName: string;
@@ -30,6 +32,10 @@ function AddItem() {
     setUploadedImage(file);
   };
 
+  const handleSelectedImageChange = (imageUrl: string | null) => {
+    console.log("선택된 이미지 URL:", imageUrl);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("제출된 상품 정보:", itemDetails);
@@ -46,20 +52,22 @@ function AddItem() {
   }, [itemDetails]);
 
   return (
-    <Main>
+    <Main className="relative">
       <h1 className="font-bold text-gray-800 text-xl">상품 등록하기</h1>
-      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-        <button
-          type="submit"
-          className={`submit-btn ${isFormValid ? "active-btn" : ""}`}
-          disabled={!isFormValid}
-        >
-          등록
-        </button>
-        <AddItemImage image={uploadedImage} onImageChange={handleImageChange} />
+      <Form onSubmit={handleSubmit}>
+        <FormButton
+          className="absolute top-24 right-0 w-[74px] h-[42px] max-xl:right-6 max-md:right-4 rounded-lg"
+          isFormValid={isFormValid}
+        />
+        <AddImage
+          title="상품 이미지"
+          image={uploadedImage}
+          onImageChange={handleImageChange}
+          onSelectedImageChange={handleSelectedImageChange}
+        />
         <AddItemDetails details={itemDetails} setDetails={setItemDetails} />
         <AddItemTags initialTags={itemDetails.itemTags} />
-      </form>
+      </Form>
     </Main>
   );
 }

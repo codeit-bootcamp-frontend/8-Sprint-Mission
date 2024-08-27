@@ -1,23 +1,23 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import ItemContainer from "./ItemContainer";
-import DropDownList from "../common/UI/DropDownList";
-import Pagination from "components/common/UI/Pagination";
-import { getProducts } from "core/api";
-import useFetch from "lib/hooks/useFetch";
+import DropDownList from "../@shared/UI/DropDownList";
+import Pagination from "components/@shared/UI/Pagination";
+import { getProducts } from "core/api/productApi";
+import useApiGet from "lib/hooks/useApiGet";
 import { useSearch } from "lib/hooks/useSearch";
 import { usePagination } from "lib/hooks/usePagination";
 import useResize from "lib/hooks/useResize";
-import { ProductResponse } from "DTO/product";
-import SearchForm from "components/common/UI/SearchForm";
-import ReturnButton from "components/common/UI/ReturnButton";
-import Button from "components/common/UI/Button";
-import NoSearchResult from "components/common/UI/NoSearchResult";
+import { ProductResponse } from "core/dtos/productDTO";
+import SearchForm from "components/@shared/UI/SearchForm";
+import ReturnButton from "components/@shared/UI/ReturnButton";
+import Button from "components/@shared/UI/Button";
+import NoSearchResult from "components/@shared/UI/NoSearchResult";
 
 function AllItemsContainer() {
   const [selectedCategory, setSelectedCategory] = useState<string>("최신순");
   const [pageSize, setPageSize] = useState<number>(10);
 
-  const { data: productsData } = useFetch<ProductResponse>(
+  const { data: productsData } = useApiGet<ProductResponse>(
     getProducts,
     {
       page: 1,
