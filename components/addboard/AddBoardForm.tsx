@@ -12,17 +12,17 @@ export default function AddBoardForm() {
     onChangeFileInput,
     isInputValid,
   } = useAddBoard();
+  const activeColor = isInputValid ? "bg-my-blue" : "bg-gray-400";
   return (
     <form className="m-container mt-[70px] pt-4">
       <div className="flex justify-between">
         <span className="font-bold text-xl">게시글 쓰기</span>
-        <Button
-          className="btn w-[74px] h-[42px]"
+        <button
           onClick={onSubmitForm}
-          activeBtn={isInputValid}
+          className={`flex-center text-white btn w-[74px] h-[42px]${activeColor}`}
         >
           등록
-        </Button>
+        </button>
       </div>
       <Input
         name="title"
