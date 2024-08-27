@@ -1,9 +1,10 @@
 .section {
-  margin-top: 4rem;
+  height: 100%;
 }
 
 .wrapper {
   margin: 0 auto;
+  width: 100%;
   max-width: 1200px;
 }
 

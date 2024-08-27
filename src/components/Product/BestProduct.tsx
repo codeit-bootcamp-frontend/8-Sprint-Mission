@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useAsyncStatus } from '../../hooks/useAsyncStatus';
-import { getFavoriteProduct } from '../../utils/http';
-import Loading from '../../ui/Loading/Loading';
-import Section from '../../ui/Section/Section';
-import ItemList from './ItemList';
-import styles from './BestProduct.module.css';
-import { ResponseProducts } from './@types/Products';
+import { useState, useEffect } from "react";
+import { useAsyncStatus } from "../../hooks/useAsyncStatus";
+import { getFavoriteProduct } from "../../utils/http";
+import Loading from "../../ui/Loading/Loading";
+import Section from "../../ui/Section/Section";
+import ItemList from "./ItemList";
+import styles from "./BestProduct.module.css";
+import { ResponseProducts } from "./@types/Products";
 
 const deviceSize = {
   mobile: 768,
@@ -36,10 +36,10 @@ export default function BestProduct() {
     const handleResize = () => {
       setSize(getResponseProducts());
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -61,7 +61,7 @@ export default function BestProduct() {
         <Loading />
       ) : (
         <div className={styles.list}>
-          {itemList.map(list => (
+          {itemList.map((list) => (
             <ItemList key={`best-products-${list.id}`} {...list} />
           ))}
         </div>

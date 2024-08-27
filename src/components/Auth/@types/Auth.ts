@@ -1,11 +1,24 @@
-export interface InitialValue {
+interface LoginInitialValue {
   email: string;
   password: string;
 }
 
-export interface RegisterInitialValue extends InitialValue {
-  nickName: string;
+interface RegisterInitialValue extends LoginInitialValue {
+  nickname: string;
   passwordCheck: string;
 }
 
-export type ChangeValueType = (name: string, value: string | number) => void;
+type ChangeValueType = (name: string, value: string | number) => void;
+
+interface LoginMenuProps {
+  loginMsg: string;
+  btnMsg: string;
+  linkPath: string;
+}
+
+export type {
+  LoginInitialValue,
+  RegisterInitialValue,
+  ChangeValueType,
+  LoginMenuProps,
+};

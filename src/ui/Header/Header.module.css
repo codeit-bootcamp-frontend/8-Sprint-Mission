@@ -9,6 +9,7 @@
 }
 
 .mainHeader {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,23 +22,6 @@
   display: flex;
   align-items: center;
 }
-.navList > ul {
-  display: flex;
-  align-items: center;
-  font-size: 1.8rem;
-}
-.navList > ul > li {
-  text-align: center;
-  padding: 24px 15px;
-}
-.navList > ul > li > a {
-  display: inline-block;
-  width: 78px;
-  font-weight: 700;
-}
-.navList > ul > li > a.active {
-  color: var(--color-blue);
-}
 
 .mobileLogo {
   display: none;
@@ -46,6 +30,22 @@
   width: 40px;
   height: 40px;
   margin-right: 40px;
+  cursor: pointer;
+}
+.logoutContainer {
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  padding: 1.6rem 4.15rem;
+  border: 1px solid var(--color-gray300);
+  background: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.logoutBtn {
+  font-size: 1.6rem;
+  font-weight: 400;
+  cursor: pointer;
 }
 /* header */
 
@@ -74,17 +74,5 @@
   }
   .logoBox {
     margin-right: 16px;
-  }
-  .navList > ul {
-    font-size: 1.6rem;
-  }
-  .navList > ul > li {
-    padding: 0 8px 0 0;
-  }
-  .navList > ul > li:last-child {
-    padding: 0;
-  }
-  .navList > ul > li > a {
-    width: 100%;
   }
 }

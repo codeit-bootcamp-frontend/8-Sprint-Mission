@@ -1,19 +1,6 @@
-import { InputHTMLAttributes, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { TagInputProps, Tag } from "../@types/Input";
 import styles from "./TagInput.module.css";
-
-interface Tag {
-  id: string;
-  name: string;
-}
-
-interface TagInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  id: string;
-  name: string;
-  label?: string;
-  className?: string;
-  tags: Tag[];
-  changeValue: (name: string, newTags: Tag[]) => void;
-}
 
 export default function TagInput({
   id,
@@ -26,12 +13,12 @@ export default function TagInput({
 }: TagInputProps) {
   const [tagValue, setTagValue] = useState("");
 
-  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     let { value } = e.target;
     setTagValue(value);
   };
 
-  const handleAddTags = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleAddTags = (e: KeyboardEvent<HTMLInputElement>) => {
     let { value } = e.currentTarget;
     if (e.key !== "Enter" || tagValue === "") return;
     const existingTag =
@@ -57,7 +44,7 @@ export default function TagInput({
     <div className={styles.inputBox}>
       <label htmlFor={id}>{label}</label>
       <input
-        className={`${className ? className : ""}`}
+        className={`${className ?? ""}`}
         id={id}
         {...props}
         value={tagValue}

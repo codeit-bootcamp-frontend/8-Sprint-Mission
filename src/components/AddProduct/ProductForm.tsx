@@ -1,51 +1,35 @@
-import { useEffect, useState } from 'react';
-import { Form } from 'react-router-dom';
-import FileInput from '../../ui/FormComponents/FileInput';
-import TagInput from '../../ui/FormComponents/TagInput';
-import Input from '../../ui/FormComponents/Input';
-import TextArea from '../../ui/FormComponents/TextArea';
-import Button from '../../ui/Button/Button';
-import styles from './ProductForm.module.css';
+import { useEffect, useState } from "react";
+import { Form } from "react-router-dom";
+import FileInput from "../../ui/FormComponents/FileInput";
+import TagInput from "../../ui/FormComponents/TagInput";
+import Input from "../../ui/FormComponents/Input";
+import TextArea from "../../ui/FormComponents/TextArea";
+import Button from "../../ui/Button/LinkButton";
+import styles from "./ProductForm.module.css";
+import { FormInitialValues, ChangeValueType } from "./@types/ProductForm";
 
-interface Tag {
-  id: string;
-  name: string;
-}
-
-interface InitialValues {
-  imgFile: File | null;
-  title: string;
-  description: string;
-  price: string;
-  tag: Tag[];
-}
-
-type ChangeValueType = (
-  name: string,
-  value: string | null | Tag[] | number | File | readonly string[]
-) => void;
-
-const INITIAL_VALUES: InitialValues = {
+const INITIAL_VALUES: FormInitialValues = {
   imgFile: null,
-  title: '',
-  description: '',
-  price: '',
+  title: "",
+  description: "",
+  price: "",
   tag: [],
 };
 
 export default function ProductForm() {
-  const [formValues, setFormValues] = useState<InitialValues>(INITIAL_VALUES);
+  const [formValues, setFormValues] =
+    useState<FormInitialValues>(INITIAL_VALUES);
   const [isActive, setIsActive] = useState<boolean>(false);
   const { title, description, price, tag } = formValues;
 
   const submitActive: boolean =
-    title.trim() !== '' &&
-    description.trim() !== '' &&
-    price !== '' &&
+    title.trim() !== "" &&
+    description.trim() !== "" &&
+    price !== "" &&
     tag.length > 0;
 
   const handleChangeValue: ChangeValueType = (name, value) => {
-    setFormValues(prevValue => ({
+    setFormValues((prevValue) => ({
       ...prevValue,
       [name]: value,
     }));

@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import styles from './CommentForm.module.css';
-import TextArea from '../../../ui/FormComponents/TextArea';
-import Button from '../../../ui/Button/Button';
+import { useState } from "react";
+import styles from "./CommentForm.module.css";
+import TextArea from "../../../ui/FormComponents/TextArea";
+import LinkButton from "../../../ui/Button/LinkButton";
 
 export default function CommnetForm() {
-  const [commentValue, setCommentValue] = useState<string>('');
+  const [commentValue, setCommentValue] = useState<string>("");
 
-  const handleChangeValue = (name: string = 'comment', value: string) => {
+  const handleChangeValue = (name: string = "comment", value: string) => {
     setCommentValue(value);
   };
 
-  const isActive: boolean = commentValue.trim() !== '';
+  const isActive: boolean = commentValue.trim() !== "";
 
   return (
     <>
@@ -25,12 +25,7 @@ export default function CommnetForm() {
           changeValue={handleChangeValue}
         />
         <div className={styles.commentBtn}>
-          <Button
-            isActive={!isActive}
-            variant={true}
-            type="submit"
-            btnName="등록"
-          />
+          <LinkButton isActive={!isActive} type="submit" btnName="등록" />
         </div>
       </form>
     </>

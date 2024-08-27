@@ -16,11 +16,26 @@
   font-weight: 400;
   background-color: var(--color-gray100);
 }
-
+.inputContainer {
+  position: relative;
+}
 .input:focus {
   outline: 1px solid var(--color-blue);
 }
-
+.visibleIcon {
+  position: absolute;
+  cursor: pointer;
+  right: 20px;
+  bottom: 12px;
+}
+.errorMsg {
+  padding-top: 1rem;
+  padding-left: 1.6rem;
+  color: var(--color-red);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 17.9px;
+}
 @media (max-width: 768px) {
   .inputLabel {
     font-size: 1.4rem;

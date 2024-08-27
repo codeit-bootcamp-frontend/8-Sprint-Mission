@@ -1,22 +1,37 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import styles from "./Pagination.module.css";
-
-interface PaginationProps {
-  maxPage: number;
-  pageHandler: (page: number | string) => void;
-}
+import { PaginationProps, PageSliceOptions } from "./@types/Pagination";
 
 export default function Pagination({ maxPage, pageHandler }: PaginationProps) {
+  const [pageSlice, setPageSlice] = useState<PageSliceOptions>({
+    start: 0,
+    end: 5,
+  });
   const [pageNum, setPageNum] = useState<number[]>([]);
   const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
 
-  const currentPage = Number(searchParams.get("page"));
+  let slicePageNum = pageNum.slice(pageSlice.start, pageSlice.end);
 
   const displayPagination = (page: number) => {
     const pageArray: number[] = Array.from({ length: page }, (v, i) => i + 1);
     setPageNum([...pageArray]);
   };
+
+  useEffect(() => {
+    if (currentPage > pageSlice.end) {
+      setPageSlice((prev) => ({
+        start: prev.end,
+        end: Math.min((prev.end += 5), maxPage),
+      }));
+    } else if (currentPage <= pageSlice.start) {
+      setPageSlice((prev) => ({
+        start: (prev.start -= 5),
+        end: prev.start + 5,
+      }));
+    }
+  }, [currentPage]);
 
   useEffect(() => {
     displayPagination(maxPage);
@@ -31,10 +46,10 @@ export default function Pagination({ maxPage, pageHandler }: PaginationProps) {
       />
       <ul className={styles.paginationList}>
         {pageNum &&
-          pageNum.map((i) => (
+          slicePageNum.map((i) => (
             <li
               className={`${styles.paginationNum} ${
-                currentPage == i ? styles.active : ""
+                currentPage === i ? styles.active : ""
               }`}
               key={`page${i}`}
               onClick={() => pageHandler(i)}

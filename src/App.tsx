@@ -7,12 +7,17 @@ import ProductDetailPage, {
 } from "./router/ProductDetailPage";
 import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
+import Home from "./router/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     children: [
+      {
+        index: true,
+        element: <Home />,
+      },
       {
         path: "items",
         element: <ProductsPage />,

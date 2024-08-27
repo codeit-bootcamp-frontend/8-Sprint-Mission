@@ -8,3 +8,15 @@
   padding: 0 3.2rem;
   margin: 0 auto;
 }
+.registerLogo img {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .registerHeader {
+    margin-top: 2.4rem;
+    margin-bottom: 2.4em;
+  }
+  .registerLogo {
+    max-width: 262px;
+  }
+}

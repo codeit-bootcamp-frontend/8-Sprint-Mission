@@ -1,13 +1,5 @@
-import { TextareaHTMLAttributes } from "react";
+import { TextAreaInputProps } from "../@types/Input";
 import styles from "./TextArea.module.css";
-
-interface TextAreaInput extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  id: string;
-  className?: string;
-  variant: string;
-  label?: string;
-  changeValue: (name: string, value: string) => void;
-}
 
 export default function TextArea({
   id,
@@ -16,7 +8,7 @@ export default function TextArea({
   label,
   changeValue,
   ...props
-}: TextAreaInput) {
+}: TextAreaInputProps) {
   const handleChangeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     changeValue(name, value);

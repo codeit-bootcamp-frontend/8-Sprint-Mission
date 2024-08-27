@@ -1,20 +1,9 @@
-import { useState } from 'react';
-
-interface FnQuery {
-  query: {
-    currentPage?: number;
-    keyword?: string;
-    order?: string;
-    size?: number;
-  };
-}
-
-interface FetchResponse<T> {
-  list: T;
-  totalCount: number;
-}
-
-type FetchProductType = (args: FnQuery) => Promise<void>;
+import { useState } from "react";
+import {
+  FnQuery,
+  FetchProductType,
+  FetchResponse,
+} from "./@types/useAsyncStatus";
 
 export function useAsyncStatus<T>(
   fetchFn: (args: FnQuery) => Promise<FetchResponse<T>>,
