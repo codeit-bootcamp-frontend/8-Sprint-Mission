@@ -3,6 +3,7 @@ import DateTrimmer from "@/utils/TimeTrimmer";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import axios from "@/lib/axios";
+import Link from "next/link";
 
 const Container = styled.div`
   display: flex;
@@ -72,6 +73,10 @@ const StyledDate = styled.p`
   color: var(--gray-400);
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 type Writer = {
   nickname: string;
   id: number;
@@ -112,36 +117,38 @@ function BestPostList() {
       <StyledTitle>베스트 게시글</StyledTitle>
       <Container>
         {articles.map((article) => (
-          <StyledPostArea key={article.id}>
-            <Image
-              unoptimized={true}
-              width={102}
-              height={30}
-              src="/image/best_badge.png"
-              alt="베스트 게시글 뱃지"
-            />
-            <StyledTopArea>
-              <StyledPostTitle>{article.title}</StyledPostTitle>
-              <StyledImageWrapper
-                src={article.image}
-                alt="게시글 첨부 이미지"
+          <StyledLink href={`/boards/${article.id}`} key={article.id}>
+            <StyledPostArea>
+              <Image
+                unoptimized={true}
+                width={102}
+                height={30}
+                src="/image/best_badge.png"
+                alt="베스트 게시글 뱃지"
               />
-            </StyledTopArea>
-            <StyledBottomArea>
-              <StyledBottomLeftArea>
-                <StyledNickname>{article.writer.nickname}</StyledNickname>
-                <Image
-                  unoptimized={true}
-                  width={15}
-                  height={13}
-                  src="/image/heart_inactive.png"
-                  alt="좋아요 아이콘"
+              <StyledTopArea>
+                <StyledPostTitle>{article.title}</StyledPostTitle>
+                <StyledImageWrapper
+                  src={article.image}
+                  alt="게시글 첨부 이미지"
                 />
-                <StyledLikeCount>{article.likeCount}</StyledLikeCount>
-              </StyledBottomLeftArea>
-              <StyledDate>{DateTrimmer(article.createdAt)}</StyledDate>
-            </StyledBottomArea>
-          </StyledPostArea>
+              </StyledTopArea>
+              <StyledBottomArea>
+                <StyledBottomLeftArea>
+                  <StyledNickname>{article.writer.nickname}</StyledNickname>
+                  <Image
+                    unoptimized={true}
+                    width={15}
+                    height={13}
+                    src="/image/heart_inactive.png"
+                    alt="좋아요 아이콘"
+                  />
+                  <StyledLikeCount>{article.likeCount}</StyledLikeCount>
+                </StyledBottomLeftArea>
+                <StyledDate>{DateTrimmer(article.createdAt)}</StyledDate>
+              </StyledBottomArea>
+            </StyledPostArea>
+          </StyledLink>
         ))}
       </Container>
     </>

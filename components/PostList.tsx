@@ -1,9 +1,7 @@
 import Image from "next/image";
-import SearchInput from "./SearchInput";
 import DateTrimmer from "@/utils/TimeTrimmer";
 import styled from "styled-components";
-import DropDown from "./DropDown";
-import Button from "./Button";
+import Link from "next/link";
 
 const StyledArea = styled.div`
   display: flex;
@@ -66,6 +64,10 @@ const StyledDate = styled.p`
   color: var(--gray-400);
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 type Writer = {
   nickname: string;
   id: number;
@@ -89,40 +91,47 @@ function PostList({ articles }: Props) {
   return (
     <>
       {articles.map((article) => (
-        <StyledPostArea key={article.id}>
-          <StyledArea>
-            <StyledPostTitle>{article.title}</StyledPostTitle>
-            <StyledImageWrapper
-              src={
-                article.image ? article.image : "/image/product_img_default.png"
-              }
-              alt="게시글 첨부 이미지"
-            />
-          </StyledArea>
-          <StyledArea>
-            <StyledBottomLeftArea>
-              <Image
-                unoptimized={true}
-                width={24}
-                height={24}
-                src="/image/profile_img_none.png"
-                alt="가짜 프로필 이미지"
+        <StyledLink href={`/boards/${article.id}`} key={article.id}>
+          <StyledPostArea>
+            <StyledArea>
+              <StyledPostTitle>{article.title}</StyledPostTitle>
+              <StyledImageWrapper
+                src={
+                  article.image
+                    ? encodeURI(article.image)
+                    : "/image/product_img_default.png"
+                }
+                onError={(e) => {
+                  e.currentTarget.src = "/image/product_img_default.png";
+                }}
+                alt="게시글 첨부 이미지"
               />
-              <StyledNickname>{article.writer.nickname}</StyledNickname>
-              <StyledDate>{DateTrimmer(article.createdAt)}</StyledDate>
-            </StyledBottomLeftArea>
-            <StyledBottomRightArea>
-              <Image
-                unoptimized={true}
-                width={20}
-                height={17}
-                src="/image/heart_inactive.png"
-                alt="좋아요 아이콘"
-              />
-              <StyledLikeCount>{article.likeCount}</StyledLikeCount>
-            </StyledBottomRightArea>
-          </StyledArea>
-        </StyledPostArea>
+            </StyledArea>
+            <StyledArea>
+              <StyledBottomLeftArea>
+                <Image
+                  unoptimized={true}
+                  width={24}
+                  height={24}
+                  src="/image/profile_img_none.png"
+                  alt="가짜 프로필 이미지"
+                />
+                <StyledNickname>{article.writer.nickname}</StyledNickname>
+                <StyledDate>{DateTrimmer(article.createdAt)}</StyledDate>
+              </StyledBottomLeftArea>
+              <StyledBottomRightArea>
+                <Image
+                  unoptimized={true}
+                  width={20}
+                  height={17}
+                  src="/image/heart_inactive.png"
+                  alt="좋아요 아이콘"
+                />
+                <StyledLikeCount>{article.likeCount}</StyledLikeCount>
+              </StyledBottomRightArea>
+            </StyledArea>
+          </StyledPostArea>
+        </StyledLink>
       ))}
     </>
   );

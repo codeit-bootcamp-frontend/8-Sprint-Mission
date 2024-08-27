@@ -2,6 +2,8 @@ import Nav from "@/components/Nav";
 import styled from "styled-components";
 import FileInput from "@/components/FileInput";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useRouter } from "next/router";
+import axios from "@/lib/axios";
 
 const StyledFormContainer = styled.section`
   display: flex;
@@ -78,12 +80,14 @@ function AddBoardPage() {
     content: "",
     imgFile: null,
   });
+  const router = useRouter();
 
   const handleChange = (name: string, value: string | number | File | null) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
+    console.log("Current form values:", values);
   };
 
   const handleInputChange = (
@@ -91,51 +95,71 @@ function AddBoardPage() {
   ) => {
     const { name, value } = e.target;
     handleChange(name as keyof FormValues, value);
+    console.log("Current form values:", values);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(values);
+    try {
+      const formData = new FormData();
+      formData.append("title", values.title);
+      formData.append("content", values.content);
+      if (values.imgFile) {
+        formData.append("imgFile", values.imgFile);
+      }
+      console.log(formData);
+      const res = await axios.post("/articles", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      const newArticleId = res.data.id;
+      router.push(`/boards/${newArticleId}`);
+    } catch (error) {
+      console.error("게시글 작성 실패:", error);
+    }
   };
   const checkAllInputsFilled = () => {
     return values.title !== "" && values.content !== "";
   };
-  // const checkAllInputsFilled = () => {
-  //  return Object.values(values).every((value) => value !== "");
-  // };
 
   return (
     <>
       <Nav />
-      <StyledFormContainer onSubmit={handleSubmit}>
-        <StyledTopSection>
-          <h1>게시글 쓰기</h1>
-          <StyledAddItemButton disabled={!checkAllInputsFilled()}>
-            등록
-          </StyledAddItemButton>
-        </StyledTopSection>
+      <StyledFormContainer>
+        <form onSubmit={handleSubmit}>
+          <StyledTopSection>
+            <h1>게시글 쓰기</h1>
+            <StyledAddItemButton
+              type="submit"
+              disabled={!checkAllInputsFilled()}
+            >
+              등록
+            </StyledAddItemButton>
+          </StyledTopSection>
 
-        <StyledLabel htmlFor="title">*제목</StyledLabel>
-        <StyledInput
-          id="title"
-          name="title"
-          value={values.title}
-          onChange={handleInputChange}
-          placeholder="제목을 입력해주세요"
-        />
-        <StyledLabel htmlFor="item-detail">*내용</StyledLabel>
-        <StyledTextArea
-          id="content"
-          name="content"
-          value={values.content}
-          onChange={handleInputChange}
-          placeholder="내용을 입력해주세요"
-        />
-        <FileInput
-          name="imgFile"
-          value={values.imgFile}
-          onChange={handleChange}
-        />
+          <StyledLabel htmlFor="title">*제목</StyledLabel>
+          <StyledInput
+            id="title"
+            name="title"
+            value={values.title}
+            onChange={handleInputChange}
+            placeholder="제목을 입력해주세요"
+          />
+          <StyledLabel htmlFor="content">*내용</StyledLabel>
+          <StyledTextArea
+            id="content"
+            name="content"
+            value={values.content}
+            onChange={handleInputChange}
+            placeholder="내용을 입력해주세요"
+          />
+          <FileInput
+            name="imgFile"
+            value={values.imgFile}
+            onChange={handleChange}
+          />
+        </form>
       </StyledFormContainer>
     </>
   );

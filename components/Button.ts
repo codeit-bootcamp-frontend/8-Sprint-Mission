@@ -13,6 +13,11 @@ const StyledCommonButton = styled.button`
   align-items: center;
   font-size: 18px;
   font-weight: 600;
+
+  &:disabled {
+    background-color: var(--gray-400);
+    cursor: auto;
+  }
 `;
 
 export default StyledCommonButton;
