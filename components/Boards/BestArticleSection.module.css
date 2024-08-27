@@ -10,3 +10,67 @@
   text-align: left;
   color: #111827;
 }
+
+.allContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
+}
+
+.bestArticleCardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 384px;
+  height: 169px;
+
+  padding: 0px 24px 16px 24px;
+  /* gap: 10px; */
+  border-radius: 8px;
+  border: #111827;
+  border-color: #111827;
+
+  background: #f9fafb;
+}
+
+.bestArticleCard {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+
+  background: #f9fafb;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+
+  color: #1f2937;
+  background: #f9fafb;
+}
+
+.bestArticleImage {
+  width: 72px;
+  height: 72px;
+  left: 264px;
+  padding: 13.71px 12px 13.71px 12px;
+  border-radius: 6px;
+
+  border: 1px solid #e5e7eb;
+}
+
+.bestArticleFooter {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bestArticleInform {
+  display: flex;
+
+  justify-content: space-between;
+}

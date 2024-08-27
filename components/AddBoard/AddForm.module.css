@@ -1,0 +1,111 @@
+.headerContainer {
+  padding-top: 24px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.addFormHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.articleWrite {
+  display: flex;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+
+  color: #1f2937;
+}
+
+.enrollment {
+  padding: 12px 23px 12px 23px;
+  border-radius: 8px;
+  border-style: none;
+  background: #9ca3af;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+.writeForm {
+  /* display: grid; */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleInput {
+  /* width: 1, 200px;
+  height: 56px; */
+  padding: 16px 24px 16px 24px;
+  gap: 10px;
+  border-radius: 12px;
+  background: #f3f4f6;
+
+  align-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
+  color: #9ca3af;
+}
+
+.contentInput {
+  /* width: Fixed (1,200px)px; */
+  height: 282px;
+  padding: 16px 24px 16px 24px;
+  gap: 10px;
+
+  border-radius: 12px;
+  background: #f3f4f6;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
+
+  color: #9ca3af;
+}
+
+.addImage {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  background: #f3f4f6;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
+
+  color: #9ca3af;
+  align-content: center;
+  /* justify-content: center; */
+  gap: 12px;
+}
+
+.plusZone {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: #f3f4f6;
+}
+
+.plusIcon {
+  margin: 0px 13px 0px 13px;
+  background: #f3f4f6;
+}
+
+.titleFont {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+
+  color: #1f2937;
+}
