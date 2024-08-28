@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  margin: 70px auto 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.LogoImageWrapper {
+  position: relative;
+  width: 198px;
+  height: 66px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+.inputBox {
+  outline: none;
+}
+.inputBox :focus {
+  outline: 2px solid var(--blue) !important;
+}
+.errorMessage {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--red);
+}
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+    margin: 70px auto 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

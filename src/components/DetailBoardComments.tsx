@@ -23,21 +23,24 @@ interface ItemsListType {
 function DetailBoardComments() {
   const [comments, setComments] = useState<ItemsListType[]>([]);
   const [loading, setLoading] = useState(true);
-  const [values, setValues] = useState("");
+  const [commentsValues, setCommentsValues] = useState("");
   const [pass, setPass] = useState(false);
   const router = useRouter();
   const id = Number(router.query["id"]);
 
   // 게시판 댓글 데이터 가져오기
   async function getProduct(id: number) {
-    const res = await axios.get(`/articles/${id}/comments?limit=50`);
-    const nextComments = res.data.list;
-    console.log(nextComments);
-    setComments(nextComments);
+    try {
+      const res = await axios.get(`/articles/${id}/comments?limit=50`);
+      const nextComments = res.data.list;
+      setComments(nextComments);
+      setLoading(false);
+    } catch (error) {
+      alert("댓글 데이터 불러오기 실패");
+    }
   }
   useEffect(() => {
     getProduct(id);
-    setLoading(false);
   }, [id]);
 
   const onClickReturn = () => {
@@ -47,13 +50,14 @@ function DetailBoardComments() {
   // 댓글 인풋의 입력값 파악
   const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
-    setValues(value);
+    setCommentsValues(value);
   };
 
-  // 테스트를 위해 추가한 동작
+  // TODO: 스프린트 미션에 API POST 관련 기능 요구 시 추가 예정, 현재는 테스트를 위한 코드
   const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
+    if (commentsValues.length <= 0) return;
     e.preventDefault();
-    console.log(values);
+    console.log(commentsValues);
   };
 
   // 댓글 작성한 시간 변환 함수
@@ -78,16 +82,6 @@ function DetailBoardComments() {
     }
   };
 
-  // 입력값 감지 후 조건 충족 시 등록 버튼 활성화
-  useEffect(() => {
-    function validation() {
-      const valueCheck = values.length > 0;
-      return valueCheck;
-    }
-    const isValid = validation();
-    setPass(isValid);
-  }, [values]);
-
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -104,7 +98,7 @@ function DetailBoardComments() {
           />
           <div className={S.buttonWrapper}>
             <button
-              className={`${S.commentSubmitButton} ${pass ? S.pass : ""}`}
+              className={`${S.commentSubmitButton} ${commentsValues.length > 0 ? S.pass : ""}`}
               onClick={handleSubmit}
             >
               등록

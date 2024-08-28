@@ -7,39 +7,39 @@ import { useEffect } from "react";
 
 interface FormData {
   email: string;
+  nickname: string;
   password: string;
+  passwordConfirmation: string;
 }
-function Login() {
+function SignUp() {
   const {
     register,
     handleSubmit,
     formState: { isSubmitting, isSubmitted, errors },
+    getValues,
   } = useForm<FormData>();
   const router = useRouter();
 
-  async function getAccessToken(data: FormData) {
+  async function postSignUp(data: FormData) {
     try {
-      const res = await axios.post("/auth/signIn", data);
-      const token = res.data.accessToken;
-      localStorage.setItem("accessToken", token);
-      router.replace("/");
-    } catch (error) {
-      alert("토큰 가져오기 실패");
-      console.error(error);
+      await axios.post("/auth/signUp", data);
       router.replace("/login");
+    } catch (error) {
+      alert("회원가입 실패");
+      console.error(error);
+      router.replace("/signup");
     }
   }
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (token) router.replace("/");
   }, [router]);
-
   return (
     <div className={S.container}>
       <div className={S.LogoImageWrapper}>
-        <Image src="/images/logo/logo.png" fill alt="판다마켓 로고" priority />
+        <Image src="/images/logo/logo.png" fill alt="판다마켓 로고" />
       </div>
-      <form noValidate className={S.formContainer} onSubmit={handleSubmit(getAccessToken)}>
+      <form noValidate className={S.formContainer} onSubmit={handleSubmit(postSignUp)}>
         <label htmlFor="email">이메일</label>
         <input
           id="email"
@@ -58,6 +58,22 @@ function Login() {
         {errors.email && (
           <small role="alert" className={S.errorMessage}>
             {String(errors.email.message)}
+          </small>
+        )}
+        <label htmlFor="nickname">닉네임</label>
+        <input
+          id="nickname"
+          className={S.inputBox}
+          type="text"
+          placeholder="닉네임을 입력해주세요"
+          {...register("nickname", {
+            required: "닉네임을 입력해주세요",
+          })}
+          aria-invalid={isSubmitted ? (errors.nickname ? "true" : "false") : undefined}
+        />
+        {errors.nickname && (
+          <small role="alert" className={S.errorMessage}>
+            {String(errors.nickname.message)}
           </small>
         )}
         <label htmlFor="password">비밀번호</label>
@@ -80,6 +96,33 @@ function Login() {
             {String(errors.password.message)}
           </small>
         )}
+        <label htmlFor="passwordConfirmation">비밀번호 확인</label>
+        <input
+          id="passwordConfirmation"
+          className={S.inputBox}
+          type="password"
+          placeholder="비밀번호를 다시 한 번 입력해주세요"
+          {...register("passwordConfirmation", {
+            required: "비밀번호를 다시 한 번 입력해주세요",
+            minLength: {
+              value: 8,
+              message: "비밀번호를 8자 이상 입력해주세요",
+            },
+            validate: {
+              check: (val) => {
+                if (getValues("password") !== val) {
+                  return "비밀번호가 일치하지 않습니다.";
+                }
+              },
+            },
+          })}
+          aria-invalid={isSubmitted ? (errors.passwordConfirmation ? "true" : "false") : undefined}
+        />
+        {errors.passwordConfirmation && (
+          <small role="alert" className={S.errorMessage}>
+            {String(errors.passwordConfirmation.message)}
+          </small>
+        )}
         <button type="submit" disabled={isSubmitting}>
           로그인
         </button>
@@ -88,4 +131,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;

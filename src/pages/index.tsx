@@ -10,7 +10,6 @@ export default function Home() {
         <title></title>
       </Head>
       <div className={S.homeContainer}>
-        {/* <NavBar /> */}
         <header>
           <div className={S.headerContentsBackground}>
             <div className={S.headerContent}>

@@ -61,6 +61,12 @@
   background-color: var(--blue3);
 }
 
+.userProfileIcon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
 .navLink {
   display: flex;
   width: 109px;
@@ -77,6 +83,23 @@
   color: var(--blue);
 }
 
+.dropDown {
+  position: absolute;
+  top: 48px;
+  left: -100px;
+  border: 2px solid var(--gray300);
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 16px 0px 16px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 139px;
+  height: 51px;
+}
+
 @media screen and (max-width: 1199px) and (min-width: 768px) {
   .headerNav {
     padding: 0 24px;
@@ -85,6 +108,10 @@
   .logoForScreen {
     width: 153px;
     height: 51px;
+  }
+  .userProfileIcon {
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -120,5 +147,9 @@
   }
   .itemPage {
     color: var(--blue);
+  }
+  .userProfileIcon {
+    width: 32px;
+    height: 32px;
   }
 }

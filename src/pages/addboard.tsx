@@ -52,7 +52,7 @@ function AddBoard() {
     }
   };
 
-  // 등록 버튼 클릭 시 제출
+  // TODO: 스프린트 미션에 API POST 관련 기능 요구 시 추가 예정, 현재는 테스트를 위한 코드
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(values);
@@ -64,7 +64,6 @@ function AddBoard() {
       return;
     }
     const image = values.images;
-    console.log(image);
 
     if (!(image instanceof File)) {
       console.error("Expected a File object but got:", image);

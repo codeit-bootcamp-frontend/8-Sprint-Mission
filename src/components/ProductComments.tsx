@@ -7,10 +7,6 @@ import S from "@/components/ProductComments.module.css";
 const PLACEHOLDERTEXT =
   "개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.";
 
-interface ButtonProps {
-  $pass?: boolean;
-}
-
 interface ItemsListType<T> {
   list: T[];
 }
@@ -33,10 +29,9 @@ function ProductComments() {
     setValues(value);
   };
 
-  // 테스트를 위해 추가한 동작
+  // TODO: 스프린트 미션에 API POST 관련 기능 요구 시 추가 예정, 현재는 테스트를 위한 코드
   const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(values);
   };
 
   // 댓글 작성한 시간 변환 함수
