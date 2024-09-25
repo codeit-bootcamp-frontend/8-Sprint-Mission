@@ -66,12 +66,14 @@ function Login() {
       const userData = response.data ?? [];
 
       if (userData.accessToken && userData.refreshToken) {
-        const userToken = {
-          id: userData.user.id,
-          accessToken: userData.accessToken,
-          refreshToken: userData.refreshToken,
-        };
-        localStorage.setItem("user_information", JSON.stringify(userToken));
+        localStorage.setItem(
+          "accessToken",
+          JSON.stringify(userData.accessToken),
+        );
+        localStorage.setItem(
+          "refreshToken",
+          JSON.stringify(userData.refreshToken),
+        );
       }
       // TODO: toast 메시지 - 로그인 완료
       router.push("/");

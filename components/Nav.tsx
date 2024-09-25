@@ -11,14 +11,18 @@ import profileImage from "@/assets/images/img_profile.png";
 
 function Nav() {
   const [isLogin, setIsLogin] = useState<boolean>(false);
+  const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
   const pathname = usePathname();
 
-  if (typeof window !== "undefined") {
-    const isSignedIn = !!localStorage.getItem("user_information");
-    useEffect(() => {
-      setIsLogin(isSignedIn);
-    }, [isSignedIn]);
-  }
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsSignedIn(!!localStorage.getItem("accessToken"));
+    }
+  }, []);
+
+  useEffect(() => {
+    setIsLogin(isSignedIn);
+  }, [isSignedIn]);
 
   return (
     <nav className={styles.nav}>
