@@ -1,4 +1,7 @@
 export const API_PATH = {
+  products() {
+    return "/products";
+  },
   image() {
     return "/images/upload";
   },
