@@ -24,7 +24,6 @@ function Board() {
 
   useEffect(() => {
     const updatePageSize = () => {
-      // 서버 사이드에서의 window 접근 방지
       if (typeof window !== "undefined") {
         const { innerWidth } = window;
         if (innerWidth < 377) setPageSize(1);

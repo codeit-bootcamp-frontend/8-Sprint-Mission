@@ -9,10 +9,10 @@ export const API_PATH = {
     return `/articles/${id}/comments?limit=${limit}`;
   },
   signUp() {
-    return "/auth/signIn";
+    return "/auth/signUp";
   },
   signIn() {
-    return "/auth/signUp";
+    return "/auth/signIn";
   },
   articles(option?: string, pageSize?: number) {
     return `/articles/?orderBy=${option}&pageSize=${pageSize}`;
