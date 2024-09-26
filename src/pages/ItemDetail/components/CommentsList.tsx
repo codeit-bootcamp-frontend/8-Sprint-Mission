@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getProductComments } from "../../../api/api";
+import { getProductComments } from "../../../lib/api";
 import ModifyComment from "../../../assets/ic_kebab.svg";
 import ProfileImg from "../../../assets/ic_profile.svg";
 import "./CommentsList.css";

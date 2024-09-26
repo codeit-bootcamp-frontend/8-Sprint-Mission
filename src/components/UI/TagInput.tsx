@@ -27,7 +27,7 @@ const TagInput = ({ tags, onAddTag, onRemoveTag }: TagInputProps) => {
         태그
       </label>
       <input
-        className="input-tag"
+        className="input input-tag"
         name="tag"
         value={input}
         onChange={(e) => setInput(e.target.value)}

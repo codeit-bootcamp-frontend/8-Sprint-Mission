@@ -1,4 +1,4 @@
-import { getProductDetail } from "../../api/api";
+import { getProductDetail } from "../../lib/api";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemProfile from "./components/ItemProfile";

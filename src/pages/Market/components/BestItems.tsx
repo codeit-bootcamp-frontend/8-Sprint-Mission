@@ -1,4 +1,4 @@
-import { getProducts } from "../../../api/api";
+import { getProducts } from "../../../lib/api";
 import { useEffect, useState, useMemo } from "react";
 import ItemList from "./ItemList";
 import "./AllItems.css";
@@ -25,16 +25,12 @@ function BestItems() {
   const [pageSize, setPageSize] = useState<number>(getPageSize());
 
   const bestProducts = useMemo(() => {
-    const sortedItems = [...products].sort(
-      (a, b) => b.favoriteCount - a.favoriteCount
-    );
-
-    return sortedItems.slice(0, getPageSize());
+    return products.slice(0, getPageSize());
   }, [products]);
 
-  const handleLoadProducts = async (pageSize: number) => {
+  const handleLoadProducts = async (pageSize: number, orderBy: string) => {
     try {
-      const products = await getProducts({ pageSize });
+      const products = await getProducts({ pageSize, orderBy });
       setProducts(products.list);
     } catch (error) {
       console.error("상품 목록을 가져오는 중 오류 발생:", error);
@@ -46,7 +42,7 @@ function BestItems() {
       setPageSize(getPageSize());
     };
     window.addEventListener("resize", handleResize);
-    handleLoadProducts(pageSize);
+    handleLoadProducts(pageSize, "favorite");
 
     return () => {
       window.removeEventListener("resize", handleResize);

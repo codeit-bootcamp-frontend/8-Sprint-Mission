@@ -1,5 +1,5 @@
-import { getProducts } from "../../../api/api";
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import { getProducts } from "../../../lib/api";
+import React, { useEffect, useState, useCallback } from "react";
 import ItemList from "./ItemList";
 import searchIcon from "../../../assets/ic_search.svg";
 import Dropdown from "../../../components/UI/Dropdown";
@@ -10,7 +10,7 @@ import PaginationBar from "../../../components/UI/PaginationBar";
 import { Product } from "../../../type/ProductType";
 
 export interface HandleLoadProductsParams {
-  order: string;
+  orderBy: string;
   page: number;
   pageSize: number;
 }
@@ -32,7 +32,7 @@ const getPageSize = () => {
 
 function AllItems() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [order, setOrder] = useState<string>("createdAt");
+  const [orderBy, setOrderBy] = useState<string>("recent");
   const [page, setPage] = useState<number>(1);
   const [totalPageNum, setTotalPageNum] = useState<number | undefined>(
     undefined
@@ -40,14 +40,14 @@ function AllItems() {
   const [pageSize, setPageSize] = useState<number>(getPageSize());
 
   const options = [
-    { label: "최신순", value: "createdAt" },
-    { label: "좋아요순", value: "favoriteCount" },
+    { label: "최신순", value: "recent" },
+    { label: "좋아요순", value: "favorite" },
   ];
 
   const handleLoadProducts = useCallback(
-    async ({ order, page, pageSize }: HandleLoadProductsParams) => {
+    async ({ page, pageSize, orderBy }: HandleLoadProductsParams) => {
       try {
-        const products = await getProducts({ order, page, pageSize });
+        const products = await getProducts({ page, pageSize, orderBy });
         setProducts(products.list);
         setTotalPageNum(Math.ceil(products.totalCount / pageSize));
       } catch (error) {
@@ -57,19 +57,11 @@ function AllItems() {
     []
   );
 
-  const sortedItems = useMemo(() => {
-    return [...products].sort((a, b) => {
-      if (order === "createdAt") {
-        return (
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        );
-      }
-      return b.favoriteCount - a.favoriteCount;
-    });
-  }, [products, order]);
-
-  const handleChangeOrder = (value: string) => {
-    setOrder(value);
+  const handleChangeOrder = (selectedOption: {
+    label: string;
+    value: string;
+  }) => {
+    setOrderBy(selectedOption.value);
   };
 
   const style = {
@@ -86,12 +78,12 @@ function AllItems() {
       setPageSize(getPageSize());
     };
     window.addEventListener("resize", handleResize);
-    handleLoadProducts({ order, page, pageSize });
+    handleLoadProducts({ page, pageSize, orderBy });
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [order, page, pageSize, handleLoadProducts]);
+  }, [orderBy, page, pageSize, handleLoadProducts]);
 
   return (
     <>
@@ -113,7 +105,7 @@ function AllItems() {
         <div className="dropdown">
           <Dropdown
             options={options}
-            selectedValue={order}
+            selectedValue={orderBy}
             onSelect={handleChangeOrder}
           />
         </div>
@@ -122,7 +114,7 @@ function AllItems() {
         className="
     allItemsMenu"
       >
-        {sortedItems.map((product) => (
+        {products.map((product) => (
           <ItemList product={product} key={product.id} />
         ))}
       </div>

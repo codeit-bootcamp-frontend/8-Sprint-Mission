@@ -6,7 +6,7 @@ import "../../style/global.css";
 interface DropdownProps {
   options: { label: string; value: string }[];
   selectedValue: string;
-  onSelect: (value: string) => void;
+  onSelect: (selectedOption: { label: string; value: string }) => void;
 }
 
 const Dropdown = ({ options, selectedValue, onSelect }: DropdownProps) => {
@@ -17,8 +17,8 @@ const Dropdown = ({ options, selectedValue, onSelect }: DropdownProps) => {
   };
 
   // 옵션 선택 시 실행되는 함수
-  const handleSelect = (value: string) => {
-    onSelect(value);
+  const handleSelect = (option: { label: string; value: string }) => {
+    onSelect(option);
     setIsOpen(false);
   };
 
@@ -34,7 +34,7 @@ const Dropdown = ({ options, selectedValue, onSelect }: DropdownProps) => {
       {isOpen && (
         <ul className="dropdownMenu">
           {options.map((option) => (
-            <li key={option.value} onClick={() => handleSelect(option.value)}>
+            <li key={option.value} onClick={() => handleSelect(option)}>
               {option.label}
             </li>
           ))}

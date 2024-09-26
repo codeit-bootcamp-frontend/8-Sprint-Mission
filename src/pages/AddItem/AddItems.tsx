@@ -86,7 +86,7 @@ function AddItems() {
           상품명
         </label>
         <input
-          className="input-title"
+          className="input input-title"
           name="title"
           value={values.title}
           onChange={handleInputChange}
@@ -106,7 +106,7 @@ function AddItems() {
           판매가격
         </label>
         <input
-          className="input-price"
+          className="input input-price"
           name="price"
           type="number"
           value={values.price}
