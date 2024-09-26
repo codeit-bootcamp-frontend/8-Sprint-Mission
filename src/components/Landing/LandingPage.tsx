@@ -14,8 +14,7 @@ export default function LandingPage() {
           <div className={styles.banner}>
             <div className={styles.bannerTitle}>
               <h1 className={styles.title}>
-                일상의 모든 물건을
-                <br />
+                일상의 모든 물건을 <br />
                 거래해 보세요
               </h1>
               <Link to="/items" className={styles.visitBtn}>
