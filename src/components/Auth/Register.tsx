@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginMenu from "./LoginMenu";
 import AuthHeader from "./AuthHeader";
@@ -7,11 +7,13 @@ import Input from "../../ui/FormComponents/Input";
 import LinkButton from "../../ui/Button/LinkButton";
 import styles from "./Auth.module.css";
 import { RegisterInitialValue } from "./@types/Auth";
-import { signUp } from "../../utils/http";
 import AuthContext from "../../store/AuthContext";
 import { useForm } from "react-hook-form";
+import Error from "../Error/Error";
 
 export default function Register() {
+  const [isError, setIsError] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -38,11 +40,11 @@ export default function Register() {
   };
 
   const handleRegister = async (data: RegisterInitialValue) => {
-    try {
-      const res = await signUp(data);
+    const successs = await authCtx.register(data);
+    if (successs) {
       navigate("/signin");
-    } catch (error) {
-      console.log(error);
+    } else {
+      setIsError(true);
     }
   };
 
@@ -52,9 +54,18 @@ export default function Register() {
 
   const onRegisterSubmit = handleSubmit(handleSubmitRegister);
 
+  const handleResetIsError = () => {
+    setIsError(false);
+  };
+
   return (
     <Section>
       <AuthHeader />
+      <Error
+        isOpen={isError}
+        onResetError={handleResetIsError}
+        message={authCtx.errorMessage}
+      />
       <div className={styles.container}>
         <form onSubmit={onRegisterSubmit}>
           <Input
@@ -65,8 +76,7 @@ export default function Register() {
             placeholder="이메일을 입력해주세요"
             errorMsg={errors.email && errors.email.message}
             className={styles.inputBox}
-            register={register}
-            rules={{
+            {...register("email", {
               required: {
                 value: true,
                 message: "이메일을 입력해주세요.",
@@ -75,7 +85,7 @@ export default function Register() {
                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/,
                 message: "잘못된 이메일 형식입니다.",
               },
-            }}
+            })}
           />
           <Input
             id="nickname"
@@ -85,13 +95,12 @@ export default function Register() {
             placeholder="닉네임을 입력해주세요"
             errorMsg={errors.nickname && errors.nickname.message}
             className={styles.inputBox}
-            register={register}
-            rules={{
+            {...register("nickname", {
               required: {
                 value: true,
                 message: "닉네임을 입력해주세요.",
               },
-            }}
+            })}
           />
           <Input
             id="password"
@@ -102,8 +111,7 @@ export default function Register() {
             placeholder="비밀번호를 입력해주세요"
             errorMsg={errors.password && errors.password.message}
             className={styles.inputBox}
-            register={register}
-            rules={{
+            {...register("password", {
               required: {
                 value: true,
                 message: "비밀번호를 입력해주세요.",
@@ -112,7 +120,7 @@ export default function Register() {
                 value: 8,
                 message: "비밀번호를 8자 이상 입력해주세요.",
               },
-            }}
+            })}
           />
           <Input
             id="passwordCheck"
@@ -123,14 +131,13 @@ export default function Register() {
             placeholder="비밀번호를 다시 한 번 입력해주세요"
             errorMsg={errors.passwordCheck && errors.passwordCheck.message}
             className={styles.inputBox}
-            register={register}
-            rules={{
+            {...register("passwordCheck", {
               required: {
                 value: true,
                 message: "비밀번호를 입력해주세요.",
               },
               validate: validateConfirmPassword,
-            }}
+            })}
           />
           <LinkButton
             type="submit"
