@@ -1,4 +1,5 @@
 .formContainer {
+  padding-top: 2.4rem;
   min-height: calc(1233px - 70px);
 }
 .titleContainer {
