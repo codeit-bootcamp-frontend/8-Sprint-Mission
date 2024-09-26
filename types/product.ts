@@ -1,15 +1,18 @@
-export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: string;
-  favoriteCount: number;
-  tags?: string[];
+export interface ProductTypes {
   createdAt: string;
+  favoriteCount: number;
+  ownerNickname: string;
+  ownerId: number;
+  images: string;
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+  id: number;
+  isFavorite: boolean;
 }
 
-export interface Products {
+export interface ProductListTypes {
   className?: string;
-  products: Product[];
+  products: ProductTypes[];
 }

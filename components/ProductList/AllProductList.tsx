@@ -1,12 +1,12 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Products, Product } from "@/types/product";
+import { ProductListTypes, ProductTypes } from "@/types/product";
 import searchIcon from "@/assets/images/ic_search.png";
 import ProductListItem from "./ProductListItem";
 
-function AllProductList({ products }: Products) {
-  const [showedProducts, setShowedProducts] = useState<Product[]>([]);
+function AllProductList({ products }: ProductListTypes) {
+  const [showedProducts, setShowedProducts] = useState<ProductTypes[]>([]);
   const [order, setOrder] = useState<string>("createdAt");
 
   useEffect(() => {

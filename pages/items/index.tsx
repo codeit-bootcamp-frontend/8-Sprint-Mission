@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Product } from "@/types/product";
+import { ProductTypes } from "@/types/product";
 import BestProductList from "@/components/ProductList/BestProductList";
 import AllProductList from "@/components/ProductList/AllProductList";
 import axios from "@/lib/axios";
 import { API_PATH } from "@/lib/path";
 
 function Items() {
-  const [products, setProducts] = useState<Product[] | null>(null);
+  const [products, setProducts] = useState<ProductTypes[] | null>(null);
 
   async function fetchProductData() {
     const response = await axios.get(API_PATH.products());

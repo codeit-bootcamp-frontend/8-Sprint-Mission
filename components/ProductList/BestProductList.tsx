@@ -1,7 +1,7 @@
-import { Products } from "@/types/product";
+import { ProductListTypes } from "@/types/product";
 import ProductListItem from "./ProductListItem";
 
-function BestProductList({ products }: Products) {
+function BestProductList({ products }: ProductListTypes) {
   const sortedProducts = [...products].sort(
     (a, b) => b["favoriteCount"] - a["favoriteCount"],
   );

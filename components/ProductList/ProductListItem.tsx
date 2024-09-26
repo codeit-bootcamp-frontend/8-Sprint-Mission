@@ -2,17 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import likeIcon from "@/assets/images/ic_heart_empty.png";
 import errorImage from "@/assets/images/img_default.png";
-
-interface Item {
-  id: string;
-  name: string;
-  price: number;
-  images: string;
-  favoriteCount: number;
-}
+import { ProductTypes } from "@/types/product";
 
 interface ProductListItemProps {
-  item: Item;
+  item: ProductTypes;
   className: string;
 }
 

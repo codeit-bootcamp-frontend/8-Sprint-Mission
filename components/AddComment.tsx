@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import axios from "@/lib/axios";
-import { IComment } from "@/types/comment";
+import { CommentTypes } from "@/types/comment";
 import { API_PATH } from "@/lib/path";
 
 import TextInput from "./Inputs/TextInput";
@@ -17,7 +17,7 @@ const INPUT_CONTENT = [
 
 interface AddCommentProps {
   id: number;
-  setCommentList: Dispatch<SetStateAction<IComment[]>>;
+  setCommentList: Dispatch<SetStateAction<CommentTypes[]>>;
 }
 
 function AddComment({ id, setCommentList }: AddCommentProps) {
@@ -35,7 +35,7 @@ function AddComment({ id, setCommentList }: AddCommentProps) {
   async function postComment() {
     const accessToken = "";
 
-    let newComment: IComment;
+    let newComment: CommentTypes;
     try {
       const response = await axios.post(
         API_PATH.articleComments(id),

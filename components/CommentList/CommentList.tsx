@@ -1,11 +1,11 @@
-import { IComment } from "@/types/comment";
+import { CommentTypes } from "@/types/comment";
 import Comment from "./Comment";
 
 import Image from "next/image";
 import replayEmptyImage from "@/assets/images/img_reply_empty.png";
 
 interface CommentListProps {
-  commentList: IComment[];
+  commentList: CommentTypes[];
 }
 
 function CommentList({ commentList: comments }: CommentListProps) {
@@ -13,7 +13,7 @@ function CommentList({ commentList: comments }: CommentListProps) {
     <div>
       {!!comments.length ? (
         <ul className="comment-lists">
-          {comments.map((comment: IComment) => (
+          {comments.map((comment: CommentTypes) => (
             <li key={comment.id}>
               <Comment comment={comment} />
             </li>
