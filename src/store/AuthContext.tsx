@@ -1,10 +1,15 @@
 import { useState, useEffect, createContext } from "react";
-import { signIn } from "../utils/http";
-import { AuthContextType, LoginType } from "./types/AuthContextType";
+import { signIn, signUp } from "../utils/http";
+import {
+  AuthContextType,
+  LoginType,
+  RegisterType,
+} from "./types/AuthContextType";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthContextProvider = ({ children }) => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -22,13 +27,20 @@ export const AuthContextProvider = ({ children }) => {
         localStorage.setItem("token", res.accessToken);
         return true;
       }
+    } catch (error) {
+      setErrorMessage(error.message);
+      return false;
+    }
+  };
 
-      if (res.error || res.message) {
-        alert(res.message);
-        return false;
+  const registerHandler = async (data: RegisterType) => {
+    try {
+      const res = await signUp(data);
+      if (res) {
+        return true;
       }
     } catch (error) {
-      console.log(error);
+      setErrorMessage(error.message);
       return false;
     }
   };
@@ -40,6 +52,8 @@ export const AuthContextProvider = ({ children }) => {
 
   const authValue = {
     isLoggedIn,
+    errorMessage,
+    register: registerHandler,
     login: loginHandler,
     logout: logoutHandler,
   };

@@ -12,7 +12,9 @@ interface RegisterType {
 
 interface AuthContextType {
   isLoggedIn: boolean;
-  login: (data: { email: string; password: string }) => Promise<boolean>;
+  errorMessage: string;
+  register: (data: RegisterType) => Promise<boolean>;
+  login: (data: LoginType) => Promise<boolean>;
   logout: () => void;
 }
 
