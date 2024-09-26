@@ -56,16 +56,18 @@ export default function BestProduct() {
 
   return (
     <Section>
-      <h2 className={styles.title}>베스트 상품</h2>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className={styles.list}>
-          {itemList.map((list) => (
-            <ItemList key={`best-products-${list.id}`} {...list} />
-          ))}
-        </div>
-      )}
+      <div className={styles.section}>
+        <h2 className={styles.title}>베스트 상품</h2>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className={styles.list}>
+            {itemList.map((list) => (
+              <ItemList key={`best-products-${list.id}`} {...list} />
+            ))}
+          </div>
+        )}
+      </div>
     </Section>
   );
 }

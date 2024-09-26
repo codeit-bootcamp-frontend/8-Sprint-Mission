@@ -4,6 +4,7 @@
   align-items: center;
 }
 .productHeader {
+  padding-top: 2.4rem;
   display: flex;
   gap: 12px;
   justify-content: space-between;
