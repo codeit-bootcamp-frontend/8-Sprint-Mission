@@ -52,3 +52,30 @@
   height: 20px;
   background-size: 286px 64px;
 }
+
+@media (max-width: 1199px) {
+  .copyright {
+    padding: 0 10.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .copyright {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    padding: 0 3.2rem;
+    gap: 6rem 0;
+  }
+  .copyright > p {
+    grid-row: 2;
+  }
+  .copyright > .policy {
+    grid-row: 1;
+  }
+  .copyright > .snsList {
+    grid-row: 1;
+  }
+  .footer {
+    padding: 3.2rem 0;
+  }
+}

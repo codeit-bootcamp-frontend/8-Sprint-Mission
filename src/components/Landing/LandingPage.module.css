@@ -127,4 +127,182 @@
   color: var(--color-gray700);
 }
 
-/* bottom */
+@media (max-width: 1199px) {
+  .bannerContainer {
+    background-position: center bottom;
+    background-size: 996px;
+  }
+  .banner {
+    height: 771px;
+  }
+
+  .bannerTitle {
+    padding-top: 84px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .bannerTitle > .title {
+    font-size: 4rem;
+    text-align: center;
+    padding-bottom: 24px;
+    line-height: 44.8px;
+  }
+
+  .bannerTitle .title > br {
+    display: none;
+  }
+
+  .bannerTitle > .visitBtn {
+    padding: 16px 125px;
+  }
+
+  .contents {
+    margin: 2.4rem 0 0 0;
+  }
+
+  .itemList {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .itemList > img {
+    width: 100%;
+  }
+
+  .itemList.reverse {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .info {
+    padding: 0;
+  }
+
+  .info > .infoTitle > br {
+    display: none;
+  }
+
+  .topLine {
+    padding-bottom: 1.2rem;
+  }
+
+  .bottomLine {
+    font-size: 2rem;
+    padding-top: 2rem;
+    line-height: 21.6px;
+  }
+
+  .commentContainer {
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 996px;
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .comment {
+    height: 927px;
+  }
+
+  .commentTitle {
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 201px;
+  }
+
+  .commentTitle > .title {
+    line-height: 56px;
+  }
+
+  .commentTitle .title > br {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  .bannerContainer {
+    background-position: center bottom;
+    background-size: 626.12px;
+  }
+  .banner {
+    height: 540px;
+  }
+  .bannerTitle {
+    padding-top: 48px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .bannerTitle .title > br {
+    display: block;
+  }
+  .bannerTitle > .title {
+    font-size: 3.2rem;
+    padding-bottom: 1.8rem;
+  }
+  .bannerTitle > .visitBtn {
+    padding: 13.5px 33.5px;
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+
+  .contents {
+    margin: 5rem 0 0 0;
+  }
+  .itemList {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .itemList > img {
+    width: 100%;
+  }
+
+  .itemList.reverse {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .info {
+    padding: 0;
+  }
+
+  .info > .infoTitle {
+    font-size: 2.4rem;
+    line-height: 33.6px;
+  }
+
+  .info > .infoTitle > br {
+    display: none;
+  }
+
+  .topLine {
+    font-size: 1.6rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .bottomLine {
+    font-size: 1.6rem;
+    padding-top: 2rem;
+    line-height: 19.2px;
+  }
+
+  .commentContainer {
+    background-size: 490px;
+  }
+
+  .comment {
+    height: 540px;
+  }
+
+  .commentTitle {
+    padding-top: 12rem;
+  }
+
+  .commentTitle > .title {
+    font-size: 3.2rem;
+    line-height: 44.8px;
+  }
+}
