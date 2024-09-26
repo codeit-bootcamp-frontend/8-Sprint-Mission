@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import axios from "@/lib/axios";
+import instance from "@/lib/instance";
 import { API_PATH } from "@/lib/path";
 import { FormValues } from "@/types/formValues";
 import { match } from "ts-pattern";
@@ -89,7 +89,7 @@ function SignUp() {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      const response = await axios.post(API_PATH.signUp(), data, {
+      const response = await instance.post(API_PATH.signUp(), data, {
         headers: {
           "Content-Type": "application/json",
         },

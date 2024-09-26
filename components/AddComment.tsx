@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import axios from "@/lib/axios";
+import instance from "@/lib/instance";
 import { CommentTypes } from "@/types/comment";
 import { API_PATH } from "@/lib/path";
 
@@ -37,7 +37,7 @@ function AddComment({ id, setCommentList }: AddCommentProps) {
 
     let newComment: CommentTypes;
     try {
-      const response = await axios.post(
+      const response = await instance.post(
         API_PATH.articleComments(id),
         inputValue,
         {

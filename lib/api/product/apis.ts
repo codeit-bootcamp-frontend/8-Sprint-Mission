@@ -1,4 +1,4 @@
-import instance from "@/lib/axios";
+import instance from "@/lib/instance";
 import { API_PATH } from "@/lib/path";
 
 export async function fetchProductDataById(productId: string) {
