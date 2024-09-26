@@ -2,10 +2,16 @@ export const API_PATH = {
   products() {
     return "/products";
   },
+  productsWithId(productId: string | number) {
+    return `/products/${productId}`;
+  },
+  productsComments(productId: string | number, limit?: number) {
+    return `/products/${productId}/comments?limit=${limit}`;
+  },
   image() {
     return "/images/upload";
   },
-  articleComments(id: number) {
+  articleComments(id: string | number) {
     return `/articles/${id}/comments`;
   },
   articleCommentsWithLimit(id: string | number, limit?: number) {
@@ -20,7 +26,7 @@ export const API_PATH = {
   articles(option?: string, pageSize?: number) {
     return `/articles/?orderBy=${option}&pageSize=${pageSize}`;
   },
-  articleById(id: string) {
+  articleById(id: string | number) {
     return `/articles/${id}`;
   },
 };

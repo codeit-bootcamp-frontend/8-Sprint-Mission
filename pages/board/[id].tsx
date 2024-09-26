@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import { Article } from "@/types/article";
-import { IComment } from "@/types/comment";
+import { CommentTypes } from "@/types/comment";
 import axios from "@/lib/axios";
 import { API_PATH } from "@/lib/path";
 
@@ -40,7 +40,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 interface DetailBoardProps {
   id: number;
   article: Article;
-  commentList: IComment[];
+  commentList: CommentTypes[];
 }
 
 function DetailBoard({
