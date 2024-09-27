@@ -8,6 +8,7 @@ const nextConfig = {
       "sprint-fe-project.s3.ap-northeast-2.amazonaws.com",
       "cdnb.artstation.com",
       "cafe24.poxo.com",
+      "via.placeholder.com",
     ],
     // remotePatterns: [
     //   {
