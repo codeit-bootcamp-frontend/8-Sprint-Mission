@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export default function BoardPage() {
+
+	// Todo 리액트 쿼리 적용하기
   const [articles, setArticles] = useState<ArticlesList[]>([]);
   const [articleQuery, setArticleQuery] = useState<ArticlesQuery>({
     page: 1,
