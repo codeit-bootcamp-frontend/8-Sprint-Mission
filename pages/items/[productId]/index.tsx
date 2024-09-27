@@ -40,7 +40,7 @@ function ProductDetailPage() {
       }
     }
     getProductComment();
-  }, [productId]);
+  }, []);
 
   return (
     <div className="product-detail">
