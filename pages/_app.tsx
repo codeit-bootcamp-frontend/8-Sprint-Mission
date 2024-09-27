@@ -1,5 +1,6 @@
 import 'normalize.css';
 import '@styles/reset.css';
+import '@styles/global.css';
 
 import Header from '@components/layout/Header/Header';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
