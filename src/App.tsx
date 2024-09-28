@@ -7,6 +7,8 @@ import ItemDetail from "./pages/ItemDetail/ItemDetail";
 import "./style/global.css";
 import SignUp from "./pages/Auth/SignUp";
 import Login from "./pages/Auth/Login";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function MainContent() {
   const location = useLocation();
@@ -28,11 +30,16 @@ function MainContent() {
   );
 }
 
+const queryClient = new QueryClient();
+
 function App() {
   return (
-    <BrowserRouter>
-      <MainContent />
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <MainContent />
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 

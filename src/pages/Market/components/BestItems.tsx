@@ -4,6 +4,7 @@ import ItemList from "./ItemList";
 import "./AllItems.css";
 import "../../../style/global.css";
 import { Product } from "../../../type/ProductType";
+import { useQuery } from "@tanstack/react-query";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -21,28 +22,27 @@ const getPageSize = () => {
 };
 
 function BestItems() {
-  const [products, setProducts] = useState<Product[]>([]);
   const [pageSize, setPageSize] = useState<number>(getPageSize());
+  const orderBy = "favorite";
+
+  const { data } = useQuery<{
+    list: Product[];
+  }>({
+    queryKey: ["bestProducts", { pageSize, orderBy }],
+    queryFn: () => getProducts({ pageSize, orderBy }),
+  });
+  console.log(data);
+  const products = data?.list || [];
 
   const bestProducts = useMemo(() => {
     return products.slice(0, getPageSize());
   }, [products]);
-
-  const handleLoadProducts = async (pageSize: number, orderBy: string) => {
-    try {
-      const products = await getProducts({ pageSize, orderBy });
-      setProducts(products.list);
-    } catch (error) {
-      console.error("상품 목록을 가져오는 중 오류 발생:", error);
-    }
-  };
 
   useEffect(() => {
     const handleResize = () => {
       setPageSize(getPageSize());
     };
     window.addEventListener("resize", handleResize);
-    handleLoadProducts(pageSize, "favorite");
 
     return () => {
       window.removeEventListener("resize", handleResize);
