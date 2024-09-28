@@ -2,6 +2,7 @@ import Button from '@core/ui/buttons/Button';
 import ImageFileInput from '@core/ui/inputs/ImageFileInput';
 import TagInput from '@core/ui/inputs/TagInput';
 import { useState } from 'react';
+import { useAddProduct } from '@lib/queries/items.queries';
 
 interface initValue {
   imgFile: any;
@@ -23,6 +24,8 @@ function AddItems() {
   const [values, setValues] = useState(INITIAL_VALUES);
   const [initialPreview, setInitialPreview] = useState<string>('');
   const [isAllValid, setIsAllValid] = useState(false);
+
+  const addProductMutation = useAddProduct();
 
   const handleChange = (name: string, value: any) => {
     setValues((prevValues) => ({
@@ -68,12 +71,23 @@ function AddItems() {
     );
   };
 
-  const handleSubmit = (
-    e:
-      | React.MouseEvent<HTMLElement, MouseEvent>
-      | React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isAllValid) {
+      try {
+        await addProductMutation.mutateAsync({
+          name: values.name,
+          description: values.desc,
+          price: Number(values.price),
+          tags: values.tags,
+          images: [values.imgFile], // 이미지 처리 로직에 따라 수정 필요
+        });
+        // 성공 처리 (예: 알림 표시, 페이지 이동 등)
+      } catch (error) {
+        // 에러 처리
+        console.error('상품 등록 실패:', error);
+      }
+    }
   };
 
   return (
@@ -84,7 +98,10 @@ function AddItems() {
           <div>
             <Button
               text="등록"
-              onClick={handleSubmit}
+              onClick={(e) => {
+                e.preventDefault();
+                handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
+              }}
               isDisabled={!isAllValid}
             />
           </div>

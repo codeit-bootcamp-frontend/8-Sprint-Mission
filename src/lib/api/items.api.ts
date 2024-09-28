@@ -1,4 +1,8 @@
-import { ProductListResponse } from '@type/product.types';
+import {
+  CreateProductRequest,
+  CreateProductResponse,
+  ProductListResponse,
+} from '@type/product.types';
 
 const BASE_URL = 'https://panda-market-api.vercel.app';
 
@@ -77,4 +81,27 @@ export async function getCommentsByProductId(
   );
   const body = await response.json();
   return body;
+}
+
+/**
+ * 상품 등록
+ * @param {CreateProductRequest} productData - 등록할 상품 데이터
+ * @returns {Promise<CreateProductResponse>} 등록된 상품 정보
+ */
+export async function createProduct(
+  productData: CreateProductRequest
+): Promise<CreateProductResponse> {
+  const response = await fetch(`${BASE_URL}/products`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(productData),
+  });
+
+  if (!response.ok) {
+    throw new Error('상품 등록에 실패했습니다');
+  }
+
+  return await response.json();
 }

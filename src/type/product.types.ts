@@ -22,3 +22,15 @@ export interface GetProductsProps {
   pageSize: number;
   keyword?: string;
 }
+
+export interface CreateProductRequest {
+  images: Product['images'];
+  tags: Product['tags'];
+  price: Product['price'];
+  description: Product['description'];
+  name: Product['name'];
+}
+
+export interface CreateProductResponse extends Omit<Product, 'updatedAt'> {
+  ownerNickname: string;
+}
