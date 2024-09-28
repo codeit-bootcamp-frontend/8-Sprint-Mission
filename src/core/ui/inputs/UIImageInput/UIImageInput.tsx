@@ -80,7 +80,7 @@ const UIImageInput = ({ ...props }: UIImageInputProps) => {
           <>
             <div className={styles['card-input-image-file']}>
               <UIImage
-                src={preview}
+                src={preview || ''}
                 className={styles['img-preview-input-image-file']}
                 alt="상품 미리보기"
                 isRound={false}
