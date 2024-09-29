@@ -25,15 +25,15 @@ export const postLogin = async ({email, password}: LoginType) => {
 
 export const postSignUp = async ({email, nickname, password, passwordConfirmation }: SignUpType) => {
 	try {
-		const response = await axiosInstance.post('/auth/signIn', {
+		const response = await axiosInstance.post('/auth/signUp', {
 			email,
 			nickname,
 			password, 
 			passwordConfirmation
 		})
 
-		return response.data;
+		return response;
 	} catch (err) {
-		console.error("로그인 오류" + err)
+		console.error("회원가입 오류" + err)
 	}
 }
