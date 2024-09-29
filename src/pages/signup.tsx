@@ -144,7 +144,7 @@ export default function SignUpPage() {
         </div>
         <div className="flex justify-center items-center text-[14px] font-medium mb-[130px]">
           <span>이미 회원신가요?</span>
-          <Link href="" className="text-blue underline ml-[5px]">
+          <Link href="/login" className="text-blue underline ml-[5px]">
             로그인
           </Link>
         </div>

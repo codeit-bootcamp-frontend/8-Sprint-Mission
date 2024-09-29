@@ -4,9 +4,10 @@ import Link from "next/link";
 import InputText from "@/components/ui/InputText";
 import GoogleImage from "../../public/images/i-google.png";
 import KakaoImage from "../../public/images/i-kakao.png";
-import { useEffect, useState } from "react";
-import { LinkButton } from "@/styles/ButtonStyle";
-import styled from "styled-components";
+import { FormEvent, useEffect, useState } from "react";
+import { useMutation } from '@tanstack/react-query';
+import { postLogin } from '@/api/authApi';
+import { useRouter } from 'next/router';
 
 const INPUT_CONTENT_EMAIL = {
   id: "email",
@@ -23,20 +24,41 @@ const INPUT_CONTENT_PASSWORD = {
   isViewButton: true,
 };
 
+export type LoginType = {
+	email: string,
+	password: string,
+}
+
 export default function LoginPage() {
   const [loginEmail, setLoginEmail] = useState<string>("");
   const [loginPassword, setLoginPassword] = useState<string>("");
   const [loginPasswordType, setLoginPasswordType] =
     useState<string>("password");
-  const [linkActive, setLinkActive] = useState<boolean>(false);
+  const [linkActive, setLinkActive] = useState<boolean>(true);
+	const router = useRouter();
 
   useEffect(() => {
     if (loginEmail && loginPassword) {
-      setLinkActive(true);
-    } else {
       setLinkActive(false);
+    } else {
+      setLinkActive(true);
     }
   }, [loginEmail, loginPassword]);
+
+	const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		try{
+			const userInfo = await postLogin({email: loginEmail, password: loginPassword});
+			if(userInfo) {
+				localStorage.setItem("userInfo", JSON.stringify(userInfo));
+				console.log("로그인 성공", userInfo);
+				router.push('/');
+			}
+		} catch (error) {
+			console.error('로그인 오류', error)
+		}
+	}
 
   return (
     <div>
@@ -46,21 +68,23 @@ export default function LoginPage() {
         </Link>
       </div>
       <div className="max-w-[640px] mx-auto">
-        <InputText
-          content={INPUT_CONTENT_EMAIL}
-          value={loginEmail}
-          setInputText={setLoginEmail}
-        />
-        <InputText
-          content={INPUT_CONTENT_PASSWORD}
-          value={loginPassword}
-          type={loginPasswordType}
-          setType={setLoginPasswordType}
-          setInputText={setLoginPassword}
-        />
-        <StyledLinkButton href="" radius={true} isDisabled={linkActive}>
-          로그인
-        </StyledLinkButton>
+				<form onSubmit={handleLogin}>
+					<InputText
+						content={INPUT_CONTENT_EMAIL}
+						value={loginEmail}
+						setInputText={setLoginEmail}
+					/>
+					<InputText
+						content={INPUT_CONTENT_PASSWORD}
+						value={loginPassword}
+						type={loginPasswordType}
+						setType={setLoginPasswordType}
+						setInputText={setLoginPassword}
+					/>
+					<button type="submit" className={`flex justify-center items-center font-bold text-white rounded-[40px] w-full h-[56px] text-[20px] mb-[20px] ${linkActive ? 'bg-gray-400' : 'bg-blue'}`} disabled={linkActive}>
+							로그인
+					</button>
+				</form>
         <div className="flex max-w-full h-[74px] px-[23px] mb-[24px] justify-between items-center rounded-[8px] bg-[#e6f2ff]">
           <p className="text-[16px] font-medium">간편 로그인하기</p>
           <div className="flex items-center gap-[15px]">
@@ -84,7 +108,7 @@ export default function LoginPage() {
         </div>
         <div className="flex justify-center items-center text-[14px] font-medium mb-[130px]">
           <span>판다마켓이 처음이신가요?</span>
-          <Link href="" className="text-blue underline ml-[5px]">
+          <Link href="/signup" className="text-blue underline ml-[5px]">
             회원가입
           </Link>
         </div>
@@ -92,13 +116,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
-const StyledLinkButton = styled(LinkButton)`
-  width: 100%;
-  height: 56px;
-  margin-bottom: 40px;
-  font-size: 20px;
-  pointer-events: ${({ isDisabled }) => (isDisabled ? "auto" : "none")};
-  background-color: ${({ isDisabled }) =>
-    isDisabled ? "var(--blue-color)" : "var(--gray400-color)"};
-`;
