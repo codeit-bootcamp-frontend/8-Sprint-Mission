@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { useState } from "react";
 import { AllBoardProps } from "../../components/boards/AllBoard";
 
-type SearchOrderProp = Pick<AllBoardProps, "setArticleQuery">;
+type SearchOrderProp = Pick<AllBoardProps, "setSortOrder">;
 
-export default function BoardOrder({ setArticleQuery }: SearchOrderProp) {
+export default function BoardOrder({ setSortOrder }: SearchOrderProp) {
   const ORDER_NEW = "최신순";
   const ORDER_LIKE = "좋아요순";
   const [dropText, setDropText] = useState<string>(ORDER_NEW);
@@ -13,10 +13,7 @@ export default function BoardOrder({ setArticleQuery }: SearchOrderProp) {
   const handleClick = (order: string) => {
     setDropText(order);
     setDropDisplay(false);
-    setArticleQuery((prev) => ({
-      ...prev,
-      orderBy: order === ORDER_NEW ? "recent" : "like",
-    }));
+    setSortOrder(order === ORDER_NEW ? "recent" : "like");
   };
 
   return (

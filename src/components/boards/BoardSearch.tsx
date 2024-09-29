@@ -3,10 +3,16 @@ import SearchImage from "../../../public/images/i-search.png";
 import { AllBoardProps } from "../../components/boards/AllBoard";
 import { useState } from "react";
 
-type SearchOrderProp = Pick<AllBoardProps, "setArticleQuery">;
+type SearchOrderProp = Pick<AllBoardProps, "setSearchKeyword">;
 
-export default function BoardSearch({ setArticleQuery }: SearchOrderProp) {
+export default function BoardSearch({ setSearchKeyword }: SearchOrderProp) {
   const [searchInput, setSearchInput] = useState<string>("");
+
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      setSearchKeyword(searchInput);
+    }
+  };
 
   return (
     <SearchWrap>
@@ -16,11 +22,7 @@ export default function BoardSearch({ setArticleQuery }: SearchOrderProp) {
         onChange={(e) => {
           setSearchInput(e.target.value);
         }}
-        onKeyDown={(e) => {
-          e.key === "Enter"
-            ? setArticleQuery((prev) => ({ ...prev, keyword: searchInput }))
-            : "";
-        }}
+        onKeyDown={handleKeyDown}
         placeholder="검색할 상품을 입력해주세요"
       />
     </SearchWrap>

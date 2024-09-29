@@ -8,10 +8,11 @@ import Link from "next/link";
 
 export type AllBoardProps = {
   articles: ArticlesList[];
-  setArticleQuery: React.Dispatch<React.SetStateAction<ArticlesQuery>>;
+  setSortOrder: React.Dispatch<React.SetStateAction<string>>;
+	setSearchKeyword: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function AllBoard({ articles, setArticleQuery }: AllBoardProps) {
+export default function AllBoard({ articles, setSortOrder, setSearchKeyword }: AllBoardProps) {
   return (
     <AllBoardWrap>
       <AllBoardTitle>
@@ -19,8 +20,8 @@ export default function AllBoard({ articles, setArticleQuery }: AllBoardProps) {
         <LinkButton href="/addboard">글쓰기</LinkButton>
       </AllBoardTitle>
       <AllBoardSearch>
-        <BoardSearch setArticleQuery={setArticleQuery} />
-        <BoardOrder setArticleQuery={setArticleQuery} />
+        <BoardSearch setSearchKeyword={setSearchKeyword} />
+        <BoardOrder setSortOrder={setSortOrder} />
       </AllBoardSearch>
       <AllBoardList>
         {articles.map((article) => {
