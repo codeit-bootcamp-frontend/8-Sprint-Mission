@@ -6,7 +6,7 @@ import InputFileImage from "@/components/ui/InputFileImage";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { postArticles, postLogin } from "@/api/api";
+import { postArticles } from "@/api/api";
 
 type StyledButtonProps = {
   active?: boolean;
@@ -39,18 +39,18 @@ export default function AddBoardPage() {
     router.push("/boards");
   };
 
-  useEffect(() => {
-    const handleLoad = async () => {
-      try {
-        const data = await postLogin();
-        return data;
-      } catch (err) {
-        console.error("에러임" + err);
-      }
-    };
+  // useEffect(() => {
+  //   const handleLoad = async () => {
+  //     try {
+  //       const data = await postLogin();
+  //       return data;
+  //     } catch (err) {
+  //       console.error("에러임" + err);
+  //     }
+  //   };
 
-    handleLoad();
-  }, []);
+  //   handleLoad();
+  // }, []);
 
   return (
     <div className="mx-auto mt-[24px] mb-[130px] max-w-[1200px] px-[20px] w-full">
