@@ -59,6 +59,13 @@ export default function SignUpPage() {
     }
   }, [signUpEmail, signUpNickname, signUpPassword, signUpPasswordCheck]);
 
+	useEffect(() => {
+		const userInfo = localStorage.getItem('userInfo');
+		if(userInfo) {
+			router.push('/');
+		}
+	}, [router])
+
 	const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 

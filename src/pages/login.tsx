@@ -45,6 +45,13 @@ export default function LoginPage() {
     }
   }, [loginEmail, loginPassword]);
 
+	useEffect(() => {
+		const userInfo = localStorage.getItem('userInfo');
+		if(userInfo) {
+			router.push('/');
+		}
+	}, [router])
+
 	const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
