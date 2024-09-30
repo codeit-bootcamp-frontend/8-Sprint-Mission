@@ -1,7 +1,5 @@
 import { MouseEvent, useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { getAllProduct } from "../../utils/http";
-import { useAsyncStatus } from "../../hooks/useAsyncStatus";
 import Pagination from "../Pagination/Pagination";
 import ItemList from "./ItemList";
 import SortOptions from "../SortOptions/SortOptions";
@@ -11,8 +9,10 @@ import Section from "../../ui/Section/Section";
 import Loading from "../../ui/Loading/Loading";
 import styles from "./AllProduct.module.css";
 import { ResponseProducts } from "./@types/Products";
+import { useProducts } from "../../hooks/useProduts";
 
 interface Options {
+  currentPage: number;
   size: number;
   keyword: string;
   order: string;
@@ -36,21 +36,21 @@ const getResponseProducts: () => ResponseProducts = () => {
 };
 
 export default function AllProduct() {
-  const {
-    loading,
-    error,
-    fetchData: itemList,
-    totalItem: maxPage,
-    fetchProducts,
-  } = useAsyncStatus(getAllProduct, []);
-
   const [searchParams, setSearchParams] = useSearchParams();
   const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
   const [options, setOptions] = useState<Options>({
+    currentPage: Number(searchParams.get("page")) || 1,
     size: getResponseProducts(),
     keyword: "",
     order: "recent",
   });
+
+  const {
+    allProductsData: itemList = [],
+    allProductsLoading: isLoading,
+    allProductsError: error,
+    maxProducts: maxPage,
+  } = useProducts(options);
 
   sessionStorage.setItem("page", searchParams.get("page"));
 
@@ -76,12 +76,12 @@ export default function AllProduct() {
   };
 
   useEffect(() => {
-    const storedPage: string = sessionStorage.getItem("page");
-    if (storedPage) {
-      searchParams.set("page", storedPage === "null" ? "1" : storedPage);
-      setSearchParams(searchParams);
-    }
-  }, []);
+    const newPage = Number(searchParams.get("page")) || 1; // 새로운 페이지 가져오기
+    setOptions((prevOptions) => ({
+      ...prevOptions,
+      currentPage: newPage, // currentPage 업데이트
+    }));
+  }, [searchParams]); // searchParams가 변경될 때마다 실행
 
   useEffect(() => {
     const handleResize = () => {
@@ -104,16 +104,6 @@ export default function AllProduct() {
     };
   }, []);
 
-  useEffect(() => {
-    const query = {
-      currentPage: Number(searchParams.get("page")) || undefined,
-      order: options.order,
-      size: options.size,
-      keyword: options.keyword,
-    };
-    fetchProducts({ query });
-  }, [searchParams, options]);
-
   const pageHandler = (page: string) => {
     searchParams.set("page", page);
     setSearchParams(searchParams);
@@ -121,8 +111,10 @@ export default function AllProduct() {
 
   const sortText = options.order === "recent" ? "최신순" : "좋아요순";
 
+  if (itemList.length === 0) return <div>상품이 없습니다.</div>;
+
   if (error) {
-    return <p>{error}</p>;
+    return <p>{error.message}</p>;
   }
 
   return (
@@ -145,7 +137,7 @@ export default function AllProduct() {
         />
       </div>
       <div className={styles.productList}>
-        {loading ? (
+        {isLoading && itemList.length === 0 ? (
           <Loading className={styles.loading} />
         ) : (
           <div className={styles.listContainer}>
@@ -156,7 +148,11 @@ export default function AllProduct() {
           </div>
         )}
       </div>
-      <Pagination maxPage={maxPage} pageHandler={pageHandler} />
+      <Pagination
+        maxPage={maxPage}
+        currentPage={options.currentPage}
+        pageHandler={pageHandler}
+      />
     </Section>
   );
 }
