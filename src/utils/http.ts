@@ -1,11 +1,31 @@
+import { QueryClient } from "@tanstack/react-query";
+
+export const queryClient = new QueryClient();
+
+interface Tag {
+  id: string;
+  name?: string;
+}
+
 interface Query {
-  query: {
-    productId?: number;
-    currentPage?: number;
-    order?: string;
-    size?: number;
-    keyword?: string;
-  };
+  productId?: number;
+  currentPage?: number;
+  order?: string;
+  size?: number;
+  keyword?: string;
+}
+
+interface ProductType {
+  imgFile: File | null;
+  tags: Tag[];
+  price: string;
+  description: string;
+  name: string;
+}
+
+interface PostCommentType {
+  id: string;
+  data: string;
 }
 
 interface LoginType {
@@ -20,7 +40,7 @@ interface RegisterType {
   passwordCheck: string;
 }
 
-export async function getAllProduct({ query }: Query) {
+export async function getAllProduct(query: Query) {
   const { currentPage, order, size, keyword } = query;
   const response = await fetch(
     `${process.env.REACT_APP_API_BASE_URL}/products?page=${currentPage}&orderBy=${order}&pageSize=${size}&keyword=${keyword}`
@@ -32,7 +52,7 @@ export async function getAllProduct({ query }: Query) {
   return data;
 }
 
-export async function getFavoriteProduct({ query }: Query) {
+export async function getFavoriteProduct(query: Query) {
   const { size } = query;
   const response = await fetch(
     `${process.env.REACT_APP_API_BASE_URL}/products?&orderBy=favorite&pageSize=${size}`
@@ -54,6 +74,56 @@ export async function getProductDetail(id: number) {
   } else {
     const productData = await response.json();
     return productData;
+  }
+}
+
+export async function patchProductDetail(id: number, data: ProductType) {
+  const accessToken = localStorage.getItem("token");
+  const filteredTagsName = data.tags.map((tag) => tag.name);
+
+  const productData = {
+    images:
+      data.imgFile ||
+      "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/3/1721991853452/5389615.png",
+    tags: filteredTagsName,
+    price: data.price,
+    description: data.description,
+    name: data.name,
+  };
+  const response = await fetch(
+    `${process.env.REACT_APP_API_BASE_URL}/products/${id}`,
+    {
+      method: "PATCH",
+      body: JSON.stringify(productData),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+  if (!response.ok) {
+    throw new Error("상품 불러오기 실패");
+  } else {
+    const productData = await response.json();
+    return productData;
+  }
+}
+
+export async function removeProduct(id: number) {
+  const accessToken = localStorage.getItem("token");
+
+  const response = await fetch(
+    `${process.env.REACT_APP_API_BASE_URL}/products/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+  if (!response.ok) {
+    throw new Error("상품 불러오기 실패");
   }
 }
 
@@ -92,6 +162,25 @@ export async function signUp(data: RegisterType) {
   return result;
 }
 
+export async function updateToken(refreshToken: string) {
+  const response = await fetch(
+    `${process.env.REACT_APP_API_BASE_URL}/auth/refresh-token`,
+    {
+      method: "POST",
+      body: JSON.stringify({ refreshToken: refreshToken }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  console.log(response);
+  const result = await response.json();
+  if (!response.ok) {
+    throw new Error(result.message || "예기치 않은 오류가 발생했습니다.");
+  }
+  return result;
+}
+
 export async function signIn(data: LoginType) {
   const userData = {
     email: data.email,
@@ -112,4 +201,77 @@ export async function signIn(data: LoginType) {
     throw new Error(result.message || "예기치 않은 오류가 발생했습니다.");
   }
   return result;
+}
+
+export async function imageUpload(image: File) {
+  const accessToken = localStorage.getItem("token");
+  const imageData = new FormData();
+  imageData.append("image", image);
+  const response = await fetch(
+    `${process.env.REACT_APP_API_BASE_URL}/images/upload`,
+    {
+      method: "POST",
+      body: imageData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+  if (response.status === 401) {
+  }
+  console.log(response);
+}
+
+export async function postProduct(data: ProductType, method: string) {
+  const accessToken = localStorage.getItem("token");
+  const filteredTagsName = data.tags.map((tag) => tag.name);
+
+  const productData = {
+    images:
+      data.imgFile ||
+      "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/3/1721991853452/5389615.png",
+    tags: filteredTagsName,
+    price: data.price,
+    description: data.description,
+    name: data.name,
+  };
+  const response = await fetch(
+    `${process.env.REACT_APP_API_BASE_URL}/products`,
+    {
+      method: method,
+      body: JSON.stringify(productData),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+  const result = await response.json();
+  if (!response.ok) {
+    throw new Error(result.message || "예기치 않은 오류가 발생했습니다.");
+  }
+  return result;
+}
+
+export async function postProductComment({ id, data }: PostCommentType) {
+  const accessToken = localStorage.getItem("token");
+  const response = await fetch(
+    `${process.env.REACT_APP_API_BASE_URL}/products/${id}/comments`,
+    {
+      method: "POST",
+      body: JSON.stringify({ content: data }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("상품 불러오기 실패");
+  } else {
+    const productData = await response.json();
+    return productData;
+  }
 }
