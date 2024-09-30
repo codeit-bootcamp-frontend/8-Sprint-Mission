@@ -1,28 +1,24 @@
-import { getProductDetail } from "../../api/api";
-import React, { useEffect, useState } from "react";
+import { getProductDetail } from "../../lib/api";
 import { useParams } from "react-router-dom";
 import ItemProfile from "./components/ItemProfile";
 import ItemComment from "./components/ItemComment";
-import { Product } from "../../type/ProductType";
 import BackImg from "../../assets/ic_back.svg";
 import "./ItemDetail.css";
+import { useQuery } from "@tanstack/react-query";
 
 function ItemDetail() {
-  const [product, setProduct] = useState<Product | null>(null);
-
   const { productId } = useParams<Record<string, string | undefined>>();
 
-  useEffect(() => {
-    async function fetchProduct() {
-      try {
-        const data = await getProductDetail(Number(productId));
-        setProduct(data);
-      } catch (error) {
-        console.error("상품 데이터를 가져오는 중 오류 발생:", error);
-      }
-    }
-    fetchProduct();
-  }, [productId]);
+  const { data, isError } = useQuery({
+    queryKey: ["product", productId],
+    queryFn: () => getProductDetail(Number(productId)),
+  });
+  console.log(data);
+  const product = data;
+
+  if (isError) {
+    return <div>오류가 발생했습니다.</div>;
+  }
 
   return (
     <>

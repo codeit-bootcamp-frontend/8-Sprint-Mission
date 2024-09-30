@@ -1,5 +1,5 @@
-import { getProducts } from "../../../api/api";
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import { getProducts } from "../../../lib/api";
+import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import searchIcon from "../../../assets/ic_search.svg";
 import Dropdown from "../../../components/UI/Dropdown";
@@ -8,9 +8,10 @@ import "../../../style/global.css";
 import { Link } from "react-router-dom";
 import PaginationBar from "../../../components/UI/PaginationBar";
 import { Product } from "../../../type/ProductType";
+import { useQuery } from "@tanstack/react-query";
 
 export interface HandleLoadProductsParams {
-  order: string;
+  orderBy: string;
   page: number;
   pageSize: number;
 }
@@ -31,45 +32,31 @@ const getPageSize = () => {
 };
 
 function AllItems() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [order, setOrder] = useState<string>("createdAt");
+  const [orderBy, setOrderBy] = useState<string>("recent");
   const [page, setPage] = useState<number>(1);
-  const [totalPageNum, setTotalPageNum] = useState<number | undefined>(
-    undefined
-  );
   const [pageSize, setPageSize] = useState<number>(getPageSize());
 
   const options = [
-    { label: "최신순", value: "createdAt" },
-    { label: "좋아요순", value: "favoriteCount" },
+    { label: "최신순", value: "recent" },
+    { label: "좋아요순", value: "favorite" },
   ];
 
-  const handleLoadProducts = useCallback(
-    async ({ order, page, pageSize }: HandleLoadProductsParams) => {
-      try {
-        const products = await getProducts({ order, page, pageSize });
-        setProducts(products.list);
-        setTotalPageNum(Math.ceil(products.totalCount / pageSize));
-      } catch (error) {
-        console.error("상품 목록을 가져오는 중 오류 발생:", error);
-      }
-    },
-    []
-  );
+  const { data } = useQuery<{
+    list: Product[];
+    totalCount: number;
+  }>({
+    queryKey: ["allProducts", { page, pageSize, orderBy }],
+    queryFn: () => getProducts({ page, pageSize, orderBy }),
+  });
+  console.log(data);
+  const products = data?.list || [];
+  const totalCount = data?.totalCount ?? 0;
 
-  const sortedItems = useMemo(() => {
-    return [...products].sort((a, b) => {
-      if (order === "createdAt") {
-        return (
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        );
-      }
-      return b.favoriteCount - a.favoriteCount;
-    });
-  }, [products, order]);
-
-  const handleChangeOrder = (value: string) => {
-    setOrder(value);
+  const handleChangeOrder = (selectedOption: {
+    label: string;
+    value: string;
+  }) => {
+    setOrderBy(selectedOption.value);
   };
 
   const style = {
@@ -86,12 +73,11 @@ function AllItems() {
       setPageSize(getPageSize());
     };
     window.addEventListener("resize", handleResize);
-    handleLoadProducts({ order, page, pageSize });
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [order, page, pageSize, handleLoadProducts]);
+  }, []);
 
   return (
     <>
@@ -113,7 +99,7 @@ function AllItems() {
         <div className="dropdown">
           <Dropdown
             options={options}
-            selectedValue={order}
+            selectedValue={orderBy}
             onSelect={handleChangeOrder}
           />
         </div>
@@ -122,13 +108,13 @@ function AllItems() {
         className="
     allItemsMenu"
       >
-        {sortedItems.map((product) => (
+        {products.map((product: Product) => (
           <ItemList product={product} key={product.id} />
         ))}
       </div>
       <div className="paginationBarWrapper">
         <PaginationBar
-          totalPageNum={totalPageNum ?? 1}
+          totalPageNum={totalCount ?? 1}
           activePageNum={page}
           onPageChange={onPageChange}
         />

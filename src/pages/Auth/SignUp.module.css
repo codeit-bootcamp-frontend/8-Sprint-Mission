@@ -1,0 +1,16 @@
+.signUpContainer {
+  margin: 60px auto;
+  width: 640px;
+}
+
+.isMember {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--gray800);
+}
+
+.link {
+  color: var(--blue);
+}

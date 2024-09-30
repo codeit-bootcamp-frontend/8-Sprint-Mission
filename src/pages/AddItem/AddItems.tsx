@@ -8,7 +8,7 @@ interface AddItemsState {
   imgFile: File | null;
   title: string;
   description: string;
-  price: any;
+  price: number;
   tags: string[];
 }
 
@@ -17,7 +17,7 @@ function AddItems() {
     imgFile: null,
     title: "",
     description: "",
-    price: "",
+    price: 0,
     tags: [],
   });
 
@@ -48,7 +48,10 @@ function AddItems() {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    handleFormValuesChange(name as keyof AddItemsState, value);
+    handleFormValuesChange(
+      name as keyof AddItemsState,
+      name === "price" ? parseFloat(value) : value
+    );
   };
 
   const isSubmitDisabled =
@@ -83,7 +86,7 @@ function AddItems() {
           상품명
         </label>
         <input
-          className="input-title"
+          className="input input-title"
           name="title"
           value={values.title}
           onChange={handleInputChange}
@@ -103,7 +106,7 @@ function AddItems() {
           판매가격
         </label>
         <input
-          className="input-price"
+          className="input input-price"
           name="price"
           type="number"
           value={values.price}

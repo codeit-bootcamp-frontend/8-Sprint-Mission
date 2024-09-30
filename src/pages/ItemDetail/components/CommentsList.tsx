@@ -1,10 +1,9 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { getProductComments } from "../../../api/api";
+import { getProductComments } from "../../../lib/api";
 import ModifyComment from "../../../assets/ic_kebab.svg";
 import ProfileImg from "../../../assets/ic_profile.svg";
 import "./CommentsList.css";
 import CommentEmptyImg from "../../../assets/Img_inquiry_empty.svg";
+import { useQuery } from "@tanstack/react-query";
 
 interface CommentType {
   id: number;
@@ -64,28 +63,26 @@ interface ProductIdProps {
 }
 
 function CommentsList({ productId }: ProductIdProps) {
-  const [comments, setComments] = useState<CommentType[]>([]);
+  const params = { limit: 10 };
+  const { data, isError } = useQuery<{
+    list: CommentType[] | [];
+  }>({
+    queryKey: ["comments", { productId, params }],
+    queryFn: () => getProductComments({ productId, params }),
+  });
+  console.log(data);
+  const comments = data?.list || [];
 
-  useEffect(() => {
-    async function fetchComment() {
-      if (!productId) return;
-      const params = { limit: 10 };
-      try {
-        const data = await getProductComments({ productId, params });
-        setComments(data.list);
-      } catch (error) {
-        console.error("상품 코멘트를 가져오는 중 오류 발생:", error);
-      }
-    }
-    fetchComment();
-  }, [productId]);
+  if (isError) {
+    return <div>오류가 발생했습니다.</div>;
+  }
 
   if (!comments) {
     return <CommentEmpty />;
   }
   return (
     <div className="comment-list-container">
-      {comments.map((item) => (
+      {comments.map((item: CommentType) => (
         <Comment item={item} key={item.id} />
       ))}
     </div>

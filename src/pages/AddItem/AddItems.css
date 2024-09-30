@@ -113,7 +113,7 @@
   margin-bottom: 12px;
 }
 
-input,
+.input,
 textarea {
   height: 56px;
   border: none;
@@ -127,7 +127,7 @@ textarea {
   padding: 16px 24px;
 }
 
-input,
+.input,
 textarea::placeholder {
   color: #9ca3af;
 }
