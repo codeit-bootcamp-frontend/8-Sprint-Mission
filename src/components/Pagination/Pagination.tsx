@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 import styles from "./Pagination.module.css";
 import { PaginationProps, PageSliceOptions } from "./@types/Pagination";
 
-export default function Pagination({ maxPage, pageHandler }: PaginationProps) {
+export default function Pagination({
+  currentPage,
+  maxPage,
+  pageHandler,
+}: PaginationProps) {
   const [pageSlice, setPageSlice] = useState<PageSliceOptions>({
     start: 0,
     end: 5,
   });
   const [pageNum, setPageNum] = useState<number[]>([]);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get("page")) || 1;
 
   let slicePageNum = pageNum.slice(pageSlice.start, pageSlice.end);
 
@@ -31,7 +32,7 @@ export default function Pagination({ maxPage, pageHandler }: PaginationProps) {
         end: prev.start + 5,
       }));
     }
-  }, [currentPage]);
+  }, [currentPage, pageSlice.start, pageSlice.end]);
 
   useEffect(() => {
     displayPagination(maxPage);

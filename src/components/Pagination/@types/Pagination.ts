@@ -1,4 +1,5 @@
 interface PaginationProps {
+  currentPage: number;
   maxPage: number;
   pageHandler: (page: number | string) => void;
 }
