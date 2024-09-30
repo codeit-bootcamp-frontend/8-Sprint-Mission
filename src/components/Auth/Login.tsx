@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import AuthHeader from "./AuthHeader";
 import LoginMenu from "./LoginMenu";
 import Section from "../../ui/Section/Section";
-import Input from "../../ui/FormComponents/Input";
+import ValidateInput from "../../ui/FormComponents/ValidateInput";
 import LinkButton from "../../ui/Button/LinkButton";
 import styles from "./Auth.module.css";
 import { LoginInitialValue } from "./@types/Auth";
@@ -20,12 +20,6 @@ export default function Login() {
   const [isError, setIsError] = useState(false);
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (authCtx.isLoggedIn) {
-      navigate("/");
-    }
-  }, [authCtx.isLoggedIn]);
 
   const handleLogin = async (data: LoginInitialValue) => {
     const successs = await authCtx.login(data);
@@ -52,14 +46,16 @@ export default function Login() {
       <AuthHeader />
       <div className={styles.container}>
         <form onSubmit={onLoginSubmit}>
-          <Input
+          <ValidateInput
             id="email"
             type="email"
             name="email"
             label="이메일"
             placeholder="이메일을 입력해주세요"
             className={styles.inputBox}
-            {...register("email", {
+            register={register}
+            errorMsg={errors.email && errors.email.message}
+            rules={{
               required: {
                 value: true,
                 message: "이메일을 입력해주세요.",
@@ -68,17 +64,17 @@ export default function Login() {
                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/,
                 message: "잘못된 이메일 형식입니다.",
               },
-            })}
-            errorMsg={errors.email && errors.email.message}
+            }}
           />
-          <Input
+          <ValidateInput
             id="password"
             type="password"
             name="password"
             label="비밀번호"
             hideBtn={true}
             placeholder="비밀번호를 입력해주세요"
-            {...register("password", {
+            register={register}
+            rules={{
               required: {
                 value: true,
                 message: "비밀번호를 입력해주세요.",
@@ -87,7 +83,7 @@ export default function Login() {
                 value: 8,
                 message: "비밀번호를 8자 이상 입력해주세요.",
               },
-            })}
+            }}
             errorMsg={errors.password && errors.password.message}
             className={styles.inputBox}
           />

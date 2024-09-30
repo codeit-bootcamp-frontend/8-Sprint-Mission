@@ -1,9 +1,9 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginMenu from "./LoginMenu";
 import AuthHeader from "./AuthHeader";
 import Section from "../../ui/Section/Section";
-import Input from "../../ui/FormComponents/Input";
+import ValidateInput from "../../ui/FormComponents/ValidateInput";
 import LinkButton from "../../ui/Button/LinkButton";
 import styles from "./Auth.module.css";
 import { RegisterInitialValue } from "./@types/Auth";
@@ -24,12 +24,6 @@ export default function Register() {
   const navigate = useNavigate();
 
   const authCtx = useContext(AuthContext);
-
-  useEffect(() => {
-    if (authCtx.isLoggedIn) {
-      navigate("/");
-    }
-  }, [authCtx.isLoggedIn]);
 
   const validateConfirmPassword = (value: string) => {
     const { password } = getValues();
@@ -68,7 +62,7 @@ export default function Register() {
       />
       <div className={styles.container}>
         <form onSubmit={onRegisterSubmit}>
-          <Input
+          <ValidateInput
             id="email"
             type="email"
             name="email"
@@ -76,7 +70,8 @@ export default function Register() {
             placeholder="이메일을 입력해주세요"
             errorMsg={errors.email && errors.email.message}
             className={styles.inputBox}
-            {...register("email", {
+            register={register}
+            rules={{
               required: {
                 value: true,
                 message: "이메일을 입력해주세요.",
@@ -85,9 +80,9 @@ export default function Register() {
                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/,
                 message: "잘못된 이메일 형식입니다.",
               },
-            })}
+            }}
           />
-          <Input
+          <ValidateInput
             id="nickname"
             type="text"
             name="nickname"
@@ -95,14 +90,15 @@ export default function Register() {
             placeholder="닉네임을 입력해주세요"
             errorMsg={errors.nickname && errors.nickname.message}
             className={styles.inputBox}
-            {...register("nickname", {
+            register={register}
+            rules={{
               required: {
                 value: true,
                 message: "닉네임을 입력해주세요.",
               },
-            })}
+            }}
           />
-          <Input
+          <ValidateInput
             id="password"
             type="password"
             name="password"
@@ -111,7 +107,8 @@ export default function Register() {
             placeholder="비밀번호를 입력해주세요"
             errorMsg={errors.password && errors.password.message}
             className={styles.inputBox}
-            {...register("password", {
+            register={register}
+            rules={{
               required: {
                 value: true,
                 message: "비밀번호를 입력해주세요.",
@@ -120,9 +117,9 @@ export default function Register() {
                 value: 8,
                 message: "비밀번호를 8자 이상 입력해주세요.",
               },
-            })}
+            }}
           />
-          <Input
+          <ValidateInput
             id="passwordCheck"
             type="password"
             name="passwordCheck"
@@ -131,13 +128,14 @@ export default function Register() {
             placeholder="비밀번호를 다시 한 번 입력해주세요"
             errorMsg={errors.passwordCheck && errors.passwordCheck.message}
             className={styles.inputBox}
-            {...register("passwordCheck", {
+            register={register}
+            rules={{
               required: {
                 value: true,
                 message: "비밀번호를 입력해주세요.",
               },
               validate: validateConfirmPassword,
-            })}
+            }}
           />
           <LinkButton
             type="submit"
