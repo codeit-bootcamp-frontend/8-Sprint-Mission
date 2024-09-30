@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  padding-top: 2.4rem;
   gap: 2.4rem;
   padding-bottom: 3.2rem;
   border-bottom: 1px solid var(--color-gray200);
@@ -9,6 +10,7 @@
   width: 486px;
   height: 486px;
   border-radius: 16px;
+  aspect-ratio: 1/1;
 }
 
 .productDetails {
@@ -24,22 +26,30 @@
   flex: 0 1 0;
   color: var(--color-gray800);
 }
+.nameContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
 .productName {
   font-size: 2.4rem;
   font-weight: 600;
   margin-bottom: 1.6rem;
 }
+
 .productPrice {
   font-size: 4rem;
   font-weight: 600;
   margin-bottom: 1.6rem;
 }
+
 .productInfo {
   margin-top: 1.6rem;
   margin-bottom: 2.3rem;
   flex: 0 1 0;
   color: var(--color-gray800);
 }
+
 .productTitle {
   font-size: 1.4rem;
   font-weight: 500;
@@ -95,8 +105,8 @@
     font-size: 3.2rem;
   }
   .productImg {
-    width: 340px;
-    height: 340px;
+    width: 100%;
+    height: 100%;
   }
 }
 
