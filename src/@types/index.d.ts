@@ -9,6 +9,7 @@ interface ProductProps {
   isFavorite?: boolean;
   updateAt?: Date;
   createAt?: Date;
+  ownerId: string;
 }
 
 interface CommentProps {
