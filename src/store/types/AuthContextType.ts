@@ -11,6 +11,7 @@ interface RegisterType {
 }
 
 interface AuthContextType {
+  userId: string;
   isLoggedIn: boolean;
   errorMessage: string;
   register: (data: RegisterType) => Promise<boolean>;
