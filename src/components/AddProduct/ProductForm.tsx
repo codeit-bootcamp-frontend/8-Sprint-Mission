@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Form } from "react-router-dom";
 import FileInput from "../../ui/FormComponents/FileInput";
 import TagInput from "../../ui/FormComponents/TagInput";
 import Input from "../../ui/FormComponents/Input";
@@ -8,25 +7,34 @@ import Button from "../../ui/Button/LinkButton";
 import styles from "./ProductForm.module.css";
 import { FormInitialValues, ChangeValueType } from "./@types/ProductForm";
 
+interface ProductFormType {
+  inputData?: FormInitialValues;
+  onSubmit: (formData: FormInitialValues) => void;
+}
 const INITIAL_VALUES: FormInitialValues = {
   imgFile: null,
-  title: "",
+  name: "",
   description: "",
   price: "",
-  tag: [],
+  tags: [],
 };
 
-export default function ProductForm() {
-  const [formValues, setFormValues] =
-    useState<FormInitialValues>(INITIAL_VALUES);
+export default function ProductForm({ inputData, onSubmit }: ProductFormType) {
+  const [formValues, setFormValues] = useState<FormInitialValues>(
+    inputData ?? INITIAL_VALUES
+  );
   const [isActive, setIsActive] = useState<boolean>(false);
-  const { title, description, price, tag } = formValues;
-
+  const { name, description, price, tags } = formValues;
   const submitActive: boolean =
-    title.trim() !== "" &&
+    name.trim() !== "" &&
     description.trim() !== "" &&
     price !== "" &&
-    tag.length > 0;
+    tags.length > 0;
+
+  const handleSubmitAddProduct = (event) => {
+    event.preventDefault();
+    onSubmit(formValues);
+  };
 
   const handleChangeValue: ChangeValueType = (name, value) => {
     setFormValues((prevValue) => ({
@@ -44,7 +52,7 @@ export default function ProductForm() {
   }, [formValues]);
 
   return (
-    <Form className={styles.formContainer}>
+    <form onSubmit={handleSubmitAddProduct} className={styles.formContainer}>
       <div className={styles.titleContainer}>
         <h2 className={styles.title}>상품 등록하기</h2>
         <Button isActive={!isActive} btnName="등록" />
@@ -61,11 +69,11 @@ export default function ProductForm() {
       </div>
       <Input
         className={styles.inputBox}
-        id="title"
+        id="name"
         label="상품명"
         type="text"
-        name="title"
-        value={formValues.title}
+        name="name"
+        value={formValues?.name ?? ""}
         placeholder="상품명을 입력해주세요"
         changeValue={handleChangeInput}
       />
@@ -75,7 +83,7 @@ export default function ProductForm() {
         name="description"
         className={styles.inputBox}
         variant="addProduct"
-        value={formValues.description}
+        value={formValues?.description ?? ""}
         placeholder="상품 소개를 입력해주세요"
         changeValue={handleChangeInput}
       />
@@ -85,19 +93,19 @@ export default function ProductForm() {
         label="판매가격"
         type="number"
         name="price"
-        value={formValues.price}
+        value={formValues?.price ?? ""}
         placeholder="판매 가격을 입력해주세요"
         changeValue={handleChangeInput}
       />
       <TagInput
-        id="tag"
+        id="tags"
         label="태그"
         type="text"
-        name="tag"
-        tags={formValues.tag}
+        name="tags"
+        tags={formValues?.tags ?? []}
         placeholder="태그를 입력해주세요"
         changeValue={handleChangeInput}
       />
-    </Form>
+    </form>
   );
 }

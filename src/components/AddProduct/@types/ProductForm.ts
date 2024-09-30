@@ -1,14 +1,14 @@
 interface Tag {
   id: string;
-  name: string;
+  name?: string;
 }
 
 interface FormInitialValues {
   imgFile: File | null;
-  title: string;
+  name: string;
   description: string;
   price: string;
-  tag: Tag[];
+  tags: Tag[];
 }
 
 type ChangeValueType = (
