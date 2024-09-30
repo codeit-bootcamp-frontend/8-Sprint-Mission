@@ -29,7 +29,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 interface Tag {
   id: string;
-  name: string;
+  name?: string;
 }
 
 interface TagInputProps extends InputHTMLAttributes<HTMLInputElement> {
