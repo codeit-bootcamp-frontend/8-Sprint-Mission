@@ -5,10 +5,14 @@ import "@/styles/globals.css";
 
 import Nav from "@/components/Nav";
 import Layout from "@/components/Layout";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 type NextPageWithLayout = AppProps["Component"] & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
+
+const queryClient = new QueryClient();
 
 function App({ Component, pageProps }: AppProps) {
   const getLayout =
@@ -23,7 +27,12 @@ function App({ Component, pageProps }: AppProps) {
       </>
     ));
 
-  return getLayout(<Component {...pageProps} />);
+  return getLayout(
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>,
+  );
 }
 
 export default App;

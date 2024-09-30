@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Article } from "@/types/article";
-import axios from "@/lib/axios";
+import instance from "@/lib/instance";
 import { API_PATH } from "@/lib/path";
 
 import styles from "@/styles/boards.module.css";
@@ -24,7 +24,6 @@ function Board() {
 
   useEffect(() => {
     const updatePageSize = () => {
-      // 서버 사이드에서의 window 접근 방지
       if (typeof window !== "undefined") {
         const { innerWidth } = window;
         if (innerWidth < 377) setPageSize(1);
@@ -40,7 +39,7 @@ function Board() {
   }, []);
 
   async function getBestArticles(pageSize: number) {
-    const response = await axios.get(API_PATH.articles("like", pageSize));
+    const response = await instance.get(API_PATH.articles("like", pageSize));
     setBestArticles(response.data.list ?? []);
   }
 
@@ -49,7 +48,7 @@ function Board() {
   }, [pageSize]);
 
   async function getArticles(option: string) {
-    const response = await axios.get(API_PATH.articles(option, 10));
+    const response = await instance.get(API_PATH.articles(option, 10));
     setArticles(response.data.list ?? []);
   }
 

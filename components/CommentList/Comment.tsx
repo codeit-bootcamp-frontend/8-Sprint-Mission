@@ -1,4 +1,4 @@
-import { IComment } from "@/types/comment";
+import { CommentTypes } from "@/types/comment";
 import getTimeElapsed from "@/lib/getTimeElapsed";
 
 import Image from "next/image";
@@ -6,7 +6,7 @@ import defaultProfileImage from "@/assets/images/img_profile.png";
 import kebabMenuIcon from "@/assets/images/ic_kebab.png";
 
 interface CommentProps {
-  comment: IComment;
+  comment: CommentTypes;
 }
 
 function Comment({ comment }: CommentProps) {

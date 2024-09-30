@@ -1,18 +1,18 @@
-export interface IWriter {
+export interface WriterTypes {
   image?: string;
   nickname?: string;
   id: number;
 }
 
-export interface IComment {
-  writer: IWriter;
+export interface CommentTypes {
+  writer: WriterTypes;
   updatedAt: string;
   createdAt: string;
   content: string;
   id: number;
 }
 
-export interface ICommentList {
+export interface CommentListTypes {
   nextCursor: number;
-  list: IComment[];
+  list: CommentTypes[];
 }

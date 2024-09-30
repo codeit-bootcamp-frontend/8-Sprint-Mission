@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext } from "next";
 import { Article } from "@/types/article";
-import axios from "@/lib/axios";
+import instance from "@/lib/instance";
 
 import styles from "@/styles/search.module.css";
 import Image from "next/image";
@@ -11,7 +11,7 @@ import ReturnButton from "@/components/Buttons/ReturnButton";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { keyword } = context.query;
-  const response = await axios.get(`/articles?keyword=${keyword}`);
+  const response = await instance.get(`/articles?keyword=${keyword}`);
   const articles = response.data.list ?? [];
 
   return {

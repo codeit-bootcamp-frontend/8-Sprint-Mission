@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import { Article } from "@/types/article";
-import { IComment } from "@/types/comment";
-import axios from "@/lib/axios";
+import { CommentTypes } from "@/types/comment";
+import instance from "@/lib/instance";
 import { API_PATH } from "@/lib/path";
 
 import DetailArticle from "@/components/DetailArticle";
@@ -19,11 +19,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       notFound: true,
     };
   }
-  const articleResponse = await axios.get(API_PATH.articleById(articleId));
+  const articleResponse = await instance.get(API_PATH.articleById(articleId));
   const article = articleResponse.data ?? [];
 
   const LIMIT = 10;
-  const commentResponse = await axios.get(
+  const commentResponse = await instance.get(
     API_PATH.articleCommentsWithLimit(articleId, LIMIT),
   );
   const commentList = commentResponse.data.list ?? [];
@@ -40,7 +40,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 interface DetailBoardProps {
   id: number;
   article: Article;
-  commentList: IComment[];
+  commentList: CommentTypes[];
 }
 
 function DetailBoard({

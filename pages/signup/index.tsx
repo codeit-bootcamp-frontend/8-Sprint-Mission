@@ -3,9 +3,10 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import axios from "@/lib/axios";
-import { FormValues } from "@/types/formValues";
+import instance from "@/lib/instance";
 import { API_PATH } from "@/lib/path";
+import { FormValues } from "@/types/formValues";
+import { match } from "ts-pattern";
 
 import Layout from "@/components/Layout";
 import BigLogo from "@/components/BigLogo";
@@ -58,6 +59,10 @@ function SignUp() {
   const passwordConfirmation = watch("passwordConfirmation");
 
   const isFormCompleted = email && nickname && password && passwordConfirmation;
+  // TODO: ts-pattern 적용?
+  // const isFormCompleted = match({ email, nickname, password, passwordConfirmation })
+  //   .with({email:String, nickname: String, password: String, passwordConfirmation: String }, () => true)
+  //   .otherwise(() => false));
   const isPasswordValid = password === passwordConfirmation;
   const isButtonDisabled = !isFormCompleted || !isPasswordValid || isSubmitting;
 
@@ -76,7 +81,7 @@ function SignUp() {
   currentPassword.current = watch("password");
 
   const router = useRouter();
-  const isSignedUp = !!localStorage.getItem("user_information");
+  const isSignedUp = !!localStorage.getItem("accessToken");
   if (isSignedUp) {
     // TODO: toast 메시지 - 회원가입 내역 존재
     router.push(`/login`);
@@ -84,7 +89,7 @@ function SignUp() {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      const response = await axios.post(API_PATH.signUp(), data, {
+      const response = await instance.post(API_PATH.signUp(), data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -92,12 +97,14 @@ function SignUp() {
       const userData = response.data ?? [];
 
       if (userData.accessToken && userData.refreshToken) {
-        const userToken = {
-          id: userData.user.id,
-          accessToken: userData.accessToken,
-          refreshToken: userData.refreshToken,
-        };
-        localStorage.setItem("user_information", JSON.stringify(userToken));
+        localStorage.setItem(
+          "accessToken",
+          JSON.stringify(userData.accessToken),
+        );
+        localStorage.setItem(
+          "refreshToken",
+          JSON.stringify(userData.refreshToken),
+        );
       }
       // TODO: toast 메시지 - 회원가입 완료
       router.push(`/login`);

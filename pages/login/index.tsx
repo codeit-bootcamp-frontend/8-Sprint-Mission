@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import axios from "@/lib/axios";
+import instance from "@/lib/instance";
 import { FormValues } from "@/types/formValues";
 import { API_PATH } from "@/lib/path";
 
@@ -54,11 +54,10 @@ function Login() {
 
   const router = useRouter();
 
-  // TODO: interceptor
   // TODO: refresh
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      const response = await axios.post(API_PATH.signIn(), data, {
+      const response = await instance.post(API_PATH.signIn(), data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -66,12 +65,14 @@ function Login() {
       const userData = response.data ?? [];
 
       if (userData.accessToken && userData.refreshToken) {
-        const userToken = {
-          id: userData.user.id,
-          accessToken: userData.accessToken,
-          refreshToken: userData.refreshToken,
-        };
-        localStorage.setItem("user_information", JSON.stringify(userToken));
+        localStorage.setItem(
+          "accessToken",
+          JSON.stringify(userData.accessToken),
+        );
+        localStorage.setItem(
+          "refreshToken",
+          JSON.stringify(userData.refreshToken),
+        );
       }
       // TODO: toast 메시지 - 로그인 완료
       router.push("/");
