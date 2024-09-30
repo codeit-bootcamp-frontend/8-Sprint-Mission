@@ -1,5 +1,6 @@
-import { MouseEvent, ChangeEvent, useState, useEffect } from "react";
+import { MouseEvent, ChangeEvent, useState, useEffect, useRef } from "react";
 import { FileInputProps } from "../@types/Input";
+import { imageUpload } from "../../utils/http";
 import styles from "./FileInput.module.css";
 
 export default function FileInput({
@@ -13,16 +14,27 @@ export default function FileInput({
 }: FileInputProps) {
   const [preview, setPreview] = useState<string | null>(null);
   const [file, setFile] = useState<File | null>(null);
+  const fileInputRef = useRef(null);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const imgValue = e.target.files?.[0] || null;
-    setFile(imgValue);
+    if (imgValue) {
+      console.log(imgValue);
+      try {
+        const response = await imageUpload(imgValue);
+        console.log(response);
+        setFile(imgValue);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     changeValue(name, imgValue);
   };
 
   const handleRemoveImage = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
-
+    fileInputRef.current.value = null;
     setFile((prev) => (prev = null));
     changeValue(name, null);
   };
@@ -44,9 +56,11 @@ export default function FileInput({
       </label>
       <input
         className={styles.fileInput}
+        ref={fileInputRef}
         id={id}
         {...props}
         onChange={handleChange}
+        accept="image/png, image/jpeg"
       />
       {preview && (
         <div className={styles.previewImg}>
