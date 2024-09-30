@@ -6,7 +6,9 @@ import InputFileImage from "@/components/ui/InputFileImage";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { postArticles, postLogin } from "@/api/api";
+import { postArticles } from "@/api/api";
+import { useMutation } from '@tanstack/react-query';
+import { ArticlesAdd } from '@/types/articleType';
 
 type StyledButtonProps = {
   active?: boolean;
@@ -31,26 +33,20 @@ export default function AddBoardPage() {
   const [image, setImage] = useState<string>("");
   const router = useRouter();
 
+  const mutation = useMutation<void, Error, ArticlesAdd>({
+    mutationFn: postArticles,
+    onSuccess: () => {
+      router.push("/boards");
+    },
+    onError: (error) => {
+      console.error("게시글 등록 오류:", error);
+    },
+  });
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    postArticles({ image, content, title });
-
-    router.push("/boards");
+    mutation.mutate({ image, content, title });
   };
-
-  useEffect(() => {
-    const handleLoad = async () => {
-      try {
-        const data = await postLogin();
-        return data;
-      } catch (err) {
-        console.error("에러임" + err);
-      }
-    };
-
-    handleLoad();
-  }, []);
 
   return (
     <div className="mx-auto mt-[24px] mb-[130px] max-w-[1200px] px-[20px] w-full">

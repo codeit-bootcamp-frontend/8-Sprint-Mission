@@ -6,11 +6,17 @@ export const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("userInfo");
 
-    if (token && !config.url?.includes("/auth/signIn")) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+		if(token) {
+			const userInfo = JSON.parse(token);
+			const userInfoAccessToken = userInfo.accessToken;
+
+			if (userInfoAccessToken && !config.url?.includes("/auth/signIn")) {
+				config.headers.Authorization = `Bearer ${userInfoAccessToken}`;
+			}
+
+		}
 
     return config;
   },

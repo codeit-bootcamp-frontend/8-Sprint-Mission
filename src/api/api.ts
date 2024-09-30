@@ -46,23 +46,8 @@ export const getArticlesComment = async ({
   }
 };
 
-export const postLogin = async () => {
-  try {
-    const response = await axiosInstance.post(`/auth/signIn`, {
-      email: "dang96@email.com",
-      password: "92089208",
-    });
-
-    const token = response.data.accessToken;
-    localStorage.setItem("token", token);
-    return token;
-  } catch (err) {
-    console.error("로그인 토큰 가져오기 오류");
-  }
-};
-
 export const postArticlesImage = async (file: File) => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("userInfo");
 
   if (!token) {
     console.error("Error Messages: 토큰이 없습니다.");
@@ -84,7 +69,8 @@ export const postArticlesImage = async (file: File) => {
 };
 
 export const postArticles = async ({ image, content, title }: ArticlesAdd) => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("userInfo");
+
 
   if (!token) {
     console.error("Error Messages: 토큰이 없습니다.");
