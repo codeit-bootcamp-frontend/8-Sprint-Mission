@@ -5,7 +5,6 @@ interface useItemCommentsProps {
   productId: number;
   limit: number;
   cursor?: number;
-  deps: any[];
 }
 
 /**
@@ -18,7 +17,6 @@ export function useItemComments({
   productId = -1,
   limit = 1,
   cursor,
-  deps = [],
 }: useItemCommentsProps) {
   const [comments, setComments] = useState([]);
   const [nextCursor, setNextCursor] = useState(null);
@@ -37,7 +35,7 @@ export function useItemComments({
 
   useEffect(() => {
     fetchData();
-  }, deps);
+  }, [productId, limit, cursor]);
 
   return { comments, nextCursor };
 }
