@@ -48,12 +48,10 @@ export async function getProductById(productId = -1) {
 export async function getCommentsByProductId(
   productId = -1,
   limit = 1,
-  nextCursor: string
+  nextCursor?: number
 ) {
-  let query = `?limit=${limit}`;
-  if (nextCursor) query += `&cursor=${nextCursor}`;
   const response = await axiosInstance.get(
-    `/products/${productId}/comments${query}`
+    `/products/${productId}/comments?limit=${limit}${nextCursor ? `&cursor=${nextCursor}` : ''}`
   );
   return response.data;
 }
