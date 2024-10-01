@@ -46,7 +46,7 @@ export async function getProductById(productId = -1) {
 }
 
 export async function getCommentsByProductId(
-  productId = -1,
+  productId: number,
   limit = 1,
   nextCursor?: number
 ) {
