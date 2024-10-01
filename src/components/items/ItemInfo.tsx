@@ -29,7 +29,7 @@ function ItemInfo({
             imgDefault={
               'https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg'
             }
-            isRoundEdged={true}
+            round="edge"
           />
         </div>
         <div className="flex flex-col justify-between items-start ml-6 w-[690px] h-[486px]">

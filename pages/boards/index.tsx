@@ -35,12 +35,10 @@ type BoardPageProps = {
 
 const BoardPage = ({ initArticles }: BoardPageProps) => {
   return (
-    <>
-      <BasicLayout>
-        <BestArticlesSection />
-        <AllArticlesBoard initArticles={initArticles} />
-      </BasicLayout>
-    </>
+    <BasicLayout>
+      <BestArticlesSection />
+      <AllArticlesBoard initArticles={initArticles} />
+    </BasicLayout>
   );
 };
 

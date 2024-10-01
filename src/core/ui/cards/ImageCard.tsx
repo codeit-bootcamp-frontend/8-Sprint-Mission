@@ -3,23 +3,17 @@ import errImg from '@assets/images/image/img_default.png';
 interface ImageCardProps {
   imageSrc: string;
   imgDefault?: string;
-  isRoundEdged?: boolean;
-  isRound?: boolean;
+  round: 'edge' | 'round' | 'flat';
 }
 
-function ImageCard({
-  imageSrc,
-  imgDefault,
-  isRoundEdged = false,
-  isRound = false,
-}: ImageCardProps) {
+function ImageCard({ imageSrc, imgDefault, round = 'flat' }: ImageCardProps) {
   return (
     <div className="w-full h-full">
       <img
         src={imageSrc || imgDefault}
         className={`w-full h-full object-cover
-          ${isRoundEdged ? 'rounded-2xl' : ''}
-          ${isRound ? 'rounded-full' : ''}
+          ${round === 'edge' ? 'rounded-2xl' : ''}
+          ${round === 'round' ? 'rounded-full' : ''}
         `}
         alt="상품 사진"
         onError={(e) => {

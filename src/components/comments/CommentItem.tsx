@@ -25,7 +25,7 @@ export default function CommentItem({
             imgDefault={
               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrYO97QZyLAUdjVTXl8n2tzoce2lBmZMBf1g&s'
             }
-            isRound={true}
+            round="round"
           />
         </div>
         <div className="ml-2">

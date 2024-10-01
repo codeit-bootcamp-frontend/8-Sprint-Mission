@@ -19,7 +19,6 @@ const ItemDetailPage = () => {
     productId: productId || 0,
     limit: 3,
     cursor: 0,
-    deps: [],
   });
 
   if (productId === null) {
@@ -40,7 +39,6 @@ const ItemDetailPage = () => {
           itemFavoriteCount={favoriteCount}
         />
         <HorizontalLine />
-
         <form className="mt-6">
           <SimpleInput
             isLabelVisible={true}
@@ -59,16 +57,13 @@ const ItemDetailPage = () => {
             />
           </div>
         </form>
-
         <CommentList
           comments={comments}
-          // emptyIcon={<IconEmptyComment />}
           emptyMessage={'아직 문의가 없습니다.'}
         />
         <div className="flex justify-center mt-10">
           <Button
             text="목록으로 돌아가기"
-            // iconBack={<IconBack />}
             onClick={() => {
               navigate.push('/items');
             }}
