@@ -5,11 +5,9 @@ type AddBoardPageProps = {};
 
 const AddBoardPage = ({}: AddBoardPageProps) => {
   return (
-    <>
-      <BasicLayout>
-        <AddBoardForm />
-      </BasicLayout>
-    </>
+    <BasicLayout>
+      <AddBoardForm />
+    </BasicLayout>
   );
 };
 

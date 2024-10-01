@@ -22,7 +22,7 @@ const INITIAL_VALUES: initValue = {
 
 function AddItems() {
   const [values, setValues] = useState(INITIAL_VALUES);
-  const [initialPreview, setInitialPreview] = useState<string>('');
+  const [initialPreview] = useState<string>('');
   const [isAllValid, setIsAllValid] = useState(false);
 
   const addProductMutation = useAddProduct();
@@ -61,10 +61,6 @@ function AddItems() {
   };
 
   const removeTag = (targetTag: string) => {
-    // setValues(
-    //   'tags',
-    //   values.tags.filter((tag) => tag !== targetTag)
-    // );
     handleChange(
       'tags',
       values.tags.filter((tag) => tag !== targetTag)
@@ -82,9 +78,7 @@ function AddItems() {
           tags: values.tags,
           images: [values.imgFile], // 이미지 처리 로직에 따라 수정 필요
         });
-        // 성공 처리 (예: 알림 표시, 페이지 이동 등)
       } catch (error) {
-        // 에러 처리
         console.error('상품 등록 실패:', error);
       }
     }

@@ -13,11 +13,9 @@ const SignUpPage = () => {
   }, [accessToken]);
 
   return (
-    <>
-      <BasicLayout>
-        <SignUpSection />
-      </BasicLayout>
-    </>
+    <BasicLayout>
+      <SignUpSection />
+    </BasicLayout>
   );
 };
 
