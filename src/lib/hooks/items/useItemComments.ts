@@ -37,5 +37,5 @@ export function useItemComments({
     fetchData();
   }, [productId, limit, cursor]);
 
-  return { comments, nextCursor };
+  return { comments };
 }
