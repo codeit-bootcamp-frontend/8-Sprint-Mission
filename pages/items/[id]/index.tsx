@@ -13,12 +13,12 @@ const ItemDetailPage = () => {
   const productId = params?.id ? Number(params.id) : null;
   const navigate = useRouter();
 
-  const itemState = useItem(productId || 0);
+  const itemDetail = useItem(productId || 0);
 
   const { comments } = useItemComments({
     productId: productId || 0,
     limit: 3,
-    cursor: '',
+    cursor: 0,
     deps: [],
   });
 
@@ -26,7 +26,7 @@ const ItemDetailPage = () => {
     return <div>상품 ID를 찾을 수 없습니다.</div>;
   }
 
-  const { imgSrc, title, price, desc, tags, favoriteCount } = itemState;
+  const { imgSrc, title, price, desc, tags, favoriteCount } = itemDetail;
 
   return (
     <BasicLayout>
