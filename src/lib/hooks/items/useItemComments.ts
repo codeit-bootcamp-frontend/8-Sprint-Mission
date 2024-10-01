@@ -19,17 +19,13 @@ export function useItemComments({
   cursor,
 }: useItemCommentsProps) {
   const [comments, setComments] = useState([]);
-  const [nextCursor, setNextCursor] = useState(null);
 
   const fetchData = async () => {
     try {
       const result = await getCommentsByProductId(productId, limit, cursor);
       setComments(result.list);
-      setNextCursor(result.nextCursor);
     } catch (error) {
-      // 디폴트 값
       setComments([]);
-      setNextCursor(null);
     }
   };
 
