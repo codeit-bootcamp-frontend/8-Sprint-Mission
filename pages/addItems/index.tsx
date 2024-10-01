@@ -23,7 +23,9 @@ const INITIAL_VALUES: initValue = {
 function AddItems() {
   const [values, setValues] = useState(INITIAL_VALUES);
   const [initialPreview] = useState<string>('');
-  const [isAllValid, setIsAllValid] = useState(false);
+
+  const isAllValid =
+    values.name && values.desc && values.price && values.tags.length > 0;
 
   const addProductMutation = useAddProduct();
 
@@ -32,16 +34,6 @@ function AddItems() {
       ...prevValues,
       [name]: value,
     }));
-
-    checkAllInputValid();
-  };
-
-  const checkAllInputValid = () => {
-    if (values.name && values.desc && values.price && values.tags.length > 0) {
-      setIsAllValid(true);
-    } else {
-      setIsAllValid(false);
-    }
   };
 
   const handleInputChange = (
