@@ -45,16 +45,11 @@ function ImageFileInput({
 
   return (
     <div className={`flex justify-start items-center ${className}`}>
-      {/* 추가 버튼 */}
       <label
         htmlFor="input-image-file"
         className="inline-flex justify-center items-center w-[168px] h-[168px] mr-2 rounded-xl bg-gray-100 md:w-[162px] md:h-[162px] md:mr-4 xl:w-[282px] xl:h-[282px] xl:mr-6"
       >
         <div className="inline-flex flex-col items-center">
-          {/* <IconUnion
-            className="w-12 h-12 mb-3"
-            alt="이미지 등록 버튼"
-          /> */}
           <div className="text-gray-400 text-base font-normal leading-6">
             이미지 등록
           </div>
@@ -68,7 +63,6 @@ function ImageFileInput({
         onChange={handleChange}
         ref={inputRef}
       />
-      {/* 미리보기 이미지 */}
       {value && (
         <>
           <div className="inline-flex justify-center items-center w-[168px] h-[168px] mr-2 rounded-xl bg-gray-100 md:w-[162px] md:h-[162px] md:mr-4 xl:w-[282px] xl:h-[282px] xl:mr-6">
@@ -81,12 +75,7 @@ function ImageFileInput({
           <button
             className="relative -top-[60px] -left-[40px] opacity-70 hover:opacity-100 focus:opacity-100 md:-top-[60px] md:-left-[45px] xl:-top-[110px] xl:-left-[60px]"
             onClick={handleClearClick}
-          >
-            {/* <IconX
-              className="icon-delete-input-image-file"
-              alt="선택 해제 버튼"
-            /> */}
-          </button>
+          />
         </>
       )}
     </div>
