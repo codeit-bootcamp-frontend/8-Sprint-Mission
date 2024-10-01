@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 interface useItemCommentsProps {
   productId: number;
   limit: number;
-  cursor: string;
+  cursor?: number;
   deps: any[];
 }
 
@@ -15,7 +15,7 @@ interface useItemCommentsProps {
  * @returns [imgSrc, title, price, desc, tags, favoriteCount]
  */
 export function useItemComments({
-  productId = 0,
+  productId = -1,
   limit = 1,
   cursor,
   deps = [],
