@@ -7,7 +7,7 @@ import UIDropdown from '@core/ui/dropdowns/UIDropdown/UIDropdown';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Article, ArticleOrderBy } from '@type/ArticleTypes';
-import { getArticles } from '@lib/api/articleApi';
+import { getArticles } from '@lib/api/article.api';
 import BasicArticleCard from '../BasicArticleCard/BasicArticleCard';
 import Link from 'next/link';
 

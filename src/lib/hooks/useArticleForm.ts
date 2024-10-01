@@ -1,4 +1,4 @@
-import { addArticle } from '@lib/api/articleApi';
+import { addArticle } from '@lib/api/article.api';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 

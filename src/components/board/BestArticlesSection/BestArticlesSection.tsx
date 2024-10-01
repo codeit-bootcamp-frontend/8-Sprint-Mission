@@ -4,7 +4,7 @@ import BestArticleCard from '../BestArticleCard/BestArticleCard';
 import useViewport from '@lib/hooks/useViewport';
 import { useEffect, useState } from 'react';
 import { Article } from '@type/ArticleTypes';
-import { getArticles } from '@lib/api/articleApi';
+import { getArticles } from '@lib/api/article.api';
 import SectionTitle from '@core/ui/SectionTitle/SectionTitle';
 
 const getPageSize = (width: number) => {
