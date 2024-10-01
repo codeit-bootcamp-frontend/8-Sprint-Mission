@@ -3,8 +3,7 @@ import {
   CreateProductResponse,
   ProductListResponse,
 } from '@type/product.types';
-
-const BASE_URL = 'https://panda-market-api.vercel.app';
+import { axiosInstance } from './axios';
 
 /**
  * 상품 목록 조회
@@ -33,54 +32,30 @@ export async function getProducts({
     keyword,
   }).toString();
 
-  const response = await fetch(`${BASE_URL}/products?${query}`);
-  if (!response.ok) {
-    throw new Error('데이터를 불러오는데 실패했습니다');
-  }
-  return await response.json();
+  const response = await axiosInstance.get(`/products?${query}`);
+  return response.data;
 }
 
 /**
  * 상품 상세 조회
- * @param {number} productId 상품 번호 
- * @returns json. ex)
- * {
-  "createdAt": "2024-07-05T04:42:58.556Z",
-  "favoriteCount": 0,
-  "ownerId": 1,
-  "images": [
-    "https://example.com/..."
-  ],
-  "tags": [
-    "전자제품"
-  ],
-  "price": 0,
-  "description": "string",
-  "name": "상품 이름",
-  "id": 1,
-  "isFavorite": true
-}
+ * @param {number} productId 상품 번호
  */
-export async function getProductById(productId = 0) {
-  const param = `${productId}`;
-  const response = await fetch(`${BASE_URL}/products/${param}`);
-  const body = await response.json();
-  return body;
+export async function getProductById(productId = -1) {
+  const response = await axiosInstance.get(`/products/${productId}`);
+  return response.data;
 }
 
 export async function getCommentsByProductId(
-  productId = 0,
+  productId = -1,
   limit = 1,
   nextCursor: string
 ) {
-  const param = `${productId}`;
   let query = `?limit=${limit}`;
   if (nextCursor) query += `&cursor=${nextCursor}`;
-  const response = await fetch(
-    `${BASE_URL}/products/${param}/comments${query}`
+  const response = await axiosInstance.get(
+    `/products/${productId}/comments${query}`
   );
-  const body = await response.json();
-  return body;
+  return response.data;
 }
 
 /**
@@ -91,17 +66,6 @@ export async function getCommentsByProductId(
 export async function createProduct(
   productData: CreateProductRequest
 ): Promise<CreateProductResponse> {
-  const response = await fetch(`${BASE_URL}/products`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(productData),
-  });
-
-  if (!response.ok) {
-    throw new Error('상품 등록에 실패했습니다');
-  }
-
-  return await response.json();
+  const response = await axiosInstance.post('/products', productData);
+  return response.data;
 }
