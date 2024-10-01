@@ -4,12 +4,10 @@ import BasicLayout from '@components/layout/BasicLayout/BasicLayout';
 
 const ItemPage = () => {
   return (
-    <>
-      <BasicLayout>
-        <BestItems />
-        <SellingItems />
-      </BasicLayout>
-    </>
+    <BasicLayout>
+      <BestItems />
+      <SellingItems />
+    </BasicLayout>
   );
 };
 

@@ -35,12 +35,10 @@ type BoardDetailPageProps = {
 
 const BoardDetailPage = ({ initArticle }: BoardDetailPageProps) => {
   return (
-    <>
-      <BasicLayout>
-        <ArticleSection article={initArticle} />
-        <ArticleCommentForm articleId={initArticle.id} />
-      </BasicLayout>
-    </>
+    <BasicLayout>
+      <ArticleSection article={initArticle} />
+      <ArticleCommentForm articleId={initArticle.id} />
+    </BasicLayout>
   );
 };
 
