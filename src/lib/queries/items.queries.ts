@@ -7,10 +7,11 @@ import {
   CreateProductRequest,
   CreateProductResponse,
 } from '@type/product.types';
+import { productKeys } from './keys/\bitems.keys';
 
 export const useProducts = (params: GetProductsProps) => {
   return useQuery<ProductListResponse>({
-    queryKey: ['products', params],
+    queryKey: productKeys.list(params),
     queryFn: () =>
       getProducts({
         order: params.order,
@@ -23,7 +24,7 @@ export const useProducts = (params: GetProductsProps) => {
 
 export const useProduct = (productId: number) => {
   return useQuery<Product, Error>({
-    queryKey: ['product', productId],
+    queryKey: productKeys.detail(productId),
     queryFn: () => getProductById(productId),
   });
 };
@@ -34,7 +35,7 @@ export const useAddProduct = () => {
   return useMutation<CreateProductResponse, Error, CreateProductRequest>({
     mutationFn: (newProduct) => createProduct(newProduct),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['products'] });
+      queryClient.invalidateQueries({ queryKey: productKeys.lists() });
     },
   });
 };
