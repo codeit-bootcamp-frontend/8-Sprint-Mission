@@ -16,15 +16,40 @@ import CommentItemList from "@/components/commentitemlist";
 import user from "@/images/user.png";
 import { FormatDate } from "../util/formatDate";
 import Link from "next/link";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export default function Board() {
   const router = useRouter();
   const { id } = router.query;
   const [board, setBoard] = useState<BoardItemType | null>(null);
-  const [comment, setComment] = useState<CommentType[]>([]);
+  // const [comment, setComment] = useState<CommentType[]>([]);
 
   const [disabled, setDisabled] = useState(true);
   const [commentContent, setCommentContent] = useState("");
+
+  const queryClient = useQueryClient();
+
+  const { data: comment = [] } = useQuery<CommentType[]>({
+    queryKey: ["comments", id],
+    queryFn: () => getArticleComment(id as string),
+    enabled: !!id, // id가 있을 때만 쿼리를 실행
+  });
+
+  const uploadArticleMutation = useMutation({
+    mutationFn: ({
+      id,
+      commentContent,
+    }: {
+      id: string;
+      commentContent: string;
+    }) => postArticleComment(id, commentContent),
+    onSuccess: () => {
+      // 성공 시 댓글 목록 업데이트
+
+      queryClient.invalidateQueries({ queryKey: ["comments", id] }); // 댓글 관련 캐시 무효화
+      setCommentContent(""); // 입력 필드 초기화
+    },
+  });
 
   useEffect(() => {
     async function fetchArticle() {
@@ -34,17 +59,17 @@ export default function Board() {
       }
     }
 
-    async function fetchComment() {
-      if (typeof id === "string") {
-        const nextComment = await getArticleComment(id);
-        setComment(nextComment);
-      }
-    }
+    // async function fetchComment() {
+    //   if (typeof id === "string") {
+    //     const nextComment = await getArticleComment(id);
+    //     setComment(nextComment);
+    //   }
+    // }
     if (!id) {
       return;
     }
     fetchArticle();
-    fetchComment();
+    // fetchComment();
   }, [id]);
 
   useEffect(() => {
@@ -62,14 +87,7 @@ export default function Board() {
   const handleCommentClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (typeof id === "string") {
-      await postArticleComment(id, commentContent);
-
-      // 댓글 등록 후 상태 업데이트
-      const updatedComments = await getArticleComment(id);
-      setComment(updatedComments);
-
-      // 댓글 입력 필드 초기화
-      setCommentContent("");
+      uploadArticleMutation.mutate({ id, commentContent });
     }
   };
 

@@ -5,36 +5,28 @@ import sortIcon from "@/images/ic_sort.png";
 import searchIcon from "@/images/search.png";
 import Image from "next/image";
 import { getArticles } from "@/pages/util/api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BestBoardItemList from "@/components/bestboarditemlist";
 import BoardItemList from "@/components/boarditemlist";
 import Head from "next/head";
 import { BoardItemType } from "@/interfaces/boardItem";
 import Link from "next/link";
+import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
 
 export default function Board() {
   const [isOpen, setIsOpen] = useState(false);
-  const [boards, setBoards] = useState<BoardItemType[]>([]);
-  const [bestBoards, setBestBoards] = useState<BoardItemType[]>([]);
   const [selectedOption, setSelectedOption] = useState("recent");
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태 추가
 
-  useEffect(() => {
-    async function fetchArticles() {
-      const nextBoards = await getArticles(1, 30, selectedOption);
-      setBoards(nextBoards);
-    }
-    fetchArticles();
-  }, [selectedOption]);
+  const { data: nextBoards = [] } = useQuery<BoardItemType[]>({
+    queryKey: ["boards", selectedOption],
+    queryFn: () => getArticles(1, 30, selectedOption),
+  });
 
-  useEffect(() => {
-    async function fetchBestArticles() {
-      const nextBestBords = await getArticles(1, 3, "like");
-      setBestBoards(nextBestBords);
-    }
-
-    fetchBestArticles();
-  }, []);
+  const { data: nextBestBords = [] } = useQuery<BoardItemType[]>({
+    queryKey: ["bestBoards"],
+    queryFn: () => getArticles(1, 3, "like"),
+  });
 
   const handleSelectClick = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
@@ -49,7 +41,7 @@ export default function Board() {
   };
 
   // 검색어 포함 게시글 필터링
-  const filteredBoards = boards.filter((board) =>
+  const filteredBoards = nextBoards.filter((board) =>
     board.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -59,7 +51,7 @@ export default function Board() {
         <title>게시글</title>
       </Head>
       <Title>Best 게시글</Title>
-      <BestBoardItemList boards={bestBoards} />
+      <BestBoardItemList boards={nextBestBords} />
       <ListContainer>
         <Title>게시글</Title>
         <Link href={"/addboard"}>
