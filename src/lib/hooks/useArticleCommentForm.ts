@@ -1,4 +1,4 @@
-import { addArticleComment } from '@lib/api/articleApi';
+import { addArticleComment } from '@lib/api/article.api';
 import { useEffect, useState } from 'react';
 
 const useArticleCommentForm = () => {

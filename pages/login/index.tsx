@@ -5,11 +5,9 @@ type LoginPageProps = {};
 
 const LoginPage = ({}: LoginPageProps) => {
   return (
-    <>
-      <BasicLayout>
-        <SignInSection />
-      </BasicLayout>
-    </>
+    <BasicLayout>
+      <SignInSection />
+    </BasicLayout>
   );
 };
 

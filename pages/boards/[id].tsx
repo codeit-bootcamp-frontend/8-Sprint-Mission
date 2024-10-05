@@ -1,7 +1,7 @@
 import ArticleCommentForm from '@components/board/ArticleCommentForm/ArticleCommentForm';
 import ArticleSection from '@components/board/ArticleSection/ArticleSection';
 import BasicLayout from '@components/layout/BasicLayout/BasicLayout';
-import { getArticle } from '@lib/api/articleApi';
+import { getArticle } from '@lib/api/article.api';
 import { Article, ArticleDetailResponse } from '@type/ArticleTypes';
 import { GetServerSideProps } from 'next';
 
@@ -35,12 +35,10 @@ type BoardDetailPageProps = {
 
 const BoardDetailPage = ({ initArticle }: BoardDetailPageProps) => {
   return (
-    <>
-      <BasicLayout>
-        <ArticleSection article={initArticle} />
-        <ArticleCommentForm articleId={initArticle.id} />
-      </BasicLayout>
-    </>
+    <BasicLayout>
+      <ArticleSection article={initArticle} />
+      <ArticleCommentForm articleId={initArticle.id} />
+    </BasicLayout>
   );
 };
 

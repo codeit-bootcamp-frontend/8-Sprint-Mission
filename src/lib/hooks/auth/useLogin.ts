@@ -1,4 +1,4 @@
-import { signInUser } from '@lib/api/AuthApi';
+import { signInUser } from '@lib/api/auth.api';
 import { useAuthStore } from '@store/useAuthStore';
 import { useMutation } from '@tanstack/react-query';
 import { SignInUserRequest } from '@type/AuthTypes';
