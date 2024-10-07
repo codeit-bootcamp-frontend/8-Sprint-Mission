@@ -9,9 +9,9 @@ type FormRules = {
 interface FileInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   name: string;
-  value?: string | number | readonly string[];
+  value?: string;
   previewImg?: string | null;
-  changeValue: (name: string, value: File | null) => void;
+  changeValue: (name: string, value: string | null) => void;
   className?: string;
 }
 
