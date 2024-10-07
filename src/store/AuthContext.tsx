@@ -1,10 +1,6 @@
-import { useState, useEffect, createContext } from "react";
-import { signIn, signUp, updateToken } from "../utils/http";
-import {
-  AuthContextType,
-  LoginType,
-  RegisterType,
-} from "./types/AuthContextType";
+import { useState, useEffect, useContext, createContext } from "react";
+import { updateToken } from "../utils/http";
+import { AuthContextType } from "./types/AuthContextType";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -20,34 +16,6 @@ export const AuthContextProvider = ({ children }) => {
       setIsLoggedIn(true);
     }
   }, []);
-
-  const loginHandler = async (data: LoginType) => {
-    try {
-      const res = await signIn(data);
-      if (res.accessToken) {
-        setIsLoggedIn(true);
-        localStorage.setItem("userId", res.user.id);
-        localStorage.setItem("token", res.accessToken);
-        localStorage.setItem("refreshToken", res.refreshToken);
-        return true;
-      }
-    } catch (error) {
-      setErrorMessage(error.message);
-      return false;
-    }
-  };
-
-  const registerHandler = async (data: RegisterType) => {
-    try {
-      const res = await signUp(data);
-      if (res) {
-        return true;
-      }
-    } catch (error) {
-      setErrorMessage(error.message);
-      return false;
-    }
-  };
 
   const logoutHandler = () => {
     localStorage.removeItem("token");
@@ -86,15 +54,23 @@ export const AuthContextProvider = ({ children }) => {
   const authValue = {
     userId,
     isLoggedIn,
+    setIsLoggedIn,
+    setErrorMessage,
     errorMessage,
-    register: registerHandler,
-    login: loginHandler,
     logout: logoutHandler,
   };
 
   return (
     <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
   );
+};
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("Context안에 존재해야 합니다.");
+  }
+  return context;
 };
 
 export default AuthContext;

@@ -10,13 +10,31 @@ interface RegisterType {
   passwordCheck: string;
 }
 
+interface LoginResponseReturnType {
+  accessToken: string;
+  refreshToken: string;
+  user: {
+    id: string;
+    email: string;
+    image: null;
+    nickname: string;
+    updatedAt: Date;
+    createdAt: Date;
+  };
+}
+
 interface AuthContextType {
   userId: string;
   isLoggedIn: boolean;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setErrorMessage: React.Dispatch<React.SetStateAction<string>>;
   errorMessage: string;
-  register: (data: RegisterType) => Promise<boolean>;
-  login: (data: LoginType) => Promise<boolean>;
   logout: () => void;
 }
 
-export type { LoginType, RegisterType, AuthContextType };
+export type {
+  LoginType,
+  RegisterType,
+  AuthContextType,
+  LoginResponseReturnType,
+};
