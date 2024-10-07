@@ -1,4 +1,5 @@
-import { useState, useContext } from "react";
+import useLogin from "../../hooks/useLogin";
+import { useContext } from "react";
 import AuthHeader from "./AuthHeader";
 import LoginMenu from "./LoginMenu";
 import Section from "../../ui/Section/Section";
@@ -7,9 +8,8 @@ import LinkButton from "../../ui/Button/LinkButton";
 import styles from "./Auth.module.css";
 import { LoginInitialValue } from "./@types/Auth";
 import AuthContext from "../../store/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import Error from "../Error/Error";
+import ErrorComponent from "../Error/ErrorComponent";
 
 export default function Login() {
   const {
@@ -17,32 +17,19 @@ export default function Login() {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<LoginInitialValue>({ mode: "onChange" });
-  const [isError, setIsError] = useState(false);
   const authCtx = useContext(AuthContext);
-  const navigate = useNavigate();
+
+  const { mutate, isError } = useLogin();
 
   const handleLogin = async (data: LoginInitialValue) => {
-    const successs = await authCtx.login(data);
-    if (successs) {
-      navigate("/");
-    } else {
-      setIsError(true);
-    }
-  };
-
-  const handleResetIsError = () => {
-    setIsError(false);
+    mutate(data);
   };
 
   const onLoginSubmit = handleSubmit(handleLogin);
 
   return (
     <Section>
-      <Error
-        isOpen={isError}
-        onResetError={handleResetIsError}
-        message={authCtx.errorMessage}
-      />
+      <ErrorComponent isOpen={isError} message={authCtx.errorMessage} />
       <AuthHeader />
       <div className={styles.container}>
         <form onSubmit={onLoginSubmit}>

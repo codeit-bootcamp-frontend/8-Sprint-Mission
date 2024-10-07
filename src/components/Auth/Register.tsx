@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useSignup } from "../../hooks/useSignup";
 import LoginMenu from "./LoginMenu";
 import AuthHeader from "./AuthHeader";
 import Section from "../../ui/Section/Section";
@@ -9,19 +9,15 @@ import styles from "./Auth.module.css";
 import { RegisterInitialValue } from "./@types/Auth";
 import AuthContext from "../../store/AuthContext";
 import { useForm } from "react-hook-form";
-import Error from "../Error/Error";
+import ErrorComponent from "../Error/ErrorComponent";
 
 export default function Register() {
-  const [isError, setIsError] = useState(false);
-
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
     getValues,
   } = useForm<RegisterInitialValue>({ mode: "onChange" });
-
-  const navigate = useNavigate();
 
   const authCtx = useContext(AuthContext);
 
@@ -33,13 +29,10 @@ export default function Register() {
     return true;
   };
 
+  const { mutate, isError } = useSignup();
+
   const handleRegister = async (data: RegisterInitialValue) => {
-    const successs = await authCtx.register(data);
-    if (successs) {
-      navigate("/signin");
-    } else {
-      setIsError(true);
-    }
+    mutate(data);
   };
 
   const handleSubmitRegister = (data: RegisterInitialValue) => {
@@ -48,18 +41,10 @@ export default function Register() {
 
   const onRegisterSubmit = handleSubmit(handleSubmitRegister);
 
-  const handleResetIsError = () => {
-    setIsError(false);
-  };
-
   return (
     <Section>
       <AuthHeader />
-      <Error
-        isOpen={isError}
-        onResetError={handleResetIsError}
-        message={authCtx.errorMessage}
-      />
+      <ErrorComponent isOpen={isError} message={authCtx.errorMessage} />
       <div className={styles.container}>
         <form onSubmit={onRegisterSubmit}>
           <ValidateInput
