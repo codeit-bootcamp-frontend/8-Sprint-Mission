@@ -48,6 +48,7 @@ export default function AllProduct() {
   const {
     allProductsData: itemList = [],
     allProductsLoading: isLoading,
+    allProductsIsError: isError,
     allProductsError: error,
     maxProducts: maxPage,
   } = useProducts(options);
@@ -113,7 +114,7 @@ export default function AllProduct() {
 
   if (itemList.length === 0) return <div>상품이 없습니다.</div>;
 
-  if (error) {
+  if (isError) {
     return <p>{error.message}</p>;
   }
 
