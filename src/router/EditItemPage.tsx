@@ -9,6 +9,19 @@ import {
 import Section from "../ui/Section/Section";
 import ProductForm from "../components/AddProduct/ProductForm";
 
+interface Tag {
+  id: string;
+  name?: string;
+}
+
+interface ProductType {
+  images: string[];
+  tags: Tag[];
+  price: string;
+  description: string;
+  name: string;
+}
+
 export default function EditItemPage() {
   const params = useParams();
   const navigate = useNavigate();
@@ -19,16 +32,16 @@ export default function EditItemPage() {
     staleTime: 0,
   });
 
-  const { mutate, isPending, isError, error } = useMutation({
+  const { mutate, isPending } = useMutation<ProductType, Error, ProductType>({
     mutationFn: (formData) =>
-      patchProductDetail(parseInt(params.productId, 10), formData as any),
+      patchProductDetail(parseInt(params.productId, 10), formData),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["products"] });
       navigate("/items");
     },
   });
 
-  const handleEditProductSubmit = (formData) => {
+  const handleEditProductSubmit = (formData: ProductType) => {
     mutate(formData);
   };
 
@@ -52,7 +65,11 @@ export default function EditItemPage() {
 
   return (
     <Section>
-      <ProductForm inputData={inputData} onSubmit={handleEditProductSubmit} />
+      <ProductForm
+        inputData={inputData}
+        isPending={isPending}
+        onSubmit={handleEditProductSubmit}
+      />
     </Section>
   );
 }
