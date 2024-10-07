@@ -10,7 +10,7 @@ interface Tag {
 }
 
 interface ProductType {
-  imgFile: File | null;
+  images: string[];
   tags: Tag[];
   price: string;
   description: string;
@@ -19,19 +19,19 @@ interface ProductType {
 
 export default function AddProduct() {
   const navigate = useNavigate();
-  const { mutate, isPending, isError, error } = useMutation({
-    mutationFn: (data) => postProduct(data as any, "POST"),
+  const { mutate, isPending } = useMutation<ProductType, Error, ProductType>({
+    mutationFn: (data) => postProduct(data, "POST"),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["products"] });
       navigate("/items");
     },
   });
-  const handleAddProductSubmit = (formData) => {
+  const handleAddProductSubmit = (formData: ProductType) => {
     mutate(formData);
   };
   return (
     <Section>
-      <ProductForm onSubmit={handleAddProductSubmit} />
+      <ProductForm isPending={isPending} onSubmit={handleAddProductSubmit} />
     </Section>
   );
 }
