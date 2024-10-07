@@ -16,7 +16,7 @@ interface Query {
 }
 
 interface ProductType {
-  imgFile: File | null;
+  images: string | string[];
   tags: Tag[];
   price: string;
   description: string;
@@ -80,10 +80,9 @@ export async function getProductDetail(id: number) {
 export async function patchProductDetail(id: number, data: ProductType) {
   const accessToken = localStorage.getItem("token");
   const filteredTagsName = data.tags.map((tag) => tag.name);
-
   const productData = {
     images:
-      data.imgFile ||
+      data.images ||
       "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/3/1721991853452/5389615.png",
     tags: filteredTagsName,
     price: data.price,
@@ -213,14 +212,12 @@ export async function imageUpload(image: File) {
       method: "POST",
       body: imageData,
       headers: {
-        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${accessToken}`,
       },
     }
   );
-  if (response.status === 401) {
-  }
-  console.log(response);
+  const data = await response.json();
+  return data;
 }
 
 export async function postProduct(data: ProductType, method: string) {
@@ -228,9 +225,7 @@ export async function postProduct(data: ProductType, method: string) {
   const filteredTagsName = data.tags.map((tag) => tag.name);
 
   const productData = {
-    images:
-      data.imgFile ||
-      "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/3/1721991853452/5389615.png",
+    images: data.images || "null",
     tags: filteredTagsName,
     price: data.price,
     description: data.description,

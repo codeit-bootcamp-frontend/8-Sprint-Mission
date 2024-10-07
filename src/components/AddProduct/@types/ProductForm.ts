@@ -4,7 +4,7 @@ interface Tag {
 }
 
 interface FormInitialValues {
-  imgFile: File | null;
+  images: string | string[];
   name: string;
   description: string;
   price: string;
