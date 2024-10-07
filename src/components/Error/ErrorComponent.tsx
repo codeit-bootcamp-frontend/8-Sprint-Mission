@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import styles from "./Error.module.css";
+import styles from "./ErrorComponent.module.css";
 
 interface ErrorType {
   message: string;
   isOpen: boolean;
-  onResetError: () => void;
+  onResetError?: () => void;
 }
 
-export default function Error({ message, isOpen, onResetError }: ErrorType) {
+export default function ErrorComponent({ message, isOpen }: ErrorType) {
   const [fade, setFade] = useState({ fadeAnimation: "fadeIn" });
 
   useEffect(() => {
@@ -23,7 +23,6 @@ export default function Error({ message, isOpen, onResetError }: ErrorType) {
     if (fade.fadeAnimation === "fadeOut") {
       const resetTimer = setTimeout(() => {
         setFade({ fadeAnimation: "fadeIn" });
-        onResetError();
       }, 1500);
 
       return () => clearTimeout(resetTimer);
