@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { TagInputProps, Tag } from "../@types/Input";
 import styles from "./TagInput.module.css";
@@ -31,13 +32,17 @@ export default function TagInput({
       name: tagValue.trim(),
     };
     const newTags = [...tags, newTag];
-    changeValue("tag", newTags);
+
+    if (e.key === "Enter") {
+      e.preventDefault();
+      changeValue("tags", newTags);
+    }
     setTagValue("");
   };
 
   const handleRemoveTag = (list: Tag) => {
     const updateTag = tags.filter((item) => item.id !== list.id);
-    changeValue("tag", updateTag);
+    changeValue("tags", updateTag);
   };
 
   return (
@@ -54,15 +59,18 @@ export default function TagInput({
       <div className={styles.tagContainer}>
         <ul className={styles.tagList}>
           {tags &&
-            tags.map((tag) => (
-              <li key={tag.id} id={tag.id}>
-                <span className={styles.tagTitle}>{tag.name}</span>
-                <i
-                  onClick={() => handleRemoveTag(tag)}
-                  className={styles.tagRemoveBtn}
-                ></i>
-              </li>
-            ))}
+            tags.map((tag) => {
+              const tagName = typeof tag === "string" ? tag : tag.name;
+              return (
+                <li key={tag.id} id={tag.id}>
+                  <span className={styles.tagTitle}>{tagName}</span>
+                  <i
+                    onClick={() => handleRemoveTag(tag)}
+                    className={styles.tagRemoveBtn}
+                  ></i>
+                </li>
+              );
+            })}
         </ul>
       </div>
     </div>

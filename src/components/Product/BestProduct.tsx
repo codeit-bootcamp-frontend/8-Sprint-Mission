@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { useAsyncStatus } from "../../hooks/useAsyncStatus";
-import { getFavoriteProduct } from "../../utils/http";
 import Loading from "../../ui/Loading/Loading";
 import Section from "../../ui/Section/Section";
 import ItemList from "./ItemList";
 import styles from "./BestProduct.module.css";
 import { ResponseProducts } from "./@types/Products";
-
+import { useFavoriteProducts } from "../../hooks/useFavoriteProducts";
 const deviceSize = {
   mobile: 768,
   tablet: 1199,
@@ -24,13 +22,13 @@ const getResponseProducts: () => ResponseProducts = () => {
 };
 
 export default function BestProduct() {
-  const {
-    loading,
-    error,
-    fetchData: itemList,
-    fetchProducts: fetchBestProducts,
-  } = useAsyncStatus(getFavoriteProduct, []);
   const [size, setSize] = useState(getResponseProducts());
+
+  const {
+    favoriteProductsData: itemList = [],
+    favoriteProductsLoading: loading,
+    favoriteProductsError: error,
+  } = useFavoriteProducts({ size });
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,29 +41,24 @@ export default function BestProduct() {
     };
   }, []);
 
-  useEffect(() => {
-    const query = {
-      size,
-    };
-    fetchBestProducts({ query });
-  }, [size]);
-
   if (error) {
-    return <p>{error}</p>;
+    return <p>{error.message}</p>;
   }
 
   return (
     <Section>
-      <h2 className={styles.title}>베스트 상품</h2>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className={styles.list}>
-          {itemList.map((list) => (
-            <ItemList key={`best-products-${list.id}`} {...list} />
-          ))}
-        </div>
-      )}
+      <div className={styles.section}>
+        <h2 className={styles.title}>베스트 상품</h2>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className={styles.list}>
+            {itemList.map((list) => (
+              <ItemList key={`best-products-${list.id}`} {...list} />
+            ))}
+          </div>
+        )}
+      </div>
     </Section>
   );
 }

@@ -1,0 +1,35 @@
+.dotsContainer {
+  width: 12px;
+  height: 22px;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
+.dots {
+  position: relative;
+  display: flex;
+  width: 3px;
+  height: 3px;
+  background: var(--color-gray400);
+  border-radius: 50%;
+}
+
+.dots::before {
+  position: absolute;
+  content: "";
+  top: 5px;
+  width: 3px;
+  height: 3px;
+  background: var(--color-gray400);
+  border-radius: 50%;
+}
+
+.dots::after {
+  position: absolute;
+  content: "";
+  top: 10px;
+  width: 3px;
+  height: 3px;
+  background: var(--color-gray400);
+  border-radius: 50%;
+}

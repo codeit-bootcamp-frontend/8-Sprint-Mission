@@ -1,10 +1,26 @@
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import styles from "./CommentForm.module.css";
 import TextArea from "../../../ui/FormComponents/TextArea";
 import LinkButton from "../../../ui/Button/LinkButton";
+import { postProductComment } from "../../../utils/http";
+import { useParams } from "react-router-dom";
 
 export default function CommnetForm() {
   const [commentValue, setCommentValue] = useState<string>("");
+  const { productId } = useParams();
+
+  const uploadComment = useMutation({
+    mutationFn: postProductComment,
+  });
+
+  const handleSubmitComment = () => {
+    const commentData = {
+      id: productId,
+      data: commentValue,
+    };
+    uploadComment.mutate(commentData);
+  };
 
   const handleChangeValue = (name: string = "comment", value: string) => {
     setCommentValue(value);
@@ -14,7 +30,7 @@ export default function CommnetForm() {
 
   return (
     <>
-      <form className={styles.commentForm}>
+      <form onSubmit={handleSubmitComment} className={styles.commentForm}>
         <TextArea
           id="comment"
           name="comment"
@@ -25,7 +41,11 @@ export default function CommnetForm() {
           changeValue={handleChangeValue}
         />
         <div className={styles.commentBtn}>
-          <LinkButton isActive={!isActive} type="submit" btnName="등록" />
+          <LinkButton
+            isActive={!isActive || uploadComment.isPending}
+            type="submit"
+            btnName="등록"
+          />
         </div>
       </form>
     </>

@@ -1,0 +1,56 @@
+.sortContainer {
+  position: relative;
+}
+
+.sortOptions {
+  position: absolute;
+  top: -50px;
+  right: 25px;
+}
+.sortOptions > ul {
+  width: 130px;
+  border: 1px solid var(--color-gray200);
+  border-radius: 12px;
+  background: #fff;
+}
+.sortOptions > ul > li {
+  text-align: center;
+  border-bottom: 1px solid var(--color-gray200);
+}
+.sortOptions > ul > li > button {
+  width: 100%;
+  padding: 9px 0;
+  line-height: 24px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.sortOptions > ul > li:last-child {
+  border-bottom: none;
+}
+@media (max-width: 1199px) {
+  .sortList {
+    width: 120px;
+  }
+  .sortOptions > ul {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sortList {
+    width: 42px;
+    height: 42px;
+    padding: 9px;
+  }
+  .sortList > p {
+    display: none;
+  }
+
+  .sortArrowIcon {
+    display: block;
+    background: url(../../assets/images/ic_sort.png) no-repeat center center;
+  }
+  .sortOptions {
+    top: -35px;
+  }
+}

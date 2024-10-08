@@ -1,46 +1,39 @@
-import { useEffect, useContext } from "react";
+import useLogin from "../../hooks/useLogin";
+import { useContext } from "react";
 import AuthHeader from "./AuthHeader";
 import LoginMenu from "./LoginMenu";
 import Section from "../../ui/Section/Section";
-import Input from "../../ui/FormComponents/Input";
+import ValidateInput from "../../ui/FormComponents/ValidateInput";
 import LinkButton from "../../ui/Button/LinkButton";
 import styles from "./Auth.module.css";
 import { LoginInitialValue } from "./@types/Auth";
 import AuthContext from "../../store/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import ErrorComponent from "../Error/ErrorComponent";
 
-export default function Register() {
+export default function Login() {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<LoginInitialValue>({ mode: "onChange" });
-
   const authCtx = useContext(AuthContext);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (authCtx.isLoggedIn) {
-      navigate("/");
-    }
-  }, [authCtx.isLoggedIn]);
+  const { mutate, isError } = useLogin();
 
   const handleLogin = async (data: LoginInitialValue) => {
-    const successs = await authCtx.login(data);
-    if (successs) {
-      navigate("/");
-    }
+    mutate(data);
   };
 
   const onLoginSubmit = handleSubmit(handleLogin);
 
   return (
     <Section>
+      <ErrorComponent isOpen={isError} message={authCtx.errorMessage} />
       <AuthHeader />
       <div className={styles.container}>
         <form onSubmit={onLoginSubmit}>
-          <Input
+          <ValidateInput
             id="email"
             type="email"
             name="email"
@@ -60,7 +53,7 @@ export default function Register() {
               },
             }}
           />
-          <Input
+          <ValidateInput
             id="password"
             type="password"
             name="password"
@@ -68,8 +61,6 @@ export default function Register() {
             hideBtn={true}
             placeholder="비밀번호를 입력해주세요"
             register={register}
-            errorMsg={errors.password && errors.password.message}
-            className={styles.inputBox}
             rules={{
               required: {
                 value: true,
@@ -80,6 +71,8 @@ export default function Register() {
                 message: "비밀번호를 8자 이상 입력해주세요.",
               },
             }}
+            errorMsg={errors.password && errors.password.message}
+            className={styles.inputBox}
           />
           <LinkButton
             type="submit"

@@ -1,15 +1,15 @@
-import { useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useSignup } from "../../hooks/useSignup";
 import LoginMenu from "./LoginMenu";
 import AuthHeader from "./AuthHeader";
 import Section from "../../ui/Section/Section";
-import Input from "../../ui/FormComponents/Input";
+import ValidateInput from "../../ui/FormComponents/ValidateInput";
 import LinkButton from "../../ui/Button/LinkButton";
 import styles from "./Auth.module.css";
 import { RegisterInitialValue } from "./@types/Auth";
-import { signUp } from "../../utils/http";
 import AuthContext from "../../store/AuthContext";
 import { useForm } from "react-hook-form";
+import ErrorComponent from "../Error/ErrorComponent";
 
 export default function Register() {
   const {
@@ -19,15 +19,7 @@ export default function Register() {
     getValues,
   } = useForm<RegisterInitialValue>({ mode: "onChange" });
 
-  const navigate = useNavigate();
-
   const authCtx = useContext(AuthContext);
-
-  useEffect(() => {
-    if (authCtx.isLoggedIn) {
-      navigate("/");
-    }
-  }, [authCtx.isLoggedIn]);
 
   const validateConfirmPassword = (value: string) => {
     const { password } = getValues();
@@ -37,13 +29,10 @@ export default function Register() {
     return true;
   };
 
+  const { mutate, isError } = useSignup();
+
   const handleRegister = async (data: RegisterInitialValue) => {
-    try {
-      const res = await signUp(data);
-      navigate("/signin");
-    } catch (error) {
-      console.log(error);
-    }
+    mutate(data);
   };
 
   const handleSubmitRegister = (data: RegisterInitialValue) => {
@@ -55,9 +44,10 @@ export default function Register() {
   return (
     <Section>
       <AuthHeader />
+      <ErrorComponent isOpen={isError} message={authCtx.errorMessage} />
       <div className={styles.container}>
         <form onSubmit={onRegisterSubmit}>
-          <Input
+          <ValidateInput
             id="email"
             type="email"
             name="email"
@@ -77,7 +67,7 @@ export default function Register() {
               },
             }}
           />
-          <Input
+          <ValidateInput
             id="nickname"
             type="text"
             name="nickname"
@@ -93,7 +83,7 @@ export default function Register() {
               },
             }}
           />
-          <Input
+          <ValidateInput
             id="password"
             type="password"
             name="password"
@@ -114,7 +104,7 @@ export default function Register() {
               },
             }}
           />
-          <Input
+          <ValidateInput
             id="passwordCheck"
             type="password"
             name="passwordCheck"
